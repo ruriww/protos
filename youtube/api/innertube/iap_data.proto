@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IapData {
+	enum IapType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_IAP = 0;
+		IOS_IAP = 1;
+	}
+
+	IapType iap_type = 1;
+	string product_id = 2;
+	string country = 3;
+
+	message IosIapData {
+		bytes receipt = 1;
+	}
+
+	oneof iap_data {
+		IosIapData ios_iap_data = 4;
+	}
+
+	int64 price_micros = 5;
+	string currency = 6;
+	string transaction_id = 7;
+	string app_id = 9;
+	string coupon_code = 11;
+	string device_transaction_id = 12;
+	string ios_vendor_id = 13;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_location_update_operation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeLocationUpdateRequest {
+	double latitude = 1;
+	double longitude = 2;
+	string description = 3;
+	string place_id = 4;
+	MdeLocationUpdateOperation operation = 5 [ default = MDE_LOCATION_UPDATE_OPERATION_SET_LOCATION ];
+}

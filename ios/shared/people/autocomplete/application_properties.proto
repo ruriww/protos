@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message ApplicationProperties {
+	int64 baseline_cl = 1;
+	string bundle_id = 2;
+	int64 baseline_cl_fallback = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Range {
+	int32 legacy_start = 1;
+	int32 legacy_end = 2;
+	int64 start = 3;
+	int64 end = 4;
+}

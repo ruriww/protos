@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/elements/components/edit_thumbnail_menu.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message InviteScreenData {
+	string title = 1;
+	string description = 2;
+	string copy_invite_label = 4;
+	string send_invite_label = 5;
+	api.innertube.Command on_send_invite_command = 8;
+	api.innertube.Command on_thumbnail_edit_command = 9;
+	Button reset_invite_button = 10;
+	EditThumbnailMenu edit_thumbnail_menu = 11;
+	string copy_link_succeeded_text = 12;
+	string copy_link_failed_text = 13;
+	string stream_title = 14;
+	api.innertube.Command share_with_audience_command = 15;
+	api.innertube.Renderer go_live_button_tooltip = 16;
+	string go_live_button_target_id = 17;
+	Button next_button = 18;
+	Button done_button = 19;
+	AttributedString costream_disclosure = 20;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message ErrorEvent {
+	int32 error_code = 1;
+}

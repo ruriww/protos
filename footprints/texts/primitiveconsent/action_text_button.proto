@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/button_style.proto";
+import "footprints/texts/primitiveconsent/target.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ActionTextButton {
+	string text = 1;
+	string aria_label = 2;
+	ButtonStyle button_style = 3;
+	Target target = 4;
+}

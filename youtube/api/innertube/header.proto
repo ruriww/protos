@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Header {
+	enum HeaderType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		USER_AUTH = 1;
+		VISITOR_ID = 2;
+		PLUS_PAGE_ID = 3;
+		SPATULA_V1 = 4;
+		SHERLOG_SESSION_ID = 5;
+		EOM_VISITOR_ID = 6;
+		ATTRIBUTION_REPORTING_ELIGIBLE = 7;
+		AUTH_USER = 8;
+		DATASYNC_ID = 9;
+	}
+
+	HeaderType header_type = 1;
+}

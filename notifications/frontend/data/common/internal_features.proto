@@ -1,0 +1,9 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message InternalFeatures {
+	repeated uint64 feature_bitmaps = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChapterMarkerMessagePlayerScrimOverlayRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	int32 highlighted_marker_index = 3;
+	int32 minimum_highlight_duration_ms = 4;
+	bytes tracking_params = 6;
+}
+
+extend Renderer {
+	ChapterMarkerMessagePlayerScrimOverlayRenderer chapter_marker_message_player_scrim_overlay_renderer = 408978266;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/drive_item_content_region.proto";
+
+option objc_class_prefix = "ACL";
+
+message DlpContentRegion {
+	oneof dlp_content_region_type {
+		DriveItemContentRegion drive_item_content_region = 1;
+	}
+}

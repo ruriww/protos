@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+option objc_class_prefix = "ORCH2";
+
+message IdBinding {
+	int64 template_id = 1;
+	int64 replacement_id = 2;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridMoviePlaylistRenderer {
+	string playlist_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString short_byline_text = 4;
+	FormattedString video_count_text = 5;
+	FormattedString video_count_short_text = 6;
+	Command navigation_endpoint = 7;
+	FormattedString published_time_text = 8;
+	repeated Command service_endpoints = 9;
+	repeated BadgeSupportedRenderers owner_badges = 10;
+	string debug_html = 11;
+	bytes tracking_params = 13;
+	FormattedString thumbnail_text = 14;
+	FormattedString long_byline_text = 15;
+	MenuSupportedRenderers menu = 16;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 17;
+}
+
+extend Renderer {
+	GridMoviePlaylistRenderer grid_movie_playlist_renderer = 66549263;
+}

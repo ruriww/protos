@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message PacketGeneratorOptions {
+	bool merge_fields = 1 [ default = true ];
+
+	extensions 20000 to 524999999;
+}

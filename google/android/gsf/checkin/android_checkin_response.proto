@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package google.android.gsf.checkin;
+
+import "google/android/gsf/checkin/android_intent_proto.proto";
+import "google/android/gsf/checkin/gservices_setting.proto";
+
+option java_package = "com.google.android.gsf.checkin.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message AndroidCheckinResponse {
+	optional bool stats_ok = 1;
+	optional AndroidIntentProto intent = 2;
+	optional int64 time_msec = 3;
+	optional GservicesSetting setting = 5;
+	optional fixed64 android_id = 7;
+	optional fixed64 security_token = 8;
+	optional bool settings_diff = 9;
+	optional string unnamed_field_11 = 11;
+	optional string unnamed_field_12 = 12;
+	optional string unnamed_field_13 = 13;
+}

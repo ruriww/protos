@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/photo_upload_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorImageUploadEntity {
+	extend EntityMutationPayload {
+		CreatorImageUploadEntity creator_image_upload_entity = 471;
+	}
+
+	string key = 1;
+	int64 image_size = 2;
+	int64 image_width = 3;
+	int64 image_height = 4;
+	string uri = 5;
+	string encrypted_blob_id = 6;
+	PhotoUploadStatus upload_status = 7;
+}

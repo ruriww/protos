@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelBackgroundStyle {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_UNSPECIFIED = 0;
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_DEFAULT = 1;
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_RAISED = 2;
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_DARK = 3;
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_USING_ENTITY_COLOR = 4;
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_CUSTOM_TRANSPARENCY = 5;
+	ENGAGEMENT_PANEL_BACKGROUND_STYLE_CUSTOM_TRANSPARENCY_LANDSCAPE = 6;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/channel_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/product_profile_failure.proto";
+
+option objc_class_prefix = "POEM";
+
+message YoutubeExtendedData {
+	repeated ChannelData channel_data = 4;
+	ProductProfileFailure failure = 5;
+}

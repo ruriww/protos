@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InkStickerPenType {
+	option features.enum_type = CLOSED;
+
+	INK_STICKER_PEN_TYPE_UNSPECIFIED = 0;
+	INK_STICKER_PEN_TYPE_MARKER = 1;
+	INK_STICKER_PEN_TYPE_CALLIGRAPHY = 2;
+	INK_STICKER_PEN_TYPE_HIGHLIGHTER = 3;
+	INK_STICKER_PEN_TYPE_ERASER = 4;
+}

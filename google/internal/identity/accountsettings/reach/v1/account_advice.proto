@@ -1,0 +1,40 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+import "webutil/html/types/safe_url_proto.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+
+option objc_class_prefix = "RCH";
+
+message AccountAdvice {
+	int32 advice_id = 1;
+
+	message AdviceDestination {
+		webutil.html.types.SafeUrlProto url = 1;
+		mobile.v1.ResourceKey resource_key = 2;
+	}
+
+	AdviceDestination destination = 2;
+	string title = 3;
+	string description = 4;
+	string cta_text = 5;
+	string dismissal_text = 6;
+
+	enum UiTreatment {
+		option features.enum_type = CLOSED;
+
+		UI_TREATMENT_UNSPECIFIED = 0;
+		YELLOW_CARD = 1;
+		BLUE_CARD_SLIM = 2;
+		BLUE_CARD_EXTENDED = 3;
+	}
+
+	UiTreatment ui_treatment = 7;
+
+	message AdditionalInfo {
+		int32 num_existing_recovery_factors = 1;
+	}
+
+	AdditionalInfo additional_info = 8;
+}

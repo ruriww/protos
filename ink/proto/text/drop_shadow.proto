@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto.text;
+
+option objc_class_prefix = "INKPB";
+
+message DropShadow {
+	uint32 rgba = 1;
+	float radius_fraction = 2;
+	float dx_fraction = 3;
+	float dy_fraction = 4;
+}

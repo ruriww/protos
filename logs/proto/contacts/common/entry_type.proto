@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+option objc_class_prefix = "CTC";
+
+enum EntryType {
+	option features.enum_type = CLOSED;
+
+	OPERATION_ENTRY = 1;
+	COUNT_ENTRY = 2;
+	ERROR_ENTRY = 3;
+	OPERATION_START_ENTRY = 4;
+}

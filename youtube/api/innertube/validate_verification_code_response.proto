@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/validate_verification_code_error_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ValidateVerificationCodeResponse {
+	ResponseContext response_context = 1;
+	Command next_endpoint = 3;
+	repeated ValidateVerificationCodeErrorSupportedRenderers errors = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/privacy_checkup_card_data.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetPrivacyCheckupCardDataResponse {
+	repeated PrivacyCheckupCardData cards = 1;
+}

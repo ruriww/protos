@@ -1,0 +1,27 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message OnDeviceZippedModelManagerLogData {
+	int32 model_type = 1;
+
+	enum UnzipRequestStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_REQUEST_STATUS = 0;
+		CACHE_HIT = 1;
+		CACHE_HIT_BUT_INVALID_PATH = 2;
+		CACHE_MISS = 3;
+		COMPLETED = 4;
+		CACHE_INVALIDATED = 5;
+		ERROR_UNZIP_FAILED = 6;
+		ERROR_MODEL_COMPILATION_FAILED = 7;
+		ERROR_MODEL_MOVE_FAILED = 8;
+	}
+
+	UnzipRequestStatus unzip_request_status = 2;
+	int64 unzip_latency_usec = 3;
+	int64 compile_latency_usec = 4;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/browser_type.proto";
+import "google/internal/identity/accountsettings/mobile/v1/themed_url.proto";
+
+option objc_class_prefix = "ASM";
+
+message BrowserAlternative {
+	string url = 1;
+	bool auth = 2;
+	bool set_continue_url_param = 3;
+	int32 target = 4;
+	BrowserType browser_type = 5;
+	ThemedUrl themed_url = 6;
+}

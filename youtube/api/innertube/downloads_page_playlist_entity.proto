@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/playlist_thumbnail_style.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsPagePlaylistEntity {
+	extend EntityMutationPayload {
+		DownloadsPagePlaylistEntity downloads_page_playlist_entity = 192;
+	}
+
+	string key = 1;
+	string playlist_id = 2;
+	string title = 3;
+	string video_count_text = 4;
+	string channel_owner_name = 5;
+
+	message CollageThumbnail {
+		repeated ThumbnailDetails first_column_thumbnails = 1;
+		repeated ThumbnailDetails second_column_thumbnails = 2;
+		PlaylistThumbnailStyle style = 3;
+		uint32 first_column_cover_thumbnail_background_color = 4;
+	}
+
+	oneof thumbnail {
+		ThumbnailDetails playlist_thumbnail = 6;
+		CollageThumbnail playlist_collage_thumbnail = 7;
+	}
+
+	string download_status = 8;
+	int32 video_count = 9;
+	string share_text = 11;
+	int32 ui_type = 12;
+	string last_synced_time_text = 13;
+}

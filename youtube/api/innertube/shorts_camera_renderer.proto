@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/swazzle_effects_settings.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCameraRenderer {
+	SwazzleEffectsSettings swazzle_effects_settings = 1;
+	Renderer effect_picker_entry = 2;
+	Renderer layout_picker_entry = 3;
+	repeated Renderer toolbelt_buttons = 4;
+	Renderer swipe_asset_actions = 6;
+	Renderer green_screen_media_picker_renderer = 7;
+	Renderer gallery_picker_entry_point_bar_renderer = 8;
+	Renderer green_screen_renderer = 9;
+	Renderer top_end_renderer = 10;
+}
+
+extend Renderer {
+	ShortsCameraRenderer shorts_camera_renderer = 355938383;
+}

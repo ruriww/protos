@@ -1,0 +1,19 @@
+edition = "2023";
+
+package identity_consent;
+
+import "privacy/consent/consent_session_id.proto";
+import "footprints/transparencyandcontrol/proto/consent_eligibility.proto";
+import "footprints/transparencyandcontrol/proto/consent_screen.proto";
+import "footprints/transparencyandcontrol/proto/opaque_verification_token.proto";
+import "identity_consent/verification_token.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentScreenInfo {
+	privacy.consent.ConsentSessionId session_id = 1;
+	footprints.transparencyandcontrol.proto.ConsentEligibility consent_eligibility = 2;
+	footprints.transparencyandcontrol.proto.ConsentScreen consent_screen = 3;
+	footprints.transparencyandcontrol.proto.OpaqueVerificationToken opaque_verification_token = 5;
+	VerificationToken verification_token = 6;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/input/phoneinput/phone_number.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneInputResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		PhoneInputResultingAction phone_input_resulting_action_extension = 232060284;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SET_VALUE = 1;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof resulting_action {
+		PhoneNumber new_value = 2;
+	}
+}

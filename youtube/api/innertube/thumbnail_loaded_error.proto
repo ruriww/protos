@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ThumbnailLoadedError {
+	option features.enum_type = CLOSED;
+
+	THUMBNAIL_LOADED_ERROR_UNKNOWN = 0;
+	THUMBNAIL_LOADED_ERROR_NONE = 1;
+	THUMBNAIL_LOADED_ERROR_UNCATEGORIZED = 2;
+	THUMBNAIL_LOADED_ERROR_MISSING_URL = 3;
+	THUMBNAIL_LOADED_ERROR_FIFE_PARSE_ERROR = 4;
+	THUMBNAIL_LOADED_ERROR_MISSING_BITMAP = 5;
+	THUMBNAIL_LOADED_ERROR_UNEXPECTED_DRAWABLE_TYPE = 6;
+	THUMBNAIL_LOADED_ERROR_MISSING_OFFLINE_BYTES = 7;
+	THUMBNAIL_LOADED_ERROR_MISSING_LOCAL_IMAGE_ENTITY = 8;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_store_type.proto";
+import "youtube/api/innertube/entity_store_action_type.proto";
+import "youtube/api/innertube/entity_store_error_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EntitiesError {
+	EntityStoreType entity_store_type = 1;
+	uint32 entity_type = 2;
+	EntityStoreActionType entity_store_action_type = 3;
+	EntityStoreErrorType entity_store_error_type = 4;
+	uint32 sqlite_last_error_code = 5;
+	uint32 sqlite_last_extended_error_code = 6;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package securemessage;
+
+option objc_class_prefix = "SMSG";
+
+message EcP256PublicKey {
+	bytes x = 1;
+	bytes y = 2;
+}

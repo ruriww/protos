@@ -1,0 +1,13 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+import "video/youtube/editing/effects/client/events/response_status.proto";
+import "video/youtube/editing/effects/client/events/dynamic_asset.proto";
+
+option objc_class_prefix = "YTEE";
+
+message DynamicCreationAssetResponseEvent {
+	ResponseStatus status = 1;
+	repeated DynamicAsset assets = 2;
+}

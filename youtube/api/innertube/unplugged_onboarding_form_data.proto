@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedOnboardingFormData {
+	string current_state_params = 1;
+	bool is_checkbox_unselect = 2;
+	string coupon_code = 3;
+	bool is_cold_load = 5;
+}

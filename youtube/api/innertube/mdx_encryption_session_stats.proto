@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxEncryptionSessionStats {
+	int32 sent_without_encryption_count = 1;
+	int32 failed_to_send_encrypt_only_count = 2;
+	int32 encryption_security_exception_count = 3;
+	int32 successful_encryption_count = 4;
+	int32 failed_to_decrypt_count = 5;
+	int32 decryption_security_exception_count = 6;
+	int32 successful_decryption_count = 7;
+	int32 received_unencrypted_count = 8;
+}

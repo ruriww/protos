@@ -1,0 +1,11 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+enum SAndroidPermissionState {
+	ANDROID_PERMISSION_STATE_UNSPECIFIED = 0;
+	ANDROID_PERMISSION_STATE_AUTHORIZED = 1;
+	ANDROID_PERMISSION_STATE_DENIED = 2;
+}

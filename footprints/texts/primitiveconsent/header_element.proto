@@ -1,0 +1,30 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/product_lockup.proto";
+import "footprints/texts/primitiveconsent/account_info.proto";
+import "footprints/texts/primitiveconsent/header_button.proto";
+import "footprints/texts/primitiveconsent/title.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message HeaderElement {
+	enum PlatformVisibility {
+		option features.enum_type = CLOSED;
+
+		PLATFORM_VISIBILITY_UNSPECIFIED = 0;
+		PLATFORM_VISIBILITY_WEB = 1;
+		PLATFORM_VISIBILITY_ANDROID = 2;
+		PLATFORM_VISIBILITY_IOS = 3;
+	}
+
+	repeated PlatformVisibility platform_visibility = 1;
+
+	oneof header_element_type {
+		ProductLockup product_lockup = 2;
+		AccountInfo account_info = 3;
+		HeaderButton button = 4;
+		Title title = 5;
+	}
+}

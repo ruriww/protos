@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/selector/toggle/toggle_control.proto";
+import "moneta/orchestration2/ui/common/image/image_url_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorOptionToggleControlNode {
+	extend node.Node {
+		SelectorOptionToggleControlNode selector_option_toggle_control_node_extension = 296254006;
+	}
+
+	toggle.ToggleControl toggle_control = 1;
+	image.ImageUrlOptions unchecked_icon_fife_option = 2;
+	image.ImageUrlOptions checked_icon_fife_option = 3;
+}

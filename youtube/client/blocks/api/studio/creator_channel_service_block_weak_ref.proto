@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+option objc_class_prefix = "YTBA";
+
+message CreatorChannelServiceBlockWeakRef {
+	string block_instance_id = 1;
+}

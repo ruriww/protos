@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/license_status.proto";
+import "youtube/api/innertube/authorized_format.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LicenseResponse {
+	ResponseContext response_context = 1;
+	LicenseStatus status = 2;
+	string reason = 3;
+	bool allow_user_retry = 4;
+	bytes license = 5;
+	repeated AuthorizedFormat authorized_formats = 6;
+	bool is_hd720 = 7;
+	bytes next_fairplay_key_id = 8;
+	int64 license_duration_seconds = 9;
+	int64 playback_duration_seconds = 10;
+	bool can_renew = 11;
+	bytes sabr_license_constraint = 12;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SelectImageCellRenderer {
+	Icon icon = 1;
+	FormattedString title = 2;
+	Command on_tap = 3;
+	FormattedString subtitle = 4;
+	AccessibilitySupportedDatas accessibility_data = 5;
+}
+
+extend Renderer {
+	SelectImageCellRenderer select_image_cell_renderer = 314975903;
+}

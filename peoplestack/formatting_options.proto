@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message FormattingOptions {
+	enum PhoneCanonicalizationInference {
+		option features.enum_type = CLOSED;
+
+		PHONE_CANONICALIZATION_INFERENCE_UNSPECIFIED = 0;
+		PHONE_CANONICALIZATION_INFERED_FROM_REQUEST_ORIGIN = 1;
+		PHONE_CANONICALIZATION_INFERENCE_DISABLED = 2;
+	}
+
+	PhoneCanonicalizationInference phone_canonicalization_inference = 1;
+}

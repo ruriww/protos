@@ -1,0 +1,9 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message IosAppFlip {
+	string universal_link = 1;
+}

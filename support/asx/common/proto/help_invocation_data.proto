@@ -1,0 +1,19 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+import "support/asx/common/proto/product_specific_data_entry.proto";
+import "engage/api/shared/cms/configuration/field_relationship_descriptor_values.proto";
+import "support/asx/common/proto/iph_trails.proto";
+
+option objc_class_prefix = "ASX";
+
+message HelpInvocationData {
+	string help_invocation_context = 1;
+	string session_id = 2;
+	repeated ProductSpecificDataEntry product_specific_data = 3;
+	engage.api.shared.cms.configuration.FieldRelationshipDescriptorValues frd_product_specific_data = 4;
+	IphTrails iph_trails = 5;
+	string support_journey_id = 6;
+	int32 view_id = 7;
+}

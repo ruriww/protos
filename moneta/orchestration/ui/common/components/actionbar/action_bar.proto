@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.actionbar;
+
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+
+option objc_class_prefix = "Orch";
+
+message ActionBar {
+	int64 ui_reference = 1;
+	repeated Button button = 2;
+	repeated generic.UiField ui_field = 3;
+	repeated Link link = 4;
+}

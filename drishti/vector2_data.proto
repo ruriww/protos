@@ -1,0 +1,10 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message Vector2Data {
+	float x = 1;
+	float y = 2;
+}

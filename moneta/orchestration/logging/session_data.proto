@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.logging;
+
+option objc_class_prefix = "Orch";
+
+message SessionData {
+	string integrator_transaction_id = 1;
+	int64 session_launching_latency_millis = 2;
+	int32 billable_service = 3;
+	int32 region_code = 4;
+	string app_package_name = 5;
+	int32 app_version_code = 6;
+	string app_version_name = 7;
+	int32 entry_widget_type = 8;
+}

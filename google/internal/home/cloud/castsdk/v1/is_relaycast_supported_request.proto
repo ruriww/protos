@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+option objc_class_prefix = "GCC";
+
+message IsRelaycastSupportedRequest {
+	string device_id = 1;
+}

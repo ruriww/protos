@@ -1,0 +1,86 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/logical_entity.proto";
+import "goodoc/overrides.proto";
+import "goodoc/ordinal.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message SemanticLabel {
+	int32 appearance = 1 [ default = 0 ];
+	repeated string Attribute = 2;
+	string Flow = 3;
+	bool ContinuesOnNextPage = 4 [ default = false ];
+	bool ContinuesFromPreviousPage = 5 [ default = false ];
+
+	message TableDetails {
+		int32 Rows = 7;
+		int32 Columns = 8;
+	}
+
+	TableDetails table_details = 6 [ features.message_encoding = DELIMITED ];
+
+	message TableCellDetails {
+		int32 Row = 10;
+		int32 RowSpan = 11 [ default = 1 ];
+		int32 Column = 12;
+		int32 ColumnSpan = 13 [ default = 1 ];
+	}
+
+	TableCellDetails table_cell_details = 9 [ features.message_encoding = DELIMITED ];
+
+	message ContentLink {
+		message InVolumeTarget {
+			LogicalEntity LogicalEntity = 16;
+			double Confidence = 17;
+		}
+
+		InVolumeTarget in_volume_target = 15 [ features.message_encoding = DELIMITED ];
+		string UrlTarget = 18;
+
+		message CitationTarget {
+			string Title = 20;
+			string Authors = 21;
+			int32 Year = 22;
+			string BibKey = 23;
+			double Confidence = 24;
+		}
+
+		CitationTarget citation_target = 19 [ features.message_encoding = DELIMITED ];
+	}
+
+	ContentLink content_link = 14 [ features.message_encoding = DELIMITED ];
+	LogicalEntity EndOfSpanningLabel = 25;
+	repeated int32 CleanupAnnotation = 26 [ features.repeated_field_encoding = EXPANDED ];
+	string AlternateText = 27;
+
+	message EditCorrectionCandidate {
+		string EditedWord = 29;
+		double Probability = 30;
+	}
+
+	repeated EditCorrectionCandidate edit_correction_candidate = 28 [ features.message_encoding = DELIMITED ];
+	bool ContinuesFromPreviousPageHyphenated = 31 [ default = false ];
+
+	message ColumnDetails {
+		int32 Column = 33;
+		int32 Columns = 34;
+	}
+
+	ColumnDetails column_details = 32 [ features.message_encoding = DELIMITED ];
+	string ModificationRecord = 35;
+
+	message SnippetFilter {
+		int32 window_size = 37;
+		double badword_fraction = 38;
+	}
+
+	repeated SnippetFilter snippet_filter = 36 [ features.message_encoding = DELIMITED ];
+	Overrides overrides = 39;
+	bool ChapterStart = 40 [ default = false ];
+	Ordinal PageNumberOrdinal = 41;
+	proto2.bridge.MessageSet ExperimentalData = 100;
+}

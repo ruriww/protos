@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum PeopleKitErrorCause {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_ERROR_CAUSE = 0;
+	NO_DISPLAYABLE_NAME_OR_VALUE = 1;
+	NO_SELECTED_CHANNEL = 2;
+	RUNTIME_EXCEPTION = 3;
+	TYPE_ERROR = 4;
+}

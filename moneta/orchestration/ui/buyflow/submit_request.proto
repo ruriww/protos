@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/buyflow/page_value.proto";
+import "moneta/orchestration/ui/buyflow/internal_buy_flow_client_parameters.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message SubmitRequest {
+	common.RequestContext context = 1;
+	PageValue page_value = 2;
+	bytes encrypted_parameters = 3;
+	InternalBuyFlowClientParameters client_parameters = 4;
+	string recaptcha_verification_token = 5;
+}

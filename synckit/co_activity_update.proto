@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+import "communication/meetings/s11ysync/activity_state_update.proto";
+
+option objc_class_prefix = "GSYP";
+
+message CoActivityUpdate {
+	communication.meetings.s11ysync.ActivityStateUpdate state_update = 2;
+}

@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_video_renderer.proto";
+import "youtube/api/innertube/compact_playlist_renderer.proto";
+import "youtube/api/innertube/compact_channel_renderer.proto";
+import "youtube/api/innertube/compact_radio_renderer.proto";
+import "youtube/api/innertube/compact_promoted_video_renderer.proto";
+import "youtube/api/innertube/compact_promoted_banner_renderer.proto";
+import "youtube/api/innertube/compact_promoted_item_renderer.proto";
+import "youtube/api/innertube/section_list_without_preview_renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ItemSectionPreviewRenderer {
+	message ItemSectionPreviewSupportedRenderers {
+		CompactVideoRenderer compact_video_renderer = 50630979;
+		CompactPlaylistRenderer compact_playlist_renderer = 50742631;
+		CompactChannelRenderer compact_channel_renderer = 50794305;
+		CompactRadioRenderer compact_radio_renderer = 53170873;
+		CompactPromotedVideoRenderer compact_promoted_video_renderer = 73920376;
+		CompactPromotedBannerRenderer compact_promoted_banner_renderer = 92377611;
+		CompactPromotedItemRenderer compact_promoted_item_renderer = 92511086;
+	}
+
+	repeated ItemSectionPreviewSupportedRenderers preview_contents = 1;
+	FormattedString load_more_text = 2;
+
+	message ItemSectionPreviewExpandedSupportedRenderers {
+		SectionListWithoutPreviewRenderer section_list_without_preview_renderer = 51779803;
+	}
+
+	ItemSectionPreviewExpandedSupportedRenderers full_contents = 3;
+	FormattedString title = 5;
+	bytes tracking_params = 6;
+}
+
+extend Renderer {
+	ItemSectionPreviewRenderer item_section_preview_renderer = 51779670;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package frameworks.client.streamz;
+
+option objc_class_prefix = "FCSZ";
+
+message ClientStreamzConfiguration {
+	repeated string blacklist_name = 1;
+}

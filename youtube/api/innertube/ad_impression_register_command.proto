@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/sk_ad_network_yt_parameters.proto";
+import "youtube/api/innertube/ping.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdImpressionRegisterCommand {
+	extend Command {
+		AdImpressionRegisterCommand ad_impression_register_command = 345084290;
+	}
+
+	SkAdNetworkYTParameters sk_ad_parameters = 1;
+	repeated Ping impression_start = 2;
+	repeated Ping impression_start_exception = 3;
+	repeated Ping impression_end = 4;
+	repeated Ping impression_end_exception = 5;
+	repeated Ping impression_registered = 6;
+	int64 impression_registration_delay_ms = 7;
+	int64 impression_retry_time_interval_ms = 8;
+	int64 start_impression_max_retries = 9;
+	int64 end_impression_max_retries = 10;
+}

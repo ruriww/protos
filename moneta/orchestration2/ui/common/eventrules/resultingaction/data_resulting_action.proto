@@ -1,0 +1,39 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.resultingaction;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/data/data_state.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/set_value_by_reference.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/new_active_validation_ids_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DataResultingAction {
+	extend ResultingAction {
+		DataResultingAction data_resulting_action_extension = 233806715;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_ENABLEMENT_STATE_CHANGE = 1;
+		RESULTING_ACTION_TYPE_FUNCTIONAL_DATA_EXECUTION_STATE_CHANGE = 3;
+		RESULTING_ACTION_TYPE_SCROLL_TO = 2;
+		RESULTING_ACTION_TYPE_SET_VALUE_BY_REFERENCE = 4;
+		RESULTING_ACTION_TYPE_RUN_VALIDATION = 5;
+		RESULTING_ACTION_TYPE_NEW_ACTIVE_VALIDATION_ID = 6;
+		RESULTING_ACTION_TYPE_SAVE_SNAPSHOT = 7;
+		RESULTING_ACTION_TYPE_RESTORE_SNAPSHOT = 8;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof action {
+		data.DataState.Enablement new_enablement = 2;
+		data.DataState.FunctionalDataExecutionState new_functional_data_execution_state = 3;
+		SetValueByReference set_value_by_reference = 4;
+		NewActiveValidationIdsAction new_active_validation_ids_action = 5;
+	}
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/linear_layout_renderer_orientation.proto";
+import "youtube/api/innertube/linear_layout_renderer_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LinearLayoutRenderer {
+	repeated Renderer items = 1;
+	float min_space_between_items = 2;
+	LinearLayoutRendererOrientation orientation = 3;
+	LinearLayoutRendererStyle layout_style = 4;
+}
+
+extend Renderer {
+	LinearLayoutRenderer linear_layout_renderer = 165017128;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+option objc_class_prefix = "GIDLOG";
+
+message AccountSettingsPing {
+	int32 ping_time_seconds = 1;
+	int32 next_ping_time_seconds = 2;
+	repeated int32 all_ping_times_seconds = 3 [ features.repeated_field_encoding = EXPANDED ];
+	int32 current_area_id = 4;
+}

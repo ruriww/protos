@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_metrics_latency_label.proto";
+import "social/logs/eng/sendkit/people_kit_cache_status.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsLatency {
+	SendKitMetricsLatencyLabel label = 1;
+	int64 latency_usec = 2;
+	PeopleKitCacheStatus cache_status = 3;
+}

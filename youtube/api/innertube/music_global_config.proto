@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicGlobalConfig {
+	bool enable_stream_over_wifi_only = 1;
+	bool disable_offline_refresh_track_throttling = 3;
+	bool enable_voice_prompts = 4;
+	bool enable_watch_page_v2 = 5;
+	bool disable_cache_in_background = 8;
+	bool disable_tracking_params_override = 9;
+}

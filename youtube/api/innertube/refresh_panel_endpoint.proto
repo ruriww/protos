@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/reload_continuation_data.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+import "youtube/api/innertube/form_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RefreshPanelEndpoint {
+	extend Command {
+		RefreshPanelEndpoint refresh_panel_endpoint = 380210655;
+	}
+
+	string panel_id = 1;
+	ReloadContinuationData reload_continuation_data = 2;
+	string query = 3;
+	string tab_identifier = 5;
+
+	oneof identifier_oneof {
+		EngagementPanelIdentifier identifier = 6;
+	}
+
+	FormData form_data = 7;
+}

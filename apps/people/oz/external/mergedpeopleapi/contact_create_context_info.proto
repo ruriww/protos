@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "social/graph/api/proto/contact_create_context.proto";
+
+option objc_class_prefix = "POEM";
+
+message ContactCreateContextInfo {
+	PersonFieldMetadata metadata = 1;
+	social.graph.api.proto.ContactCreateContext contact_create_context = 2;
+}

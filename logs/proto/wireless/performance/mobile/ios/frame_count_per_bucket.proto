@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message FrameCountPerBucket {
+	float bucket_start = 1;
+	float bucket_end = 2;
+	int32 frame_count = 3;
+}

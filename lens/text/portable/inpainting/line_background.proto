@@ -1,0 +1,15 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+import "lens/text/portable/inpainting/inpainting_image_file_config.proto";
+
+option objc_class_prefix = "LNSINP";
+
+message LineBackground {
+	bytes image_bytes = 1;
+	InpaintingImageFileConfig.FileFormat file_format = 2;
+	int32 image_width = 3;
+	int32 image_height = 4;
+	bytes text_mask_bytes = 5;
+}

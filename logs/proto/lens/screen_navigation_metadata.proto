@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message ScreenNavigationMetadata {
+	enum LensScreen {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ONBOARDING = 1;
+		LVF = 2;
+		GALLERY = 3;
+		POST_CAPTURE = 4;
+		LVF_FALLBACK = 5;
+		GALLERY_FALLBACK = 6;
+		GALLERY_WELCOME = 7;
+		LVF_TOS = 8;
+		GALLERY_PARTIAL_PERMISSIONS = 9;
+		GALLERY_FORCED_PARTIAL_PERMISSIONS = 10;
+		HISTORY = 11;
+	}
+
+	LensScreen lens_screen = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AdWebviewActionType {
+	option features.enum_type = CLOSED;
+
+	AD_WEBVIEW_ACTION_TYPE_UNSPECIFIED = 0;
+	AD_WEBVIEW_ACTION_TYPE_GO_BACK = 1;
+	AD_WEBVIEW_ACTION_TYPE_GO_FORWARD = 2;
+	AD_WEBVIEW_ACTION_TYPE_REFRESH = 3;
+	AD_WEBVIEW_ACTION_TYPE_OPEN_CURRENT_URL_EXTERNALLY = 4;
+	AD_WEBVIEW_ACTION_TYPE_CLOSE = 5;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum GestureEventTypeLog {
+	option features.enum_type = CLOSED;
+
+	GESTURE_EVENT_TYPE_LOG_UNKNOWN = 0;
+	GESTURE_EVENT_TYPE_LOG_GENERIC_CLICK = 1;
+	GESTURE_EVENT_TYPE_LOG_LONG_PRESS = 2;
+	GESTURE_EVENT_TYPE_LOG_PINCH = 3;
+	GESTURE_EVENT_TYPE_LOG_SWIPE = 4;
+	GESTURE_EVENT_TYPE_LOG_FORWARD_SWIPE = 5;
+	GESTURE_EVENT_TYPE_LOG_BACK_SWIPE = 6;
+	GESTURE_EVENT_TYPE_LOG_SCROLL_DID_STOP = 7;
+	GESTURE_EVENT_TYPE_LOG_SCROLL_BEGAN_DRAGGING = 8;
+	GESTURE_EVENT_TYPE_LOG_DOUBLE_CLICK = 9;
+}

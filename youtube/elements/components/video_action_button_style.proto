@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum VideoActionButtonStyle {
+	option features.enum_type = CLOSED;
+
+	VIDEO_ACTION_BUTTON_STYLE_UNKNOWN = 0;
+	VIDEO_ACTION_BUTTON_STYLE_PILL = 1;
+	VIDEO_ACTION_BUTTON_STYLE_FULLSCREEN_QUICK_ACTION = 2;
+	VIDEO_ACTION_BUTTON_STYLE_FULLSCREEN_QUICK_ACTIONS_OVERFLOW_MENU = 7;
+	VIDEO_ACTION_BUTTON_STYLE_CONSUMPTION_FEED = 9;
+	VIDEO_ACTION_BUTTON_STYLE_FULLSCREEN_QUICK_ACTION_WIDE = 10;
+}

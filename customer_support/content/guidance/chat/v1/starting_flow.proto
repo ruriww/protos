@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.content.guidance.chat.v1;
+
+option objc_class_prefix = "SGC";
+
+message StartingFlow {
+	message StraightToHumanAgent {
+		string case_id = 1;
+		string chat_support_request_id = 2;
+		bool human_agent_chat_only = 3;
+	}
+
+	oneof starting_flow_oneof {
+		StraightToHumanAgent straight_to_human_agent = 2;
+	}
+}

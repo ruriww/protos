@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/api/innertube/playback_rate_selector_menu_sheet_view_model.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetPlaybackRateOverflowMenuRequest {
+	string text = 1;
+	youtube.api.innertube.PlaybackRateSelectorMenuSheetViewModel view_model = 2;
+}

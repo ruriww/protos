@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/client/blocks/telemetry_metadata.proto";
+import "youtube/client/blocks/method_type.proto";
+import "youtube/client/blocks/runtime_type.proto";
+
+option objc_class_prefix = "YTB";
+
+message MethodExecutionMetadata {
+	extend TelemetryMetadata {
+		MethodExecutionMetadata method_execution_metadata = 1000;
+	}
+
+	uint32 method_id = 1;
+	MethodType method_type = 2;
+	RuntimeType client_runtime = 3;
+	uint32 request_size = 4;
+	RuntimeType server_runtime = 5;
+	uint32 response_size = 6;
+	uint32 server_block_type_id = 7;
+	string module_identifier = 10;
+	int32 status_code = 11;
+}

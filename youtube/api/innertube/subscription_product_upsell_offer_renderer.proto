@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionProductUpsellOfferRenderer {
+	ThumbnailDetails image = 1;
+	FormattedString title = 2;
+	FormattedString description = 3;
+	repeated FormattedString additional_infos = 4;
+	Renderer primary_button = 5;
+	Renderer secondary_button = 6;
+	bytes tracking_params = 8;
+
+	oneof logo_oneof {
+		ThumbnailDetails logo = 9;
+		Icon logo_icon = 10;
+	}
+
+	repeated uint32 image_scrim_color_values = 11 [ features.repeated_field_encoding = EXPANDED ];
+	AccessibilitySupportedDatas logo_icon_accessibility = 12;
+}
+
+extend Renderer {
+	SubscriptionProductUpsellOfferRenderer subscription_product_upsell_offer_renderer = 173727398;
+}

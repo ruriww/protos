@@ -1,0 +1,16 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/scope.proto";
+import "Acl/keystore_wrapped_key.proto";
+import "Acl/entry_metadata.proto";
+
+option objc_class_prefix = "ACL";
+
+message Entry {
+	Scope Scope = 1;
+	int32 Role = 2;
+	repeated KeystoreWrappedKey WrappedKey = 3;
+	EntryMetadata Metadata = 4;
+}

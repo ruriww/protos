@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/close_stream_end_screen_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CloseStreamEndScreenCommand {
+	Command navigation_endpoint = 1;
+	CloseStreamEndScreenSettings settings = 2;
+}
+
+extend Command {
+	CloseStreamEndScreenCommand close_stream_end_screen_command = 360957529;
+}

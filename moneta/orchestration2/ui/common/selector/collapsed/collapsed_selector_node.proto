@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.collapsed;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CollapsedSelectorNode {
+	extend node.Node {
+		CollapsedSelectorNode collapsed_selector_node_extension = 306931272;
+	}
+
+	repeated node.Node selector_option = 1;
+}

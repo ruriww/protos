@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dai_error_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DAIAdBreakCriticalError {
+	string content_cpn = 1;
+	DAIErrorType error_type = 2;
+	string external_channel_id = 3;
+	string msg = 4;
+	string cue_identifier = 5;
+}

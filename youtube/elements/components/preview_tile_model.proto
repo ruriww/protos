@@ -1,0 +1,52 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/components/preview_tile_data.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/elements/context.proto";
+import "youtube/api/innertube/mentions_server_state_entity.proto";
+import "youtube/api/innertube/privacy_picker_state_entity.proto";
+import "youtube/api/innertube/audience_settings_server_state_entity.proto";
+import "youtube/api/innertube/mde_component_state_entity.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message PreviewTileModel {
+	extend Model {
+		PreviewTileModel preview_tile_model = 33554787;
+	}
+
+	Theme theme = 1;
+	PreviewTileData data = 3;
+	Button next_button = 4;
+	Context context = 5;
+	string title_state_key = 6;
+	api.innertube.MentionsServerStateEntity title_state = 7;
+	string privacy_state_key = 8;
+	api.innertube.PrivacyPickerStateEntity privacy_state = 9;
+	string audience_state_key = 10;
+	api.innertube.AudienceSettingsServerStateEntity audience_state = 11;
+	string audience_setting_text_yes = 12;
+	string audience_setting_text_no = 13;
+	string audience_setting_text_not_selected = 14;
+	string targeted_audience_yes = 15;
+	string targeted_audience_no = 16;
+	string targeted_audience_not_selected = 17;
+	string empty_title_text = 18;
+	string a11y_label_text = 19;
+	string go_live_button_title = 20;
+	string next_button_title = 21;
+	bool enable_dynamic_title = 22;
+	string live_conference_state_key = 23;
+	api.innertube.MdeComponentStateEntity live_conference_state = 24;
+	string screencast_toggle_state_key = 25;
+	api.innertube.MdeComponentStateEntity screencast_toggle_state = 26;
+	string scheduled_state_key = 27;
+	bool is_existing_broadcast = 29;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message CannelliniInfo {
+	bool cannellini_enabled = 1;
+	string obfuscated_gaia_id = 2;
+}

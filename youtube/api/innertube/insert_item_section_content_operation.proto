@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/item_section_supported_renderers.proto";
+import "youtube/api/innertube/insert_by_position_in_section.proto";
+import "youtube/api/innertube/insert_by_relative_position_in_section.proto";
+import "youtube/api/innertube/insert_relative_to_viewport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InsertItemSectionContentOperation {
+	repeated ItemSectionSupportedRenderers contents = 1;
+
+	oneof insertion {
+		InsertByPositionInSection insert_by_position_in_section = 2;
+		InsertByRelativePositionInSection insert_by_relative_position_in_section = 3;
+		InsertRelativeToViewport insert_relative_to_viewport = 4;
+	}
+}

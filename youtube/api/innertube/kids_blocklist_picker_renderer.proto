@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsBlocklistPickerRenderer {
+	extend Renderer {
+		KidsBlocklistPickerRenderer kids_blocklist_picker_renderer = 370744367;
+	}
+
+	FormattedString title = 1;
+	repeated Renderer child_rows = 2;
+	Renderer done_button = 3;
+	FormattedString successful_toast_action_message = 4;
+	bytes tracking_params = 6;
+}

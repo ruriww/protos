@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_video_data.proto";
+import "youtube/api/innertube/main_video_entity_download_type.proto";
+import "youtube/api/innertube/main_video_entity.proto";
+import "youtube/api/innertube/yt_main_channel_entity.proto";
+import "youtube/api/innertube/offline_delete_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MainVideoEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		MainVideoEntityActionMetadata main_video_entity_action_metadata = 396373871;
+	}
+
+	OfflineabilityFormatType maximum_download_quality = 1;
+	bool only_download_on_wifi = 2;
+	string playlist_id = 3;
+	OfflineVideoData offline_video_data = 4;
+	int32 stream_transfer_condition = 5;
+	bytes click_tracking_params = 6;
+	bool start_transfer = 7;
+	MainVideoEntityDownloadType download_type = 9;
+	string preferred_audio_track = 10;
+	MainVideoEntity video = 11;
+	YtMainChannelEntity channel_owner = 12;
+	bool is_retry = 13;
+	bool user_accepted_content_check = 14;
+	int64 updated_last_playback_timestamp_millis = 15;
+	bool is_policy_delete = 16;
+	string player_params = 17;
+	OfflineDeleteReason offline_delete_reason = 18;
+}

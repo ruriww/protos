@@ -1,0 +1,15 @@
+edition = "2023";
+
+package speech.s3.bard;
+
+import "speech/s3/bard/saved_generate_request.proto";
+import "speech/s3/bard/saved_generate_response.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "S3BD";
+
+message ConversationTurn {
+	SavedGenerateRequest request = 3;
+	SavedGenerateResponse response = 4;
+	google.protobuf.Timestamp timestamp = 5;
+}

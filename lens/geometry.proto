@@ -1,0 +1,20 @@
+edition = "2023";
+
+package lens;
+
+import "lens/center_rotated_box.proto";
+import "lens/polygon.proto";
+import "lens/geometry6dof.proto";
+import "lens/curved_box.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Geometry {
+	CenterRotatedBox bounding_box = 1;
+	Polygon quad = 2;
+	float quad_aspect_ratio = 3;
+	Geometry6dof geometry6dof = 4;
+	repeated Polygon segmentation_polygon = 5;
+	Polygon bounding_polygon = 6;
+	CurvedBox curved_bounding_box = 7;
+}

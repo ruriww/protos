@@ -1,0 +1,42 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/age_restriction.proto";
+import "abuseiam/special_restriction.proto";
+import "abuseiam/constant_restriction.proto";
+
+option objc_class_prefix = "AIA";
+
+message UserRestriction {
+	oneof node {
+		AndRestriction and_restriction = 1;
+		OrRestriction or_restriction = 2;
+		NotRestriction not_restriction = 3;
+		GeoRestriction geo_restriction = 4;
+		AgeRestriction age_restriction = 5;
+		SpecialRestriction special_restriction = 6;
+		ConstantRestriction constant_restriction = 7;
+	}
+}
+
+message AndRestriction {
+	repeated UserRestriction child = 1;
+}
+
+message OrRestriction {
+	repeated UserRestriction child = 1;
+}
+
+message NotRestriction {
+	repeated UserRestriction child = 1;
+}
+
+message GeoRestriction {
+	message Locale {
+		string location = 1 [ default = "001" ];
+		UserRestriction restriction = 2;
+	}
+
+	repeated Locale locale = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "privacy/consent/product_surface.proto";
+import "google/type/datetime.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentPromoMetadata {
+	privacy.consent.ProductSurface surface = 1;
+	string text_language_code = 2;
+	google.type.TimeZone user_timezone = 3;
+}

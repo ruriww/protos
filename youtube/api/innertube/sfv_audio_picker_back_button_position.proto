@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SfvAudioPickerBackButtonPosition {
+	option features.enum_type = CLOSED;
+
+	SFV_AUDIO_PICKER_BACK_BUTTON_POSITION_UNSPECIFIED = 0;
+	SFV_AUDIO_PICKER_BACK_BUTTON_POSITION_START = 1;
+	SFV_AUDIO_PICKER_BACK_BUTTON_POSITION_END = 2;
+}

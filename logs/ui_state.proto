@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs;
+
+option objc_class_prefix = "LOG";
+
+message UIState {
+	enum ToggleState {
+		option features.enum_type = CLOSED;
+
+		TOGGLE_UNDEFINED = 0;
+		TOGGLE_ON = 1;
+		TOGGLE_OFF = 2;
+	}
+
+	ToggleState toggle = 1 [ default = TOGGLE_UNDEFINED ];
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message LensOnDeviceMetadata {
+	int32 words_detected = 1;
+	string dominant_source_language = 2;
+	float language_conf = 3;
+	string dominant_source_script = 4;
+	float script_conf = 5;
+	float highest_line_conf = 6;
+	float average_line_conf = 7;
+	int64 available_memory = 8;
+	bool is_low_memory = 9;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/prompt_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message PromptItem {
+	int64 id = 1;
+	string title = 2;
+	PromptBlock main_block = 3;
+	string call_to_action_text = 4;
+	ResourceKey target = 5;
+	int32 severity = 6;
+	bool dismissible = 7;
+	Link link = 9;
+	Link secondary_button_link = 10;
+	string secondary_button_text = 11;
+	bool equally_weighted_action_buttons = 12;
+	int32 advice_severity = 13;
+	Image icon = 14;
+	string expand_card_accessibility_tap_text = 15;
+	string hint_text = 16;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InstreamAdPlayerOverlayRenderer {
+	Renderer skip_or_preview_renderer = 1;
+	bytes tracking_params = 3;
+	Renderer brand_interaction_renderer = 4;
+	Renderer visit_advertiser_renderer = 6;
+	Renderer ad_badge_renderer = 7;
+	Renderer ad_duration_remaining = 8;
+	Renderer ad_info_renderer = 9;
+	Renderer ad_reengagement_renderer = 10;
+	Renderer flyout_cta_renderer = 11;
+	bool is_pharma_ad = 12;
+	Renderer ad_position = 13;
+	AdLayoutLoggingData ad_layout_logging_data = 14;
+	string element_id = 15;
+	Renderer light_engage_toolbar_renderer = 16;
+	Renderer adpod_notification_renderer = 17;
+	Renderer squeezeback_player_side_panel_renderer = 18;
+	int32 ad_pod_duration_offset_ms = 19;
+	string in_player_slot_id = 20;
+	string in_player_layout_id = 21;
+	Renderer ad_player_overflow_button_renderer = 22;
+	Renderer skip_ad_timer_renderer = 23;
+	bool show_without_linked_media_layout = 24;
+	int32 ad_duration_ms = 25;
+	Renderer instream_player_cta_ad = 26;
+	Renderer ad_player_webview_button_renderer = 27;
+	Renderer ad_disclosure_banner_renderer = 28;
+	bool supports_clean_player_ui = 29;
+	Renderer ad_pod_index = 30;
+	Renderer compact_survey = 31;
+	int64 lr_dr_ads_early_skip_offset_ms = 32;
+}
+
+extend Renderer {
+	InstreamAdPlayerOverlayRenderer instream_ad_player_overlay_renderer = 106875026;
+}

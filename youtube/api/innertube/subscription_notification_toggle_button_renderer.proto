@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/subscription_notification_toggle_state.proto";
+import "youtube/api/innertube/hint_supported_renderers.proto";
+import "youtube/api/innertube/on_tap_behavior.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionNotificationToggleButtonRenderer {
+	repeated SubscriptionNotificationToggleState states = 1;
+	int32 current_state_id = 2;
+	bool optimistic_update_on_click = 3 [ default = true ];
+	HintSupportedRenderers hint = 4;
+	bytes tracking_params = 6;
+	int32 notifications_disabled_state_id = 7;
+	OnTapBehavior on_tap_behavior = 8;
+	repeated string disable_state_entity_keys = 9;
+	Command command = 10;
+	string target_id = 11;
+	string notification_state_entity_key = 12;
+	Icon secondary_icon = 13;
+	FormattedString notifications_label = 14;
+	Command channel_delegate_toast_command = 15;
+	bool disable_button = 16;
+	Icon icon = 17;
+	Renderer avatar = 18;
+}
+
+extend Renderer {
+	SubscriptionNotificationToggleButtonRenderer subscription_notification_toggle_button_renderer = 136076983;
+}

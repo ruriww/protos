@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "google/internal/lens/frontend/api/v1/lens_frontend_request_context.proto";
+import "lens/request_context/interaction_request_metadata.proto";
+import "lens/image_crop.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message InteractionRequest {
+	LensFrontendRequestContext request_context = 1;
+	.lens.request_context.InteractionRequestMetadata interaction_request_metadata = 2;
+	.lens.ImageCrop image_crop = 3;
+}

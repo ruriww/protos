@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message HangoutOptions {
+	string hangout_pool_id = 2;
+	string estimated_wait_time_id = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicPersistentCacheClearedClientReason {
+	option features.enum_type = CLOSED;
+
+	MUSIC_PERSISTENT_CACHE_CLEARED_CLIENT_REASON_UNKNOWN = 0;
+	MUSIC_PERSISTENT_CACHE_CLEARED_CLIENT_REASON_RESTRICTED_MODE_TOGGLED = 1;
+	MUSIC_PERSISTENT_CACHE_CLEARED_CLIENT_REASON_PRIVACY_SETTINGS_OPENED = 2;
+	MUSIC_PERSISTENT_CACHE_CLEARED_CLIENT_REASON_USER_SWITCHED = 3;
+	MUSIC_PERSISTENT_CACHE_CLEARED_CLIENT_REASON_DEBUG_CLEAR_CACHES = 4;
+	MUSIC_PERSISTENT_CACHE_CLEARED_CLIENT_REASON_FREE_TIER_SCREENED_CAST_HAND_OFF = 5;
+}

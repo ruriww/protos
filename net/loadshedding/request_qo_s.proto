@@ -1,0 +1,18 @@
+edition = "2023";
+
+package net.loadshedding;
+
+option objc_class_prefix = "LOADS";
+
+message RequestQoS {
+	enum Criticality {
+		option features.enum_type = CLOSED;
+
+		CRITICAL_PLUS = 3;
+		CRITICAL = 2;
+		SHEDDABLE_PLUS = 1;
+		SHEDDABLE = 0;
+	}
+
+	Criticality criticality = 1 [ default = CRITICAL ];
+}

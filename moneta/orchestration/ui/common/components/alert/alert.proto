@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.alert;
+
+import "moneta/orchestration/ui/common/components/alert/alert_message.proto";
+import "moneta/orchestration/ui/common/components/alert/alert_header.proto";
+
+option objc_class_prefix = "Orch";
+
+message Alert {
+	int64 ui_reference = 1;
+	repeated AlertMessage alert_message = 2;
+	AlertHeader header = 3;
+	bool is_expanded = 4;
+	bytes alert_dismissal_session_token = 5;
+}

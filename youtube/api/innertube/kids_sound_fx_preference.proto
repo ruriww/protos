@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsSoundFxPreference {
+	option features.enum_type = CLOSED;
+
+	KIDS_SOUND_FX_PREFERENCE_UNKNOWN = 0;
+	KIDS_SOUND_FX_PREFERENCE_OFF = 1;
+	KIDS_SOUND_FX_PREFERENCE_ON = 2;
+}

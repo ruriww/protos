@@ -1,0 +1,45 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/in_app_notification_target.proto";
+import "ios/shared/people/autocomplete/person_in_app_notification_target_originating_field.proto";
+import "ios/shared/people/autocomplete/person_name.proto";
+import "ios/shared/people/autocomplete/person_photo.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonInAppNotificationTarget {
+	PersonFieldMetadata metadata = 1;
+	repeated apps.people.oz.external.mergedpeopleapi.InAppNotificationTarget.App app = 2 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_KEY_TYPE = 0;
+		PHONE = 1;
+		OBFUSCATED_GAIA_ID = 2;
+		EMAIL = 3;
+	}
+
+	Type target_type = 3;
+	string value = 4;
+	repeated PersonInAppNotificationTargetOriginatingField originating_field = 5;
+	PersonName name = 6;
+	PersonPhoto photo = 7;
+
+	enum TargetType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TARGET_TYPE = 0;
+		IN_APP_EMAIL = 1;
+		IN_APP_PHONE = 2;
+		IN_APP_GAIA = 3;
+	}
+
+	TargetType send_target_type = 8;
+	bytes people_stack_extended_data_internal = 9;
+	string disambiguation_label = 10;
+	string client_data = 11;
+}

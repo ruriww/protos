@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message PrivacySettings {
+	bool pii_collection_enabled = 1;
+	bool product_callbacks_enabled = 2;
+}

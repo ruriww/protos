@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/memory_stats.proto";
+import "logs/proto/wireless/performance/mobile/ios/process_stats.proto";
+import "logs/proto/wireless/performance/mobile/ios/mstats_info.proto";
+
+option objc_class_prefix = "PRM";
+
+message MemoryUsageMetric {
+	MemoryStats memory_stats = 1;
+	ProcessStats process_stats = 2;
+	MstatsInfo mstats_info = 3;
+}

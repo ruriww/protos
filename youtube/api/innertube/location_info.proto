@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/location_info_status.proto";
+import "youtube/api/innertube/location_permission_authorization_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LocationInfo {
+	LocationInfoStatus location_info_status = 1;
+	int32 latitude_e7 = 3;
+	int32 longitude_e7 = 4;
+	int32 horizontal_accuracy_meters = 5;
+	int64 location_freshness_ms = 6;
+	LocationPermissionAuthorizationStatus location_permission_authorization_status = 7;
+	string location_override_token = 8;
+	bool force_location_playability_token_refresh = 9;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shopping_item_id.proto";
+import "youtube/api/innertube/money.proto";
+import "youtube/api/innertube/shopping_item_deals_data.proto";
+import "youtube/api/innertube/exclusives_sale_data.proto";
+import "youtube/api/innertube/shopping_item_availability.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/product_save_info.proto";
+import "youtube/elements/image.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingItem {
+	ShoppingItemId item_id = 1;
+	string title = 2;
+	string image_url = 3;
+	string target_url = 4;
+	Money price = 5;
+	string vendor_name = 7;
+	string brand_name = 8;
+	string affiliate_commission = 10;
+
+	oneof affiliate_payout {
+		Money fixed_payout = 11;
+		int32 rated_payout_basis_point = 12;
+	}
+
+	ShoppingItemDealsData deals_data = 13;
+	string description = 15;
+	ExclusivesSaleData exclusives_sale_data = 17;
+	bool has_tiered_commission = 18;
+	ShoppingItemAvailability availability = 19;
+	repeated string additional_image_urls = 20;
+	ThumbnailDetails main_image = 21;
+	ProductSaveInfo save_info = 23;
+	elements.Image sticker_image = 24;
+
+	message OfferGroupData {
+		int32 offer_group_size = 1;
+		repeated string variant_thumbnail_urls = 2;
+	}
+
+	OfferGroupData offer_group_data = 25;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/instrumentmanager/instrument_manager_parameters.proto";
+import "moneta/orchestration/ui/debug/request_details.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetInstrumentManagerParametersRequest {
+	common.RequestContext context = 1;
+
+	oneof request_type {
+		instrumentmanager.InstrumentManagerParameters instrument_manager_parameters = 2;
+		RequestDetails request_details = 3;
+	}
+}

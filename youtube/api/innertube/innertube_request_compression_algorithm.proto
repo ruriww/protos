@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InnertubeRequestCompressionAlgorithm {
+	INNERTUBE_REQUEST_COMPRESSION_ALGORITHM_NONE = 0;
+	INNERTUBE_REQUEST_COMPRESSION_ALGORITHM_GZIP = 1;
+	INNERTUBE_REQUEST_COMPRESSION_ALGORITHM_BROTLI = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/next_request_policy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ServerReadaheadConfig {
+	bool enable = 1;
+	NextRequestPolicy next_request_policy = 2;
+	bool enable_network_active_controller = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message BranchingDestination {
+	enum DestinationType {
+		DESTINATION_TYPE_UNKNOWN = 0;
+		DESTINATION_TYPE_DEFAULT_NEXT_QUESTION = 1;
+		DESTINATION_TYPE_BRANCHING_GROUP = 2;
+		DESTINATION_TYPE_COMPLETE_SURVEY = 3;
+	}
+
+	DestinationType destination_type = 1;
+	string to_branching_group = 2;
+}

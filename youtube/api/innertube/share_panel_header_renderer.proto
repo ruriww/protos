@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/share_panel_title_supported_renderers.proto";
+import "youtube/api/innertube/message_input_supported_renderers.proto";
+import "youtube/api/innertube/share_panel_community_post_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SharePanelHeaderRenderer {
+	SharePanelTitleSupportedRenderers title = 1;
+	MessageInputSupportedRenderers message_input = 2;
+	bytes tracking_params = 4;
+	SharePanelCommunityPostSupportedRenderers community_post = 5;
+}

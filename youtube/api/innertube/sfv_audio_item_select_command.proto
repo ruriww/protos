@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvAudioItemSelectCommand {
+	extend Command {
+		SfvAudioItemSelectCommand sfv_audio_item_select_command = 313660028;
+	}
+
+	string external_video_id = 1;
+	string player_params = 2;
+
+	message AudioItemDisplayData {
+		ThumbnailDetails album_art = 1;
+		string title = 2;
+	}
+
+	AudioItemDisplayData display_data = 3;
+
+	message AudioSegment {
+		int64 offset_ms = 1;
+		google.protobuf.Duration duration = 2;
+	}
+
+	repeated AudioSegment default_start_points = 4;
+	Command get_shorts_source_video_command = 5;
+}

@@ -1,0 +1,43 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message SensitiveClientContext {
+	message SensitiveDeviceInfo {
+		message SensitiveBrowserInfo {
+			string user_agent = 1;
+			string initial_url = 2;
+		}
+
+		SensitiveBrowserInfo browser_info = 1;
+
+		message SensitiveMobileInfo {
+			message SensitiveTelephonyInfo {
+				string phone_type = 1;
+				string network_name = 2;
+				string network_type = 3;
+				string network_mcc_code = 4;
+				string network_mnc_code = 5;
+			}
+
+			SensitiveTelephonyInfo telephony_info = 1;
+
+			message SensitiveChimeraInfo {
+				message SensitiveModuleSetInfo {
+					string module_set_id = 1;
+					string module_set_variant = 2;
+				}
+
+				repeated SensitiveModuleSetInfo module_set_info = 1;
+			}
+
+			SensitiveChimeraInfo chimera_info = 2;
+		}
+
+		SensitiveMobileInfo mobile_info = 2;
+	}
+
+	SensitiveDeviceInfo device_info = 1;
+}

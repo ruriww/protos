@@ -1,0 +1,10 @@
+edition = "2023";
+
+package home.cloud.common;
+
+option objc_class_prefix = "GHCC";
+
+message ServerCreatedSenderCertificateDetails {
+	bytes sender_identity_pkcs12 = 1;
+	string sender_identity_pkcs12_password = 2;
+}

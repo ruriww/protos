@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/time.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentAssetTimeRange {
+	Time asset_start = 1;
+	bool looped = 2;
+	Time loop_start = 3;
+	Time loop_end = 4;
+	float playback_rate = 5 [ default = 1 ];
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SharingProviderDataCommand {
+	extend Command {
+		SharingProviderDataCommand sharing_provider_data_command = 377332428;
+	}
+
+	string serialized_get_sharing_provider_data_params = 1;
+	bool show_blocking_loading_spinner = 2;
+	Command on_requested = 3;
+	Command on_failure_command = 4;
+	string client_param_identifier = 5;
+}

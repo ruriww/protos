@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/supervision_type.proto";
+import "google/familymanagement/v1/nominator_profile.proto";
+import "google/familymanagement/v1/collateral_device.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetSupervisionNominationInfoResponse {
+	ApiResponseHeader api_header = 1;
+	string nominee_email = 2;
+	int32 nominator_age_of_consent = 3;
+	SupervisionType supervision_type = 4;
+	NominatorProfile nominator_profile = 5;
+	repeated CollateralDevice collateral_devices = 6;
+}

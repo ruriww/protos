@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatBannerHeaderRenderer {
+	Icon icon = 1;
+	FormattedString text = 2;
+	Renderer context_menu_button = 3;
+	Renderer close_button = 4;
+}
+
+extend Renderer {
+	LiveChatBannerHeaderRenderer live_chat_banner_header_renderer = 249519921;
+}

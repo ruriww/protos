@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/subscribe_button_renderer.proto";
+import "youtube/api/innertube/like_button_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/toggle_button_renderer.proto";
+import "youtube/api/innertube/account_link_button_renderer.proto";
+import "youtube/api/innertube/segmented_like_dislike_button_renderer.proto";
+import "youtube/api/innertube/button_view_model.proto";
+import "youtube/api/innertube/segmented_like_dislike_button_view_model.proto";
+import "youtube/api/innertube/flexible_actions_view_model.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MenuTopLevelSupportedRenderers {
+	SubscribeButtonRenderer subscribe_button_renderer = 55419609;
+	LikeButtonRenderer like_button_renderer = 60091038;
+	ButtonRenderer button_renderer = 65153809;
+	ToggleButtonRenderer toggle_button_renderer = 79971800;
+	AccountLinkButtonRenderer account_link_button_renderer = 265166751;
+	SegmentedLikeDislikeButtonRenderer segmented_like_dislike_button_renderer = 452133865;
+	ButtonViewModel button_view_model = 461054335;
+	SegmentedLikeDislikeButtonViewModel segmented_like_dislike_button_view_model = 484586709;
+	FlexibleActionsViewModel flexible_actions_view_model = 520990934;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/visual_element_lite_proto.proto";
+import "logs/proto/contacts/profile_primitives_dimensions.proto";
+
+option objc_class_prefix = "CST";
+
+message ProfilePrimitivesVisualElementMetadata {
+	extend VisualElementLiteProto {
+		ProfilePrimitivesVisualElementMetadata profile_primitives_ve_metadata = 955;
+	}
+
+	ProfilePrimitivesDimensions dimensions = 1;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_time_range.proto";
+import "youtube/api/innertube/audio_segment.proto";
+import "youtube/api/innertube/graphical_segment.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TemplateSegment {
+	MediaTimeRange time_range = 1;
+
+	oneof segment {
+		AudioSegment audio_segment = 2;
+		GraphicalSegment graphical_segment = 3;
+	}
+
+	string id = 4;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/stop_broadcast_details_supported_renderers.proto";
+import "youtube/api/innertube/stop_broadcast_error_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StopBroadcastResponse {
+	ResponseContext response_context = 1;
+	StopBroadcastDetailsSupportedRenderers details_supported_renderers = 3;
+	repeated StopBroadcastErrorSupportedRenderers errors = 4;
+	bytes tracking_params = 7;
+	int32 live_stream_duration_millis = 8;
+	repeated Command commands = 9;
+	Renderer topbar = 10;
+	Renderer end_screen_renderer = 12;
+	PrivacyStatus stream_privacy = 13;
+	FormattedString stream_title = 14;
+	bool enable_full_screen_end_screen = 15;
+	FrameworkUpdateTransport framework_updates = 777;
+}

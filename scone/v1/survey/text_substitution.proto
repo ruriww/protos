@@ -1,0 +1,17 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message TextSubstitution {
+	string match_text = 1;
+
+	message AnswerPipe {
+		uint32 from_question_ordinal = 1;
+	}
+
+	oneof replacement_operation {
+		AnswerPipe answer_pipe = 2;
+	}
+}

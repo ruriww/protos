@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/color_rgb.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompositionEffectValue {
+	oneof value {
+		string string_value = 1;
+		double double_value = 2;
+		int64 int64_value = 3;
+		bool bool_value = 4;
+		ColorRgb color = 5;
+	}
+}

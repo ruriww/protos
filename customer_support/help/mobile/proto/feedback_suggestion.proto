@@ -1,0 +1,14 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/suggestion.proto";
+
+option objc_class_prefix = "CSHM";
+
+message FeedbackSuggestion {
+	repeated Suggestion suggestion = 1;
+	bool is_junk = 2;
+	bool ran_junk_classifier = 3;
+	string prediction_id = 4;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts;
+
+option objc_class_prefix = "FOOTC";
+
+enum AcceptRejectConfig {
+	option features.enum_type = CLOSED;
+
+	ACCEPT_REJECT_CONFIG_UNSPECIFIED = 0;
+	ACCEPT_REJECT_CONFIG_EQUALLY_WEIGHTED = 1;
+}

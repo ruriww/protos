@@ -1,0 +1,23 @@
+edition = "2023";
+
+package greco;
+
+import "greco/diarization_type.proto";
+
+option objc_class_prefix = "GRC";
+
+message DiarizationParams {
+	int32 num_clusters = 1 [ default = 2 ];
+	int32 min_clusters = 3 [ default = 2 ];
+
+	enum DiarizationMode {
+		option features.enum_type = CLOSED;
+
+		DISABLED = 0;
+		SPEAKER_LABEL = 1;
+		SPEAKER_CHANGE = 2;
+	}
+
+	DiarizationMode mode = 4 [ default = DISABLED ];
+	DiarizationType type = 5 [ default = LEGACY_DIARIZATION ];
+}

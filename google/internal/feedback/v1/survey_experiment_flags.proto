@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message SurveyExperimentFlags {
+	bool send_requests_to_feedback_oneplatform = 1;
+}

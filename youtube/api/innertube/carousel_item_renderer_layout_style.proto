@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CarouselItemRendererLayoutStyle {
+	option features.enum_type = CLOSED;
+
+	CAROUSEL_ITEM_RENDERER_LAYOUT_STYLE_UNSPECIFIED = 0;
+	CAROUSEL_ITEM_RENDERER_LAYOUT_STYLE_CENTER = 1;
+	CAROUSEL_ITEM_RENDERER_LAYOUT_STYLE_DESTINATION = 2;
+}

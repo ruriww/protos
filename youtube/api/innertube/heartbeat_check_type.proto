@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HeartbeatCheckType {
+	option features.enum_type = CLOSED;
+
+	HEARTBEAT_CHECK_TYPE_UNKNOWN = 0;
+	HEARTBEAT_CHECK_TYPE_LIVE_STREAM_STATUS = 1;
+	HEARTBEAT_CHECK_TYPE_YPC = 2;
+	HEARTBEAT_CHECK_TYPE_UNPLUGGED = 3;
+}

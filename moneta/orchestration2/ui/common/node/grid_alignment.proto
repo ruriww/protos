@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum GridAlignment {
+	option features.enum_type = CLOSED;
+
+	GRID_ALIGNMENT_UNKNOWN = 0;
+	GRID_ALIGNMENT_AUTO = 1;
+	GRID_ALIGNMENT_START = 2;
+	GRID_ALIGNMENT_END = 3;
+	GRID_ALIGNMENT_CENTER = 4;
+	GRID_ALIGNMENT_STRETCH = 5;
+}

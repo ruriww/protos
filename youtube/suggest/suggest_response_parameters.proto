@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.suggest;
+
+import "youtube/suggest/suggest_modes_response_params.proto";
+import "youtube/suggest/youtube_header_text_response_params.proto";
+import "youtube/suggest/shared_suggestion_parameters.proto";
+import "youtube/suggest/postfix_suggestion_parameters.proto";
+import "youtube/suggest/you_tube_suggestion_parameters.proto";
+
+option objc_class_prefix = "YTS";
+
+message SuggestResponseParameters {
+	string ssl_padding = 1;
+	int32 shortest_period_between_requests = 2;
+	bool experiment_triggered = 3;
+	bool disable_client_side_cache = 4;
+	string request_id = 6;
+	bool bolding_disabled = 7;
+	bool psuggest_do_not_cache = 8;
+	repeated SuggestResponse response_lookahead = 9;
+	int32 prefetch_hint = 10;
+	string spelling_correction = 11;
+	string spelling_error = 12;
+	string logging_token = 13;
+	double verbatim_score = 14;
+	string client_data = 15;
+	repeated int64 experiment_ids = 16 [ features.repeated_field_encoding = EXPANDED ];
+	string alt_gesture_decoding = 18;
+	int32 buffering_ttl = 27;
+	SuggestModesResponseParams suggest_modes_info = 28;
+	YoutubeHeaderTextResponseParams youtube_header_text = 29;
+	string ignored_prefix = 36;
+	uint64 timestamp = 38;
+	bool answer_global_cache = 39;
+	bool textahead = 44;
+	string hint_text = 45;
+}
+
+message SuggestResponse {
+	string original_query = 1;
+
+	message SuggestResult {
+		string suggestion = 1;
+		int32 suggest_type = 2;
+		repeated int32 suggest_subtype = 3 [ features.repeated_field_encoding = EXPANDED ];
+		SharedSuggestionParameters shared_parameters = 5;
+		PostfixSuggestionParameters postfix_suggestion_parameters = 10;
+		YouTubeSuggestionParameters youtube_suggestion_parameters = 28;
+	}
+
+	repeated SuggestResult suggest_result = 2;
+	SuggestResponseParameters response_parameters = 3;
+}

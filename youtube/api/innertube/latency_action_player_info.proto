@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/latency_player_prefetch_type.proto";
+import "youtube/api/innertube/latency_player_set_operation_type.proto";
+import "youtube/api/innertube/latency_player_visibility_state.proto";
+import "youtube/api/innertube/latency_player_preload_type.proto";
+import "youtube/api/innertube/player_initialized_state.proto";
+import "youtube/api/innertube/playback_type.proto";
+import "youtube/api/innertube/stoppage_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LatencyActionPlayerInfo {
+	int32 itag = 1;
+	int32 video_percent_downloaded = 2;
+	LatencyPlayerPrefetchType prefetch_type = 3;
+	LatencyPlayerSetOperationType set_operation_type = 4;
+	LatencyPlayerVisibilityState visibility_state = 5;
+	bool is_paused_on_load = 6;
+	int32 cached_bytes = 7;
+	LatencyPlayerPreloadType preload_type = 8;
+	bool sufficiently_prebuffered_for_immediate_playback = 9;
+	string onesie_ustreamer_timing_info = 10;
+	bool onesie_reused_existing_socket = 11;
+	int64 onesie_host_rtt_ms = 12;
+	bool onesie_unencrypted_data_received_before_player_response = 13;
+	PlayerInitializedState player_initialized_state = 14;
+	PlaybackType playback_type = 15;
+
+	message CodecInit {
+		bool reused = 1;
+	}
+
+	repeated CodecInit codec_init = 16;
+	StoppageReason stoppage_reason = 17;
+	int32 onesie_video_itag = 18;
+	int32 onesie_audio_itag = 19;
+	int32 video_itag = 20;
+	int32 audio_itag = 21;
+}

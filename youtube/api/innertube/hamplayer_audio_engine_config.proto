@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerAudioEngineConfig {
+	int32 max_idle_duration_ms = 1;
+	bool treat_paused_as_idle = 2;
+	bool stop_in_background = 4;
+	bool auto_shutdown_enabled = 5;
+	bool start_in_prepare = 6;
+	int32 max_idle_duration_from_prepare_ms = 7;
+
+	enum IosAudioOutputLatencySource {
+		option features.enum_type = CLOSED;
+
+		IOS_AUDIO_OUTPUT_LATENCY_SOURCE_UNKNOWN = 0;
+		IOS_AUDIO_OUTPUT_LATENCY_SOURCE_AUDIO_SESSION_CACHED = 1;
+		IOS_AUDIO_OUTPUT_LATENCY_SOURCE_AUDIO_SESSION = 2;
+		IOS_AUDIO_OUTPUT_LATENCY_SOURCE_PLAYER_NODE = 3;
+		IOS_AUDIO_OUTPUT_LATENCY_SOURCE_PLAYER_NODE_WITH_CORRECTION = 4;
+	}
+
+	IosAudioOutputLatencySource audio_output_latency_source = 8;
+	bool always_use_idle_timer = 9;
+	bool terminate_when_app_terminating = 10;
+	bool pause_immediately = 11;
+	bool no_force_start_on_become_active = 12;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message Session {
+	string session_id = 1;
+	bytes session_token = 2;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package lens.api;
+
+import "lens/api/failure_info_card.proto";
+import "lens/api/search_results_page_card.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message LensCard {
+	oneof card {
+		FailureInfoCard failure_info_card = 27;
+		SearchResultsPageCard search_results_page_card = 41;
+	}
+}

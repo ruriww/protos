@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.snackbar;
+
+option objc_class_prefix = "ORCH2";
+
+message SnackbarNodeProperties {
+	uint32 text_label_color_argb = 1;
+	uint32 action_message_color_argb = 2;
+}

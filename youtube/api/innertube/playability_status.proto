@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playability_status_enum.proto";
+import "youtube/api/innertube/offline_message_supported_renderers.proto";
+import "youtube/api/innertube/playability_error_supported_renderers.proto";
+import "youtube/api/innertube/offlineability_supported_renderers.proto";
+import "youtube/api/innertube/backgroundability_supported_renderers.proto";
+import "youtube/api/innertube/ypc_clickwrap_supported_renderers.proto";
+import "youtube/api/innertube/playability_message_supported_renderers.proto";
+import "youtube/api/innertube/audio_only_playability_supported_renderers.proto";
+import "youtube/api/innertube/playability_error_skip_supported_configs.proto";
+import "youtube/api/innertube/live_streamability_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_blackouts_supported_renderers.proto";
+import "youtube/api/innertube/picture_in_picture_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/transport_controls_config.proto";
+import "youtube/api/innertube/paygated_qualities_metadata.proto";
+import "youtube/api/innertube/playability_error_code.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayabilityStatus {
+	PlayabilityStatusEnum.CanPlayStatus status = 1;
+	string reason = 2;
+	repeated string messages = 3;
+	bool playable_in_background = 4;
+	bool playable_offline = 5;
+	OfflineMessageSupportedRenderers offline_message = 7;
+	PlayabilityErrorSupportedRenderers error_screen = 8;
+	bool playable_in_embed = 9;
+	OfflineabilitySupportedRenderers offlineability = 10;
+	BackgroundabilitySupportedRenderers backgroundability = 11;
+	int32 desktop_legacy_age_gate_reason = 12;
+	YpcClickwrapSupportedRenderers ypc_clickwrap = 13;
+	repeated PlayabilityMessageSupportedRenderers message_renderers = 15;
+	AudioOnlyPlayabilitySupportedRenderers audio_only_playability = 16;
+	PlayabilityErrorSkipSupportedConfigs skip = 17;
+	LiveStreamabilitySupportedRenderers live_streamability = 18;
+	UnpluggedBlackoutsSupportedRenderers unplugged_blackouts = 19;
+	bool is_blocked_in_restricted_mode = 20;
+	PictureInPictureSupportedRenderers picture_in_picture = 21;
+	string reason_title = 22;
+	Renderer miniplayer = 24;
+	Renderer content_skippability = 25;
+	bytes context_params = 31;
+	bytes additional_logging_data = 32;
+	TransportControlsConfig transport_controls_config = 33;
+	PaygatedQualitiesMetadata paygated_qualities_metadata = 34;
+	PlayabilityErrorCode error_code = 35;
+	string remote_playability_status_params = 37;
+
+	extensions 506704043;
+}

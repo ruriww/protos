@@ -1,0 +1,155 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/comment_action_buttons_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/comment_reply_form_supported_renderers.proto";
+import "youtube/api/innertube/backstage_attachment_supported_renderers.proto";
+import "youtube/api/innertube/comment_badge_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/comment_creation_supported_renderers.proto";
+import "youtube/api/innertube/comment_poll_status.proto";
+import "youtube/api/innertube/creator_heart_supported_renderers.proto";
+import "youtube/api/innertube/comment_moderation_buttons_supported_renderers.proto";
+import "youtube/api/innertube/engagement_toolbar_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/comment_style.proto";
+import "youtube/api/innertube/comment_exp_style.proto";
+import "youtube/api/innertube/subscriber_comment_badge.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentSupportedRenderers {
+	oneof renderer {
+		CommentRenderer comment_renderer = 62285947;
+	}
+}
+
+message CommentRenderer {
+	FormattedString author_text = 1;
+	ThumbnailDetails author_thumbnail = 2;
+	Command author_endpoint = 3;
+	FormattedString content_text = 4;
+	FormattedString published_time_text = 5;
+	bool is_liked = 6;
+	int32 like_count = 7;
+	MenuSupportedRenderers action_menu = 8;
+	string comment_id = 9;
+	CommentActionButtonsSupportedRenderers action_buttons = 10;
+	bool author_is_channel_owner = 11;
+
+	oneof linked_badge {
+		FormattedString linked_comment_text = 12;
+		BadgeSupportedRenderers linked_comment_badge = 43;
+	}
+
+	ThumbnailDetails current_user_reply_thumbnail = 13;
+	FormattedString editable_content_text = 14;
+	LikeStatus vote_status = 17;
+	BadgeSupportedRenderers author_verified_badge = 18;
+	bytes tracking_params = 19;
+	string author_id = 21;
+	CommentReplyFormSupportedRenderers reply_form = 23;
+	BackstageAttachmentSupportedRenderers backstage_attachment = 24;
+	FormattedString initial_reply_text = 25;
+	FormattedString prologue_text = 26;
+	bool viewer_is_author = 27;
+	FormattedString vote_count = 28;
+
+	enum CommentBackgroundStyleType {
+		option features.enum_type = CLOSED;
+
+		BG_STYLE_UNKNOWN = 0;
+		BG_STYLE_DEFAULT = 1;
+		BG_STYLE_GREY = 2;
+	}
+
+	oneof background_styling {
+		CommentBackgroundStyleType background_style = 31;
+	}
+
+	enum CommentAvatarSizeType {
+		option features.enum_type = CLOSED;
+
+		AVATAR_SIZE_UNKNOWN = 0;
+		AVATAR_SIZE_DEFAULT = 1;
+		AVATAR_SIZE_SMALL = 2;
+	}
+
+	CommentAvatarSizeType avatar_size = 30;
+	Command detail_view_endpoint = 32;
+	CommentBadgeSupportedRenderers pinned_comment_badge = 33;
+	ButtonSupportedRenderers expand_button = 34;
+	ButtonSupportedRenderers collapse_button = 35;
+	CommentSupportedRenderers creator_reply = 36;
+	Command reply_create_endpoint = 38;
+	CommentBadgeSupportedRenderers author_comment_badge = 39;
+	bool show_separator = 40;
+	CommentCreationSupportedRenderers reply_creation = 41;
+	CommentPollStatus poll_status = 42;
+	CreatorHeartSupportedRenderers creator_heart = 44;
+	repeated Command actions = 45;
+	bool ios_enable_posts_v2 = 47;
+	bool ios_enable_backstage_fullscreen_image_viewer = 48;
+	FormattedString full_screen_image_viewer_author_text = 49;
+	bool enable_posts_v2 = 50;
+	CommentModerationButtonsSupportedRenderers moderation_buttons = 51;
+	int64 proto_creation_ms = 52;
+	EngagementToolbarStyle engagement_toolbar_style = 53;
+	bool android_enable_backstage_fullscreen_image_viewer = 54;
+	FormattedString moderation_reason_text = 55;
+	Renderer video_thumbnail = 56;
+	CommentStyle style = 57;
+	CommentBadgeSupportedRenderers sponsor_comment_badge = 58;
+	repeated CommentExpStyle experiment_styles = 59;
+	CommentBadgeSupportedRenderers sponsors_only_badge = 60;
+	ButtonSupportedRenderers detail_view_button = 62;
+	repeated ThumbnailDetails author_thumbnails = 65;
+	bool ios_update_element_store_for_poll = 66;
+	int32 max_post_text_lines = 67;
+	bool contains_creator_reply = 68;
+	bool is_creator_reply = 69;
+	int32 rendering_latency_injection_ms = 72;
+	int32 thread_nesting_level = 77;
+	Renderer reel_response_button = 78;
+	bool pulse_highlight = 79;
+	repeated Renderer author_reputation = 80;
+	Renderer profile_card_hint = 81;
+	int32 reply_count = 82;
+	Renderer view_replies = 83;
+	Renderer hide_replies = 84;
+	bool hidden_by_default = 85;
+	FormattedString replies_metadata_text = 86;
+	SubscriberCommentBadge subscriber_comment_badge = 87;
+	bool is_channel_wide_top_commenter = 89;
+	bool android_use_log_scrolling_visibility_updates = 90;
+	AccessibilitySupportedDatas accessibility_data = 91;
+	FormattedString replies_count = 92;
+	Renderer paid_comment_chip_renderer = 93;
+	string aadc_guidelines_state_entity_key = 95;
+	Command show_aadc_guidelines_bottom_sheet_command = 96;
+	bool hide_reply_icon = 97;
+	bool is_paused = 98;
+	Command profile_card_endpoint = 99;
+	Command channel_page_endpoint = 100;
+	Command report_as_spam_command = 101;
+	bool is_not_selectable_for_bulk = 102;
+	MenuSupportedRenderers smart_replies_action_menu = 103;
+	Renderer voice_reply_container_view_model = 104;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	CommentRenderer comment_renderer = 62285947;
+}

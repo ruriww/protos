@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AuthConfig {
+	bool enable_blocking_token_refresh = 1;
+	int32 refresh_interval_secs = 2;
+	int32 token_expiration_refresh_delta_secs = 3;
+	bool enable_homepage_wait_for_valid_token = 4;
+	bool enable_offline_worker_wait_for_valid_token = 5;
+}

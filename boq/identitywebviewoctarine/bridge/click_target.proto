@@ -1,0 +1,19 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+import "boq/identitywebviewoctarine/bridge/url_target.proto";
+import "boq/identitywebviewoctarine/bridge/resource_target.proto";
+import "boq/identitywebviewoctarine/bridge/help_target.proto";
+import "boq/identitywebviewoctarine/bridge/js_callback_target.proto";
+
+option objc_class_prefix = "OCT";
+
+message ClickTarget {
+	oneof target_type {
+		UrlTarget url_target = 1;
+		ResourceTarget resource_target = 2;
+		HelpTarget help_target = 3;
+		JsCallbackTarget js_callback_target = 4;
+	}
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message FpsMetricStats {
+	float average = 1;
+	float minimum = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/rich_text.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message Title {
+	RichText title_text = 1;
+	bool truncate_to_single_line = 2;
+	bool multiline_center_aligned = 3;
+}

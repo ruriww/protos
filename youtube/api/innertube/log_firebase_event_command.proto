@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/key_value_pair.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LogFirebaseEventCommand {
+	extend Command {
+		LogFirebaseEventCommand log_firebase_event_command = 245093374;
+	}
+
+	string name = 1;
+	repeated KeyValuePair params = 2;
+}

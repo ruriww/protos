@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlaylistImageType {
+	option features.enum_type = CLOSED;
+
+	PLAYLIST_IMAGE_TYPE_UNKNOWN = 0;
+	PLAYLIST_IMAGE_TYPE_CUSTOM_THUMBNAIL = 1;
+	PLAYLIST_IMAGE_TYPE_PODCASTS_ARTWORK = 2;
+	PLAYLIST_IMAGE_TYPE_TVFILM_BANNER = 3;
+	PLAYLIST_IMAGE_TYPE_TVFILM_BACKDROP = 4;
+	PLAYLIST_IMAGE_TYPE_TVFILM_TITLE = 5;
+}

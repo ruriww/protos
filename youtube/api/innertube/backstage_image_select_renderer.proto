@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstageImageSelectRenderer {
+	Icon icon = 1;
+	FormattedString drag_label = 2;
+	ButtonSupportedRenderers select_button = 3;
+	FormattedString license_text = 4;
+	ButtonSupportedRenderers cancel_button = 5;
+	FormattedString file_size_error = 6;
+	FormattedString invalid_error = 7;
+	FormattedString cropped_message = 8;
+	FormattedString upload_failure_error = 9;
+	FormattedString invalid_aspect_ratio_error = 11;
+	FormattedString aspect_ratio_requirement = 12;
+	bytes tracking_params = 13;
+}

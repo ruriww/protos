@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+enum WatchErrorCode {
+	option features.enum_type = CLOSED;
+
+	WATCH_ERROR_CODE_UNKNOWN = 0;
+	WATCH_ERROR_CODE_FAILED_PRECONDITION = 1;
+	WATCH_ERROR_CODE_INVALID_ARGUMENT = 2;
+	WATCH_ERROR_CODE_UNAVAILABLE = 3;
+	WATCH_ERROR_CODE_UNIMPLEMENTED = 4;
+}

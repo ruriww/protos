@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TextFontWidth {
+	option features.enum_type = CLOSED;
+
+	TEXT_FONT_WIDTH_UNSPECIFIED = 0;
+	TEXT_FONT_WIDTH_ULTRA_CONDENSED = 1;
+	TEXT_FONT_WIDTH_EXTRA_CONDENSED = 2;
+	TEXT_FONT_WIDTH_CONDENSED = 3;
+	TEXT_FONT_WIDTH_SEMI_CONDENSED = 4;
+	TEXT_FONT_WIDTH_NORMAL = 5;
+	TEXT_FONT_WIDTH_SEMI_EXPANDED = 6;
+	TEXT_FONT_WIDTH_EXPANDED = 7;
+	TEXT_FONT_WIDTH_EXTRA_EXPANDED = 8;
+	TEXT_FONT_WIDTH_ULTRA_EXPANDED = 9;
+}

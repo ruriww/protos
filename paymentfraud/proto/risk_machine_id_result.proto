@@ -1,0 +1,11 @@
+edition = "2023";
+
+package paymentfraud.proto;
+
+option objc_class_prefix = "PF";
+
+message RiskMachineIdResult {
+	string encoded_response = 1;
+
+	extensions 100000 to max;
+}

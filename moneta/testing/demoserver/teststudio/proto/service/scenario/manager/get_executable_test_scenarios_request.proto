@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.manager;
+
+import "moneta/testing/demoserver/teststudio/proto/pagination.proto";
+
+option objc_class_prefix = "TSLSSM";
+
+message GetExecutableTestScenariosRequest {
+	Pagination pagination = 1;
+	string filter = 2;
+	string tag_filter = 3;
+}

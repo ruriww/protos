@@ -1,0 +1,11 @@
+edition = "2023";
+
+package clearcut.streamz;
+
+import "frameworks/client/streamz/increment_batch.proto";
+
+option objc_class_prefix = "FCSZ";
+
+message IncrementRequest {
+	repeated frameworks.client.streamz.IncrementBatch batch = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/update_shopping_settings_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateShoppingSettingsCommand {
+	extend elements.Command {
+		UpdateShoppingSettingsCommand update_shopping_settings_command = 488612278;
+	}
+
+	UpdateShoppingSettingsRequest update_shopping_settings_request = 1;
+}

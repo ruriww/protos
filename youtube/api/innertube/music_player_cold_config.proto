@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPlayerColdConfig {
+	bool music_diable_custom_video_error_skip_controller = 2;
+	int64 music_enable_rx_player_events_mask = 3;
+	bool music_enable_slim_network_status_bar = 4;
+	bool music_enable_song_detail_browse_page = 5;
+	bool enable_modular_player_page = 6;
+	bool enable_media_session_queue = 7;
+	bool enable_android_playback_misc_latency_improvements = 8;
+	bool ios_use_prepare_to_load_with_player_transition = 9;
+	bool enable_swipeable_album_art = 10;
+	bool enable_queue_persistence_refactor = 11;
+	bool disable_vertical_swipe_on_album_art = 12;
+	bool lightweight_jump_check = 13;
+	bool android_enable_clientside_shuffle_while_casting = 14;
+}

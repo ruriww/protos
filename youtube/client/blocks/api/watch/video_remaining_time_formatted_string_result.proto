@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+message VideoRemainingTimeFormattedStringResult {
+	string video_remaining_time_formatted_string = 1;
+}

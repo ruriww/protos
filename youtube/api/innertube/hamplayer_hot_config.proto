@@ -1,0 +1,59 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_quality_of_service_class.proto";
+import "youtube/api/innertube/hamplayer_audio_engine_config.proto";
+import "youtube/api/innertube/hamplayer_render_view_type.proto";
+import "youtube/api/innertube/hamplayer_cache_config.proto";
+import "youtube/api/innertube/hamplayer_data_loader_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerHotConfig {
+	bool keep_shared_resources = 1;
+	bool preallocate_shared_resources = 2;
+	bool use_opengl_render_view = 3;
+	bool use_audio_session_delegate = 4;
+	IosQualityOfServiceClass qos_class = 5;
+	sint32 qos_relative_priority = 6;
+	IosQualityOfServiceClass decode_qos_class = 7;
+	sint32 decode_qos_relative_priority = 8;
+	bool async_decode = 9;
+	HamplayerAudioEngineConfig audio_engine_config = 10;
+	int32 decode_max_sample_count = 11;
+	int32 libvpx_decode_threads = 12;
+	bool prepare_audio_engine = 13;
+	bool use_sbdl_render_view = 14;
+	bool libvpx_skip_loop_filter = 16;
+	bool libvpx_loop_filter_optimization = 17;
+	bool libvpx_row_threading = 18;
+	bool trim_audio_encoder_padding = 19;
+	bool use_multi_nodes_audio_renderer = 20;
+	bool use_present_drawable_minimum_duration = 21;
+	bool always_create_text_track_renderer = 22;
+	bool enable_cuepoint_collector = 23;
+	HamplayerRenderViewType render_view_type = 24;
+	bool use_render_view_type = 25;
+	bool enable_queueplayer_wrapped_hamplayer = 27;
+	bool use_cpi_from_pssh = 28;
+	bool enable_audio_only_fallback = 29;
+	bool disable_drm_capture = 30;
+	bool disable_timestamp_rewriting = 31;
+	HamplayerCacheConfig cache_config = 33;
+	bool enable_metadata_fetcher = 34;
+	bool flush_qoe_when_deactivating_player_item = 35;
+	bool recreate_sbdl_on_rendering_error = 36;
+	bool iosurface_render_immediately_on_unpause = 37;
+	bool recreate_sbdl_view_if_layer_is_nil = 38;
+	bool sw_av1_apply_grain = 40;
+	int32 dav1d_threads = 41;
+	int32 dav1d_max_frame_delay = 42;
+	bool enable_onesie_for_post_live = 45;
+	bool dont_recreate_sbdl_for_pip = 46;
+	bool restore_prevents_capture = 47;
+	HamplayerDataLoaderSupportedConfigs data_loader_config = 140225866;
+}

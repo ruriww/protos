@@ -1,0 +1,25 @@
+edition = "2023";
+
+package onegoogle.logging.mobile;
+
+import "unknown/youtube/one_google_mobile_event_category.proto";
+import "unknown/youtube/one_google_mobile_component_category.proto";
+import "unknown/youtube/one_google_mobile_component_style_category.proto";
+import "unknown/youtube/one_google_mobile_component_appearance_category.proto";
+import "unknown/youtube/one_google_mobile_integration_environment_category.proto";
+import "unknown/youtube/one_google_mobile_absorbed_crash_error_category.proto";
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleMobileEvent {
+	unknown.youtube.OneGoogleMobileEventCategory event = 1;
+	unknown.youtube.OneGoogleMobileComponentCategory component = 2;
+	bool user_interaction = 3;
+	unknown.youtube.OneGoogleMobileComponentStyleCategory component_style = 4;
+	bool bottom_sheet = 5;
+	unknown.youtube.OneGoogleMobileComponentAppearanceCategory component_appearance = 6;
+	string package_name = 7;
+	unknown.youtube.OneGoogleMobileIntegrationEnvironmentCategory integration_environment = 8;
+	unknown.youtube.OneGoogleMobileAbsorbedCrashErrorCategory absorbed_crash_error = 10;
+	bool flutter = 11;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+option objc_class_prefix = "ORCH2";
+
+message ReplaceSelectedOptionsAction {
+	repeated int64 selected_option_data_reference = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 option_tag = 2;
+}

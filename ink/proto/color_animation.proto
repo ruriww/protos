@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/animation_curve.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ColorAnimation {
+	double duration = 1 [ default = 0.5 ];
+	AnimationCurve curve = 2;
+	uint32 rgba = 3;
+}

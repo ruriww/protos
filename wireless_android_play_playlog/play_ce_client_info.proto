@@ -1,0 +1,15 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message PlayCeClientInfo {
+	string client_id = 1;
+	string make = 3;
+	string model = 4;
+	string application_build = 5;
+	string platform_version = 6;
+	string logging_id = 7;
+	string country = 8;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message SelectedItemsPanelHeaderState {
+	bool done_button_disabled = 1;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_creation_sign_in_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationEndpoint {
+	extend Command {
+		LiveCreationEndpoint live_creation_endpoint = 122546829;
+	}
+
+	bool hack = 1;
+	LiveCreationSignInType sign_in_type = 2;
+	string serialized_participant_params = 3;
+	string serialized_get_broadcast_setup_params = 4;
+	bool enable_sharedmde = 5;
+	bool enable_merged_entrypoints = 6;
+}

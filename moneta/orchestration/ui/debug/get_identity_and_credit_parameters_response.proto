@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetIdentityAndCreditParametersResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	bytes encrypted_parameters = 3;
+}

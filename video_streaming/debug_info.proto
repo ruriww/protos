@@ -1,0 +1,8 @@
+edition = "2023";
+
+package video_streaming;
+
+message DebugInfo {
+	string unnamed_field_1 = 1;
+	string unnamed_field_2 = 2;
+}

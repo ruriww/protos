@@ -1,0 +1,52 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/common/components/customer/customer_form.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/credit_card_update_form.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form.proto";
+import "moneta/orchestration/ui/common/form_field_reference.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/components/pageheader/page_header.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/encryption_form.proto";
+
+option objc_class_prefix = "IManager";
+
+message Page {
+	oneof form {
+		common.components.customer.CustomerForm customer_form = 1;
+		common.components.instrument.InstrumentForm instrument_form = 2;
+		common.components.instrument.types.CreditCardUpdateForm credit_card_update_form = 3;
+		common.components.instrument.InstrumentActivationForm instrument_activation_form = 21;
+	}
+
+	string title = 4;
+	string submit_button_text = 5;
+	repeated common.FormFieldReference refresh_trigger_field = 8;
+	string progress_dialog_text = 9;
+	common.generic.InfoMessage top_info_message = 10;
+	common.generic.ImageWithCaption title_image = 11;
+	string progress_dialog_title = 12;
+	bool auto_submit = 13;
+	repeated common.components.Button button = 14;
+	common.generic.DependencyGraph dependency_graph = 15;
+	int64 ui_reference = 17;
+	string cancel_button_text = 18;
+	int64 cancel_button_ui_reference = 19;
+	int64 initial_focus_ui_reference = 20;
+	repeated common.components.legal.LegalMessage legal_message = 22;
+	bool sticky_buttons = 23;
+	common.components.pageheader.PageHeader page_header = 24;
+	common.components.webview.WebViewComponent web_view_component = 25;
+	common.components.SimpleForm brand_logo = 26;
+	int64 submit_after_timeout_millis = 27;
+	bool hide_cancel_button = 29;
+	common.components.EncryptionForm encryption_form = 32;
+}

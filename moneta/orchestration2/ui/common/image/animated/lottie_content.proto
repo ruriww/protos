@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message LottieContent {
+	oneof data {
+		string lottie_json = 1;
+		webutil.html.types.SafeUrlProto safe_url = 3;
+	}
+
+	enum RepetitionType {
+		option features.enum_type = CLOSED;
+
+		REPETITION_UNKNOWN = 0;
+		REPETITION_ONCE = 1;
+		REPETITION_CONTINUOUS = 2;
+	}
+
+	RepetitionType repetition_type = 2;
+}

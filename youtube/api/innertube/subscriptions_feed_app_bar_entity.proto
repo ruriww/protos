@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionsFeedAppBarEntity {
+	extend EntityMutationPayload {
+		SubscriptionsFeedAppBarEntity subscriptions_feed_app_bar_entity = 454;
+	}
+
+	string key = 1;
+	string title = 2;
+	Command back_button_command = 3;
+}

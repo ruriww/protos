@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/offline_ad_frequency_cap_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineFrequencyCap {
+	repeated LoggingUrl attempted_playback_capped_urls = 1;
+	OfflineAdFrequencyCapSupportedConfigs offline_config = 2;
+}

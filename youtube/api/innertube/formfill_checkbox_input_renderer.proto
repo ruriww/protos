@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillCheckboxInputRenderer {
+	bool is_checked = 1;
+	bool is_required = 2;
+	FormattedString label = 3;
+	FormattedString helper_text = 4;
+	FormattedString error_text = 5;
+	Command error_command = 6;
+	bytes tracking_params = 8;
+	FormattedString header = 10;
+}
+
+extend Renderer {
+	FormfillCheckboxInputRenderer formfill_checkbox_input_renderer = 232783933;
+}

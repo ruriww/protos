@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/effect_asset.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationVideoAsset {
+	string url = 1;
+
+	message VideoItemUploadData {
+		string upload_title = 1;
+	}
+
+	VideoItemUploadData upload_data = 2;
+
+	oneof vapi_data {
+		bytes serialized_generative_media_params = 3;
+		EffectAsset attributed_effect = 4;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/autocomplete_option.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AutocompleteDataValue {
+	extend data.DataValue {
+		AutocompleteDataValue autocomplete_data_value_extension = 313318370;
+	}
+
+	AutocompleteOption selected_autocomplete_option = 1;
+}

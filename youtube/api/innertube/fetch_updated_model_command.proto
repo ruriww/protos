@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/browse_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FetchUpdatedModelCommand {
+	extend elements.Command {
+		FetchUpdatedModelCommand fetch_updated_model_command = 525000091;
+	}
+
+	oneof payload {
+		BrowseRequest browse_request = 1;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_quality_setting.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerRequestVideoQualitySettingParams {
+	VideoQualitySetting video_quality_setting_mobile_network = 1;
+	VideoQualitySetting video_quality_setting_wifi = 2;
+	int64 video_quality_last_written_ms = 3;
+}

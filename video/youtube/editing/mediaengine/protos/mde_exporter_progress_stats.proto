@@ -1,0 +1,12 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeExporterProgressStats {
+	uint32 progress_ms = 1;
+	uint32 max_progress_latency_ms = 2;
+	uint32 time_since_last_progress_ms = 3;
+	uint32 total_export_running_time_ms = 4;
+}

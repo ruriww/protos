@@ -1,0 +1,19 @@
+edition = "2023";
+
+package id.unauth.signedoutstate.signedoutinfo;
+
+option objc_class_prefix = "SOS";
+
+message SignedOutInfo {
+	message MobileSignedOutConsent {
+		enum Treatment {
+			TREATMENT_UNSPECIFIED = 0;
+			TREATMENT_ESSENTIAL_ONLY = 1;
+			TREATMENT_NON_ESSENTIAL_PERMITTED = 2;
+		}
+
+		Treatment essential_only_mode_treatment = 1;
+	}
+
+	MobileSignedOutConsent mobile_signed_out_consent = 1;
+}

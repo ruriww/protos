@@ -1,0 +1,86 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_links_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/visit_tracking.proto";
+import "youtube/api/innertube/c4_tabbed_header_other_subscribers_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/c4_tabbed_header_secondary_header_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_view_as_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_view_as_notification_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_flagging_menu_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_offlineabilty_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_color_supported_datas.proto";
+import "youtube/api/innertube/c4_tabbed_header_menu_supported_renderers.proto";
+import "youtube/api/innertube/c4_tabbed_header_edit_channel_button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message C4TabbedHeaderRenderer {
+	string channel_id = 5;
+	string title = 6;
+	Command navigation_endpoint = 7;
+
+	oneof channel_avatar {
+		ThumbnailDetails avatar = 9;
+		Renderer reel_avatar = 55;
+	}
+
+	ThumbnailDetails banner = 10;
+	int32 banner_color = 12;
+	repeated BadgeSupportedRenderers badges = 13;
+	C4TabbedHeaderLinksSupportedRenderers header_links = 15;
+	C4TabbedHeaderSubscribeButtonSupportedRenderers subscribe_button = 18;
+	VisitTracking visit_tracking = 20;
+	C4TabbedHeaderOtherSubscribersSupportedRenderers other_subscribers_module = 21;
+	FormattedString subscriber_count_text = 22;
+	ThumbnailDetails tv_banner = 24;
+	ThumbnailDetails mobile_banner = 25;
+	bytes tracking_params = 27;
+	Command edit_avatar_endpoint = 28;
+	Command edit_banner_endpoint = 29;
+	Command edit_links_endpoint = 30;
+	C4TabbedHeaderSecondaryHeaderSupportedRenderers secondary_header = 31;
+	C4TabbedHeaderViewAsSupportedRenderers view_as_selector = 32;
+	C4TabbedViewAsNotificationSupportedRenderers view_as_notification = 33;
+	Command advanced_settings_endpoint = 34;
+	Command navigation_settings_endpoint = 35;
+	Command translate_endpoint = 36;
+	FormattedString description = 37;
+	bool shrink_to_fit = 38;
+	Command profile_editor_endpoint = 39;
+	ButtonSupportedRenderers casual_channel_settings_button = 40;
+	Command edit_channel_description_endpoint = 41;
+	C4TabbedHeaderFlaggingMenuSupportedRenderers flagging_menu = 43;
+	C4TabbedHeaderOfflineabiltySupportedRenderers channel_offlineability = 44;
+	C4TabbedHeaderColorSupportedDatas header_color_palette = 46;
+	C4TabbedHeaderMenuSupportedRenderers overflow_menu = 47;
+	repeated C4TabbedHeaderEditChannelButtonSupportedRenderers edit_channel_buttons = 48;
+	C4TabbedHeaderEditChannelButtonSupportedRenderers edit_banner_button = 49;
+	Command edit_avatar_service_endpoint = 50;
+	repeated Renderer other_buttons = 51;
+	Renderer banner_editor = 52;
+	Command banner_link_endpoint = 53;
+	Renderer sponsor_button = 54;
+	Renderer purchase_button = 56;
+	Renderer channel_profile = 57;
+	FormattedString channel_handle_text = 59;
+	FormattedString videos_count_text = 61;
+	Renderer tagline = 62;
+	FormattedString channel_pronouns = 63;
+	bool is_subscribers_only = 64;
+}
+
+extend Renderer {
+	C4TabbedHeaderRenderer c4_tabbed_header_renderer = 46407682;
+}

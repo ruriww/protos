@@ -1,0 +1,10 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+option objc_class_prefix = "ASX";
+
+message MobileHelpClientData {
+	int32 help_client_version = 1;
+	string help_client_version_name = 2;
+}

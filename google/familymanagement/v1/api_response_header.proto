@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "proto2/bridge/message_set.proto";
+import "framework/consistency/apiary_consistency_token_response_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message ApiResponseHeader {
+	extend proto2.bridge.MessageSet {
+		ApiResponseHeader message_set_extension = 223400119;
+	}
+
+	framework.consistency.ApiaryConsistencyTokenResponseHeader consistency = 1;
+}

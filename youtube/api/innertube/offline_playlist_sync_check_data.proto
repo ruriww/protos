@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinePlaylistSyncCheckData {
+	extend Datas {
+		OfflinePlaylistSyncCheckData offline_playlist_sync_check_data = 75592463;
+	}
+
+	string playlist_id = 1;
+	bool up_to_date = 2;
+	FormattedString playlist_sync_message = 3;
+	uint32 check_in_seconds = 4;
+	bool should_auto_sync_videos = 5;
+	bool should_auto_sync_metadata = 6;
+}

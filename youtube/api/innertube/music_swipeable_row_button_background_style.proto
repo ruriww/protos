@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicSwipeableRowButtonBackgroundStyle {
+	option features.enum_type = CLOSED;
+
+	MUSIC_SWIPEABLE_ROW_BUTTON_BACKGROUND_STYLE_UNKNOWN = 0;
+	MUSIC_SWIPEABLE_ROW_BUTTON_BACKGROUND_STYLE_DESTRUCTIVE = 1;
+	MUSIC_SWIPEABLE_ROW_BUTTON_BACKGROUND_STYLE_CONSTRUCTIVE = 2;
+	MUSIC_SWIPEABLE_ROW_BUTTON_BACKGROUND_STYLE_UNDO = 3;
+}

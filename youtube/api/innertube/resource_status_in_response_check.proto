@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/element_update_command.proto";
+import "youtube/api/innertube/resource_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ResourceStatusInResponseCheck {
+	extend ElementUpdateCommand {
+		ResourceStatusInResponseCheck resource_status_in_response_check = 328964737;
+	}
+
+	repeated ResourceStatus resource_statuses = 1;
+	string server_build_label = 2;
+	bool rehydrated_response = 3;
+}

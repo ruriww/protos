@@ -1,0 +1,27 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/event_count_predicate.proto";
+import "notifications/frontend/data/common/app_state_predicate.proto";
+import "notifications/frontend/data/common/ios_permission_state_predicate.proto";
+
+option objc_class_prefix = "NFDC";
+
+message ClientSideTargetingRule {
+	message TargetingTerm {
+		bool negate = 1;
+
+		oneof predicate {
+			EventCountPredicate event_count = 2;
+			AppStatePredicate app_state = 3;
+			IosPermissionStatePredicate permission = 4;
+		}
+	}
+
+	message TargetingClause {
+		repeated TargetingTerm term = 1;
+	}
+
+	repeated TargetingClause clause = 1;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InlineToWatchTransitionType {
+	option features.enum_type = CLOSED;
+
+	INLINE_TO_WATCH_TRANSITION_TYPE_UNKNOWN = 0;
+	INLINE_TO_WATCH_TRANSITION_TYPE_CONTENT = 1;
+	INLINE_TO_WATCH_TRANSITION_TYPE_PREROLL_AD = 2;
+	INLINE_TO_WATCH_TRANSITION_TYPE_PREROLL_NON_AD = 3;
+}

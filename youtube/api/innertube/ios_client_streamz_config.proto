@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosClientStreamzConfig {
+	bool client_streamz_enabled = 1;
+	int32 interval_threshold_s = 2;
+	int32 event_count_threshold = 3;
+	bool disable_gel_transmitter = 4;
+	bool client_streamz_hashing_enabled = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FaceDetectionSignals {
+	int32 frames_per_signal = 1;
+	repeated bool face_detected = 2;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+option objc_class_prefix = "SPEECH";
+
+enum VoiceSearchUIType {
+	option features.enum_type = CLOSED;
+
+	VOICE_SEARCH_UI_UNKNOWN_TYPE = 0;
+	VOICE_SEARCH_UI_GLIF_VIEW_CONTROLLER = 1;
+	VOICE_SEARCH_UI_RED_MIC_VIEW_CONTROLLER = 2;
+	VOICE_SEARCH_UI_DEPRECATED_RED_MIC_INPUT_CONTROLLER = 3;
+}

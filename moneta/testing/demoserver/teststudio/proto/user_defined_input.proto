@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+option objc_class_prefix = "TSL";
+
+message UserDefinedInput {
+	string name = 1;
+	repeated string allowed_value = 2;
+}

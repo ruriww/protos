@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineSharingConfig {
+	message RsaPublicKey {
+		bytes modulus = 1;
+		bytes public_exponent = 2;
+	}
+
+	RsaPublicKey rsa_wrapping_key = 1;
+	bytes ecdsa_verification_keys = 2;
+	bool allow_playback_without_verification = 3;
+}

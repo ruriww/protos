@@ -1,0 +1,17 @@
+edition = "2023";
+
+package products_sdk;
+
+option objc_class_prefix = "ASW";
+
+message AppSwitchingSKOverlayFeatureMode {
+	enum SKOverlayFeatureMode {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		WITH_APP_SWITCHING_UI = 1;
+		WITHOUT_APP_SWITCHING_UI = 2;
+	}
+
+	SKOverlayFeatureMode skoverlayfeature_mode = 1;
+}

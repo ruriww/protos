@@ -1,0 +1,133 @@
+edition = "2023";
+
+package logs.proto.vr.beauty.faceviewer;
+
+option objc_class_prefix = "FVRLOG";
+
+message ClientLoggingProto {
+	enum CameraPermissionsStatus {
+		option features.enum_type = CLOSED;
+
+		NOT_ASKED = 0;
+		PREVIOUSLY_DENIED = 1;
+		PREVIOUSLY_GRANTED = 2;
+		GRANTED = 3;
+		DENIED = 4;
+	}
+
+	enum ShareLocation {
+		option features.enum_type = CLOSED;
+
+		SHARE_LOCATION_UNKNOWN = 0;
+		AIRDROP = 1;
+		ASSIGN_TO_CONTACT = 2;
+		COPY_TO_PASTEBOARD = 3;
+		IOS_MAIL = 4;
+		IOS_MESSAGES = 5;
+		CAMERA_ROLL = 6;
+		FACEBOOK = 7;
+		FLICKR = 8;
+		WEIBO = 9;
+		TWITTER = 10;
+		VIMEO = 11;
+		TENCENT_WEIBO = 12;
+		PRINT = 13;
+		GMAIL = 14;
+		IOS_MARKUP_AS_PDF = 15;
+		IOS_NOTES = 16;
+		IOS_REMINDERS = 17;
+		GOOGLE_CHAT = 18;
+		TIKTOK = 19;
+		FB_MESSENGER = 20;
+		INSTAGRAM = 21;
+		WECHAT = 22;
+		WHATSAPP = 23;
+		TUMBLR = 24;
+		SNAPCHAT = 25;
+		GROUPME = 26;
+		DISCORD = 27;
+		SLACK = 28;
+		GOOGLE_DRIVE = 29;
+		GOOGLE_HANGOUTS = 30;
+		DROPBOX = 31;
+		OUTLOOK = 32;
+	}
+
+	enum LeftBy {
+		option features.enum_type = CLOSED;
+
+		LEFT_BY_UNKNOWN = 0;
+		DISMISS_BUTTON = 1;
+		BACK = 2;
+		SHOP_BUTTON = 3;
+		CLIENT_APP_SENT_DISMISS = 4;
+		APP_TERMINATED = 5;
+	}
+
+	message EffectIdList {
+		repeated string effect_ids = 1;
+	}
+
+	uint64 session_id = 1;
+
+	message ExperienceOpenedEvent {
+		oneof experience_param {
+			string experience_id = 1;
+			EffectIdList effect_ids = 2;
+		}
+
+		CameraPermissionsStatus camera_permissions_status_on_open = 3;
+		string referrer = 4;
+	}
+
+	message ExperienceLoadedEvent {
+		uint32 load_latency_ms = 1;
+		bool did_ask_for_camera_permissions = 2;
+		CameraPermissionsStatus camera_permissions_status_on_load = 3;
+		uint32 effect_download_latency_ms = 4;
+		uint32 camera_init_latency_ms = 5;
+		uint32 render_init_latency_ms = 6;
+		uint32 effect_proto_download_and_init_latency_ms = 7;
+	}
+
+	message FrameTimeLogEvent {
+		uint32 num_frame_time_samples = 1;
+		uint32 fiftieth_percentile_ms = 2;
+		uint32 ninety_fifth_percentile_ms = 3;
+		uint32 ninety_ninth_percentile_ms = 4;
+		uint32 average_ms = 5;
+		uint32 ninetieth_percentile_ms = 6;
+		uint32 sequence_number = 7;
+		uint32 duration_ms = 8;
+	}
+
+	message AssetViewedEvent {
+		string effect_id = 1;
+		FrameTimeLogEvent frame_time_log_event = 2;
+		uint32 switch_latency_ms = 3;
+	}
+
+	message PhotoTakenEvent {
+		string effect_id = 1;
+	}
+
+	message PhotoSharedEvent {
+		string effect_id = 1;
+		ShareLocation share_location = 2;
+	}
+
+	message PeriodicEvent {
+		uint32 experience_duration_so_far_ms = 1;
+		LeftBy left_by = 2;
+	}
+
+	oneof event_type {
+		ExperienceOpenedEvent experience_opened = 2;
+		ExperienceLoadedEvent experience_loaded = 3;
+		FrameTimeLogEvent frame_time_log = 4;
+		AssetViewedEvent asset_viewed = 5;
+		PhotoTakenEvent photo_taken = 6;
+		PhotoSharedEvent photo_shared = 7;
+		PeriodicEvent periodic = 8;
+	}
+}

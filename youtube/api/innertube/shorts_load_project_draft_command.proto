@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsLoadProjectDraftCommand {
+	extend Command {
+		ShortsLoadProjectDraftCommand shorts_load_project_draft_command = 423186499;
+	}
+
+	oneof project_identifier {
+		string project_id = 1;
+		string entity_key = 2;
+	}
+}

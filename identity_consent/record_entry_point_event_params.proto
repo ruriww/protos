@@ -1,0 +1,11 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_entry_point_event_type.proto";
+
+option objc_class_prefix = "IDC";
+
+message RecordEntryPointEventParams {
+	ConsentEntryPointEventType event_type = 1;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/creation_asset_authorization_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationMusicAsset {
+	oneof asset {
+		bytes audio = 1;
+		string url = 2;
+		string art_track_video_id = 9;
+	}
+
+	string lyrics = 3;
+
+	message AudioItemDisplayData {
+		ThumbnailDetails album_art = 1;
+		string title = 2;
+		bytes waveform = 3;
+	}
+
+	AudioItemDisplayData display_data = 4;
+
+	message AudioItemUploadData {
+		string upload_title = 1;
+	}
+
+	AudioItemUploadData upload_data = 5;
+	google.protobuf.Duration total_duration = 6;
+	bytes serialized_generative_media_params = 7;
+	CreationAssetAuthorizationType authorization_type = 8;
+}

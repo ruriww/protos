@@ -1,0 +1,36 @@
+edition = "2023";
+
+package engage.api.shared.cms.configuration;
+
+import "engage/enums/cms/configuration/cms_configuration_field_relationship_descriptor_enums.proto";
+
+option objc_class_prefix = "EASC";
+
+message FieldRelationshipDescriptorContext {
+	enums.cms.configuration.CmsConfigurationFieldRelationshipDescriptorEnums.Identifier frd_identifier = 1;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNSPECIFIED = 0;
+		TYPE_CORE = 15;
+		TYPE_MANAGED_ACCOUNT = 1;
+		TYPE_AGENT = 2;
+		TYPE_CUSTOMER = 3;
+		TYPE_CUSTOMER_PREFERRED = 4;
+		TYPE_TARGET = 5;
+		TYPE_PRIMARY = 6;
+		TYPE_OUTBOUND = 7;
+		TYPE_INBOUND = 8;
+		TYPE_RINGBACK = 9;
+		TYPE_COPIED_TO = 10;
+		TYPE_COPIED_FROM = 11;
+		TYPE_TARGET_CANDIDATE = 12;
+		TYPE_SOURCE = 13;
+		TYPE_CONTACT_MY_CLIENT = 14;
+		TYPE_CAR = 16;
+		TYPE_CONSULT_PARENT = 17;
+	}
+
+	Type context_type = 2;
+}

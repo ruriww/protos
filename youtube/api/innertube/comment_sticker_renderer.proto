@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/comment_sticker_source.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentStickerRenderer {
+	ThumbnailDetails avatar = 1;
+	FormattedString comment = 2;
+	FormattedString comment_author = 3;
+	CommentStickerSource comment_sticker_source = 4;
+	FormattedString title = 5;
+	string create_comment_params = 6;
+	string source_comment_id = 7;
+	Renderer pdg_comment_chip_renderer = 8;
+	uint32 background_color_argb = 9;
+	bool created_by_source_video_owner = 10;
+	bool is_created_with_linkage = 11;
+}
+
+extend Renderer {
+	CommentStickerRenderer comment_sticker_renderer = 205542177;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package kids.platform.kidonboarding.proto;
+
+option objc_class_prefix = "GKP";
+
+enum KidOnboardingFlow {
+	option features.enum_type = CLOSED;
+
+	FLOW_UNSPECIFIED = 0;
+	ACCOUNT_SELECTION_WITH_FORK = 1;
+	ACCOUNT_SELECTION = 2;
+	ACCOUNT_CREATION = 3;
+	ACCOUNT_UPGRADE = 4;
+	PASSWORD_CHANGE = 5;
+	SERVICE_RESTRICTED = 6;
+	ABOUT_SUPERVISION = 7;
+	STOP_SUPERVISION = 8;
+}

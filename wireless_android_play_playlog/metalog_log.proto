@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/metalog_counter_dimensions.proto";
+
+option objc_class_prefix = "CADP";
+
+message MetalogLog {
+	MetalogCounterDimensions counter_dimensions = 1;
+}

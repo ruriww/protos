@@ -1,0 +1,9 @@
+edition = "2023";
+
+package customer_support.ursa.proto.extensions;
+
+option objc_class_prefix = "URSA";
+
+message ProductSpecificCustomData {
+	extensions 1000 to max;
+}

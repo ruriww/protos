@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddBannerToLiveChatCommand {
+	Renderer banner_renderer = 1;
+
+	message BannerProperties {
+		bool is_ephemeral = 1;
+		uint64 banner_timeout_ms = 2;
+		google.protobuf.Duration auto_collapse_delay = 4;
+	}
+
+	BannerProperties banner_properties = 2;
+}
+
+extend Command {
+	AddBannerToLiveChatCommand add_banner_to_live_chat_command = 249902542;
+}

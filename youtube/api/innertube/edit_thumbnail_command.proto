@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_selection.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EditThumbnailCommand {
+	extend Command {
+		EditThumbnailCommand edit_thumbnail_command = 253749840;
+	}
+
+	string thumbnail_picker_state_key = 1;
+	ThumbnailSelection thumbnail_selection = 2;
+	bytes new_custom_thumbnail_bytes = 3;
+	Renderer mde_edit_custom_thumbnail_renderer = 4;
+	Renderer mde_download_thumbnail_renderer = 5;
+	bool should_skip_autogen_stills = 6;
+}

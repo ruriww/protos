@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visual_element.proto";
+import "youtube/api/innertube/post_impression_event_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostImpressionEvent {
+	string csn = 1;
+	VisualElement post_visual_element = 2;
+	PostImpressionEventType event_type = 3;
+	float visibility_threshold_percentage = 4;
+	int32 dwell_time_threshold_ms = 5;
+}

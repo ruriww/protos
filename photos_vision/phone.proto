@@ -1,0 +1,20 @@
+edition = "2023";
+
+package photos_vision;
+
+option objc_class_prefix = "MVC";
+
+message Phone {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WORK = 1;
+		HOME = 2;
+		FAX = 3;
+		MOBILE = 4;
+	}
+
+	Type type = 1 [ default = UNKNOWN ];
+	string number = 2;
+}

@@ -1,0 +1,56 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/edges.proto";
+import "moneta/orchestration2/ui/common/node/size.proto";
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+import "moneta/orchestration2/ui/common/node/direction.proto";
+import "moneta/orchestration2/ui/common/node/alignment_spec.proto";
+import "moneta/orchestration2/ui/common/node/justification.proto";
+import "moneta/orchestration2/ui/common/node/flex_spec.proto";
+import "moneta/orchestration2/ui/common/node/grid_spec.proto";
+import "moneta/orchestration2/ui/common/node/relative_spec.proto";
+import "moneta/orchestration2/ui/common/node/float_spec.proto";
+import "moneta/orchestration2/ui/common/node/grid_container_properties.proto";
+import "moneta/orchestration2/ui/common/node/flex_container_properties.proto";
+import "moneta/orchestration2/ui/common/node/dimension.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message LayoutProperties {
+	Edges margin = 1;
+	Edges padding = 2;
+	Size width = 3;
+	UnitSize min_width = 4;
+	UnitSize max_width = 5;
+	Size height = 6;
+	UnitSize min_height = 7;
+	UnitSize max_height = 8;
+	Direction direction = 9;
+	AlignmentSpec alignment = 10;
+	Justification justification = 11;
+
+	oneof layout_spec {
+		FlexSpec flex_spec = 12;
+		GridSpec grid_spec = 13;
+		RelativeSpec relative_spec = 14;
+		FloatSpec float_spec = 17;
+	}
+
+	oneof container_layout_properties {
+		GridContainerProperties grid_properties = 15;
+		FlexContainerProperties flex_properties = 18;
+	}
+
+	repeated Dimension device_padding_dimensions = 16 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum Overflow {
+		option features.enum_type = CLOSED;
+
+		OVERFLOW_UNKNOWN = 0;
+		OVERFLOW_HIDDEN = 1;
+	}
+
+	Overflow overflow = 19;
+}

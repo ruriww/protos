@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_crash_diagnostic.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_cpu_exception_diagnostic.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_hang_diagnostic.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_disk_write_exception_diagnostic.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_app_launch_diagnostic.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitDiagnosticPayload {
+	int64 time_stamp_end_ms = 1;
+	int64 time_stamp_begin_ms = 2;
+	repeated MetricKitCrashDiagnostic crash_diagnostics = 3;
+	repeated MetricKitCPUExceptionDiagnostic cpu_exception_diagnostics = 4;
+	repeated MetricKitHangDiagnostic hang_diagnostics = 5;
+	repeated MetricKitDiskWriteExceptionDiagnostic disk_write_exception_diagnostics = 6;
+	repeated MetricKitAppLaunchDiagnostic app_launch_diagnostics = 8;
+}

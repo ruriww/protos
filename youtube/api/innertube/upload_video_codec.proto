@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadVideoCodec {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_VIDEO_CODEC_UNKNOWN = 0;
+	UPLOAD_VIDEO_CODEC_H264 = 1;
+	UPLOAD_VIDEO_CODEC_HEVC = 2;
+	UPLOAD_VIDEO_CODEC_VP8 = 3;
+	UPLOAD_VIDEO_CODEC_VP9 = 4;
+	UPLOAD_VIDEO_CODEC_AV1 = 5;
+}

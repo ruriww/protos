@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+import "social/graph/wire/proto/peopleapi/minimal/affinity.proto";
+import "peoplestack/client_information.proto";
+import "peoplestack/lookup_id.proto";
+import "peoplestack/formatting_options.proto";
+
+option objc_class_prefix = "PSK";
+
+message LookupRequest {
+	social.graph.wire.proto.peopleapi.minimal.Affinity.AffinityType affinity_type = 1;
+	ClientInformation client_information = 2;
+	repeated LookupId ids = 3;
+	FormattingOptions formatting_options = 4;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message ConnectionInfo {
+	extend Request {
+		ConnectionInfo connection_info = 34552679;
+	}
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		STREAMING_STUBBY = 1;
+		BLOCKING_STUBBY = 2;
+		BIDIRECTIONAL_STUBBY = 9;
+		GRPC = 12;
+		BLOCKING_GRPC = 13;
+		STREAMING_WEBCHANNEL = 15;
+		BLOCKING_WEBCHANNEL = 16;
+		PAIRED_HTTP = 4;
+		SINGLE_HTTP = 5;
+		SERVERLESS = 6;
+		SSFE_HTTP_FALLBACK = 8;
+		SSFE_AUTOBAHN = 10;
+		S3_AUTOBAHN = 11;
+		UNKNOWN_TYPE = 14;
+		TCP = 3;
+		SSFE_TCP = 7;
+	}
+
+	Type type = 1;
+	string client_ip = 2;
+	int32 client_port = 3;
+	bool debug_ip = 4;
+	string gfe_frontline_info = 5;
+	string host = 6;
+	string immediate_client_ip = 7;
+	int32 immediate_client_port = 8;
+	string legacy_client_target_vip = 9;
+	string client_country_code = 10 [ default = "ZZ" ];
+	string immediate_client_name = 11 [ default = "OTHER" ];
+	string tls_version = 15;
+	bool is_preserved_client_ip = 16;
+	string s3_internal_id = 17;
+	string privacy_context = 18;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/subscription_options_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/subscription_toggle_option_renderer.proto";
+import "youtube/api/innertube/subscription_radio_option_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionOptionsRenderer {
+	bytes tracking_params = 2;
+	FormattedString title = 3;
+	repeated SubscriptionOptionsSupportedRenderers options = 4;
+}
+
+extend Renderer {
+	SubscriptionOptionsRenderer subscription_options_renderer = 94699390;
+}
+
+extend Renderer {
+	SubscriptionToggleOptionRenderer subscription_toggle_option_renderer = 94522740;
+}
+
+extend Renderer {
+	SubscriptionRadioOptionRenderer subscription_radio_option_renderer = 119719473;
+}

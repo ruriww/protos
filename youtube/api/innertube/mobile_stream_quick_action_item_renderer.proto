@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mobile_stream_quick_action_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_stream_visibility_condition.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamQuickActionItemRenderer {
+	MobileStreamQuickActionButtonSupportedRenderers button = 1;
+	repeated MobileStreamVisibilityCondition visibility_conditions = 2;
+}
+
+extend Renderer {
+	MobileStreamQuickActionItemRenderer mobile_stream_quick_action_item_renderer = 143194909;
+}

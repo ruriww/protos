@@ -1,0 +1,8 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+option objc_class_prefix = "GCKOC";
+
+message UnregisterDeviceResponse {
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message ExperimentInfo {
+	extend Request {
+		ExperimentInfo experiment_info = 33357560;
+	}
+
+	repeated int32 applicable_experiments = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 enabled_experiments = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 executed_experiments = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

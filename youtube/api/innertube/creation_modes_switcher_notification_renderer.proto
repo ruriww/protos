@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationModesSwitcherNotificationRenderer {
+	extend Renderer {
+		CreationModesSwitcherNotificationRenderer creation_modes_switcher_notification_renderer = 148804689;
+	}
+
+	string id = 1;
+	Renderer supported_renderer = 2;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BooleanFormFieldV2Renderer {
+	FormattedString label = 1;
+	string identifier = 2;
+	bool value = 3;
+	bool disabled = 4;
+	FormattedString tooltip = 5;
+	Command enable_service_endpoint = 6;
+	Command disable_service_endpoint = 7;
+	Command enable_command = 8;
+	Command disable_command = 9;
+}

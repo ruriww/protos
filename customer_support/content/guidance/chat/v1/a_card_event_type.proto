@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.content.guidance.chat.v1;
+
+option objc_class_prefix = "SGC";
+
+enum ACardEventType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CARD_EVENT_TYPE = 0;
+	LOCAL_DATA_LOAD = 1;
+	DEFAULT_VIEW_RENDERED = 2;
+	FULL_VIEW_RENDERED = 3;
+	CARD_RENDERED = 4;
+	BATCH_CARD_RENDERED = 5;
+	CARD_EXPANDED = 6;
+}

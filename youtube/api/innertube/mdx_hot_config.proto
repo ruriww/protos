@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_allowlist_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxHotConfig {
+	uint32 mdx_notification_device_scan_period_seconds = 3;
+	bool enable_one_cast_with_audio_session = 5;
+	bool enable_mdx_experimental_playback_controller = 6;
+	bool mdx_enable_yt_playback_wrapper = 7;
+	bool enable_gel_for_csi = 8;
+	bool enable_delayed_discovery = 9;
+	bool enable_prompt_for_local_network_permissions = 10;
+	bool enable_cast_custom_multicast = 11;
+	bool disable_features_for_supex = 12;
+	bool enable_seamless_sign_in = 14;
+	bool enable_passive_sign_in = 15;
+	bool enable_supex_guard = 19;
+	bool use_unfilled_cast_icon_connection_state = 20;
+	bool enable_cast_cloud_discovery = 21;
+	bool enable_cast_bonjour_overrides = 22;
+	uint32 cast_bonjour_restart_interval_seconds = 23;
+	uint32 cast_device_timeout_interval_seconds = 24;
+	MdxAllowlistConfig allowlist_config = 25;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_format_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UserSpecifiedDownloadParameters {
+	OfflineabilityFormatType maximum_download_quality = 1;
+	string preferred_audio_track = 2;
+}

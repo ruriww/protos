@@ -1,0 +1,79 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/watch_next_supported_renderers.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/edit_on_watch_supported_renderers.proto";
+import "youtube/api/innertube/watch_next_alerts_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_supported_renderers.proto";
+import "youtube/api/innertube/companion_ad_supported_renderers.proto";
+import "youtube/api/innertube/video_reporting_supported_renderers.proto";
+import "youtube/api/innertube/watch_next_survey_trigger_supported_renderers.proto";
+import "youtube/api/innertube/watch_next_overlay_supported_renderers.proto";
+import "youtube/api/innertube/watch_next_lock_screen_supported_renderers.proto";
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/info_cards_supported_renderers.proto";
+import "youtube/api/innertube/queue_mode.proto";
+import "youtube/api/innertube/player_cue_range_set.proto";
+import "youtube/api/innertube/watch_sequence.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchNextResponse {
+	ResponseContext response_context = 1;
+	WatchNextSupportedRenderers contents = 7;
+	ContinuationSupportedRenderers continuation_contents = 8;
+	Command current_video_endpoint = 9;
+	EditOnWatchSupportedRenderers edit_contents = 10;
+	repeated WatchNextAlertsSupportedRenderers alerts = 12;
+	bytes tracking_params = 13;
+	PlayerOverlaySupportedRenderers player_overlays = 14;
+	CompanionAdSupportedRenderers companion_ads = 15;
+	VideoReportingSupportedRenderers video_reporting = 16;
+	WatchNextSurveyTriggerSupportedRenderers survey = 17;
+	WatchNextOverlaySupportedRenderers overlay = 20;
+	repeated Command on_response_received_endpoints = 21;
+	string sidebar_debug_html = 22;
+	string debug_html = 23;
+	WatchNextLockScreenSupportedRenderers lock_screen = 24;
+	repeated EngagementPanelSupportedRenderers engagement_panels = 25;
+	Command on_ui_ready = 26;
+	ThumbnailDetails current_video_thumbnail = 29;
+	repeated EngagementPanelSupportedRenderers ad_engagement_panels = 30;
+	Command on_watch_break_triggered_command = 32;
+	Renderer topbar = 33;
+	Renderer unplugged_report_dvr_issue = 34;
+	Renderer transport_controls = 35;
+	Renderer autoplay_off_dialog_renderer = 36;
+	Renderer fullscreen_companion_ad_layout = 37;
+	Renderer cast_user_actions_renderer = 39;
+	CompanionAdSupportedRenderers content_video_companion_ads = 40;
+	InfoCardsSupportedRenderers cards = 41;
+	Renderer below_player_immersive_layout = 42;
+	bytes queue_context_params = 43;
+	repeated Renderer page_visual_effects = 44;
+	QueueMode queue_mode = 45;
+	bool is_ad_playback = 47;
+	Renderer status_bar = 48;
+	Command on_dismiss_miniplayer_action = 49;
+	Command on_record_press = 50;
+	repeated PlayerCueRangeSet player_cue_range_set = 52;
+	repeated Renderer ad_slots = 53;
+	Command on_multiview_button_command = 54;
+	Command on_screenshot_taken_command = 55;
+	WatchSequence watch_sequence = 56;
+	Renderer microformat = 57;
+	FrameworkUpdateTransport framework_updates = 777;
+
+	extensions 38;
+	extensions 1000 to max;
+}

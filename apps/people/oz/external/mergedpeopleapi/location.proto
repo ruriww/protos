@@ -1,0 +1,31 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "POEM";
+
+message Location {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+	bool current = 3;
+	string building_id = 4;
+	string floor_name = 5;
+	string floor_section = 6;
+	string desk_code = 7;
+	string type = 8;
+
+	enum SourceEnum {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		EXPLICIT = 1;
+		INFERRED = 2;
+	}
+
+	SourceEnum source = 11 [ default = EXPLICIT ];
+	google.protobuf.Timestamp last_update_time = 12;
+	string building_name = 13;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicSwipeableRowButtonAnimatedIcon {
+	option features.enum_type = CLOSED;
+
+	MUSIC_SWIPEABLE_ROW_BUTTON_ANIMATED_ICON_UNKNOWN = 0;
+	MUSIC_SWIPEABLE_ROW_BUTTON_ANIMATED_ICON_DELETE = 1;
+	MUSIC_SWIPEABLE_ROW_BUTTON_ANIMATED_ICON_PLAYLIST_ADD = 2;
+	MUSIC_SWIPEABLE_ROW_BUTTON_ANIMATED_ICON_QUEUE_PLAY_NEXT = 3;
+	MUSIC_SWIPEABLE_ROW_BUTTON_ANIMATED_ICON_MARK_AS_PLAYED = 4;
+	MUSIC_SWIPEABLE_ROW_BUTTON_ANIMATED_ICON_MARK_AS_UNPLAYED = 5;
+}

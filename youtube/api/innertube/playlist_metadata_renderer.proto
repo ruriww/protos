@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistMetadataRenderer {
+	string title = 1;
+	string description = 2;
+	string play_url = 3;
+	string android_play_url = 4;
+	string album_name = 5;
+	string android_appindexing_link = 6;
+	string ios_appindexing_link = 7;
+}
+
+extend Renderer {
+	PlaylistMetadataRenderer playlist_metadata_renderer = 63173126;
+}

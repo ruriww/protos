@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+option objc_class_prefix = "CHM";
+
+message ApplePushAddressLog {
+	bytes device_token = 1;
+	string application_id = 2;
+	string application_id_suffix = 4;
+	string dusi = 5;
+	string fetch_only_id = 6;
+	string live_activity_id = 7;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/instrument/types/pan_prefix_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message ExcludedPanCategory {
+	repeated PanPrefixSet prefix_set = 1;
+	string error_message = 2;
+}

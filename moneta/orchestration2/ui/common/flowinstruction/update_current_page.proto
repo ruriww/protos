@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.flowinstruction;
+
+import "moneta/orchestration2/ui/common/partialpage/partial_page.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UpdateCurrentPage {
+	partialpage.PartialPage partial_page_update = 1;
+}

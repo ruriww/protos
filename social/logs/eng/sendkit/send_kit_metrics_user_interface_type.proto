@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum SendKitMetricsUserInterfaceType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_USER_INTERFACE_TYPE = 0;
+	MINIMIZED_VIEW = 1;
+	MAXIMIZED_VIEW = 2;
+	THIRD_PARTY_APP_VIEW = 3;
+	AUTOCOMPLETE_VIEW = 4;
+	AVATAR_VIEW = 5;
+	CONTEXTUAL_SUGGESTION_BAR = 6;
+	PHOTO_PICKER_VIEW = 7;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/confirm_dialog_endpoint_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsAddAccountBlockRenderer {
+	FormattedString body_text = 1;
+	FormattedString no_red_account_text = 2;
+	ButtonSupportedRenderers no_red_account_button = 3;
+	ButtonSupportedRenderers authorize_account_button = 4;
+	ConfirmDialogEndpointSupportedRenderers bad_account_dialog = 5;
+	bytes tracking_params = 7;
+	ConfirmDialogEndpointSupportedRenderers add_account_consent = 8;
+	Command no_accounts_nav_endpoint = 9;
+	Command red_accounts_nav_endpoint = 10;
+}

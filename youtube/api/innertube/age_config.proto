@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AgeConfig {
+	int32 aged_up_ui_minimum_age = 1;
+	int32 subscriptions_minimum_age = 2;
+}

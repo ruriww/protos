@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_details_value.proto";
+import "moneta/orchestration/ui/paymentmethods/action_confirmation_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector_value.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message PageValue {
+	repeated common.components.instrument.InstrumentDetailsValue instrument_details_value = 1;
+	ActionConfirmationValue action_confirmation_value = 2;
+	repeated common.components.instrument.InstrumentSelectorValue instrument_selector_value = 17;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/client/blocks/api/watch/player_overlay_state.proto";
+import "youtube/client/blocks/api/watch/seek_edu_type.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerOverlaySeekEduState {
+	extend PlayerOverlayState {
+		PlayerOverlaySeekEduState player_overlay_seek_edu_state = 1000;
+	}
+
+	SeekEduType seek_edu_type = 1;
+}

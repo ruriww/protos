@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.feed;
+
+import "youtube/api/innertube/form_data.proto";
+
+option objc_class_prefix = "YTBA";
+
+message RequestContinuationArgs {
+	youtube.api.innertube.FormData form_data = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/pivot_bar_supported_renderers.proto";
+import "youtube/api/innertube/nav_bar_background_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PivotBarRenderer {
+	repeated PivotBarSupportedRenderers items = 1;
+	bytes tracking_params = 3;
+	NavBarBackgroundStyle background_style = 4;
+}
+
+extend Renderer {
+	PivotBarRenderer pivot_bar_renderer = 117866661;
+}

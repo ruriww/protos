@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/geometry.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message InteractionData {
+	message Result {
+		string object_id = 1;
+		.lens.Geometry geometry = 2;
+		.lens.Geometry parent_image_geometry = 3;
+	}
+
+	Result top_result = 1;
+}

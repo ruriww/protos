@@ -1,0 +1,58 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/submit_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/finish_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/load_url_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/fallback_to_o1_widget_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/announce_for_accessibility_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/update_focus_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/dial_number_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/print_page_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/copy_to_clipboard_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/infrastructure/system_share_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InfrastructureResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		InfrastructureResultingAction infrastructure_resulting_action_extension = 233780160;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SUBMIT = 1;
+		RESULTING_ACTION_TYPE_FINISH = 2;
+		RESULTING_ACTION_TYPE_LOAD_URL = 3;
+		RESULTING_ACTION_TYPE_TRIGGER_FULL_SCREEN_SPINNER = 4;
+		RESULTING_ACTION_TYPE_FALLBACK_TO_O1_WIDGET = 5;
+		RESULTING_ACTION_TYPE_ANNOUNCE_FOR_ACCESSIBILITY = 6;
+		RESULTING_ACTION_TYPE_UPDATE_FOCUS = 7;
+		RESULTING_ACTION_TYPE_REINITIALIZE = 8;
+		RESULTING_ACTION_TYPE_DIAL_NUMBER = 9;
+		RESULTING_ACTION_TYPE_PRINT_PAGE = 10;
+		RESULTING_ACTION_TYPE_COPY_TO_CLIPBOARD = 11;
+		RESULTING_ACTION_TYPE_SEND_PAYMENT_EVENT_CALLBACK_DATA = 12;
+		RESULTING_ACTION_TYPE_SYSTEM_SHARE = 13;
+		RESULTING_ACTION_TYPE_FINISH_WITH_REDIRECT = 14;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof resulting_action {
+		SubmitAction submit_action = 2;
+		FinishAction finish_action = 3;
+		LoadUrlAction load_url_action = 4;
+		FallbackToO1WidgetAction fallback_to_o1_widget_action = 6;
+		AnnounceForAccessibilityAction announce_for_accessibility_action = 7;
+		UpdateFocusAction update_focus_action = 8;
+		DialNumberAction dial_number_action = 10;
+		PrintPageAction print_page_action = 11;
+		CopyToClipboardAction copy_to_clipboard_action = 12;
+		SystemShareAction system_share_action = 14;
+	}
+}

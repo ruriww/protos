@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message LayerState {
+	message Layer {
+		string uuid = 1;
+		bool visibility = 2;
+		float opacity = 3;
+	}
+
+	repeated Layer layers = 1;
+	string active_layer_uuid = 2;
+}

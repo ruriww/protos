@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.lens.visualsearch;
+
+option objc_class_prefix = "LLOGVS";
+
+enum ClientPlatform {
+	option features.enum_type = CLOSED;
+
+	CLIENT_PLATFORM_UNSPECIFIED = 0;
+	CLIENT_PLATFORM_WEB = 1;
+	CLIENT_PLATFORM_CHROMNIENT = 2;
+	CLIENT_PLATFORM_IOS = 3;
+	CLIENT_PLATFORM_APPLE_INTELLIGENCE = 4;
+}

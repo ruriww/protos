@@ -1,0 +1,18 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "logs/visual_element_lite_proto.proto";
+import "payments/logging/orchestration/client/orchestration_widget_metadata.proto";
+import "payments/logging/orchestration/client/orchestration_node_metadata.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PaymentsOrchestrationVisualElementMetadata {
+	extend logs.VisualElementLiteProto {
+		PaymentsOrchestrationVisualElementMetadata payments_orchestration_metadata = 477;
+	}
+
+	OrchestrationWidgetMetadata orchestration_widget_metadata = 1;
+	OrchestrationNodeMetadata orchestration_node_metadata = 2;
+}

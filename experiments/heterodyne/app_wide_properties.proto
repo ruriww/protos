@@ -1,0 +1,9 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message AppWideProperties {
+	bytes signed_out_consent_info = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RestorationInstructions {
+	string thumbnail_url = 1;
+	bool short_is_modified_since_last_snapshot = 2;
+	bool discard_product_selection = 3;
+}

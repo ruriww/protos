@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadsColdConfig {
+	bool my_videos_revamp = 2;
+	bool android_in_app_camera_enabled = 3;
+	bool mobile_uploads_botguard_enabled = 5;
+	bool android_reels_tab_zero_state = 8;
+	bool reels_creator_onboarding = 9;
+	bool android_reels_video_crop_enabled = 10;
+	bool ios_commit_video_disabled = 12;
+	bool android_skip_commit_video = 14;
+	bool use_explicit_upload_flow_for_normal_uploads = 15;
+	bool use_explicit_upload_flow_for_reels_uploads = 16;
+	bool use_explicit_upload_flow_for_feedback_only_uploads = 17;
+	bool use_background_task_for_upload_flow_enabled = 18;
+	bool explicit_flow_file_copying_enabled = 21;
+	bool disable_audio_swap_for_uploads = 22;
+	bool ios_transfer_prior_user_confirmation = 23;
+	bool use_explicit_upload_flow_for_archive_replacement_uploads = 24;
+	bool ios_reels_transfer_prior_user_confirmation = 25;
+	bool should_update_upload_status_entity = 26;
+	int64 ios_background_session_handler_behavior = 27;
+	bool android_enable_upload_snackbar = 28;
+	bool android_enable_milestone2_upload_indicator = 29;
+	bool ios_use_create_video_continuation = 30;
+	bool ios_use_register_video_continuation = 31;
+	bool asset_cleanup_during_main_phase_enabled = 32;
+	bool passthrough_full_quality_uploads_enabled = 33;
+	bool ios_assistant_transcode_config_enabled = 34;
+	bool ios_upload_snackbar_enabled = 35;
+	int64 ios_transcode_config_reels_behavior = 36;
+	bool ios_store_transfer_request_body_in_file = 37;
+	bool android_cronet_upload_use_common_engine = 38;
+	bool ios_enable_h264_for_1080p_quality_shorts = 39;
+}

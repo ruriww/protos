@@ -1,0 +1,12 @@
+edition = "2023";
+
+package photos.annotations;
+
+option objc_class_prefix = "PHAN";
+
+message IdQualifier {
+	oneof gaia_id_field_tag {
+		int32 user_gaia_id_field = 1;
+		int32 user_gaia_id_field_number_in_header_column = 2;
+	}
+}

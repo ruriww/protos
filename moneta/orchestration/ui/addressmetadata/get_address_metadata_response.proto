@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addressmetadata;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+
+option objc_class_prefix = "AddressMetadata";
+
+message GetAddressMetadataResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	string address_metadata_data = 3;
+}

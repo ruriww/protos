@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShareMiniAppWithContextCommand {
+	extend Command {
+		ShareMiniAppWithContextCommand share_mini_app_with_context_command = 1378;
+	}
+
+	string client_param_identifier = 1;
+	Command share_command = 2;
+	string method_name = 3;
+	string web_view_entity_key = 4;
+}

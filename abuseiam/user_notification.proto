@@ -1,0 +1,18 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message UserNotification {
+	enum Channel {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		BUILT_IN = 1;
+		EMAIL = 2;
+		GAIA = 3;
+	}
+
+	Channel channel = 1;
+}

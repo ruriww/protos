@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/fauxbake_button.proto";
+import "google/internal/identity/accountsettings/mobile/v1/fauxbake_cropping_extra_information_alert.proto";
+
+option objc_class_prefix = "ASM";
+
+message FauxbakeCroppingOverlayNavigationBar {
+	FauxbakeButton back_button = 1;
+	FauxbakeCroppingExtraInformationAlert extra_information_alert = 2;
+	string title = 3;
+}

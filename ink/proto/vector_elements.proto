@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/vector_element.proto";
+import "ink/proto/rect.proto";
+
+option objc_class_prefix = "INKPB";
+
+message VectorElements {
+	repeated VectorElement elements = 1;
+	Rect bounds = 2;
+}

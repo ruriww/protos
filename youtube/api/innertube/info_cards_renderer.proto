@@ -1,0 +1,60 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/info_card_collection_renderer.proto";
+import "youtube/api/innertube/info_card_renderer.proto";
+import "youtube/api/innertube/simple_info_card_teaser_renderer.proto";
+import "youtube/api/innertube/simple_info_card_content_renderer.proto";
+import "youtube/api/innertube/video_info_card_content_renderer.proto";
+import "youtube/api/innertube/playlist_info_card_content_renderer.proto";
+import "youtube/api/innertube/collaborator_info_card_content_renderer.proto";
+import "youtube/api/innertube/shopping_ad_info_card_content_renderer.proto";
+import "youtube/api/innertube/simple_info_card_button_renderer.proto";
+import "youtube/api/innertube/info_card_icon_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	InfoCardCollectionRenderer card_collection_renderer = 61737181;
+}
+
+extend Renderer {
+	InfoCardRenderer card_renderer = 62127609;
+}
+
+extend Renderer {
+	SimpleInfoCardTeaserRenderer simple_card_teaser_renderer = 62120068;
+}
+
+extend Renderer {
+	SimpleInfoCardContentRenderer simple_card_content_renderer = 62053166;
+}
+
+extend Renderer {
+	VideoInfoCardContentRenderer video_info_card_content_renderer = 71247332;
+}
+
+extend Renderer {
+	PlaylistInfoCardContentRenderer playlist_info_card_content_renderer = 70870226;
+}
+
+extend Renderer {
+	CollaboratorInfoCardContentRenderer collaborator_info_card_content_renderer = 87936418;
+}
+
+extend Renderer {
+	ShoppingAdInfoCardContentRenderer shopping_ad_info_card_content_renderer = 105818573;
+}
+
+extend Renderer {
+	SimpleInfoCardButtonRenderer simple_card_button_renderer = 61794551;
+}
+
+extend Renderer {
+	InfoCardIconRenderer info_card_icon_renderer = 113256006;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/protobuf/duration.proto";
+import "google/search/readaloud/v1/audio_redaction_type.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioGenerationOptions {
+	protobuf.Duration paragraph_break_duration = 1;
+	AudioRedactionType audio_redaction = 2;
+	float speed_factor = 3;
+	float pitch_factor = 4;
+}

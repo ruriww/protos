@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ClockStrategy {
+	option features.enum_type = CLOSED;
+
+	CLOCK_STRATEGY_UNKNOWN = 0;
+	CLOCK_STRATEGY_SYSTEM = 1;
+	CLOCK_STRATEGY_SERVER_EWMA = 2;
+}

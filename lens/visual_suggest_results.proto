@@ -1,0 +1,34 @@
+edition = "2023";
+
+package lens;
+
+import "lens/visual_suggest_result.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message VisualSuggestResults {
+	repeated VisualSuggestResult results = 1;
+
+	enum EmptyReason {
+		VISUAL_SUGGEST_NONE_FOUND = 0;
+		VISUAL_SUGGEST_SKIPPED_SENSITIVITY = 1;
+		VISUAL_SUGGEST_SKIPPED_OCR_TEXT_AREA = 2;
+		VISUAL_SUGGEST_SKIPPED_NO_TEXT = 3;
+		VISUAL_SUGGEST_SKIPPED_NO_HC_ENTITY = 4;
+		VISUAL_SUGGEST_STATE_LAYER_UPDATE = 5;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_HC_ENTITY_POSTFILTER = 6;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_EDU_POSTFILTER = 7;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_SOLVE_POSTFILTER = 8;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_SCUTI_POSTFILTER = 9;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_LENS_MAGI_POSTFILTER = 10;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_ACTION_POSTFILTER = 11;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_SUGGESTION_POSTFILTER = 12;
+		VISUAL_SUGGEST_EMPTY_DUE_TO_DROP_SUMMARIZE_POSTFILTER = 13;
+	}
+
+	EmptyReason empty_reason = 2;
+	string nonprod_only_server_dbg_str = 3;
+	bool state_layer_update_requested = 10;
+	string nonprod_only_debug_grounding_text = 11;
+	bool nonprod_only_grounding_text_sent_to_model = 12;
+}

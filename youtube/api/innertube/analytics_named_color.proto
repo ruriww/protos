@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AnalyticsNamedColor {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_ANALYTICS_NAMED_COLOR = 0;
+	BLUE = 1;
+	RED = 2;
+	YELLOW = 3;
+	GREEN = 4;
+	PURPLE = 5;
+	CYAN = 6;
+	ORANGE = 7;
+	LIME = 8;
+	INDIGO = 9;
+	GRAY = 10;
+	INSIGHT_BLUE = 11;
+	LAGOON = 12;
+	IRIS = 13;
+	CANDY = 14;
+	JADE = 15;
+	ORCHID = 16;
+	PINE = 17;
+	ROYAL_BLUE = 18;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+enum UserInteraction {
+	UNKNOWN = 0;
+	TAP = 1;
+	REGION = 2;
+	TEXT_SELECTION = 3;
+	TAP_LIVE_TEXT = 4;
+	REGION_SEARCH = 5;
+	PROACTIVE = 6;
+	ON_DEVICE_GLEAM = 7;
+	OBJECT_FULFILLMENT = 8;
+	VIDEO_QUERY = 9;
+	LIVE_CONVERSATION_QUERY = 10;
+	LIVE_CONVERSATION_AIM_QUERY = 15;
+	OMNI_LIVE_QUERY = 11;
+	PDF_QUERY = 13;
+	WEBPAGE_QUERY = 14;
+	DRAW = 16;
+}

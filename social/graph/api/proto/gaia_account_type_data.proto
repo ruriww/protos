@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message GaiaAccountTypeData {
+	enum AccountType {
+		ACCOUNT_TYPE_UNKNOWN = 0;
+		GGG_GROUP = 1;
+		COLLABORATOR_ACCOUNT = 2;
+		SERVICE_ACCOUNT = 3;
+	}
+
+	repeated AccountType account_type = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "footprints/texts/setting_set_id.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "footprints/texts/accept_reject_layout.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message FootprintsRevokeFlowTexts {
+	SettingSetId setting_set_id = 1;
+	webutil.html.types.SafeHtmlProto title = 2;
+	webutil.html.types.SafeHtmlProto revoke_text = 3;
+	webutil.html.types.SafeHtmlProto revoke_footer = 4;
+	string accept_button_label = 5;
+	string reject_button_label = 6;
+	AcceptRejectLayout button_layout = 7;
+}

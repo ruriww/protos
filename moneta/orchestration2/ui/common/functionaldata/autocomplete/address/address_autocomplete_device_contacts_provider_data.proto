@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete.address;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/autocomplete_provider_data_attributes.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/address/address_field_autocomplete_field_id_mapping.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/format_string.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AddressAutocompleteDeviceContactsProviderData {
+	extend data.Data {
+		AddressAutocompleteDeviceContactsProviderData address_autocomplete_device_contacts_provider_data_extension = 325279287;
+	}
+
+	AutocompleteProviderDataAttributes autocomplete_provider_data_attributes = 1;
+	int64 mapping_data_reference = 2;
+	repeated AddressFieldAutocompleteFieldIdMapping address_field_autocomplete_field_id_mapping = 3;
+	string country_code = 4;
+	string format_string = 5;
+	repeated int32 autocomplete_field_id = 6 [ features.repeated_field_encoding = EXPANDED ];
+	FormatString format_string_with_optional_value = 7;
+}

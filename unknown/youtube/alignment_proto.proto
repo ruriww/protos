@@ -1,0 +1,35 @@
+edition = "2023";
+
+package unknown.youtube;
+
+option objc_class_prefix = "SPCH";
+
+message AlignmentProto {
+	float frame_duration = 1;
+	float total_cost = 2;
+	float am_cost = 3;
+	float lm_cost = 4;
+
+	message Segment {
+		int64 start = 6;
+		int64 end = 7;
+		float cost = 8;
+		float am_cost = 9;
+		float lm_cost = 10;
+		int64 ilabel = 11;
+		int64 olabel = 12;
+		string ilabel_str = 13;
+		string olabel_str = 14;
+		repeated int64 states = 15 [ features.repeated_field_encoding = EXPANDED ];
+		float confidence = 16;
+		string olabel_with_punct_and_cap_str = 25;
+	}
+
+	repeated Segment segment = 5 [ features.message_encoding = DELIMITED ];
+	string itable_checksum = 17;
+	string itable_filename = 18;
+	string otable_checksum = 19;
+	string otable_filename = 20;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlineMutedWatchEndpointMutationCommand {
+	extend Command {
+		InlineMutedWatchEndpointMutationCommand inline_muted_watch_endpoint_mutation_command = 200453700;
+	}
+
+	Command watch_endpoint = 1;
+	bool retain_player_on_navigation_to_watch = 2;
+}

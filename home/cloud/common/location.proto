@@ -1,0 +1,11 @@
+edition = "2023";
+
+package home.cloud.common;
+
+import "google/type/latlng.proto";
+
+option objc_class_prefix = "GHCC";
+
+message Location {
+	google.type.LatLng lat_lng = 1;
+}

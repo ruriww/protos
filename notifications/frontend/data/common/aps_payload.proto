@@ -1,0 +1,15 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/alert.proto";
+import "notifications/frontend/data/common/sound.proto";
+
+option objc_class_prefix = "NFDC";
+
+message ApsPayload {
+	Alert alert = 1;
+	Sound sound = 2;
+	int32 badge = 3;
+	string category = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/capability_group.proto";
+import "google/internal/identity/accountlinking/v1/linking_session.proto";
+
+option objc_class_prefix = "ALK";
+
+message GetConsentTextResponse {
+	repeated CapabilityGroup capability_groups = 1;
+	string consent_language_keys = 2;
+	string vertical_specific_text = 3;
+	string third_party_management_url = 4;
+	map<string, LinkingSession.UiResource> ui_resources = 5;
+}

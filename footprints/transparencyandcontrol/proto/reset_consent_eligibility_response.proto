@@ -1,0 +1,19 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message ResetConsentEligibilityResponse {
+	enum StatusCode {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_STATUS = 0;
+		OK = 1;
+		FOOTPRINTS_WRITE_FAILED = 2;
+		CONSENT_STATE_RESET_FAILED = 3;
+	}
+
+	StatusCode status_code = 1;
+	string error_message = 2;
+}

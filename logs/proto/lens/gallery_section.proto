@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+enum GallerySection {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_SECTION = 0;
+	SCREENSHOT = 1;
+	RECENT_PHOTOS = 2;
+	DOWNLOAD = 3;
+	WHATSAPP = 4;
+	CAMERA = 5;
+	FEATURED_IMAGE = 6;
+	INSTAGRAM = 7;
+	TIKTOK = 8;
+	PINTEREST = 9;
+	SNAPCHAT = 10;
+}

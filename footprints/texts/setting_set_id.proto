@@ -1,0 +1,38 @@
+edition = "2023";
+
+package footprints.texts;
+
+option objc_class_prefix = "FOOTC";
+
+enum SettingSetId {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_SETTING_SET_ID = 0;
+	DI = 1;
+	DIDL = 2;
+	DI_DIDL = 3;
+	VAA = 4;
+	WAA = 5;
+	SWAA = 6;
+	SWAADL = 7;
+	SWAA_SWAADL = 8;
+	WAA_SWAA = 9;
+	WAA_SWAA_SWAADL = 10;
+	DA = 11;
+	DC = 12;
+	LH = 13;
+	LR = 14;
+	LH_LR = 15;
+	SPYW = 16;
+	YT = 17;
+	YTW = 18;
+	YTS = 19;
+	YTVAA = 20;
+	LHG_ADS = 21;
+	LHG_PERSONALIZATION = 22;
+	WAAL_RESULTS = 23;
+	WAAL_RECOMMENDATIONS = 24;
+	DATA_POND_SEARCH = 25;
+	IMAGE_HISTORY = 26;
+	LH_GOOGLE_OPINION_REWARDS = 27;
+}

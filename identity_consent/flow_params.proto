@@ -1,0 +1,15 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_flow_id.proto";
+import "privacy/consent/consent_purpose.proto";
+import "privacy/consent/feature_id.proto";
+
+option objc_class_prefix = "IDC";
+
+message FlowParams {
+	ConsentFlowId flow_id = 1;
+	privacy.consent.ConsentPurpose purpose = 2;
+	privacy.consent.FeatureId feature_id = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.feed;
+
+import "youtube/api/innertube/triggered_continuation_data.proto";
+
+option objc_class_prefix = "YTBA";
+
+message AddTriggeredContinuationArgs {
+	youtube.api.innertube.TriggeredContinuationData triggered_continuation_data = 1;
+}

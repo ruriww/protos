@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LockModeStateEnum {
+	option features.enum_type = CLOSED;
+
+	LOCK_MODE_STATE_ENUM_UNKNOWN = 0;
+	LOCK_MODE_STATE_ENUM_UNLOCKED = 1;
+	LOCK_MODE_STATE_ENUM_LOCKED = 2;
+	LOCK_MODE_STATE_ENUM_CAN_UNLOCK = 3;
+	LOCK_MODE_STATE_ENUM_UNLOCK_EXPANDED = 4;
+	LOCK_MODE_STATE_ENUM_LOCKED_TEMPORARY_SUSPENSION = 5;
+}

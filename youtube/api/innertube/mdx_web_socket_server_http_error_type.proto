@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdxWebSocketServerHttpErrorType {
+	option features.enum_type = CLOSED;
+
+	MDX_WEB_SOCKET_SERVER_HTTP_ERROR_TYPE_UNKNOWN = 0;
+	MDX_WEB_SOCKET_SERVER_HTTP_ERROR_TYPE_UNSUPPORTED_VERSION = 1;
+	MDX_WEB_SOCKET_SERVER_HTTP_ERROR_TYPE_AUTHENTICATION_FAILURE = 2;
+	MDX_WEB_SOCKET_SERVER_HTTP_ERROR_TYPE_INVALID_REQUEST = 3;
+	MDX_WEB_SOCKET_SERVER_HTTP_ERROR_TYPE_UNKNOWN_METHOD = 4;
+	MDX_WEB_SOCKET_SERVER_HTTP_ERROR_TYPE_RESOURCE_NOT_FOUND = 5;
+}

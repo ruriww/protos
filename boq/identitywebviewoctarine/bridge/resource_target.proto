@@ -1,0 +1,11 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+
+option objc_class_prefix = "OCT";
+
+message ResourceTarget {
+	google.internal.identity.accountsettings.mobile.v1.ResourceKey resource_key = 1;
+}

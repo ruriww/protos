@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowLoggingConfig {
+	bool flow_logging_enabled = 1;
+	bool should_log_notaire_via_flow_logging = 2;
+	bool should_log_offline_transfer_status_via_flow_logging = 3;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.loading;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/loading/floating_progress_indicator_metadata.proto";
+import "moneta/orchestration2/ui/common/loading/bottom_sheet_metadata.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ClientGeneratedLoadingUi {
+	node.Node initial_node = 1;
+
+	oneof metadata {
+		FloatingProgressIndicatorMetadata floating_progress_indicator_metadata = 2;
+		BottomSheetMetadata bottom_sheet_metadata = 3;
+	}
+}

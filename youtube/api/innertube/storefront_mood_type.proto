@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum StorefrontMoodType {
+	option features.enum_type = CLOSED;
+
+	STOREFRONT_MOOD_TYPE_UNSPECIFIED = 0;
+	STOREFRONT_MOOD_TYPE_ANGRY = 1;
+	STOREFRONT_MOOD_TYPE_BRIGHT = 2;
+	STOREFRONT_MOOD_TYPE_CHILL = 3;
+	STOREFRONT_MOOD_TYPE_DARK = 4;
+	STOREFRONT_MOOD_TYPE_DRAMATIC = 5;
+	STOREFRONT_MOOD_TYPE_FUNKY = 6;
+	STOREFRONT_MOOD_TYPE_HAPPY = 7;
+	STOREFRONT_MOOD_TYPE_LOVE = 8;
+	STOREFRONT_MOOD_TYPE_SAD = 9;
+	STOREFRONT_MOOD_TYPE_UPLIFTING = 10;
+}

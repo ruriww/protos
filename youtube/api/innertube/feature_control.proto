@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/static_images.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeatureControl {
+	bool hide_product_banner = 2 [ default = false ];
+	float camera_vertical_alignment = 3 [ default = 1 ];
+	StaticImages static_images = 8;
+	bool enable_product_pill = 9 [ default = false ];
+	bool enable_resized_images = 10 [ default = false ];
+	bool enable_hide_overlays = 11 [ default = false ];
+	bool hide_swatches_carousel = 12 [ default = false ];
+	bool enable_bottom_images_selector = 13 [ default = false ];
+}

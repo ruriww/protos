@@ -1,0 +1,22 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message LogicalEntity {
+	message Link {
+		string Url = 2;
+		int32 DocId = 3;
+		int32 PageId = 4;
+		int32 BlockId = 5;
+		int32 ParagraphId = 6;
+		int32 RouteId = 7;
+		int32 WordId = 8;
+		int32 SymbolId = 9;
+		string Anchor = 11;
+	}
+
+	repeated Link link = 1 [ features.message_encoding = DELIMITED ];
+	string Metadata = 10;
+}

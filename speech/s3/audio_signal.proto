@@ -1,0 +1,29 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message AudioSignal {
+	extend Request {
+		AudioSignal audio_signal = 477075177;
+	}
+
+	enum SignalType {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		END_OF_AUDIO = 1;
+		PREFETCH_RESULT_PROCESSED = 2;
+		TTS_PLAYBACK_FINISHED = 3;
+		TTS_PLAYBACK_STARTED = 4;
+		PAUSE_ENDPOINTING = 5;
+		RESUME_ENDPOINTING = 6;
+		USER_INTERRUPTED = 7;
+	}
+
+	SignalType signal_type = 1;
+	int64 audio_time_usec = 3;
+}

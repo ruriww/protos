@@ -1,0 +1,71 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/playlist_video_offlineability_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/playlist_video_binding_supported_datas.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/playlist_video_swipe_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString index = 4;
+	FormattedString short_byline_text = 5;
+	FormattedString length_text = 6;
+	Command navigation_endpoint = 7;
+	string annotation = 8;
+	repeated BadgeSupportedRenderers badges = 9;
+	string set_video_id = 10;
+	uint64 length_seconds = 11;
+	float clip_start_seconds = 12;
+	float clip_end_seconds = 13;
+	repeated Command service_endpoints = 14;
+	PlaylistVideoOfflineabilitySupportedRenderers offlineability = 15;
+	bytes tracking_params = 17;
+	bool is_playable = 18;
+	MenuSupportedRenderers menu = 19;
+	ThumbnailDetails contributor_avatar = 20;
+	Command contributor_channel_endpoint = 21;
+	bool is_watched = 22;
+	FormattedString contributor_name = 23;
+	StandaloneBadgeSupportedRenderers standalone_badge = 24;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 25;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 26;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 27;
+	UpcomingEventData upcoming_event_data = 28;
+	PlaylistVideoBindingSupportedDatas binding = 29;
+	MainAppCompactRendererStyle main_app_style = 30;
+	repeated PlaylistVideoSwipeSupportedRenderers swipe_buttons = 31;
+	ButtonSupportedRenderers offer_button = 32;
+	Renderer reorder_hint = 33;
+	Renderer playlist_segment = 35;
+	FormattedString video_info = 37;
+	repeated Renderer bottom_badges = 38;
+	Renderer engagement_bar = 39;
+	int32 vote_count = 40;
+	int32 vote_sort_value = 41;
+	int64 vote_sort_tiebreaker = 42;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	PlaylistVideoRenderer playlist_video_renderer = 53330184;
+}

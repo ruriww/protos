@@ -1,0 +1,77 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/force_ad_parameters.proto";
+import "youtube/api/innertube/autonav_settings_state.proto";
+import "youtube/api/innertube/unplugged_watch_next_options.proto";
+import "youtube/api/innertube/wn_playback_context.proto";
+import "youtube/api/innertube/mdx_context.proto";
+import "youtube/api/innertube/responsive_signals.proto";
+import "youtube/api/innertube/browse_form_data.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/share_play_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchNextRequest {
+	InnerTubeContext context = 1;
+	string video_id = 2;
+	string playlist_id = 4;
+	string params = 6;
+	uint32 playlist_index = 7;
+	string continuation = 8;
+	bool is_ad_playback = 9;
+	bool mdx_use_dev_server = 10;
+	string referrer = 12;
+	string referring_app = 13;
+
+	enum WatchNextType {
+		option features.enum_type = CLOSED;
+
+		WATCH_WHILE = 1;
+		WATCH_NEXT_TYPE_MUSIC_QUEUE_ADD_OPERATION = 2;
+		WATCH_NEXT_TYPE_SKIP_VIDEO = 3;
+		WATCH_NEXT_TYPE_GET_QUEUE = 4;
+		WATCH_NEXT_TYPE_MUSIC_SHUFFLE = 5;
+		WATCH_NEXT_TYPE_MUSIC_UNSHUFFLE = 6;
+		WATCH_NEXT_TYPE_QUEUE_ONLY = 7;
+	}
+
+	WatchNextType watch_next_type = 14;
+	repeated int32 installed_sharing_service_ids = 15 [ features.repeated_field_encoding = EXPANDED ];
+	string ad_params = 16;
+	ForceAdParameters force_ad_parameters = 17;
+	bool request_music_sequence = 18;
+	bool enable_mdx_autoplay = 21;
+	bool is_mdx_playback = 22;
+	bool racy_check_ok = 24;
+	bool content_check_ok = 25;
+	bool is_audio_only = 26;
+	bool autonav_enabled = 27;
+	AutonavSettingsState autonav_state = 28;
+	bool enable_persistent_playlist_panel = 30;
+	string playlist_set_video_id = 31;
+	UnpluggedWatchNextOptions unplugged_watch_next_options = 32;
+	bool show_ru_invalid_token_message = 35;
+	WNPlaybackContext playback_context = 36;
+	string serialized_third_party_embed_config = 37;
+	bool show_content_owner_only = 38;
+	uint64 player_timestamp = 41;
+	bool is_embed_preview = 42;
+	string last_scrubbed_inline_playback_video_id = 43;
+	string last_audio_turned_on_inline_playback_video_id = 44;
+	string last_audio_turned_off_inline_playback_video_id = 45;
+	bool captions_requested = 47;
+	MdxContext mdx_context = 48;
+	ResponsiveSignals responsive_signals = 49;
+	bytes queue_context_params = 50;
+	BrowseFormData form_data = 52;
+	google.protobuf.Duration current_media_time = 53;
+	bool show_shorts_only = 55;
+	SharePlayState share_play_state = 56;
+}

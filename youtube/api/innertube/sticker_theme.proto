@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/color_value.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StickerTheme {
+	ColorValue.Rgba primary_surface = 1;
+	ColorValue.Rgba raised_primary_surface = 2;
+	ColorValue.Rgba secondary_surface = 3;
+	ColorValue.Rgba primary_text = 4;
+	ColorValue.Rgba secondary_text = 5;
+}

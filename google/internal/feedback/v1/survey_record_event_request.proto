@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+import "google/internal/feedback/v1/event.proto";
+import "google/internal/feedback/v1/session.proto";
+
+option objc_class_prefix = "PUDUI";
+
+message SurveyRecordEventRequest {
+	Event event = 1;
+	Session session = 2;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dropdownmenuitem;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/image/image_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DropdownMenuItemData {
+	extend data.Data {
+		DropdownMenuItemData dropdown_menu_item_data_extension = 303415141;
+	}
+
+	image.ImageContent start_icon = 1;
+	image.ImageContent end_icon = 2;
+	string text = 3;
+}

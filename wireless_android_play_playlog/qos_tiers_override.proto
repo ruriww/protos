@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/qos_tier_configuration.proto";
+
+option objc_class_prefix = "CADP";
+
+message QosTiersOverride {
+	repeated QosTierConfiguration qos_tier_configuration = 1;
+	int64 qos_tier_fingerprint = 2;
+}

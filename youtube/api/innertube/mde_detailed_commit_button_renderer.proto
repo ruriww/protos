@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeDetailedCommitButtonRenderer {
+	FormattedString button_text = 1;
+	FormattedString confirmation_title = 2;
+	FormattedString confirmation_text = 3;
+	FormattedString confirmation_negative = 4;
+	FormattedString confirmation_affirmative = 5;
+	Command commit_endpoint = 6;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+import "google/internal/feedback/v1/branching_destination.proto";
+
+option objc_class_prefix = "PUDUI";
+
+message AnswerChoice {
+	enum AnswerType {
+		ANSWER_TYPE_UNSPECIFIED = 0;
+		ANSWER_TYPE_TEXT = 1;
+		ANSWER_TYPE_WRITE_IN = 2;
+		ANSWER_TYPE_NONE_OF_THE_ABOVE = 3;
+	}
+
+	AnswerType answer_type = 1;
+	uint32 answer_ordinal = 2;
+	string text = 3;
+	bool screen_in = 4;
+	bool write_in = 5;
+	BranchingDestination branching_destination = 6;
+}

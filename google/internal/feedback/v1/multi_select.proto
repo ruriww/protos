@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+import "google/internal/feedback/v1/answer_choices.proto";
+
+option objc_class_prefix = "PUDUI";
+
+message MultiSelect {
+	AnswerChoices answer_choices = 1;
+}

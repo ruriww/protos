@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/guide_entry_renderer.proto";
+import "youtube/api/innertube/guide_collapsible_entry_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideSubscriptionsSectionSupportedRenderers {
+	GuideEntryRenderer guide_entry_renderer = 50982577;
+	GuideCollapsibleEntryRenderer guide_collapsible_entry_renderer = 51663374;
+}

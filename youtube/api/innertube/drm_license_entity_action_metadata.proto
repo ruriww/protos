@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+import "youtube/api/innertube/fair_play_config.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/drm_license_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DrmLicenseEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		DrmLicenseEntityActionMetadata drm_license_action_metadata = 288486286;
+	}
+
+	string drm_session_id = 1;
+	string drm_params = 2;
+	FairPlayConfig fair_play_config = 4;
+	int64 playback_start_seconds = 5;
+	OfflineabilityFormatType maximum_download_quality = 6;
+	string preferred_audio_track = 7;
+	DrmLicenseEntity deleted_drm_license_entity = 8;
+	bool redownload_licenses = 9;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TranscriptEntityKeys {
+	string search_input_state_key = 1;
+	string segments_key = 2;
+	string search_state_key = 3;
+	string segments_data_key = 4;
+	string scroll_state_key = 5;
+	string track_selection_entity_key = 6;
+	string search_box_state_key = 7;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LocalImageEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		LocalImageEntityActionMetadata local_image_entity_action_metadata = 318835310;
+	}
+
+	oneof entity_key {
+		string yt_main_video_entity_key = 1;
+		string main_video_entity_key = 4;
+		string main_playlist_entity_key = 5;
+	}
+
+	string remote_image_url = 2;
+	string local_image_url = 3;
+	string metadata_id = 6;
+}

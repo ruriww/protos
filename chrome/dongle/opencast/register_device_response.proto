@@ -1,0 +1,15 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/audio_pin_data.proto";
+import "chrome/dongle/opencast/receiver_ble_token.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message RegisterDeviceResponse {
+	string registration_key = 1;
+	string pin = 2;
+	AudioPinData audio_pin_data = 3;
+	repeated ReceiverBleToken ble_tokens = 4;
+}

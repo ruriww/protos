@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SurveyTextInterstitialRenderer {
+	uint32 timeout_seconds = 1;
+	FormattedString text = 2;
+	repeated Command impression_commands = 3;
+	repeated Command dismiss_commands = 4;
+	repeated Command timeout_commands = 5;
+	Renderer cta_button = 6;
+	ThumbnailDetails brand_image = 7;
+	uint32 background_color = 8;
+	Renderer background_image = 9;
+	uint32 cta_section_background_color = 10;
+	uint32 divider_color = 11;
+	bytes tracking_params = 13;
+	AdLayoutLoggingData ad_layout_logging_data = 14;
+	string linked_survey_layout_id = 15;
+	string in_player_slot_id = 16;
+	string in_player_layout_id = 17;
+	string associated_player_bytes_layout_id = 18;
+	string layout_id = 19;
+}
+
+extend Renderer {
+	SurveyTextInterstitialRenderer survey_text_interstitial_renderer = 164503419;
+}

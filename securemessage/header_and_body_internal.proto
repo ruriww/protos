@@ -1,0 +1,10 @@
+edition = "2023";
+
+package securemessage;
+
+option objc_class_prefix = "SMSG";
+
+message HeaderAndBodyInternal {
+	bytes header = 1;
+	bytes body = 2;
+}

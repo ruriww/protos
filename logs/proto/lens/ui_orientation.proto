@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+enum UiOrientation {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_UI_ORIENTATION = 0;
+	PORTRAIT = 1;
+	LANDSCAPE = 2;
+}

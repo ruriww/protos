@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.api;
+
+import "google/api/resource_container_rule.proto";
+
+option objc_class_prefix = "GAPI";
+
+message ResourceContainer {
+	repeated ResourceContainerRule rules = 1;
+}

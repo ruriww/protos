@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/command_life_cycle_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCOffersEndpoint {
+	extend Command {
+		YPCOffersEndpoint ypc_offers_endpoint = 64681250;
+	}
+
+	string params = 1;
+	Command command = 2;
+	bool skip_dialog_creation = 3;
+	string display_type = 4;
+	bool skip_loading_spinner = 5;
+	CommandLifeCycleConfig command_life_cycle_config = 6;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/contact_deletion_context.proto";
+
+option objc_class_prefix = "SGAP";
+
+message ContactState {
+	enum DeletionState {
+		DEFAULT = 0;
+		TRASHED = 1;
+	}
+
+	DeletionState deletion_state = 1;
+
+	oneof state_context {
+		ContactDeletionContext deletion_context = 2;
+	}
+}

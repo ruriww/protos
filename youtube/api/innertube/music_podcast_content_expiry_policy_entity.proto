@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPodcastContentExpiryPolicyEntity {
+	extend EntityMutationPayload {
+		MusicPodcastContentExpiryPolicyEntity music_podcast_content_expiry_policy_entity = 453;
+	}
+
+	string id = 1;
+	bool enable_finished_item_auto_deletion = 2;
+	uint64 finished_auto_deletion_delay_from_last_playback_seconds = 3;
+	bool enable_unfinished_item_auto_deletion = 4;
+	uint64 unfinished_auto_deletion_delay_from_added_seconds = 5;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_read_mode.proto";
+
+option objc_class_prefix = "ALK";
+
+message ReadOptions {
+	EReadMode read_mode = 1;
+	string consistency_key = 2;
+}

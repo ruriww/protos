@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/checkbox_survey_impression_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/checkbox_survey_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/watch_page_survey_display_trigger.proto";
+import "youtube/api/innertube/browse_page_survey_display_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CheckboxSurveyRenderer {
+	repeated CheckboxSurveyImpressionSupportedRenderers impression_renderers = 1;
+	FormattedString question = 2;
+	FormattedString dismissal_text = 3;
+	Command dismissal_endpoint = 4;
+	repeated CheckboxSurveySupportedRenderers options = 5;
+	Command follow_up_survey = 6;
+	uint64 survey_id = 7;
+	bytes tracking_params = 10;
+	ButtonSupportedRenderers submit_button = 11;
+	uint32 display_duration_seconds = 12;
+	Command suppression_endpoint = 13;
+	bool show_gfeedback_prompt = 14;
+	repeated Command submit_actions = 15;
+	repeated Command impression_endpoints = 16;
+	repeated WatchPageSurveyDisplayTrigger watch_page_display_triggers = 17;
+	repeated BrowsePageSurveyDisplayTrigger browse_page_display_triggers = 18;
+}

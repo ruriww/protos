@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/music_radio_builder_button_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicRadioBuilderButtonEntity {
+	extend EntityMutationPayload {
+		MusicRadioBuilderButtonEntity music_radio_builder_button_entity = 405;
+	}
+
+	string key = 1;
+	MusicRadioBuilderButtonState state = 2;
+}

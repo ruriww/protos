@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/search_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/help_center_search_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+
+option objc_class_prefix = "ASM";
+
+message SearchCorpus {
+	repeated SearchItem search_items = 1;
+	HelpCenterSearchItem help_center_search_item = 2;
+	Image no_results_image = 3;
+	repeated ResourceKey allowed_prechecked_resources = 4;
+}

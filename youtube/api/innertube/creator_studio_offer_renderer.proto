@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/creator_studio_section_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/creator_studio_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorStudioOfferRenderer {
+	repeated CreatorStudioSectionSupportedRenderers contents = 1;
+}
+
+extend Renderer {
+	CreatorStudioOfferRenderer creator_studio_offer_renderer = 67865881;
+}
+
+extend Renderer {
+	CreatorStudioSectionRenderer creator_studio_section_renderer = 67868551;
+}

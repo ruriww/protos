@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HamplayerRenderViewType {
+	option features.enum_type = CLOSED;
+
+	HAMPLAYER_RENDER_VIEW_TYPE_UNSPECIFIED = 0;
+	HAMPLAYER_RENDER_VIEW_TYPE_EAGL = 1;
+	HAMPLAYER_RENDER_VIEW_TYPE_METAL = 2;
+	HAMPLAYER_RENDER_VIEW_TYPE_SBDL = 3;
+	HAMPLAYER_RENDER_VIEW_TYPE_IOSURFACE = 4;
+	HAMPLAYER_RENDER_VIEW_TYPE_IOSURFACE_MAIN_THREAD = 5;
+	HAMPLAYER_RENDER_VIEW_TYPE_SBDL_SAMPLE_BUFFER = 6;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message RelativePosition {
+	float x = 1;
+	float y = 2;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message NomineeIdentifier {
+	string email = 1;
+}

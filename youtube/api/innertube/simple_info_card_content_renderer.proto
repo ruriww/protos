@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/info_card_button_supported_renderers.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SimpleInfoCardContentRenderer {
+	ThumbnailDetails image = 1;
+	FormattedString title = 2;
+	InfoCardButtonSupportedRenderers action_button = 4;
+	bytes tracking_params = 8;
+	FormattedString display_domain = 9;
+	bool show_link_icon = 10;
+	repeated LoggingUrl impression_logging_urls_v2s = 14;
+	FormattedString call_to_action = 15;
+	Command command = 16;
+}

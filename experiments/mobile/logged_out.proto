@@ -1,0 +1,11 @@
+edition = "2023";
+
+package experiments.mobile;
+
+option objc_class_prefix = "PHT";
+
+enum LoggedOut {
+	option features.enum_type = CLOSED;
+
+	YES = 0;
+}

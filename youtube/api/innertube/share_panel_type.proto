@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SharePanelType {
+	option features.enum_type = CLOSED;
+
+	SHARE_PANEL_TYPE_UNSPECIFIED = 0;
+	SHARE_PANEL_TYPE_UNIFIED_SHARE_PANEL = 1;
+	SHARE_PANEL_TYPE_SCALABLE_SHARE_SHEET = 2;
+	SHARE_PANEL_TYPE_WEB_PLAYER = 3;
+	SHARE_PANEL_TYPE_QR_CODE_ENGAGEMENT_PANEL = 4;
+}

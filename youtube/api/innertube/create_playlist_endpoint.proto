@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatePlaylistEndpoint {
+	extend Command {
+		CreatePlaylistEndpoint create_playlist_endpoint = 85650004;
+	}
+
+	repeated string video_ids = 1;
+	string source_playlist_id = 2;
+	bool hack = 3;
+	string params = 7;
+	string selection_session_entity_key = 8;
+
+	oneof renderer {
+		Renderer create_playlist_dialog = 9;
+	}
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package kids.platform.kidonboarding.proto;
+
+import "kids/platform/kidonboarding/proto/kid_onboarding_client.proto";
+import "kids/platform/kidonboarding/proto/kid_onboarding_flow.proto";
+import "kids/platform/kidonboarding/proto/kid_onboarding_theme_options.proto";
+
+option objc_class_prefix = "GKP";
+
+message KidOnboardingWebParams {
+	KidOnboardingClient client = 1;
+	string child_user_id = 4;
+	KidOnboardingFlow flow = 5;
+	string android_package_name = 6;
+	KidOnboardingThemeOptions theme_options = 7;
+	bool should_opt_out_youtube_teen_supervision = 8;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/roster_member_count.proto";
+import "apps/people/oz/external/mergedpeopleapi/roster_member.proto";
+
+option objc_class_prefix = "POEM";
+
+message RosterDetails {
+	PersonFieldMetadata metadata = 1;
+	RosterMemberCount roster_member_count = 2;
+	repeated RosterMember abridged_roster_memberships = 3;
+}

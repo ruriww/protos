@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/point.proto";
+
+option objc_class_prefix = "INKPB";
+
+message UncompressedStroke {
+	repeated Point outline = 1;
+	uint32 rgba = 2;
+}

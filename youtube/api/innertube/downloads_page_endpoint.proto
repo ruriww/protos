@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/downloads_page_section_identifier.proto";
+import "youtube/api/innertube/downloads_page_section_filter_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsPageEndpoint {
+	enum FilterType {
+		option features.enum_type = CLOSED;
+
+		FILTER_TYPE_UNSPECIFIED = 0;
+		FILTER_TYPE_NONE = 1;
+		FILTER_TYPE_PLAYLISTS_ONLY = 2;
+		FILTER_TYPE_VIDEOS_ONLY = 3;
+	}
+
+	FilterType filter_type = 1;
+	DownloadsPageSectionIdentifier scroll_to_section_identifier = 2;
+	DownloadsPageSectionFilterType section_filter_type = 3;
+}
+
+extend Command {
+	DownloadsPageEndpoint downloads_page_endpoint = 167315449;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+import "google/internal/support/intelligence/moltron/v1/logging/approval_type.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/user_type.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/click_type.proto";
+
+option objc_class_prefix = "SIML";
+
+message ApprovedContext {
+	ApprovalType approval_type = 1;
+	UserType user_type = 2;
+	ClickType click_type = 3;
+}

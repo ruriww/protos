@@ -1,0 +1,21 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message BirdsongClientInfo {
+	enum ClientType {
+		option features.enum_type = CLOSED;
+
+		CLIENT_UNKNOWN = 0;
+		CHIRP = 1;
+		WAYMO = 2;
+		GV_ANDROID = 3;
+		GV_IOS = 4;
+	}
+
+	ClientType client_type = 1;
+	string build_label = 2;
+	string birdsong_build_label = 3;
+}

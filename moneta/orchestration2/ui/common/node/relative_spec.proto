@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+import "moneta/orchestration2/ui/common/node/alignment_spec.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message RelativeSpec {
+	UnitSize horizontal_offset = 1;
+	UnitSize vertical_offset = 2;
+	AlignmentSpec alignment_self = 3;
+
+	enum RelativeAlignment {
+		option features.enum_type = CLOSED;
+
+		RELATIVE_ALIGNMENT_UNKNOWN = 0;
+		RELATIVE_ALIGNMENT_PARENT_START = 1;
+		RELATIVE_ALIGNMENT_PARENT_CENTER = 3;
+		RELATIVE_ALIGNMENT_PARENT_END = 2;
+	}
+
+	RelativeAlignment horizontal_alignment = 4;
+	RelativeAlignment vertical_alignment = 5;
+}

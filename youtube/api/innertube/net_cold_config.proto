@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NetColdConfig {
+	string cronet_experimental_options_json = 1;
+	int32 ios_cronet_network_thread_priority = 2;
+	bool ios_enable_nw_path_monitor = 16;
+	bool ios_use_nw_path_monitor_for_reachability = 17;
+	bool ios_use_unknown_initial_connection_type = 18;
+	bool ios_enable_network_request_tracker = 19;
+	bool ios_enable_metered_wifi_reporting = 20;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addinstrument;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/addinstrument/page.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+
+option objc_class_prefix = "AddInstrument";
+
+message SubmitResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	Page next_page = 3;
+	bool flow_complete = 4;
+	common.generic.FlowInstruction flow_instruction = 5;
+	Page base_page = 6;
+	common.SecureDataHeader secure_header = 7;
+}

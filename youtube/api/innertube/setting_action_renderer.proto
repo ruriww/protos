@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/setting_confirm_dialog_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/client_setting_item.proto";
+import "youtube/api/innertube/setting_item_id.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingActionRenderer {
+	FormattedString title = 2;
+	Command service_endpoint = 3;
+	FormattedString summary = 4;
+	SettingConfirmDialogSupportedRenderers confirm_dialog = 5;
+	Icon icon = 6;
+	repeated ClientSettingItem client_setting_dependencies = 7;
+	bytes tracking_params = 9;
+	FormattedString action_label = 10;
+	SettingItemId item_id = 11;
+	Icon button_icon = 12;
+	ThumbnailDetails thumbnail = 13;
+	Renderer action_button = 15;
+	FormattedString setting_status_text = 16;
+	repeated Renderer action_list = 17;
+	FormattedString secondary_title = 18;
+	FormattedString secondary_summary = 19;
+}

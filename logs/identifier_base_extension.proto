@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs;
+
+import "logs/visual_element_lite_proto.proto";
+
+option objc_class_prefix = "LOG";
+
+message IdentifierBaseExtension {
+	extend VisualElementLiteProto {
+		repeated int32 identifier_base = 330;
+	}
+}

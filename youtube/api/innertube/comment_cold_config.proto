@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentColdConfig {
+	bool enable_comment_teasers_ios = 2;
+	bool enable_close_keyboard_on_navigate_ios = 3;
+	bool enable_keyboard_without_accessory_view_ios = 5;
+	int32 number_of_items_to_keep_on_comment_reload = 8;
+	bool enable_comment_section_identifier_without_header = 9;
+	int32 inject_latency_on_ios_first_shown_comment_ms = 10;
+	bool notify_controller_on_tlc_update_android = 11;
+	bool set_item_section_only_when_no_transient_state_android = 12;
+	bool clamp_ghost_cards_removal_android = 13;
+	bool enable_custom_emojis_android = 14;
+	bool safe_comment_dialog_transactions_android = 15;
+	bool enable_playback_service_on_comment_create_android = 16;
+	bool client_actions_with_no_action_tag_android = 18;
+	bool enable_comment_mention_chips_ios = 19;
+	bool enable_create_comment_tracking_params_ios = 20;
+	bool enable_create_comment_timestamp_android = 21;
+	bool enable_compact_compose_box_android = 22;
+	bool use_comment_dialog_fragment_android = 24;
+	bool remove_scrim_from_comment_dialog_fragment_android = 25;
+	bool enable_comment_composer_player_monitor_android = 26;
+	bool comment_composer_elements_dialog = 27;
+	bool enable_command_handlers_for_civility_reminder_ios = 28;
+	bool enable_realtime_video_comments_android = 29;
+	bool enable_comment_composer_player_monitor_ios = 30;
+	bool enable_realtime_hide_when_scroll_android = 31;
+	bool enable_comment_dialog_command_handlers_ios = 32;
+	bool enable_comment_aadc_guidelines_mobile_renderers = 33;
+	bool use_server_message_for_post_creation_errors = 34;
+	bool disable_iphone_landscape_create_comment_layout_fix = 35;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_entity_ref.proto";
+import "youtube/api/innertube/music_entity_reference.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicConditionVariables {
+	MusicEntityRef video = 1;
+	MusicEntityRef container = 2;
+	MusicEntityReference video_reference = 3;
+	MusicEntityReference container_reference = 4;
+	MusicEntityReference entity_reference = 5;
+}

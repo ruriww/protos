@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/suggested_action_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestedActionTimeRangeTrigger {
+	extend SuggestedActionTrigger {
+		SuggestedActionTimeRangeTrigger suggested_action_time_range_trigger = 272544428;
+	}
+
+	int32 time_range_start_millis = 1;
+	int32 time_range_end_millis = 2;
+	bool only_triggers_on_player_pause = 3;
+	bool show_without_player_controls = 4;
+}

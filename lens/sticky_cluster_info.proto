@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens;
+
+import "lens/request_context/routing_info.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message StickyClusterInfo {
+	string session_id = 1;
+	string gws_session_id = 2;
+	string lbe_bns_address = 3;
+	request_context.RoutingInfo routing_info = 6;
+}

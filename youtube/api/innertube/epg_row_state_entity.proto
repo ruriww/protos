@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgRowStateEntity {
+	extend EntityMutationPayload {
+		EpgRowStateEntity epg_row_state_entity = 93;
+	}
+
+	string key = 1;
+	float expansion = 2;
+	float expansion_height = 3;
+	int32 row_index = 4;
+	float item_width = 5;
+	float item_collapsed_height = 6;
+	float item_expanded_height = 7;
+	bool disable_parallax = 8;
+	float item_height = 10;
+	int64 current_time_seconds = 11;
+	float station_section_width = 12;
+}

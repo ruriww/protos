@@ -1,0 +1,31 @@
+edition = "2023";
+
+package logs;
+
+option objc_class_prefix = "LOG";
+
+message ToolOption {
+	string description = 1;
+	bool selected = 2 [ default = false ];
+	int32 tool = 3 [ default = 0 ];
+	string value = 4 [ default = "1" ];
+
+	enum PromotionReason {
+		option features.enum_type = CLOSED;
+
+		DATEFILTER_TWIDDLER = 0;
+		UNIVERSAL = 1;
+		TOOL_BOOST = 2;
+		GWS_CLRESTRICT = 3;
+		PRICES_TWIDDLER = 4;
+		ITEMEISTER_CATEGORIZER = 5;
+		GEO_BOOST = 6;
+		VISITED_RESULTS = 7;
+		CLIR_BOOST = 8;
+		BLOCK_PROMOTED = 9;
+		RECIPE_TOOL = 10;
+	}
+
+	repeated PromotionReason promotion_reason = 5 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 score = 6 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/matching_detector_detail.proto";
+
+option objc_class_prefix = "ACL";
+
+message MatchingDlpRule {
+	int64 matching_rule_id = 1;
+	repeated string matching_detector_id = 2;
+	repeated MatchingDetectorDetail matching_detector_detail = 3;
+}

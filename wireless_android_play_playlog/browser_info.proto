@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message BrowserInfo {
+	string locale = 1;
+	string browser = 2;
+	string browser_version = 3;
+	string flash_version = 4;
+}

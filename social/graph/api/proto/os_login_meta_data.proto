@@ -1,0 +1,21 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "SGAP";
+
+message OsLoginMetaData {
+	google.protobuf.Timestamp last_update_time = 1;
+
+	enum SoTRecordEnum {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		FOCUS_BACKEND = 1;
+		ISS = 2;
+	}
+
+	SoTRecordEnum sot_record = 2 [ default = UNSPECIFIED ];
+}

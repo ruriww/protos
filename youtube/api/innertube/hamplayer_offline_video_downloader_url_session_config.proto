@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerOfflineVideoDownloaderUrlSessionConfig {
+	int32 timeout_interval_for_resource_secs = 1;
+	bool use_pipelining = 2;
+	int32 max_connections_per_host = 3;
+	float task_priority = 4;
+}

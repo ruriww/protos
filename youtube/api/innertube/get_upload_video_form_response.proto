@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/get_upload_video_form_upload_button_position.proto";
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/get_upload_video_form_response_supported_renderers.proto";
+import "youtube/api/innertube/video_effects_settings.proto";
+import "youtube/api/innertube/metadata_editor_config.proto";
+import "youtube/api/innertube/upload_snackbar_data.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetUploadVideoFormResponse {
+	ResponseContext response_context = 1;
+	repeated GetUploadVideoFormResponseSupportedRenderers contents = 3;
+	VideoEffectsSettings effects_settings = 4;
+	bool user_verification_eligible = 5;
+	int32 required_video_length_for_verification_sec = 6;
+	Command next_command = 7;
+	MetadataEditorConfig metadata_editor_config = 8;
+	string next_command_title = 9;
+	Command zero_step_channel_creation_command = 10;
+	bool hide_thumbnail = 11;
+	bytes tracking_params = 13;
+	Renderer content = 14;
+	GetUploadVideoFormResponseSupportedRenderers disclaimer_after_channel_creation = 15;
+
+	message PresentationConfig {
+		GetUploadVideoFormUploadButtonPosition next_button_position = 1;
+		string next_button_state_key = 2;
+	}
+
+	PresentationConfig presentation_config = 16;
+
+	message SnapshotHandler {
+		Command apply_snapshot_command = 1;
+		string snapshot_state_key = 2;
+		Renderer save_snapshot_button_renderer = 3;
+	}
+
+	SnapshotHandler snapshot_handler = 17;
+	Command sct_shorts_firebase_analytics_command = 18;
+	Command verification_command = 19;
+	Command navigate_to_upload_command = 20;
+	UploadSnackbarData upload_snackbar_data = 22;
+	FrameworkUpdateTransport framework_updates = 777;
+}

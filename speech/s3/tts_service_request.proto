@@ -1,0 +1,72 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "speech/s3/tts_service_request_params.proto";
+
+option objc_class_prefix = "S3";
+
+message TtsServiceRequest {
+	extend Request {
+		TtsServiceRequest tts_request = 27801516;
+	}
+
+	string synthesis_text = 1;
+	string ssml = 2;
+	string voice_language = 3;
+	string voice_name = 4;
+	int32 voice_sample_rate = 5;
+	string voice_engine = 6;
+
+	oneof speed {
+		double synthesis_speed = 7;
+		double speaking_rate = 27;
+	}
+
+	oneof pitch {
+		double synthesis_pitch = 8;
+		double pitch_gain_semitones = 28;
+	}
+
+	oneof volume {
+		double synthesis_volume = 9;
+		double volume_gain_db = 29;
+	}
+
+	enum Encoding {
+		option features.enum_type = CLOSED;
+
+		LINEAR_16BIT = 1;
+		MULAW = 2;
+		ALAW = 12;
+		MP3 = 4;
+		MP3_64KBPS = 8;
+		MP3_64KBPS_NBR = 16;
+		SPEEX = 3;
+		SPEEX_WITH_HEADER_BYTE = 5;
+		SPEEX_IN_OGG = 6;
+		OPUS_IN_OGG = 7;
+		OPUS_24KBPS_IN_OGG = 9;
+		OPUS_16KBPS_IN_OGG = 10;
+		OPUS_12KBPS_IN_OGG = 11;
+		OPUS_16KBPS_CONTAINERLESS = 13;
+		OPUS_24KBPS_CONTAINERLESS = 14;
+		OPUS_32KBPS_CONTAINERLESS = 15;
+	}
+
+	Encoding audio_encoding = 10 [ default = MP3_64KBPS ];
+	int32 audio_chunk_size = 11 [ default = 1024 ];
+	bool input_is_loggable = 12 [ default = false ];
+	bool input_is_raw_loggable = 14 [ default = false ];
+	bool input_is_aggregate_loggable = 15 [ default = false ];
+	bool enable_timepoints = 16;
+	string voice_gender = 17;
+	bool use_google_only_voices = 18;
+	bool lookup_assistant_voice_preference = 19;
+	repeated string effects_profile_id = 22;
+	int64 input_text_size_bytes = 23;
+	bool voice_name_is_preference = 25;
+	TtsServiceRequestParams.TimepointLevel timepoint_level = 31;
+	string internal_voice_name = 32;
+}

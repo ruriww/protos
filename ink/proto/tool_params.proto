@@ -1,0 +1,57 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/tool_size.proto";
+import "ink/proto/pusher_tool_params.proto";
+import "ink/proto/line_tool_params.proto";
+import "ink/proto/text_tool_params.proto";
+import "ink/proto/shape_tool_params.proto";
+import "ink/proto/magic_eraser_tool_params.proto";
+import "ink/proto/shape_query_tool_params.proto";
+import "ink/proto/text_pusher_tool_params.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ToolParams {
+	enum ToolType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		LINE = 1;
+		EDIT = 2;
+		MAGIC_ERASER = 3;
+		QUERY = 4;
+		NOTOOL = 5;
+		PUSHER = 7;
+		CROP = 8;
+		TEXT_HIGHLIGHTER_TOOL = 9;
+		STROKE_EDITING_ERASER = 10;
+		SMART_HIGHLIGHTER_TOOL = 11;
+		EYE_DROPPER = 12;
+		TEXT = 13;
+		TEXT_PUSHER = 14;
+		CURSOR = 15;
+		LONGFORM_SELECTION_TOOL = 16;
+		LONGFORM_MAKE_SPACE_TOOL = 17;
+		LONGFORM_HIGHLIGHTER_TOOL = 18;
+		SHAPE = 19;
+		TEST_TOOL = 20;
+		SHAPE_QUERY = 21;
+		TEXT_EDIT = 22;
+	}
+
+	ToolType tool = 1;
+	uint32 rgba = 2;
+	ToolSize tool_size = 3;
+
+	oneof specific_tool_params {
+		PusherToolParams pusher_tool_params = 4;
+		LineToolParams line_tool_params = 5;
+		TextToolParams text_tool_params = 7;
+		ShapeToolParams shape_tool_params = 8;
+		MagicEraserToolParams magic_eraser_tool_params = 9;
+		ShapeQueryToolParams shape_query_tool_params = 10;
+		TextPusherToolParams text_pusher_tool_params = 21;
+	}
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_chat_paid_message_template_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PaidLiveChatMessageTier {
+	int64 min_price_micros = 1;
+	int64 max_price_micros = 2;
+	int64 num_characters_at_min_price = 3;
+	int64 num_characters_at_max_price = 4;
+	LiveChatPaidMessageTemplateSupportedRenderers message_template = 5;
+	int64 max_num_characters = 6;
+	FormattedString duration_label = 7;
+	string app_store_product_id = 8;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "google/type/latlng.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Location {
+	google.type.LatLng lat_lng = 1;
+	string name = 3;
+	string country_code = 4;
+	float accuracy_meters = 5;
+	google.protobuf.Duration age = 6;
+}

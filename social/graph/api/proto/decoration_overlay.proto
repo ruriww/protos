@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/photo_overlay.proto";
+
+option objc_class_prefix = "SGAP";
+
+message DecorationOverlay {
+	string sibs_id = 1;
+	PhotoOverlay overlay = 2;
+}

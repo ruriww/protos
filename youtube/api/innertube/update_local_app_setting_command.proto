@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/setting_item_id.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateLocalAppSettingCommand {
+	oneof new_setting_value {
+		bool bool_value = 2;
+		string string_value = 3;
+		uint32 uint32_value = 4;
+	}
+
+	SettingItemId setting_item_id = 5;
+}
+
+extend Command {
+	UpdateLocalAppSettingCommand update_local_app_setting_command = 182078373;
+}

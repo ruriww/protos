@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/red_carpet_thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/red_carpet_playlist_layout_style.proto";
+import "youtube/api/innertube/red_carpet_badge_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCarpetPlaylistVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+
+	oneof title_badge {
+		FormattedString subtitle = 4;
+		Renderer above_title_badge = 10;
+		Renderer below_title_badge = 12;
+	}
+
+	FormattedString content_description = 5;
+	FormattedString length_text = 6;
+	Command navigation_endpoint = 7;
+	repeated RedCarpetThumbnailOverlaySupportedRenderers thumbnail_overlays = 8;
+	Renderer offlineability = 9;
+	RedCarpetPlaylistLayoutStyle layout_style = 11;
+	bytes tracking_params = 14;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	RedCarpetPlaylistVideoRenderer red_carpet_play_list_video_renderer = 154471660;
+}
+
+extend Renderer {
+	RedCarpetBadgeRenderer red_carpet_badge_renderer = 175268645;
+}

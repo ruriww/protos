@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RegisteredGaiaServices {
+	REGISTERED_GAIA_SERVICES_UNSPECIFIED = 0;
+	REGISTERED_GAIA_SERVICES_IS_UNICORN_CHILD_ACCOUNT = 1;
+	REGISTERED_GAIA_SERVICES_IS_UNICORN_OVER_13_IN_EU = 2;
+	REGISTERED_GAIA_SERVICES_IS_YOUTUBE_PERSONA = 3;
+	REGISTERED_GAIA_SERVICES_IS_MADISON_ACCOUNT = 4;
+	REGISTERED_GAIA_SERVICES_IS_YOUTUBE_CHANNEL_ACCOUNT = 5;
+	REGISTERED_GAIA_SERVICES_HAS_GRIFFIN_POLICY = 6;
+}

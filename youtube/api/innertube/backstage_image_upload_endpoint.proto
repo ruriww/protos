@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/image_validation_info.proto";
+import "youtube/api/innertube/backstage_image_editor_supported_renderers.proto";
+import "youtube/api/innertube/image_upload_elements_compatibility.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstageImageUploadEndpoint {
+	extend Command {
+		BackstageImageUploadEndpoint backstage_image_upload_endpoint = 125827176;
+	}
+
+	string upload_url = 1;
+	string channel_id = 2;
+	ImageValidationInfo image_validation_info = 3;
+	BackstageImageEditorSupportedRenderers image_editor = 4;
+	bool enable_camera_entry_point = 5;
+	ImageUploadElementsCompatibility compatibility = 6;
+	Renderer aspect_ratio_exceeded_alert_dialog = 7;
+	Command image_preview_select_command = 8;
+	bool skip_preview_select = 9;
+	int32 max_num_of_images = 10;
+	FormattedString image_gallery_title = 11;
+	FormattedString image_gallery_select_action_text = 12;
+	Renderer post_image_picker = 13;
+	Command aspect_ratio_exceeded_dialog_command = 14;
+}

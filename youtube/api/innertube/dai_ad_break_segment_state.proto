@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DAIAdBreakSegmentState {
+	option features.enum_type = CLOSED;
+
+	DAI_AD_BREAK_SEGMENT_STATE_UNSPECIFIED = 0;
+	DAI_AD_BREAK_SEGMENT_STATE_INIT = 1;
+	DAI_AD_BREAK_SEGMENT_STATE_PLACEHOLDER_SEGMENT = 2;
+	DAI_AD_BREAK_SEGMENT_STATE_VIDEO_SEGMENT = 3;
+}

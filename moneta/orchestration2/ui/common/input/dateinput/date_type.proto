@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+option objc_class_prefix = "ORCH2";
+
+enum DateType {
+	option features.enum_type = CLOSED;
+
+	DATE_TYPE_UNKNOWN = 0;
+	DATE_TYPE_YEAR_MONTH_DAY = 1;
+	DATE_TYPE_YEAR_MONTH = 2;
+	DATE_TYPE_YEAR = 3;
+}

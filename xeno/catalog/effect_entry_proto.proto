@@ -1,0 +1,13 @@
+edition = "2023";
+
+package xeno.catalog;
+
+option objc_class_prefix = "XNO";
+
+message EffectEntryProto {
+	string effect_id = 1;
+	string icon_name = 2;
+	string image_effect_id = 3;
+	string analytics_id = 4;
+	string display_name = 5;
+}

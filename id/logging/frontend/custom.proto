@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "id/logging/frontend/account_settings.proto";
+import "id/logging/frontend/family_invitation_data.proto";
+import "id/logging/frontend/family_creation_data.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message Custom {
+	AccountSettings account_settings = 4;
+	FamilyInvitationData family_invitation_data = 22;
+	FamilyCreationData family_creation_data = 23;
+}

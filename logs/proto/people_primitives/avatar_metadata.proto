@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.people_primitives;
+
+import "logs/proto/people_primitives/image_type.proto";
+import "logs/proto/people_primitives/image_data_cached.proto";
+
+option objc_class_prefix = "PKTPB";
+
+message AvatarMetadata {
+	ImageType image_type = 1;
+	ImageDataCached image_data_cached = 2;
+}

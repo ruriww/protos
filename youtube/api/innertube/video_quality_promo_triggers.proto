@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoQualityPromoTriggers {
+	enum ConnectionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WIFI = 1;
+		CELLULAR = 2;
+	}
+
+	repeated ConnectionType connection_whitelist = 1 [ features.repeated_field_encoding = EXPANDED ];
+	uint32 join_latency_seconds = 2;
+	uint32 rebuffer_time_seconds = 3;
+	uint32 watch_time_window_seconds = 4;
+	uint32 refractory_seconds = 5;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message UserContext {
+	oneof user {
+		int64 gaia_id = 1;
+		string ldap = 2;
+		bool anonymous = 4;
+		string cloud_principal_identifier = 6;
+	}
+
+	bool impersonated_user_gaia_id = 3;
+	string asserted_client_mdb = 5;
+	string parent_access_token = 7;
+	bool legacy_supervisor_user = 8;
+}

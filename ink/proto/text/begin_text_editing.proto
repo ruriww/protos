@@ -1,0 +1,9 @@
+edition = "2023";
+
+package ink.proto.text;
+
+option objc_class_prefix = "INKPB";
+
+message BeginTextEditing {
+	string uuid = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package visionkit;
+
+import "visionkit/detection.proto";
+
+option objc_class_prefix = "VKS";
+
+message DetectionResult {
+	repeated Detection detections = 1;
+}

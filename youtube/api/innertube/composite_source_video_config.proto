@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompositeSourceVideoConfig {
+	string video_id = 1;
+
+	message AudioTrack {
+		string id = 1;
+		string id_in_source = 2;
+		bool is_default_for_source = 3;
+	}
+
+	repeated AudioTrack audio_tracks = 2;
+
+	message CaptionTrack {
+		string id = 1;
+		string id_in_source = 2;
+		bool is_default_for_source = 3;
+	}
+
+	repeated CaptionTrack caption_tracks = 3;
+}

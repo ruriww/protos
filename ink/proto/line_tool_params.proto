@@ -1,0 +1,43 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/custom_line_params.proto";
+import "ink/proto/line_effect_params.proto";
+
+option objc_class_prefix = "INKPB";
+
+message LineToolParams {
+	enum BrushType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_BRUSH = 0;
+		CALLIGRAPHY = 1;
+		INKPEN = 2;
+		MARKER = 3;
+		BALLPOINT = 4;
+		TINTED_BALLPOINT = 15;
+		ERASER = 6;
+		HIGHLIGHTER = 8;
+		PENCIL = 12;
+		CHARCOAL = 13;
+		PRESSURE_PEN = 14;
+	}
+
+	oneof params_option {
+		BrushType brush_type = 1;
+		CustomLineParams custom_line_params = 2;
+	}
+
+	LineEffectParams line_effect_params = 3;
+
+	enum SelfOverlap {
+		option features.enum_type = CLOSED;
+
+		OVERLAP_UNSPECIFIED = 0;
+		OVERLAP_ACCUMULATE = 1;
+		OVERLAP_DISCARD = 2;
+	}
+
+	SelfOverlap self_overlap = 4 [ default = OVERLAP_ACCUMULATE ];
+}

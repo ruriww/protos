@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+option objc_class_prefix = "PIL";
+
+enum ReminderIdType {
+	REMINDER_ID_TYPE_UNKNOWN = 0;
+	REMINDER_ID_TYPE_CLIENT_ID = 1;
+	REMINDER_ID_TYPE_RECURRENCE_CLIENT_ID = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/surface.proto";
+import "lens/platform.proto";
+import "lens/request_context/rendering_context.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message StickyClusterInfoRequest {
+	bool enable_gws_session_id = 1;
+	.lens.Surface surface = 2;
+	.lens.Platform platform = 3;
+	.lens.request_context.RenderingContext rendering_context = 4;
+}

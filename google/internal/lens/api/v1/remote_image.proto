@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/sffe_image.proto";
+
+option objc_class_prefix = "LFE";
+
+message RemoteImage {
+	oneof type {
+		SFFEImage sffe_image = 1;
+	}
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/custom_substitution_parameter.proto";
+import "moneta/testing/demoserver/teststudio/proto/proto_path_based_substitution.proto";
+
+option objc_class_prefix = "TSL";
+
+message UserCustomization {
+	bool throw_on_invalid_input = 1;
+	repeated CustomSubstitutionParameter custom_substitution_parameter = 2;
+	repeated string fields_to_clear = 3;
+	repeated ProtoPathBasedSubstitution proto_path_based_substitution = 4;
+}

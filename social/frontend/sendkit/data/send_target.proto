@@ -1,0 +1,59 @@
+edition = "2023";
+
+package social.frontend.sendkit.data;
+
+import "social/frontend/sendkit/data/internal_metadata.proto";
+import "peoplestack/reachability.proto";
+import "social/graph/api/proto/display_name_source.proto";
+
+option objc_class_prefix = "SKT";
+
+message SendTarget {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPE = 0;
+		EMAIL = 1;
+		IN_APP_GAIA = 2;
+		IN_APP_PHONE = 3;
+		SMS = 4;
+		IN_APP_EMAIL = 5;
+		GROUP = 6;
+		CUSTOM = 7;
+	}
+
+	Type type = 1;
+	string value = 2;
+	RecipientMetadata metadata = 3;
+	InternalMetadata internal_metadata = 4;
+}
+
+message RecipientMetadata {
+	string display_name = 1;
+	string photo_url = 2;
+	string obfuscated_gaia_id = 3;
+	bool has_profile_name = 4;
+	string originating_field_value = 5;
+	SendTarget.Type originating_field_type = 6;
+	string phone_formatting_country_code = 8;
+	string monogram = 9;
+	string photo_reference_type = 10;
+
+	enum CorrectionStatus {
+		option features.enum_type = CLOSED;
+
+		CORRECTION_STATUS_UNKNOWN = 0;
+		NO_CORRECTION_NEEDED = 1;
+		AUTOMATICALLY_CORRECTED = 2;
+		MANUALLY_CORRECTED = 3;
+		USE_ANYWAY = 4;
+	}
+
+	CorrectionStatus correction_status = 11;
+	string given_name = 12;
+	string contact_name = 13;
+	peoplestack.Reachability.ReachabilityStatus reachability_status = 14;
+	string in_app_client_data = 15;
+	graph.api.proto.DisplayNameSource.Source display_name_source_qualifier = 16;
+	int32 channel_category = 17;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/int_packed_color.proto";
+import "ink/proto/text_tool_params.proto";
+
+option objc_class_prefix = "INKPB";
+
+message UpdateEditedText {
+	string uuid = 1;
+	IntPackedColor color = 2;
+	float font_size_screen = 3;
+	TextToolParams text_params = 4;
+}

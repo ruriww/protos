@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+enum Alignment {
+	DEFAULT_LEFT_ALIGNED = 0;
+	RIGHT_ALIGNED = 1;
+	CENTER_ALIGNED = 2;
+}

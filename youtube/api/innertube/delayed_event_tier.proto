@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DelayedEventTier {
+	option features.enum_type = CLOSED;
+
+	DELAYED_EVENT_TIER_UNSPECIFIED = 0;
+	DELAYED_EVENT_TIER_DEFAULT = 100;
+	DELAYED_EVENT_TIER_DISPATCH_TO_EMPTY = 200;
+	DELAYED_EVENT_TIER_FAST = 300;
+	DELAYED_EVENT_TIER_IMMEDIATE = 400;
+}

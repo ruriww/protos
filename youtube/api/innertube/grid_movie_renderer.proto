@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridMovieRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString long_byline_text = 4;
+	FormattedString short_byline_text = 5;
+	ThumbnailDetails channel_thumbnail = 6;
+	FormattedString published_time_text = 7;
+	FormattedString view_count_text = 8;
+	FormattedString length_text = 9;
+	Command navigation_endpoint = 10;
+	repeated BadgeSupportedRenderers badges = 11;
+	repeated BadgeSupportedRenderers owner_badges = 12;
+	string debug_html = 13;
+	bytes tracking_params = 16;
+	repeated Command service_endpoints = 17;
+	FormattedString short_view_count_text = 18;
+	StandaloneBadgeSupportedRenderers standalone_badge = 19;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 20;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 21;
+	FormattedString metadata = 22;
+	repeated StandaloneBadgeSupportedRenderers bottom_standalone_badges = 23;
+	ButtonSupportedRenderers offer_button = 24;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 26;
+}
+
+extend Renderer {
+	GridMovieRenderer grid_movie_renderer = 60373556;
+}

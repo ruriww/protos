@@ -1,0 +1,46 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message IntentDetectorEvent {
+	enum IntentDetectorType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPE = 0;
+		ADDRESS = 1;
+		PHONE_NUMBER = 2;
+		DATE = 3;
+		TRANSIT = 4;
+		MUSIC_ARTIST = 5;
+		REMINDER = 6;
+	}
+
+	IntentDetectorType type = 1;
+	bool handled_with_default_action = 2;
+
+	enum IntentDetectorAction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ACTION = 0;
+		ACTION_CANCELLED = 1;
+		NAVIGATE_ADDRESS = 2;
+		CALL_PHONE = 3;
+		MESSAGE = 4;
+		FACETIME = 5;
+		VIEW_CALENDAR_DATE = 6;
+		CREATE_EVENT = 7;
+		VIEW_ARTIST = 8;
+		VIEW_MUSIC = 9;
+		ASK_GOOGLE_ASSISTANT = 10;
+		TRACK_FLIGHT = 11;
+	}
+
+	IntentDetectorAction action = 3;
+	bool annotated_using_cache = 4;
+	int32 total_annotation_count = 5;
+	int32 annotated_string_length = 6;
+	int32 input_text_length = 7;
+	string installed_bundle_identifier = 8;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/rot_rect.proto";
+
+option objc_class_prefix = "INKPB";
+
+message AddSticker {
+	RotRect bounds_world = 1;
+	string bitmap_uri = 2;
+
+	oneof parent {
+		string group_uuid = 3;
+		int32 layer_index = 4;
+	}
+}

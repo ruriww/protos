@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens;
+
+import "lens/pose_coordinate_space.proto";
+import "lens/vector3.proto";
+import "lens/quaternion.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Pose {
+	PoseCoordinateSpace coordinate_space = 1;
+	Vector3 scale = 2;
+	Quaternion rotation = 3;
+	Vector3 translation = 4;
+}

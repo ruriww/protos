@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/notification_text_renderer.proto";
+import "youtube/api/innertube/notification_action_renderer.proto";
+import "youtube/api/innertube/unplugged_banner_renderer.proto";
+import "youtube/api/innertube/notification_thumbnail_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddToToastActionSupportedRenderers {
+	NotificationTextRenderer notification_text_renderer = 73850394;
+	NotificationActionRenderer notification_action_renderer = 96140188;
+	UnpluggedBannerRenderer unplugged_banner_renderer = 224687714;
+	NotificationThumbnailRenderer notification_thumbnail_renderer = 456813987;
+}

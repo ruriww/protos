@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/interactivity_widget_matrix_data.proto";
+import "youtube/api/innertube/special_placement.proto";
+import "youtube/api/innertube/interactivity_widget_safe_area.proto";
+import "youtube/api/innertube/interactivity_widget_layout_constraint.proto";
+import "youtube/api/innertube/interactivity_widget_transformation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InteractivityWidgetPosition {
+	oneof position {
+		InteractivityWidgetMatrixData matrix = 1;
+		SpecialPlacement special_placement = 6;
+	}
+
+	InteractivityWidgetSafeArea safe_area = 2;
+	InteractivityWidgetLayoutConstraint width = 3;
+	InteractivityWidgetLayoutConstraint height = 4;
+	repeated InteractivityWidgetTransformation widget_transformations = 5;
+}

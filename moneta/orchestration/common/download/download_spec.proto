@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration.common.download;
+
+option objc_class_prefix = "Orch";
+
+message DownloadSpec {
+	string download_url = 1;
+	string request_message = 2;
+}

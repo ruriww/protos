@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountColdConfig {
+	bool ios_enable_web_kit_for_sso = 1;
+	bool ios_enable_onegoogle_account_manager = 2;
+	bool ios_enable_onegoogle_account_switcher = 5;
+	int32 deboarding_check_interval_minutes = 6;
+	bool ios_enable_remove_srl_scoped_objects_on_account_change = 8;
+	bool android_enable_incognito_session_id_filling = 9;
+	bool android_enable_identity_store_log = 10;
+	bool enable_names_handles_account_switcher = 11;
+	int32 android_account_removal_check_interval_secs = 12;
+	bool android_enable_recurring_account_wipeout_task = 13;
+}

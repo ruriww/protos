@@ -1,0 +1,12 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message HighlightBound {
+	float bottom = 1;
+	float left = 2;
+	float right = 3;
+	float top = 4;
+}

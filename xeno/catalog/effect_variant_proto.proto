@@ -1,0 +1,15 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "xeno/effect/effect_proto.proto";
+import "xeno/effect/choreo_effect_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message EffectVariantProto {
+	oneof variant {
+		effect.EffectProto effect = 1;
+		effect.ChoreoEffectProto choreo_effect = 2;
+	}
+}

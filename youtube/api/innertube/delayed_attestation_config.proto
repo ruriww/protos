@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/tracking_url.proto";
+import "youtube/api/innertube/delayed_event_config_set.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DelayedAttestationConfig {
+	bool enabled = 1;
+	TrackingUrl tracking_url = 2;
+	int32 scheduled_dispatch_timespan_seconds = 3;
+	DelayedEventConfigSet delayed_event_config = 4;
+	bool is_delayed_send_allowed = 5;
+}

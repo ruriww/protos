@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message DriveDesktopClientInfo {
+	string build_version = 1;
+
+	enum DriveDesktopClientType {
+		option features.enum_type = CLOSED;
+
+		CLIENT_UNKNOWN = 0;
+		PHENOTYPE = 1;
+	}
+
+	DriveDesktopClientType drive_desktop_client_type = 2;
+}

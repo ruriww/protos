@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+import "moneta/integrator/common/date.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DateRange {
+	integrator.common.Date min_date = 1;
+	integrator.common.Date max_date = 2;
+}

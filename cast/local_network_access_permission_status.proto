@@ -1,0 +1,13 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum LocalNetworkAccessPermissionStatus {
+	option features.enum_type = CLOSED;
+
+	LOCAL_NETWORK_ACCESS_PERMISSION_STATUS_UNKNOWN = 0;
+	LOCAL_NETWORK_ACCESS_PERMISSION_STATUS_ALLOWED = 1;
+	LOCAL_NETWORK_ACCESS_PERMISSION_STATUS_DENIED = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.timelineview;
+
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/filter/filter_value.proto";
+import "moneta/orchestration/ui/common/components/alert/alert_dismissal_value.proto";
+
+option objc_class_prefix = "TimelineView";
+
+message PageValue {
+	repeated common.components.SimpleFormValue simple_form_value = 1;
+	bytes dependency_graph_action_token = 3;
+	common.components.filter.FilterValue filter_value = 4;
+	common.components.alert.AlertDismissalValue alert_dismissal_value = 5;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message RosterMemberCount {
+	int64 direct_user_count = 1;
+	int64 direct_group_count = 2;
+}

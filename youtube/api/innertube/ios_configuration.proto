@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosConfiguration {
+	bool legacy_keyboard_view_shrinking = 1;
+	bool keep_view_in_safe_area = 2;
+}

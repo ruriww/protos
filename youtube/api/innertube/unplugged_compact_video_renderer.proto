@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedCompactVideoRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	FormattedString episode_title = 3;
+	FormattedString episode_number = 4;
+	FormattedString content_rating = 5;
+	FormattedString start_time = 6;
+	Command navigation_endpoint = 7;
+	FormattedString duration = 8;
+	bytes tracking_params = 9;
+	FormattedString description = 12;
+	uint64 start_time_seconds = 13;
+	uint64 end_time_seconds = 14;
+	FormattedString station_name = 15;
+	FormattedString primary_text = 16;
+	FormattedString secondary_text = 17;
+	FormattedString tertiary_text = 18;
+	BadgeSupportedRenderers badge = 19;
+	int32 watched_percentage_for_display = 20;
+	FormattedString status_text = 21;
+	MenuSupportedRenderers menu = 22;
+	FormattedString quaternary_text = 23;
+	bool hide_divider = 24;
+	Renderer video_version_list = 25;
+	Renderer overflow_menu_button = 26;
+	BadgeSupportedRenderers secondary_badge = 27;
+
+	message ClientStateSyncData {
+		string watch_state_entity_key = 1;
+	}
+
+	ClientStateSyncData client_state_sync_data = 28;
+	Renderer hint = 29;
+	Renderer version_badge = 30;
+	FormattedString expanded_state_secondary_text = 31;
+	BadgeSupportedRenderers ultra_high_definition_badge = 32;
+	Renderer download_button = 33;
+	repeated Renderer action_buttons = 34;
+	repeated Renderer tertiary_container = 35;
+	bool show_thumbnail_scrim = 36;
+}
+
+extend Renderer {
+	UnpluggedCompactVideoRenderer unplugged_compact_video_renderer = 97141623;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/user_key.proto";
+
+option objc_class_prefix = "AIA";
+
+message Metadata {
+	UserKey user_key = 1;
+	string user_agent = 2;
+	string client_ip = 3;
+	int64 timestamp_micros = 4;
+	string header_order = 5;
+	string device_id_hash = 7;
+	string network_id = 8;
+	string os = 9;
+	int64 oauth_token_timestamp_micros = 10;
+	string source = 13;
+}

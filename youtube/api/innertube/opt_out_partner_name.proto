@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OptOutPartnerName {
+	option features.enum_type = CLOSED;
+
+	OPT_OUT_PARTNER_NAME_UNKNOWN = 0;
+	OPT_OUT_PARTNER_NAME_NIELSEN = 1;
+}

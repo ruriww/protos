@@ -1,0 +1,57 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationRegistration {
+	message GCMRegistration {
+		bytes messaging_id = 1;
+		bool notifications_disabled_in_app = 2;
+		bool notifications_disabled_in_os = 3;
+		string project_id = 4;
+		int32 prompt_attempts_left = 7;
+		int32 prompt_show_count = 8;
+	}
+
+	message APNSRegistration {
+		bytes messaging_id = 1;
+		string sso_client_id = 2;
+		string sso_device_id = 3;
+		bytes sso_match_prototype_bytes = 4;
+		string gcm_messaging_id = 6;
+		string project_id = 8;
+		bool registered_notification_actions = 9;
+
+		message EnabledSettings {
+			int64 authorization_status = 1;
+			int64 lock_screen = 2;
+			int64 notification_center = 3;
+			int64 alert = 4;
+			int64 badge = 5;
+			int64 sound = 6;
+			int64 car_play = 7;
+			int64 critical_alert = 8;
+			int64 alert_style = 9;
+			int64 previews = 10;
+			bool provides_app_notification_settings = 11;
+		}
+
+		EnabledSettings enabled_settings = 11;
+	}
+
+	message ChromeRegistration {
+		string project_id = 3;
+		string device_id = 4;
+		bool notifications_disabled_in_app = 5;
+	}
+
+	oneof registration {
+		GCMRegistration gcm_registration = 1;
+		APNSRegistration apns_registration = 2;
+		ChromeRegistration chrome_registration = 4;
+	}
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message MemberSupervisionInfo {
+	bool is_supervised_member = 1;
+	bool is_guardian_linked_account = 2;
+
+	message GlaSupervisionBundle {
+	}
+
+	repeated GlaSupervisionBundle active_supervision_bundle = 3;
+}

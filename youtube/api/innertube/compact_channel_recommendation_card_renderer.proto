@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/compact_channel_recommendation_card_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/channel_recommendation_card_style.proto";
+import "youtube/api/innertube/lightsource_color_palette_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactChannelRecommendationCardRenderer {
+	FormattedString channel_title = 1;
+	FormattedString subscriber_count = 2;
+	CompactChannelRecommendationCardSubscribeButtonSupportedRenderers subscribe_button = 3;
+	ThumbnailDetails background_image = 4;
+	ThumbnailDetails channel_avatar = 5;
+	Command channel_endpoint = 7;
+	FormattedString channel_description = 8;
+	ChannelRecommendationCardStyle style = 9;
+	LightsourceColorPaletteData color_extraction_palette = 10;
+	bytes tracking_params = 12;
+	Renderer menu = 13;
+	FormattedString view_count_text = 14;
+}
+
+extend Renderer {
+	CompactChannelRecommendationCardRenderer compact_channel_recommendation_card_renderer = 137097475;
+}

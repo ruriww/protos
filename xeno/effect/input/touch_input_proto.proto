@@ -1,0 +1,27 @@
+edition = "2023";
+
+package xeno.effect.input;
+
+import "xeno/effect/vec2_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message TouchInputProto {
+	enum Phase {
+		TOUCH_INVALID = 0;
+		TOUCH_BEGAN = 1;
+		TOUCH_MOVED = 2;
+		TOUCH_ENDED = 3;
+	}
+
+	message Touch {
+		int32 id = 1;
+		Phase phase = 2;
+		Vec2Proto location = 3;
+		Vec2Proto previous_location = 4;
+		float force = 5;
+		int64 timestamp_us = 6;
+	}
+
+	repeated Touch touches = 1;
+}

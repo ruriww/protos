@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens;
+
+import "lens/lens_refinement_actions.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Refinement {
+	bool is_selected = 1;
+	LensRefinementActions action = 2;
+
+	oneof name {
+		string text = 3;
+	}
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "unknown/youtube/postal_address.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message AddressFormValue {
+	unknown.youtube.PostalAddress address = 1;
+	string phone_number = 2;
+	bool is_hidden = 3;
+
+	enum AddressType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		FULL = 1;
+		POSTAL_CODE_COUNTRY = 2;
+		STRUCTURED_ADDRESS = 3;
+	}
+
+	AddressType address_type = 4;
+	string id = 5;
+	bytes existing_address_token = 6;
+	bytes data_token = 7;
+	int64 ui_reference = 8;
+	int64 address_id = 9;
+	repeated generic.UiFieldValue additional_fields = 10;
+}

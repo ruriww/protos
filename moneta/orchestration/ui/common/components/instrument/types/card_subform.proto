@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/card_subform_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/card_field.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_grouping.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message CardSubform {
+	FormHeader form_header = 1;
+	CardSubformValue initial_value = 2;
+	repeated CardField card_field = 3;
+	repeated generic.UiFieldGrouping field_grouping = 4;
+	legal.LegalMessage legal_message = 6;
+	int32 collapsible_fields_end_index = 7 [ default = -1 ];
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CoWatchabilityType {
+	CO_WATCHABILITY_TYPE_UNKNOWN = 0;
+	CO_WATCHABILITY_TYPE_UNAVAILABLE = 1;
+	CO_WATCHABILITY_TYPE_ALWAYS_AVAILABLE = 2;
+	CO_WATCHABILITY_TYPE_AVAILABLE_IF_ALREADY_CO_WATCHING = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.textinfo;
+
+import "moneta/orchestration2/ui/common/textinfo/text_category.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextAccessibility {
+	TextCategory text_category = 1;
+}

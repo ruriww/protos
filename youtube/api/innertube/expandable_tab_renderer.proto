@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/tab_renderer_selection_style.proto";
+import "youtube/api/innertube/tab_content_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExpandableTabRenderer {
+	Command endpoint = 1;
+	string title = 2;
+	bool selected = 3;
+	TabRendererSelectionStyle selection_style = 4;
+	string expanded_text = 5;
+	TabContentSupportedRenderers content = 6;
+}

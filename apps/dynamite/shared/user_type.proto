@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+option objc_class_prefix = "DYNProto";
+
+enum UserType {
+	option features.enum_type = CLOSED;
+
+	HUMAN = 0;
+	BOT = 1;
+}

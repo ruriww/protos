@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/setting_category_id.proto";
+import "youtube/api/innertube/setting_item_id.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ApplicationSettingsEndpoint {
+	bool hack = 1;
+	bool use_innertube = 2;
+	string settings_token = 3;
+	string page_id = 4;
+	string data_id = 5;
+	string operation_id = 6;
+	SettingCategoryId category_id = 7;
+	SettingItemId item_id = 8;
+	bool allow_deeplinking_navigation = 9;
+}
+
+extend Command {
+	ApplicationSettingsEndpoint application_settings_endpoint = 50078082;
+}

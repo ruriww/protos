@@ -1,0 +1,18 @@
+edition = "2023";
+
+package testing.performance.perfgate.contrib.annotated_log_manager;
+
+import "testing/performance/perfgate/contrib/annotated_log_manager/value.proto";
+
+option objc_class_prefix = "PSTPB";
+
+message Entry {
+	uint64 time_usec = 1;
+
+	oneof annotation_oneof {
+		int64 annotation_start = 2;
+		int64 annotation_stop = 3;
+	}
+
+	repeated Value values = 4;
+}

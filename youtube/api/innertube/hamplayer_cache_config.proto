@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerCacheConfig {
+	int32 max_ram_usage_bytes = 1;
+	bool use_purgeable_data = 2;
+	int32 max_disk_cache_size_bytes = 3;
+	int32 min_free_disk_space_bytes = 4;
+	int32 min_disk_cache_size_bytes = 5;
+	int32 ram_consumption_test_buffer_size_normal = 323875688;
+	int32 ram_consumption_test_buffer_size_warn = 323875689;
+	int32 ram_consumption_test_buffer_size_critical = 323875690;
+}

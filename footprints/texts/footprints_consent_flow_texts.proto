@@ -1,0 +1,46 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+import "footprints/texts/setting_set_id.proto";
+import "footprints/texts/bite_sized_notice.proto";
+import "footprints/texts/accept_reject_layout.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message FootprintsConsentFlowTexts {
+	message SettingSection {
+		webutil.html.types.SafeHtmlProto setting_name = 1;
+		webutil.html.types.SafeHtmlProto description = 2;
+		webutil.html.types.SafeHtmlProto learn_more_text = 3;
+		webutil.html.types.SafeHtmlProto title = 4;
+		SettingSetId setting_set_id = 5;
+		webutil.html.types.SafeHtmlProto examples_title = 6;
+
+		message Example {
+			string image_url = 1;
+			webutil.html.types.SafeHtmlProto text = 2;
+		}
+
+		repeated Example example_items = 7;
+
+		message LearnMoreDialog {
+			webutil.html.types.SafeHtmlProto title = 1;
+			repeated webutil.html.types.SafeHtmlProto paragraph = 2;
+			webutil.html.types.SafeHtmlProto dismiss_button = 3;
+		}
+
+		LearnMoreDialog explanatory_learn_more_dialog = 8;
+		webutil.html.types.SafeHtmlProto explanatory_subtitle = 9;
+		webutil.html.types.SafeHtmlProto explanatory_title = 10;
+		webutil.html.types.SafeHtmlProto explanatory_learn_more_dialog_button_text = 11;
+	}
+
+	repeated SettingSection setting_sections = 1;
+	webutil.html.types.SafeHtmlProto consent_footer = 2;
+	string accept_button_label = 3;
+	string reject_button_label = 4;
+	BiteSizedNotice bite_sized_notice = 5;
+	AcceptRejectLayout button_layout = 6;
+}

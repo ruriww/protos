@@ -1,0 +1,90 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/element_header_renderer.proto";
+import "youtube/api/innertube/c4_tabbed_header_renderer.proto";
+import "youtube/api/innertube/feed_tabbed_header_renderer.proto";
+import "youtube/api/innertube/playlist_header_renderer.proto";
+import "youtube/api/innertube/creator_header_renderer.proto";
+import "youtube/api/innertube/creator_video_detail_header_renderer.proto";
+import "youtube/api/innertube/searchable_browse_header_renderer.proto";
+import "youtube/api/innertube/analytics_screen_header_renderer.proto";
+import "youtube/api/innertube/playlist_detail_header_renderer.proto";
+import "youtube/api/innertube/unplugged_content_details_header_renderer.proto";
+import "youtube/api/innertube/music_header_renderer.proto";
+import "youtube/api/innertube/notification_inbox_header_renderer.proto";
+import "youtube/api/innertube/skinny_channel_compact_header_renderer.proto";
+import "youtube/api/innertube/topics_header_renderer.proto";
+import "youtube/api/innertube/connections_header_renderer.proto";
+import "youtube/api/innertube/comment_group_header_renderer.proto";
+import "youtube/api/innertube/unplugged_network_promo_header_renderer.proto";
+import "youtube/api/innertube/subs_channel_filter_header_renderer.proto";
+import "youtube/api/innertube/carousel_item_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/video_picker_tabbed_header_renderer.proto";
+import "youtube/api/innertube/details_header_renderer.proto";
+import "youtube/api/innertube/music_detail_header_renderer.proto";
+import "youtube/api/innertube/music_editable_playlist_detail_header_renderer.proto";
+import "youtube/api/innertube/music_immersive_header_renderer.proto";
+import "youtube/api/innertube/interactive_tabbed_header_renderer.proto";
+import "youtube/api/innertube/kids_curated_collection_header_renderer.proto";
+import "youtube/api/innertube/unplugged_dvr_picker_header_renderer.proto";
+import "youtube/api/innertube/music_visual_header_renderer.proto";
+import "youtube/api/innertube/music_song_detail_header_renderer.proto";
+import "youtube/api/innertube/music_two_line_header_renderer.proto";
+import "youtube/api/innertube/sfv_audio_picker_header_renderer.proto";
+import "youtube/api/innertube/reel_pivot_header_renderer.proto";
+import "youtube/api/innertube/music_element_header_renderer.proto";
+import "youtube/api/innertube/channel_mobile_header_renderer.proto";
+import "youtube/api/innertube/kids_shared_with_kids_header_renderer.proto";
+import "youtube/api/innertube/unplugged_epg_header_renderer.proto";
+import "youtube/api/innertube/page_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseHeaderSupportedRenderers {
+	oneof renderer {
+		ElementHeaderRenderer element_header_renderer = 1790;
+		C4TabbedHeaderRenderer c4_tabbed_header_renderer = 46407682;
+		FeedTabbedHeaderRenderer feed_tabbed_header_renderer = 50236216;
+		PlaylistHeaderRenderer playlist_header_renderer = 53272665;
+		CreatorHeaderRenderer creator_header_renderer = 64375887;
+		CreatorVideoDetailHeaderRenderer creator_video_detail_header_renderer = 81531855;
+		SearchableBrowseHeaderRenderer searchable_browse_header_renderer = 84636745;
+		AnalyticsScreenHeaderRenderer analytics_screen_header_renderer = 91395562;
+		PlaylistDetailHeaderRenderer playlist_detail_header_renderer = 96706488;
+		UnpluggedContentDetailsHeaderRenderer unplugged_content_details_header_renderer = 97168018;
+		MusicHeaderRenderer music_header_renderer = 99965204;
+		NotificationInboxHeaderRenderer notification_inbox_header_renderer = 100977426;
+		SkinnyChannelCompactHeaderRenderer skinny_channel_compact_header_renderer = 101397128;
+		TopicsHeaderRenderer topics_header_renderer = 102284451;
+		ConnectionsHeaderRenderer connections_header_renderer = 102883021;
+		CommentGroupHeaderRenderer comment_group_header_renderer = 111153703;
+		UnpluggedNetworkPromoHeaderRenderer unplugged_network_promo_header_renderer = 116164391;
+		SubsChannelFilterHeaderRenderer subs_channel_filter_header_renderer = 126869174;
+		CarouselItemRenderer carousel_item_renderer = 144757704;
+		ElementRenderer element_renderer = 153515154;
+		VideoPickerTabbedHeaderRenderer video_picker_tabbed_header_renderer = 156098381;
+		DetailsHeaderRenderer details_header_renderer = 159058187;
+		MusicDetailHeaderRenderer music_detail_header_renderer = 173602558;
+		MusicEditablePlaylistDetailHeaderRenderer music_editable_playlist_detail_header_renderer = 173690432;
+		MusicImmersiveHeaderRenderer music_immersive_header_renderer = 173693512;
+		InteractiveTabbedHeaderRenderer interactive_tabbed_header_renderer = 188799247;
+		KidsCuratedCollectionHeaderRenderer kids_curated_collection_header_renderer = 196904101;
+		UnpluggedDvrPickerHeaderRenderer unplugged_dvr_picker_header_renderer = 220023574;
+		MusicVisualHeaderRenderer music_visual_header_renderer = 225413481;
+		MusicSongDetailHeaderRenderer music_song_detail_header_renderer = 252479813;
+		MusicTwoLineHeaderRenderer music_two_line_header_renderer = 287582849;
+		SfvAudioPickerHeaderRenderer sfv_audio_picker_header_renderer = 313670307;
+		ReelPivotHeaderRenderer reel_pivot_header_renderer = 338099421;
+		MusicElementHeaderRenderer music_element_header_renderer = 361650780;
+		ChannelMobileHeaderRenderer channel_mobile_header_renderer = 361905772;
+		KidsSharedWithKidsHeaderRenderer kids_shared_with_kids_header_renderer = 369918284;
+		UnpluggedEpgHeaderRenderer unplugged_epg_header_renderer = 380650365;
+		PageHeaderRenderer page_header_renderer = 509923604;
+	}
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package shared.flexkit;
+
+import "shared/flexkit/flex_direction.proto";
+import "shared/flexkit/justify_content.proto";
+import "shared/flexkit/align_items.proto";
+import "shared/flexkit/position.proto";
+
+option objc_class_prefix = "FLX";
+
+message Style {
+	string name = 1;
+	string variant = 2;
+	FlexDirection flex_direction = 3 [ default = FD_ROW ];
+	JustifyContent justify_content = 4 [ default = JC_FLEX_START ];
+	AlignItems align_items = 5 [ default = AI_STRETCH ];
+	float flex_grow = 7 [ default = 0e0 ];
+	float flex_shrink = 8 [ default = 1 ];
+	float flex_basis = 9;
+	AlignItems align_self = 10 [ default = AI_STRETCH ];
+	float height = 11;
+	float width = 12;
+	float padding = 13;
+	float padding_top = 14;
+	float padding_bottom = 15;
+	float padding_left = 16;
+	float padding_right = 17;
+	float padding_leading = 18;
+	float padding_trailing = 19;
+	float margin = 20;
+	float margin_top = 21;
+	float margin_bottom = 22;
+	float margin_left = 23;
+	float margin_right = 24;
+	float margin_leading = 26;
+	float margin_trailing = 27;
+	Position position = 28;
+	float position_top = 29;
+	float position_bottom = 30;
+	float position_left = 31;
+	float position_right = 32;
+	float position_leading = 33;
+	float position_trailing = 34;
+}

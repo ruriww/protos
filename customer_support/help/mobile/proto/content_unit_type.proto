@@ -1,0 +1,27 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum ContentUnitType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CONTENT_UNIT = 0;
+	CUF = 1;
+	HELP_CENTER_LINK = 2;
+	GUIDED_FLOW = 3;
+	EXTERNAL = 4;
+	FORUM_LINK = 5;
+	INTENT_ACTION = 6;
+	YOUTUBE_VIDEO = 7;
+	HELP_ACTION = 8;
+	PLAY_STORE_APP = 9;
+	CANNED_RESPONSE = 10;
+	SUPPORT_FORUM_LINK = 11;
+	CASES_WORKFLOW = 12;
+	THREAD_LINK = 13;
+	PROMOTED_CONTENT_LINK = 14;
+	KHUB_GENERIC = 15;
+	AUTHORABLE_WORKFLOW = 16;
+}

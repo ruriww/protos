@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/api/innertube/downloads_page_smart_downloads_header_entity.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageSmartDownloadsHeaderModel {
+	extend Model {
+		DownloadsPageSmartDownloadsHeaderModel downloads_page_smart_downloads_header_model = 372486289;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	string title = 3;
+	string last_updated_time_message = 4;
+	string space_used_message = 5;
+	bool should_add_top_divider = 6;
+	string settings_a11y_label = 7;
+	string header_entity_key = 8;
+	api.innertube.DownloadsPageSmartDownloadsHeaderEntity header_entity = 9;
+	string settings_gear_icon_tooltip_text = 11;
+	EnvironmentData environment_data = 12;
+	bool should_reduce_bottom_space = 14;
+	string downloads_page_state_entity_key = 16;
+	bool should_display_smart_downloads_icon_expanded = 17;
+	string expand_collapse_a11y_label = 18;
+	bool should_hide_settings_gear = 19;
+	api.innertube.Renderer view_all_button = 20;
+}

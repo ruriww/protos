@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ImageSourceType {
+	option features.enum_type = CLOSED;
+
+	IMAGE_SOURCE_TYPE_UNSPECIFIED = 0;
+	IMAGE_SOURCE_TYPE_RECAP_IMAGE = 1;
+	IMAGE_SOURCE_TYPE_DEEP_LINK_IMAGE = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.fixinstrument;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form_value.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/encryption_form_value.proto";
+
+option objc_class_prefix = "FixInstrument";
+
+message PageValue {
+	common.components.instrument.InstrumentSelectorValue instrument_selector_value = 1;
+	common.components.instrument.InstrumentActivationFormValue instrument_activation_form_value = 2;
+	repeated string legal_doc_data = 3;
+	bytes dependency_graph_action_token = 4;
+	repeated common.components.tax.TaxInfoFormValue tax_info_form_value = 5;
+	repeated common.components.SimpleFormValue simple_form_value = 6;
+	common.components.EncryptionFormValue encryption_form_value = 8;
+	common.components.SimpleFormValue split_tender_form_value = 9;
+}

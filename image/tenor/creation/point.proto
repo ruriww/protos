@@ -1,0 +1,10 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message Point {
+	float x = 1;
+	float y = 2;
+}

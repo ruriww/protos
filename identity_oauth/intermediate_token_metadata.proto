@@ -1,0 +1,18 @@
+edition = "2023";
+
+package identity_oauth;
+
+import "identity_oauth/caveat_types.proto";
+
+option objc_class_prefix = "SSO";
+
+message IntermediateTokenMetadata {
+	message ScopeMapping {
+		repeated string developer_code = 1;
+		int32 mapped_id = 2;
+	}
+
+	repeated ScopeMapping scope_mappings = 1;
+	CaveatTypes allowed_caveat_types = 3;
+	int32 laat_lifetime_seconds = 4;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/style_properties_extensions.proto";
+import "youtube/elements/properties.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message RippleEffectProperties {
+	extend StylePropertiesExtensions {
+		RippleEffectProperties style_ripple_effect_properties = 188911708;
+	}
+
+	extend Properties {
+		RippleEffectProperties ripple_effect_properties = 176971494;
+	}
+
+	uint32 color = 1;
+	int32 radius = 2;
+	bool clip_to_view = 3 [ default = true ];
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.integrator.common.buyflow;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message PurchaseDescription {
+	string localized_summary = 1;
+	string localized_details = 2;
+	webutil.html.types.SafeHtmlProto localized_details_html = 3;
+}

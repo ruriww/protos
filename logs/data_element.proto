@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs;
+
+import "logs/visual_element_tree_ref.proto";
+
+option objc_class_prefix = "LOG";
+
+message DataElement {
+	VisualElementTreeRef reference = 1;
+}

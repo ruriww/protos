@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.utils.visibility;
+
+import "youtube/utils/visibility/focus_visibility_logging_criteria.proto";
+
+option objc_class_prefix = "YTIV";
+
+message FocusVisibilityLoggingData {
+	FocusVisibilityLoggingCriteria logged_visibility_criteria = 1;
+	uint32 focus_visibility_duration_ms = 2;
+}

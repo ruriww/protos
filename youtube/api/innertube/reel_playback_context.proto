@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reel_player_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelPlaybackContext {
+	string video_id = 1;
+	string playlist_id = 2;
+	uint32 playlist_index = 3;
+	string cpn = 4;
+	ReelPlayerType player_type = 5;
+	int32 audio_fmt = 6;
+	int32 video_fmt = 7;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/video_thumbnail_data.proto";
+import "youtube/elements/components/metadata.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CompactPlaylistData {
+	api.innertube.VideoThumbnailData thumbnail = 1;
+	Metadata metadata = 2;
+	Command on_tap = 3;
+	Command menu_on_tap = 4;
+	string accessibility_text = 5;
+	string menu_a11y_label = 6;
+	bytes tracking_params = 7;
+	bool is_large_form_factor = 9;
+	string drag_and_drop_url = 10;
+	bool disable_ripple_effects = 12;
+	string playlist_id = 13;
+	bool show_background_scrim = 15;
+}

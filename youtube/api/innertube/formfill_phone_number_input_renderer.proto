@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/validation_ruleset.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillPhoneNumberInputRenderer {
+	FormattedString region_label = 1;
+	string region_code = 2;
+	FormattedString phone_number_label = 3;
+	string phone_number = 4;
+	FormattedString error_text = 5;
+	Command help_command = 6;
+	FormattedString helper_text = 7;
+	ValidationRuleset validation_ruleset = 8;
+	string obfuscated_text = 9;
+	bytes tracking_params = 11;
+}
+
+extend Renderer {
+	FormfillPhoneNumberInputRenderer formfill_phone_number_input_renderer = 182227031;
+}

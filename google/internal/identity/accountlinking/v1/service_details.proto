@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message ServiceDetails {
+	string display_name = 1;
+	string logo_url = 2;
+	string learn_more_url = 3;
+	string display_tld = 4;
+	string privacy_policy_url = 5;
+	string link_management_url = 6;
+	string terms_of_service_url = 7;
+	repeated string supported_capabilities = 8;
+	string google_owned_company_display_name = 9;
+	int64 project_number = 11;
+	string darkmode_logo_url = 14;
+}

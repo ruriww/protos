@@ -1,0 +1,11 @@
+edition = "2023";
+
+package mobstore.proto;
+
+import "mobstore/proto/transform.proto";
+
+option objc_class_prefix = "MOB";
+
+message Transforms {
+	repeated Transform transform = 1;
+}

@@ -1,0 +1,85 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/text_badge_renderer.proto";
+import "youtube/api/innertube/live_badge_renderer.proto";
+import "youtube/api/innertube/upcoming_event_badge_renderer.proto";
+import "youtube/api/innertube/verified_badge_renderer.proto";
+import "youtube/api/innertube/topic_badge_renderer.proto";
+import "youtube/api/innertube/music_pass_badge_renderer.proto";
+import "youtube/api/innertube/music_pivot_badge_renderer.proto";
+import "youtube/api/innertube/privacy_badge_renderer.proto";
+import "youtube/api/innertube/unlimited_badge_renderer.proto";
+import "youtube/api/innertube/channel_badge_renderer.proto";
+import "youtube/api/innertube/standalone_ypc_badge_renderer.proto";
+import "youtube/api/innertube/standalone_red_badge_renderer.proto";
+import "youtube/api/innertube/standalone_collection_badge_renderer.proto";
+import "youtube/api/innertube/caption_badge_renderer.proto";
+import "youtube/api/innertube/unified_verified_badge_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	TextBadgeRenderer text_badge_renderer = 50922968;
+}
+
+extend Renderer {
+	LiveBadgeRenderer live_badge_renderer = 50921414;
+}
+
+extend Renderer {
+	UpcomingEventBadgeRenderer upcoming_event_badge_renderer = 50931187;
+}
+
+extend Renderer {
+	VerifiedBadgeRenderer verified_badge_renderer = 50858890;
+}
+
+extend Renderer {
+	TopicBadgeRenderer topic_badge_renderer = 53636833;
+}
+
+extend Renderer {
+	MusicPassBadgeRenderer music_pass_badge_renderer = 60170570;
+}
+
+extend Renderer {
+	MusicPivotBadgeRenderer music_pivot_badge_renderer = 65013849;
+}
+
+extend Renderer {
+	PrivacyBadgeRenderer privacy_badge_renderer = 63824300;
+}
+
+extend Renderer {
+	UnlimitedBadgeRenderer unlimited_badge_renderer = 80846812;
+}
+
+extend Renderer {
+	ChannelBadgeRenderer channel_badge_renderer = 89056293;
+}
+
+extend Renderer {
+	StandaloneYpcBadgeRenderer standalone_ypc_badge_renderer = 91394106;
+}
+
+extend Renderer {
+	StandaloneRedBadgeRenderer standalone_red_badge_renderer = 104364901;
+}
+
+extend Renderer {
+	StandaloneCollectionBadgeRenderer standalone_collection_badge_renderer = 104416691;
+}
+
+extend Renderer {
+	CaptionBadgeRenderer caption_badge_renderer = 156920528;
+}
+
+extend Renderer {
+	UnifiedVerifiedBadgeRenderer unified_verified_badge_renderer = 278471019;
+}

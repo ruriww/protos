@@ -1,0 +1,18 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/common_data.proto";
+import "uservoice/surveys/client/logging/http_event.proto";
+import "uservoice/surveys/client/logging/user_event.proto";
+import "uservoice/surveys/client/logging/library_event.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message UserVoiceSurveysClientLogEntry {
+	string log_session_id = 1;
+	CommonData common_data = 2;
+	HttpEvent http_event = 3;
+	UserEvent user_event = 4;
+	LibraryEvent library_event = 5;
+}

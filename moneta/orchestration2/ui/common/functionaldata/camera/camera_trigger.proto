@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CameraTrigger {
+	extend eventrules.trigger.Trigger {
+		CameraTrigger camera_trigger_extension = 311556530;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_CAMERA_SELECTED = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message MenuEvent {
+	string first_responder = 1;
+	string top_view_controller = 2;
+	int32 shortcut_count = 3;
+}

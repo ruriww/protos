@@ -1,0 +1,86 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/video_metadata_video_owner_supported_renderers.proto";
+import "youtube/api/innertube/video_metadata_captions_metadata_supported_renderers.proto";
+import "youtube/api/innertube/video_metadata_video_view_count_supported_renderers.proto";
+import "youtube/api/innertube/video_metadata_row_container_supported_renderers.proto";
+import "youtube/api/innertube/achievements_metadata_supported_renderers.proto";
+import "youtube/api/innertube/share_button_supported_renderers.proto";
+import "youtube/api/innertube/video_metadata_add_to_button_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/video_metadata_offline_button_tooltip_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/video_metadata_donate_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoMetadataRenderer {
+	FormattedString title = 1;
+	FormattedString view_count_text = 2;
+	FormattedString likes_count = 3;
+	FormattedString dislikes_count = 4;
+	FormattedString description = 5;
+	FormattedString likes_count_with_like = 6;
+	FormattedString dislikes_count_with_dislike = 7;
+	bool allow_ratings = 8 [ default = true ];
+	bool allow_actions = 9 [ default = true ];
+	FormattedString date_text = 10;
+	LikeStatus like_status = 11;
+	string video_id = 12;
+	LikeButtonSupportedRenderers like_button = 13;
+	repeated BadgeSupportedRenderers badges = 14;
+	bytes tracking_params = 16;
+	FormattedString rating_text = 17;
+	FormattedString short_view_count_text = 18;
+	VideoMetadataVideoOwnerSupportedRenderers owner = 20;
+	VideoMetadataCaptionsMetadataSupportedRenderers captions_metadata = 21;
+	VideoMetadataVideoViewCountSupportedRenderers view_count = 22;
+	string metadata_language = 23;
+	VideoMetadataRowContainerSupportedRenderers metadata_row_container = 25;
+	AchievementsMetadataSupportedRenderers achievements = 26;
+	ShareButtonSupportedRenderers share_button = 30;
+	VideoMetadataAddToButtonSupportedRenderers add_to_button = 31;
+	FormattedString subtitle = 33;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 34;
+	StandaloneBadgeSupportedRenderers under_title_standalone_badge = 35;
+	ThumbnailDetails thumbnail = 36;
+	FormattedString length_text = 37;
+	bool allow_playback_route_button = 38;
+	VideoMetadataOfflineButtonTooltipSupportedRenderers offline_button_tooltip = 39;
+	VideoMetadataOfflineButtonTooltipSupportedRenderers offline_button_poor_connectivity_tooltip = 40;
+	Command updated_metadata_endpoint = 41;
+	VideoMetadataDonateButtonSupportedRenderers donate_button = 42;
+	bool is_metadata_expanded = 43;
+	bool is_limited_state = 44;
+	FormattedString published_time_text = 45;
+	FormattedString station_name = 46;
+	FormattedString rating = 47;
+	int64 start_time_utc_millis = 48;
+	int64 end_time_utc_millis = 49;
+	FormattedString up_next_program_text = 50;
+	FormattedString start_end_time_text = 51;
+	FormattedString season_and_episode_number_text = 52;
+	FormattedString show_title = 53;
+	bool may_truncate_channel_name = 54;
+	string accessibility_text = 55;
+	Command on_click_command = 56;
+	repeated Renderer featured_metadata = 57;
+	FormattedString education_text = 58;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	VideoMetadataRenderer video_metadata_renderer = 51779720;
+}

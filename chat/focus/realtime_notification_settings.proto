@@ -1,0 +1,41 @@
+edition = "2023";
+
+package chat.focus;
+
+option objc_class_prefix = "CPB";
+
+message RealtimeNotificationSettings {
+	enum Level {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		DISABLE = 10;
+		INVITE = 20;
+		DELIVER = 30;
+		PING = 40;
+		RING = 50;
+	}
+
+	Level level = 1 [ default = DEFAULT ];
+
+	enum SourceType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		USER = 1;
+		CIRCLE = 2;
+		LEGACY = 3;
+		MEMBERSHIP = 4;
+		ACCOUNT_LINK = 5;
+		DOMAIN_SOURCE = 6;
+		MESSENGER = 7;
+		CHAT_BLOCKED = 8;
+		GOOGLE_BLOCKED = 9;
+		UNICORN_CHILD = 10;
+		MATCHED_EMAIL = 11;
+		MATCHED_PHONE = 12;
+	}
+
+	SourceType source_type = 2 [ default = NONE ];
+	bool blocked = 3;
+}

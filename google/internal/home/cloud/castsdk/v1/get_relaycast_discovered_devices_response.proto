@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+import "home/cloud/common/relaycast_discovered_device.proto";
+
+option objc_class_prefix = "GCC";
+
+message GetRelaycastDiscoveredDevicesResponse {
+	repeated .home.cloud.common.RelaycastDiscoveredDevice relaycast_discovered_devices = 1;
+}

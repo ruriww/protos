@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/paymentmethods/parameters.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+
+	oneof params {
+		Parameters parameters = 2;
+		bytes encrypted_parameters = 3;
+		bytes serialized_parameters = 4;
+	}
+}

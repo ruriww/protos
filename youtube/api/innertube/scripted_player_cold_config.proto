@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScriptedPlayerColdConfig {
+	int32 onesie_prefetch_cache_max_size = 2;
+	bool manage_fetch_loop_internally = 445158129;
+	bool enable_onesie_cache_reads = 445241212;
+	bool use_asynchronous_parsing = 450941609;
+	bool manage_fetch_loop_internally_via_delay = 472751348;
+}

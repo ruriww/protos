@@ -1,0 +1,16 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message SourceTypeEnum {
+	enum SourceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SOURCE_TYPE = 0;
+		PROFILE = 1;
+		CONTACT = 2;
+		PLACE = 3;
+	}
+}

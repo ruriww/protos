@@ -1,0 +1,1 @@
+Unless specified otherwise, files are licensed under [the license](./LICENSE).

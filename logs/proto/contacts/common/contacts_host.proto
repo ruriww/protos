@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_host_application.proto";
+import "customer_support/content/guidance/chat/v1/a_host_surface.proto";
+
+option objc_class_prefix = "CTC";
+
+message ContactsHost {
+	customer_support.content.guidance.chat.v1.AHostApplication app = 2;
+	string version_name = 3;
+	customer_support.content.guidance.chat.v1.AHostSurface surface = 4;
+	string ios_bundle_id = 5;
+	string android_package_name = 6;
+	string host_origin = 8;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message AgeVerificationInfo {
+	enum AdultStatus {
+		option features.enum_type = CLOSED;
+
+		ADULT_STATUS_UNSPECIFIED = 0;
+		CONFIRMED_ADULT = 1;
+		DECLARED_MINOR = 2;
+		INCONCLUSIVE = 3;
+		NON_USER = 4;
+	}
+
+	AdultStatus adult_status = 1;
+	bool can_access_age_restricted_content = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/trace_diagnostic.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+
+option objc_class_prefix = "PRM";
+
+message CustomProcessContextMetadata {
+	int64 application_build_cl = 1;
+	int32 clearcut_version = 2;
+	uint64 primes_build_version = 3;
+	TraceDiagnostic trace_diagnostic = 4;
+	MetricExtension metric_extension = 5;
+}

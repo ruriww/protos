@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MessageInputSectionV15Renderer {
+	ThumbnailDetails sharer_thumbnail = 1;
+	FormattedString input_hint = 2;
+	int64 max_input_length = 3;
+	ButtonSupportedRenderers send_button = 4;
+	bytes tracking_params = 6;
+	bool hack = 7;
+}

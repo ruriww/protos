@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow.instantbuy;
+
+option objc_class_prefix = "Buyflow";
+
+message InitializeIntentEnums {
+	enum InitializeIntent {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INTENT = 0;
+		LOAD_MASKED_WALLET = 1;
+		CHANGE_MASKED_WALLET = 3;
+		LOAD_FULL_WALLET = 4;
+		LOAD_WEB_PAYMENT_DATA = 5;
+		LOAD_PAYMENT_DATA = 6;
+		INTEGRATOR_PROCESSED_PAYMENT = 7;
+	}
+}

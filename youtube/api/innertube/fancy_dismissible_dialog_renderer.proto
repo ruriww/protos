@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FancyDismissibleDialogRenderer {
+	FormattedString dialog_message = 1;
+	FormattedString title = 2;
+	FormattedString confirm_label = 3;
+	Command confirm_service_endpoint = 4;
+	Command confirm_navigation_endpoint = 5;
+	bytes tracking_params = 7;
+	repeated Command on_confirm = 8;
+}
+
+extend Renderer {
+	FancyDismissibleDialogRenderer fancy_dismissible_dialog_renderer = 85374086;
+}

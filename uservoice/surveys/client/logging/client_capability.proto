@@ -1,0 +1,11 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+option objc_class_prefix = "UVSLP";
+
+enum ClientCapability {
+	CLIENT_CAPABILITY_UNKNOWN = 0;
+	CLIENT_CAPABILITY_PII = 1;
+	CLIENT_CAPABILITY_RATING_SCALE_10_11 = 2;
+}

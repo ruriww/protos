@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message EmojiId {
+	oneof id {
+		string unicode = 1;
+		string custom_emoji_uuid = 2;
+	}
+}

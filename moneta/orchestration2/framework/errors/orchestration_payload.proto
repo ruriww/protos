@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.framework.errors;
+
+import "proto2/bridge/message_set.proto";
+import "moneta/orchestration2/ui/common/integrator_client_callback_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message OrchestrationPayload {
+	extend proto2.bridge.MessageSet {
+		OrchestrationPayload orchestration_payload = 307700774;
+	}
+
+	ui.common.IntegratorClientCallbackData callback_data = 1;
+
+	enum ErrorAction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ALLOW_RETRY = 1;
+		EXIT_APPLICATION = 2;
+	}
+
+	ErrorAction error_action = 2 [ default = ALLOW_RETRY ];
+}

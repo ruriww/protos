@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_boolean_condition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicTrackCondition {
+	MusicBooleanCondition track_is_liked = 1 [ default = MUSIC_BOOLEAN_CONDITION_UNKNOWN ];
+	MusicBooleanCondition track_is_in_library = 2 [ default = MUSIC_BOOLEAN_CONDITION_UNKNOWN ];
+	MusicBooleanCondition track_is_offlineable = 3 [ default = MUSIC_BOOLEAN_CONDITION_UNKNOWN ];
+}

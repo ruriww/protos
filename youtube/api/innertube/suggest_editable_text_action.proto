@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SuggestEditableTextAction {
+	option features.enum_type = CLOSED;
+
+	SUGGEST_EDITABLE_TEXT_ACTION_UNKNOWN = 0;
+	SUGGEST_EDITABLE_TEXT_ACTION_INSERT = 1;
+	SUGGEST_EDITABLE_TEXT_ACTION_BACKSPACE = 2;
+	SUGGEST_EDITABLE_TEXT_ACTION_CHANGE = 3;
+	SUGGEST_EDITABLE_TEXT_ACTION_KEYBOARD_DOWN = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+message NodeToken {
+	bytes encrypted_node_token = 1;
+
+	extensions 10 to max;
+}

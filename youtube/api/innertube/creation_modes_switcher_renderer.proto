@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/creation_mode.proto";
+import "youtube/api/innertube/creation_load_instructions.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationModesSwitcherRenderer {
+	repeated Renderer mode_buttons = 1;
+	repeated CreationMode modes = 2;
+	CreationMode default_mode = 3;
+	bool default_to_last_used_mode = 4;
+	repeated Renderer modes_switcher_notifications = 5;
+	bool hidden = 6;
+	bool do_not_save_last_used_mode = 8;
+	bool disable_last_used_mode_persistence = 9;
+	CreationLoadInstructions posts_creation_load_instructions = 10;
+}
+
+extend Renderer {
+	CreationModesSwitcherRenderer creation_modes_switcher_renderer = 466829302;
+}

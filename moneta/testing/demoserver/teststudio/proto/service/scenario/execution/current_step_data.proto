@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "TSLSSE";
+
+message CurrentStepData {
+	google.protobuf.Any response = 1;
+	int32 step_id = 3;
+}

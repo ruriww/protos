@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message Elements {
+	bool collection_is_texture_node = 1;
+	bool cell_is_texture_node = 2;
+	bool elements_presented = 3;
+	string last_component_rendered = 4;
+}

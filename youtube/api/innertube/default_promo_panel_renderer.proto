@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/default_promo_panel_color_supported_datas.proto";
+import "youtube/api/innertube/thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/video_as_thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/default_promo_panel_renderer_metadata_order.proto";
+import "youtube/api/innertube/default_promo_panel_avatar_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DefaultPromoPanelRenderer {
+	FormattedString title = 1;
+	FormattedString description = 2;
+	ButtonSupportedRenderers action_button = 3;
+	ThumbnailDetails foreground_thumbnail_details = 5;
+	Command navigation_endpoint = 6;
+	DefaultPromoPanelColorSupportedDatas promo_panel_color_palette = 7;
+	repeated Command impression_endpoints = 8;
+	bytes tracking_params = 10;
+	ThumbnailSupportedRenderers small_form_factor_background_thumbnail = 11;
+	ThumbnailSupportedRenderers large_form_factor_background_thumbnail = 12;
+	repeated uint32 scrim_color_values = 13 [ features.repeated_field_encoding = EXPANDED ];
+	MenuSupportedRenderers menu = 14;
+	Command service_endpoint = 15;
+	float maximum_foreground_thumbnail_height = 16;
+	bool use_font_size_v2 = 17;
+
+	oneof promo_thumbnail {
+		VideoAsThumbnailDetails video_thumbnail = 18;
+		Renderer inline_playback_renderer = 22;
+	}
+
+	int32 min_panel_display_duration_ms = 19;
+	int32 min_video_play_duration_ms = 20;
+	bool is_visible = 21;
+	float scrim_rotation = 23;
+	DefaultPromoPanelRendererMetadataOrder metadata_order = 24;
+	DefaultPromoPanelAvatarDetails avatar_details = 26;
+	repeated Renderer badge_renderers = 28;
+	Renderer byline = 29;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	DefaultPromoPanelRenderer default_promo_panel_renderer = 144881215;
+}

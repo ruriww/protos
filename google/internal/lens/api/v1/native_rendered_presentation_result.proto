@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/presentation_result.proto";
+
+option objc_class_prefix = "LFE";
+
+message NativeRenderedPresentationResult {
+	repeated PresentationResult presentation_result = 1;
+}

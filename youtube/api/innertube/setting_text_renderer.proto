@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/setting_item_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingTextRenderer {
+	FormattedString title = 1;
+	FormattedString summary = 2;
+	string prefilled_text = 3;
+	ButtonSupportedRenderers button = 4;
+	bytes tracking_params = 6;
+	SettingItemId item_id = 7;
+}

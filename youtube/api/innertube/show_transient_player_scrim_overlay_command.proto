@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowTransientPlayerScrimOverlayCommand {
+	extend Command {
+		ShowTransientPlayerScrimOverlayCommand show_transient_player_scrim_overlay_command = 408748412;
+	}
+
+	Renderer overlay_renderer = 1;
+	int32 duration_ms = 2;
+	int32 fade_in_duration_ms = 3;
+	int32 fade_out_duration_ms = 4;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+import "id/logging/frontend/mobile/accountsettings/supported_native_action.proto";
+import "id/logging/frontend/mobile/accountsettings/supported_icon.proto";
+
+option objc_class_prefix = "GIDLOGAS";
+
+message ClientCapabilities {
+	repeated SupportedNativeAction supported_native_actions = 1;
+	repeated SupportedIcon supported_icons = 2;
+}

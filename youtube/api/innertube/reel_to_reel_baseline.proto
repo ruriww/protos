@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelToReelBaseline {
+	option features.enum_type = CLOSED;
+
+	REEL_TO_REEL_BASELINE_UNKNOWN = 0;
+	REEL_TO_REEL_BASELINE_VIEW_TRANSITION_COMPLETE = 1;
+	REEL_TO_REEL_BASELINE_VIEW_TRANSITION_START = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/analytics_error_renderer.proto";
+import "youtube/api/innertube/analytics_actionable_message_card_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsSectionSupportedRenderers {
+	AnalyticsErrorRenderer error = 65826161;
+	AnalyticsActionableMessageCardRenderer actionable_message = 78746151;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/functionaldata/redirect/payments_web_data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message LoadingStateMatchCondition {
+	PaymentsWebDataValue.LoadingState loading_state = 1;
+}

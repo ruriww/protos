@@ -1,0 +1,17 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+message AuthError {
+	enum ErrorType {
+		option features.enum_type = CLOSED;
+
+		INTERNAL_ERROR = 0;
+		NO_TLS = 1;
+		SIGNATURE_ALGORITHM_UNAVAILABLE = 2;
+	}
+
+	ErrorType error_type = 1;
+}

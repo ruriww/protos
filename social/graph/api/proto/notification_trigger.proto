@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/type/timeofday.proto";
+
+option objc_class_prefix = "SGAP";
+
+message NotificationTrigger {
+	int32 days_before_active_date = 1;
+	google.type.TimeOfDay notification_time_of_day = 2;
+}

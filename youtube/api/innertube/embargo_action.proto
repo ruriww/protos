@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmbargoAction {
+	Renderer error_renderer = 2;
+	Command on_trigger = 3;
+	bool is_embargoed = 4;
+	bool allow_player_controls = 5;
+	bool allow_chromecast = 6;
+	string video_id = 7;
+}

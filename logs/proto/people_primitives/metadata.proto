@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.people_primitives;
+
+import "logs/proto/people_primitives/avatar_metadata.proto";
+
+option objc_class_prefix = "PKTPB";
+
+message Metadata {
+	AvatarMetadata avatar_metadata = 1;
+}

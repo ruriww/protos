@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/family_product_correlation_id.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyUpgradeParamsRequest {
+	ApiRequestHeader api_header = 1;
+	FamilyProductCorrelationId.Type family_product_correlation_id_type = 2;
+	string reference_pcid = 3;
+	string payments_client_token = 4;
+	string requester_product_id = 5;
+}

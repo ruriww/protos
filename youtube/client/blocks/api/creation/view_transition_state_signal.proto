@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+option objc_class_prefix = "YTBA";
+
+enum ViewTransitionStateSignal {
+	option features.enum_type = CLOSED;
+
+	TRANSITION_STATE_UNSPECIFIED = 0;
+	TRANSITION_BEGIN = 1;
+	TRANSITION_CONTINUE = 2;
+	TRANSITION_END = 3;
+}

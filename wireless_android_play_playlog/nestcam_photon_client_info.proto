@@ -1,0 +1,49 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message NestcamPhotonClientInfo {
+	string device_id = 1;
+
+	enum DeviceType {
+		option features.enum_type = CLOSED;
+
+		DEVICE_TYPE_UNKNOWN = 0;
+		DEVICE_TYPE_QV1 = 1;
+		DEVICE_TYPE_SQ = 2;
+		DEVICE_TYPE_RQ = 3;
+		DEVICE_TYPE_EMULATOR = 4;
+		DEVICE_TYPE_C302 = 5;
+		DEVICE_TYPE_VEN = 6;
+		DEVICE_TYPE_SUN = 7;
+		DEVICE_TYPE_ANDROID = 8;
+		DEVICE_TYPE_NEW = 9;
+		DEVICE_TYPE_QV2 = 10;
+		DEVICE_TYPE_BQ = 11;
+		DEVICE_TYPE_LIN = 12;
+		DEVICE_TYPE_RHO = 13;
+		DEVICE_TYPE_UST = 14;
+		DEVICE_TYPE_PIC = 15;
+		DEVICE_TYPE_COR = 16;
+	}
+
+	DeviceType device_type = 2;
+	string software_version = 3;
+	string sku = 4;
+	int64 software_version_number = 5;
+
+	enum BuildChannel {
+		option features.enum_type = CLOSED;
+
+		BUILD_CHANNEL_UNKNOWN = 0;
+		BUILD_CHANNEL_ENG = 1;
+		BUILD_CHANNEL_BETA = 2;
+		BUILD_CHANNEL_PROD = 3;
+	}
+
+	BuildChannel system_release_channel = 6;
+	string virtual_release_channel = 7;
+	string software_version_number_string = 8;
+}

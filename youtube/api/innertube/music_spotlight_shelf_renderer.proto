@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicSpotlightShelfRenderer {
+	repeated Renderer contents = 1;
+	bytes tracking_params = 3;
+	AccessibilitySupportedDatas accessibility_data = 4;
+}
+
+extend Renderer {
+	MusicSpotlightShelfRenderer music_spotlight_shelf_renderer = 225627844;
+}

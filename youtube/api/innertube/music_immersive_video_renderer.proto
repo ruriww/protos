@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicImmersiveVideoRenderer {
+	Command inline_playback_command = 1;
+	Command next_playback_command = 2;
+	Command previous_playback_command = 3;
+	Renderer right_side_button_bar = 4;
+	Renderer bottom_overlay = 5;
+	bytes tracking_params = 7;
+	ThumbnailDetails thumbnail = 8;
+	AccessibilityData accessibility_data = 9;
+	Command double_tap_command = 10;
+	Renderer overlay = 11;
+}

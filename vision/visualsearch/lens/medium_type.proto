@@ -1,0 +1,15 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum MediumType {
+	option features.enum_type = CLOSED;
+
+	MEDIUM_TYPE_UNSPECIFIED = 0;
+	MEDIUM_NOT_DETECTED = 1;
+	MEDIUM_PHOTO_OF_SCREEN = 2;
+	MEDIUM_PHYSICAL = 3;
+	MEDIUM_SCREENSHOT = 4;
+}

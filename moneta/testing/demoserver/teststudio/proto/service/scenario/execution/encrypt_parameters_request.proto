@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+import "moneta/testing/demoserver/teststudio/proto/test_scenario.proto";
+import "moneta/testing/demoserver/teststudio/proto/service/scenario/execution/internal_user.proto";
+
+option objc_class_prefix = "TSLSSE";
+
+message EncryptParametersRequest {
+	TestScenario test_scenario = 1;
+	string external_user_product_role = 3;
+	InternalUser internal_user = 5;
+	repeated int64 accessible_customer = 6;
+	repeated string external_user_granular_role = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/error_level.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LogMessage {
+	string message = 1;
+	ErrorLevel level = 2;
+	string error_class_name = 3;
+	string source_method_name = 4;
+	int32 sample_weight = 6;
+	float client_sample_weight = 7;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "google/kidsmanagement/v1/family_event_type.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilyEventServiceCreate {
+	int64 originator_gaia_id = 1;
+	google.kidsmanagement.v1.FamilyEventType event_type = 2;
+	string object_ref = 3;
+}

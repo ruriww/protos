@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum BackstagePostDialogStartingState {
+	BACKSTAGE_POST_DIALOG_STARTING_STATE_UNSPECIFIED = 0;
+	BACKSTAGE_POST_DIALOG_STARTING_STATE_TEXT = 1;
+	BACKSTAGE_POST_DIALOG_STARTING_STATE_TEXT_POLL = 2;
+	BACKSTAGE_POST_DIALOG_STARTING_STATE_IMAGE = 3;
+	BACKSTAGE_POST_DIALOG_STARTING_STATE_IMAGE_POLL = 4;
+	BACKSTAGE_POST_DIALOG_STARTING_STATE_QUIZ = 5;
+}

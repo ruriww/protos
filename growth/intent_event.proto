@@ -1,0 +1,13 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message IntentEvent {
+	string sending_bundle_identifier = 1;
+	string receiving_bundle_identifier = 2;
+	int64 created_timestamp_ms = 3;
+	int64 processed_timestamp_ms = 4;
+	bool intent_fulfilled = 5;
+}

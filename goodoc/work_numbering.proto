@@ -1,0 +1,11 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/run_numbering.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message WorkNumbering {
+	repeated RunNumbering runs = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/target.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message Link {
+	string text = 1;
+	Target target = 2;
+}

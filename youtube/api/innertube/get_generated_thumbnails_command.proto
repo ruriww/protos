@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/generated_thumbnails_request_options.proto";
+import "youtube/api/innertube/generated_thumbnails_modifier_tag.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetGeneratedThumbnailsCommand {
+	extend Command {
+		GetGeneratedThumbnailsCommand get_generated_thumbnails_command = 1027;
+	}
+
+	string playlist_id = 1;
+	GeneratedThumbnailsRequestOptions options = 2;
+	repeated GeneratedThumbnailsModifierTag all_modifier_tags = 3;
+	repeated string existing_thumbnail_image_ids = 4;
+	int32 style_id = 5;
+	repeated int32 term_ids = 6;
+	bool use_current_terms = 7;
+	string generation_params = 8;
+	string generative_ai_use_policy_url = 9;
+	int32 template_version = 10;
+	string rendering_params = 11;
+}

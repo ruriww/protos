@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message Reachability {
+	enum ReachabilityStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		APP_REACHABLE = 1;
+	}
+
+	ReachabilityStatus status = 1;
+	string client_data = 2;
+}

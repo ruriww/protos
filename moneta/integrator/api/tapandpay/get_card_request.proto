@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.integrator.api.tapandpay;
+
+import "moneta/integrator/common/client_context.proto";
+
+option objc_class_prefix = "ITapAndPay";
+
+message GetCardRequest {
+	common.ClientContext context = 1;
+
+	message DataTokenParameters {
+		bytes client_token = 1;
+		string customer_legal_country_guess = 2;
+		string additional_upsert_bottom_message = 3;
+	}
+
+	DataTokenParameters data_token_parameters = 2;
+	string public_device_id = 5;
+}

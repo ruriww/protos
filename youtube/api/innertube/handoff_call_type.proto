@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HandoffCallType {
+	option features.enum_type = CLOSED;
+
+	HANDOFF_CALL_TYPE_UNKNOWN = 0;
+	HANDOFF_CALL_TYPE_INITIATE_ACTION = 1;
+	HANDOFF_CALL_TYPE_RETRIEVE_ACTION = 5;
+	HANDOFF_CALL_TYPE_CHECK_ACTION_STATE = 6;
+	HANDOFF_CALL_TYPE_MARK_ACTION_STATE = 7;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "wireless_android_play_playlog/accessibility/ios_accessibility_state.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message AccessibilityLogData {
+	wireless_android_play_playlog.accessibility.IosAccessibilityState accessibility_state = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message SpecialCharRange {
+	int32 start_index = 1;
+	int32 length = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/type/color.proto";
+
+option objc_class_prefix = "SGAP";
+
+message Font {
+	google.type.Color color = 1;
+	float slant = 2;
+	float width = 3;
+	int32 weight = 4;
+	int32 grade = 5;
+	float roundness = 6;
+}

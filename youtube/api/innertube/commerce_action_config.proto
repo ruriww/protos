@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command_life_cycle_config.proto";
+import "youtube/api/innertube/request_sequence_type.proto";
+import "youtube/api/innertube/request_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommerceActionConfig {
+	string action_id = 1;
+	string commerce_action_params = 2;
+	CommandLifeCycleConfig command_life_cycle_config = 3;
+	bool disable_loading_dialog = 4;
+	RequestSequenceType request_sequence_type = 5;
+	RequestConfig request_config = 6;
+}

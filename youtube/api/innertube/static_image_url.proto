@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/image_url_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StaticImageUrl {
+	string url = 1;
+	string url_with_effect = 2;
+	float horizontal_anchor = 3 [ default = 0.5 ];
+	float vertical_anchor = 4 [ default = 0.5 ];
+	string preload_url = 5;
+	ImageUrlMetadata small_image = 6;
+	ImageUrlMetadata medium_image = 7;
+	ImageUrlMetadata large_image = 8;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+option objc_class_prefix = "FOOTCP";
+
+enum PrimitiveZippyId {
+	option features.enum_type = CLOSED;
+
+	PRIMITIVE_ZIPPY_ID_UNSPECIFIED = 0;
+	PRIMITIVE_ZIPPY_ID_THINGS_TO_KNOW = 1;
+	PRIMITIVE_ZIPPY_ID_DATA_USAGE = 2;
+	PRIMITIVE_ZIPPY_ID_UNCHANGED_INFORMATION = 3;
+}

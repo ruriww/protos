@@ -1,0 +1,15 @@
+edition = "2023";
+
+package gscore.framework.data_access;
+
+import "gscore/framework/data_access/data_key.proto";
+
+option objc_class_prefix = "GSC";
+
+message AFDataStoryDataKey {
+	extend DataKey {
+		AFDataStoryDataKey key = 88898922;
+	}
+
+	bytes data_fetch = 1;
+}

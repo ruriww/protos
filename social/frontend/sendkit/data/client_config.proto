@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.frontend.sendkit.data;
+
+import "social/frontend/sendkit/data/client_id.proto";
+import "social/frontend/sendkit/data/send_target.proto";
+import "social/clients/application.proto";
+
+option objc_class_prefix = "SKT";
+
+message ClientConfig {
+	ClientId client_id = 1;
+	repeated SendTarget.Type unsupported_sendtarget_types = 2 [ features.repeated_field_encoding = EXPANDED ];
+	bool allow_unmatched_entry = 3;
+	bool enable_contact_name_controls = 4;
+	clients.Application social_client_application = 5;
+	bool show_gmail_only_in_a_to_z_list = 6;
+}

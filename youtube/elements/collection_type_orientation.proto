@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum CollectionTypeOrientation {
+	option features.enum_type = CLOSED;
+
+	COLLECTION_TYPE_ORIENTATION_UNKNOWN = 0;
+	COLLECTION_TYPE_ORIENTATION_HORIZONTAL = 1;
+	COLLECTION_TYPE_ORIENTATION_VERTICAL = 2;
+}

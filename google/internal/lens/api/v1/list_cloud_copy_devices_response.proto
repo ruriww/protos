@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "lens/device_list.proto";
+
+option objc_class_prefix = "LFE";
+
+message ListCloudCopyDevicesResponse {
+	.lens.DeviceList synced_device_list = 1;
+}

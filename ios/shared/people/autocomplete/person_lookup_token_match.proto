@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message PersonLookupTokenMatch {
+	int32 start_index = 1;
+	int32 end_index = 2;
+}

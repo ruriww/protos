@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageDownloadRecommendationsHeaderModel {
+	extend Model {
+		DownloadsPageDownloadRecommendationsHeaderModel downloads_page_download_recommendations_header_model = 516928493;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	string title = 3;
+}

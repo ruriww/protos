@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DeviceRetentionInfo {
+	string anonymized_device_id = 1;
+	uint64 first_active = 2;
+	uint64 prev_active = 3;
+	string first_active_geo = 4;
+	uint64 first_login = 5;
+	uint64 prev_login = 6;
+	int64 login_state = 7;
+	string user_gender_age = 8;
+	string browser = 9;
+	string browser_version = 10;
+	string network = 11;
+}

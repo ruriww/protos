@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RecordStreamEventsCommand {
+	extend Command {
+		RecordStreamEventsCommand record_stream_events_command = 191776071;
+	}
+
+	int64 max_start_size_bytes_per_sequence = 1;
+	int64 max_end_size_bytes_per_sequence = 2;
+	int32 max_sequences = 3;
+	string id = 4;
+}

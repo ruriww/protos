@@ -1,0 +1,11 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message Signal {
+	string name = 1;
+	string value_str = 2;
+	int64 value = 3;
+}

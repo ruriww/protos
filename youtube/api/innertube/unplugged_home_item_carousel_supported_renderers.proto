@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_grid_video_renderer.proto";
+import "youtube/api/innertube/unplugged_browse_item_renderer.proto";
+import "youtube/api/innertube/unplugged_assistant_suggestion_card_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedHomeItemCarouselSupportedRenderers {
+	UnpluggedGridVideoRenderer unplugged_grid_video_renderer = 97141704;
+	UnpluggedBrowseItemRenderer unplugged_browse_item_renderer = 99952498;
+	UnpluggedAssistantSuggestionCardRenderer unplugged_assistant_suggestion_card_renderer = 115613693;
+}

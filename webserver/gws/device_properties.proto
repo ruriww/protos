@@ -1,0 +1,12 @@
+edition = "2023";
+
+package webserver.gws;
+
+option objc_class_prefix = "GWS";
+
+message DeviceProperties {
+	int32 density_dpi = 1;
+	int32 width_pixels = 2;
+	int32 height_pixels = 3;
+	repeated string supported_abi = 4;
+}

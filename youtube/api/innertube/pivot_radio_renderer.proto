@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PivotRadioRenderer {
+	string playlist_id = 1;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 2;
+	FormattedString title = 3;
+	FormattedString short_byline_text = 4;
+	FormattedString video_count_text = 5;
+	Command navigation_endpoint = 6;
+	Icon overlay_icon = 7;
+	bytes tracking_params = 9;
+}
+
+extend Renderer {
+	PivotRadioRenderer pivot_radio_renderer = 104532000;
+}

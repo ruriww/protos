@@ -1,0 +1,13 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message ProcessingMetadataProto {
+	bool requires_input_frame_source_presentation_timestamp = 1;
+	bool requires_input_audio_source_presentation_timestamp = 2;
+	bool processes_input_audio_source = 3;
+	bool processes_input_frame_source = 4;
+	bool processes_user_interaction_input = 5;
+}

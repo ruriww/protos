@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_item.proto";
+
+option objc_class_prefix = "ASM";
+
+message AppBar {
+	string title = 1;
+	ResourceKey back_button_target = 2;
+	Link back_link = 3;
+	bool close_button = 4;
+	repeated ActionItem action_items = 5;
+}

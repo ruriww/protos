@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/android_intent_check.proto";
+
+option objc_class_prefix = "ASM";
+
+message SupportedAndroidIntentCheck {
+	AndroidIntentCheck android_intent_check = 1;
+}

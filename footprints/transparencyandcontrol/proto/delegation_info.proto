@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message DelegationInfo {
+	oneof user_id {
+		int64 target_user_id = 1;
+		int64 parent_user_id = 2;
+	}
+
+	bool exclude_delegated_vocabulary = 3;
+}

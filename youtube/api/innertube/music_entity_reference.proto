@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicEntityReference {
+	oneof entity_id {
+		string music_album_release_entity = 1;
+		string music_collection_entity = 2;
+		string music_artist_entity = 3;
+		string music_playlist_entity = 4;
+		string music_track_entity = 10;
+		string music_album_release_detail_entity = 11;
+		string music_playlist_detail_entity = 12;
+		string music_playlist_user_detail_entity = 13;
+		string music_playlist_entry_collection_entity = 14;
+		string music_track_detail_entity = 15;
+		string music_track_user_detail_entity = 16;
+		string music_artist_detail_entity = 17;
+		string music_artist_user_detail_entity = 18;
+		string music_album_release_user_detail_entity = 19;
+	}
+
+	string music_album_release_container = 9;
+}

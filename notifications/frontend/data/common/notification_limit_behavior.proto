@@ -1,0 +1,12 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/replacement_strategy.proto";
+
+option objc_class_prefix = "NFDC";
+
+message NotificationLimitBehavior {
+	uint32 limit = 1;
+	ReplacementStrategy replacement_strategy = 2;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerLive {
+	bool enable_e2e_streaming = 1;
+	int32 peg_to_live_threshold_ms = 2;
+	int32 unpeg_from_live_threshold_ms = 3;
+	bool use_media_chunk_head_data = 4;
+	bool stay_pegged_to_live = 5;
+	int32 window_size_ms = 6;
+	int32 min_time_between_live_readahead_changes_ms = 7;
+	float min_buffer_health_percentile = 8;
+	int32 buffer_health_constant_ms = 9;
+	int32 live_chunk_readahead_constant = 10;
+	int32 max_rebuffer_count = 11;
+	bool enable_adaptive_live_readahead = 12;
+	bool remove_one_readahead_chunk = 13;
+	bool report_peg_to_live_as_seek = 14;
+	bool enable_live_captions = 15;
+	bool use_known_segments_for_approximation = 16;
+	bool use_format_dvr_duration = 17;
+	bool use_onesie_hostname_change_hint = 18;
+	bool enable_accurate_seek = 19;
+	int32 accurate_seek_retry_limit = 20;
+	bool enable_accurate_seek_after_prepared = 21;
+	bool enable_ss_dai_emsg_parsing = 22;
+	bool enable_ss_dai_update_chunk_start_time = 23;
+	bool extend_seekable_time_range_to_buffered_range = 24;
+	bool fix_post_live_head_segment = 25;
+	bool ssdai_broadcast_cuepoints_from_video_track = 26;
+	bool finish_live_playback_if_stream_completed = 27;
+	bool disable_cuepoint_for_non_dvr_live = 28;
+	bool keep_cuepoint_relay_on_stop = 311193000;
+}

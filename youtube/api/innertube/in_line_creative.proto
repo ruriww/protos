@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/in_line_linear.proto";
+import "youtube/api/innertube/in_line_companion_ads.proto";
+import "youtube/api/innertube/in_line_non_linear_ads.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InLineCreative {
+	InLineLinear linear = 2;
+	InLineCompanionAds companion_ads = 3;
+	InLineNonLinearAds non_linear_ads = 4;
+	string id = 5;
+	int32 sequence = 6;
+	string ad_id = 7;
+	string api_framework = 8;
+}

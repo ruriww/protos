@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/group_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message GroupEntityId {
+	GroupId group_id = 1;
+	string entity_id = 2;
+}

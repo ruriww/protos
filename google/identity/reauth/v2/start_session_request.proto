@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.identity.reauth.v2;
+
+import "google/identity/reauth/v2/programmatic_challenge_type.proto";
+
+option objc_class_prefix = "GIDRA";
+
+message StartSessionRequest {
+	repeated ProgrammaticChallengeType supported_challenge_types = 1;
+	repeated string oauth_scopes_for_domain_policy_lookup = 3;
+	int64 user_id = 4;
+	string email = 5;
+	bytes challenge_callback_options = 7;
+	bool accept_web_fallback = 11;
+	string device_user_id = 12;
+	int64 transaction_id = 13;
+}

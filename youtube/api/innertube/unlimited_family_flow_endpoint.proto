@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unlimited_family_flow_endpoint_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnlimitedFamilyFlowEndpoint {
+	extend Command {
+		UnlimitedFamilyFlowEndpoint unlimited_family_flow_endpoint = 128200871;
+	}
+
+	UnlimitedFamilyFlowEndpointSupportedRenderers unlimited_family_flow_endpoint_supported_renderers = 127046477;
+}

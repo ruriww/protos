@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/flow_type.proto";
+import "google/familymanagement/v1/supervision_type.proto";
+import "google/type/date.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetParentChildSupervisionEligibilityRequest {
+	ApiRequestHeader api_header = 1;
+	FlowType flow_type = 2;
+	SupervisionType supervision_type = 3;
+	string parent_access_token = 4;
+	type.Date declared_birthday = 5;
+}

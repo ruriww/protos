@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/web_view_predefined_key.proto";
+import "youtube/api/innertube/web_view_predefined_value.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WebViewAdSignalsData {
+	string navigation_event_url = 1;
+	string total_gesture_event_url = 2;
+	string tap_event_url = 3;
+	string swipe_event_url = 4;
+	string base_url = 5;
+
+	message UrlParams {
+		oneof key {
+			WebViewPredefinedKey predefined_key = 1;
+			string key_string = 2;
+		}
+
+		oneof value {
+			WebViewPredefinedValue predefined_value = 3;
+			string value_string = 4;
+		}
+	}
+
+	repeated UrlParams navigation_event_params = 6;
+	repeated UrlParams total_gesture_event_params = 7;
+	repeated UrlParams tap_event_params = 8;
+	repeated UrlParams swipe_event_params = 9;
+}

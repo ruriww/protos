@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message GetSupervisionBundlesResponse {
+	message SupervisionBundles {
+	}
+
+	map<string, SupervisionBundles> supervision_bundles_by_id = 1;
+}

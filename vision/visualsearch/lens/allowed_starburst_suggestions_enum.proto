@@ -1,0 +1,13 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum AllowedStarburstSuggestionsEnum {
+	option features.enum_type = CLOSED;
+
+	ALLOWED_STARBURST_SUGGESTIONS_UNKNOWN = 0;
+	ALLOWED_STARBURST_SUGGESTIONS_ALL = 1;
+	ALLOWED_STARBURST_SUGGESTIONS_SHOPPING = 2;
+}

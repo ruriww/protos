@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalCardListHeaderTitleStyle {
+	enum TitleStyleType {
+		option features.enum_type = CLOSED;
+
+		TITLE_STYLE_TYPE_UNKNOWN = 0;
+		TITLE_STYLE_TYPE_UNDERSTATED = 1;
+		TITLE_STYLE_TYPE_UNIVERSAL_WATCH_CARD = 2;
+		TITLE_STYLE_TYPE_MY_SUBS = 3;
+		TITLE_STYLE_TYPE_CHANNEL_INLINE_RECS = 4;
+		TITLE_STYLE_TYPE_GREY_BLOCK = 5;
+		TITLE_STYLE_TYPE_PROMINENT = 6;
+		TITLE_STYLE_TYPE_RICH_GRID_SECTION_HEADER = 7;
+	}
+
+	TitleStyleType style = 1;
+}

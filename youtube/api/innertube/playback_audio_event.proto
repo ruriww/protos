@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackAudioEvent {
+	string cpn = 1;
+	bool audio_toggled_to_on = 2;
+	int64 audio_toggled_to_on_media_time_ms = 3;
+	bool audio_toggled_to_off = 4;
+	int64 audio_toggled_to_off_media_time_ms = 5;
+}

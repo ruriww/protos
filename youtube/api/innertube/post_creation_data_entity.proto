@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/post_creation_data.proto";
+import "youtube/api/innertube/post_attachment_type_enum.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostCreationDataEntity {
+	extend EntityMutationPayload {
+		PostCreationDataEntity post_creation_data_entity = 249;
+	}
+
+	string key = 1;
+	PostCreationData post_creation_data = 2;
+	PostAttachmentTypeEnum attachment_type = 3;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.htmldocument;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message HtmlDocumentData {
+	extend data.Data {
+		HtmlDocumentData html_document_data_extension = 346198508;
+	}
+
+	webutil.html.types.SafeUrlProto url = 1;
+}

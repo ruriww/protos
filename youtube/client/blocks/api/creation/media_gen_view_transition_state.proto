@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/client/blocks/api/creation/view_transition_state_signal.proto";
+
+option objc_class_prefix = "YTBA";
+
+message MediaGenViewTransitionState {
+	ViewTransitionStateSignal signal = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_stream_upload_task_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CloseStreamEndScreenSettings {
+	bool should_create_live_stream_upload_task = 1;
+	LiveStreamUploadTaskMetadata upload_task_metadata = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+option objc_class_prefix = "YTBA";
+
+message SearchVideosArgs {
+	string dialog_id = 1;
+	string browse_id = 2;
+	string query = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message CoverPhoto {
+	string image_url = 1;
+	string image_id = 2;
+	int32 image_height = 3;
+	int32 image_width = 4;
+	bool is_default = 5;
+	PersonFieldMetadata metadata = 6;
+	bool is_animated = 7;
+}

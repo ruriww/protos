@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.transition;
+
+import "moneta/orchestration2/ui/common/transition/animation.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Transition {
+	int32 transition_id = 1;
+	repeated Animation animation = 2;
+}

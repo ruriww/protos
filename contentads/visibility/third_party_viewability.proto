@@ -1,0 +1,45 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message ThirdPartyViewability {
+	enum Vendor {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MOAT = 1;
+		GOOGLE = 2;
+		IAS = 3;
+		DOUBLE_VERIFY = 4;
+	}
+
+	Vendor vendor = 1 [ default = UNKNOWN ];
+	string viewability_string = 2;
+
+	enum Event {
+		option features.enum_type = CLOSED;
+
+		UNSUPPORTED = 0;
+		CREATIVE_VIEW = 100;
+		START = 101;
+		MEASURABLE_IMPRESSION = 102;
+		VIEWABLE_IMPRESSION = 103;
+		GROUPM_IMPRESSION = 104;
+		FIRST_QUARTILE = 105;
+		MIDPOINT = 106;
+		THIRD_QUARTILE = 107;
+		COMPLETE = 108;
+		PAUSE = 109;
+		RESUME = 110;
+		SKIP = 111;
+		ABANDON = 112;
+		BRAND_SAFETY = 200;
+	}
+
+	Event event_id = 3;
+	string external_id = 4;
+	string impression_id = 5;
+	string third_party_signal = 6;
+}

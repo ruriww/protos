@@ -1,0 +1,83 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/string_pair.proto";
+import "customer_support/help/mobile/proto/input_list_item.proto";
+import "customer_support/help/mobile/proto/input_attributes.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ContactFormElement {
+	string id = 1;
+	string label = 2;
+	bool is_required = 3;
+
+	enum ElementType {
+		option features.enum_type = CLOSED;
+
+		STATIC_TEXT = 1;
+		TEXT = 2;
+		TEXTAREA = 3;
+		DROPDOWN = 4;
+		DATE = 5;
+		CHECKBOX = 6;
+		RADIOBUTTON = 7;
+		HEADER = 8;
+		FILE_UPLOAD = 9;
+		HIDDEN = 10;
+		RATING = 11;
+		COUNTRY = 12;
+		LANGUAGE = 13;
+		FROM_EMAIL_ADDRESS = 16;
+		FROM_EMAIL_ADDRESS_HIDDEN = 17;
+		PHONE_NUMBER = 18;
+		UNKNOWN = 100;
+	}
+
+	ElementType type = 4;
+	repeated InputListItem list_item = 5;
+	string default_text = 6;
+
+	message Validator {
+		enum ValidationType {
+			option features.enum_type = CLOSED;
+
+			NUMERIC = 0;
+			DATE = 1;
+			BOOLEAN = 2;
+			REGEXP = 3;
+			PHONE_NUMBER = 4;
+		}
+
+		ValidationType type = 1;
+		repeated StringPair parameters = 2;
+	}
+
+	Validator validator = 7;
+	InputAttributes attributes = 8;
+	string subtext_above = 9;
+	string subtext_below = 10;
+	string class_name = 11;
+	string placeholder = 12;
+	string validation_message = 13;
+	string global_field_id = 14;
+	repeated int64 rule_id = 15 [ features.repeated_field_encoding = EXPANDED ];
+	string tip = 16;
+	bool is_repeatable = 17;
+	repeated string depends_on = 18;
+	repeated InputListItem column_item = 19;
+
+	enum BranchType {
+		option features.enum_type = CLOSED;
+
+		NEW_PAGE = 1;
+		INLINE = 2;
+	}
+
+	BranchType branch_type = 20;
+	string group_id = 21;
+	int32 group_index = 22;
+	bool show = 23 [ default = true ];
+	int32 page = 24;
+}

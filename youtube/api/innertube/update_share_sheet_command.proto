@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/share_panel_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateShareSheetCommand {
+	extend Command {
+		UpdateShareSheetCommand update_share_sheet_command = 387863284;
+	}
+
+	string serialized_share_entity = 1;
+	SharePanelType share_panel_type = 2 [ default = SHARE_PANEL_TYPE_UNIFIED_SHARE_PANEL ];
+	string sheet_id = 3;
+	Command on_failure = 4;
+	string client_param_identifier = 5;
+}

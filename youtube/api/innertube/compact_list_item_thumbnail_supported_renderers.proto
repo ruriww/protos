@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_cropped_thumbnail_renderer.proto";
+import "youtube/api/innertube/channel_avatar_thumbnail_renderer.proto";
+import "youtube/api/innertube/playlist_custom_thumbnail_renderer.proto";
+import "youtube/api/innertube/simple_video_thumbnail_renderer.proto";
+import "youtube/api/innertube/stack_radio_thumbnail_renderer.proto";
+import "youtube/api/innertube/music_artist_thumbnail_renderer.proto";
+import "youtube/api/innertube/cropped_square_thumbnail_renderer.proto";
+import "youtube/api/innertube/icon_thumbnail_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactListItemThumbnailSupportedRenderers {
+	PlaylistCroppedThumbnailRenderer playlist_cropped_thumbnail_renderer = 48535492;
+	ChannelAvatarThumbnailRenderer channel_avatar_thumbnail_renderer = 48591314;
+	PlaylistCustomThumbnailRenderer playlist_custom_thumbnail_renderer = 72426385;
+	SimpleVideoThumbnailRenderer simple_video_thumbnail_renderer = 89164432;
+	StackRadioThumbnailRenderer stack_radio_thumbnail_renderer = 90216736;
+	MusicArtistThumbnailRenderer music_artist_thumbnail_renderer = 93269998;
+	CroppedSquareThumbnailRenderer cropped_square_thumbnail_renderer = 94023822;
+	IconThumbnailRenderer icon_thumbnail_renderer = 94583035;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/lightsource_color_palette_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchToWatchTransitionRenderer {
+	LightsourceColorPaletteData from_color_palette_light = 1;
+	LightsourceColorPaletteData from_color_palette_dark = 2;
+	LightsourceColorPaletteData to_color_palette_light = 3;
+	LightsourceColorPaletteData to_color_palette_dark = 4;
+	uint32 from_color = 5;
+	uint32 to_color = 6;
+	LightsourceColorPaletteData from_color_palette_vibrant = 7;
+	LightsourceColorPaletteData to_color_palette_vibrant = 8;
+}

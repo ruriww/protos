@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+enum PlayedProgressGradientColorType {
+	option features.enum_type = CLOSED;
+
+	GRADIENT_COLOR_TYPE_UNKNOWN = 0;
+	GRADIENT_COLOR_TYPE_ON_PLAYED_PROGRESS = 1;
+	GRADIENT_COLOR_TYPE_ON_FULL_PLAYER_BAR = 2;
+}

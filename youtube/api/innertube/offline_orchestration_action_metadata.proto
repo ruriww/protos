@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_constraint.proto";
+import "youtube/api/innertube/offline_logging_data.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineOrchestrationActionMetadata {
+	int32 priority = 1;
+	repeated OfflineOrchestrationActionConstraint constraints = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 retry_schedule_intervals_in_seconds = 3 [ features.repeated_field_encoding = EXPANDED ];
+	OfflineLoggingData offline_logging_data = 4;
+	Command command = 5;
+
+	extensions 1000 to max;
+}

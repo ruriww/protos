@@ -1,0 +1,52 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedTextBadgeRenderer {
+	FormattedString label = 1;
+
+	enum UnpluggedTextBadgeType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		GENERIC_TEXT = 13;
+		LIVE = 1;
+		COUNTER = 2;
+		UPCOMING = 3;
+		WATCHED = 4;
+		LIVE_AND_RECORDING = 5;
+		ON_AIR = 6;
+		ON_AIR_AND_RECORDING = 7;
+		PARTIAL_DVR = 8;
+		VIDEO_VERSION = 9;
+		HIGHLIGHT_STAR = 10;
+		HIGHLIGHT_FLAME = 11;
+		STARTING_SOON = 12;
+		PLAYER_OVERLAY = 14;
+		PROMO = 15;
+		UHD = 16;
+		SCHEDULED = 17;
+		UPSELL = 18;
+		FANTASY_OUT = 19;
+		LANGUAGE = 20;
+		PROGRESS_ATTENTION = 21;
+		PROGRESS_NORMAL = 22;
+		OUTLINE = 23;
+		FREE_TRIAL = 24;
+		REQUIRES_BASE_PLAN = 25;
+		KEY_PLAYS = 26;
+		BEST_VALUE = 27;
+		CANCEL_ANYTIME = 28;
+	}
+
+	UnpluggedTextBadgeType type = 2;
+	string fill_color = 3;
+	string text_color = 4;
+}

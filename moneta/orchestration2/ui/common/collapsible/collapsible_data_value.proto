@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.collapsible;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CollapsibleDataValue {
+	extend data.DataValue {
+		CollapsibleDataValue collapsible_data_value_extension = 228971052;
+	}
+
+	enum ExpansionState {
+		option features.enum_type = CLOSED;
+
+		EXPANSION_STATE_UNKNOWN = 0;
+		EXPANSION_STATE_EXPANDED = 1;
+		EXPANSION_STATE_COLLAPSED = 2;
+	}
+
+	ExpansionState expansion_state = 1;
+}

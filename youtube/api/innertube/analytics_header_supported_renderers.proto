@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/analytics_title_subtitle_header_renderer.proto";
+import "youtube/api/innertube/analytics_metric_summary_header_renderer.proto";
+import "youtube/api/innertube/analytics_realtime_header_renderer.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsHeaderSupportedRenderers {
+	AnalyticsTitleSubtitleHeaderRenderer title_subtitle = 84623233;
+	AnalyticsMetricSummaryHeaderRenderer analytics_metric_summary_header_renderer = 93005823;
+	AnalyticsRealtimeHeaderRenderer analytics_realtime_header_renderer = 97468187;
+}
+
+extend Renderer {
+	AnalyticsTitleSubtitleHeaderRenderer analytics_title_subtitle_header_renderer = 84623233;
+}
+
+extend Renderer {
+	AnalyticsMetricSummaryHeaderRenderer analytics_metric_summary_header_renderer = 93005823;
+}
+
+extend Renderer {
+	AnalyticsRealtimeHeaderRenderer analytics_realtime_header_renderer = 97468187;
+}

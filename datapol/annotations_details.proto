@@ -1,0 +1,13 @@
+edition = "2023";
+
+package datapol;
+
+import "datapol/semantic_type.proto";
+import "datapol/qualifier.proto";
+
+option objc_class_prefix = "GCDP";
+
+message AnnotationsDetails {
+	repeated SemanticType semantic_type = 1;
+	Qualifier qualifier = 2;
+}

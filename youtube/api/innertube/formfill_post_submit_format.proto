@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FormfillPostSubmitFormat {
+	option features.enum_type = CLOSED;
+
+	FORMFILL_POST_SUBMIT_FORMAT_UNKNOWN = 0;
+	FORMFILL_POST_SUBMIT_FORMAT_PROTO = 1;
+	FORMFILL_POST_SUBMIT_FORMAT_URLENCODED = 2;
+}

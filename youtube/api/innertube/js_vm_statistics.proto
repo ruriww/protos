@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/js_vm_statistics_v8.proto";
+import "youtube/api/innertube/js_vm_statistics_quick_js.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message JsVmStatistics {
+	oneof js_vm_statistics {
+		JsVmStatisticsV8 v8_stats = 1;
+		JsVmStatisticsQuickJs quickjs_stats = 2;
+	}
+}

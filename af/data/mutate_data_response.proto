@@ -1,0 +1,9 @@
+edition = "2023";
+
+package af.data;
+
+option objc_class_prefix = "AFD";
+
+message MutateDataResponse {
+	extensions 10000 to max;
+}

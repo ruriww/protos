@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MuteAdEndpoint {
+	extend Command {
+		MuteAdEndpoint mute_ad_endpoint = 69108384;
+	}
+
+	enum MuteAdEndpointType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_MUTE_TYPE = 0;
+		HIDE = 1;
+		SKIP = 2;
+		UNDO = 3;
+	}
+
+	MuteAdEndpointType type = 2;
+	repeated Command actions = 3;
+	string layout_id = 5;
+	int64 delayed_ms_to_dismiss = 6;
+}

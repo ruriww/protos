@@ -1,0 +1,10 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message LensRefinementActions {
+	string object_id = 3;
+	string origination_id = 4;
+}

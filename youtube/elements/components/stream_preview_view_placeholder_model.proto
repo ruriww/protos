@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/api/innertube/stream_status_data_entity.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message StreamPreviewViewPlaceholderModel {
+	extend Model {
+		StreamPreviewViewPlaceholderModel stream_preview_view_placeholder_model = 361707526;
+	}
+
+	Theme theme = 2;
+	Context context = 3;
+	api.innertube.StreamStatusDataEntity data_entity = 8;
+	string data_key = 9;
+}

@@ -1,0 +1,53 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/device_restriction.proto";
+import "wireless_android_play_playlog/android_device_type.proto";
+import "wireless_android_play_playlog/accessibility_state.proto";
+import "wireless_android_play_playlog/web_view_version_info.proto";
+
+option objc_class_prefix = "CADP";
+
+message AndroidClientInfo {
+	int64 android_id = 1;
+	string logging_id = 2;
+	int32 sdk_version = 3;
+	string model = 4;
+	string product = 5;
+	string os_build = 6;
+	string application_build = 7;
+	string hardware = 8;
+	string device = 9;
+	string mcc_mnc = 10;
+	string locale = 11;
+	string country = 12;
+	string manufacturer = 13;
+	string brand = 14;
+	string board = 15;
+	string radio_version = 16;
+	string fingerprint = 17;
+	int64 device_id = 18;
+	int32 gms_core_version_code = 19;
+	bool is_sidewinder_device = 20;
+	bool using_log_source_int = 22;
+	DeviceRestriction.Id device_restriction = 23;
+	AndroidDeviceType android_device_type = 24;
+	AccessibilityState accessibility_state = 25;
+	string type = 26;
+	string ro_oem_key1 = 27;
+	string device_data_version_info = 28;
+	repeated string native_platform = 31;
+	int32 sim_carrier_id = 33;
+
+	message ExtensionVersion {
+		int32 extension = 1;
+		int32 version = 2;
+	}
+
+	repeated ExtensionVersion extension_version = 34;
+	WebViewVersionInfo webview_version_info = 35;
+	uint64 user_consent_state = 36;
+
+	extensions 21;
+}

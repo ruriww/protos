@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.logging;
+
+import "moneta/orchestration/logging/client_log_enums.proto";
+
+option objc_class_prefix = "Orch";
+
+message ApiRequestData {
+	ClientLogEnums.Endpoint endpoint = 1;
+	int64 response_time_millis = 2;
+	bytes log_token = 3;
+	repeated int32 global_client_features = 6;
+	repeated int32 page_client_features = 7;
+}

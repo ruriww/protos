@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+enum DeviceContactPhotoType {
+	option features.enum_type = CLOSED;
+
+	PHOTO_TYPE_UNKNOWN = 0;
+	NO_PHOTO = 1;
+	THUMBNAIL = 2;
+	FULL_SIZE_PHOTO = 3;
+}

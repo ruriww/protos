@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_format_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicOfflineMixtapePreferences {
+	int32 max_num_songs = 1;
+	OfflineabilityFormatType stream_quality_type = 2;
+	bool enabled = 3;
+}

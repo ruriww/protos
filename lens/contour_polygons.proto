@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens;
+
+import "lens/polygon.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ContourPolygons {
+	repeated Polygon polygons = 1;
+	float quality_score = 2;
+}

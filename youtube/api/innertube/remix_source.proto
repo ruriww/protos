@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/creation_feature_config.proto";
+import "youtube/api/innertube/shorts_time_range.proto";
+import "youtube/api/innertube/shorts_audio_visual_remix_source.proto";
+import "youtube/api/innertube/format_stream.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/shorts_source_display_metadata.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/shorts_creation_media_attribution.proto";
+import "youtube/api/innertube/remix_source_type.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/shorts_montage_response_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RemixSource {
+	repeated CreationFeatureConfig config = 1;
+	string audio_source_external_video_id = 2;
+	ShortsTimeRange audio_source_import_range = 3;
+	string visual_source_external_video_id = 4;
+	ShortsAudioVisualRemixSource.Clip audio_source_clip_data = 5;
+	string audio_waveform_url = 6;
+	FormatStream audio_format_stream = 7;
+	FormatStream visual_format_stream = 8;
+	Renderer storyboard_spec = 9;
+	string audio_player_params = 10;
+	ShortsTimeRange audio_initial_range = 11;
+	repeated ShortsTimeRange audio_suggested_ranges = 12;
+	ShortsSourceDisplayMetadata audio_display_data = 13;
+	google.protobuf.Duration audio_max_remix_duration = 14;
+	google.protobuf.Duration audio_remix_source_duration = 15;
+	ShortsCreationMediaAttribution audio_media_attribution = 16;
+	RemixSourceType remix_source_type = 17;
+	Command on_select = 18;
+	ShortsMontageResponseMetadata montage_response_metadata = 21;
+}

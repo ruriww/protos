@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/validity_attestation.proto";
+
+option objc_class_prefix = "GSYP";
+
+message ConfirmServerValidityResponse {
+	ValidityAttestation attestation = 1;
+}

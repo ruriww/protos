@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/menu_navigation_item_renderer.proto";
+import "youtube/api/innertube/menu_service_item_renderer.proto";
+import "youtube/api/innertube/menu_conditional_service_item_renderer.proto";
+import "youtube/api/innertube/menu_conditional_navigation_item_renderer.proto";
+import "youtube/api/innertube/toggle_menu_service_item_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/unplugged_sports_action_menu_item_renderer.proto";
+import "youtube/api/innertube/unplugged_sports_menu_item_renderer.proto";
+import "youtube/api/innertube/unplugged_menu_item_renderer.proto";
+import "youtube/api/innertube/menu_placeholder_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MenuItemSupportedRenderers {
+	MenuNavigationItemRenderer menu_navigation_item_renderer = 66441108;
+	MenuServiceItemRenderer menu_service_item_renderer = 66441155;
+	MenuConditionalServiceItemRenderer menu_conditional_service_item_renderer = 77258115;
+	MenuConditionalNavigationItemRenderer menu_conditional_navigation_item_renderer = 77262503;
+	ToggleMenuServiceItemRenderer toggle_menu_service_item_renderer = 78861357;
+	ElementRenderer element_renderer = 153515154;
+	UnpluggedSportsActionMenuItemRenderer unplugged_sports_action_menu_item_renderer = 223875977;
+	UnpluggedSportsMenuItemRenderer unplugged_sports_menu_item_renderer = 230637129;
+	UnpluggedMenuItemRenderer unplugged_menu_item_renderer = 253602307;
+	MenuPlaceholderItemRenderer menu_placeholder_item_renderer = 404366209;
+}

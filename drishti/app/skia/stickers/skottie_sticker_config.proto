@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/file_data.proto";
+import "image/tenor/creation/property_config.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message SkottieStickerConfig {
+	FileData file_data = 1;
+	image.tenor.creation.PropertyConfig property_config = 2;
+}

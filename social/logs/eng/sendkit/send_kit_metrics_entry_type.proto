@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum SendKitMetricsEntryType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_METRICS_ENTRY_TYPE = 0;
+	LATENCY = 4;
+	COUNT = 3;
+	ERROR = 5;
+	DATA_DISPLAY = 1;
+	USER_EVENT = 2;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedsettings;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/embeddedsettings/page.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+
+option objc_class_prefix = "EmbeddedSettings";
+
+message InitializeResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	common.SecureDataHeader secure_header = 3;
+	Page page = 4;
+	common.generic.FlowInstruction flow_instruction = 5;
+	common.widgetreference.WidgetReference next_widget = 6;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.integrator.ui.instrumentmanager;
+
+option objc_class_prefix = "IManager";
+
+message InstrumentCallbackData {
+	int64 billing_customer_number = 1;
+	int64 f1_instrument_id = 2;
+	repeated int64 additional_f1_instrument_ids = 9;
+}

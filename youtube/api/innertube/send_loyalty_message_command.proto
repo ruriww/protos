@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SendLoyaltyMessageCommand {
+	extend elements.Command {
+		SendLoyaltyMessageCommand send_loyalty_message_command = 438334080;
+	}
+
+	string entity_key = 1;
+	bytes params = 2;
+	string client_id_prefix = 3;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxAutoplayVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString short_byline_text = 4;
+	ThumbnailDetails channel_thumbnail = 5;
+	FormattedString published_time_text = 6;
+	FormattedString short_view_count_text = 7;
+	Command navigation_endpoint = 8;
+	bytes tracking_params = 10;
+	string debug_html = 11;
+}
+
+extend Renderer {
+	MdxAutoplayVideoRenderer mdx_autoplay_video_renderer = 102744238;
+}

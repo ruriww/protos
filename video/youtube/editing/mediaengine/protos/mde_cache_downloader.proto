@@ -1,0 +1,14 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+import "youtube/api/innertube/latency_network_type.proto";
+
+option objc_class_prefix = "MDE";
+
+message MdeCacheDownloader {
+	int64 requested_video_source_duration_ms = 1;
+	int64 video_source_duration_ms = 2;
+	.youtube.api.innertube.LatencyNetworkType network_type = 3;
+	string video_id = 4;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RenderingHotConfig {
+	bool use_command_responder_event = 3;
+	bool use_itcvc_view_status = 4;
+	bool log_rendering_errors = 5;
+	bool use_as_cell_node_model = 6;
+	int32 priority_loader_request_threshold_to_log = 7;
+	int32 priority_loader_max_num_unique_urls_to_log = 8;
+	bool hide_more_like_this_menu_item = 9;
+	bool enable_tooltip_renderer = 10;
+	bool ios_enable_logging_noop_navigation_title_taps = 11;
+	bool ios_lazy_load_comment_views = 12;
+	bool disable_eml_token_serving = 13;
+	bool ignore_endpoint_params_for_vc_push_decision = 14;
+	int32 cvc_section_renderer_continuations_limit_ios = 15;
+	bool ios_elements_use_yoga_2 = 16;
+	bool ios_elements_use_style_yoga_node = 17;
+	bool ios_elements_text_node_2_a11y_container = 18;
+	bool ios_elements_texture_view_flattening = 19;
+	bool ios_elements_use_elements_ripple = 20;
+	bool ios_elements_use_improved_rtl = 21;
+	bool ios_elements_shared_locking = 22;
+	bool ios_texture_collection_view_delay_layout = 23;
+	bool ios_elements_no_implicit_custom_action_at_root_level = 24;
+	bool ios_elements_enable_double_tap_command = 25;
+	int32 ios_chip_bar_header_scroll_mode = 26;
+	bool ios_elements_editable_text_node_canary = 29;
+	bool ios_elements_texture_use_shorted_visible_range = 30;
+	bool elements_srs_persistence_disabled = 31;
+	bool ios_elements_texture_use_autorelease_pool = 32;
+	bool ios_elements_texture_remove_priority_inversion = 33;
+	bool ios_remove_fallback_like_toast = 34;
+	bool is_ios_tab_selection_notification_enabled = 35;
+	bool ios_elements_texture_use_improved_truncated_visible_range = 36;
+	bool ios_elements_texture_use_improved_truncated_visible_range_last_line_fix = 37;
+	int32 ios_elements_materialization_bloat_ms = 39;
+	bool ios_logging_enable_common_run_loop_modes_timed_action = 40;
+	bool ios_imp_enable_common_run_loop_modes_timed_action = 41;
+	bool enable_shorts_ads_shopping_carousel_gesture_fix = 42;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.alertmanager;
+
+import "moneta/orchestration/ui/common/components/alert/alert.proto";
+import "moneta/orchestration/ui/common/partial_update_data.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+
+option objc_class_prefix = "AlertManager";
+
+message Page {
+	common.components.alert.Alert alert = 1;
+	repeated common.PartialUpdateData partial_update_data = 2;
+	common.generic.DependencyGraph dependency_graph = 3;
+}

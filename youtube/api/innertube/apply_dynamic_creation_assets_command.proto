@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/creation_asset.proto";
+import "youtube/api/innertube/media_generation_surface_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ApplyDynamicCreationAssetsCommand {
+	extend Command {
+		ApplyDynamicCreationAssetsCommand apply_dynamic_creation_assets_command = 1105;
+	}
+
+	repeated CreationAsset dynamic_creation_assets = 1;
+	repeated bytes serialized_vapi_data = 2;
+	MediaGenerationSurfaceType media_generation_surface_type = 3;
+	Command on_success_command = 4;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_consent_version.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsSigninToken {
+	enum SigninAccountStates {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		RED_CC = 1;
+		RED_ALL = 2;
+		RED_CANCELLED = 3;
+		AGE_RESTRICTED = 4;
+		AGE_UNKNOWN = 5;
+		CONSENTED = 6;
+		UNICORN_CHILD = 7;
+		GRIFFIN_CHILD = 8;
+		REDIRECT_BEFORE_SIGN_IN_FLOW = 9;
+		HAS_INHERITABLE_PAID_ACCESS = 10;
+	}
+
+	repeated SigninAccountStates signin_account_states = 1 [ features.repeated_field_encoding = EXPANDED ];
+	KidsConsentVersion consent_version = 2;
+}

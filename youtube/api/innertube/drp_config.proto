@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DrpConfig {
+	bool drp_on_gel_enabled = 1;
+	bool drp_on_device_204_disabled = 2;
+	int32 time_between_pings_seconds = 3;
+	bool is_control = 4;
+	bool android_is_in_background_executor = 5;
+}

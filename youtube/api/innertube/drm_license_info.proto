@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DrmLicenseInfo {
+	string identifier = 1;
+	int64 license_duration_seconds = 2;
+	int64 playback_duration_seconds = 3;
+	bool can_renew = 4;
+	string drm_params = 5;
+	string drm_session_id = 6;
+	bytes fair_play_config = 7;
+	string video_id = 8;
+	repeated int32 authorized_formats = 9 [ features.repeated_field_encoding = EXPANDED ];
+	bytes key_set_id = 10;
+	int32 security_level = 11;
+}

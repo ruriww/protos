@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/instrumentmanager/instrument_manager_action_type.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message RequestDetails {
+	instrumentmanager.InstrumentManagerActionType instrument_manager_action_type = 1;
+
+	enum InstrumentV2Type {
+		option features.enum_type = CLOSED;
+
+		INSTRUMENT_TYPE_UNKNOWN = 0;
+		INSTRUMENT_TYPE_CACHE = 1;
+		INSTRUMENT_TYPE_CACHE_WITHOUT_BANK_SELECTION_UI = 3;
+		INSTRUMENT_TYPE_CACHE_CITI_PAYGROUND = 4;
+		INSTRUMENT_TYPE_CACHE_CITI = 5;
+		INSTRUMENT_TYPE_OPEN_BANKING = 2;
+		INSTRUMENT_TYPE_OPEN_BANKING_BR = 8;
+		INSTRUMENT_TYPE_BANK_ACCOUNT = 6;
+		INSTRUMENT_TYPE_BANK_ACCOUNT_DIRECT_DEBIT = 7;
+		INSTRUMENT_TYPE_BANK_ACCOUNT_DIRECT_DEBIT_SEPA_MANDATE = 9;
+	}
+
+	InstrumentV2Type instrument_v2_type = 2;
+}

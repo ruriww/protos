@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_title_update_request.proto";
+import "youtube/api/innertube/mde_description_update_request.proto";
+import "youtube/api/innertube/mde_privacy_state_update_request_params.proto";
+import "youtube/api/innertube/mde_tags_update_request.proto";
+import "youtube/api/innertube/mde_category_update_request.proto";
+import "youtube/api/innertube/initial_draft_state.proto";
+import "youtube/api/innertube/mde_targeted_audience_update_request_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InitialMetadata {
+	MdeTitleUpdateRequest title = 1;
+	MdeDescriptionUpdateRequest description = 2;
+	MdePrivacyStateUpdateRequestParams privacy = 3;
+	MdeTagsUpdateRequest tags = 4;
+	MdeCategoryUpdateRequest category = 5;
+	InitialDraftState draft_state = 6;
+	MdeTargetedAudienceUpdateRequestParams targeted_audience = 7;
+}

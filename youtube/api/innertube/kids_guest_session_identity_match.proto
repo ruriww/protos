@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsGuestSessionIdentityMatch {
+	option features.enum_type = CLOSED;
+
+	KIDS_GUEST_SESSION_IDENTITY_MATCH_UNKNOWN = 0;
+	KIDS_GUEST_SESSION_IDENTITY_MATCH_IS_NIL = 1;
+	KIDS_GUEST_SESSION_IDENTITY_MATCH_EQUAL_TO_CHILD_SESSION_ID = 2;
+	KIDS_GUEST_SESSION_IDENTITY_MATCH_EQUAL_TO_PARENT_SESSION_ID = 3;
+	KIDS_GUEST_SESSION_IDENTITY_MATCH_EQUAL_TO_MAIN_SESSION_ID = 4;
+	KIDS_GUEST_SESSION_IDENTITY_MATCH_NONE = 5;
+}

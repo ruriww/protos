@@ -1,0 +1,13 @@
+edition = "2023";
+
+package googledata.experiments.mobile.moneta_ios.proto;
+
+option objc_class_prefix = "GWA";
+
+message ClientParametersGroup {
+	repeated int32 billable_service = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 region_code = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int64 integrator_experiment_id = 3;
+	int32 success_test_code = 4;
+	int32 failure_test_code = 5;
+}

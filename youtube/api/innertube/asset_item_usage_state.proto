@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AssetItemUsageState {
+	option features.enum_type = CLOSED;
+
+	ASSET_ITEM_USAGE_STATE_UNSPECIFIED = 0;
+	ASSET_ITEM_USAGE_STATE_NEW = 1;
+	ASSET_ITEM_USAGE_STATE_SEEN = 2;
+	ASSET_ITEM_USAGE_STATE_USED = 3;
+}

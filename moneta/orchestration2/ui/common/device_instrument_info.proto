@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+import "moneta/orchestration2/ui/common/e_money_stored_value_info.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DeviceInstrumentInfo {
+	oneof type {
+		EMoneyStoredValueInfo secure_element_card_info = 1;
+	}
+}

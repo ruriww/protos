@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/open_popup_action_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenPopupAction {
+	extend Command {
+		OpenPopupAction open_popup_action = 128491736;
+	}
+
+	OpenPopupActionSupportedRenderers popup = 1;
+	bool reuse_popup = 3 [ default = false ];
+	bool replace_popup = 4;
+	string unique_id = 5;
+	bool update_action = 6;
+	bool be_reused = 7;
+	uint32 duration_hint_ms = 8;
+	bool should_stop_parent_signal = 10;
+	bool show_with_other_popups = 11;
+	bool should_match_unique_id = 12;
+	AccessibilitySupportedDatas accessibility_data = 13;
+	bool show_once_per_unique_id = 14;
+}

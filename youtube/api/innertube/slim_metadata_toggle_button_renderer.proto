@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/like_target.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SlimMetadataToggleButtonRenderer {
+	LikeTarget target = 17;
+	LikeStatus like_status = 19;
+	bool is_like = 20;
+	bool is_dislike = 21;
+	ButtonSupportedRenderers button = 26;
+	string like_status_entity_key = 27;
+
+	extensions 1000 to max;
+}

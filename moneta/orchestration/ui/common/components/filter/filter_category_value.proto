@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.filter;
+
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message FilterCategoryValue {
+	repeated SimpleFormValue simple_form_value = 1;
+	bytes data_token = 2;
+}

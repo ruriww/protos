@@ -1,0 +1,13 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/event.proto";
+import "uservoice/surveys/client/logging/session.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message SurveyRecordEventRequest {
+	Event event = 1;
+	Session session = 2;
+}

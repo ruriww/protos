@@ -1,0 +1,35 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.collapsible;
+
+import "moneta/orchestration2/ui/common/collapsible/collapsible_data_value.proto";
+import "moneta/orchestration2/ui/common/focus/focus_instruction.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CollapsibleResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		CollapsibleResultingAction collapsible_resulting_action_extension = 232901548;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SET_EXPANSION_STATE = 1;
+		RESULTING_ACTION_TYPE_SET_EXPANSION_STATE_AND_FOCUS = 2;
+	}
+
+	ResultingActionType action_type = 1;
+
+	message SetExpansionStateAction {
+		CollapsibleDataValue.ExpansionState set_expansion_state = 1;
+		focus.FocusInstruction focus_instruction = 2;
+	}
+
+	oneof resulting_action {
+		CollapsibleDataValue.ExpansionState set_expansion_state = 2;
+		SetExpansionStateAction set_expansion_state_action = 3;
+	}
+}

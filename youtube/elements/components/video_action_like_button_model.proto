@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/components/like_button_data.proto";
+import "youtube/api/innertube/like_status_entity.proto";
+import "youtube/api/innertube/animation_entity.proto";
+import "youtube/api/innertube/player_controls_visibility_entity.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/context.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message VideoActionLikeButtonModel {
+	Theme theme = 1;
+	LikeButtonData like_button_data = 2;
+	api.innertube.LikeStatusEntity like_status_entity = 3;
+	api.innertube.AnimationEntity animation_entity = 4;
+	api.innertube.PlayerControlsVisibilityEntity player_controls_visibility_entity = 6;
+	EnvironmentData environment = 7;
+	Context context = 9;
+}

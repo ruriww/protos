@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/alignment.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AlignmentSpec {
+	Alignment align_vertical = 1;
+	Alignment align_horizontal = 2;
+}

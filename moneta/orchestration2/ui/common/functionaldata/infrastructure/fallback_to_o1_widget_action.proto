@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+option objc_class_prefix = "ORCH2";
+
+message FallbackToO1WidgetAction {
+	oneof params {
+		bytes encrypted_parameters = 1;
+		bytes widget_token = 2;
+	}
+}

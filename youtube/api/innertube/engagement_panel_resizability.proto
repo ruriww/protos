@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelResizability {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_RESIZABILITY_UNKNOWN = 0;
+	ENGAGEMENT_PANEL_RESIZABILITY_SNAP = 1;
+	ENGAGEMENT_PANEL_RESIZABILITY_NOT_RESIZABLE = 2;
+	ENGAGEMENT_PANEL_RESIZABILITY_NOT_RESIZABLE_IN_ALL_ORIENTATIONS = 3;
+}

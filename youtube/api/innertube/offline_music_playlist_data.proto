@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/music_entity_explicit_type.proto";
+import "youtube/api/innertube/date.proto";
+import "youtube/api/innertube/music_release_type.proto";
+import "youtube/api/innertube/offline_podcast_show_playlist_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineMusicPlaylistData {
+	extend Datas {
+		OfflineMusicPlaylistData offline_music_playlist_data = 138801204;
+	}
+
+	bool is_album = 1;
+	ThumbnailDetails album_hq_thumbnail = 2;
+	MusicEntityExplicitType album_release_explicit_type = 3;
+	Date album_release_date = 4;
+	string album_artist_display_name = 5;
+	ThumbnailDetails album_artist_thumbnail = 6;
+	MusicReleaseType album_release_type = 7;
+	string remove_from_auto_offline_feedback_token = 8;
+	string remove_from_manual_offline_feedback_token = 9;
+	int32 full_playlist_length = 10;
+	string undo_remove_from_auto_offline_feedback_token = 12;
+	bool is_podcast_show = 13;
+	OfflinePodcastShowPlaylistData podcast_show_data = 16;
+}

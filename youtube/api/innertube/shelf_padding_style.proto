@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ShelfPaddingStyle {
+	option features.enum_type = CLOSED;
+
+	SHELF_PADDING_STYLE_UNSPECIFIED = 0;
+	SHELF_PADDING_STYLE_MINIMALIST_STACKABLE = 1;
+	SHELF_PADDING_STYLE_REEL_STACKABLE = 2;
+	SHELF_PADDING_STYLE_UNIFORM_STACKABLE = 3;
+	SHELF_PADDING_STYLE_NO_TOP_UNIFORM_STACKABLE = 4;
+	SHELF_PADDING_STYLE_INSET_REEL_STACKABLE = 5;
+	SHELF_PADDING_STYLE_CONTENT_LIST_STACKABLE = 6;
+}

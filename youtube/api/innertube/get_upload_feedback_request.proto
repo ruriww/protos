@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/upload_feedback_id.proto";
+import "youtube/api/innertube/upload_feedback_response_format.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetUploadFeedbackRequest {
+	InnerTubeContext context = 1;
+	repeated UploadFeedbackId ids = 2;
+	repeated string continuations = 4;
+	UploadFeedbackResponseFormat response_format = 5;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/subscription_button.proto";
+import "youtube/api/innertube/compact_channel_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/associated_game_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactChannelRenderer {
+	string channel_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString display_name = 3;
+	FormattedString video_count_text = 4;
+	FormattedString subscriber_count_text = 5;
+	Command navigation_endpoint = 6;
+	string debug_html = 7;
+	SubscriptionButton subscription_button = 8;
+	FormattedString title = 9;
+	CompactChannelSubscribeButtonSupportedRenderers subscribe_button = 11;
+	repeated BadgeSupportedRenderers badges = 12;
+	repeated BadgeSupportedRenderers owner_badges = 13;
+	bytes tracking_params = 14;
+	repeated Command service_endpoints = 15;
+	ThumbnailDetails tv_banner = 16;
+	AssociatedGameSupportedRenderers associated_game = 17;
+	uint32 concurrent_viewer_count = 18;
+	MenuSupportedRenderers menu = 19;
+	MainAppCompactRendererStyle main_app_style = 20;
+	Renderer purchase_button = 21;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 22;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	CompactChannelRenderer compact_channel_renderer = 50794305;
+}

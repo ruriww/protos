@@ -1,0 +1,19 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "notifications/platform/sdk/proto/app_permission.proto";
+import "notifications/platform/common/proto/custom_prompt.proto";
+
+option objc_class_prefix = "GNPC";
+
+message PermissionPrompt {
+	CustomPrompt warmup_prompt = 1;
+
+	message IosPermissionRequest {
+		repeated sdk.proto.AppPermission.IosPermissionType permission_type = 1;
+	}
+
+	IosPermissionRequest ios_permission = 2;
+	bool skip_warmup = 4;
+}

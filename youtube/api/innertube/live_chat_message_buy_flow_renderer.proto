@@ -1,0 +1,73 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/paid_live_chat_message_tier.proto";
+import "youtube/api/innertube/live_chat_message_buy_flow_buy_button_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_message_buy_flow_info_button_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_message_buy_flow_info_dialog_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_message_input_picker_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_message_input_picker_button_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_message_buy_flow_back_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/emoji.proto";
+import "youtube/api/innertube/live_chat_rich_message_input.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/live_chat_message_buy_flow_heading_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatMessageBuyFlowRenderer {
+	FormattedString header_text = 1;
+	FormattedString preview_header_text = 2;
+	repeated PaidLiveChatMessageTier message_tiers = 3;
+
+	oneof currency_formatting_info {
+		string currency = 4;
+	}
+
+	int64 currency_unit_micros = 5;
+	LiveChatMessageBuyFlowBuyButtonSupportedRenderers buy_button = 6;
+	LiveChatMessageBuyFlowInfoButtonSupportedRenderers help_button = 7;
+	LiveChatMessageBuyFlowInfoDialogSupportedRenderers help_dialog = 8;
+	int64 default_purchase_price_micros = 9;
+	string locale = 10;
+	repeated LiveChatMessageInputPickerSupportedRenderers pickers = 11;
+	repeated LiveChatMessageInputPickerButtonSupportedRenderers picker_buttons = 12;
+	LiveChatMessageBuyFlowBackButtonSupportedRenderers back_button = 13;
+	string default_app_store_product_id = 14;
+	repeated string supported_app_stores = 15;
+	Renderer heading = 16;
+	repeated Emoji emojis = 17;
+	bytes tracking_params = 19;
+	bool hide_amount_input_controls = 20;
+	LiveChatRichMessageInput default_input_text = 22;
+	FormattedString public_notice = 23;
+	Renderer balance_renderer = 24;
+	Renderer banner = 26;
+	Command on_visible_command = 27;
+	LiveChatMessageInputPickerButtonSupportedRenderers emoji_picker_button = 28;
+	FormattedString heading_text = 29;
+	FormattedString subheading_text = 30;
+	ThumbnailDetails channel_avatar = 31;
+	FormattedString pin_in_chat_text = 32;
+	FormattedString characters_text = 33;
+	FormattedString invalid_input_error_text = 34;
+	FormattedString zero_character_info_text = 35;
+	FormattedString highlighted_text = 36;
+	FormattedString disclaimer_text = 37;
+	Command help_dialog_command = 38;
+}
+
+extend Renderer {
+	LiveChatMessageBuyFlowRenderer live_chat_message_buy_flow_renderer = 132517641;
+}
+
+extend Renderer {
+	LiveChatMessageBuyFlowHeadingRenderer live_chat_message_buy_flow_heading_renderer = 190700494;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message UuidProto {
+	fixed64 high = 1;
+	fixed64 low = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "proto2/bridge/message_set.proto";
+import "youtube/client/blocks/api/watch/watch_error_code.proto";
+
+option objc_class_prefix = "YTBA";
+
+message WatchErrorInfo {
+	extend proto2.bridge.MessageSet {
+		WatchErrorInfo message_set_extension = 525000222;
+	}
+
+	repeated WatchErrorCode codes = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

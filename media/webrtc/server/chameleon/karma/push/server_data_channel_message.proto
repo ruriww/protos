@@ -1,0 +1,11 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "WRTCSMR";
+
+message ServerDataChannelMessage {
+	google.protobuf.Any data = 1;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/user_complete_avatar.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/pending_connection_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConnectionRenderer {
+	FormattedString user_public_name = 1;
+	UserCompleteAvatar avatar = 2;
+	ButtonSupportedRenderers remove_button = 3;
+	ButtonSupportedRenderers block_button = 4;
+	bytes tracking_params = 6;
+	MenuSupportedRenderers menu = 7;
+	Command contact_menu_endpoint = 8;
+	string connection_id = 9;
+	int64 proto_creation_timestamp_ms = 10;
+	Command send_share_to_contacts_endpoint = 11;
+}
+
+extend Renderer {
+	PendingConnectionRenderer pending_connection_renderer = 91743460;
+}
+
+extend Renderer {
+	ConnectionRenderer connection_renderer = 91725347;
+}

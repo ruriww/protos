@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.suggest;
+
+option objc_class_prefix = "YTS";
+
+message YoutubeHeaderTextResponseParams {
+	repeated int32 header_text = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,69 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/safe_search_type.proto";
+import "youtube/api/innertube/background_play_type.proto";
+import "youtube/api/innertube/offline_video_quality_type.proto";
+import "youtube/api/innertube/upload_quality_type.proto";
+import "youtube/api/innertube/user_interface_theme.proto";
+import "youtube/api/innertube/music_playback_audio_quality.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppSettingsSnapshot {
+	int32 time_since_last_snapshot_secs = 1;
+
+	message AppSettings {
+		SafeSearchType restricted_mode_filtering_type = 1;
+		bool is_play_hd_videos_on_wifi_only = 2;
+		bool is_stats_for_nerds_enabled = 3;
+		bool is_pause_watch_history_enabled = 4;
+		bool is_pause_search_history_enabled = 5;
+		BackgroundPlayType background_play_type = 6;
+		bool is_offline_mode_enabled = 7;
+		OfflineVideoQualityType offline_video_quality_type = 8;
+		bool is_save_over_wifi_only = 9;
+		int32 available_storage_mbytes = 10;
+		UploadQualityType upload_quality_type = 11;
+		bool is_upload_over_wifi_only = 12;
+		bool is_sending_crash_reports_enabled = 13;
+		UserInterfaceTheme theme = 14;
+		bool is_wide = 15;
+		bool is_docked = 16;
+		UserInterfaceTheme system_theme = 17;
+		bool is_bedtime_reminder_enabled = 18;
+		bool is_bedtime_wait_video_finish_enabled = 19;
+		bool is_data_saving_mode_enabled = 20;
+		bool is_data_saving_reduce_video_quality_enabled = 21;
+		bool is_data_saving_reduce_download_quality_enabled = 22;
+		bool is_data_saving_download_wifi_only_enabled = 23;
+		bool is_data_saving_imp_wifi_only_enabled = 24;
+		bool is_data_saving_upload_wifi_only_enabled = 25;
+		bool is_smart_downloads_enabled = 26;
+		bool is_data_saving_quality_picker_enabled = 27;
+		bool is_unplugged_account_selector_enabled = 28;
+		bool is_data_saving_data_reminder_enabled = 29;
+		string system_locale = 30;
+		string app_locale = 31;
+		bool is_rotation_enabled = 32;
+	}
+
+	AppSettings current_value = 2;
+	AppSettings previous_value = 3;
+
+	message MusicAppSettings {
+		bool stream_over_wifi_only = 1;
+		bool dont_play_music_videos = 2;
+		bool autoplay_enabled = 3;
+		MusicPlaybackAudioQuality mobile_bitrate = 4;
+		MusicPlaybackAudioQuality wifi_bitrate = 5;
+		bool dont_play_podcast_videos = 7;
+		bool volume_normalization_enabled = 8;
+	}
+
+	MusicAppSettings current_music_value = 4;
+}

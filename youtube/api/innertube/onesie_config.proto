@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_connection_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OnesieConfig {
+	bytes client_key = 1;
+	int64 key_expires_in_seconds = 2;
+	bytes encrypted_client_key = 3;
+	bool tcp_nodelay = 4;
+	string redirector_url = 5;
+	int64 hostname_ttl_seconds = 6;
+	int64 ping_interval_seconds = 7;
+	bool enable_player_request_debug_info_collector = 8;
+	bool enable_connection_prewarming = 9 [ default = false ];
+	bool enable_cronet = 10;
+	bool enable_quic = 11;
+	bool enable_cronet_storage = 12;
+	int64 early_upstream_open_delay_ms = 13;
+	int32 http_connect_timeout_ms = 14;
+	int32 http_read_timeout_ms = 15;
+	int32 http_load_timeout_ms = 16;
+	bool always_run_connection_opener = 17;
+	bool use_multiple_bandaid_connection_opener = 18;
+	int32 opened_connection_fudge_ms = 19;
+	bool remap_and_prewarm_on_network_change = 20;
+	bool use_alternative_backoff = 21;
+	bool use_bandaid_host_stats_tracker = 22;
+	bool use_exo_cronet_data_source = 23;
+	bool use_smoothed_rtt_estimator = 24;
+	int32 randomize_prewarming_url_id_param_secs = 25;
+	bool log_two_second_media_events_to_csi = 26;
+	bool cronet_use_direct_executor = 28;
+	bool ignore_onesie_bandwidth_samples = 29;
+	bool log_first_video_buffer_read_to_csi = 30;
+	bool track_uri_for_all_prewarmed_hosts = 31;
+	repeated ClientConnectionType prewarm_only_when_network_active_connection_types = 32;
+	string onesie_host_selection_token = 33;
+	bool android_onesie_use_critical = 34;
+	int32 bandaid_opener_inactive_stop_threshold_secs = 35;
+	int32 max_prewarm_connections = 36;
+}

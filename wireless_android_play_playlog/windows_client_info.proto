@@ -1,0 +1,59 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message WindowsClientInfo {
+	enum DeviceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_DEVICE_TYPE = 0;
+		PHONE = 1;
+		TABLET = 2;
+		LAPTOP = 3;
+	}
+
+	DeviceType device_type = 1;
+	string device_manufacturer = 2;
+	string device_model = 3;
+	int64 physical_memory = 4;
+	int32 processor_count = 5;
+	int32 logical_processor_count = 6;
+	string os_name = 7;
+	string os_version = 8;
+	string os_architecture = 9;
+	string os_language_code = 10;
+	string cpu_manufacturer = 11;
+	string cpu_name = 12;
+
+	message DriverInfo {
+		string manufacturer = 1;
+		string device_name = 2;
+		string driver_provider_name = 3;
+		string driver_version = 4;
+		string driver_date = 5;
+	}
+
+	repeated DriverInfo bluetooth_driver_infos = 13;
+	repeated DriverInfo network_driver_infos = 14;
+	bool ble_extd_adv_supported = 15;
+
+	message BluetoothInfo {
+		bool is_extended_advertising_supported = 1;
+		bool is_peripheral_role_supported = 2;
+		bool is_low_energy_supported = 3;
+		bool is_advertisement_offload_supported = 4;
+	}
+
+	BluetoothInfo bluetooth_info = 16;
+
+	enum UsageType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_USAGE_TYPE = 0;
+		USAGE_TYPE_PHENOTYPE = 1;
+	}
+
+	UsageType usage_type = 17;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/pusher_tool_params.proto";
+import "ink/proto/text_tool_params.proto";
+
+option objc_class_prefix = "INKPB";
+
+message TextPusherToolParams {
+	PusherToolParams pusher_params = 1;
+	TextToolParams text_params = 2;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ColdBrowseInstalledAppsSettings {
+	bool check_all_on_critical_path = 1;
+	bool check_youtube_apps_on_critical_path = 2;
+	bool use_cached_on_non_critical = 3;
+}

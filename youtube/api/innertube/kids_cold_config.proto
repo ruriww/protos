@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_ios_ulp_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsColdConfig {
+	bool enable_rx_for_player_android = 2;
+	bool enable_texture_in_wn_ios = 3;
+	bool enable_restoring_original_persona_on_corpus_edit_flow_android = 4;
+	bool enable_client_blocklist = 6;
+	bool enable_new_world_home = 8;
+	KidsIosULPConfig kids_ios_ulp_config = 10;
+	bool enable_child_level_blocking_for_profiles = 11;
+	bool enable_fragment_retained_state_manager = 12;
+	bool enable_unified_visitordata_migration = 13;
+}

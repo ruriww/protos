@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+message UnitSize {
+	enum Unit {
+		option features.enum_type = CLOSED;
+
+		UNIT_UNKNOWN = 0;
+		UNIT_DP = 1;
+		UNIT_SP = 2;
+		UNIT_PX = 3;
+		UNIT_EM = 4;
+		UNIT_PERCENT = 5;
+	}
+
+	Unit unit = 1;
+	float value = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum CoordinateType {
+	option features.enum_type = CLOSED;
+
+	COORDINATE_TYPE_UNSPECIFIED = 0;
+	NORMALIZED = 1;
+	IMAGE = 2;
+}

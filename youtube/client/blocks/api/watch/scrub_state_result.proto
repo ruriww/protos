@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+message ScrubStateResult {
+	enum State {
+		option features.enum_type = CLOSED;
+
+		STATE_UNKNOWN = 0;
+		STATE_LONG_PRESS = 1;
+		STATE_SCRUB = 2;
+	}
+
+	State state = 1;
+
+	enum Target {
+		option features.enum_type = CLOSED;
+
+		TARGET_UNKNOWN = 0;
+		TARGET_PLAYER_BAR = 1;
+		TARGET_PLAYER = 2;
+	}
+
+	Target target = 2;
+}

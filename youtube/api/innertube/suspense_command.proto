@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuspenseCommand {
+	extend Command {
+		SuspenseCommand suspense_command = 1772;
+	}
+
+	string component_key = 1;
+	string data_key = 2;
+}

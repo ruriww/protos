@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/static_context.proto";
+import "youtube/api/innertube/app_startup_temp.proto";
+import "youtube/api/innertube/start_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ApplicationStarted {
+	StaticContext static_context = 1;
+	int64 app_l = 2;
+	int64 total_cpu_max_freq = 4;
+	int64 total_cpu_cur_freq = 5;
+	AppStartupTemp start_temperature = 6;
+	StartType start_type = 7;
+	bool is_browse_response_from_disk_cache = 10;
+}

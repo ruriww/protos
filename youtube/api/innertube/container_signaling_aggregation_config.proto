@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/container_identifier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContainerSignalingAggregationConfig {
+	ContainerIdentifier container_identifier = 1;
+	int64 max_local_aggregation_size = 2;
+	int64 max_local_aggregation_item_age_ms = 3;
+	int64 min_local_aggregation_prominence_dwell_time_ms = 4;
+	int64 max_signaling_threshold_aggregation_size = 5;
+	int64 max_signaling_threshold_aggregation_item_age_ms = 6;
+	int64 min_signaling_threshold_aggregation_item_prominence_dwell_time_ms = 7;
+	bool should_enable_prominence_dwell_tracking_on_videos_with_context = 8;
+	bool should_enable_prominence_dwell_tracking_on_shorts = 9;
+	int64 paging_continuation_interval = 10;
+	int64 max_summary_grace_period_ms = 11;
+}

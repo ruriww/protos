@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package video_streaming;
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+enum TrackType {
+	TRACK_TYPE_AUDIO = 1;
+	TRACK_TYPE_VIDEO = 2;
+	TRACK_TYPE_TEXT = 4;
+}

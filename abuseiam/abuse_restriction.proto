@@ -1,0 +1,35 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message AbuseRestriction {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		RACY = 1;
+		YOUTUBE_RESTRICTED_PROFILE = 2;
+		DISABLE_EMAILING_PROFILES = 3;
+		PENALIZED = 4;
+		DO_NOT_SUGGEST = 5;
+	}
+
+	Type type = 1 [ default = UNKNOWN ];
+
+	enum Reason {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		PENALIZED_NAME_VIOLATION = 1;
+		PENALIZED_UNVERIFIED_LOCAL_PAGE = 2;
+		PENALIZED_RACY_ENTITY = 3;
+		PENALIZED_PREVIEW_PAGE = 4;
+		PENALIZED_GRUMPY_CLUSTER = 5;
+		PENALIZED_RELATED_ACCOUNT_CLUSTER = 6;
+		PENALIZED_MANUAL_OVERRIDE = 7;
+	}
+
+	repeated Reason reason = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

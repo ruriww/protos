@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/effect_list_item_selection_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EffectListItemRenderer {
+	string effect_id = 1;
+	FormattedString display_title = 2;
+	ThumbnailDetails effect_thumbnail = 3;
+	EffectListItemSelectionStyle selection_style = 4;
+}
+
+extend Renderer {
+	EffectListItemRenderer effect_list_item_renderer = 235622043;
+}

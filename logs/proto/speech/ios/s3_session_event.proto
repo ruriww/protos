@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/s3_session_event_type.proto";
+import "logs/proto/speech/ios/s3_session_event_metadata.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message S3SessionEvent {
+	S3SessionEventType s3_session_event_type = 1;
+	S3SessionEventMetadata metadata = 2;
+}

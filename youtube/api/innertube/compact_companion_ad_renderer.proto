@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/companion_completion_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactCompanionAdRenderer {
+	ThumbnailDetails icon = 1;
+
+	message CompanionHeading {
+		FormattedString text = 1;
+		bool show_ad_badge = 2;
+	}
+
+	CompanionHeading heading = 2;
+	CompanionHeading subheading = 3;
+	Renderer cta = 4;
+	uint32 background_color = 5;
+	Command navigation_endpoint = 6;
+	Renderer companion_extension = 7;
+	bytes tracking_params = 9;
+	repeated Command impression_commands = 10;
+	Renderer menu = 11;
+	CompanionCompletionAction completion_action = 12;
+	Renderer secondary_button = 14;
+	Command ad_complete_command = 15;
+}
+
+extend Renderer {
+	CompactCompanionAdRenderer compact_companion_ad_renderer = 153405107;
+}

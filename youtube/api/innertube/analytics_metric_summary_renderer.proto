@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/analytics_chart_supported_renderers.proto";
+import "youtube/api/innertube/trend_indicator.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsMetricSummaryRenderer {
+	Command details_endpoint = 1;
+	FormattedString display_time_period = 2;
+	FormattedString display_metric = 3;
+	FormattedString display_value = 4;
+	AnalyticsChartSupportedRenderers chart = 5;
+	TrendIndicator trend_indicator = 6;
+	FormattedString display_value_title = 7;
+
+	enum ChartType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CHART = 0;
+		CHART_WITH_NO_AXIS = 1;
+		CHART_WITH_BOTTOM_AXIS = 2;
+	}
+
+	ChartType chart_type = 8;
+	bytes tracking_params = 10;
+	FormattedString helptext = 11;
+}
+
+extend Renderer {
+	AnalyticsMetricSummaryRenderer analytics_metric_summary_renderer = 84345383;
+}

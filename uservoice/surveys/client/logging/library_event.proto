@@ -1,0 +1,80 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+option objc_class_prefix = "UVSLP";
+
+message LibraryEvent {
+	message LoginStateChangedInfo {
+		enum StateChange {
+			LOGGED_OUT = 0;
+			LOGGED_IN = 1;
+		}
+
+		StateChange state_change = 1;
+	}
+
+	message CreateClientCallInfo {
+	}
+
+	message RequestSurveyCallInfo {
+		string trigger_id = 1;
+		int32 auth_user = 2;
+		bool enable_testing_mode = 3;
+		bool non_prod = 4;
+	}
+
+	message PresentSurveyCallInfo {
+		int32 max_prompt_width = 1;
+
+		enum PresentError {
+			UNKNOWN = 0;
+			CLIENT_ACTIVITY_WAS_DESTROYED = 1;
+			CLIENT_ACTIVITY_WAS_FINISHING = 2;
+			CLIENT_ACTIVITY_WAS_NULL = 3;
+			INVALID_AUTH_PARAMS = 10;
+			INVALID_COMPLETION_STYLE = 8;
+			INVALID_PROMPT_STYLE = 9;
+			INVALID_SURVEY_DATA_TYPE = 4;
+			INVALID_SURVEY_PAYLOAD = 5;
+			SURVEY_ALREADY_RUNNING = 6;
+			SURVEY_EXPIRED = 7;
+			SURVEY_NOT_IN_KEY_WINDOW = 11;
+			VIEW_CONTROLLER_NOT_FULL_SIZE = 12;
+			UNSUPPORTED_EMBEDDED_SURVEY_CONTAINER = 13;
+		}
+
+		repeated PresentError present_error = 2;
+
+		enum CompletionStyle {
+			COMPLETION_STYLE_UNKNOWN = 0;
+			COMPLETION_STYLE_CARD = 1;
+			COMPLETION_STYLE_TOAST = 2;
+		}
+
+		CompletionStyle completion_style = 3;
+
+		enum PromptStyle {
+			PROMPT_STYLE_UNKNOWN = 0;
+			PROMPT_STYLE_FIRST_CARD_NON_MODAL = 1;
+			PROMPT_STYLE_FIRST_CARD_MODAL = 2;
+		}
+
+		PromptStyle prompt_style = 4;
+	}
+
+	message DismissSurveyCallInfo {
+	}
+
+	message ReportSurveyDeclinedCallInfo {
+	}
+
+	oneof event {
+		LoginStateChangedInfo login_state_changed_info = 1;
+		CreateClientCallInfo create_client_call_info = 2;
+		RequestSurveyCallInfo request_survey_call_info = 3;
+		PresentSurveyCallInfo present_survey_call_info = 4;
+		DismissSurveyCallInfo dismiss_survey_call_info = 5;
+		ReportSurveyDeclinedCallInfo report_survey_declined_call_info = 6;
+	}
+}

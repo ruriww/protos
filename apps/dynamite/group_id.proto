@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/space_id.proto";
+import "apps/dynamite/dm_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message GroupId {
+	oneof id {
+		SpaceId space_id = 1;
+		DmId dm_id = 3;
+	}
+}

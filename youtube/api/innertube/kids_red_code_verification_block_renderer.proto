@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsRedCodeVerificationBlockRenderer {
+	FormattedString title = 2;
+	FormattedString body_text = 3;
+	FormattedString notifications_text = 4;
+	FormattedString wrong_code_text = 5;
+	FormattedString resend_text = 6;
+	ButtonSupportedRenderers resend_code_button = 7;
+	string verification_code_string = 8;
+	bytes tracking_params = 10;
+	Command promotions_opt_in_endpoint = 11;
+	Command promotions_opt_out_endpoint = 12;
+	FormattedString promotions_checkbox_text = 13;
+	bool promotions_default_value = 14;
+}

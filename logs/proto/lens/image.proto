@@ -1,0 +1,38 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/lens_ios_enums.proto";
+import "logs/proto/lens/ui_orientation.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message Image {
+	LensIosEnums.ImageSource image_source = 1;
+	int32 resolution_width = 2;
+	int32 resolution_height = 3;
+	int32 compression_percent = 4;
+	int64 size_bytes = 5;
+	LensIosEnums.ImageFormat image_format = 6;
+	int32 original_resolution_width = 7;
+	int32 original_resolution_height = 8;
+	int32 zoom_level_percent = 9;
+	int32 zoom_base_level_percent = 10;
+	UiOrientation ui_orientation = 11;
+	int32 device_orientation = 12;
+	double sharpness_score = 13;
+	double brightness_value = 14;
+	LensIosEnums.ImageUploadQuality image_upload_quality = 15;
+
+	enum VideoPresenceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_VIDEO_PRESENCE_TYPE = 0;
+		NO_VIDEO = 1;
+		VIDEO = 2;
+		VIDEO_IN_VIEWPORT = 3;
+		LARGE_VIDEO = 4;
+	}
+
+	VideoPresenceType video_presence_type = 16;
+}

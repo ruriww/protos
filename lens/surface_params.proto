@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens;
+
+import "lens/surface.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message SurfaceParams {
+	Surface surface = 1;
+}

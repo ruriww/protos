@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ping_config_set.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PingConfig {
+	int32 max_queue_size = 1;
+	int32 max_age_hours = 2;
+	int32 batch_size = 3;
+	int32 report_cap_hours = 4;
+	int32 max_number_of_retries = 5;
+	int32 retry_backoff_factor = 6;
+	int32 timeout_seconds = 7;
+	bool enable_offline_pings = 8;
+	bool enable_report = 9;
+	int32 max_retry_window_minutes = 10;
+	PingConfigSet vss_config = 11;
+	PingConfigSet qoe_config = 12;
+	PingConfigSet atr_config = 14;
+	PingConfigSet remarketing_config = 15;
+	PingConfigSet ptracking_config = 16;
+	PingConfigSet drp_config = 17;
+	bool serial_executor_enabled = 18;
+	bool in_android_batch_logging_on_mobile_networks_experiment = 19;
+}

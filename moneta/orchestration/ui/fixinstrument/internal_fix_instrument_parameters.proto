@@ -1,0 +1,30 @@
+edition = "2023";
+
+package moneta.orchestration.ui.fixinstrument;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+import "moneta/integrator/ui/fixinstrument/fix_instrument_enums.proto";
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/common/funds_guarantee_id.proto";
+
+option objc_class_prefix = "FixInstrument";
+
+message InternalFixInstrumentParameters {
+	integrator.common.ProductCorrelationId product_correlation_id = 2;
+	string instrument_id = 3;
+	integrator.ui.fixinstrument.FixInstrumentEnums.FixInstrumentScenario scenario = 4;
+	integrator.ui.common.CommonParameters common_parameters = 5;
+	int64 f1_instrument_id = 8;
+	integrator.common.FundsGuaranteeId funds_guarantee_id = 9;
+
+	oneof billing_account_identifier {
+		int64 billing_account_id = 10;
+		int64 billing_account_number = 17;
+	}
+
+	string cvn_secure_data_id = 11;
+	int64 instrument_rank_deprecated = 12 [ default = 2147483647 ];
+	bool restrict_to_single_instrument = 16;
+	bool hide_refund_detail_messages = 20;
+	string settlement_entity = 22;
+}

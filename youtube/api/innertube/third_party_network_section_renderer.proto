@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/share_target_supported_renderers.proto";
+import "youtube/api/innertube/share_target_template_supported_renderers.proto";
+import "youtube/api/innertube/share_service_identifier.proto";
+import "youtube/api/innertube/third_party_share_target_section_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThirdPartyNetworkSectionRenderer {
+	repeated ShareTargetSupportedRenderers share_targets = 1;
+	ShareTargetTemplateSupportedRenderers share_target_template = 4;
+	repeated ShareServiceIdentifier excluded_share_services = 7;
+	bytes tracking_params = 9;
+	ThirdPartyShareTargetSectionSupportedRenderers share_target_container = 10;
+	Renderer copy_link_container = 11;
+	Renderer start_at_container = 12;
+	Renderer show_third_party_share_targets_button = 13;
+}

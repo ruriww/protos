@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/people_kit_error_label.proto";
+import "social/logs/eng/sendkit/people_kit_error_cause.proto";
+
+option objc_class_prefix = "SLES";
+
+message PeopleKitError {
+	PeopleKitErrorLabel label = 1;
+	PeopleKitErrorCause cause = 2;
+}

@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/device_orientation.proto";
+import "youtube/api/innertube/thumbnail_loaded_error.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThumbnailLoaded {
+	bool is_moving_thumbnail = 1;
+	int32 duration_loading_ms = 2;
+	string video_id = 3;
+	string playlist_id = 4;
+	int32 width_px = 5;
+	int32 height_px = 6;
+	float px_to_dp_ratio = 7;
+	int32 downloaded_bytes = 8;
+	int32 page_ve_type = 9;
+	bool finished_loading = 10;
+	string url = 13;
+	int32 url_count = 14;
+	int32 view_width_px = 15;
+	int32 view_height_px = 16;
+	int32 bitmap_width_px = 17;
+	int32 bitmap_height_px = 18;
+	int32 bitmap_size = 19;
+	DeviceOrientation device_orientation = 21;
+	repeated ThumbnailLoadedError error_types = 23 [ features.repeated_field_encoding = EXPANDED ];
+	int32 load_number = 24;
+	int32 concurrent_loads = 25;
+	bool is_otf = 26;
+	bool is_load_error = 27;
+	bool app_went_to_background = 28;
+	int32 num_processors = 29;
+	int64 available_memory_bytes = 30;
+	int64 total_memory_bytes = 31;
+	bool is_low_memory = 32;
+	int64 low_memory_threshold_bytes = 33;
+	string url_query = 36;
+	int32 startup_temperature = 42;
+	int32 startup_completion_status = 43;
+	string eml_template_name = 45;
+	string image_type = 47;
+	int32 http_error_status_code = 48;
+}

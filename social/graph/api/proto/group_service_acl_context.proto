@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message GroupServiceAclContext {
+	bytes zookie = 2;
+	string group_name = 3;
+	int64 owner_gaia_id = 4;
+}

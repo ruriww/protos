@@ -1,0 +1,46 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "payments/logging/orchestration/client/client_log_enums.proto";
+import "payments/logging/orchestration/client/api_request_data.proto";
+import "payments/logging/orchestration/client/data_value_change_data.proto";
+import "payments/logging/orchestration/client/event_rule_evaluation_data.proto";
+import "payments/logging/orchestration/client/functional_data_value_change_data.proto";
+import "payments/logging/orchestration/client/prefetched_initialize_data.proto";
+import "payments/logging/orchestration/client/session_start_data.proto";
+import "payments/logging/orchestration/client/page_interactable_data.proto";
+import "payments/logging/orchestration/client/trigger_data.proto";
+import "payments/logging/orchestration/client/unresponsive_data.proto";
+import "payments/logging/orchestration/client/frame_render_data.proto";
+import "payments/logging/orchestration/client/unhandled_error_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Event {
+	ClientLogEnums.EventType event_type = 1;
+	int64 trigger_node_ui_reference = 2;
+	int64 data_reference = 3;
+	ClientLogEnums.Result result = 4;
+
+	oneof log_data {
+		ApiRequestData api_request_data = 5;
+		DataValueChangeData data_value_change_data = 6;
+		EventRuleEvaluationData event_rule_evaluation_data = 7;
+		FunctionalDataValueChangeData functional_data_value_change_data = 9;
+		PrefetchedInitializeData prefetched_initialize_data = 10;
+		SessionStartData session_start_data = 11;
+		PageInteractableData page_interactable_data = 13;
+		TriggerData trigger_data = 18;
+		UnresponsiveData unresponsive_data = 20;
+		FrameRenderData frame_render_data = 25;
+		UnhandledErrorData unhandled_error_data = 27;
+	}
+
+	int64 client_session_id = 8;
+	int64 previous_client_session_id = 12;
+	int32 trigger_node_visual_element_id = 14;
+	repeated int64 affected_node_ui_reference = 15 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 affected_node_visual_element_id = 16 [ features.repeated_field_encoding = EXPANDED ];
+	int64 client_elapsed_realtime_millis = 23;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+option objc_class_prefix = "YTB";
+
+message TelemetrySpanMetadata {
+	bool is_main_thread = 1;
+	int64 begin_thread_id = 2;
+	int64 end_thread_id = 3;
+
+	extensions 1000 to max;
+}

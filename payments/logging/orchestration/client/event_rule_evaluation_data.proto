@@ -1,0 +1,11 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+option objc_class_prefix = "ORCH2";
+
+message EventRuleEvaluationData {
+	int64 event_rule_id = 1;
+	int32 matched_trigger_id = 2;
+	int32 failed_condition_id = 3;
+}

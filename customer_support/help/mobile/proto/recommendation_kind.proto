@@ -1,0 +1,14 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum RecommendationKind {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_RECOMMENDATION_KIND = 0;
+	SUGGESTION = 1;
+	SEARCH_RESULT = 2;
+	FEELING_LUCKY = 3;
+}

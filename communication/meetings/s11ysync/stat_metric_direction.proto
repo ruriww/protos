@@ -1,0 +1,11 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+option objc_class_prefix = "GHM";
+
+enum StatMetricDirection {
+	UNKNOWN = 0;
+	INCOMING = 1;
+	OUTGOING = 2;
+}

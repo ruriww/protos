@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/paymentmethods/parameters.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetPaymentMethodsParametersRequest {
+	common.RequestContext context = 1;
+	paymentmethods.Parameters parameters = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum YpcErrorReason {
+	option features.enum_type = CLOSED;
+
+	YPC_ERROR_REASON_UNKNOWN = 0;
+	YPC_ERROR_REASON_PAYMENT_RESPONSE_FAILURE = 1;
+	YPC_ERROR_REASON_INNERTUBE_RESPONSE_FAILURE = 2;
+	YPC_ERROR_REASON_YPC_CANCEL_RECURRENCE_TRANSACTION_FAILURE = 3;
+	YPC_ERROR_REASON_INST_MANAGER_LOAD_FAILURE = 4;
+	YPC_ERROR_REASON_INST_MANAGER_CALLBACK_FAILURE = 5;
+	YPC_ERROR_REASON_YPC_REDEEM_CODE_RPC_FAILURE = 6;
+	YPC_ERROR_REASON_REDEEM_INNERTUBE_FAILURE = 7;
+	YPC_ERROR_REASON_RISK_LIB_LOAD_FAILURE = 8;
+}

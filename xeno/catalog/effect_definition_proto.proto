@@ -1,0 +1,17 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "xeno/effect/graph_input_config_proto.proto";
+import "xeno/catalog/asset_registry_definition_proto.proto";
+import "xeno/effect/effect_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message EffectDefinitionProto {
+	string effect_id = 1;
+	string graph_id = 2;
+	effect.GraphInputConfigProto inputs = 3;
+	AssetRegistryDefinitionProto assets = 4;
+	effect.EffectProto effect_extensions = 6;
+}

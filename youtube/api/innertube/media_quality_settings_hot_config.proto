@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaQualitySettingsHotConfig {
+	bool sticky_reset_by_watch_layer = 1;
+	bool android_auto_does_not_clear_sticky = 2;
+	bool enable_persistent_video_quality_settings = 3;
+	bool enable_quick_menu_video_quality_settings = 4;
+	int32 data_saver_resolution_cap = 5;
+	bool enable_quick_menu_settings_deeplink = 6;
+	bool enable_interaction_logging_for_video_quality_selector = 7;
+	bool enable_data_saver_for_hd_on_wifi_only = 8;
+	int32 mealbar_reminder_wait_time_secs = 9;
+	bool omit_advanced_menu_option = 10;
+	bool omit_vqs_beta_label = 11;
+	bool enable_advanced_menu_settings_deeplink = 12;
+	bool android_toss_high_quality_chunks_during_hpq_upswitch = 13;
+	bool omit_advanced_menu_option_for_air_play = 14;
+	bool enable_premium_playback_quality_cap = 15;
+}

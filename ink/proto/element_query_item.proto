@@ -1,0 +1,20 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/rect.proto";
+import "ink/proto/text/text.proto";
+import "ink/proto/shape_spec.proto";
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementQueryItem {
+	string uuid = 1;
+	Rect world_bounds = 2;
+	string uri = 3;
+	text.Text text = 4;
+	string group_uuid = 5;
+	ShapeSpec shape = 6;
+	Transform object_to_world = 7;
+}

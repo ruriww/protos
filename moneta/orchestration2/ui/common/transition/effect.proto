@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.transition;
+
+import "moneta/orchestration2/ui/common/transition/opacity_effect.proto";
+import "moneta/orchestration2/ui/common/transition/translation_effect.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Effect {
+	enum EffectType {
+		option features.enum_type = CLOSED;
+
+		EFFECT_TYPE_UNKNOWN = 0;
+		EFFECT_TYPE_OPACITY = 1;
+		EFFECT_TYPE_TRANSLATION = 2;
+		EFFECT_TYPE_CHANGE_BOUNDS = 3;
+	}
+
+	EffectType effect_type = 1;
+	OpacityEffect opacity_effect = 2;
+	TranslationEffect translation_effect = 3;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/invitation.proto";
+import "uservoice/surveys/client/logging/completion.proto";
+import "uservoice/surveys/client/logging/display_settings.proto";
+import "uservoice/surveys/client/logging/privacy_settings.proto";
+import "uservoice/surveys/client/logging/question.proto";
+import "uservoice/surveys/client/logging/client_capability.proto";
+import "uservoice/surveys/client/logging/legal_settings.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message Payload {
+	Invitation invitation = 1;
+	Completion completion = 2;
+	DisplaySettings display_settings = 3;
+	PrivacySettings privacy_settings = 4;
+	repeated Question question = 5;
+	repeated ClientCapability required_capability = 7;
+	LegalSettings legal_settings = 8;
+}

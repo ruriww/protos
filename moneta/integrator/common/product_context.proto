@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+import "moneta/integrator/common/funds_guarantee_id.proto";
+import "moneta/integrator/common/subscription_id.proto";
+import "moneta/integrator/common/access_labels.proto";
+import "moneta/integrator/common/purchase_order_id.proto";
+import "moneta/integrator/common/identity_link_id_pb.proto";
+
+option objc_class_prefix = "Orch";
+
+message ProductContext {
+	oneof id {
+		ProductCorrelationId pcid = 1;
+		FundsGuaranteeId funds_guarantee_id = 3;
+		SubscriptionId subscription_id = 4;
+		AccessLabels access_labels = 5;
+		PurchaseOrderId purchase_order_id = 6;
+		IdentityLinkIdPb identity_link_id = 7;
+		int32 override_billable_service = 8;
+	}
+
+	bytes product_auth_token = 2;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+option objc_class_prefix = "YTBA";
+
+message StickerEditorViewBlockModeSignalArgs {
+	bool read_only = 1;
+}

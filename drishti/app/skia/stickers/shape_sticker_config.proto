@@ -1,0 +1,12 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/shape_sticker_type.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message ShapeStickerConfig {
+	ShapeStickerType type = 1;
+	uint32 color = 2;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.rendering;
+
+import "youtube/elements/element.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SuspenseResult {
+	string component_key = 1;
+	elements.Element element = 2;
+}

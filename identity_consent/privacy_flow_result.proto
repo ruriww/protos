@@ -1,0 +1,28 @@
+edition = "2023";
+
+package identity_consent;
+
+import "google/internal/identity/signedoutstate/v1/signed_out_state_response.proto";
+import "identity_consent/consent_flow_id.proto";
+import "identity_consent/consent_flow_completed.proto";
+import "identity_consent/consent_flow_not_completed.proto";
+import "identity_consent/consent_decision.proto";
+
+option objc_class_prefix = "IDC";
+
+message PrivacyFlowResult {
+	ConsentFlowId flow_id = 1;
+
+	oneof outcome {
+		ConsentFlowCompleted flow_completed = 2;
+		ConsentFlowNotCompleted flow_not_completed = 3;
+	}
+
+	repeated ConsentDecision decision = 4;
+
+	message MobilePlatformParams {
+		google.internal.identity.signedoutstate.v1.SignedOutStateResponse updated_signed_out_state_response = 1;
+	}
+
+	MobilePlatformParams mobile_platform_params = 5;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+import "scone/v1/survey/answer_choice.proto";
+
+option objc_class_prefix = "UVSP";
+
+message AnswerChoices {
+	repeated AnswerChoice answer_choice = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message ClientInfo {
+	string client_version = 1;
+	string client_api_version = 2;
+	int32 android_sdk_version = 3;
+	string device_model = 4;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShareServiceIdentifier {
+	int32 service_id = 1;
+	string android_package_name = 2;
+	string android_class_name = 3;
+}

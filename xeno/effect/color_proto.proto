@@ -1,0 +1,12 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message ColorProto {
+	double red = 1;
+	double green = 2;
+	double blue = 3;
+	double alpha = 4;
+}

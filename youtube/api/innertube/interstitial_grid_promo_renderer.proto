@@ -1,0 +1,62 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/service_title_row_supported_renderers.proto";
+import "youtube/api/innertube/service_items_row_supported_renderers.proto";
+import "youtube/api/innertube/offer_restrictions_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/service_title_row_renderer.proto";
+import "youtube/api/innertube/service_items_row_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InterstitialGridPromoRenderer {
+	extend ButtonRenderer {
+		string grid_promo_analytics_tag = 137965092;
+	}
+
+	ThumbnailDetails header_image = 1;
+	ButtonSupportedRenderers action_button = 2;
+	ButtonSupportedRenderers dismiss_button = 3;
+	string background_color = 5;
+	ServiceTitleRowSupportedRenderers title = 6;
+	repeated ServiceItemsRowSupportedRenderers rows = 7;
+	OfferRestrictionsSupportedRenderers restrictions = 8;
+	bool is_visible = 9;
+	bytes tracking_params = 11;
+	repeated Command impression_endpoints = 12;
+	string basic_service_bg_color = 13;
+	string premium_service_bg_color = 14;
+	AccessibilitySupportedDatas header_accessibility = 15;
+	string analytics_tag = 16;
+	FormattedString header_title = 17;
+	FormattedString header_subtitle = 18;
+	ThumbnailDetails background_image = 19;
+	bool show_simple_version = 20;
+	FormattedString cta_subtitle = 21;
+	FormattedString cta_title = 22;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 23;
+}
+
+extend Renderer {
+	InterstitialGridPromoRenderer interstitial_grid_promo_renderer = 118816221;
+}
+
+extend Renderer {
+	ServiceTitleRowRenderer service_title_row_renderer = 118795075;
+}
+
+extend Renderer {
+	ServiceItemsRowRenderer service_item_row_renderer = 118732172;
+}

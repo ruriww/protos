@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.oneof;
+
+option objc_class_prefix = "ORCH2";
+
+message OneOfOption {
+	int32 option_id = 1;
+	repeated int64 option_data_reference = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 tag = 4;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+option objc_class_prefix = "YTBA";
+
+message DateBlockMovableRef {
+	bool movable = 1 [ default = true ];
+	string client_id = 2;
+	string block_instance_id = 3;
+}

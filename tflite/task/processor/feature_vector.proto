@@ -1,0 +1,10 @@
+edition = "2023";
+
+package tflite.task.processor;
+
+option objc_class_prefix = "TaskLib";
+
+message FeatureVector {
+	repeated float value_float = 1;
+	bytes value_string = 2;
+}

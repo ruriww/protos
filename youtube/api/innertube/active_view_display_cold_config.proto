@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveViewDisplayColdConfig {
+	bool enable_active_view_display_monitor = 1;
+	bool disable_active_view_display_report_end_of_session_ios = 2;
+	bool enable_active_view_ios_display_deduplication = 3;
+	bool enable_active_view_ios_display_improved_size_reporting = 4;
+	bool enable_active_view_android_display_improved_size_reporting = 5;
+	bool enable_active_view_ios_display_optimize_traversal = 6;
+	bool enable_active_view_android_window_focus_check = 7;
+	bool enable_active_view_ios_consolidate_view_traversal = 8;
+}

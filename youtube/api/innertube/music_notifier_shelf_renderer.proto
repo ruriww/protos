@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/music_background_overlay_style.proto";
+import "youtube/api/innertube/music_notifier_shelf_button_location.proto";
+import "youtube/api/innertube/music_notification_progress_indicator.proto";
+import "youtube/api/innertube/music_notifier_button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicNotifierShelfRenderer {
+	FormattedString title = 1;
+	bytes tracking_params = 2;
+	repeated Command impression_endpoints = 4;
+	bool is_visible = 5;
+	Command on_tap = 6;
+	MusicBackgroundOverlayStyle background_overlay = 7;
+	MusicNotifierShelfButtonLocation buttons_location = 8;
+	MusicNotificationProgressIndicator music_notification_progress_indicator = 9;
+	repeated MusicNotifierButtonSupportedRenderers buttons = 113556773;
+}

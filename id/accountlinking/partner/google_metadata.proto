@@ -1,0 +1,14 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message GoogleMetadata {
+	string cloud_project_id = 1;
+	repeated string team_contact_emails = 2;
+	int64 project_number = 3;
+	string mtls_certificate_id = 5;
+	repeated int64 affiliated_project_numbers = 6 [ features.repeated_field_encoding = EXPANDED ];
+	repeated string affiliated_client_ids = 7;
+}

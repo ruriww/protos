@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/home_location.proto";
+import "google/internal/apps/waldo/v1alpha/custom_location.proto";
+import "google/internal/apps/waldo/v1alpha/office_location.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message UserLocation {
+	oneof location {
+		HomeLocation home_location = 1;
+		CustomLocation custom_location = 2;
+		OfficeLocation office_location = 3;
+	}
+}

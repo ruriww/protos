@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/group_name.proto";
+import "ios/shared/people/autocomplete/group_photo.proto";
+
+option objc_class_prefix = "PDL";
+
+message GroupOrigin {
+	string type = 1;
+	GroupName name = 2;
+	GroupPhoto photo = 3;
+}

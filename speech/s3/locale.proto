@@ -1,0 +1,10 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message Locale {
+	string locale = 1;
+	int32 format = 2;
+}

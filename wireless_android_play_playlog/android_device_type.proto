@@ -1,0 +1,14 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message AndroidDeviceType {
+	bool is_watch = 1;
+	bool is_automotive = 2;
+	bool is_chrome_os = 3;
+	bool is_android_tv = 4;
+	bool is_bstar = 5;
+	bool is_android_xr = 6;
+}

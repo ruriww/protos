@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cinematic_container_gradient_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CinematicContainerConfig {
+	uint32 light_theme_background_color = 1;
+	uint32 dark_theme_background_color = 2;
+
+	message CinematicContainerAnimationConfig {
+		uint32 min_image_update_interval_ms = 1;
+		uint32 crossfade_duration_ms = 2;
+		float crossfade_start_offset = 3;
+		uint32 max_frame_rate = 4;
+	}
+
+	CinematicContainerAnimationConfig animation_config = 3;
+	float color_source_size_multiplier = 4;
+	bool apply_client_image_blur = 5;
+	float bottom_color_source_height_multiplier = 6;
+	float max_bottom_color_source_height = 7;
+	float color_source_width_multiplier = 8;
+	float color_source_height_multiplier = 9;
+	float blur_strength = 10;
+	bool setting_on_by_default = 11;
+
+	message CinematicWatchFullscreenConfig {
+		float color_source_width_multiplier = 1;
+		float color_source_height_multiplier = 2;
+		float scrim_width_multiplier = 3;
+		float scrim_height_multiplier = 4;
+
+		oneof scrim_config {
+			uint32 flat_scrim_color = 5;
+			CinematicContainerGradientConfig scrim_gradient_config = 6;
+		}
+	}
+
+	CinematicWatchFullscreenConfig watch_fullscreen_config = 13;
+	bool enable_in_light_theme = 14;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.comment;
+
+option objc_class_prefix = "YTBA";
+
+message VoiceReplyBlockWeakRef {
+	string block_instance_id = 1;
+}

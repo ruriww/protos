@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ForecastingAdRenderer {
+	repeated Ping impression_urls = 2;
+	AdLayoutLoggingData ad_layout_logging_data = 3;
+	bool hack = 4;
+}
+
+extend Renderer {
+	ForecastingAdRenderer forecasting_ad_renderer = 84818269;
+}

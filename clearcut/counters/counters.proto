@@ -1,0 +1,16 @@
+edition = "2023";
+
+package clearcut.counters;
+
+import "clearcut/counters/counter.proto";
+
+option objc_class_prefix = "CLCC";
+
+message Counters {
+	int64 uptime_millis = 1;
+	repeated Counter counter = 2;
+	bytes dimensions_instance = 3;
+	int64 timestamp_millis = 4;
+	string dimensions_instance_js = 5;
+	string dimensions_instance_json = 6;
+}

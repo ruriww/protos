@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/handoff_call_type.proto";
+import "youtube/api/innertube/handoff_feature_type.proto";
+import "youtube/api/innertube/handoff_feature_data.proto";
+import "youtube/api/innertube/handoff_action_state.proto";
+import "youtube/api/innertube/handoff_auxiliary_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HandoffParams {
+	string action_id = 1;
+	HandoffCallType call_type = 2;
+	HandoffFeatureType action_type = 3;
+	HandoffFeatureData feature_data = 4;
+	HandoffActionState action_state = 5;
+	HandoffAuxiliaryData auxiliary_data = 6;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScrollToSectionEndpoint {
+	extend Command {
+		ScrollToSectionEndpoint scroll_to_section_endpoint = 135727656;
+	}
+
+	string section_identifier = 1;
+	string hint_id = 2;
+	int32 vertical_scroll_offset_dp = 3;
+	string section_list_identifier = 4;
+	string reference_section_identifier = 5;
+	int32 section_item_scroll_position = 7;
+	bool disable_scrolling_on_user_scroll = 8;
+}

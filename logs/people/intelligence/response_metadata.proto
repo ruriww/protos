@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/value_source.proto";
+import "logs/people/intelligence/assistive_feature_type.proto";
+import "google/rpc/code.proto";
+
+option objc_class_prefix = "PIL";
+
+message ResponseMetadata {
+	int32 callback_number = 1;
+	ValueSource source = 2;
+	bool is_last_callback = 3;
+	bool is_first_callback = 4;
+	int32 values_count = 5;
+	int32 not_found_count = 6;
+	AssistiveFeatureType feature_type = 7;
+	string request_id = 8;
+	int64 duration_usec = 9;
+	int64 value_cache_count = 10;
+	int64 promise_cache_count = 11;
+	bool is_refresh_callback = 12;
+	int64 not_found_cache_count = 13;
+	google.rpc.Code code = 14;
+}

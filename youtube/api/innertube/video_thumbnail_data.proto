@@ -1,0 +1,85 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/image.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/content_mode.proto";
+import "youtube/elements/components/download_icon_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoThumbnailData {
+	oneof thumbnail_image {
+		elements.Image image = 1;
+		Renderer collection_thumbnail = 56;
+		Renderer composite_image = 60;
+	}
+
+	string timestamp_text = 2;
+
+	enum TimestampStyle {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		DEFAULT = 1;
+		LIVE = 2;
+	}
+
+	TimestampStyle timestamp_style = 4;
+	float percent_duration_watched = 5;
+	string video_count = 6;
+	bool is_playlist = 7;
+	bool is_mix = 8;
+	bool is_large_form_factor = 10;
+	string timestamp_text_a11y = 11;
+	bool is_unplayable = 12;
+	bool is_android = 13;
+	elements.Image animated_preview_image = 14;
+	bool is_video_with_context = 16;
+	bool is_custom_square_image = 18;
+	string timestamp_icon = 19;
+	uint32 sampled_thumbnail_color = 22;
+	bool is_video_card = 23;
+	uint32 timestamp_background_color = 24;
+	elements.ContentMode content_mode = 25;
+	uint32 override_background_color = 26;
+	bool enable_bold_timestamp_font = 30;
+	bool is_clip = 31;
+	elements.components.DownloadIconData download_icon_data = 32;
+	float aspect_ratio = 33;
+
+	enum OverlayIcon {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ICON = 0;
+		FILL_CLOCK_24 = 1;
+		FILL_THUMB_UP_24 = 2;
+		EMBARGOED = 3;
+		LIST_PLAY_ARROW = 4;
+		FILL_LIGHTBULB = 5;
+		FILL_AUDIO = 6;
+		TV = 7;
+		YOUTUBE_MIX = 8;
+		NEWS_MIX = 9;
+		PODCAST = 10;
+		OUTLINE_BAG = 11;
+		DRAFT = 12;
+		FILL_CREATOR_ACADEMY = 13;
+	}
+
+	OverlayIcon overlay_icon = 36;
+	string bottom_left_icon = 37;
+	uint32 bottom_left_icon_color = 38;
+	string video_count_a11y = 43;
+	bool is_playlist_quilt = 44;
+	string bottom_left_text = 49;
+	string thumbnail_loop_key = 50;
+	float timestamp_margin = 57;
+	Renderer bottom_overlay = 58;
+	repeated Renderer overlays = 59;
+	bool disable_thumbnail_image_flex_grow_on_phone = 61;
+}

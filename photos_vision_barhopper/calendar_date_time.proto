@@ -1,0 +1,15 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+option objc_class_prefix = "BAR";
+
+message CalendarDateTime {
+	int32 year = 1;
+	int32 month = 2;
+	int32 day = 3;
+	int32 hours = 4;
+	int32 minutes = 5;
+	int32 seconds = 6;
+	bool is_utc = 7;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ElementAttributes {
+	bool selectable = 1 [ default = true ];
+	bool magic_erasable = 2 [ default = true ];
+	bool is_sticker = 3 [ default = false ];
+	bool is_text = 4 [ default = false ];
+	bool is_group = 5 [ default = false ];
+	bool is_zoomable = 6 [ default = false ];
+
+	enum GroupType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		LAYER = 1;
+	}
+
+	GroupType group_type = 7 [ default = UNKNOWN ];
+	bool is_split_text = 9 [ default = false ];
+	bool is_photo = 10 [ default = false ];
+}

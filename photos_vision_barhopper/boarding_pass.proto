@@ -1,0 +1,12 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+import "photos_vision_barhopper/flight_segment.proto";
+
+option objc_class_prefix = "BAR";
+
+message BoardingPass {
+	string passenger_name = 1;
+	repeated FlightSegment flight_segment = 2;
+}

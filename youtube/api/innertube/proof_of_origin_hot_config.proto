@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/proof_of_origin_session_token_content_binding_type.proto";
+import "youtube/api/innertube/proof_of_origin_token_creation_mode.proto";
+import "youtube/api/innertube/exponential_backoff_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProofOfOriginHotConfig {
+	optional bool attach_po_token_to_player_request = 1;
+	optional bool attach_po_token_to_bandaid_requests = 2;
+	optional bool create_per_video_po_tokens = 3;
+	optional int32 po_session_token_refresh_period_secs = 4;
+	optional ProofOfOriginSessionTokenContentBindingType session_token_content_binding_type = 5;
+	optional int32 generate_po_token_timeout_ms = 6;
+	optional int32 check_po_gms_module_availability_timeout_ms = 7;
+	optional bool use_gms_core_to_create_po_tokens = 8;
+	optional ProofOfOriginTokenCreationMode token_creation_mode = 9;
+	optional ExponentialBackoffConfig exponential_backoff_config = 10;
+	optional bool use_session_potoken_when_playback_potoken_not_set = 11;
+	optional bool disable_potoken_enhanced_gms_error_logging = 12;
+	optional bool attach_po_token_to_offline_player_service_request = 13;
+	optional bool attach_error_po_token_to_player_request = 14;
+	optional bool log_token_mint_time_ticks = 15;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+enum CueRangeEventType {
+	option features.enum_type = CLOSED;
+
+	CUE_RANGE_EVENT_TYPE_UNKNOWN = 0;
+	CUE_RANGE_EVENT_TYPE_ENTER = 1;
+	CUE_RANGE_EVENT_TYPE_EXIT = 2;
+}

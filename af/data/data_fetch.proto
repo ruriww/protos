@@ -1,0 +1,13 @@
+edition = "2023";
+
+package af.data;
+
+import "af/data/data_request.proto";
+
+option objc_class_prefix = "AFD";
+
+message DataFetch {
+	int32 id = 1;
+	DataRequest request = 2;
+	int32 serial = 5;
+}

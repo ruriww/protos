@@ -1,0 +1,35 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/image_size.proto";
+import "ink/proto/rect.proto";
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ImageExport {
+	oneof size {
+		uint32 max_dimension_px = 1 [ default = 1024 ];
+		ImageSize image_size = 9;
+	}
+
+	bool should_draw_background = 2 [ default = true ];
+
+	oneof region {
+		Rect world_rect = 3;
+		Transform camera_transform = 7;
+	}
+
+	oneof parent {
+		uint32 layer_index = 4;
+		string group_uuid = 10;
+	}
+
+	int32 id = 5;
+	bool should_draw_tool = 8 [ default = false ];
+	bool should_draw_drawables = 11 [ default = false ];
+	bool should_flip_y_axis = 12 [ default = true ];
+	uint32 max_tile_size_px = 13;
+	bool debug_draw_tiles = 14 [ default = false ];
+}

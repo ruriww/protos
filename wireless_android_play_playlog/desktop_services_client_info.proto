@@ -1,0 +1,22 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message DesktopServicesClientInfo {
+	enum DesktopServicesClientType {
+		option features.enum_type = CLOSED;
+
+		DESKTOP_SERVICES_CLIENT_TYPE_UNSPECIFIED = 0;
+		DAEMON = 1;
+		INSTALLER = 2;
+		UNINSTALLER = 3;
+		OVERLAY = 4;
+	}
+
+	DesktopServicesClientType client_type = 1;
+	string build_version = 2;
+	string build_type = 3;
+	string omaha_channel = 4;
+}

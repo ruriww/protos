@@ -1,0 +1,9 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+message ClientVersion {
+	string version = 1;
+}

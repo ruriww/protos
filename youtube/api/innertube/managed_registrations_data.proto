@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delayed_event_tier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ManagedRegistrationsData {
+	message RegistrationEvent {
+		int64 client_event_time_ms = 1;
+		DelayedEventTier delayed_event_tier = 2;
+	}
+
+	repeated RegistrationEvent events = 1;
+	int64 client_request_time_ms = 2;
+}

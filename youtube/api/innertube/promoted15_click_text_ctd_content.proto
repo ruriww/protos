@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/promoted15_click_overlay_content.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/promoted15_click_unclickable_border_behavior.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Promoted15ClickTextCtdContent {
+	BadgeSupportedRenderers badge = 1;
+	Icon icon = 2;
+	FormattedString app_store_text = 3;
+	Promoted15ClickOverlayContent overlay_content = 4;
+	ThumbnailDetails second_thumbnail = 7;
+	Promoted15ClickUnclickableBorderBehavior unclickable_border_behavior = 8;
+	repeated Command expand_tap_endpoints = 9;
+	repeated Command collapse_tap_endpoints = 10;
+	repeated Command noop_tap_endpoints = 11;
+}

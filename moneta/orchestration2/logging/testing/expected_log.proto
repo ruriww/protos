@@ -1,0 +1,36 @@
+edition = "2023";
+
+package moneta.orchestration2.logging.testing;
+
+import "logs/visual_element_lite_proto.proto";
+import "logs/user_action.proto";
+import "payments/logging/orchestration/client/client_log_enums.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ExpectedLog {
+	message ExpectedVeLog {
+		int64 visual_element_id = 1;
+		repeated int32 ancestors = 3;
+
+		message ExpectedImpression {
+			logs.VisualElementLiteProto.Visibility visibility = 1;
+		}
+
+		oneof operation {
+			logs.UserAction expected_user_action = 5;
+			ExpectedImpression expected_impression = 6;
+		}
+	}
+
+	message ExpectedFieldLog {
+		payments.logging.orchestration.client.ClientLogEnums.EventType expected_event_type = 1;
+	}
+
+	oneof log {
+		ExpectedVeLog expected_ve_log = 1;
+		ExpectedFieldLog expected_field_log = 2;
+	}
+
+	int32 index = 3;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ModerateLiveChatEndpoint {
+	extend Command {
+		ModerateLiveChatEndpoint moderate_live_chat_endpoint = 125606357;
+	}
+
+	bytes params = 1;
+}

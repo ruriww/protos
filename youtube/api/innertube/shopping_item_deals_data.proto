@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/money.proto";
+import "youtube/api/innertube/timestamp.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingItemDealsData {
+	message Promotion {
+		oneof price_reduction {
+			Money amount_reduction = 1;
+			int32 percentage_reduction = 2;
+		}
+
+		string promotion_category = 3;
+		string title = 4;
+		bool is_youtube_exclusive = 5;
+		Timestamp start_time = 6;
+		Timestamp end_time = 7;
+		string code = 8;
+	}
+
+	message Sales {
+		Money original_price = 1;
+	}
+
+	message PriceDrop {
+		Money reference_price = 1;
+	}
+
+	oneof featured_deal {
+		Promotion featured_promotion = 1;
+		Sales featured_sales = 2;
+		PriceDrop featured_price_drop = 3;
+	}
+
+	repeated Promotion promotions = 4;
+	Sales sales = 5;
+	PriceDrop price_drop = 6;
+}

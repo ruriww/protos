@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountHotConfig {
+	bool enable_native_my_google = 2;
+	bool ios_enable_delegation_context_decorator = 3;
+	bool ios_ignore_account_state_token_after_channel_creation = 4;
+	bool ios_enable_sso_add_account_controller = 5;
+	bool ios_disable_name_and_avatar_from_device = 7;
+	bool use_element_renderer_on_channel_creation = 8;
+	bool enable_dark_theme_verification_flow = 9;
+	bool ios_enable_account_creation_in_browser = 10;
+	bool ios_enable_account_header_height_recalculation = 11;
+	bool remove_add_account_on_switcher = 12;
+	bool remove_manage_accounts_on_switcher = 13;
+	bool ios_disable_account_creation = 14;
+	bool ios_use_account_menu_header_from_account_module = 15;
+	bool android_use_element_renderer_on_channel_creation = 17;
+}

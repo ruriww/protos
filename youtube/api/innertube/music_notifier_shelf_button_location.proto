@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicNotifierShelfButtonLocation {
+	option features.enum_type = CLOSED;
+
+	MUSIC_NOTIFIER_SHELF_BUTTON_LOCATION_UNSPECIFIED = 0;
+	MUSIC_NOTIFIER_SHELF_BUTTON_LOCATION_UNDERNEATH = 1;
+	MUSIC_NOTIFIER_SHELF_BUTTON_LOCATION_INLINE = 2;
+}

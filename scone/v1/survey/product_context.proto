@@ -1,0 +1,20 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message ProductContext {
+	message SensitiveContext {
+		message CustomEntry {
+			string name = 1;
+			string value = 2;
+		}
+
+		repeated CustomEntry custom_entry = 1;
+		repeated string experiment_id = 2;
+	}
+
+	SensitiveContext sensitive_context = 1;
+	string product_version = 2;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_histogram.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_average.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitSignpostIntervalData {
+	MetricKitHistogram histogrammed_signpost_duration_ms = 1;
+	int64 cumulative_cpu_time_ms = 2;
+	MetricKitAverage average_memory_bytes = 3;
+	int64 cumulative_logical_writes_bytes = 4;
+}

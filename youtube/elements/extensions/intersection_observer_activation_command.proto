@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message IntersectionObserverActivationCommand {
+	string group_key = 1;
+
+	enum OperationType {
+		option features.enum_type = CLOSED;
+
+		UNDEFINED = 0;
+		ENABLE = 1;
+		DISABLE = 2;
+	}
+
+	OperationType operation = 2;
+}

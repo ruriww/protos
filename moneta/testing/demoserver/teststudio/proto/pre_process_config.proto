@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/parameter_to_apply_from_context.proto";
+
+option objc_class_prefix = "TSL";
+
+message PreProcessConfig {
+	repeated ParameterToApplyFromContext parameter_to_apply_from_context = 1;
+}

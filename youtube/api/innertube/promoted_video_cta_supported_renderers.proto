@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visit_site_cta_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/ad_cta_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedVideoCTASupportedRenderers {
+	oneof renderer {
+		VisitSiteCTARenderer visit_site_cta_renderer = 62897987;
+		ButtonRenderer button_renderer = 65153809;
+		AdCtaButtonRenderer ad_cta_button_renderer = 157534306;
+	}
+}

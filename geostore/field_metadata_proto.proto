@@ -1,0 +1,11 @@
+edition = "2023";
+
+package geostore;
+
+import "geostore/internal_field_metadata_proto.proto";
+
+option objc_class_prefix = "GS";
+
+message FieldMetadataProto {
+	InternalFieldMetadataProto internal = 15;
+}

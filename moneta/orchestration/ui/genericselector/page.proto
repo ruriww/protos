@@ -1,0 +1,36 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/genericselector/address_integrator_data.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/pageheader/page_header.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message Page {
+	common.components.AddressForm address_form = 1;
+	common.components.customerselector.CustomerSelector customer_selector = 2;
+	common.components.Button submit_button = 3;
+	common.components.Button cancel_button = 4;
+	common.generic.DependencyGraph dependency_graph = 5;
+	repeated AddressIntegratorData address_integrator_data = 6;
+
+	enum CallBackDataType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		PUBLIC = 1;
+		INTEGRATOR_CALLBACK_DATA = 2;
+	}
+
+	CallBackDataType call_back_data_type = 7;
+	common.components.webview.WebViewComponent web_view_component = 8;
+	common.components.pageheader.PageHeader page_header = 9;
+	repeated common.components.SimpleForm simple_form = 10;
+}

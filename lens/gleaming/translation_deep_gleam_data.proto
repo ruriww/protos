@@ -1,0 +1,95 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/text/portable/inpainting/inpainting_image_file_config.proto";
+import "lens/geometry.proto";
+import "lens/common/writing_direction.proto";
+import "lens/gleaming/alignment.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message TranslationDeepGleamData {
+	message TextStyle {
+		uint32 text_color = 1 [ default = 4278190080 ];
+		uint32 background_primary_color = 2 [ default = 4294967295 ];
+
+		enum FontTypeEnum {
+			option features.enum_type = CLOSED;
+
+			DEFAULT = 0;
+			SERIF = 1;
+			MONOSPACE = 2;
+			DECORATIVE = 3;
+		}
+
+		FontTypeEnum font_type = 3 [ default = DEFAULT ];
+		uint32 background_primary_color_before_gar = 4;
+	}
+
+	message BackgroundImageData {
+		bytes background_image = 1;
+		int32 image_width = 2;
+		int32 image_height = 3;
+		float vertical_padding = 4;
+		float horizontal_padding = 5;
+		text.portable.inpainting.InpaintingImageFileConfig.FileFormat file_format = 6;
+		bytes text_mask = 7;
+	}
+
+	message Status {
+		enum Code {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			SUCCESS = 1;
+			SERVER_ERROR = 2;
+			UNSUPPORTED_LANGUAGE_PAIR = 3;
+			SAME_LANGUAGE = 4;
+			UNKNOWN_SOURCE_LANGUAGE = 5;
+			INVALID_REQUEST = 6;
+			DEADLINE_EXCEEDED = 7;
+			EMPTY_TRANSLATION = 8;
+			NO_OP_TRANSLATION = 9;
+		}
+
+		Code code = 1;
+	}
+
+	Status status = 1;
+	string target_language = 2;
+	string source_language = 3;
+	string translation = 4;
+
+	message Line {
+		int32 start = 1;
+		int32 end = 2;
+		TextStyle style = 3;
+		Geometry geometry = 4;
+
+		message Word {
+			int32 start = 1;
+			int32 end = 2;
+		}
+
+		repeated Word word = 5;
+		bytes background_image = 6;
+		int32 background_image_width = 7;
+		int32 background_image_height = 8;
+		BackgroundImageData background_image_data = 9;
+	}
+
+	repeated Line line = 5;
+
+	enum TextSizeStrategy {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		SAME_SIZE = 1;
+	}
+
+	TextSizeStrategy text_size_strategy = 6;
+	common.WritingDirection writing_direction = 7;
+	Alignment alignment = 8;
+	bool justified = 9;
+}

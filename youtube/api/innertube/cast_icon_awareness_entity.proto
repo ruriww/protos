@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/cast_icon_awareness_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CastIconAwarenessEntity {
+	extend EntityMutationPayload {
+		CastIconAwarenessEntity cast_icon_awareness_entity = 568;
+	}
+
+	string key = 1;
+	google.protobuf.Timestamp timestamp = 2;
+	bool has_multiple_active_devices = 3;
+	CastIconAwarenessState awareness_state = 4;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package search.rendering.xuikit.elements;
+
+option objc_class_prefix = "XUI";
+
+message JsModule {
+	string identifier = 1;
+	bytes serialized_module_config = 2;
+	repeated string dependencies = 3;
+	int64 resource_tag = 4;
+}

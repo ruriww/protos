@@ -1,0 +1,38 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message AccessibilityInfo {
+	bool voiceover_enabled = 3;
+	bool invert_colors_enabled = 4;
+	bool guided_access_enabled = 5;
+	bool bold_text_enabled = 6;
+	bool grayscale_enabled = 7;
+	bool reduce_transparency_enabled = 8;
+	bool reduce_motion_enabled = 9;
+	bool darker_system_colors_enabled = 10;
+	bool speak_selection_enabled = 11;
+	bool speak_screen_enabled = 12;
+
+	enum PreferredContentSizeCategory {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		EXTRA_SMALL = 1;
+		SMALL = 2;
+		MEDIUM = 3;
+		LARGE = 4;
+		EXTRA_LARGE = 5;
+		EXTRA_EXTRA_LARGE = 6;
+		EXTRA_EXTRA_EXTRA_LARGE = 7;
+		ACCESSIBILITY_MEDIUM = 8;
+		ACCESSIBILITY_LARGE = 9;
+		ACCESSIBILITY_EXTRA_LARGE = 10;
+		ACCESSIBILITY_EXTRA_EXTRA_LARGE = 11;
+		ACCESSIBILITY_EXTRA_EXTRA_EXTRA_LARGE = 12;
+	}
+
+	PreferredContentSizeCategory preferred_content_size_category = 13;
+}

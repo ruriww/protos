@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package video_streaming;
+
+message Unnamed661 {
+	optional int64 unnamed_field_1 = 1;
+	optional int64 unnamed_field_2 = 2;
+}

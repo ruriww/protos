@@ -1,0 +1,41 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/otp_field.proto";
+import "moneta/orchestration/ui/common/components/name/name_form.proto";
+import "moneta/orchestration/ui/common/components/phone_form.proto";
+import "moneta/orchestration/ui/common/components/country_selector.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/menu/menu.proto";
+import "moneta/orchestration/ui/common/generic/separator.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/generic/layout.proto";
+
+option objc_class_prefix = "Orch";
+
+message Field {
+	oneof field {
+		generic.UiField ui_field = 1;
+		AddressForm address_form = 2;
+		generic.InfoMessage info_message = 3;
+		OtpField otp_field = 4;
+		name.NameForm name_form = 5;
+		PhoneForm phone_form = 7;
+		CountrySelector country_selector = 8;
+		Button button = 10;
+		Link link = 11;
+		generic.ImageWithCaption image = 12;
+		menu.Menu menu = 13;
+		generic.Separator separator = 14;
+		generic.Tooltip tooltip = 19;
+	}
+
+	bool hide_fields_below = 6;
+	generic.Layout layout = 18;
+}

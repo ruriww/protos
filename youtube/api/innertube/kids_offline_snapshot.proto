@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsOfflineSnapshot {
+	int32 playable_offline_video_count = 1;
+	int32 offline_videos_page_visit_count = 2;
+}

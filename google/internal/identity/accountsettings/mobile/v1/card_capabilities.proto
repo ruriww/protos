@@ -1,0 +1,27 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message CardCapabilities {
+	bool borderless_cards = 1;
+	bool generic_styled_texts = 2;
+	bool carousel_view_all = 3;
+	bool progress_bar_summary_card_block = 4;
+	bool sign_in_summary_card_block = 5;
+	bool screen_intro_link = 6;
+	bool help_item = 8;
+	bool legend_block = 11;
+	bool list_item_secondary_icon = 12;
+	bool header_action_items = 15;
+	bool summary_card_progress_bar = 16;
+	bool prompt_resource = 17;
+	bool icon_only_chip = 18;
+	bool segment_header_card = 20;
+	bool navigate_to_anchor = 21;
+	bool untinted_url_chip_icons = 22;
+	bool link_navigation = 23;
+	bool summary_card_padding_divider_replacement = 24;
+	bool advice_framework = 26;
+}

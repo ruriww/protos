@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/merchant_identifier.proto";
+import "youtube/api/innertube/shopping_item_metadata.proto";
+import "youtube/api/innertube/shopping_item_logging_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingItemId {
+	string raw_merchant_offer_id = 2;
+	string product_cluster_mid = 4;
+	MerchantIdentifier merchant_identifier = 7;
+	ShoppingItemMetadata item_metadata = 9;
+	string offer_sori_id = 10;
+	uint64 offer_docid = 12;
+	ShoppingItemLoggingMetadata logging_metadata = 14;
+}

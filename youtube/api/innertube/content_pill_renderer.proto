@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/content_pill_behavior.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/content_pill_position.proto";
+import "youtube/api/innertube/themed_basic_color_palette.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentPillRenderer {
+	FormattedString text = 1;
+	Icon icon = 2;
+	ContentPillBehavior behavior = 3;
+	bytes tracking_params = 5;
+
+	message ContentPillCap {
+		int64 frequency_cap_sec = 1;
+		int64 impression_cap = 2;
+	}
+
+	ContentPillCap cap = 6;
+	repeated Command impression_endpoints = 7;
+	bool is_visible = 8;
+	ContentPillPosition position = 9;
+	Command on_clicked = 11;
+	ThemedBasicColorPalette color_palette = 12;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	ContentPillRenderer content_pill_renderer = 127508420;
+}

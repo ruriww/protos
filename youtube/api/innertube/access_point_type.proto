@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AccessPointType {
+	option features.enum_type = CLOSED;
+
+	ACCESS_POINT_TYPE_UNSPECIFIED = 0;
+	ACCESS_POINT_TYPE_WIDGET = 1;
+	ACCESS_POINT_TYPE_WATCH = 2;
+	ACCESS_POINT_TYPE_SHORTS_PLAYER = 3;
+	ACCESS_POINT_TYPE_SHORTS_PLAYER_SUGGESTED_QUERY = 4;
+	ACCESS_POINT_TYPE_SHORTS_PLAYER_SEARCH_BAR = 7;
+	ACCESS_POINT_TYPE_COMMENTS_SUGGESTED_QUERY = 5;
+	ACCESS_POINT_TYPE_EMBEDDED_PLAYER = 6;
+	ACCESS_POINT_TYPE_ADD_TO_PLAYLIST = 8;
+	ACCESS_POINT_TYPE_LENS_IMAGE = 9;
+	ACCESS_POINT_TYPE_LENS_TEXT = 10;
+	ACCESS_POINT_TYPE_KIDS_PIVOT_BAR = 11;
+	ACCESS_POINT_TYPE_KIDS_TOP_BAR = 12;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/prompt_active_state_enum.proto";
+
+option objc_class_prefix = "SGAP";
+
+message ContactPromptSettings {
+	PromptActiveStateEnum.ActiveState contact_active_state = 1;
+}

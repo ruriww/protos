@@ -1,0 +1,10 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+option objc_class_prefix = "ICING";
+
+message Error {
+	string ns_error_domain = 1;
+	int64 ns_error_code = 2;
+}

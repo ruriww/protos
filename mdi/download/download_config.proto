@@ -1,0 +1,11 @@
+edition = "2023";
+
+package mdi.download;
+
+import "mdi/download/data_file_group.proto";
+
+option objc_class_prefix = "Icing";
+
+message DownloadConfig {
+	repeated DataFileGroup data_file_group = 1;
+}

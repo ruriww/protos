@@ -1,0 +1,20 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/search_profile_entity.proto";
+import "social/graph/api/proto/location_type_container.proto";
+import "google/protobuf/duration.proto";
+import "google/type/date.proto";
+import "social/graph/api/proto/search_profile_location_info.proto";
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileLocation {
+	SearchProfileEntity place = 1;
+	LocationTypeContainer.LocationType type = 2;
+	google.protobuf.Duration length_of_stay = 3;
+	google.type.Date start_time = 4;
+	google.type.Date end_time = 5;
+	SearchProfileLocationInfo point = 6;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MobileStreamMenuItemTag {
+	option features.enum_type = CLOSED;
+
+	MOBILE_STREAM_MENU_ITEM_TAG_UNKNOWN = 0;
+	MOBILE_STREAM_MENU_ITEM_TAG_START_POLL = 1;
+	MOBILE_STREAM_MENU_ITEM_TAG_PROMPT_STICKER = 2;
+	MOBILE_STREAM_MENU_ITEM_TAG_PLAYABLE_GAME = 3;
+}

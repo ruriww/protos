@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.textinfo;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextInfoData {
+	extend data.Data {
+		TextInfoData text_info_data_extension = 223344552;
+	}
+
+	oneof display_text_wrapper {
+		webutil.html.types.SafeHtmlProto display_text = 1;
+		string display_text_client_rendering_template_substitution_key = 3;
+	}
+
+	bytes annotated_display_text = 2;
+
+	extensions 1000;
+}

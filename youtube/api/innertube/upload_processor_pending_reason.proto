@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadProcessorPendingReason {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_PROCESSOR_PENDING_REASON_UNKNOWN = 0;
+	UPLOAD_PROCESSOR_PENDING_REASON_NETWORK = 1;
+	UPLOAD_PROCESSOR_PENDING_REASON_EXTERNAL_STORAGE = 2;
+	UPLOAD_PROCESSOR_PENDING_REASON_NETWORK_WIFI = 3;
+	UPLOAD_PROCESSOR_PENDING_REASON_NO_PLAYBACK = 4;
+	UPLOAD_PROCESSOR_PENDING_REASON_NO_EDITOR_PLAYBACK = 5;
+	UPLOAD_PROCESSOR_PENDING_REASON_USER_CONFIRMED = 6;
+	UPLOAD_PROCESSOR_PENDING_REASON_USER_ENTERED_METADATA = 7;
+	UPLOAD_PROCESSOR_PENDING_REASON_USER_SELECTED_VIDEO = 8;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/user_key.proto";
+import "abuseiam/client.proto";
+import "abuseiam/abuse_type.proto";
+import "abuseiam/feature.proto";
+
+option objc_class_prefix = "AIA";
+
+message SubmitFeedbackRequest {
+	string id = 1;
+	UserKey reporter = 2;
+
+	enum FeedbackType {
+		option features.enum_type = CLOSED;
+
+		USER_FLAG = 1;
+		NOT_SPAM = 2;
+		APPEAL = 3;
+		EMAIL_SPAM = 4;
+		DELETED = 5;
+		MUTE = 6;
+		MUTE_UNDO = 7;
+		HIDE = 8;
+		HIDE_UNDO = 9;
+		ANNOTATION = 10;
+		INTERNAL = 11;
+	}
+
+	FeedbackType feedback_type = 3;
+	bool system = 4 [ default = false ];
+	Client client = 5;
+	string message_id = 6;
+	string content_url = 7;
+	AbuseType abuse_type = 8;
+	string comment = 9;
+	int64 timestamp_micros = 10;
+	bool severe = 11 [ default = false ];
+	bool from_trusted_source = 12 [ default = false ];
+	string source = 13;
+	repeated string chunk_id = 15;
+	int64 reporter_birthdate_timestamp_micros = 16;
+	bool processed = 17;
+	bytes client_data = 18;
+	repeated Feature feature = 19;
+	string feedback_context = 20;
+	string internal_audit = 21;
+}

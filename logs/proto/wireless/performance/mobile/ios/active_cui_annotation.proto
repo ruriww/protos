@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/active_cui.proto";
+
+option objc_class_prefix = "PRM";
+
+message ActiveCuiAnnotation {
+	repeated ActiveCui active_cuis = 1;
+}

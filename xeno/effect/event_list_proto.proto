@@ -1,0 +1,11 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "XNO";
+
+message EventListProto {
+	repeated google.protobuf.Any event = 1;
+}

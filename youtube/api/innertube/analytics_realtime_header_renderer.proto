@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsRealtimeHeaderRenderer {
+	FormattedString title = 1;
+	FormattedString display_value = 2;
+	int64 minutes_offset = 3;
+	int64 start = 4;
+	int64 end = 5;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message DisambiguationLabel {
+	string value = 1;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+option objc_class_prefix = "Orch";
+
+enum CameraInputUiPreference {
+	option features.enum_type = CLOSED;
+
+	UI_NO_CAMERA_INPUT = 0;
+	UI_SMALL_CAMERA_ICON = 1;
+	UI_SMALL_CAMERA_ICON_WITH_KEYBOARD_HINT = 2;
+	UI_LARGE_CAMERA_ICON = 3;
+	UI_LAUNCH_WITH_CAMERA = 4;
+	UI_KEYBOARD_HINT_ONLY = 5;
+	UI_CARD_NUMBER_DROP_DOWN = 6;
+	UI_CARD_NUMBER_DROP_DOWN_V2 = 11;
+	UI_BUTTON_BELOW_CARD_NUMBER = 7;
+	UI_BUTTON_ON_CARD_LAYOUT = 8;
+	UI_BANNER_BEHIND_CARD_LAYOUT = 9;
+	UI_EMBEDDED_CAMERA = 10;
+	UI_LAUNCH_WITH_CAMERA_TOLERANT_CARD_DETECTOR = 12;
+	UI_ASSISTIVE_CHIP_BUTTON = 13;
+}

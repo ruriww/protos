@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+enum DSDeletionStatus {
+	option features.enum_type = CLOSED;
+
+	DELETION_STATUS_UNKNOWN = 0;
+	ACTIVE = 1;
+	DELETED = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+enum ReplacementStrategy {
+	option features.enum_type = CLOSED;
+
+	REPLACEMENT_STRATEGY_UNSPECIFIED = 0;
+	REPLACE_OLDEST = 1;
+	REPLACE_OLDEST_RECEIVED = 2;
+}

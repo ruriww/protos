@@ -1,0 +1,11 @@
+edition = "2023";
+
+package identity_consent;
+
+import "footprints/texts/primitiveconsent/target.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentDelegatedAction {
+	footprints.texts.primitiveconsent.Target.ConsentDelegatedAction variant = 1;
+}

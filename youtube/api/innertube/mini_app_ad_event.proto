@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mini_app_ad_result.proto";
+import "youtube/api/innertube/mini_app_ad_rejected_reason.proto";
+import "youtube/api/innertube/mini_app_context.proto";
+import "youtube/api/innertube/client_info.proto";
+import "youtube/api/innertube/mini_app_ad_trigger_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MiniAppAdEvent {
+	MiniAppAdResult ad_result = 1;
+	MiniAppAdRejectedReason rejected_reason = 2;
+	MiniAppContext mini_app_context = 3;
+	ClientInfo.ClientName derived_device_interface = 7;
+	MiniAppAdTriggerType ad_trigger_type = 8;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.webview;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+
+option objc_class_prefix = "WebView";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+	bytes parameters = 2;
+	bytes client_parameters = 3;
+}

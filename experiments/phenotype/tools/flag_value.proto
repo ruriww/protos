@@ -1,0 +1,25 @@
+edition = "2023";
+
+package experiments.phenotype.tools;
+
+option objc_class_prefix = "EPT";
+
+message FlagValue {
+	string name = 1;
+
+	message ProtoValue {
+		bool parsing_failed = 2;
+		bytes proto_bytes = 3;
+	}
+
+	oneof value {
+		int64 int_val = 2;
+		double double_val = 3;
+		bool bool_val = 4;
+		string string_val = 5;
+		ProtoValue proto_val = 6;
+	}
+
+	string static_config_package = 7;
+	string deobfuscated_name = 8;
+}

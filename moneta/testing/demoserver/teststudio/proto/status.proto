@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+option objc_class_prefix = "TSL";
+
+enum Status {
+	UNKNOWN = 0;
+	SUCCESS = 1;
+	IN_PROGRESS = 2;
+	FAIL = 3;
+}

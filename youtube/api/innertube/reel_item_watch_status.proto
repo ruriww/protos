@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelItemWatchStatus {
+	option features.enum_type = CLOSED;
+
+	REEL_ITEM_WATCH_STATUS_UNKNOWN = 0;
+	REEL_ITEM_WATCH_STATUS_SUCCEEDED = 1;
+	REEL_ITEM_WATCH_STATUS_REEL_ERROR = 2;
+	REEL_ITEM_WATCH_STATUS_BAD_REQUEST = 3;
+	REEL_ITEM_WATCH_STATUS_FALLBACK_RESPONSE = 4;
+	REEL_ITEM_WATCH_STATUS_PLAYER_ERROR = 5;
+	REEL_ITEM_WATCH_STATUS_EMPTY = 6;
+}

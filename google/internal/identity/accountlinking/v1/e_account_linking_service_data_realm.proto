@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum EAccountLinkingServiceDataRealm {
+	ACCOUNT_LINKING_SERVICE_DATA_REALM_UNSPECIFIED = 0;
+	ACCOUNT_LINKING_SERVICE_DATA_REALM_STAGING_QUAL = 1;
+}

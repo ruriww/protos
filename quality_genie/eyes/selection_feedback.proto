@@ -1,0 +1,16 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/client_text_selection.proto";
+import "quality_genie/eyes/bounding_box.proto";
+import "quality_genie/eyes/detection_result_selection.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message SelectionFeedback {
+	ClientTextSelection selected_text = 1;
+	BoundingBox frame_to_draw = 2;
+	BoundingBox zoom_area = 3;
+	DetectionResultSelection detection_result_selection = 4;
+}

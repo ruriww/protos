@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/asset_registry.proto";
+import "youtube/api/innertube/graph_input_config.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Swazzle {
+	message Effect {
+		string effect_id = 1;
+		string effect_base_name = 2;
+		string graph_id = 3;
+		AssetRegistry asset_registry = 4;
+		GraphInputConfig graph_input_config = 5;
+	}
+
+	message EffectGraph {
+		string graph_id = 1;
+		string input_frame_stream_name = 2;
+		string output_frame_stream_name = 3;
+		int32 max_frames_in_flight = 4;
+		bytes graph_config = 5;
+		repeated string auxiliary_output_stream_names = 6;
+	}
+
+	message EffectPackage {
+		string package_id = 1;
+		repeated string effect_ids = 2;
+		Renderer effect_list_renderer = 3;
+		string default_effect_id = 4;
+		string deselected_effect_id = 5;
+	}
+
+	message EffectCatalog {
+		repeated EffectPackage effect_packages = 1;
+		repeated Effect effects = 2;
+		repeated EffectGraph effect_graphs = 3;
+	}
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/user_complete_avatar.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PendingConnectionRenderer {
+	FormattedString user_public_name = 1;
+	UserCompleteAvatar avatar = 2;
+	ButtonSupportedRenderers decline_button = 3;
+	ButtonSupportedRenderers accept_button = 4;
+	bytes tracking_params = 6;
+	Command contact_menu_endpoint = 7;
+	string connection_id = 8;
+	int64 proto_creation_timestamp_ms = 9;
+}

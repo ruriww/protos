@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationAudioPickerTitleStateEntity {
+	extend EntityMutationPayload {
+		ShortsCreationAudioPickerTitleStateEntity shorts_creation_audio_picker_title_state_entity = 493;
+	}
+
+	string key = 1;
+	string title_text = 2;
+	bool is_title_enabled = 3;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflineOrchestrationActionConstraint {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_UNKNOWN = 0;
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_NONE = 1;
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_NETWORK = 2;
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_NETWORK_WIFI = 3;
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_NETWORK_WIFI_OR_UNMETERED = 4;
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_LOW_THERMAL_STATE = 5;
+	OFFLINE_ORCHESTRATION_ACTION_CONSTRAINT_INACTIVE_MEDIA_TRANSFER = 6;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ink_sticker_pen_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InkSticker {
+	repeated InkStickerPenType pen_types = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 pen_strokes = 2;
+	bool did_change_pen_size = 3;
+	bool did_use_color_picker = 4;
+}

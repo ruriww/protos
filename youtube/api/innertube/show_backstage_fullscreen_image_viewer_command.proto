@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/comment_action_buttons_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowBackstageFullscreenImageViewerCommand {
+	FormattedString post_text = 1;
+	FormattedString published_time_text = 2;
+	CommentActionButtonsSupportedRenderers action_buttons = 3;
+	Renderer image_attachment = 4;
+	bool enable_single_tap_dismissal = 5;
+	bool should_hide_chrome = 6;
+}
+
+extend Command {
+	ShowBackstageFullscreenImageViewerCommand show_backstage_fullscreen_image_viewer_command = 170878745;
+}

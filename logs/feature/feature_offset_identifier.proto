@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.feature;
+
+option objc_class_prefix = "FLOG";
+
+message FeatureOffsetIdentifier {
+	repeated int32 identifier_base = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 offset = 2 [ default = 0 ];
+}

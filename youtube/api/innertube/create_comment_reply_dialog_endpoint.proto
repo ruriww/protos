@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/comment_reply_dialog_supported_renderers.proto";
+import "youtube/api/innertube/comment_action_confirm_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateCommentReplyDialogEndpoint {
+	extend Command {
+		CreateCommentReplyDialogEndpoint create_comment_reply_dialog_endpoint = 95237586;
+	}
+
+	CommentReplyDialogSupportedRenderers dialog = 1;
+	CommentActionConfirmDialogSupportedRenderers comment_without_vote_dialog = 2;
+	CommentActionConfirmDialogSupportedRenderers no_more_comment_dialog = 3;
+	bool open_in_persistent_comment_box = 4;
+	bool from_civility_reminder_dialog = 5;
+	string aadc_guidelines_state_entity_key = 6;
+	Command show_aadc_guidelines_bottom_sheet_command = 7;
+	bool text_is_sendable_without_edit = 9;
+}

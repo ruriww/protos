@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetSearchSuggestionsRequest {
+	InnerTubeContext context = 1;
+	string input = 2;
+	string search_params = 3;
+	string suggest_params = 4;
+	bool is_zero_prefix_prefetch = 6;
+	string entity_key = 8;
+	int32 cursor_position = 9;
+	string current_video_id = 10;
+	string previous_query = 11;
+	int32 previous_query_seconds = 12 [ default = -1 ];
+}

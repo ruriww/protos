@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_list_sub_menu_supported_renderers.proto";
+import "youtube/api/innertube/channel_list_sub_menu_content_size.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/channel_list_sub_menu_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_list_sub_menu_avatar_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelListSubMenuRenderer {
+	repeated ChannelListSubMenuSupportedRenderers contents = 1;
+	ChannelListSubMenuContentSize content_size = 2;
+
+	oneof channel_navigation {
+		Command channels_endpoint = 3;
+		ButtonSupportedRenderers channels_button = 6;
+	}
+
+	bytes tracking_params = 5;
+	ChannelListSubMenuStyle style = 7;
+	Command reset_filter = 8;
+}
+
+extend Renderer {
+	ChannelListSubMenuRenderer channel_list_sub_menu_renderer = 48479645;
+}
+
+extend Renderer {
+	ChannelListSubMenuAvatarRenderer channel_list_sub_menu_avatar_renderer = 48474525;
+}

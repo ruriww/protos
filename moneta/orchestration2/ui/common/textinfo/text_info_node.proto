@@ -1,0 +1,33 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.textinfo;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/textinfo/text_category.proto";
+import "moneta/orchestration2/ui/common/textinfo/text_accessibility.proto";
+import "moneta/orchestration2/ui/common/text_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextInfoNode {
+	extend node.Node {
+		TextInfoNode text_info_node_extension = 213712846;
+	}
+
+	TextCategory text_category = 2;
+	int32 max_lines = 3;
+
+	enum LineBreakMode {
+		option features.enum_type = CLOSED;
+
+		LINE_BREAK_MODE_UNKNOWN = 0;
+		LINE_BREAK_MODE_WRAP = 1;
+		LINE_BREAK_MODE_START = 2;
+		LINE_BREAK_MODE_MIDDLE = 3;
+		LINE_BREAK_MODE_END = 4;
+	}
+
+	LineBreakMode line_break_mode = 4;
+	TextAccessibility accessibility = 5;
+	TextProperties text_properties = 6;
+}

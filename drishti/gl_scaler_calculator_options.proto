@@ -1,0 +1,22 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/calculator_options.proto";
+
+option objc_class_prefix = "Drishti";
+
+message GlScalerCalculatorOptions {
+	extend CalculatorOptions {
+		GlScalerCalculatorOptions ext = 166373014;
+	}
+
+	int32 output_width = 1;
+	int32 output_height = 2;
+	int32 rotation = 3;
+	bool flip_vertical = 4;
+	bool flip_horizontal = 5;
+	float output_scale = 7 [ default = 1 ];
+	bool use_nearest_neighbor_interpolation = 8 [ default = false ];
+	bool use_input_format_for_output = 9 [ default = false ];
+}

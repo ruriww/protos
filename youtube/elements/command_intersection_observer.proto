@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/intersection_observer.proto";
+import "youtube/elements/intersection_criteria.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CommandIntersectionObserver {
+	extend IntersectionObserver {
+		CommandIntersectionObserver command_intersection_observer = 334827261;
+	}
+
+	IntersectionCriteria criteria = 1;
+	Command command = 2;
+	Command on_visibility_change = 3;
+}

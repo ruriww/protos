@@ -1,0 +1,18 @@
+edition = "2023";
+
+package testing.performance.perfgate.contrib.annotated_log_manager;
+
+option objc_class_prefix = "PSTPB";
+
+message Value {
+	string name = 1;
+
+	oneof value_oneof {
+		double double_value = 11;
+		int64 int64_value = 14;
+		bool bool_value = 23;
+		string string_value = 24;
+		string error_value = 31;
+		bytes bytes_value = 32;
+	}
+}

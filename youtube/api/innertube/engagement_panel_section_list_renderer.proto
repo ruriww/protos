@@ -1,0 +1,85 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+import "youtube/api/innertube/engagement_panel_section_list_header_supported_renderers.proto";
+import "youtube/api/innertube/engagement_panel_section_list_content_supported_renderers.proto";
+import "youtube/api/innertube/engagement_panel_open_style.proto";
+import "youtube/api/innertube/engagement_panel_visibility.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/engagement_panel_resizability.proto";
+import "youtube/api/innertube/engagement_panel_continuation_service.proto";
+import "youtube/api/innertube/engagement_panel_autoplay.proto";
+import "youtube/api/innertube/engagement_panel_actively_engaging_criteria.proto";
+import "youtube/api/innertube/engagement_panel_snap_state.proto";
+import "youtube/api/innertube/engagement_panel_supported_orientations.proto";
+import "youtube/api/innertube/engagement_panel_outside_scrim_tap_behavior.proto";
+import "youtube/api/innertube/engagement_panel_background_scrim_style.proto";
+import "youtube/api/innertube/engagement_panel_docking_style.proto";
+import "youtube/api/innertube/engagement_panel_resize_restriction.proto";
+import "youtube/api/innertube/engagement_panel_rotation_behavior.proto";
+import "youtube/api/innertube/engagement_panel_background_style.proto";
+import "youtube/api/innertube/lightsource_color_palette_data.proto";
+import "youtube/api/innertube/engagement_panel_footer_position.proto";
+import "youtube/api/innertube/engagement_panel_surface_configs.proto";
+import "youtube/api/innertube/engagement_panel_content_style.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelSectionListRenderer {
+	oneof identifier_oneof {
+		string panel_identifier = 1;
+		EngagementPanelIdentifier identifier = 18;
+	}
+
+	EngagementPanelSectionListHeaderSupportedRenderers header = 2;
+	EngagementPanelSectionListContentSupportedRenderers content = 3;
+	EngagementPanelOpenStyle open_style = 4;
+	int32 ve_type = 5;
+	bool disable_pull_refresh = 6;
+	string target_id = 8;
+	EngagementPanelVisibility visibility = 9;
+	Renderer footer = 10;
+	repeated Command on_show_commands = 11;
+	repeated Command on_hide_commands = 12;
+	EngagementPanelResizability resizability = 13;
+	EngagementPanelContinuationService continuation_service = 14;
+	bool is_persistent = 15;
+	Command on_close_command = 16;
+	EngagementPanelAutoplay engagement_panel_autoplay = 17;
+	EngagementPanelActivelyEngagingCriteria actively_engaging_criteria = 19;
+	bool allow_replace = 20;
+	repeated EngagementPanelSnapState allowed_snap_states = 21 [ features.repeated_field_encoding = EXPANDED ];
+	EngagementPanelSupportedOrientations supported_orientations = 22;
+	Command on_user_close_override_command = 23;
+	Command on_destroy_command = 24;
+	Renderer inline_browser_custom_tabs_renderer = 25;
+	double expanded_top_offset_percentage = 26;
+	bool ignore_expanded_height_restrictions = 27;
+	EngagementPanelOutsideScrimTapBehavior outside_scrim_tap_behavior = 28;
+	EngagementPanelBackgroundScrimStyle background_scrim_style = 30;
+	string user_close_interception_command_entity_key = 32;
+	EngagementPanelDockingStyle docking_style = 33;
+	EngagementPanelResizeRestriction resize_restriction = 35;
+	EngagementPanelRotationBehavior rotation_behavior = 36;
+	EngagementPanelBackgroundStyle background_style = 37;
+	LightsourceColorPaletteData dark_color_palette = 38;
+	EngagementPanelFooterPosition footer_position = 39;
+	double engagement_panel_maximum_landscape_width_percentage = 40;
+	string background_color_entity_key = 41;
+	double expanded_top_offset_percentage_landscape = 43;
+	EngagementPanelSurfaceConfigs surface_configs = 44;
+	EngagementPanelContentStyle content_style = 45;
+	double background_alpha_value = 46;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	EngagementPanelSectionListRenderer engagement_panel_section_list_renderer = 138681066;
+}

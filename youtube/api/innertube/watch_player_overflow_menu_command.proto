@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/watch_player_overflow_menu_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchPlayerOverflowMenuCommand {
+	extend Command {
+		WatchPlayerOverflowMenuCommand watch_player_overflow_menu_command = 469660771;
+	}
+
+	oneof menu_item_key {
+		string highlighted_menu_item_key = 1;
+		string open_menu_item_key = 2;
+	}
+
+	WatchPlayerOverflowMenuType watch_player_overflow_menu_type = 3;
+}

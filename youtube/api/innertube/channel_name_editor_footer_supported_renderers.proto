@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_name_edit_limit_hint_renderer.proto";
+import "youtube/api/innertube/channel_name_edit_info_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelNameEditorFooterSupportedRenderers {
+	oneof renderer {
+		ChannelNameEditLimitHintRenderer channel_name_edit_limit_hint_renderer = 141083272;
+		ChannelNameEditInfoRenderer channel_name_edit_info_renderer = 356957023;
+	}
+}

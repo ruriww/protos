@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+option objc_class_prefix = "ORCH2";
+
+message InputDataFilter {
+	oneof filter {
+		int32 max_length = 1;
+		string character_regex = 2;
+	}
+
+	string error_text = 3;
+
+	enum FilterBehavior {
+		option features.enum_type = CLOSED;
+
+		FILTER_BEHAVIOR_UNKNOWN = 0;
+		FILTER_BEHAVIOR_REJECT_ALL = 1;
+		FILTER_BEHAVIOR_REJECT_INVALID = 2;
+	}
+
+	FilterBehavior behavior = 4;
+	int32 filter_id = 5;
+}

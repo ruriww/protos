@@ -1,0 +1,23 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/bounding_box.proto";
+import "goodoc/label.proto";
+import "goodoc/rotated_bounding_box.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message Symbol {
+	BoundingBox Box = 1;
+	Label Label = 2;
+	int32 Code = 3;
+
+	message SymbolVariant {
+		int32 Code = 5;
+		int32 Confidence = 6;
+	}
+
+	repeated SymbolVariant symbol_variant = 4 [ features.message_encoding = DELIMITED ];
+	RotatedBoundingBox RotatedBox = 7;
+}

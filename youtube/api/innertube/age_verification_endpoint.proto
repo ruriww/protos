@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AgeVerificationEndpoint {
+	extend Command {
+		AgeVerificationEndpoint age_verification_endpoint = 322638812;
+	}
+
+	string url = 1;
+	Command end_navigation_endpoint = 3;
+	bool is_from_minor_moment = 4;
+}

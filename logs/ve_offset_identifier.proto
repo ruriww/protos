@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs;
+
+option objc_class_prefix = "LOG";
+
+message VeOffsetIdentifier {
+	repeated int32 base = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 offset = 2 [ default = 0 ];
+}

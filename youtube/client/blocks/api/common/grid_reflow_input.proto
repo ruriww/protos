@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+import "youtube/api/innertube/responsive_grids_reflow_configuration.proto";
+import "youtube/client/blocks/api/common/feed_content.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GridReflowInput {
+	int32 grid_column_count = 1;
+	youtube.api.innertube.ResponsiveGridsReflowConfiguration reflow_options = 2;
+	repeated FeedContent feed_contents = 3;
+}

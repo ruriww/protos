@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/swipeover_command_with_visual_element.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SwipeoverContainerRenderer {
+	extend Renderer {
+		SwipeoverContainerRenderer swipeover_container_renderer = 436517566;
+	}
+
+	Command inline_page_command = 1;
+
+	message SwipeCommands {
+		SwipeoverCommandWithVisualElement on_swipe_start = 1;
+		SwipeoverCommandWithVisualElement on_swipe_cancelled = 2;
+		SwipeoverCommandWithVisualElement on_swipe_completion = 3;
+	}
+
+	SwipeCommands on_present_swipe = 2;
+	SwipeCommands on_dismiss_swipe = 3;
+	bytes tracking_params = 5;
+	float minimum_completion_threshold = 6 [ default = 0.4 ];
+	float minimum_velocity = 7 [ default = 800 ];
+	bool enable_delayed_triggering = 8 [ default = false ];
+}

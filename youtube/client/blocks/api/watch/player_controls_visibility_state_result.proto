@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/api/innertube/player_controls_visibility.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerControlsVisibilityStateResult {
+	youtube.api.innertube.PlayerControlsVisibility player_controls_visibility = 1;
+}

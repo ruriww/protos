@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_chat_text_input_field_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatUserInputSupportedRenderers {
+	oneof input {
+		LiveChatTextInputFieldRenderer live_chat_text_input_field_renderer = 121291266;
+	}
+}

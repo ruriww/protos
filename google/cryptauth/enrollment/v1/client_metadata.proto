@@ -1,0 +1,41 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+option objc_class_prefix = "CRPT";
+
+message ClientMetadata {
+	int64 retry_count = 1;
+
+	enum InvocationReason {
+		INVOCATION_REASON_UNSPECIFIED = 0;
+		INITIALIZATION = 1;
+		PERIODIC = 2;
+		SLOW_PERIODIC = 3;
+		FAST_PERIODIC = 4;
+		EXPIRATION = 5;
+		FAILURE_RECOVERY = 6;
+		NEW_ACCOUNT = 7;
+		CHANGED_ACCOUNT = 8;
+		FEATURE_TOGGLED = 9;
+		SERVER_INITIATED = 10;
+		ADDRESS_CHANGE = 11;
+		SOFTWARE_UPDATE = 12;
+		MANUAL = 13;
+		CUSTOM_KEY_INVALIDATION = 14;
+		PROXIMITY_PERIODIC = 15;
+	}
+
+	InvocationReason invocation_reason = 2;
+
+	message CryptoHardware {
+		bool aes128 = 1;
+		bool aes256 = 2;
+		bool clmul = 3;
+		bool curve25519 = 4;
+		bool p256 = 5;
+	}
+
+	CryptoHardware crypto_hardware = 3;
+	string session_id = 4;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/text_type.proto";
+import "google/search/readaloud/v1/text_location.proto";
+import "google/protobuf/wrappers.proto";
+import "google/search/readaloud/v1/text_part_visual_info.proto";
+
+option objc_class_prefix = "RAS";
+
+message TextPartInfo {
+	TextType text_type = 1;
+	TextLocation text_location = 2;
+	int32 paragraph_index = 3;
+	protobuf.Int32Value visual_text_index = 4;
+	TextPartVisualInfo visual_info = 5;
+}

@@ -1,0 +1,68 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/session_id_type.proto";
+import "wireless_android_play_playlog/mdns_response_parse_error.proto";
+import "wireless_android_play_playlog/device_controller.proto";
+import "wireless_android_play_playlog/remote_display_plugin_message.proto";
+import "wireless_android_play_playlog/local_network_id.proto";
+import "wireless_android_play_playlog/configured_flags_value.proto";
+import "wireless_android_play_playlog/published_device.proto";
+import "wireless_android_play_playlog/criterion.proto";
+import "cast/discovery_stop_reason.proto";
+import "wireless_android_play_playlog/tcp_prober_result.proto";
+import "wireless_android_play_playlog/application_session_info.proto";
+import "wireless_android_play_playlog/precache_activity.proto";
+import "wireless_android_play_playlog/key_exchange_request.proto";
+import "wireless_android_play_playlog/mdns_request_statistics.proto";
+import "wireless_android_play_playlog/cast_error_info.proto";
+import "wireless_android_play_playlog/api_usage_report.proto";
+import "wireless_android_play_playlog/discovery_session_summary.proto";
+import "wireless_android_play_playlog/local_network_permission_info.proto";
+import "cast/cast_state.proto";
+import "wireless_android_play_playlog/remote_connection_summary.proto";
+import "wireless_android_play_playlog/ios_client_app_info.proto";
+
+option objc_class_prefix = "CADP";
+
+message CastSdkEvent {
+	int64 receiver_device_id = 1;
+	int64 session_id = 2;
+	cast.SessionIdType session_id_type = 3;
+	MdnsResponseParseError mdns_response_parse_error = 5;
+	DeviceController device_controller = 7;
+	string sender_id = 9;
+	string device_model_name = 13;
+	RemoteDisplayPluginMessage remote_display_plugin_data = 15;
+	LocalNetworkId local_network_id = 16;
+	string receiver_metrics_id = 17;
+	repeated int32 sender_local_ip_fragment = 18 [ features.repeated_field_encoding = EXPANDED ];
+	repeated ConfiguredFlagsValue configured_flags_values = 21;
+	repeated PublishedDevice published_devices = 22;
+	repeated Criterion filter_criteria_request = 25;
+	Criterion mdns_subtype_received = 26;
+	cast.DiscoveryStopReason discovery_stop_reason = 27;
+	int32 wifi_rssi_dbm = 28;
+	int32 last_mdns_request_id = 29;
+	int32 receiver_local_ip_fragment = 30;
+	fixed32 event_sequence_number = 31;
+	TCPProberResult tcp_prober_result = 32;
+	ApplicationSessionInfo app_session_info = 33;
+	Criterion remote_control_notification_criterion = 36;
+	PrecacheActivity precache_activity = 38;
+	KeyExchangeRequest key_exchange_request = 39;
+	MDNSRequestStatistics mdns_request_statistics = 42;
+	repeated CastErrorInfo error_infos = 43;
+	bool sender_on_ipv6_only_network = 45;
+	bool receiver_has_ipv6_address = 46;
+	APIUsageReport api_usage_report = 48;
+	int32 remote_control_notification_fail_to_connect_error_code = 49;
+	DiscoverySessionSummary discovery_session_summary = 51;
+	LocalNetworkPermissionInfo local_network_permission_info = 52;
+	cast.CastState cast_state = 55;
+	string application_instance_id = 59;
+	int32 logging_bucket_size = 64;
+	RemoteConnectionSummary remote_connection_summary = 65;
+	IOSClientAppInfo ios_client_app_info = 66;
+}

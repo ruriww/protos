@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.queries;
+
+option java_package = "com.google.protos.youtube.elements.queries";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMQY";
+
+message EntityStoreBlockMovableRef {
+	bool movable = 1 [ default = true ];
+	string client_id = 2;
+	string block_instance_id = 3;
+}

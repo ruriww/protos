@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message ScheduledSurveyResponse {
+	enum ScheduleStatus {
+		SURVEY_SCHEDULED_UNSPECIFIED = 0;
+		SURVEY_SCHEDULED_SUCCESS = 1;
+		SURVEY_NOT_SCHEDULED = 2;
+	}
+
+	ScheduleStatus status = 1;
+}

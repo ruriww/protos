@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/image/animated/animated_image_state.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AnimatedImageDataValue {
+	extend data.DataValue {
+		AnimatedImageDataValue animated_image_data_value_extension = 265521645;
+	}
+
+	AnimatedImageState state = 1 [ default = ANIMATED_IMAGE_STATE_NOT_STARTED ];
+	int32 current_progress = 2;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message GroupPhoto {
+	string url = 2;
+	string glyph = 3;
+}

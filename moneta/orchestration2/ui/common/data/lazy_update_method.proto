@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+enum LazyUpdateMethod {
+	option features.enum_type = CLOSED;
+
+	LAZY_UPDATE_METHOD_UNKNOWN = 0;
+	LAZY_UPDATE_METHOD_REPLACE = 1;
+	LAZY_UPDATE_METHOD_PROTOMERGE = 2;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchRefinementCardRendererStyle {
+	enum CardRendererStyleType {
+		option features.enum_type = CLOSED;
+
+		CARD_RENDERER_STYLE_TYPE_UNKNOWN = 0;
+		CARD_RENDERER_STYLE_TYPE_DEFAULT = 1;
+		CARD_RENDERER_STYLE_TYPE_UNIVERSAL_WATCH_CARD = 2;
+		CARD_RENDERER_STYLE_TYPE_RECTANGULAR = 3;
+		CARD_RENDERER_STYLE_TYPE_SQUARE = 4;
+		CARD_RENDERER_STYLE_TYPE_LARGE_RECTANGULAR = 5;
+		CARD_RENDERER_STYLE_TYPE_MOVIE_POSTER = 6;
+		CARD_RENDERER_STYLE_TYPE_UNIVERSAL_WATCH_CARD_MOVIE_POSTER = 7;
+		CARD_RENDERER_STYLE_TYPE_ALBUM_CARD = 8;
+		CARD_RENDERER_STYLE_TYPE_CENTERED = 9;
+	}
+
+	CardRendererStyleType value = 1;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/family_role.proto";
+import "google/familymanagement/v1/page.proto";
+import "google/familymanagement/v1/contact_picker_options.proto";
+
+option objc_class_prefix = "GFM";
+
+message InvitationConfig {
+	enum InvitationMethod {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INVITATION_METHOD = 0;
+		EMAIL = 1;
+		SMS = 2;
+	}
+
+	repeated InvitationMethod supported_invitation_methods = 1;
+	repeated FamilyRole invitee_role = 2;
+	int32 num_invitee_selectable_in_contact_picker = 3;
+	repeated Page pages = 4;
+	ContactPickerOptions contact_picker_options = 5;
+}

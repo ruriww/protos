@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/proto/contacts/common/contacts_metric_entry.proto";
+
+option objc_class_prefix = "CST";
+
+message ContactSheetMetricEntry {
+	common.ContactsMetricEntry common_entry = 1;
+}

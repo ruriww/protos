@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+option objc_class_prefix = "TSL";
+
+message SelectOption {
+	string label = 1;
+	string value = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PostsCreationRpcMilestone {
+	option features.enum_type = CLOSED;
+
+	POSTS_CREATION_RPC_MILESTONE_UNKNOWN = 0;
+	POSTS_CREATION_RPC_MILESTONE_START = 1;
+	POSTS_CREATION_RPC_MILESTONE_SUCCESS = 2;
+	POSTS_CREATION_RPC_MILESTONE_CANCEL = 3;
+}

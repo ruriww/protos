@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/text_alignment.proto";
+import "youtube/elements/line_break_mode.proto";
+import "youtube/elements/command_run.proto";
+import "youtube/elements/style_run.proto";
+import "youtube/elements/attachment_run.proto";
+import "youtube/elements/truncation_mode.proto";
+import "youtube/elements/decoration_run.proto";
+import "youtube/elements/font_dimension.proto";
+import "youtube/elements/ios_dynamic_font_spec.proto";
+import "youtube/elements/paragraph_style_run.proto";
+import "youtube/elements/metadata_run.proto";
+import "youtube/elements/paragraph_direction.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message AttributedString {
+	string content = 1;
+	float line_spacing = 2;
+	TextAlignment alignment = 3;
+	LineBreakMode line_break_mode = 4;
+	repeated CommandRun command_runs = 5;
+	repeated StyleRun style_runs = 6;
+	bool android_include_font_padding = 7 [ default = true ];
+	repeated AttachmentRun attachment_runs = 8;
+	TruncationMode truncation_mode = 9;
+	repeated DecorationRun decoration_runs = 10;
+	FontDimension line_height = 11;
+	IosDynamicFontSpec ios_dynamic_line_height_spec = 12;
+	repeated ParagraphStyleRun paragraph_style_runs = 13;
+	repeated MetadataRun metadata_runs = 14;
+	ParagraphDirection paragraph_direction = 15;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+import "google/protobuf/duration.proto";
+import "youtube/client/blocks/api/common/thread_affinity.proto";
+
+option objc_class_prefix = "YTBA";
+
+message DelayArgs {
+	google.protobuf.Duration delay = 1;
+	ThreadAffinity callback_thread_affinity = 2;
+}

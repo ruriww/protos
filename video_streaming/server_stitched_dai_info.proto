@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package video_streaming;
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message ServerStitchedDaiInfo {
+	repeated string unnamed_field_1 = 1;
+	optional bytes unnamed_field_2 = 2;
+}

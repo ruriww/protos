@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum WatchPageModalTriggerType {
+	option features.enum_type = CLOSED;
+
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_UNKNOWN = 0;
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_AFTER_BACKGROUND = 1;
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_BEFORE_PLAYBACK = 2;
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_IMMEDIATE = 3;
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_AFTER_BACKGROUND_AND_PLAYBACK_RESUME = 4;
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_AFTER_PLAYBACK = 5;
+	WATCH_PAGE_MODAL_TRIGGER_TYPE_AFTER_DOUBLE_TAP_TO_SEEK = 6;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/data/data_value_field_reference.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SystemShareAction {
+	oneof content {
+		data.DataValueFieldReference bytes_field_reference = 1;
+	}
+
+	oneof mime_type {
+		data.DataValueFieldReference mime_type_field_reference = 2;
+	}
+
+	oneof filename {
+		data.DataValueFieldReference file_name_field_reference = 3;
+	}
+}

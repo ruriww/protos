@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/activity_spec.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message RequestSampleActivityItems {
+	ActivitySpec activity_spec = 1;
+	int32 preferred_number_of_sample_items = 2 [ default = 3 ];
+}

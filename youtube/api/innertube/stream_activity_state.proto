@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum StreamActivityState {
+	option features.enum_type = CLOSED;
+
+	STREAM_ACTIVITY_STATE_UNKNOWN = 0;
+	STREAM_ACTIVITY_STATE_ACTIVE = 1;
+	STREAM_ACTIVITY_STATE_TERMINATED = 2;
+	STREAM_ACTIVITY_STATE_INACTIVE_TIMEOUT = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum ElementsInlineMutedStateNew {
+	option features.enum_type = CLOSED;
+
+	ELEMENTS_INLINE_MUTED_STATE_UNKNOWN = 0;
+	ELEMENTS_INLINE_MUTED_STATE_SELECTED = 1;
+	ELEMENTS_INLINE_MUTED_STATE_DESELECTED = 2;
+	ELEMENTS_INLINE_MUTED_STATE_DISABLED = 3;
+}

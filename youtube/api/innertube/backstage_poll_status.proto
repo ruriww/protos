@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/backstage_poll_choice.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstagePollStatus {
+	bool viewer_is_owner = 1;
+	bool voted = 2;
+	bool commented = 3;
+	string vote_count_text = 4;
+	string comment_delete_string = 5;
+	repeated BackstagePollChoice poll_choices = 6;
+	BackstagePollChoice poll_choice_0 = 8;
+	BackstagePollChoice poll_choice_1 = 9;
+	BackstagePollChoice poll_choice_2 = 10;
+	BackstagePollChoice poll_choice_3 = 11;
+	BackstagePollChoice poll_choice_4 = 12;
+}

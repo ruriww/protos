@@ -1,0 +1,11 @@
+edition = "2023";
+
+package privacy.context.external;
+
+import "privacy/context/external/external_p_request_context.proto";
+
+option objc_class_prefix = "PCEP";
+
+message ExternalPrivacyContext {
+	ExternalPRequestContext prequest = 2;
+}

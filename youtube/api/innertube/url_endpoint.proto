@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/grw_open_in_override.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UrlEndpoint {
+	string url = 1;
+
+	enum UrlTarget {
+		option features.enum_type = CLOSED;
+
+		TARGET_NONE = 0;
+		TARGET_NEW_WINDOW = 1;
+		TARGET_CUSTOM_TAB = 2;
+	}
+
+	UrlTarget target = 2;
+	repeated Command termination_commands = 3;
+	GRWOpenInOverride grw_open_in_override = 4;
+	bool attempt_open_in_incognito = 7;
+	bool allow_opener = 8;
+	float partial_height_percentage = 10;
+	bool disable_multitasking = 11;
+	bool nofollow = 17;
+}
+
+extend Command {
+	UrlEndpoint url_endpoint = 49679253;
+}

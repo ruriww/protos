@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.divider;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DividerNode {
+	extend node.Node {
+		DividerNode divider_node_extension = 229613736;
+	}
+}

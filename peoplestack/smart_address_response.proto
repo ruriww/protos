@@ -1,0 +1,30 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/autocompletion.proto";
+import "social/graph/wire/proto/peopleapi/affinity_response_context.proto";
+import "peoplestack/lookup_id.proto";
+
+option objc_class_prefix = "PSK";
+
+message SmartAddressResponse {
+	message Expansion {
+		repeated Autocompletion additional_suggestion = 1;
+		social.graph.wire.proto.peopleapi.AffinityResponseContext affinity_response_context = 2;
+	}
+
+	Expansion expansion = 1;
+
+	message Replacements {
+		message Replacement {
+			LookupId current_selection = 1;
+			Autocompletion suggested_replacement = 2;
+		}
+
+		repeated Replacement replacement = 1;
+		social.graph.wire.proto.peopleapi.AffinityResponseContext affinity_response_context = 2;
+	}
+
+	Replacements replacements = 2;
+}

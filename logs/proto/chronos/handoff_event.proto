@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message HandoffEvent {
+	string target_app_name = 1;
+}

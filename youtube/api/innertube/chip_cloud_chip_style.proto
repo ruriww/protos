@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChipCloudChipStyle {
+	enum ChipCloudChipStyleType {
+		option features.enum_type = CLOSED;
+
+		STYLE_UNKNOWN = 0;
+		STYLE_DEFAULT = 1;
+		STYLE_PRIMARY = 2;
+		STYLE_SECONDARY = 3;
+		STYLE_LARGE_SECONDARY = 16;
+		STYLE_LARGE_TRANSLUCENT_AND_SELECTED_WHITE = 10;
+		STYLE_RELATED = 4;
+		STYLE_FULL_SCREEN_RELATED = 24;
+		STYLE_INLINE_SURVEY_CHECKBOX = 5;
+		STYLE_HOME_FILTER = 6;
+		STYLE_HOME_FILTER_ATTRIBUTE = 7;
+		STYLE_PREMIUM_CHIP = 8;
+		STYLE_SEARCH_FILTER_CHIP = 9;
+		STYLE_SHORTS_CHIP = 11;
+		STYLE_EXPLORE_LAUNCHER_CHIP = 12;
+		STYLE_REFRESH_TO_NOVEL_CHIP = 13;
+		STYLE_TRANSPARENT = 14;
+		STYLE_LARGE_BLACK_AND_SELECTED_WHITE = 15;
+		STYLE_PLAYER_PAGE_MDX_CHIP = 17;
+		STYLE_SEARCH_ICON_CHIP = 18;
+		STYLE_ROUNDED_CHIP = 19;
+		STYLE_COLOR_RED = 20;
+		STYLE_COLOR_GREEN = 21;
+		STYLE_COLOR_BLUE = 22;
+		STYLE_ICON_SECOND = 23;
+		STYLE_TUNE_IT_CHIP = 25;
+	}
+
+	ChipCloudChipStyleType style_type = 1;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+import "scone/v1/survey/invitation.proto";
+import "scone/v1/survey/completion.proto";
+import "scone/v1/survey/display_settings.proto";
+import "scone/v1/survey/privacy_settings.proto";
+import "scone/v1/survey/question.proto";
+import "scone/v1/survey/client_capability.proto";
+import "scone/v1/survey/legal_settings.proto";
+
+option objc_class_prefix = "UVSP";
+
+message Payload {
+	Invitation invitation = 1;
+	Completion completion = 2;
+	DisplaySettings display_settings = 3;
+	PrivacySettings privacy_settings = 4;
+	repeated Question question = 5;
+	repeated ClientCapability required_capability = 7;
+	string language = 8;
+	LegalSettings legal_settings = 9;
+}

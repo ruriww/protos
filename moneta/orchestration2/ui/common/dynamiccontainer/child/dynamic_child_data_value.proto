@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dynamiccontainer.child;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/id_binding.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DynamicChildDataValue {
+	extend data.DataValue {
+		DynamicChildDataValue dynamic_child_data_value_extension = 1000;
+	}
+
+	repeated int64 child_data_reference = 1;
+	repeated IdBinding data_reference_binding = 2;
+	repeated IdBinding event_rule_id_binding = 3;
+}

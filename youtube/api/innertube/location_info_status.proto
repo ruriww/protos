@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LocationInfoStatus {
+	option features.enum_type = CLOSED;
+
+	LOCATION_INFO_STATUS_UNKNOWN = 0;
+	LOCATION_INFO_STATUS_NOT_READY = 1;
+	LOCATION_INFO_STATUS_OK_ALWAYS = 2;
+	LOCATION_INFO_STATUS_OK_APP_IN_USE = 3;
+	LOCATION_INFO_STATUS_PERMS_NOT_YET_GRANTED = 4;
+	LOCATION_INFO_STATUS_PERMS_REJECTED = 5;
+	LOCATION_INFO_STATUS_PRECISE_LOCATION_NOT_SUPPORTED = 6;
+	LOCATION_INFO_STATUS_LOCATION_SERVICES_DISABLED = 7;
+	LOCATION_INFO_STATUS_ERROR = 8;
+}

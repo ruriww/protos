@@ -1,0 +1,30 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/activity_state_update.proto";
+import "communication/meetings/s11ysync/stat_metric_direction.proto";
+
+option objc_class_prefix = "GHM";
+
+message StateUpdateLog {
+	ActivityStateUpdate state_update = 1;
+	StatMetricDirection direction = 2;
+
+	enum StateUpdateOrigin {
+		UNDEFINED = 0;
+		LSA = 1;
+		MEET = 2;
+	}
+
+	StateUpdateOrigin origin = 3;
+
+	enum LocalStateChange {
+		UNKNOWN = 0;
+		NOT_AFFECTED = 1;
+		AFFECTED = 2;
+	}
+
+	LocalStateChange local_state_change = 4;
+	int64 active_participant_count = 5;
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedInfoDialogRenderer {
+	FormattedString title = 1;
+	FormattedString primary_text = 2;
+	FormattedString secondary_text = 3;
+	ThumbnailDetails image = 4;
+	ButtonSupportedRenderers dismiss_button = 5;
+	repeated Command impression_endpoints = 6;
+	bytes tracking_params = 8;
+	FormattedString tertiary_text = 10;
+	ThumbnailDetails header_image = 11;
+	ButtonSupportedRenderers secondary_button = 12;
+	ButtonSupportedRenderers primary_button = 13;
+	ThumbnailDetails dark_theme_image = 14;
+	UnpluggedAnimationDetails animation = 16;
+}
+
+extend Renderer {
+	UnpluggedInfoDialogRenderer unplugged_info_dialog_renderer = 173637591;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dynamic_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ColorInfo {
+	enum ColorPrimaries {
+		option features.enum_type = CLOSED;
+
+		COLOR_PRIMARIES_UNKNOWN = 0;
+		COLOR_PRIMARIES_BT709 = 1;
+		COLOR_PRIMARIES_UNSPECIFIED = 2;
+		COLOR_PRIMARIES_BT2020 = 9;
+	}
+
+	ColorPrimaries primaries = 1;
+
+	enum ColorTransferCharacteristics {
+		option features.enum_type = CLOSED;
+
+		COLOR_TRANSFER_CHARACTERISTICS_UNKNOWN = 0;
+		COLOR_TRANSFER_CHARACTERISTICS_BT709 = 1;
+		COLOR_TRANSFER_CHARACTERISTICS_UNSPECIFIED = 2;
+		COLOR_TRANSFER_CHARACTERISTICS_BT2020_10 = 14;
+		COLOR_TRANSFER_CHARACTERISTICS_SMPTEST2084 = 16;
+		COLOR_TRANSFER_CHARACTERISTICS_ARIB_STD_B67 = 18;
+	}
+
+	ColorTransferCharacteristics transfer_characteristics = 2;
+
+	enum ColorMatrixCoefficients {
+		option features.enum_type = CLOSED;
+
+		COLOR_MATRIX_COEFFICIENTS_UNKNOWN = 0;
+		COLOR_MATRIX_COEFFICIENTS_BT709 = 1;
+		COLOR_MATRIX_COEFFICIENTS_UNSPECIFIED = 2;
+		COLOR_MATRIX_COEFFICIENTS_BT2020_NCL = 9;
+	}
+
+	ColorMatrixCoefficients matrix_coefficients = 3;
+	DynamicMetadata dynamic_metadata = 4;
+}

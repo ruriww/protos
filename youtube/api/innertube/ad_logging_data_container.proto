@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_slot_logging_data.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdLoggingDataContainer {
+	AdSlotLoggingData ad_slot_logging_data = 1;
+	AdLayoutLoggingData ad_layout_logging_data = 2;
+}

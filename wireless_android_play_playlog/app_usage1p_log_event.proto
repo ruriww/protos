@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message AppUsage1pLogEvent {
+	int32 app_type = 1;
+	string android_package_name = 2;
+	string version = 3;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs;
+
+import "logs/user_action.proto";
+import "logs/cardinal_direction.proto";
+
+option objc_class_prefix = "LOG";
+
+message AncestryVisualElementProto {
+	int32 element_id = 1;
+	int32 element_index = 2;
+	repeated int32 path_to_root_element_id = 3 [ features.repeated_field_encoding = EXPANDED ];
+	UserAction user_action = 4;
+	CardinalDirection cardinal_direction = 7;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/shelf_item_insert_position.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddRendererToItemSectionAction {
+	Renderer renderer = 1;
+	string target_item_section = 2;
+	ShelfItemInsertPosition item_insert_position = 3;
+}
+
+extend Command {
+	AddRendererToItemSectionAction add_renderer_to_item_section_action = 305346638;
+}

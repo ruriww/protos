@@ -1,0 +1,47 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message BattlestarClientInfo {
+	string build_version = 1;
+
+	enum BattlestarClientType {
+		option features.enum_type = CLOSED;
+
+		CLIENT_UNKNOWN = 0;
+		EMULATOR = 1;
+		PHENOTYPE = 2;
+		SERVICE = 3;
+		CLIENT = 4;
+		INSTALLER = 5;
+		HYPERVISOR = 6;
+	}
+
+	BattlestarClientType battlestar_client_type = 2;
+	string build_type = 4;
+	string omaha_channel = 5;
+
+	enum BattlestarMachineTier {
+		option features.enum_type = CLOSED;
+
+		TIER_UNKNOWN = 0;
+		UNSUPPORTED = 1;
+		SILVER = 2;
+		GOLD = 3;
+		DIAMOND = 4;
+	}
+
+	BattlestarMachineTier battlestar_machine_tier = 6;
+
+	enum CpuManufacturer {
+		option features.enum_type = CLOSED;
+
+		MANUFACTURER_UNKNOWN = 0;
+		MANUFACTURER_INTEL = 1;
+		MANUFACTURER_AMD = 2;
+	}
+
+	CpuManufacturer cpu_manufacturer = 8;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+option objc_class_prefix = "ORCH2";
+
+message SecureDate {
+	string year = 1;
+	string month = 2;
+	string day = 3;
+}

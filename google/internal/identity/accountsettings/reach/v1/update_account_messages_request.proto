@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+option objc_class_prefix = "RCH";
+
+message UpdateAccountMessagesRequest {
+	repeated int32 dismissed_advice_ids = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+enum MediaEngineVideoMimeType {
+	option features.enum_type = CLOSED;
+
+	MEDIA_ENGINE_VIDEO_MIME_TYPE_UNKNOWN = 0;
+	MEDIA_ENGINE_VIDEO_MIME_TYPE_NONE = 1;
+	MEDIA_ENGINE_VIDEO_MIME_TYPE_H263 = 2;
+	MEDIA_ENGINE_VIDEO_MIME_TYPE_H264 = 3;
+	MEDIA_ENGINE_VIDEO_MIME_TYPE_H265 = 4;
+}

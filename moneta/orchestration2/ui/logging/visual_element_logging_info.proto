@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.logging;
+
+import "logs/user_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message VisualElementLoggingInfo {
+	int32 visual_element_id = 1;
+	repeated logs.UserAction enabled_log_action = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated logs.UserAction responsiveness_logging_enabled_action = 3;
+}

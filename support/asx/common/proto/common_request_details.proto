@@ -1,0 +1,14 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+import "support/asx/common/proto/iph_surface.proto";
+import "support/asx/common/proto/help_invocation_data.proto";
+
+option objc_class_prefix = "ASX";
+
+message CommonRequestDetails {
+	IphSurface iph_surface = 1;
+	string locale = 2;
+	HelpInvocationData help_invocation_data = 3;
+}

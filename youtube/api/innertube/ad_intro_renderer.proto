@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdIntroRenderer {
+	oneof playback_data {
+		bytes player_response = 1;
+		string player_vars = 9;
+	}
+
+	bytes tracking_params = 7;
+	string encrypted_video_id = 8;
+}
+
+extend Renderer {
+	AdIntroRenderer ad_intro_renderer = 88254013;
+}

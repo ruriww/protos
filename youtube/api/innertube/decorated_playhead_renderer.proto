@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DecoratedPlayheadRenderer {
+	extend Renderer {
+		DecoratedPlayheadRenderer decorated_playhead_renderer = 37010;
+	}
+
+	ThumbnailDetails playhead_image = 1;
+	ThumbnailDetails playhead_rewind_image = 2;
+	ThumbnailDetails playhead_fast_forward_image = 3;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_metrics_user_event_type.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_completion_metadata.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsUserEvent {
+	SendKitMetricsUserEventType event_type = 1;
+	int64 latency_usec = 2;
+	int32 entity_count = 3;
+	int64 memory_allocated_delta = 4;
+	int32 animation_fps = 5;
+	int64 time_to_action_millis = 6;
+	SendKitMetricsCompletionMetadata completion_metadata = 7;
+}

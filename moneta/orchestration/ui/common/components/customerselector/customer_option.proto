@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.customerselector;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message CustomerOption {
+	string name = 1;
+	repeated generic.InfoMessage description = 2;
+	int64 ui_reference = 3;
+	generic.InfoMessage sub_label = 4;
+	int64 external_customer_id = 5;
+	bytes option_token = 6;
+	bool disabled = 7;
+}

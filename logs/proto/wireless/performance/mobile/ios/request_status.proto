@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+enum RequestStatus {
+	option features.enum_type = CLOSED;
+
+	REQUEST_STATUS_UNSPECIFIED = 0;
+	SUCCEEDED = 1;
+	FAILED = 2;
+	CANCELED = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message DataPush {
+	string player_build_ids = 1;
+	string srs_build_ids = 2;
+}

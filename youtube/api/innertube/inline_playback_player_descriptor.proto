@@ -1,0 +1,56 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/inline_scrubbing_ui_style.proto";
+import "youtube/api/innertube/inline_audio_control_ui_style.proto";
+import "youtube/api/innertube/inline_playback_fullscreen_ui_style.proto";
+import "youtube/api/innertube/inline_playback_content_mode.proto";
+import "youtube/api/innertube/inline_playback_player_badge_overlay_supported_renderers.proto";
+import "youtube/api/innertube/inline_playback_host_container_style.proto";
+import "youtube/api/innertube/inline_playback_captions_ui_style.proto";
+import "youtube/api/innertube/inline_playback_misc_ui_style.proto";
+import "youtube/api/innertube/inline_playback_player_overlay_ui_style.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/inline_playback_state_transition_behavior.proto";
+import "youtube/api/innertube/player_state_triggered_action.proto";
+import "youtube/api/innertube/inline_playback_resume_behavior.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlinePlaybackPlayerDescriptor {
+	ThumbnailDetails thumbnail = 1;
+	Command inline_playback_endpoint = 2;
+	Command navigation_endpoint = 3;
+	InlineScrubbingUIStyle inline_scrubbing_ui_style = 4;
+	InlineAudioControlUIStyle inline_audio_control_ui_style = 5;
+	InlinePlaybackFullscreenUiStyle inline_playback_fullscreen_ui_style = 6;
+	InlinePlaybackContentMode inline_playback_content_mode = 7;
+	bool is_premiering_now = 8;
+	InlinePlaybackPlayerBadgeOverlaySupportedRenderers playing_badge_overlay = 9;
+	InlinePlaybackHostContainerStyle inline_playback_host_container_style = 10;
+	InlinePlaybackCaptionsUIStyle inline_playback_captions_ui_style = 11;
+	InlinePlaybackMiscUIStyle inline_playback_misc_ui_style = 12;
+	InlinePlaybackPlayerOverlayUIStyle inline_playback_player_overlay_ui_style = 14;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 15;
+	Renderer spotlight_mode = 17;
+	bool is_inline_muted_unplayable = 18;
+	float max_playback_length_sec = 19;
+	InlinePlaybackStateTransitionBehavior on_state_transition_positioned_to_playing = 21;
+	InlinePlaybackStateTransitionBehavior on_state_transition_playing_to_deselected = 22;
+	int32 dwell_ms = 23;
+	Renderer player_bar = 24;
+	InlinePlaybackStateTransitionBehavior on_state_transition_deselected_to_selected = 25;
+	repeated Renderer playing_badge_overlays = 26;
+	bool should_hide_spinner = 27;
+	bool enable_seeking_ui = 28;
+	PlayerStateTriggeredAction player_state_triggered_action = 30;
+	repeated PlayerStateTriggeredAction player_state_triggered_actions = 31;
+	InlinePlaybackResumeBehavior resume_behavior = 32;
+}

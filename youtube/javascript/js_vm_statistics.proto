@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.javascript;
+
+import "youtube/javascript/js_vm_statistics_v8.proto";
+import "youtube/javascript/js_vm_statistics_quick_js.proto";
+
+option objc_class_prefix = "YTJS";
+
+message JsVmStatistics {
+	oneof js_vm_statistics {
+		JsVmStatisticsV8 v8_stats = 1;
+		JsVmStatisticsQuickJs quickjs_stats = 2;
+	}
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.text;
+
+option objc_class_prefix = "MSP";
+
+message FontSize {
+	int32 size = 1;
+
+	enum Unit {
+		option features.enum_type = CLOSED;
+
+		UNIT_UNSPECIFIED = 0;
+		PIXELS = 1;
+	}
+
+	Unit unit = 2;
+}

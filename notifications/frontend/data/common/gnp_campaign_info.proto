@@ -1,0 +1,16 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message GnpCampaignInfo {
+	string campaign_id = 1;
+
+	message VersionNumber {
+		int32 major = 1;
+		int32 minor = 2;
+	}
+
+	VersionNumber campaign_version = 2;
+}

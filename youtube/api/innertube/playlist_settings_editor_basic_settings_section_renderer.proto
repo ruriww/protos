@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/single_select_form_field_supported_renderers.proto";
+import "youtube/api/innertube/boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/playlist_settings_editor_text_input_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistSettingsEditorBasicSettingsSectionRenderer {
+	FormattedString title = 1;
+	SingleSelectFormFieldSupportedRenderers privacy = 2;
+	SingleSelectFormFieldSupportedRenderers sort_order = 3;
+	BooleanFormFieldSupportedRenderers add_to_top = 4;
+	BooleanFormFieldSupportedRenderers allow_embed = 5;
+	BooleanFormFieldSupportedRenderers is_series = 6;
+	repeated FormattedString series_ineligible_reasons = 7;
+	PlaylistSettingsEditorTextInputSupportedRenderers name = 8;
+	PlaylistSettingsEditorTextInputSupportedRenderers description = 9;
+	BooleanFormFieldSupportedRenderers display_segmented = 10;
+	BooleanFormFieldSupportedRenderers is_course = 11;
+}

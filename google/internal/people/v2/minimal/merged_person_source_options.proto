@@ -1,0 +1,21 @@
+edition = "2023";
+
+package google.internal.people.v2.minimal;
+
+option objc_class_prefix = "GIPM";
+
+message MergedPersonSourceOptions {
+	repeated string include_affinity = 3;
+	bool include_account_locale = 5;
+
+	enum ProfileState {
+		UNKNOWN_PROFILE_STATE = 0;
+		ADMIN_BLOCKED = 1;
+		DELETED = 2;
+		DASHER_ADMIN_DISABLED = 4;
+		USER_TO_USER_BLOCKED = 5;
+		CORE_ID = 3;
+	}
+
+	repeated ProfileState included_profile_states = 9;
+}

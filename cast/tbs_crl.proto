@@ -1,0 +1,15 @@
+edition = "2023";
+
+package cast;
+
+import "cast/serial_number_range.proto";
+
+option objc_class_prefix = "GCKPB";
+
+message TbsCrl {
+	uint64 version = 1 [ default = 0 ];
+	uint64 not_before_seconds = 2;
+	uint64 not_after_seconds = 3;
+	repeated bytes revoked_public_key_hashes = 4;
+	repeated SerialNumberRange revoked_serial_number_ranges = 5;
+}

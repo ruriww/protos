@@ -1,0 +1,9 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message Options {
+	extensions 20000 to max;
+}

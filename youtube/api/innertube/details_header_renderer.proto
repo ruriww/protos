@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/details_header_aspect_ratio.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/details_header_thumbnails_renderer.proto";
+import "youtube/api/innertube/progress_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DetailsHeaderRenderer {
+	FormattedString title = 1;
+	Renderer fab = 2;
+	Renderer header_thumbnails = 3;
+	repeated Renderer under_title_badges = 4;
+	repeated FormattedString inline_metadatas = 5;
+	FormattedString description_text = 6;
+	FormattedString owner_text = 7;
+	ChannelThumbnailSupportedRenderers channel_thumbnail = 8;
+	Renderer collection_picker = 9;
+	repeated uint32 scrim_color_values = 10 [ features.repeated_field_encoding = EXPANDED ];
+	DetailsHeaderAspectRatio aspect_ratio = 11;
+	ThumbnailDetails poster = 12;
+	Renderer primary_button = 13;
+	Renderer secondary_button = 14;
+	FormattedString description_header = 15;
+	Renderer offlineability = 16;
+	string video_id = 17;
+	bytes tracking_params = 19;
+}
+
+extend Renderer {
+	DetailsHeaderRenderer details_header_renderer = 159058187;
+}
+
+extend Renderer {
+	DetailsHeaderThumbnailsRenderer details_header_thumbnails_renderer = 160991462;
+}
+
+extend Renderer {
+	ProgressButtonRenderer progress_button_renderer = 172498362;
+}

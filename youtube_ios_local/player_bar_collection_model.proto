@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/player_bar_collection_state.proto";
+import "youtube_ios_local/player_bar_playing_state.proto";
+import "youtube_ios_local/player_bar_decoration_model.proto";
+import "youtube_ios_local/player_bar_decoration_style.proto";
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarCollectionModel {
+	PlayerBarCollectionState state = 1;
+	PlayerBarPlayingState playing_state = 2;
+	repeated PlayerBarDecorationModel decorations = 3;
+	PlayerBarDecorationStyle style = 4;
+}

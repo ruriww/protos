@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/upload_feedback_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollUploadFeedbackCommand {
+	extend elements.Command {
+		PollUploadFeedbackCommand poll_upload_feedback_command = 407540188;
+	}
+
+	Command process_upload_feedback_response_command = 2;
+	UploadFeedbackId upload_feedback_id = 3;
+	string continuation = 4;
+	string poll_tag = 5;
+}

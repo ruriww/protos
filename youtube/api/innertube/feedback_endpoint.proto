@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/feedback_ui_actions.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeedbackEndpoint {
+	string feedback_token = 1;
+	FeedbackUIActions ui_actions = 2;
+	repeated Command actions = 4;
+	string cpn = 5;
+	bool hack = 6;
+
+	oneof playback_position {
+		int64 playback_position_millis = 7;
+		int64 playback_position_walltime_millis = 8;
+	}
+
+	bool is_feedback_token_unencrypted = 9;
+	Command on_failure_action = 10;
+	repeated string feedback_tokens = 11;
+	bool should_merge = 12;
+	string content_id = 13;
+	bool disable_feedback = 14;
+}
+
+extend Command {
+	FeedbackEndpoint feedback_endpoint = 65153809;
+}

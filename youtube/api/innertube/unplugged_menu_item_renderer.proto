@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/unplugged_thumbnail_details.proto";
+import "youtube/api/innertube/unplugged_composite_thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedMenuItemRenderer {
+	oneof primary_image {
+		ThumbnailDetails primary_thumbnail = 1;
+		Icon primary_icon = 2;
+		UnpluggedThumbnailDetails primary_thumbnail_with_background_color = 10;
+		UnpluggedCompositeThumbnailDetails primary_composite_thumbnail = 15;
+		Renderer primary_icon_thumbnail_overlay_renderer = 17;
+	}
+
+	FormattedString primary_text = 3;
+	Command command = 4;
+	bytes tracking_params = 5;
+	FormattedString secondary_text = 7;
+	FormattedString tertiary_text = 9;
+	int32 progress_percentage_for_display = 11;
+	FormattedString quaternary_text = 12;
+	FormattedString selected_secondary_text = 13;
+	Icon secondary_icon = 14;
+	bool has_separator = 16;
+	BadgeSupportedRenderers primary_image_badge = 18;
+	repeated Renderer tertiary_container = 19;
+	AccessibilitySupportedDatas secondary_icon_accessibility = 20;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/frame_count_per_bucket.proto";
+
+option objc_class_prefix = "PRM";
+
+message FrameRateMetric {
+	float duration_ms = 1;
+	float average = 2;
+	float minimum = 3;
+	int32 janky_frame_count = 4;
+	int32 rendered_frame_count = 5;
+	int32 max_frame_render_time_ms = 6;
+	int32 jank_duration_ms = 7;
+	int32 mean_frame_render_time_ms = 8;
+	float std_frame_render_time_micros = 9;
+	int32 min_frame_render_time_ms = 10;
+	repeated FrameCountPerBucket frame_counts_per_bucket = 11;
+}

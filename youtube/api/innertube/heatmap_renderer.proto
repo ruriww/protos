@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeatmapRenderer {
+	int32 max_height_dp = 1;
+	int32 min_height_dp = 2;
+	int32 show_hide_animation_duration_millis = 3;
+	repeated Renderer heat_markers = 4;
+	repeated Renderer heat_markers_decorations = 5;
+	int32 highlight_line_width_dp = 6;
+}
+
+extend Renderer {
+	HeatmapRenderer heatmap_renderer = 384326197;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+option objc_class_prefix = "APPSWALDO";
+
+message AvailabilityPeriod {
+	int32 day_of_week = 1;
+	int32 period_start_minutes = 2;
+	int32 period_end_minutes = 3;
+}

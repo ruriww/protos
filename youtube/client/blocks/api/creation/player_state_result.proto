@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/client/blocks/api/creation/player_state_enum.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerStateResult {
+	PlayerStateEnum state = 1;
+}

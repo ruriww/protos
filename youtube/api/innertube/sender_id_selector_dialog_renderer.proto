@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SenderIdSelectorDialogRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails profile_photo = 2;
+	FormattedString share_with_profile_text = 3;
+	Icon anonymous_icon = 4;
+	FormattedString share_anonymously_text = 5;
+	Icon selected_option_image_overlay_icon = 6;
+	string selected_option_image_overlay_color = 7;
+	string selected_option_row_background_color = 8;
+	ButtonSupportedRenderers learn_more_button = 9;
+	ButtonSupportedRenderers confirm_selection_button = 10;
+	bytes tracking_params = 11;
+}

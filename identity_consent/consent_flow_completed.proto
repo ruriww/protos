@@ -1,0 +1,11 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/ui_interaction.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentFlowCompleted {
+	UiInteraction final_ui_interaction = 1;
+}

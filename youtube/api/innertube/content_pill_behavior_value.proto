@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ContentPillBehaviorValue {
+	option features.enum_type = CLOSED;
+
+	BEHAVIOR_UNKNOWN = 0;
+	BEHAVIOR_SCROLL_TOP = 1;
+	BEHAVIOR_SCROLL_DOWN = 2;
+	BEHAVIOR_REFRESH = 3;
+	BEHAVIOR_RESOLVE_COMMAND = 4;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/topic_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message MessageParentId {
+	oneof parent {
+		TopicId topic_id = 4;
+	}
+}

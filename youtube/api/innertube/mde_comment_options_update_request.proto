@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_comment_allowed_mode.proto";
+import "youtube/api/innertube/mde_comment_sort_order.proto";
+import "youtube/api/innertube/mde_comment_enabled_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeCommentOptionsUpdateRequest {
+	bool new_allow_comments = 1;
+	MdeCommentAllowedMode new_allow_comments_mode = 2;
+	bool new_can_view_ratings = 4;
+	MdeCommentSortOrder new_default_sort_order = 5;
+	MdeCommentEnabledState new_comment_enabled_state = 6;
+}

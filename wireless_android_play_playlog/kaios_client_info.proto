@@ -1,0 +1,13 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message KaiosClientInfo {
+	string app_version = 1;
+	string device_model = 2;
+	string core_app_version = 3;
+	string mcc_mnc = 4;
+	string locale = 5;
+}

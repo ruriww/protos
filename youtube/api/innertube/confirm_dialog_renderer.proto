@@ -1,0 +1,66 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/confirm_dialog_type.proto";
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/dialog_text_alignment.proto";
+import "youtube/api/innertube/boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConfirmDialogRenderer {
+	FormattedString title = 1;
+	FormattedString dialog_message = 2;
+	FormattedString confirm_label = 3;
+	FormattedString cancel_label = 4;
+	Command confirm_endpoint = 5;
+	bytes tracking_params = 7;
+	repeated FormattedString dialog_messages = 8;
+	Command cancel_endpoint = 9;
+	Command confirm_navigation_endpoint = 10;
+	repeated Command confirm_actions = 11;
+	ButtonSupportedRenderers confirm_button = 12;
+	ButtonSupportedRenderers cancel_button = 13;
+	ThumbnailDetails header_image = 14;
+	ThumbnailDetails thumbnail = 15;
+	Icon icon = 16;
+	ConfirmDialogType confirm_dialog_type = 17;
+	string dialog_id = 18;
+	bool primary_is_cancel = 19;
+	repeated Command on_closed_actions = 20;
+	bool show_loading_spinner = 21;
+	bool skip_cancel_button = 22;
+	repeated Command impression_endpoints = 23;
+	repeated Command on_open_commands = 24;
+	repeated Command on_dismiss_commands = 25;
+	bool allow_client_promo_throttling = 26;
+	bool show_loading_spinner_on_action = 27;
+	FormattedString footer_text = 28;
+	Datas color_palette = 29;
+	Command checkbox_enabled_command = 30;
+	FormattedString subtitle = 31;
+	DialogTextAlignment subtitle_alignment = 32;
+	DialogTextAlignment dialog_messages_alignment = 33;
+	uint32 header_image_width = 34;
+	BooleanFormFieldSupportedRenderers checkbox = 35;
+	ButtonSupportedRenderers checkbox_enabled_confirm_button = 36;
+	bool allow_dismiss_on_background_tap = 37;
+	FormattedString loading_message = 38;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 39;
+	bool disable_button_style_overrides = 40;
+}
+
+extend Renderer {
+	ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+}

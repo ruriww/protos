@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConnectivityDependentCommand {
+	extend elements.Command {
+		ConnectivityDependentCommand connectivity_dependent_command = 285132689;
+	}
+
+	elements.Command online_command = 1;
+	elements.Command offline_command = 2;
+}

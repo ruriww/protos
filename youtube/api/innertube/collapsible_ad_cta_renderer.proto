@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/expand_action.proto";
+import "youtube/api/innertube/collapse_action.proto";
+import "youtube/api/innertube/ad_cta_state_trigger.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/leave_behind_behavior.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CollapsibleAdCtaRenderer {
+	ThumbnailDetails icon = 1;
+	ExpandAction expand_action = 2;
+	CollapseAction collapse_action = 3;
+	repeated AdCtaStateTrigger state_triggers = 4;
+	bytes tracking_params = 6;
+	repeated Command impression_endpoints = 7;
+	bool enable_shadow = 8;
+	AdLayoutLoggingData ad_layout_logging_data = 9;
+	bool enable_modern_style = 10;
+	bool enable_two_line_headlines = 11;
+	repeated AdCtaStateTrigger exp_persist_cta_overlay_state_triggers = 12;
+	bool enable_overlay_on_non_fullscreen = 13;
+	Renderer ad_badge_renderer = 14;
+	Renderer overflow_button_renderer = 15;
+	LeaveBehindBehavior leave_behind_behavior = 16;
+	bool enable_cta_overlay_v2 = 17;
+}
+
+extend Renderer {
+	CollapsibleAdCtaRenderer collapsible_ad_cta_renderer = 156617590;
+}

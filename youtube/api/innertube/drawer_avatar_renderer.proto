@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/channel_status.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/drawer_avatar_supported_continuations.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/drawer_avatar_hint_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DrawerAvatarRenderer {
+	oneof thumbnail_oneof {
+		ThumbnailDetails thumbnail = 1;
+		string icon_text = 2;
+	}
+
+	ChannelStatus status = 3;
+	FormattedString title = 4;
+	FormattedString activity_count = 5;
+
+	oneof endpoints {
+		Command navigation_endpoint = 6;
+		DrawerAvatarSupportedContinuations continuation = 11;
+	}
+
+	bytes tracking_params = 8;
+	AccessibilitySupportedDatas accessibility = 9;
+	bool is_selected = 10;
+	Icon selected_icon = 12;
+	DrawerAvatarHintSupportedRenderers hint = 13;
+	bool hide_in_compact = 14;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ccc_groups;
+
+option objc_class_prefix = "CCCG";
+
+enum SemanticType {
+	option features.enum_type = CLOSED;
+
+	NO_SEMANTIC_TYPE = 0;
+	EMAIL_ADDRESS = 1;
+	GAIA_ID = 2;
+	IP_ADDRESS = 3;
+	URL = 4;
+	RESOURCE_NAME = 5;
+}

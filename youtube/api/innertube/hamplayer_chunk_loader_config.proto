@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerChunkLoaderConfig {
+	bool use_post = 1;
+	bool enable_fallback_host = 2;
+	int32 max_failure_attempts_before_fallback = 3;
+	int32 primary_probing_delay = 4;
+	bool enable_alr = 5;
+	bool enable_proto_post_body = 6;
+	bool cache_while_streaming = 7;
+	bool treat_no_media_as_cancellation = 8;
+	bool enable_zero_rtt = 9;
+	bool use_xplat_parser = 10;
+	bool no_send_network_parameters = 262406533;
+	bool predict_response_size_from_chunk_size = 263011269;
+	bool use_range_param = 267173567;
+	bool enable_relative_fallback_url = 268090034;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum BlocklistAction {
+	BLOCKLIST_ACTION_UNKNOWN = 0;
+	BLOCKLIST_ACTION_BLOCK = 1;
+	BLOCKLIST_ACTION_FLAG = 2;
+	BLOCKLIST_ACTION_UNBLOCK = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PingConfigSet {
+	int32 max_age_hours = 1;
+	repeated int32 retry_time_sequence_seconds = 2 [ features.repeated_field_encoding = EXPANDED ];
+	int32 max_retry_window_minutes = 3;
+	bool enable_delayed_pings = 4;
+}

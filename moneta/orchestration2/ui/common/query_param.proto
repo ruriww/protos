@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+option objc_class_prefix = "ORCH2";
+
+message QueryParam {
+	string key = 1;
+	string value = 2;
+}

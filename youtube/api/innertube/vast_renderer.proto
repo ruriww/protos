@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/vast.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VastRenderer {
+	Vast vast_ad = 1;
+	string tracking_decoration_regexp = 2;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	VastRenderer vast_renderer = 63178286;
+}

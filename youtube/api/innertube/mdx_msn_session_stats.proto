@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxMsnSessionStats {
+	int32 queue_full_count = 1;
+	int32 message_in_count = 2;
+	int32 message_timed_out_count = 3;
+	int32 duplicate_count = 4;
+}

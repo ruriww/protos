@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_entity_ref.proto";
+import "youtube/api/innertube/menu_item_supported_renderers.proto";
+import "youtube/api/innertube/music_entity_reference.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicShelfWideItemRenderer {
+	MusicEntityRef entity_ref = 1;
+	repeated MenuItemSupportedRenderers items = 2;
+	bool hack = 3;
+	MusicEntityRef container_entity_ref = 4;
+	MusicEntityReference entity_reference = 5;
+	MusicEntityReference container_entity_reference = 6;
+}

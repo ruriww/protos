@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/network_connection_type.proto";
+
+option objc_class_prefix = "CADP";
+
+message NetworkSwitchInfo {
+	cast.NetworkConnectionType network_connection_type_old = 1;
+	cast.NetworkConnectionType network_connection_type_new = 2;
+}

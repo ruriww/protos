@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message LatencyMetricStats {
+	int64 average_usec = 1;
+	int64 maximum_usec = 2;
+	int32 samples_count = 3;
+	int64 model_download_usec = 4;
+	int64 model_initialization_usec = 5;
+	int64 first_sample_usec = 6;
+	int64 first_frame_processing_usec = 7;
+}

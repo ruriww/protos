@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/companion_completion_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestedVideosCompanionAdRenderer {
+	Renderer header = 1;
+	repeated Renderer suggested_videos = 2;
+	Command impression_command = 3;
+	bytes tracking_params = 5;
+	CompanionCompletionAction completion_action = 6;
+}
+
+extend Renderer {
+	SuggestedVideosCompanionAdRenderer suggested_videos_companion_ad_renderer = 177484939;
+}

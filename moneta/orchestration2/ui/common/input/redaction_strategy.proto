@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+option objc_class_prefix = "ORCH2";
+
+message RedactionStrategy {
+	enum RedactionScheme {
+		option features.enum_type = CLOSED;
+
+		REDACTION_SCHEME_UNKNOWN = 0;
+		REDACTION_SCHEME_LAST_ONE_FOURTH = 1;
+		REDACTION_SCHEME_LAST_FOUR = 2;
+		REDACTION_SCHEME_NONE = 3;
+	}
+
+	RedactionScheme redaction_scheme = 1;
+	string masking_character = 2;
+
+	enum RedactionBehavior {
+		option features.enum_type = CLOSED;
+
+		REDACTION_BEHAVIOR_UNKNOWN = 0;
+		REDACTION_BEHAVIOR_IMMEDIATE = 1;
+		REDACTION_BEHAVIOR_DELAYED = 2;
+	}
+
+	RedactionBehavior redaction_behavior = 3;
+
+	message DelayedBehaviorProperties {
+		int32 delay_millis = 1;
+	}
+
+	oneof behavior_properties {
+		DelayedBehaviorProperties delayed_behavior_properties = 4;
+	}
+}

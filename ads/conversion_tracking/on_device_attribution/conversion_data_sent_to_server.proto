@@ -1,0 +1,29 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+option objc_class_prefix = "ADCO";
+
+message ConversionDataSentToServer {
+	string encrypted_gbraid = 1;
+	string encrypted_conversion_type_id = 2;
+	int64 conversion_delay_sec = 3;
+	bool repeated_attribution = 4;
+	int32 primary_interaction_type = 5;
+	bool is_from_enhanced_conversion = 7;
+	int32 mobile_browser_class = 8;
+	bytes value_as_str = 9;
+	string currency_code = 10;
+	string encrypted_conversion_tracking_id = 11;
+	bool is_same_device = 12;
+	bool is_from_medici = 13;
+	string javascript_version = 14;
+	bool is_vtc = 15;
+	bool is_oda_ctc_overlap_with_online_vtc = 17;
+	int32 vtc_lookback_window = 18;
+	string encrypted_vtc_retraction_id = 19;
+	int32 vtc_click_source = 20;
+	int32 conversion_os = 21;
+	int32 impression_os = 22;
+	bool is_non_ios_gaia_tracking_for_att = 23;
+}

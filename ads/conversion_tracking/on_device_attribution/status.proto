@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+option objc_class_prefix = "ADCO";
+
+enum Status {
+	option features.enum_type = CLOSED;
+
+	STATUS_UNSPECIFIED = 0;
+	ACK = 1;
+	ABORT = 2;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message VoiceSelection {
+	string default_voice = 1;
+	string title_voice = 2;
+	string publisher_and_author_voice = 3;
+	map<string, string> speaker_voices = 4;
+}

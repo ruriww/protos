@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ChangeMarkersVisibilityRestrictionMode {
+	option features.enum_type = CLOSED;
+
+	CHANGE_MARKERS_VISIBILITY_RESTRICTION_MODE_UNKNOWN = 0;
+	CHANGE_MARKERS_VISIBILITY_RESTRICTION_MODE_NOT_OVERWRITE_SAME_TYPE = 1;
+	CHANGE_MARKERS_VISIBILITY_RESTRICTION_MODE_NOT_OVERWRITE_ANY_TYPE = 2;
+}

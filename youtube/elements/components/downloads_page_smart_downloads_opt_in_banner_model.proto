@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/environment_data.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageSmartDownloadsOptInBannerModel {
+	extend Model {
+		DownloadsPageSmartDownloadsOptInBannerModel downloads_page_smart_downloads_opt_in_banner_model = 378762193;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	string title = 3;
+
+	oneof body_text {
+		string text = 4;
+		AttributedString formatted_text = 9;
+	}
+
+	string primary_button_text = 5;
+	string secondary_button_text = 6;
+	EnvironmentData environment_data = 7;
+	string offline_snackbar_message = 8;
+	bool enable_opt_in_when_offline = 10;
+}

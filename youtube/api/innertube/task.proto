@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/trigger_event.proto";
+import "youtube/api/innertube/cancel_event.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/prefetch_task_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Task {
+	string id = 1;
+	TriggerEvent trigger_on = 2;
+	CancelEvent cancel_on = 3;
+	Command command = 5;
+
+	oneof config {
+		PrefetchTaskConfig prefetch_config = 6;
+	}
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/transport_control_command_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TransportControlsConfig {
+	TransportControlCommandStatus skip_next_status = 1;
+	TransportControlCommandStatus skip_previous_status = 2;
+	TransportControlCommandStatus scrub_status = 3;
+	TransportControlCommandStatus seek_forward_status = 4;
+	TransportControlCommandStatus seek_backward_status = 5;
+	TransportControlCommandStatus playback_rate_status = 6;
+}

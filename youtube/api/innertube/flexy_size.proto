@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FlexySize {
+	option features.enum_type = CLOSED;
+
+	FLEXY_SIZE_UNKNOWN = 0;
+	FLEXY_SIZE_NONE = 1;
+	FLEXY_SIZE_COMPRESSED = 2;
+	FLEXY_SIZE_PARTIALLY_COMPRESSED = 3;
+	FLEXY_SIZE_NOT_COMPRESSED = 4;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MLAccelerationSession {
+	message Device {
+		string device = 1;
+		string gl_renderer = 2;
+		string gl_version = 3;
+	}
+
+	Device device = 1;
+
+	message Pipeline {
+		string name = 1;
+	}
+
+	repeated Pipeline pipeline_name = 3;
+	int32 fastest_run_ms = 4;
+	int32 slowest_run_ms = 5;
+}

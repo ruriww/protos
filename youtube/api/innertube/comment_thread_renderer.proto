@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/comment_renderer.proto";
+import "youtube/api/innertube/comment_replies_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/comment_thread_footer_supported_renderers.proto";
+import "youtube/api/innertube/comment_creation_supported_renderers.proto";
+import "youtube/api/innertube/comment_detail_header_supported_renderers.proto";
+import "youtube/api/innertube/rendering_priority.proto";
+import "youtube/api/innertube/comment_moderation_panel_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentThreadRenderer {
+	CommentSupportedRenderers comment = 1;
+	CommentRepliesSupportedRenderers replies = 2;
+	FormattedString comment_target_title = 3;
+	FormattedString comment_source_text = 4;
+	bytes tracking_params = 6;
+	FormattedString total_replies_count_label = 8;
+	CommentThreadFooterSupportedRenderers footer = 9;
+	bool hide_separator = 10;
+	CommentCreationSupportedRenderers reply_creation = 11;
+	CommentDetailHeaderSupportedRenderers detail_header = 12;
+	RenderingPriority rendering_priority = 13;
+	bool ios_enable_sync_comment_pages = 14;
+	CommentModerationPanelSupportedRenderers moderation_panel = 15;
+	Renderer subscribe_bar = 16;
+	Renderer backstage_post_element_renderer = 17;
+	bool is_backstage_content = 18;
+	Renderer video_shelf_element_renderer = 19;
+	FormattedString comments_disabled_message = 20;
+	Renderer posts_subscribe_bar_element_renderer = 21;
+	bool pulse_highlight = 22;
+	bool android_use_log_shown = 23;
+	bool is_moderated_elq_comment = 24;
+	Renderer comment_view_model = 25;
+	LoggingDirectives logging_directives = 999;
+}

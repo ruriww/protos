@@ -1,0 +1,23 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/battlestar_client_info.proto";
+import "wireless_android_play_playlog/drive_desktop_client_info.proto";
+import "wireless_android_play_playlog/g1_desktop_client_info.proto";
+import "wireless_android_play_playlog/nearby_client_info.proto";
+import "wireless_android_play_playlog/windows_client_info.proto";
+import "wireless_android_play_playlog/desktop_services_client_info.proto";
+
+option objc_class_prefix = "CADP";
+
+message PortablePhenotypeLibraryClientInfo {
+	oneof client_info {
+		BattlestarClientInfo battlestar_client_info = 1;
+		DriveDesktopClientInfo drive_desktop_client_info = 2;
+		G1DesktopClientInfo g1_desktop_client_info = 3;
+		NearbyClientInfo nearby_client_info = 4;
+		WindowsClientInfo windows_client_info = 5;
+		DesktopServicesClientInfo desktop_services_client_info = 6;
+	}
+}

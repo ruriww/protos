@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/played_progress_gradient_color_type.proto";
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarGradientColor {
+	PlayedProgressGradientColorType played_progress_type = 1;
+}

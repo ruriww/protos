@@ -1,0 +1,15 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+import "wireless_android_play_playlog/phenotype/committed_serving_version.proto";
+
+option objc_class_prefix = "PHT";
+
+message PeriodicTaskInfo {
+	string task_tag = 1;
+	int32 task_execution_ms = 3;
+	int64 database_bytes = 4;
+	repeated string notified_packages = 5;
+	repeated CommittedServingVersion committed_serving_version = 6;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/time.proto";
+import "youtube/api/innertube/content.proto";
+import "youtube/api/innertube/composition_effect.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Segment {
+	string id = 1;
+	Time start_time = 2;
+	Time end_time = 3;
+	Content content = 4;
+	repeated CompositionEffect effects = 5;
+	repeated CompositionEffect post_crop_effects = 7;
+}

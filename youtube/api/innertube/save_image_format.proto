@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SaveImageFormat {
+	option features.enum_type = CLOSED;
+
+	SAVE_IMAGE_FORMAT_UNSPECIFIED = 0;
+	SAVE_IMAGE_FORMAT_JPEG = 1;
+	SAVE_IMAGE_FORMAT_PNG = 2;
+	SAVE_IMAGE_FORMAT_WEBP = 3;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/stack_frame_proto.proto";
+import "youtube/api/innertube/ios_thread_info_proto.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThreadStackProto {
+	repeated StackFrameProto stack_frames = 1;
+	string thread_name = 2;
+	float cpu_usage = 3;
+	int64 cpu_time_sec = 4;
+	IosThreadInfoProto ios_thread_info = 5;
+	string android_stack = 6;
+}

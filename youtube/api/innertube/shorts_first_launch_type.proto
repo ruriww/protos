@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ShortsFirstLaunchType {
+	option features.enum_type = CLOSED;
+
+	SHORTS_FIRST_LAUNCH_TYPE_UNKNOWN = 0;
+	SHORTS_FIRST_LAUNCH_TYPE_RESUME_TO_SHORTS = 1;
+	SHORTS_FIRST_LAUNCH_TYPE_TARGETED = 2;
+}

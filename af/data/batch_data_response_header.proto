@@ -1,0 +1,11 @@
+edition = "2023";
+
+package af.data;
+
+import "framework/consistency/apiary_consistency_token_response_header.proto";
+
+option objc_class_prefix = "AFD";
+
+message BatchDataResponseHeader {
+	framework.consistency.ApiaryConsistencyTokenResponseHeader consistency_header = 1;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/loudness_normalization_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudioConfig {
+	float loudness_db = 1;
+	bool audio_muted = 2;
+	float perceptual_loudness_db = 3;
+	bool mute_on_start = 4;
+	bool play_audio_only = 5;
+	bool enable_per_format_loudness = 6;
+	float track_absolute_loudness_lkfs = 8;
+	float loudness_target_lkfs = 9;
+	LoudnessNormalizationConfig loudness_normalization_config = 10;
+	float album_absolute_loudness_lkfs = 11;
+	float atv_absolute_loudness_lkfs = 12;
+	float album_loudness_target_lkfs = 13;
+	float high_loudness_target_lkfs = 14;
+}

@@ -1,0 +1,46 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/metadata.proto";
+import "abuseiam/feature.proto";
+
+option objc_class_prefix = "AIA";
+
+message Chunk {
+	string id = 1;
+	string url = 2;
+
+	enum ChunkType {
+		option features.enum_type = CLOSED;
+
+		GENERIC_MESSAGE = 0;
+		BLOG_TEMPLATE = 1;
+		BLOG_POST = 2;
+		BLOG_WIDGET = 3;
+		BLOBSTORE_REF = 4;
+		IMAGE_BYTES = 5;
+		SPREADSHEET_FORM = 6;
+		SPREADSHEET = 7;
+		IMAGE_URL = 8;
+		WAVELET_HASH = 9;
+		VIDEO_BYTES = 10;
+		VIDEO_URL = 11;
+		APP_ENGINE_MODULE_VERSION = 12;
+		BLOBSTORE_BLOB_ID = 13;
+		CLOUD_GCE_INSTANCE = 14;
+		CLOUD_GCE_ACCESS_CONFIG = 15;
+		CLOUD_GCE_RESERVED_ADDRESS = 16;
+		CLOUD_GCE_FORWARDING_RULE = 17;
+		CLOUD_GCE_PROJECT = 19;
+		OCR_TEXT = 18;
+	}
+
+	ChunkType type = 3 [ default = GENERIC_MESSAGE ];
+	string content = 4;
+	bytes content_data = 5;
+	string mime_type = 6 [ default = "text/html" ];
+	Metadata metadata = 7;
+	repeated Feature feature = 8;
+	int64 last_modified_micros = 9;
+}

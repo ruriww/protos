@@ -1,0 +1,10 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+message InviteToken {
+	int64 InviteId = 1;
+	int64 SecretMaterial = 2;
+}

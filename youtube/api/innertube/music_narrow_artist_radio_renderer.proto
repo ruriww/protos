@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_narrow_artist_radio_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicNarrowArtistRadioRenderer {
+	MusicNarrowArtistRadioThumbnailSupportedRenderers thumbnail_renderer = 1;
+	FormattedString title = 2;
+	FormattedString byline_text = 3;
+	uint32 background_color = 4;
+	Command navigation_endpoint = 5;
+	MenuSupportedRenderers menu = 6;
+	bytes tracking_params = 8;
+}
+
+extend Renderer {
+	MusicNarrowArtistRadioRenderer music_narrow_artist_radio_renderer = 114373478;
+}

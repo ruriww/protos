@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+import "moneta/orchestration2/ui/common/bottomsheet/bottom_sheet_position_state.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BottomSheetNewValue {
+	message AllowedBottomSheetPositionState {
+		repeated BottomSheetPositionState allowed_bottom_sheet_position_state = 1 [ features.repeated_field_encoding = EXPANDED ];
+	}
+
+	oneof change_value {
+		BottomSheetPositionState bottom_sheet_position_state = 1;
+		AllowedBottomSheetPositionState allowed_bottom_sheet_position_state = 2;
+	}
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens.ondevice;
+
+option objc_class_prefix = "LNSAPI";
+
+enum MergeStrategyType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_MERGE_STRATEGY = 0;
+	GREEDY_SPATIAL_AND_EXACT_SEMANTIC_OVERLAP = 1;
+	GREEDY_SPATIAL_AND_SEMANTIC_OVERLAP = 2;
+	GREEDY_CLIQUES_AND_CONTAINERS = 3;
+}

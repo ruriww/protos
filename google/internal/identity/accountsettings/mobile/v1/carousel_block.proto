@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/carousel_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message CarouselBlock {
+	repeated CarouselItem items = 1;
+	int32 items_type = 2;
+	int32 text_horizontal_alignment = 3;
+	int32 item_width = 4;
+	ResourceKey view_all_target = 5;
+	string view_all_text = 6;
+	Link view_all_link = 7;
+	string accessibility_label = 8;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/dynamic_color_theme_palette.proto";
+
+option objc_class_prefix = "CSHM";
+
+message DynamicColorSettings {
+	DynamicColorThemePalette light = 1;
+	DynamicColorThemePalette dark = 2;
+}

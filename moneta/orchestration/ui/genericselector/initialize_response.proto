@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector.proto";
+import "moneta/orchestration/ui/genericselector/page.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message InitializeResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+
+	oneof response_data {
+		common.components.AddressForm address_form = 3;
+		common.components.customerselector.CustomerSelector customer_selector = 4;
+		Page page = 5;
+	}
+}

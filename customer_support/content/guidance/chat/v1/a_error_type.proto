@@ -1,0 +1,22 @@
+edition = "2023";
+
+package customer_support.content.guidance.chat.v1;
+
+option objc_class_prefix = "SGC";
+
+enum AErrorType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_ERROR_TYPE = 0;
+	NETWORK = 1;
+	COCOA = 2;
+	POSIX = 3;
+	MACH_KERNEL = 4;
+	STREAM_SOCKET_SSL = 5;
+	SOCKS = 6;
+	GOOGLE_HTTP = 7;
+	DISK_IO = 8;
+	SECURE_LINK_KIT = 9;
+	GROWTH_KIT = 10;
+	HATS = 11;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/client_version.proto";
+import "synckit/session_context.proto";
+
+option objc_class_prefix = "GSYP";
+
+message OpenSessionRequest {
+	ClientVersion version = 1;
+	SessionContext client_context = 2;
+}

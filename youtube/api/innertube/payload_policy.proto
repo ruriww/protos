@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delayed_event_tier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PayloadPolicy {
+	bool enabled = 2;
+	int32 payload_number = 3;
+	bool retry_disabled = 4;
+	DelayedEventTier tier = 5;
+}

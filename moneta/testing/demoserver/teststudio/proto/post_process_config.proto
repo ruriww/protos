@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+option objc_class_prefix = "TSL";
+
+message PostProcessConfig {
+	repeated string custom_parameter_to_remove = 1;
+}

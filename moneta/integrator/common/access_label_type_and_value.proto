@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message AccessLabelTypeAndValue {
+	enum AccessLabelType {
+		option features.enum_type = CLOSED;
+
+		ACCESS_LABEL_TYPE_UNKNOWN = 0;
+		ACCESS_LABEL_TYPE_MCC_ID = 1;
+		ACCESS_LABEL_TYPE_CM360_ACCOUNT_ID = 2;
+		ACCESS_LABEL_TYPE_AMPS_ENTITY = 5;
+		ACCESS_LABEL_TYPE_AMPS_SUB_ENTITY = 6;
+	}
+
+	AccessLabelType access_label_type = 1;
+	int64 access_label_value = 2;
+}

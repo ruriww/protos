@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/prepare_account_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/prepare_account_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentsRenderer {
+	bool hack = 1;
+	string channel_id = 2;
+	string owner_id = 3;
+	string query = 4;
+	string video_id = 5;
+	PrivacyStatus privacy_status = 6;
+	bool is_distiller = 7;
+	string linked_comment_id = 8;
+	Command create_comment_service_endpoint = 10;
+	PrepareAccountSupportedRenderers prepare_account = 12;
+	bool is_owner = 13;
+}
+
+extend Renderer {
+	CommentsRenderer comments_renderer = 51901115;
+}
+
+extend Renderer {
+	PrepareAccountRenderer prepare_account_renderer = 96049097;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete.address;
+
+option objc_class_prefix = "ORCH2";
+
+message AddressFieldAutocompleteFieldIdMapping {
+	enum AddressField {
+		option features.enum_type = CLOSED;
+
+		ADDRESS_FIELD_UNKNOWN = 0;
+		ADDRESS_FIELD_COUNTRY = 1;
+		ADDRESS_FIELD_LOCALITY = 2;
+		ADDRESS_FIELD_SUBLOCALITY = 3;
+		ADDRESS_FIELD_POSTAL_CODE = 4;
+		ADDRESS_FIELD_ADDRESS_LINE_1 = 5;
+		ADDRESS_FIELD_ADDRESS_LINE_2 = 6;
+		ADDRESS_FIELD_ADMINISTRATIVE_AREA_LEVEL_1 = 7;
+		ADDRESS_FIELD_ADMINISTRATIVE_AREA_LEVEL_2 = 8;
+		ADDRESS_FIELD_ADMINISTRATIVE_AREA_LEVEL_3 = 9;
+		ADDRESS_FIELD_PO_BOX = 10;
+	}
+
+	AddressField address_field = 1;
+	int32 autocomplete_field_id = 2;
+}

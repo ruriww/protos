@@ -1,0 +1,33 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+import "video/youtube/editing/mediaengine/protos/media_engine_client.proto";
+import "video/youtube/editing/mediaengine/protos/media_engine_error_type.proto";
+import "video/youtube/editing/mediaengine/protos/mde_media_composition.proto";
+import "video/youtube/editing/mediaengine/protos/mde_player.proto";
+import "video/youtube/editing/mediaengine/protos/mde_exporter.proto";
+import "video/youtube/editing/mediaengine/protos/mde_device_info.proto";
+import "video/youtube/editing/mediaengine/protos/mde_preprocessor.proto";
+import "video/youtube/editing/mediaengine/protos/media_engine_client_surface.proto";
+import "video/youtube/editing/mediaengine/protos/mde_memory_pressure_stats.proto";
+import "video/youtube/editing/mediaengine/protos/mde_debug_info.proto";
+import "video/youtube/editing/mediaengine/protos/mde_cache_downloader.proto";
+
+option objc_class_prefix = "MDE";
+
+message MediaEngineMetadata {
+	MediaEngineClient client = 1;
+	MediaEngineErrorType mde_error_type = 2;
+	string upload_id = 3;
+	repeated MdeMediaComposition composition = 4;
+	MdePlayer player = 5;
+	MdeExporter exporter = 6;
+	string project_id = 7;
+	MdeDeviceInfo device_info = 8;
+	MdePreprocessor preprocessor = 9;
+	MediaEngineClientSurface client_surface = 10;
+	MdeMemoryPressureStats memory_pressure_stats = 11;
+	MdeDebugInfo debug_info = 12;
+	MdeCacheDownloader cache_downloader = 13;
+}

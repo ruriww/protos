@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AvatarSize {
+	option features.enum_type = CLOSED;
+
+	AVATAR_SIZE_UNKNOWN = 0;
+	AVATAR_SIZE_XXS = 9;
+	AVATAR_SIZE_XS = 1;
+	AVATAR_SIZE_S = 2;
+	AVATAR_SIZE_M = 3;
+	AVATAR_SIZE_L = 7;
+	AVATAR_SIZE_XL = 4;
+	AVATAR_SIZE_XXL = 11;
+	AVATAR_SIZE_XXXL = 12;
+	AVATAR_SIZE_RESPONSIVE = 10;
+	AVATAR_SIZE_48 = 13;
+	AVATAR_SIZE_40 = 6;
+}

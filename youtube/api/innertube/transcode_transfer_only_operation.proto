@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/extraction_video_output.proto";
+import "youtube/api/innertube/file_descriptor.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TranscodeTransferOnlyOperation {
+	ExtractionVideoOutput transcode_settings = 1;
+	repeated FileDescriptor file_descriptors = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GpcLookupKeyEffectIds {
+	map<string, string> product_effect_map = 1;
+	string shared_feature_control_id = 2;
+}

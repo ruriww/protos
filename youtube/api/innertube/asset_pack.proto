@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/asset_pack_details.proto";
+import "youtube/api/innertube/kids_color_overrides_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetPack {
+	string url = 1;
+	int64 start_time = 2;
+	int64 end_time = 3;
+	int64 post_splash_anim_min_time_in_ms_before_reshow = 4;
+	string form_factor = 5;
+	AssetPackDetails details = 6;
+	KidsColorOverridesData color_overrides_light_theme = 8;
+	KidsColorOverridesData color_overrides_dark_theme = 9;
+}

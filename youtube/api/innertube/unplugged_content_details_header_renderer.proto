@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/unplugged_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/screen_based_visibility_condition.proto";
+import "youtube/api/innertube/unplugged_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedContentDetailsHeaderRenderer {
+	bytes tracking_params = 1;
+	FormattedString title = 3;
+	FormattedString description_snippet = 4;
+	ThumbnailDetails banner = 5;
+	repeated FormattedString genres = 6;
+	FormattedString premiere_year = 7;
+	FormattedString finale_year = 8;
+	string content_rating = 9;
+	UnpluggedSubscribeButtonSupportedRenderers subscribe_button = 10;
+	FormattedString release_year = 11;
+	FormattedString review_rating = 12;
+	Command video_endpoint = 13;
+	FormattedString episode_number = 15;
+	FormattedString person_roles = 16;
+	FormattedString total_person_shows = 17;
+	FormattedString total_person_movies = 18;
+	FormattedString episode_title = 19;
+	ThumbnailDetails video_thumbnail = 20;
+	FormattedString banner_caption = 22;
+	ThumbnailDetails logo = 23;
+	Command logo_endpoint = 24;
+	FormattedString primary_text = 25;
+	FormattedString secondary_text = 26;
+	uint32 argb_palette_color = 27;
+	FormattedString next_airing_time_text = 28;
+	BadgeSupportedRenderers badge = 29;
+	FormattedString toast_text = 30;
+	ButtonSupportedRenderers play_button = 31;
+	ScreenBasedVisibilityCondition visibility_condition = 32;
+	UnpluggedButtonSupportedRenderers bell_follow_button = 33;
+	ButtonSupportedRenderers spoiler_mode_button = 34;
+	Renderer top_banner = 35;
+	Command on_record_press = 36;
+	repeated ButtonSupportedRenderers purchase_buttons = 38;
+	ThumbnailDetails background = 39;
+	string background_color = 40;
+}
+
+extend Renderer {
+	UnpluggedContentDetailsHeaderRenderer unplugged_content_details_header_renderer = 97168018;
+}

@@ -1,0 +1,8 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.devicebinding;
+
+option objc_class_prefix = "ORCH2";
+
+message KeyAssertionData {
+}

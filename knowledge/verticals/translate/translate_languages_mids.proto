@@ -1,0 +1,11 @@
+edition = "2023";
+
+package knowledge.verticals.translate;
+
+import "knowledge/verticals/translate/translate_language_mid.proto";
+
+option objc_class_prefix = "KVT";
+
+message TranslateLanguagesMids {
+	repeated TranslateLanguageMid translate_language_mid = 1;
+}

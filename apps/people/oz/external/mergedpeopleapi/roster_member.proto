@@ -1,0 +1,19 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message RosterMember {
+	string person_id = 1;
+
+	enum RosterMemberType {
+		option features.enum_type = CLOSED;
+
+		ROSTER_MEMBER_TYPE_UNSPECIFIED = 0;
+		PERSON = 1;
+		ROSTER = 2;
+	}
+
+	RosterMemberType member_type = 2;
+}

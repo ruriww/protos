@@ -1,0 +1,22 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "experiments/heterodyne/param_partition_tag.proto";
+import "experiments/heterodyne/param.proto";
+
+option objc_class_prefix = "EXH";
+
+message ParamPartition {
+	ParamPartitionTag param_partition_tag = 1;
+	repeated Param param = 2;
+
+	enum UpdateType {
+		option features.enum_type = CLOSED;
+
+		REPLACE = 0;
+		DELETE = 2;
+	}
+
+	UpdateType update_type = 3;
+}

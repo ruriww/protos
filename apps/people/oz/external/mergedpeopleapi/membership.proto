@@ -1,0 +1,29 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message Membership {
+	PersonFieldMetadata metadata = 1;
+
+	oneof id {
+		string circle_id = 2;
+		string contact_group_id = 3;
+	}
+
+	enum SystemContactGroup {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MY_CONTACTS = 1;
+		STARRED = 2;
+		FRIENDS = 3;
+		FAMILY = 4;
+		COWORKERS = 5;
+	}
+
+	SystemContactGroup system_contact_group_id = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/input_collection.proto";
+
+option objc_class_prefix = "Drishti";
+
+message InputCollectionSet {
+	repeated InputCollection input_collection = 1;
+}

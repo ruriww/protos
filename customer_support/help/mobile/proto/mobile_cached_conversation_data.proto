@@ -1,0 +1,14 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_conversation.proto";
+import "customer_support/help/mobile/proto/mobile_conversation_event.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileCachedConversationData {
+	MobileConversation conversation = 1;
+	repeated MobileConversationEvent conversation_events = 2;
+	string user_participant_id = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message TranslateImageRequest {
+	bytes image_content = 1;
+	string target_language = 2;
+	string source_language = 3;
+	int32 max_return_image_size = 8;
+	int32 compression_quality = 13;
+	bool request_selectable_original_text = 15;
+	bool request_selectable_translated_text = 16;
+	float scale_factor = 17;
+	bool enable_mmgen_rendering = 18;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+option objc_class_prefix = "GIDLOGAS";
+
+enum AlternativeType {
+	option features.enum_type = CLOSED;
+
+	MENU = 1;
+	MESSAGE = 2;
+}

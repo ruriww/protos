@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dismissable_dialog_renderer.proto";
+import "youtube/api/innertube/notification_text_renderer.proto";
+import "youtube/api/innertube/upsell_dialog_renderer.proto";
+import "youtube/api/innertube/background_cling_renderer.proto";
+import "youtube/api/innertube/command_wrapper_promo_renderer.proto";
+import "youtube/api/innertube/background_playback_controls.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackgroundabilityRenderer {
+	bool backgroundable = 1;
+
+	message BackgroundabilityInfoSupportedRenderers {
+		DismissableDialogRenderer dismissable_dialog_renderer = 53345347;
+		NotificationTextRenderer notification_text_renderer = 73850394;
+		UpsellDialogRenderer upsell_dialog_renderer = 88122887;
+		BackgroundClingRenderer background_cling_renderer = 94960547;
+		CommandWrapperPromoRenderer command_wrapper_promo_renderer = 182224395;
+	}
+
+	BackgroundabilityInfoSupportedRenderers info_renderer = 2;
+	BackgroundPlaybackControls background_playback_controls = 3;
+}
+
+extend Renderer {
+	BackgroundabilityRenderer backgroundability_renderer = 64657230;
+}

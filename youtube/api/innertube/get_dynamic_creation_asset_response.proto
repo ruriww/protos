@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/creation_asset.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/dynamic_creation_asset_continuation_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetDynamicCreationAssetResponse {
+	ResponseContext response_context = 1;
+	repeated CreationAsset assets = 2;
+	Command on_success = 3;
+	Command on_progress = 4;
+	Command on_error = 5;
+	DynamicCreationAssetContinuationData continuation_data = 6;
+	Renderer contents = 7;
+	FrameworkUpdateTransport framework_updates = 777;
+	LoggingDirectives logging_directives = 999;
+}

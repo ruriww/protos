@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message TranslateImageResponse {
+	bytes translated_image = 1;
+	string dominant_source_language = 5;
+	string original_text_full = 9;
+	string translated_text_full = 10;
+	string content_language = 11;
+}

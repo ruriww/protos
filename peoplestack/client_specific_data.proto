@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+import "social/graph/wire/proto/peopleapi/extension/dynamite_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/paisa_extended_data.proto";
+
+option objc_class_prefix = "PSK";
+
+message ClientSpecificData {
+	social.graph.wire.proto.peopleapi.extension.DynamiteExtendedData dynamite_extended_data = 1;
+	bool is_placeholder = 2;
+	social.graph.wire.proto.peopleapi.extension.PaisaExtendedData paisa_extended_data = 3;
+	int64 contact_id = 4;
+
+	extensions 1000 to max;
+}

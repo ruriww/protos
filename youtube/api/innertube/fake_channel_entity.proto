@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FakeChannelEntity {
+	extend EntityMutationPayload {
+		FakeChannelEntity fake_channel = 2;
+	}
+
+	string key = 1;
+	string channel_name = 2;
+	string alternate_channel = 3;
+	repeated string alternate_channel_list = 4;
+
+	oneof type {
+		string oneof_string_value = 5;
+		string oneof_channel_entity = 6;
+	}
+
+	bytes channel_version = 7;
+	repeated string repeated_string_values = 8;
+	string revision = 9;
+	repeated int32 repeated_int_values = 10 [ features.repeated_field_encoding = EXPANDED ];
+	string a11y = 11;
+	string my_12dogs = 12;
+
+	extensions 1000 to max;
+}
+
+extend FakeChannelEntity {
+	repeated string side_info_list = 1001;
+}
+
+extend FakeChannelEntity {
+	string side_info_name = 1002;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LatencyPlayerVisibilityState {
+	option features.enum_type = CLOSED;
+
+	LATENCY_PLAYER_VISIBILITY_STATE_UNKNOWN = 0;
+	LATENCY_PLAYER_VISIBILITY_STATE_MINIMIZED = 1;
+	LATENCY_PLAYER_VISIBILITY_STATE_FULLSCREEN = 2;
+	LATENCY_PLAYER_VISIBILITY_STATE_BACKGROUND = 3;
+	LATENCY_PLAYER_VISIBILITY_STATE_EXTERNAL_DISPLAY = 4;
+	LATENCY_PLAYER_VISIBILITY_STATE_INLINE = 5;
+	LATENCY_PLAYER_VISIBILITY_STATE_VR = 6;
+	LATENCY_PLAYER_VISIBILITY_STATE_PIP = 7;
+}

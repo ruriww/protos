@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetPhoneVerificationFormResponse {
+	ResponseContext response_context = 1;
+
+	oneof contents {
+		Renderer verification_intro_contents = 3;
+		Renderer verification_already_completed_contents = 5;
+	}
+
+	bool should_bypass_verification = 4;
+	ThumbnailDetails avatar = 6;
+}

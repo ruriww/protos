@@ -1,0 +1,27 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+enum ContainerType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CONTAINER = 0;
+	PROFILE = 1;
+	CONTACT = 2;
+	CIRCLE = 3;
+	PLACE = 4;
+	ACCOUNT = 5;
+	EXTERNAL_ACCOUNT = 6;
+	DOMAIN_PROFILE = 7;
+	DOMAIN_CONTACT = 8;
+	DEVICE_CONTACT = 9;
+	GOOGLE_GROUP = 10;
+	NAMED_CHAT_ROOM = 17;
+	UNNAMED_CHAT_ROOM = 18;
+	AFFINITY = 11;
+	RAW_DEVICE_CONTACT = 13;
+	CONTACT_ANNOTATION = 14;
+	DELEGATED_CONTACT = 15;
+}

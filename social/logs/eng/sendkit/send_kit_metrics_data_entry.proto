@@ -1,0 +1,25 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_metrics_entry_type.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_shared_dimension.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_count.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_latency.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_error.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_data_display.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_user_event.proto";
+import "social/logs/eng/sendkit/people_kit_error.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsDataEntry {
+	SendKitMetricsEntryType entry_type = 1;
+	SendKitMetricsSharedDimension shared_dimension = 2;
+	SendKitMetricsCount count = 3;
+	SendKitMetricsLatency latency = 4;
+	SendKitMetricsError error = 5;
+	SendKitMetricsDataDisplay data_display = 6;
+	SendKitMetricsUserEvent user_event = 7;
+	PeopleKitError peoplekit_error = 8;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "experiments/heterodyne/scope.proto";
+import "experiments/heterodyne/param_partition.proto";
+import "experiments/heterodyne/cross_app_descriptor.proto";
+import "experiments/heterodyne/configuration_tier.proto";
+
+option objc_class_prefix = "EXH";
+
+message ApplicationResponse {
+	Scope scope = 1;
+	repeated ParamPartition param_partition = 2;
+	bytes experiment_token = 3;
+	string server_trigger_token = 4;
+	repeated int32 client_experiment_id = 5 [ features.repeated_field_encoding = EXPANDED ];
+	repeated CrossAppDescriptor cross_app_descriptor = 6;
+	bytes tokens_tag = 7;
+	ConfigurationTier config_tier = 9;
+	ConfigurationTier configuration_tier = 10;
+}

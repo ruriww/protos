@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.rpcmessage;
+
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InitializeTemplateResponse {
+	message UiResponseTemplate {
+		int32 template_context_index = 1;
+		bytes ui_response = 2;
+
+		message TemplateRequirements {
+			bytes parameters_template_fingerprint = 1;
+			bool template_context_must_match = 2;
+		}
+
+		TemplateRequirements template_requirements = 3;
+
+		extensions 1000 to max;
+	}
+
+	repeated UiResponseTemplate ui_response_template = 1;
+	google.protobuf.Duration cache_expiry_duration = 2;
+}

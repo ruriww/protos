@@ -1,0 +1,225 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/offline_object_type.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientData {
+	message AnalyticsData {
+		bool is_channel_screen = 3;
+		string insight_id = 4;
+		string external_channel_id = 5;
+		string external_content_owner_id = 6;
+	}
+
+	message UploadData {
+		string frontend_upload_id = 1;
+		uint64 bytes_sent = 2;
+		string filename = 3;
+
+		message EditData {
+			bool trim_enabled = 1;
+			bool audioswap_enabled = 2;
+			int64 trim_start_time_us = 3;
+			int64 trim_end_time_us = 4;
+			string audioswap_source_uri = 5;
+			float audioswap_volume = 6;
+			int64 audioswap_offset_us = 7;
+			string selected_filter = 8;
+			bool audioswap_repeat = 9;
+			bool source_slow_motion = 10;
+			bool only_upload_over_wifi = 11;
+			bool text_pos_layers_used = 12;
+			bool sticker_pos_layers_used = 13;
+			string capture_selected_filter = 14;
+		}
+
+		EditData edit_data = 4;
+	}
+
+	repeated UploadData upload_data = 1;
+
+	message PlaybackData {
+		string client_playback_nonce = 1;
+		string embedded_player_host_nonce = 2;
+	}
+
+	PlaybackData playback_data = 2;
+
+	message BrowseData {
+		string browse_id = 1;
+	}
+
+	BrowseData browse_data = 3;
+
+	message OutboundAppData {
+		string outbound_app = 1;
+	}
+
+	OutboundAppData outbound_app_data = 4;
+
+	message TimerData {
+		int32 timer_value_minutes = 1;
+	}
+
+	TimerData timer_data = 5;
+
+	message VoiceCommandData {
+		string command_name = 1;
+	}
+
+	VoiceCommandData voice_command_data = 7;
+
+	message MediaRouteData {
+		message DialParameters {
+			bool supports_wake_up = 1;
+			bool is_wake_up_connect = 2;
+		}
+
+		DialParameters dial_parameters = 3;
+	}
+
+	MediaRouteData selected_media_route_data = 8;
+	repeated MediaRouteData available_media_routes_data = 9;
+
+	message PauseAndBufferData {
+		uint64 downloaded_bytes = 1;
+		uint64 total_bytes = 2;
+	}
+
+	PauseAndBufferData pause_and_buffer_data = 10;
+
+	message SpotlightStoryData {
+		string story_name = 1;
+
+		message SceneData {
+			string scene_name = 1;
+			uint64 scene_time_us = 2;
+		}
+
+		SceneData scene_data = 2;
+
+		message StoryPlayback {
+			uint64 playback_time_ms = 1;
+
+			message FiniteStateMachine {
+				string name = 1;
+
+				message State {
+					string name = 1;
+					uint64 duration_ms = 2;
+					uint64 time_ms = 3;
+				}
+
+				repeated State states = 2;
+			}
+
+			repeated FiniteStateMachine finite_state_machines = 2;
+		}
+
+		StoryPlayback story_playback = 3;
+	}
+
+	SpotlightStoryData spotlight_story_data = 11;
+
+	message VideoData {
+		string encrypted_video_id = 1;
+	}
+
+	VideoData video_data = 12;
+
+	message AnalyticsChannelData {
+		repeated AnalyticsData analytics_datas = 1;
+	}
+
+	AnalyticsChannelData analytics_channel_data = 14;
+
+	message CheckboxData {
+	}
+
+	CheckboxData checkbox_data = 15;
+
+	message UnpluggedEpgData {
+	}
+
+	UnpluggedEpgData unplugged_epg_data = 16;
+
+	message OfflineabilityData {
+		bool is_default_format_type = 2;
+		string offline_id = 5;
+		OfflineabilityFormatType offlineability_format_type = 6;
+		OfflineModeType offline_mode_type = 7;
+		OfflineObjectType offline_object_type = 8;
+	}
+
+	OfflineabilityData offlineability_data = 17;
+
+	message ClientErrorData {
+		string error_message_identifier = 1;
+	}
+
+	ClientErrorData client_error_data = 18;
+
+	message ExternalLinkData {
+		string url = 1;
+	}
+
+	ExternalLinkData external_link_data = 19;
+
+	message VideoFormatSelectionData {
+		OfflineabilityFormatType format_type = 1;
+		int32 video_itag = 2;
+		int32 audio_itag = 3;
+	}
+
+	VideoFormatSelectionData video_format_selection_data = 20;
+
+	message NetworkStatusData {
+		DetailedNetworkType detailed_type = 1;
+	}
+
+	NetworkStatusData network_status_data = 21;
+
+	message InboundAppData {
+		string intent_action = 1;
+		string referring_app = 2;
+	}
+
+	InboundAppData inbound_app_data = 22;
+
+	message VideoEffectsData {
+		string effect_id = 1;
+	}
+
+	VideoEffectsData video_effects_data = 23;
+
+	message Tvhtml5SearchQuerySource {
+	}
+
+	Tvhtml5SearchQuerySource tvhtml5_search_query_source = 24;
+
+	message LiteInteractionData {
+		string topic_id = 1;
+	}
+
+	LiteInteractionData lite_interaction_data = 25;
+
+	message FormfillSubmitData {
+		bool email_changed = 1;
+		bool name_changed = 2;
+		bool phone_changed = 3;
+		bool email_prefilled = 4;
+		bool name_prefilled = 5;
+		bool phone_prefilled = 6;
+	}
+
+	FormfillSubmitData formfill_submit_data = 26;
+}

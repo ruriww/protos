@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/internal/identity/accountlinking/v1/e_consent_context.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "ALK";
+
+message GetConsentTextRequest {
+	RequestHeader header = 1;
+	repeated string capability_ids = 2;
+	EConsentContext context = 3;
+	string service_id = 4;
+	bool return_ui_resources = 5;
+	protobuf.Timestamp partner_config_min_read_timestamp = 6;
+}

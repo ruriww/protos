@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+option objc_class_prefix = "INKPB";
+
+message GroupOrderChanged {
+	string uuid = 1;
+	string below_uuid = 2;
+}

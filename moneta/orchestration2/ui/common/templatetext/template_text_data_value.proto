@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.templatetext;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TemplateTextDataValue {
+	extend data.DataValue {
+		TemplateTextDataValue template_text_data_value_extension = 265123511;
+	}
+
+	string value = 1;
+}

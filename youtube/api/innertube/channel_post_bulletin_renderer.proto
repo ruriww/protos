@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/dropdown_entry_supported_renderers.proto";
+import "youtube/api/innertube/channel_post_attachment_supported_renderers.proto";
+import "youtube/api/innertube/channel_post_attachment_supported_continuations.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelPostBulletinRenderer {
+	extend ContinuationSupportedRenderers {
+		ChannelPostBulletinRenderer channel_post_bulletin_continuation = 89991643;
+	}
+
+	ThumbnailDetails owner_thumbnail = 1;
+	Command owner_endpoint = 2;
+	Command service_endpoint = 4;
+	repeated DropdownEntrySupportedRenderers attachment_type_options = 5;
+	repeated ChannelPostAttachmentSupportedRenderers attachment_inputs = 6;
+	ChannelPostAttachmentSupportedContinuations attachment_inputs_continuation = 7;
+	ButtonSupportedRenderers submit_button = 8;
+	FormattedString url_input_label = 9;
+	FormattedString title = 10;
+	string bulletin_message_placeholder = 11;
+	bool short_character_limit = 12;
+}
+
+extend Renderer {
+	ChannelPostBulletinRenderer channel_post_bulletin_renderer = 89991643;
+}

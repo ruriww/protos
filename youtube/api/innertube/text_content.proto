@@ -1,0 +1,59 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/text_content_paint_style.proto";
+import "youtube/api/innertube/color_rgb.proto";
+import "youtube/api/innertube/vector2.proto";
+import "youtube/api/innertube/text_content_decoration_type.proto";
+import "youtube/api/innertube/text_content_decoration_style.proto";
+import "youtube/api/innertube/text_content_decoration_mode.proto";
+import "youtube/api/innertube/text_font.proto";
+import "youtube/api/innertube/text_content_alignment.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextContent {
+	message Paint {
+		TextContentPaintStyle paint_style = 1 [ default = TEXT_CONTENT_PAINT_STYLE_FILL ];
+		ColorRgb color = 2;
+		ColorRgb stroke_color = 3;
+		float stroke_width = 4;
+	}
+
+	message Decoration {
+		TextContentDecorationType type = 1;
+		TextContentDecorationStyle style = 2 [ default = TEXT_CONTENT_DECORATION_STYLE_SOLID ];
+		TextContentDecorationMode mode = 3 [ default = TEXT_CONTENT_DECORATION_MODE_THROUGH ];
+		float thickness_multiplier = 4 [ default = 1 ];
+	}
+
+	message Shadow {
+		ColorRgb color = 1;
+		Vector2 offset = 2;
+		double blur_sigma = 3;
+	}
+
+	string text = 1;
+
+	message Style {
+		TextFont font = 1;
+		Paint paint = 2;
+		Decoration decoration = 3;
+		Shadow shadow = 4;
+	}
+
+	Style style = 2;
+
+	message Background {
+		Paint paint = 1;
+		float corner_radius = 2;
+		Vector2 padding = 3;
+	}
+
+	Background background = 3;
+	TextContentAlignment alignment = 4 [ default = TEXT_CONTENT_ALIGNMENT_CENTER ];
+}

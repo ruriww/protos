@@ -1,0 +1,33 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum HelpcenterPageTypeLite {
+	option features.enum_type = CLOSED;
+
+	HOMEPAGE = 0;
+	ANSWER = 1;
+	TOPIC = 2;
+	CONTACT_FORM = 4;
+	TROUBLESHOOTER = 5;
+	KNOWN_ISSUES = 6;
+	SUGGESTIONS = 7;
+	RELEASE_NOTES = 8;
+	PORTAL = 9;
+	SEARCH_RESULTS = 10;
+	SITEMAP = 11;
+	CONTACT_FORM_CONFIRMATION = 12;
+	FAQ = 13;
+	HOMEPAGE_TOP_ARTICLES = 14;
+	VANITY = 15;
+	API = 16;
+	CHECKLIST = 17;
+	TABLE = 18;
+	HELPCENTERZ = 19;
+	PRODUCT_SELECTOR = 20;
+	CONTACT_FLOW = 21;
+	FORUM_THREAD = 22;
+	UNKNOWN_PAGE_TYPE = 100;
+}

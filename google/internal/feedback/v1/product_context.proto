@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message ProductContext {
+	message SensitiveContext {
+		message CustomEntry {
+			string name = 1;
+			string value = 2;
+		}
+
+		repeated CustomEntry custom_entry = 1;
+		repeated string experiment_id = 2;
+	}
+
+	SensitiveContext sensitive_context = 1;
+	string product_version = 2;
+}

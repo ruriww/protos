@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+import "youtube/api/innertube/engagement_panel_extras.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ToggleEngagementPanelCommand {
+	extend Command {
+		ToggleEngagementPanelCommand toggle_engagement_panel_command = 369951587;
+	}
+
+	oneof identifier_oneof {
+		string panel_identifier = 1;
+		EngagementPanelIdentifier identifier = 2;
+	}
+
+	bool force_exit_fullscreen = 3;
+	EngagementPanelExtras engagement_panel_extras = 4;
+	Command show_command = 5;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistEditVideoAddedResultData {
+	extend Datas {
+		PlaylistEditVideoAddedResultData playlist_edit_video_added_result_data = 138418859;
+	}
+
+	string video_id = 1;
+	string set_video_id = 2;
+
+	message MultiSelectData {
+		bytes multi_select_params = 1;
+		bytes multi_select_item = 2;
+	}
+
+	MultiSelectData multi_select_data = 3;
+}

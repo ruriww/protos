@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/embargo_action.proto";
+import "youtube/api/innertube/composite_embargo_action.proto";
+import "youtube/api/innertube/auto_speed_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CueRangeAction {
+	oneof action {
+		Command command = 1;
+		EmbargoAction embargo = 2;
+		CompositeEmbargoAction composite_embargo = 3;
+		AutoSpeedAction auto_speed = 4;
+	}
+}

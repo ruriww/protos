@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProfilesConfig {
+	bool enable_profiles = 1;
+	bool enable_tween_mode_for_profiles = 2;
+	int32 max_personas = 3;
+	int32 profile_selector_auto_display_interval_sec = 4;
+	int32 max_profile_age = 5;
+	int32 profile_settings_background_sync_interval_sec = 6;
+	bool allow_day_of_birth = 7;
+	bool enable_optional_month_ui = 8;
+	bool enable_approximate_age_api = 9;
+}

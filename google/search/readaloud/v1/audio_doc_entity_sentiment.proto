@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/sentiment.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioDocEntitySentiment {
+	string entity_mid = 1;
+	Sentiment sentiment = 2;
+	string name = 3;
+}

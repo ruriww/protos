@@ -1,0 +1,25 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "social/graph/api/proto/age_of_consent_status.proto";
+
+option objc_class_prefix = "POEM";
+
+message AgeRangeType {
+	PersonFieldMetadata metadata = 1;
+
+	enum AgeRange {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 1;
+		LESS_THAN_EIGHTEEN = 2;
+		TWENTY_ONE_OR_OLDER = 3;
+		EIGHTEEN_TO_TWENTY = 4;
+	}
+
+	AgeRange age_range = 2 [ default = UNKNOWN ];
+	int32 age_in_years = 3;
+	social.graph.api.proto.AgeOfConsentStatus age_of_consent_status = 6;
+}

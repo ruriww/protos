@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+import "moneta/orchestration2/ui/common/input/value_range.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NumberInputCondition {
+	extend eventrules.condition.Condition {
+		NumberInputCondition number_input_condition_extension = 346246107;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_VALUE_RANGE_MATCH = 1;
+	}
+
+	ConditionType condition_type = 1;
+
+	oneof condition {
+		ValueRange value_range_match = 2;
+	}
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+message AutoSpeedArgs {
+	bool enable_auto_speed = 1;
+}

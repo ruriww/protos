@@ -1,0 +1,18 @@
+edition = "2023";
+
+package scone.v1;
+
+import "scone/v1/survey/session.proto";
+import "scone/v1/survey/payload.proto";
+import "scone/v1/survey/scheduled_survey_response.proto";
+
+option objc_class_prefix = "UVSP";
+
+message SurveyTriggerResponse {
+	survey.Session session = 1;
+	survey.Payload survey_payload = 2;
+	string no_available_survey_reason = 3;
+	repeated string error = 4;
+	string survey_id = 5;
+	survey.ScheduledSurveyResponse scheduled_survey_response = 6;
+}

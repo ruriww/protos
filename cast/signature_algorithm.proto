@@ -1,0 +1,13 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum SignatureAlgorithm {
+	option features.enum_type = CLOSED;
+
+	SIGNATURE_ALGORITHM_UNSPECIFIED = 0;
+	RSASSA_PKCS1_V15 = 1;
+	RSASSA_PSS = 2;
+}

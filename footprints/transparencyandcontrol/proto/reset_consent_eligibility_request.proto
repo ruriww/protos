@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_caller.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ResetConsentEligibilityRequest {
+	ConsentCaller caller = 1;
+	repeated ConsentSetting setting = 2;
+}

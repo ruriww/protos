@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/background_playback_button_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackgroundPlaybackControls {
+	repeated BackgroundPlaybackButtonType background_notification_buttons = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 seek_backward_seconds = 2;
+	int32 seek_forward_seconds = 3;
+}

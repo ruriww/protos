@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_settings_default_supported_configs.proto";
+import "youtube/api/innertube/asset_supported_configs.proto";
+import "youtube/api/innertube/kids_existing_onboarding_supported_configs.proto";
+import "youtube/api/innertube/kids_offline_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsGlobalConfig {
+	bool kids_enable_locale_selector = 1;
+	string kids_asset_theme = 3;
+	bool autoplay_on_fullscreen = 4;
+	bool kids_enable_pause_history = 5;
+	bool kids_enable_red = 6;
+	int32 red_auth_sending_timeout_secs = 7;
+	int64 post_splash_anim_min_time_in_ms_before_reshow = 8;
+	repeated KidsSettingsDefaultSupportedConfigs kids_settings_default_supported_configs = 9;
+	bool disable_parent_oauth_token_dynamic_refresh = 11;
+	bool enable_new_account_sign_in = 12;
+	int32 red_auth_refresh_interval_secs = 13;
+	bool enable_logged_in_cast = 15;
+	bool enable_all_user_login = 16;
+	AssetSupportedConfigs asset_config = 116294887;
+	KidsExistingOnboardingSupportedConfigs kids_existing_onboarding_configs = 117416908;
+	KidsOfflineSupportedConfigs kids_offline_configs = 118070354;
+	bool enable_main_activity = 166542415;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dynamiccontainer;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DynamicContainerNode {
+	extend node.Node {
+		DynamicContainerNode dynamic_container_node_extension = 440798148;
+	}
+
+	node.Node dynamic_child = 2;
+}

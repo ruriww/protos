@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unlimited_post_create_family_flow_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnlimitedCreateFamilyEndpoint {
+	extend Command {
+		UnlimitedCreateFamilyEndpoint unlimited_create_family_endpoint = 128069078;
+	}
+
+	string reference_pcid_params = 1;
+	string hl = 2;
+	UnlimitedPostCreateFamilyFlowSupportedRenderers success_renderer = 3;
+	UnlimitedPostCreateFamilyFlowSupportedRenderers post_flow_error_renderer = 4;
+	Command post_flow_success_endpoint = 5;
+	Command post_flow_error_endpoint = 6;
+	string app_id = 7;
+	bytes serialized_ypc_family_create_logging_params = 8;
+}

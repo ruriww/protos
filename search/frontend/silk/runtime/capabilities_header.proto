@@ -1,0 +1,13 @@
+edition = "2023";
+
+package search.frontend.silk.runtime;
+
+import "search/frontend/silk/runtime/silk_surface_enums.proto";
+import "search/frontend/silk/runtime/silk_service.proto";
+
+option objc_class_prefix = "SLKRTM";
+
+message CapabilitiesHeader {
+	SilkSurfaceEnums.NativeSurface surface = 1;
+	repeated SilkService services = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InteractivityWidgetSafeArea {
+	option features.enum_type = CLOSED;
+
+	INTERACTIVITY_WIDGET_SAFE_AREA_UNSPECIFIED = 0;
+	INTERACTIVITY_WIDGET_SAFE_AREA_DEFAULT = 1;
+	INTERACTIVITY_WIDGET_SAFE_AREA_ABOVE_CHAT_FEED = 2;
+	INTERACTIVITY_WIDGET_SAFE_AREA_CHAT_FEED = 3;
+}

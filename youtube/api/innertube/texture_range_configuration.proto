@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextureRangeConfiguration {
+	float leading_screens_for_preload = 1;
+	float trailing_screens_for_preload = 2;
+	float leading_screens_for_display = 3;
+	float trailing_screens_for_display = 4;
+	bool enable_synchronous_drawing = 5;
+	float leading_screens_for_batching = 6;
+}

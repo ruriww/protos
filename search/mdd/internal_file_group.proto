@@ -1,0 +1,32 @@
+edition = "2023";
+
+package search.mdd;
+
+import "search/mdd/version_restrictions.proto";
+import "search/mdd/file_group_file.proto";
+import "search/mdd/http_header_field.proto";
+import "search/mdd/download_conditions.proto";
+import "google/protobuf/any.proto";
+import "search/mdd/data_file_group_bookkeeping.proto";
+import "abuse/hades/transparency/proto/file_group_inclusion_proof.proto";
+
+option objc_class_prefix = "MDD";
+
+message InternalFileGroup {
+	VersionRestrictions version_restrictions = 1;
+	repeated FileGroupFile files = 2;
+	bool all_files_done = 3;
+	int64 cleanup_expiration_time_secs = 4;
+	int64 stale_lifetime_secs = 5;
+	int64 active_expiration_date_secs = 6;
+	bool isolate_and_preserve_file_names = 7;
+	repeated HttpHeaderField group_header_fields = 8;
+	int32 file_group_version_number = 9;
+	DownloadConditions download_conditions = 10;
+	google.protobuf.Any custom_metadata = 11;
+	int64 build_id = 12;
+	string variant_id = 13;
+	DataFileGroupBookkeeping bookkeeping = 14;
+	string account_id = 15;
+	abuse.hades.transparency.proto.FileGroupInclusionProof file_group_inclusion_proof = 16;
+}

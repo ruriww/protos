@@ -1,0 +1,31 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+option objc_class_prefix = "RCH";
+
+message AccountParticleDisc {
+	enum BadgeStatus {
+		option features.enum_type = CLOSED;
+
+		BADGE_STATUS_UNSPECIFIED = 0;
+		NONE = 1;
+		ATTENTION = 2;
+	}
+
+	BadgeStatus badge_status = 1;
+
+	enum BadgeDismissalEvent {
+		option features.enum_type = CLOSED;
+
+		BADGE_DISMISSAL_EVENT_UNSPECIFIED = 0;
+		ACCOUNT_MENU_OPENED = 1;
+	}
+
+	repeated BadgeDismissalEvent badge_dismissal_events = 2;
+
+	message Version {
+	}
+
+	Version version = 3;
+}

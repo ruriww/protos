@@ -1,0 +1,9 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message SQLiteErrorInfo {
+	int32 sqlite_status = 1;
+}

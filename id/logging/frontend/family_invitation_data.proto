@@ -1,0 +1,77 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "kids/families/app_id.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message FamilyInvitationData {
+	message Event {
+		enum EventType {
+			option features.enum_type = CLOSED;
+
+			EVENT_TYPE_UNSPECIFIED = 0;
+			INVITE_MEMBERS_PAGE_VIEW = 1;
+			INVITATION_COMPLETE_PAGE_VIEW = 2;
+			CVC_CHALLENGE_NOT_REQUIRED = 3;
+			CVC_CHALLENGE_REQUIRED = 4;
+			CVC_CHALLENGE_INTERACTION_SHOWN = 5;
+			CVC_CHALLENGE_INTERACTION_PASSED = 6;
+			CVC_CHALLENGE_INTERACTION_CANCELLED = 7;
+			CVC_CHALLENGE_LOADING_WIDGET_FAILED = 8;
+			CONSENT_DIALOG_REQUIRED = 9;
+			CONSENT_DIALOG_INTERACTION_SHOWN = 10;
+			CONSENT_DIALOG_INTERACTION_OK = 11;
+			CONSENT_DIALOG_INTERACTION_CANCELLED = 12;
+			GET_ACCESS_TO_SYSTEM_PERMISSIONS_FOR_SMS_INVITATIONS_FAILED = 13;
+			TRIGGER_INVITATION_FLOW_FROM_NATIVE = 14;
+			INVITATION_COMPLETED_SEND_NEW_INVITATION_BUTTON_CLICKED = 15;
+			NATIVE_INVITATION_FLOW_ENDED = 16;
+			INVITE_SECOND_PARENT_PAGE_VIEW = 17;
+			INVITE_SECOND_PARENT_PAGE_PARENTAL_PERMISSIONS_DIALOG_SHOWN = 18;
+			INVITE_SECOND_PARENT_PAGE_PARENTAL_PERMISSIONS_DIALOG_CANCEL = 19;
+			INVITE_SECOND_PARENT_PAGE_PARENTAL_PERMISSIONS_DIALOG_OK = 20;
+			INVITE_SECOND_PARENT_PAGE_EXISTING_MEMBER_LINK_CLICKED = 21;
+		}
+
+		EventType event_type = 1;
+
+		message EventDetails {
+			message NativeResultStatusDetails {
+				enum NativeResultStatus {
+					option features.enum_type = CLOSED;
+
+					NATIVE_RESULT_STATUS_UNSPECIFIED = 0;
+					OK = 1;
+					CANCELED = 2;
+				}
+
+				NativeResultStatus native_result_status = 1;
+			}
+
+			NativeResultStatusDetails native_result_status_details = 3;
+		}
+
+		EventDetails event_details = 2;
+
+		message ClientInfo {
+			kids.families.AppId app_id = 1;
+			int32 version = 2;
+
+			enum Referrer {
+				option features.enum_type = CLOSED;
+
+				REFERRER_UNSPECIFIED = 0;
+				ANDROID = 1;
+				IOS = 2;
+			}
+
+			Referrer referrer = 3;
+		}
+
+		ClientInfo client_info = 3;
+	}
+
+	Event event = 3;
+}

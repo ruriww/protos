@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_video_renderer.proto";
+import "youtube/api/innertube/video_with_context_renderer.proto";
+import "youtube/api/innertube/video_card_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GhostCardSupportedRenderers {
+	oneof type {
+		CompactVideoRenderer compact_video_renderer = 50630979;
+		VideoWithContextRenderer video_with_context_renderer = 89018663;
+		VideoCardRenderer video_card_renderer = 120168182;
+	}
+}

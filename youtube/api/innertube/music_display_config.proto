@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicDisplayConfig {
+	Renderer album_page_template_renderer = 1;
+	Renderer home_page_renderer = 2;
+	Renderer collection_browse_page_template_renderer = 3;
+	Renderer video_context_menu = 4;
+	Renderer remix_album_detail_page_template_renderer = 5;
+	Renderer track_context_menu = 8;
+	Renderer hotkey_dialog_renderer = 9;
+	Renderer persistent_promo = 10;
+}

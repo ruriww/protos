@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_metrics_count_label.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsCount {
+	SendKitMetricsCountLabel label = 1;
+	int64 value = 2 [ default = 1 ];
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.filter;
+
+import "moneta/orchestration/ui/common/components/filter/filter_category_value.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message FilterValue {
+	repeated FilterCategoryValue filter_category_value = 1;
+	generic.UiFieldValue search_bar_value = 2;
+}

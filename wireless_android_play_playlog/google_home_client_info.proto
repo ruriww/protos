@@ -1,0 +1,40 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "assistant/api/core_types/surface_type.proto";
+import "assistant/api/core_types/surface.proto";
+
+option objc_class_prefix = "CADP";
+
+message GoogleHomeClientInfo {
+	string device_model = 1;
+	string app_version = 2;
+	string manufacturer = 3;
+	string product_name = 4;
+	string factory_country = 5;
+	string build_type = 6;
+	string system_build = 7;
+
+	enum BackendType {
+		option features.enum_type = CLOSED;
+
+		BACKEND_TYPE_UNKNOWN = 0;
+		BACKEND_TYPE_PRODUCTION = 1;
+		BACKEND_TYPE_ENG = 2;
+		BACKEND_TYPE_TEAMFOOD = 3;
+		BACKEND_TYPE_DOGFOOD = 4;
+	}
+
+	BackendType backend_type = 8;
+	string device_id = 9;
+	string locale = 11;
+	bool on_device_assistant_enabled = 12;
+	assistant.api.core_types.SurfaceType.Type surface_type = 13;
+	bool opted_in_metrics_logging = 15;
+	string acp_version = 16;
+	string virtual_release_channel = 17;
+	string opal_version = 18;
+	assistant.api.core_types.Surface.Type ontological_surface_type = 19;
+	string device_product_name = 20;
+}

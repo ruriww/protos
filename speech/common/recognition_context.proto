@@ -1,0 +1,56 @@
+edition = "2023";
+
+package speech.common;
+
+import "speech/common/request_context.proto";
+import "speech/common/domain_context.proto";
+
+option objc_class_prefix = "SPC";
+
+message RecognitionContext {
+	string application_name = 1;
+	string field_name = 2;
+	string field_id = 3;
+	bool single_line = 4;
+	string label = 5;
+	string hint = 6;
+	int32 input_type = 7;
+	int32 ime_options = 8;
+	string language_model = 9;
+	string language = 10;
+	string client_id = 11;
+	bool has_grxml_grammar = 12 [ default = false ];
+	string selected_keyboard_language = 13;
+	repeated string enabled_keyboard_language = 14;
+	string voice_search_language = 15;
+	string referer = 16;
+	string user_agent = 17;
+	string hardware = 18;
+	string client_application_id = 19;
+	string raw_language = 20;
+	string canonical_language = 21;
+	repeated RequestContext request_context = 22;
+	repeated string additional_raw_language = 23;
+	repeated string additional_canonical_language = 24;
+	string context_request_cache_token = 25;
+	string original_service_name = 26;
+	bool use_followon_queries_models = 27;
+	string recognizer_mode = 28;
+	repeated string additional_language = 30;
+	string client_input_language = 31;
+	repeated string additional_client_input_language = 32;
+	string speaker_id = 33;
+	DomainContext domain_context = 34;
+	repeated string deactivated_context_module_model_name = 36;
+	bool decode_and_drop_preamble_audio = 37;
+	bool disable_all_biasing = 38;
+	repeated string safelisted_context_module_model_name = 39;
+	bool disable_tagged_path_processing_jdq_soda = 40;
+	bool is_fallback = 41;
+	bool is_follow_up_query = 42;
+	bool previous_tts_playback_expected = 43;
+	repeated string predicted_language = 44;
+	int32 predicted_language_max_count = 45;
+
+	extensions 256 to max;
+}

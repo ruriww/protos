@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.alertmanager;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/alertmanager/parameters.proto";
+
+option objc_class_prefix = "AlertManager";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+	Parameters params = 2;
+	bytes encrypted_parameters = 3;
+}

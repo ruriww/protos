@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_field_metadata.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonPhoto {
+	PersonFieldMetadata metadata = 1;
+	string url = 2;
+	bool is_default = 3;
+	string device_contact_id = 4;
+}

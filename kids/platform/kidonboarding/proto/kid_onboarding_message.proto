@@ -1,0 +1,16 @@
+edition = "2023";
+
+package kids.platform.kidonboarding.proto;
+
+import "kids/platform/kidonboarding/proto/kid_onboarding_result.proto";
+import "google/protobuf/empty.proto";
+
+option objc_class_prefix = "GKP";
+
+message KidOnboardingMessage {
+	oneof message {
+		KidOnboardingResult kid_onboarding_complete = 1;
+		KidOnboardingResult kid_onboarding_cancellation = 2;
+		google.protobuf.Empty kid_onboarding_loaded = 4;
+	}
+}

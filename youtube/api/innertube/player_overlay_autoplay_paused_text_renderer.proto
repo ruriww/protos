@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerOverlayAutoplayPausedTextRenderer {
+	FormattedString paused_text = 1;
+	int32 paused_threshold_minutes = 2;
+	bytes tracking_params = 4;
+	int32 paused_threshold_mobile_network_minutes = 5;
+}

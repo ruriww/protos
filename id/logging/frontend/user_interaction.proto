@@ -1,0 +1,13 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "id/logging/frontend/user_event.proto";
+import "id/logging/frontend/custom.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message UserInteraction {
+	UserEvent event = 1;
+	Custom custom = 4;
+}

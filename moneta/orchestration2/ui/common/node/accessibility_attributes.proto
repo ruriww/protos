@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/hidden_state.proto";
+import "moneta/orchestration2/ui/common/node/accessibility_relation.proto";
+import "moneta/orchestration2/ui/common/node/accessibility_semantic.proto";
+import "moneta/orchestration2/ui/common/node/accessibility_has_popup_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AccessibilityAttributes {
+	HiddenState hidden_state = 1;
+	repeated AccessibilityRelation relation = 2;
+	AccessibilitySemantic semantic = 3;
+	AccessibilityHasPopupType has_popup_type = 4;
+}

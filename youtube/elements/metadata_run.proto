@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/metadata_run_extensions.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MetadataRun {
+	uint32 start_index = 1;
+	uint32 length = 2;
+	string language_hint = 3;
+	MetadataRunExtensions metadata_run_extensions = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/type/dayofweek.proto";
+
+option objc_class_prefix = "SGAP";
+
+message WeeklyRecurrence {
+	repeated google.type.DayOfWeek week_day = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_cue_range_set.proto";
+import "youtube/api/innertube/player_layout_state.proto";
+import "youtube/api/innertube/player_state.proto";
+import "youtube/api/innertube/ads_state.proto";
+import "youtube/api/innertube/live_player_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TriggerConditions {
+	PlayerCueRangeSet player_cue_range_set = 1;
+	repeated PlayerLayoutState valid_layout_states = 2;
+	repeated PlayerState valid_player_states = 3;
+	repeated AdsState valid_ads_states = 4;
+	repeated LivePlayerState valid_live_player_states = 5;
+}

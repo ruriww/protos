@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/api/innertube/audio_track.proto";
+
+option objc_class_prefix = "YTBA";
+
+message AudioTracksChangeEvent {
+	repeated youtube.api.innertube.AudioTrack audio_tracks = 1;
+	youtube.api.innertube.AudioTrack selected_audio_track = 2;
+}

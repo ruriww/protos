@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/assistive_feature_metadata.proto";
+import "social/people/backend/service/intelligence/proto/lookup_id.proto";
+import "google/internal/apps/waldo/v1alpha/user_availabilities.proto";
+
+option objc_class_prefix = "PIL";
+
+message WaldoAssistiveFeature {
+	AssistiveFeatureMetadata feature_metadata = 1;
+	LookupId lookup_id = 2;
+	google.internal.apps.waldo.v1alpha.UserAvailabilities user_availabilities = 3;
+}

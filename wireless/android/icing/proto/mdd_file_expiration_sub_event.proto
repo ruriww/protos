@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message MddFileExpirationSubEvent {
+	enum Code {
+		UNSPECIFIED = 0;
+		EXPIRED_FILE_GROUPS = 1;
+		DELETE_FILE_META = 2;
+		DELETE_FILES = 3;
+		DELETE_SYMLINKS = 5;
+		DELETE_LATEST_LOOKUPS = 7;
+		COMPLETE = 4;
+		RELEASE_LEASES = 6;
+	}
+}

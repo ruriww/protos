@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+enum PlayerBarOverlayMode {
+	option features.enum_type = CLOSED;
+
+	PLAYER_BAR_OVERLAY_MODE_UNKNOWN = 0;
+	PLAYER_BAR_OVERLAY_MODE_DEFAULT = 1;
+	PLAYER_BAR_OVERLAY_MODE_QUIET = 2;
+}

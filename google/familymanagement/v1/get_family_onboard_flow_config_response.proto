@@ -1,0 +1,32 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/family_product_correlation_id.proto";
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/page.proto";
+import "google/familymanagement/v1/app_upgrade_status.proto";
+import "google/familymanagement/v1/family_role.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyOnboardFlowConfigResponse {
+	ApiResponseHeader api_header = 1;
+	repeated Page pages = 2;
+
+	message FopData {
+		bool fop_required = 1;
+		FamilyProductCorrelationId.Type family_product_correlation_id_type = 2;
+	}
+
+	FopData fop_data = 3;
+
+	message BirthdayData {
+		bool birthday_required = 1;
+	}
+
+	BirthdayData birthday_data = 4;
+	AppUpgradeStatus upgrade_status = 5;
+	bool launch_invite_flow_on_completion = 6;
+	repeated FamilyRole invitee_role = 7;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/scope.proto";
+import "Acl/known_share_time_data.proto";
+
+option objc_class_prefix = "ACL";
+
+message ScopeInfo {
+	Scope Scope = 1;
+	KnownShareTimeData KnownShareTimeData = 3;
+}

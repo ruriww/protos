@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+option objc_class_prefix = "Orch";
+
+enum ViewMode {
+	option features.enum_type = CLOSED;
+
+	VIEW_MODE_UNKNOWN = 0;
+	VIEW_MODE_READ_ONLY = 1;
+	VIEW_MODE_EDIT_ONLY = 2;
+	VIEW_MODE_READ_EDIT = 3;
+	VIEW_MODE_EDIT_CLEAR = 4;
+	VIEW_MODE_EDIT_REVIEW = 5;
+}

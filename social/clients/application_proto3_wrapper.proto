@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.clients;
+
+import "social/clients/application.proto";
+
+option objc_class_prefix = "SC";
+
+message ApplicationProto3Wrapper {
+	Application application = 1;
+}

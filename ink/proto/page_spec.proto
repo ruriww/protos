@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/orientation.proto";
+
+option objc_class_prefix = "INKPB";
+
+message PageSpec {
+	string uuid = 1;
+	float width = 2;
+	float height = 3;
+	uint32 group_id_handle = 4;
+	Orientation orientation = 5;
+}

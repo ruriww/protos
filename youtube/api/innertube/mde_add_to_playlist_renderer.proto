@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/get_add_to_playlist_response_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeAddToPlaylistRenderer {
+	FormattedString button_text = 1;
+	Command add_to_playlist_endpoint = 2;
+	repeated GetAddToPlaylistResponseSupportedRenderers contents = 3;
+	bool enabled = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveCreationVisibleHealthState {
+	option features.enum_type = CLOSED;
+
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_UNKNOWN = 0;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_GREEN = 1;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_YELLOW = 2;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_RED = 3;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_ACTIVE = 4;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_RECONNECTING = 5;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_ERROR = 6;
+	LIVE_CREATION_VISIBLE_HEALTH_STATE_FINISHED = 7;
+}

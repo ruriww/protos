@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/named_value.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedTableSectionTeamStatsRowRenderer {
+	FormattedString team_rank = 1;
+	ThumbnailDetails team_thumbnail = 2;
+	FormattedString team_name = 3;
+	repeated FormattedString stats = 4;
+	Command endpoint = 5;
+	bytes tracking_params = 6;
+	FormattedString accessibility_team_name = 8;
+	repeated FormattedString accessibility_stats = 9;
+	FormattedString accessibility_team_rank = 10;
+	repeated NamedValue updateable_stats = 11;
+	int32 highlighted_column_index = 12;
+	NamedValue updateable_highlighted_column_index = 13;
+}

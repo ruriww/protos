@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DelayedEventBufferConfig {
+	bool enabled = 1;
+	int32 min_flush_to_disk_seconds = 2;
+	int32 max_flush_to_disk_seconds = 3;
+	int32 remove_blocking_max_flush_to_disk_seconds = 4;
+}

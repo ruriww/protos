@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+import "youtube/api/innertube/device_action.proto";
+
+option objc_class_prefix = "YTBA";
+
+message DeviceActionArgs {
+	string device_id = 1;
+	youtube.api.innertube.DeviceAction device_action = 2;
+}

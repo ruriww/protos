@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/one_box_block.proto";
+
+option objc_class_prefix = "ASM";
+
+message SearchResultCard {
+	message Header {
+		Image profile_picture_image = 1;
+		string display_name = 2;
+		string display_email = 3;
+		string visibility_info_text = 4;
+		Image image = 5;
+	}
+
+	Header header = 1;
+	OneBoxBlock answer_block = 3;
+	repeated OneBoxBlock content_blocks = 4;
+	bool show_in_main_column_on_desktop = 6;
+}

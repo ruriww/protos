@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/gaia_authenticated_identity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StartModularOnboardingCommand {
+	extend Command {
+		StartModularOnboardingCommand start_modular_onboarding_command = 301098174;
+	}
+
+	GaiaAuthenticatedIdentity auth_account = 1;
+	string modular_onboarding_url = 2;
+	string end_url = 3;
+	Command post_success_command = 4;
+	bool is_blocking = 5;
+	bool should_check_accounts_list = 6;
+}

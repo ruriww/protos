@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/validation_state.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ComputeUnicodeStringLengthResultEntity {
+	int32 unicode_length = 1;
+	api.innertube.ValidationState validation_state = 2;
+	int32 code_point_length = 3;
+}

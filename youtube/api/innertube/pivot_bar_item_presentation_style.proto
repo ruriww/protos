@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/pivot_bar_color_theme.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PivotBarItemPresentationStyle {
+	enum PivotBarItemStyle {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		NEW_CONTENT = 1;
+	}
+
+	PivotBarItemStyle pivot_bar_item_style = 1;
+	PivotBarColorTheme pivot_bar_color_theme = 2;
+}

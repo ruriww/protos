@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/stack_radio_thumbnail_renderer.proto";
+import "youtube/api/innertube/cropped_square_thumbnail_renderer.proto";
+import "youtube/api/innertube/thumbnail_sequence_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicRadioThumbnailSupportedRenderers {
+	oneof renderer {
+		StackRadioThumbnailRenderer stack_radio_thumbnail_renderer = 90216736;
+		CroppedSquareThumbnailRenderer cropped_square_thumbnail_renderer = 94023822;
+		ThumbnailSequenceRenderer thumbnail_sequence_renderer = 101478481;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message MddApiCallStatsApiName {
+	enum Code {
+		INVALID = 0;
+		GET_FILE_GROUP = 1;
+		DOWNLOAD_FILE_GROUP = 2;
+		ACTIVATE_FILE_GROUP = 3;
+		DEACTIVATE_FILE_GROUP = 4;
+		FILE_EXPIRATION_CLEANUP = 5;
+	}
+}

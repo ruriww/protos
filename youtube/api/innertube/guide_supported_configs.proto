@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/gaming_config.proto";
+import "youtube/api/innertube/notification_response_config.proto";
+import "youtube/api/innertube/creator_mobile_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideSupportedConfigs {
+	oneof config {
+		GamingConfig gaming_config = 121986122;
+		NotificationResponseConfig notification_response_config = 139975005;
+		CreatorMobileConfig creator_mobile_config = 367165215;
+	}
+}

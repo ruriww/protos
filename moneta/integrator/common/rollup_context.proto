@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message RollupContext {
+	int64 customer_id = 1;
+
+	oneof rollup_id {
+		int64 external_billing_rollup_id = 2;
+		int64 billing_rollup_id = 3;
+	}
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/composition_asset_extension_data.proto";
+import "youtube/api/innertube/local_file_asset.proto";
+import "youtube/api/innertube/video_id_asset.proto";
+import "youtube/api/innertube/asset_detail.proto";
+import "youtube/api/innertube/remote_file_asset.proto";
+import "youtube/api/innertube/runtime_asset.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompositionAsset {
+	string id = 1;
+	CompositionAssetExtensionData extension = 2;
+
+	oneof type {
+		LocalFileAsset local_file = 3;
+		VideoIdAsset video_id = 4;
+		AssetDetail asset_detail = 5;
+		RemoteFileAsset remote_file = 6;
+		RuntimeAsset runtime = 7;
+	}
+}

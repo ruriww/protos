@@ -1,0 +1,33 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/image.proto";
+import "logs/proto/lens/formula_metadata.proto";
+import "vision/visualsearch/lens/text_doctype.proto";
+import "vision/visualsearch/lens/medium_type.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message TextRecognitionLogData {
+	Image source_image = 1;
+	int32 words_recognized = 2;
+	int32 lines_recognized = 3;
+	int32 blocks_recognized = 4;
+	int32 frame_selection_to_text_recognition_time_ms = 5;
+	repeated FormulaMetadata formula_metadata = 6;
+	string content_language = 7;
+	vision.visualsearch.lens.TextDoctype doctype = 8;
+	vision.visualsearch.lens.MediumType medium_type = 9;
+
+	enum OCRMode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		PHOTO_OCR = 1;
+		GOOGLE_OCR = 2;
+		GOOGLE_OCR_FALLBACK_TO_PHOTO_OCR = 3;
+	}
+
+	OCRMode ocr_mode = 10;
+}

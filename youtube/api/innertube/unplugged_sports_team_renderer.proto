@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedSportsTeamRenderer {
+	ThumbnailDetails team_thumbnail = 1;
+	FormattedString team_location = 2;
+	FormattedString team_name = 3;
+	Command endpoint = 4;
+	bytes tracking_params = 5;
+	string id = 9;
+	bool is_score_hidden = 10;
+	FormattedString score = 11;
+	string team_color = 12;
+	FormattedString score_hidden = 13;
+	string entity_key = 14;
+}

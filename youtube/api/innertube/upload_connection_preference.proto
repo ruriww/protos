@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadConnectionPreference {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_CONNECTION_PREFERENCE_UNKNOWN = 0;
+	UPLOAD_CONNECTION_PREFERENCE_ALL = 1;
+	UPLOAD_CONNECTION_PREFERENCE_WIFI_ONLY = 2;
+}

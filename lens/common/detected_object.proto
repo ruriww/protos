@@ -1,0 +1,61 @@
+edition = "2023";
+
+package lens.common;
+
+import "lens/gleaming/detected_barcode_data.proto";
+import "lens/gleaming/detected_planar_gleam_data.proto";
+import "lens/gleaming/detected_outdoor_gleam_data.proto";
+import "lens/gleaming/detected_product_data.proto";
+import "lens/gleaming/renderable_object.proto";
+import "lens/geometry.proto";
+import "webutil/html/types/safe_url_proto.proto";
+import "lens/center_rotated_box.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DetectedObject {
+	string object_id = 1;
+	Geometry geometry = 2;
+
+	enum DetectionSource {
+		UNKNOWN = 0;
+		LVS = 1;
+		ON_DEVICE = 2;
+	}
+
+	DetectionSource detection_source = 3;
+
+	message InteractionProperties {
+		bool select_on_tap = 1;
+	}
+
+	InteractionProperties interaction_properties = 4;
+	bool is_selected = 6;
+	webutil.html.types.SafeUrlProto segmentation_mask_image_url = 7;
+
+	message RenderingMetadata {
+		enum RenderType {
+			DEFAULT = 0;
+			GLEAM = 1;
+			DOCUMENT_GLEAM = 2;
+			PLANAR_GLEAM = 3;
+			BARCODE_GLEAM = 4;
+			OUTDOOR_GLEAM = 5;
+		}
+
+		RenderType render_type = 1;
+
+		oneof corpus_specific_metadata {
+			gleaming.DetectedBarcodeData barcode_metadata = 4;
+			gleaming.DetectedPlanarGleamData planar_gleam_metadata = 5;
+			gleaming.DetectedOutdoorGleamData outdoor_gleam_metadata = 6;
+			gleaming.DetectedProductData product_metadata = 14;
+		}
+
+		repeated gleaming.RenderableObject renderable_objects = 13;
+	}
+
+	RenderingMetadata rendering_metadata = 8;
+	bool is_fulfilled = 9;
+	CenterRotatedBox contextual_framing_box = 10;
+}

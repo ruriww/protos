@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message VideoLogData {
+	int32 video_duration_ms = 1;
+	int32 video_frame_count = 2;
+	int32 video_frame_success_count = 3;
+	int32 video_frame_error_count = 4;
+	bool voice_transcription_error = 5;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/place_result.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaceAutocompleteResponse {
+	ResponseContext response_context = 1;
+	repeated Renderer place_suggestions = 3;
+	FormattedString no_results_label = 4;
+	repeated PlaceResult place_results = 5;
+	elements.Command location_transparency_panel_command = 7;
+}

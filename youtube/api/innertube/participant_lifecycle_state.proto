@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ParticipantLifecycleState {
+	option features.enum_type = CLOSED;
+
+	PARTICIPANT_LIFECYCLE_STATE_UNSPECIFIED = 0;
+	PARTICIPANT_LIFECYCLE_STATE_WAITING = 1;
+	PARTICIPANT_LIFECYCLE_STATE_JOIN_STARTING = 2;
+	PARTICIPANT_LIFECYCLE_STATE_JOINED = 3;
+	PARTICIPANT_LIFECYCLE_STATE_EXITED = 4;
+}

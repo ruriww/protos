@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.identity.reauth.v2;
+
+import "google/identity/reauth/v2/client_proposal_reply.proto";
+
+option objc_class_prefix = "GIDRA";
+
+message ContinueSessionRequest {
+	string session_id = 1;
+	int32 challenge_id = 2;
+
+	enum Action {
+		ACTION_UNSPECIFIED = 0;
+		RESPOND = 1;
+		START_ALTERNATE = 2;
+		TEST_ACTION = 3;
+	}
+
+	Action action = 3;
+	ClientProposalReply proposal_response = 4;
+	int64 user_id = 5;
+}

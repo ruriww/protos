@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/result_card.proto";
+import "google/internal/lens/api/v1/web_view.proto";
+import "google/internal/lens/api/v1/header.proto";
+import "google/internal/lens/api/v1/chip_list.proto";
+
+option objc_class_prefix = "LFE";
+
+message PresentationResult {
+	oneof type {
+		ResultCard result_card = 2;
+		WebView web_view = 4;
+		Header header = 5;
+		ChipList chip_list = 6;
+	}
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string_wrapper.proto";
+import "youtube/api/innertube/plural_formatted_string_wrapper.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormattedStringTemplate {
+	oneof test_string {
+		FormattedStringWrapper formatted_string_wrapper = 1;
+		PluralFormattedStringWrapper plural_formatted_string_wrapper = 2;
+	}
+
+	repeated string var_names = 10;
+	string hl = 13;
+	string icu_locale = 14;
+}

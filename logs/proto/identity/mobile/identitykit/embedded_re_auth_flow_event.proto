@@ -1,0 +1,57 @@
+edition = "2023";
+
+package logs.proto.identity.mobile.identitykit;
+
+import "logs/proto/identity/mobile/identitykit/event_error_info.proto";
+
+option objc_class_prefix = "GIKEXT";
+
+message EmbeddedReAuthFlowEvent {
+	enum EmbeddedReAuthEventType {
+		EVENT_TYPE_UNDEFINED = 0;
+		START = 1;
+		FETCH_IOS_GUARD_CHALLENGE = 2;
+		ENCODE_IOS_GUARD_SIGNAL = 3;
+		INSTALL_API_WRAPPER = 4;
+		FETCH_COOKIES = 5;
+		CONSTRUCT_URL = 6;
+		PRESENT_WEB_VIEW = 7;
+		LOAD_URL = 8;
+		RECEIVE_JAVASCRIPT = 9;
+		PARSE_JAVASCRIPT = 10;
+		USER_DISMISSED_WEB_VIEW = 11;
+		IDENTITY_KIT_DISMISSED_WEB_VIEW = 12;
+		DONE = 13;
+	}
+
+	EmbeddedReAuthEventType event_type = 1;
+
+	message EmbeddedReAuthEventOutcome {
+		enum SuccessOutcome {
+			SUCCESS_OUTCOME_UNDEFINED = 0;
+			SUCCESS = 1;
+			EMBEDDED_RE_AUTH_SUCCESSFUL = 2;
+		}
+
+		SuccessOutcome success = 1;
+
+		enum ErrorOutcome {
+			ERROR_OUTCOME_UNDEFINED = 0;
+			INTERNAL_ERROR = 1;
+			API_WRAPPER_FILE_NOT_FOUND = 2;
+			API_WRAPPER_FILE_READ_ERROR = 3;
+			IOS_GUARD_ERROR = 4;
+			IOS_GUARD_RETURNED_NIL_CHALLENGE = 5;
+			IOS_GUARD_ENCODING_ERROR = 6;
+			INVALID_FORMAT = 7;
+			STATUS_NOT_FOUND = 8;
+			EMBEDDED_RE_AUTH_FAILED = 9;
+			EMBEDDED_RE_AUTH_DISABLED = 10;
+		}
+
+		ErrorOutcome error = 2;
+	}
+
+	EmbeddedReAuthEventOutcome event_outcome = 2;
+	EventErrorInfo error_info = 3;
+}

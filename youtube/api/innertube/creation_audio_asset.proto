@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/creation_audio_encoding_type.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationAudioAsset {
+	bytes audio = 1;
+	float sample_rate = 2;
+	string language_hl = 3;
+	int32 channel_count = 4 [ default = 1 ];
+	CreationAudioEncodingType encoding = 5;
+	int32 bit_depth = 7 [ default = 16 ];
+	google.protobuf.Duration audio_length = 8;
+}

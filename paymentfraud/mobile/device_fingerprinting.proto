@@ -1,0 +1,99 @@
+edition = "2023";
+
+package paymentfraud.mobile;
+
+option objc_class_prefix = "PFM";
+
+message DeviceFingerprinting {
+	message Parsed {
+		message Properties {
+			enum OperatingSystem {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN = 100;
+				ANDROID = 0;
+				IOS = 1;
+			}
+
+			OperatingSystem operating_system = 1;
+			string imei = 2;
+			string meid = 3;
+			string mac = 4;
+			string esn = 5;
+			string phone_number = 6;
+			int64 android_id = 7;
+			string encoded_cplc = 8;
+			string device_name = 9;
+			string product_name = 10;
+			string model_name = 11;
+			string manufacturer = 12;
+			string build_fingerprint = 13;
+			string application_identifier = 14;
+			string os_version = 15;
+			string user_assigned_name = 16;
+			string ios_gius = 17;
+			string ios_advertising_identifier = 18;
+			string ios_vendor_identifier = 19;
+			int64 android_first_checkin_time = 20;
+			string android_build_brand = 21;
+			string serial_number = 22;
+			bool is_rooted = 23;
+			bool is_emulated = 24;
+		}
+
+		Properties properties = 1;
+
+		message State {
+			message PackageInfo {
+				string name = 1;
+				string version_code = 2;
+				int64 last_update_time = 3 [ default = -1 ];
+				int64 first_install_time = 4 [ default = -1 ];
+				string install_location = 5;
+			}
+
+			repeated PackageInfo installed_packages = 1;
+			repeated string email_accounts = 2;
+			int32 percent_battery = 3 [ default = -1 ];
+			int64 gmt_offset_millis = 4 [ default = -86400000 ];
+			string ip_address = 5;
+
+			message Location {
+				double altitude = 1;
+				double latitude = 2;
+				double longitude = 3;
+				float accuracy = 4;
+				double time_in_ms = 5 [ default = -1 ];
+				bool is_mocked = 6;
+			}
+
+			Location last_gps_location = 6;
+			bool dev_mode_on = 7;
+			bool non_play_install_allowed = 8;
+			string language = 9;
+			repeated string ip_addr = 10;
+			string locale = 11;
+			int32 user_number = 12;
+			int32 user_serial_number = 13;
+			string cell_operator = 14;
+			string sim_operator = 15;
+			int64 payments_client_lib_version = 16;
+			int64 payments_container_app_version = 17;
+			string locale_language = 18;
+			string locale_country = 19;
+			int32 phone_type = 20 [ default = -1 ];
+			int64 device_uptime_millis = 21;
+			string timezone_name = 22;
+			int32 available_gaia_accounts_count = 23;
+			bool has_monkey_runner = 24;
+			bool is_call_in_progress = 25;
+			bool is_usb_accessory_or_device_attached = 26;
+			bool is_being_charged = 27;
+			int32 screen_brightness = 28;
+		}
+
+		State state = 2;
+	}
+
+	Parsed parsed = 2;
+}

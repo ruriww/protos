@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_playback_state.proto";
+import "youtube/api/innertube/video_playback_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeartbeatClientPlaybackState {
+	PlayerPlaybackState state = 1;
+	VideoPlaybackPosition playback_position = 2;
+}

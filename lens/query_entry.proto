@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens;
+
+import "lens/query_type.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message QueryEntry {
+	QueryType type = 1;
+	string content = 2;
+	string separator = 3;
+	string plaintext_converted_content = 4;
+}

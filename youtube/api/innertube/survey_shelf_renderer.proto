@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/survey_shelf_list_supported_renderers.proto";
+import "youtube/api/innertube/survey_shelf_button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SurveyShelfRenderer {
+	FormattedString question = 1;
+	SurveyShelfListSupportedRenderers list = 2;
+	FormattedString after_feedback_text = 3;
+	SurveyShelfButtonSupportedRenderers dismissal_button = 4;
+	bytes tracking_params = 6;
+	repeated Command impression_endpoints = 7;
+}
+
+extend Renderer {
+	SurveyShelfRenderer survey_shelf_renderer = 96023059;
+}

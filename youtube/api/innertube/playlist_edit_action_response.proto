@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/playlist_edit_header_supported_renderers.proto";
+import "youtube/api/innertube/playlist_edit_message_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/playlist_edit_entry_supported_renderers.proto";
+import "youtube/api/innertube/playlist_edit_result_supported_datas.proto";
+import "youtube/api/innertube/playlist_edit_video_list_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/get_add_to_playlist_response_supported_renderers.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistEditActionResponse {
+	ResponseContext response_context = 1;
+
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		STATUS_FAILED = 0;
+		STATUS_SUCCEEDED = 1;
+	}
+
+	Status status = 2;
+	PlaylistEditHeaderSupportedRenderers new_header = 3;
+	PlaylistEditMessageSupportedRenderers playlist_edit_message = 4;
+	string failure_reason = 5;
+	repeated Command actions = 7;
+	string collaboration_invite_link = 8;
+	Command redirect_endpoint = 9;
+	Command share_playlist_endpoint = 10;
+	PlaylistEditEntrySupportedRenderers new_entry = 11;
+	repeated PlaylistEditResultSupportedDatas playlist_edit_results = 12;
+	PlaylistEditVideoListSupportedRenderers new_video_list = 13;
+	Renderer new_music_playlist_shelf_header = 14;
+	repeated GetAddToPlaylistResponseSupportedRenderers contents = 15;
+	bytes tracking_params = 17;
+	string playlist_id = 20;
+	bytes queue_context_params = 23;
+	FrameworkUpdateTransport framework_updates = 777;
+}

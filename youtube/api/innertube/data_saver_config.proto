@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mobile_connection_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DataSaverConfig {
+	int64 simple_bitrate_cap = 1;
+	repeated MobileConnectionType bitrate_capped_connection_types = 3 [ features.repeated_field_encoding = EXPANDED ];
+	bool use_a1_subdomain = 4;
+	bool enable_manual_format_pacing = 5;
+	bool enable_data_plan_logging = 6;
+	bool apply_pacing_for_all_traffic = 7;
+}

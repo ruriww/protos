@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/item_section_renderer.proto";
+import "youtube/api/innertube/compact_video_renderer.proto";
+import "youtube/api/innertube/compact_playlist_renderer.proto";
+import "youtube/api/innertube/shelf_renderer.proto";
+import "youtube/api/innertube/compact_radio_renderer.proto";
+import "youtube/api/innertube/compact_movie_renderer.proto";
+import "youtube/api/innertube/compact_promoted_video_renderer.proto";
+import "youtube/api/innertube/compact_episode_renderer.proto";
+import "youtube/api/innertube/compact_autoplay_renderer.proto";
+import "youtube/api/innertube/related_chip_cloud_renderer.proto";
+import "youtube/api/innertube/ad_slot_renderer.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/watch_next_secondary_results_supported_continuations.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchNextSecondaryResultsRenderer {
+	extend ContinuationSupportedRenderers {
+		WatchNextSecondaryResultsRenderer watch_next_secondary_results_continuation = 51779776;
+	}
+
+	message WatchNextSecondaryResultsSupportedRenderers {
+		oneof renderer {
+			ItemSectionRenderer item_section_renderer = 50195462;
+			CompactVideoRenderer compact_video_renderer = 50630979;
+			CompactPlaylistRenderer compact_playlist_renderer = 50742631;
+			ShelfRenderer shelf_renderer = 51845067;
+			CompactRadioRenderer compact_radio_renderer = 53170873;
+			CompactMovieRenderer compact_movie_renderer = 58485276;
+			CompactPromotedVideoRenderer compact_promoted_video_renderer = 73920376;
+			CompactEpisodeRenderer compact_episode_renderer = 87866443;
+			CompactAutoplayRenderer compact_autoplay_renderer = 92156382;
+			RelatedChipCloudRenderer related_chip_cloud_renderer = 188360221;
+			AdSlotRenderer ad_slot_renderer = 424701016;
+		}
+	}
+
+	repeated WatchNextSecondaryResultsSupportedRenderers results = 1;
+	repeated WatchNextSecondaryResultsSupportedContinuations continuations = 2;
+	bytes tracking_params = 4;
+	string target_id = 6;
+}

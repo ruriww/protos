@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/companion_completion_action.proto";
+import "youtube/api/innertube/rating_bar_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppPromoCompanionAdRenderer {
+	FormattedString title = 1;
+	FormattedString description_text = 2;
+	ThumbnailDetails icon = 3;
+	float rating = 4;
+	FormattedString action_text = 5;
+	Command navigation_endpoint = 6;
+	MenuSupportedRenderers menu = 7;
+	bytes tracking_params = 9;
+	repeated Command impression_commands = 11;
+	Renderer companion_extension = 12;
+	CompanionCompletionAction completion_action = 13;
+	Renderer title_click_command = 14;
+	Renderer rating_click_command = 15;
+	Renderer icon_click_command = 16;
+	uint32 background_color = 18;
+	Renderer cta_button = 19;
+	RatingBarStyle rating_bar_style = 20;
+	Renderer secondary_button = 21;
+	Command ad_complete_command = 22;
+	Command background_command = 23;
+}
+
+extend Renderer {
+	AppPromoCompanionAdRenderer app_promo_companion_ad_renderer = 65002523;
+}

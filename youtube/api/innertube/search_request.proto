@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/search_results_sort_type.proto";
+import "youtube/api/innertube/filter_options.proto";
+import "youtube/api/innertube/player_request.proto";
+import "youtube/api/innertube/force_ad_parameters.proto";
+import "youtube/api/innertube/searchbox_stats.proto";
+import "youtube/api/innertube/search_form_data.proto";
+import "youtube/api/innertube/request_origin.proto";
+import "youtube/api/innertube/inline_setting_status.proto";
+import "youtube/api/innertube/search_shorts_context.proto";
+import "youtube/api/innertube/suggestion_search_params.proto";
+import "youtube/api/innertube/add_to_playlist_search_context.proto";
+import "youtube/api/innertube/search_page_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchRequest {
+	InnerTubeContext context = 1;
+	string query = 2;
+	string params = 3;
+	SearchResultsSortType sort_type = 4 [ default = BY_RELEVANCE ];
+	string continuation = 8;
+	FilterOptions filter_options = 11;
+	PlayerRequest player_request = 12;
+	ForceAdParameters force_ad_parameters = 13;
+	bytes searchbox_stats = 14;
+	SearchboxStats suggest_stats = 16;
+	string conversation_id = 17;
+	bool is_prefetch = 18;
+	bytes query_intent = 19;
+	SearchFormData search_form_data = 20;
+	bool supports_voice_search = 21;
+	bool is_input_prefix_query = 22;
+	string cowatch_server_params = 23;
+	bool animated_previews_settings_enabled = 26;
+	bool can_return_crosswalk_content = 27 [ default = true ];
+	string original_voice_query_transcription = 28;
+	bool is_voice_query = 29;
+	RequestOrigin request_origin = 30;
+	string current_video_id = 31;
+	repeated int32 installed_sharing_service_ids = 33 [ features.repeated_field_encoding = EXPANDED ];
+	string web_searchbox_stats_url = 34;
+	repeated string alternate_voice_query_transcriptions = 35;
+	InlineSettingStatus inline_setting_status = 36;
+	SearchShortsContext shorts_context = 38;
+	string suggestion_thumbnail_video_id = 40;
+	SuggestionSearchParams suggestion_search_params = 43;
+	AddToPlaylistSearchContext add_to_playlist_search_context = 44;
+	SearchPageType search_page_type = 45;
+	string starburst_v6 = 47;
+}

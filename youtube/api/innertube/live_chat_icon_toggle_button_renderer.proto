@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatIconToggleButtonRenderer {
+	string target_id = 1;
+	Icon icon = 2;
+	string tooltip = 3;
+	AccessibilitySupportedDatas accessibility = 4;
+	bool disabled = 5;
+	Icon toggled_icon = 6;
+	bytes tracking_params = 8;
+	string icon_badge_text = 9;
+	Command on_initial_tap_command = 10;
+	Command on_tap_command = 11;
+	string active_tooltip = 12;
+}
+
+extend Renderer {
+	LiveChatIconToggleButtonRenderer live_chat_icon_toggle_button_renderer = 132562777;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+option objc_class_prefix = "YTBA";
+
+message RemindersBlockMovableRef {
+	bool movable = 1 [ default = true ];
+	string client_id = 2;
+	string block_instance_id = 3;
+}

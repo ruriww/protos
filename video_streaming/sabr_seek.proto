@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package video_streaming;
+
+import "youtube/api/innertube/seek_source.proto";
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message SabrSeek {
+	optional int64 seek_media_time = 1;
+	optional int32 seek_media_timescale = 2;
+	optional youtube.api.innertube.SeekSource seek_source = 3;
+}

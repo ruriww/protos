@@ -1,0 +1,16 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message InputListItem {
+	string id = 1;
+	string label = 2;
+	bool is_selected = 3 [ default = false ];
+	bool show_textbox = 4 [ default = false ];
+	string tip = 5;
+	string class_name = 6;
+	bool is_required = 8 [ default = false ];
+	repeated int64 rule_id = 9 [ features.repeated_field_encoding = EXPANDED ];
+}

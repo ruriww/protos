@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/search_filter_group.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SimpleSearchFilterGroupRenderer {
+	repeated SearchFilterGroup search_filter_groups = 1;
+}
+
+extend Renderer {
+	SimpleSearchFilterGroupRenderer simple_search_filter_group_renderer = 187333422;
+}

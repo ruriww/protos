@@ -1,0 +1,9 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+option objc_class_prefix = "GHCC";
+
+message DeviceIpInfo {
+	uint32 ipv4_fragment = 1;
+}

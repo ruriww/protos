@@ -1,0 +1,63 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message AssetRegistryProto {
+	message AssetLocation {
+		enum ArchiveType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_ARCHIVE = 0;
+			ZIP_ARCHIVE = 1;
+		}
+
+		message RemoteFileSet {
+			repeated string remote_url = 1;
+		}
+
+		message RemoteFileSetArchive {
+			repeated string remote_url = 1;
+			ArchiveType archive_type = 2;
+		}
+
+		oneof remote_info {
+			string remote_url = 1;
+			RemoteFileSet remote_file_set = 2;
+			RemoteFileSetArchive remote_file_set_archive = 4;
+		}
+
+		message BuiltInPathInfo {
+			oneof ios_path {
+				string ios_relative_bundle_path = 1;
+				string ios_relative_data_path = 2;
+			}
+
+			oneof android_path {
+				string android_relative_internal_storage_path = 3;
+				string android_relative_external_storage_path = 4;
+				string android_relative_assets_path = 5;
+				string android_full_path = 6;
+			}
+
+			string desktop_full_path = 7;
+			string default_relative_path = 8;
+		}
+
+		BuiltInPathInfo built_in_path_info = 3;
+	}
+
+	message AssetEntry {
+		string asset_id = 1;
+
+		oneof value {
+			AssetLocation asset_location = 2;
+			string raw_asset_filename = 3;
+			string external_injected_asset_name = 4;
+		}
+	}
+
+	repeated AssetEntry entry = 1;
+	string remote_base_url = 2;
+}

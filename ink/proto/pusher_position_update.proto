@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/point.proto";
+
+option objc_class_prefix = "INKPB";
+
+message PusherPositionUpdate {
+	string uuid = 1;
+	repeated Point pointer_location = 2;
+}

@@ -1,0 +1,55 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/survey_trigger_renderer.proto";
+import "youtube/api/innertube/single_option_survey_renderer.proto";
+import "youtube/api/innertube/single_option_survey_hats_impression_renderer.proto";
+import "youtube/api/innertube/single_option_survey_option_renderer.proto";
+import "youtube/api/innertube/radio_button_survey_option_renderer.proto";
+import "youtube/api/innertube/checkbox_survey_renderer.proto";
+import "youtube/api/innertube/checkbox_survey_hats_impression_renderer.proto";
+import "youtube/api/innertube/checkbox_survey_option_renderer.proto";
+import "youtube/api/innertube/red_cancel_survey_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	SurveyTriggerRenderer survey_trigger_renderer = 84469052;
+}
+
+extend Renderer {
+	SingleOptionSurveyRenderer single_option_survey_renderer = 84469086;
+}
+
+extend Renderer {
+	SingleOptionSurveyHatsImpressionRenderer single_option_survey_hats_impression_renderer = 112430440;
+}
+
+extend Renderer {
+	SingleOptionSurveyOptionRenderer single_option_survey_option_renderer = 84469192;
+}
+
+extend Renderer {
+	RadioButtonSurveyOptionRenderer radio_button_survey_option_renderer = 131108496;
+}
+
+extend Renderer {
+	CheckboxSurveyRenderer checkbox_survey_renderer = 114254277;
+}
+
+extend Renderer {
+	CheckboxSurveyHatsImpressionRenderer checkbox_survey_hats_impression_renderer = 114255173;
+}
+
+extend Renderer {
+	CheckboxSurveyOptionRenderer checkbox_survey_option_renderer = 114255457;
+}
+
+extend Renderer {
+	RedCancelSurveyRenderer red_cancel_survey_renderer = 152893110;
+}

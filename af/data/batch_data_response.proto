@@ -1,0 +1,11 @@
+edition = "2023";
+
+package af.data;
+
+import "af/data/data_response_with_error.proto";
+
+option objc_class_prefix = "AFD";
+
+message BatchDataResponse {
+	repeated DataResponseWithError data_response_with_error = 1;
+}

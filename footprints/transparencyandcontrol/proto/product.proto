@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum Product {
+	option features.enum_type = CLOSED;
+
+	PRODUCT_UNSPECIFIED = 0;
+	SEARCH = 1;
+	MAPS = 2;
+}

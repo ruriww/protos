@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/app_store_data.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetPdgBuyFlowResponse {
+	ResponseContext response_context = 1;
+	Command command = 2;
+	bytes tracking_params = 4;
+	repeated ThumbnailDetails preload_images = 5;
+	AppStoreData app_store_data = 6;
+	FrameworkUpdateTransport framework_updates = 777;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorColdConfig {
+	bool katnip_dark_theme = 4;
+	bool katnip_shared_fusion_sign_in_flow = 5;
+	bool katnip_android_new_system_icons = 6;
+	bool katnip_guide_reliability = 7;
+	bool katnip_ios_new_system_icons = 8;
+	bool katnip_android_use_shared_account_component = 9;
+	bool katnip_use_permissions_interstitial = 10;
+	bool studio_ios_fetch_unseen_notifications_count_on_app_active = 11;
+}

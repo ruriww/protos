@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/image.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/avatar_size.proto";
+import "youtube/api/innertube/renderer_context.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AvatarViewModel {
+	extend Renderer {
+		AvatarViewModel avatar_view_model = 437811886;
+	}
+
+	elements.Image image = 1;
+	elements.Command channel_endpoint = 2;
+	string accessibility_text = 3;
+	AvatarSize avatar_image_size = 4;
+	elements.Command endpoint = 5;
+	repeated Renderer overlays = 6;
+	elements.Image default_image = 7;
+	elements.Image error_image = 8;
+	RendererContext renderer_context = 997;
+	LoggingDirectives logging_directives = 999;
+}

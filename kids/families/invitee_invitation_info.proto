@@ -1,0 +1,29 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/family_member_profile.proto";
+import "kids/families/family_role.proto";
+import "kids/families/unmet_precondition.proto";
+import "kids/families/family_product_correlation_id.proto";
+import "kids/families/family_member.proto";
+
+option objc_class_prefix = "FAM";
+
+message InviteeInvitationInfo {
+	int64 family_id = 1;
+	FamilyMemberProfile inviter_profile = 3;
+	FamilyRole invited_role = 5;
+	int64 invited_timestamp_millis = 6;
+	int64 valid_until_timestamp_millis = 7;
+	string requester_product_id = 8;
+	bool can_accept_invitation = 9;
+	repeated UnmetPrecondition unmet_can_join_family_precondition = 10 [ features.repeated_field_encoding = EXPANDED ];
+	int64 earliest_join_timestamp_millis = 11;
+	int64 inviter_gaia_id = 12;
+	repeated FamilyProductCorrelationId family_product_correlation_id = 13;
+	repeated string supervised_account_name = 14;
+	repeated FamilyMember family_member = 15;
+	string invitation_token = 16;
+	bool is_guardian_linked_invitee_identifier_as_email = 18;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package googlemac.iphone.shared.identity.familymanagement;
+
+option objc_class_prefix = "GFM";
+
+message FamilyManagementUiResponse {
+	bool family_changed = 1;
+}

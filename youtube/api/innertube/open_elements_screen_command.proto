@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/element.proto";
+import "youtube/api/innertube/presentation_style.proto";
+import "youtube/api/innertube/ios_configuration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenElementsScreenCommand {
+	extend elements.Command {
+		OpenElementsScreenCommand open_elements_screen_command = 250283977;
+	}
+
+	elements.Element element = 1;
+	PresentationStyle presentation_style = 2;
+	IosConfiguration ios_configuration = 3;
+	elements.Command back_intercept_command = 4;
+	bool force_dark_theme = 5;
+}

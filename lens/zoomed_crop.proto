@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens;
+
+import "lens/center_rotated_box.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ZoomedCrop {
+	CenterRotatedBox crop = 1;
+	int32 parent_width = 2;
+	int32 parent_height = 3;
+	float zoom = 4;
+}

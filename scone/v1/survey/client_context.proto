@@ -1,0 +1,87 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+import "google/protobuf/duration.proto";
+import "scone/v1/survey/client_capability.proto";
+
+option objc_class_prefix = "UVSP";
+
+message ClientContext {
+	message DeviceInfo {
+		message BrowserInfo {
+			string user_agent = 1;
+			string initial_url = 2;
+		}
+
+		BrowserInfo browser_info = 1;
+
+		message MobileInfo {
+			string device_model = 1;
+			string device_brand = 2;
+
+			enum OsType {
+				OS_TYPE_UNKNOWN = 0;
+				OS_TYPE_ANDROID = 1;
+				OS_TYPE_IOS = 2;
+			}
+
+			OsType os_type = 3;
+			string os_version = 4;
+			string app_name = 5;
+			string app_id = 6;
+			string app_version = 7;
+			string gms_core_version = 8;
+
+			message TelephonyInfo {
+				string phone_type = 1;
+				string network_name = 2;
+				string network_type = 3;
+				string network_mcc_code = 4;
+				string network_mnc_code = 5;
+			}
+
+			TelephonyInfo telephony_info = 9;
+
+			message ChimeraInfo {
+				message ModuleSetInfo {
+					string module_set_id = 1;
+					string module_set_variant = 2;
+				}
+
+				repeated ModuleSetInfo module_set_info = 1;
+			}
+
+			ChimeraInfo chimera_info = 10;
+		}
+
+		MobileInfo mobile_info = 2;
+		google.protobuf.Duration timezone_offset = 3;
+	}
+
+	DeviceInfo device_info = 1;
+
+	message LibraryInfo {
+		enum Platform {
+			PLATFORM_UNKNOWN = 0;
+			PLATFORM_WEB = 1;
+			PLATFORM_ANDROID = 2;
+			PLATFORM_IOS = 3;
+		}
+
+		Platform platform = 1;
+		string library_version = 2;
+		repeated ClientCapability supported_capability = 3;
+		int32 library_version_int = 4;
+	}
+
+	LibraryInfo library_info = 2;
+
+	enum DeviceOrientation {
+		ORIENTATION_UNKNOWN = 0;
+		ORIENTATION_PORTRAIT = 1;
+		ORIENTATION_LANDSCAPE = 2;
+	}
+
+	DeviceOrientation device_orientation = 3;
+}

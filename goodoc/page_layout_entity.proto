@@ -1,0 +1,115 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/bounding_polygon.proto";
+import "goodoc/image.proto";
+import "goodoc/orientation_label.proto";
+import "goodoc/language_combination.proto";
+import "goodoc/break.proto";
+import "google/protobuf/any.proto";
+import "goodoc/font_info.proto";
+import "goodoc/logical_entity_type.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message PageLayoutEntity {
+	int32 parent_entity_id = 1 [ default = -1 ];
+	BoundingPolygon polygon = 2;
+	Image image = 3;
+
+	enum EntityType {
+		option features.enum_type = CLOSED;
+
+		WORD = 0;
+		SPAN = 1;
+		LINE = 2;
+		PARAGRAPH = 3;
+		BLOCK = 4;
+		SYMBOL = 5;
+		PAGE = 6;
+		DOCUMENT = 7;
+		TABLE = 8;
+		TABLE_ROW = 9;
+		TABLE_COLUMN = 10;
+		TABLE_CELL = 11;
+		BRANCH = 12;
+		LOGICAL_ENTITY = 13;
+		GRAPHICAL = 14;
+	}
+
+	EntityType entity_type = 4 [ default = LINE ];
+
+	enum ContentType {
+		option features.enum_type = CLOSED;
+
+		TEXT = 0;
+		HANDWRITTEN_TEXT = 1;
+		IMAGE = 2;
+		LINE_DRAWING = 3;
+		SEPARATOR = 4;
+		UNREADABLE_TEXT = 5;
+		FORMULA = 6;
+		HANDWRITTEN_FORMULA = 7;
+		NOT_ANNOTATED = 8;
+		SIGNATURE = 9;
+		DIAGRAM_2D = 10;
+		DIAGRAM_OTHER = 11;
+		ICON = 12;
+		DOCUMENT_FIGURE_FLOAT = 13;
+		UNKNOWN = 100;
+		CUSTOM = 101;
+	}
+
+	ContentType type = 5 [ default = TEXT ];
+	OrientationLabel orientation = 6;
+	float confidence = 7;
+	string creator_id = 8;
+	LanguageCombination language_mix = 13;
+	float detection_confidence = 14;
+	string text_content = 15;
+	Break word_break = 16;
+
+	message Colors {
+		int32 foreground_gray_value = 1;
+		int32 background_gray_value = 2;
+		int32 foreground_rgb_value = 3;
+		int32 background_rgb_value = 4;
+		int32 foreground_gray_threshold = 5;
+
+		message ColorSamplePoint {
+			int32 x = 1;
+			int32 y = 2;
+		}
+
+		repeated ColorSamplePoint foreground_sampling_points = 6;
+		repeated ColorSamplePoint background_sampling_points = 7;
+	}
+
+	Colors colors = 17;
+
+	message TablePosition {
+		int32 row = 1;
+		int32 col = 2;
+		int32 row_span = 3 [ default = 1 ];
+		int32 col_span = 4 [ default = 1 ];
+	}
+
+	TablePosition table_position = 18;
+	int32 track_id = 19;
+	int64 timestamp_usec = 20;
+	google.protobuf.Any lattice = 21;
+	float type_confidence = 22;
+	string recognizer_script_id = 23;
+	repeated string label = 24;
+	repeated float reid_features = 25 [ features.repeated_field_encoding = EXPANDED ];
+	int32 reid_length = 26;
+	float direction_confidence = 27;
+	FontInfo font_info = 28;
+	repeated int32 other_parent_entity_ids = 29;
+	LogicalEntityType logical_type = 30;
+	float garbage_confidence = 31;
+	int32 predicted_direction = 32;
+
+	extensions 20000 to max;
+}

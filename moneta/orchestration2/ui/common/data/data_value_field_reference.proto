@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+message DataValueFieldReference {
+	int64 data_reference = 1;
+	repeated int32 field_number = 2;
+
+	message FieldReference {
+		int32 field_number = 1;
+		int32 index = 2;
+	}
+
+	repeated FieldReference field_reference = 3;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/gleaming/translation_deep_gleam_data.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DeepGleamData {
+	repeated string object_id = 1;
+	string main_intent = 4;
+
+	oneof rendering_oneof {
+		TranslationDeepGleamData translation = 10;
+	}
+
+	repeated string visual_object_id = 11;
+}

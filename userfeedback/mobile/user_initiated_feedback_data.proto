@@ -1,0 +1,17 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/product_specific_binary_data.proto";
+import "userfeedback/mobile/image.proto";
+import "userfeedback/mobile/highlight_bound.proto";
+
+option objc_class_prefix = "UFM";
+
+message UserInitiatedFeedbackData {
+	repeated ProductSpecificBinaryData product_specific_binary_data = 2;
+	Image screenshot = 4;
+	int32 product_id = 5;
+	string category_tag = 6;
+	repeated HighlightBound highlight_bounds = 8;
+}

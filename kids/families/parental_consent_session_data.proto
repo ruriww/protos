@@ -1,0 +1,15 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/parental_consent_purpose.proto";
+
+option objc_class_prefix = "FAM";
+
+message ParentalConsentSessionData {
+	int64 hoh_gaia_id = 1;
+	int64 family_id = 2;
+	ParentalConsentPurpose purpose = 3;
+	string ari_session_id = 4;
+	bool cancel_processed_orders = 5;
+}

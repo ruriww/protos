@@ -1,0 +1,10 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message Vec2Proto {
+	double x = 1;
+	double y = 2;
+}

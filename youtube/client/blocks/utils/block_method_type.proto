@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.utils;
+
+option objc_class_prefix = "YTB";
+
+enum BlockMethodType {
+	option features.enum_type = CLOSED;
+
+	BLOCK_METHOD_TYPE_UNSPECIFIED = 0;
+	BLOCK_METHOD_TYPE_SYNC = 1;
+	BLOCK_METHOD_TYPE_ASYNC = 2;
+	BLOCK_METHOD_TYPE_CLIENT_STREAMING = 3;
+	BLOCK_METHOD_TYPE_SERVER_STREAMING = 4;
+	BLOCK_METHOD_TYPE_BIDIRECTIONAL_STREAMING = 5;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/upgrade_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpgradeConfig {
+	bool prompt = 1;
+	bool force = 2;
+	int64 prompt_holdoff_seconds = 3;
+	string prompt_below_version = 4;
+	string force_below_version = 5;
+	UpgradeDialogSupportedRenderers upgrade_dialog = 6;
+}

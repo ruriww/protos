@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideRequestParams {
+	bool show_gaming_entry_tooltip = 1 [ default = false ];
+	bool use_zylon_guide = 2;
+	bool fill_bedtime_reminder = 3 [ default = false ];
+	bool has_pre_child_id = 4 [ default = false ];
+	bool use_system_bedtime_schedule = 5 [ default = false ];
+	repeated string entity_keys_to_update = 6;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GlobalPanelConfiguration {
+	EngagementPanelSupportedRenderers initial_state = 1;
+	string params = 3;
+	bool reuse_model_and_state = 4;
+}

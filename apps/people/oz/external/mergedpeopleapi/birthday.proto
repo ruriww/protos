@@ -1,0 +1,57 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "google/type/date.proto";
+import "google/protobuf/timestamp.proto";
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "social/graph/api/proto/prompt.proto";
+import "social/graph/api/proto/alternate_calendar.proto";
+
+option objc_class_prefix = "POEM";
+
+message Birthday {
+	PersonFieldMetadata metadata = 1;
+	int64 date_ms = 2;
+	int64 date_ms_as_number = 3;
+	string value = 4;
+	google.type.Date calendar_day = 5;
+
+	enum BirthdayResolution {
+		option features.enum_type = CLOSED;
+
+		FULL = 0;
+		MONTH_AND_APPROXIMATED_YEAR = 1;
+		APPROXIMATED_YEAR = 2;
+	}
+
+	BirthdayResolution birthday_resolution = 6;
+
+	message AgeDisableGracePeriod {
+		google.type.Date calendar_day = 1;
+		google.protobuf.Timestamp grace_period_end = 2;
+		google.protobuf.Timestamp grace_period_start = 3;
+
+		enum GracePeriodTypeEnum {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			USER_SPECIFIED_BIRTHDAY = 1;
+			UNDERAGE_SUSPECTED = 2;
+		}
+
+		GracePeriodTypeEnum grace_period_type = 4;
+
+		message ManualGracePeriodInfo {
+			string reason = 1;
+			int64 escalate_to = 2;
+			int64 executed_by = 3;
+		}
+
+		ManualGracePeriodInfo manual_grace_period_info = 6;
+	}
+
+	AgeDisableGracePeriod age_disable_grace_period = 7;
+	social.graph.api.proto.Prompt prompt = 10;
+	social.graph.api.proto.AlternateCalendar alternate_calendar_day = 11;
+}

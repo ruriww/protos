@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelAutoplay {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_AUTOPLAY_UNSPECIFIED = 0;
+	ENGAGEMENT_PANEL_AUTOPLAY_ALWAYS_PAUSE = 1;
+	ENGAGEMENT_PANEL_AUTOPLAY_PAUSE_IF_SCROLLED = 2;
+	ENGAGEMENT_PANEL_AUTOPLAY_NEVER_PAUSE = 3;
+}

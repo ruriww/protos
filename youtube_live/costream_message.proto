@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube_live;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTLIVE";
+
+message CostreamMessage {
+	google.protobuf.Timestamp publish_time = 1;
+	google.protobuf.Timestamp broadcast_start_time = 2;
+}

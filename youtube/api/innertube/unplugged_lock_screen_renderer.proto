@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLockScreenRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString byline_text = 3;
+	uint64 start_time_seconds = 4;
+	uint64 end_time_seconds = 5;
+}
+
+extend Renderer {
+	UnpluggedLockScreenRenderer unplugged_lock_screen_renderer = 122746779;
+}

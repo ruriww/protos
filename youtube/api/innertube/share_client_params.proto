@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mini_app_client_params.proto";
+import "youtube/api/innertube/video_client_params.proto";
+import "youtube/api/innertube/flow_client_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShareClientParams {
+	MiniAppClientParams mini_app_client_params = 1;
+	VideoClientParams video_client_params = 2;
+	FlowClientParams flow_client_params = 3;
+}

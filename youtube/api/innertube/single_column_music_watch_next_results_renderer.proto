@@ -1,0 +1,66 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/section_list_renderer.proto";
+import "youtube/api/innertube/playlist_panel_renderer.proto";
+import "youtube/api/innertube/lock_screen_renderer.proto";
+import "youtube/api/innertube/autoplay_renderer.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SingleColumnMusicWatchNextResultsRenderer {
+	message SingleColumnMusicWatchNextResultsSupportedRenderers {
+		oneof renderer {
+			SectionListRenderer section_list_renderer = 49399797;
+		}
+	}
+
+	SingleColumnMusicWatchNextResultsSupportedRenderers results = 1;
+
+	message SingleColumnMusicWatchNextPlaylistSupportedRenderers {
+		oneof renderer {
+			PlaylistPanelRenderer playlist_panel_renderer = 50631000;
+		}
+	}
+
+	SingleColumnMusicWatchNextPlaylistSupportedRenderers playlist = 2;
+
+	message SingleColumnMusicWatchNextFooterResultsSupportedRenderers {
+		oneof renderer {
+			SectionListRenderer section_list_renderer = 49399797;
+		}
+	}
+
+	SingleColumnMusicWatchNextFooterResultsSupportedRenderers footer_results = 3;
+
+	message SingleColumnMusicWatchNextMetadataScreenSupportedRenderers {
+		oneof renderer {
+			SectionListRenderer section_list_renderer = 49399797;
+		}
+	}
+
+	SingleColumnMusicWatchNextMetadataScreenSupportedRenderers metadata_screen = 4;
+
+	message SingleColumnMusicWatchNextLockScreenSupportedRenderers {
+		oneof renderer {
+			LockScreenRenderer lock_screen_renderer = 61479009;
+		}
+	}
+
+	SingleColumnMusicWatchNextLockScreenSupportedRenderers lock_screen = 5;
+
+	message SingleColumnMusicWatchNextAutoplaySupportedRenderers {
+		oneof renderer {
+			AutoplayRenderer autoplay_renderer = 46659098;
+		}
+	}
+
+	SingleColumnMusicWatchNextAutoplaySupportedRenderers autoplay = 6;
+	Renderer tabbed_renderer = 7;
+	Renderer player_page_chip_renderer = 8;
+}

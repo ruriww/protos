@@ -1,0 +1,10 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message PrivacySettings {
+	bool pii_collection_enabled = 1;
+	bool product_callbacks_enabled = 2;
+}

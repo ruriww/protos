@@ -1,0 +1,26 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/environment_scan.proto";
+import "chrome/dongle/opencast/pin_type.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message CreateSessionRequest {
+	EnvironmentScan environment_scan = 1;
+	string device_pin = 2;
+	PinType device_pin_type = 3;
+	bytes tls_client_pk_hash = 4;
+	string droidguard_data = 5;
+
+	enum CastType {
+		option features.enum_type = CLOSED;
+
+		CAST_TYPE_UNSPECIFIED = 0;
+		OPEN_CAST = 1;
+		RELAY_CAST = 2;
+	}
+
+	CastType cast_type = 6;
+}

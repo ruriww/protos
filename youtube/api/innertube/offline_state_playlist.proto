@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_request_source.proto";
+import "youtube/api/innertube/additional_playlist_client_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineStatePlaylist {
+	string id = 1;
+	repeated string video_ids = 2;
+	int32 video_count = 3;
+	int32 success_count = 4;
+	int32 fail_count = 5;
+	int32 pending_count = 6;
+	int32 disabled_count = 7;
+	int32 deleted_count = 8;
+	OfflineabilityFormatType selected_video_quality = 9;
+	bool is_playlist_owner = 10;
+	int64 last_sync_time_ms = 11;
+	OfflineRequestSource request_source = 12;
+	AdditionalPlaylistClientState additional_playlist_client_state = 13;
+}

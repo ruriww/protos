@@ -1,0 +1,14 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+option objc_class_prefix = "NFD";
+
+enum CRBRenderingBehavior {
+	option features.enum_type = CLOSED;
+
+	RENDERING_BEHAVIOR_UNKNOWN = 0;
+	RENDER_ALL = 1;
+	SKIP_RENDERING_READ_STATE_CHANGES = 2;
+	NONE = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/container_identifier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContainerItemEvents {
+	ContainerIdentifier container_identifier = 1;
+	int64 unique_container_identifier = 4;
+	int64 event_time_ms = 5;
+	int64 event_tracking_creation_time_ms = 6;
+
+	extensions 2 to 3;
+}

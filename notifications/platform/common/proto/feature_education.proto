@@ -1,0 +1,31 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "google/type/localized_text.proto";
+import "notifications/platform/common/proto/button_action.proto";
+import "notifications/platform/common/proto/color_scheme.proto";
+
+option objc_class_prefix = "GNPC";
+
+message FeatureEducation {
+	google.type.LocalizedText headline_text = 1;
+	google.type.LocalizedText body_text = 2;
+	ColorScheme light_theme = 3;
+	ColorScheme dark_theme = 4;
+
+	message AckButton {
+		google.type.LocalizedText label = 1;
+		ButtonAction.UserAction user_action_to_log = 2;
+		ColorScheme light_theme = 3;
+		ColorScheme dark_theme = 4;
+	}
+
+	AckButton ack_button = 5;
+
+	oneof target {
+		string element_name = 6;
+		string element_tag = 7;
+		int32 visual_element_id = 8;
+	}
+}

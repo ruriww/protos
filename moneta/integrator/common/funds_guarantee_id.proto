@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message FundsGuaranteeId {
+	int32 billable_service = 1;
+	string funds_guarantee_request_id = 2;
+}

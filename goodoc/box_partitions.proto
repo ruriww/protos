@@ -1,0 +1,10 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message BoxPartitions {
+	repeated int32 span = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 direction = 2 [ default = 0 ];
+}

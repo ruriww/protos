@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstageSubscribeBarRenderer {
+	FormattedString title = 1;
+	Command navigation_endpoint = 2;
+	Renderer subscribe_button = 3;
+	Icon icon = 4;
+	bool show_bottom_separator = 5;
+	FormattedString subscriber_count_text = 6;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/screen_context.proto";
+import "youtube/api/innertube/youtube_assistant_params.proto";
+import "youtube/api/innertube/youtube_assistant_voice_tip_type.proto";
+import "youtube/api/innertube/request_origin.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YoutubeAssistantRequest {
+	InnerTubeContext context = 1;
+	ScreenContext screen_context = 2;
+	string query = 3;
+	bool enable_tts_audio = 4 [ default = false ];
+	bytes opaque_conversation_token = 6;
+	bytes opaque_server_driven_context_token = 7;
+	bytes query_intent = 8;
+	bool is_prefetch_query = 9;
+	YoutubeAssistantParams youtube_assistant_params = 10;
+	YoutubeAssistantVoiceTipType voice_tip_type = 11;
+	float predicted_recognition_probability_threshold = 13;
+	bool enable_prefetch_logging = 14;
+	bytes s3_input = 15;
+	bytes sal_input_metadata = 16;
+	bool disable_signed_out_prefetch_logging = 17;
+	string assistant_server_env = 18;
+	RequestOrigin request_origin = 20;
+	bytes serialized_youtube_assistant_response = 21;
+	string assistant_raw_query = 23;
+	repeated bytes yt_query_intents = 25;
+	bytes conversation_params = 30;
+	bool speech_recognition_mode_only = 31 [ default = false ];
+}

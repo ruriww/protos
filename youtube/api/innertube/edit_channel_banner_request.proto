@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EditChannelBannerRequest {
+	InnerTubeContext context = 1;
+	string fife_url = 2;
+	fixed64 photo_id = 3;
+	bool is_gallery_image = 4;
+	float crop_top = 5;
+	float crop_right = 6;
+	float crop_bottom = 7;
+	float crop_left = 8;
+}

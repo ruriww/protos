@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MiniplayerSnapPosition {
+	option features.enum_type = CLOSED;
+
+	MINIPLAYER_SNAP_POSITION_UNKNOWN = 0;
+	MINIPLAYER_SNAP_POSITION_BOTTOM_RIGHT = 1;
+	MINIPLAYER_SNAP_POSITION_BOTTOM_LEFT = 2;
+	MINIPLAYER_SNAP_POSITION_TOP_LEFT = 3;
+	MINIPLAYER_SNAP_POSITION_TOP_RIGHT = 4;
+	MINIPLAYER_SNAP_POSITION_LEFT_EDGE = 5;
+	MINIPLAYER_SNAP_POSITION_RIGHT_EDGE = 6;
+}

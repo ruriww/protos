@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.button;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/image/image_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ButtonData {
+	extend data.Data {
+		ButtonData button_data_extension = 232057536;
+	}
+
+	image.ImageContent icon = 1;
+	string initial_text_client_rendering_template_substitution_key = 2;
+	image.ImageContent image_content = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/extensions/show_action_sheet_command.proto";
+import "youtube/api/innertube/screen_logging_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowActionSheetCommandExtension {
+	extend elements.extensions.ShowActionSheetCommand {
+		ShowActionSheetCommandExtension show_action_sheet_command_extension = 9;
+	}
+
+	ScreenLoggingData screen_logging_data = 1;
+}

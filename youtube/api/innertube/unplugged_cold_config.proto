@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedColdConfig {
+	bool unplugged_enable_unplugged_guide_service = 3;
+	bool android_ad_info_cache_use_pds = 4;
+	bool android_unplugged_location_info_manager_use_pds = 5;
+	bool unplugged_enable_mega_account_menu = 6;
+	bool unplugged_android_enable_guide_migration = 7;
+	bool unplugged_android_enable_streamline_appstartup = 8;
+	bool unplugged_android_enable_fusion_sign_in_flow = 9;
+	bool unplugged_mobile_enable_overlays_migration = 10;
+	bool unplugged_android_enable_new_bottom_sheet = 11;
+	bool unplugged_enable_server_filled_mobile_entities = 12;
+	bool unplugged_enable_alc_in_ytv_cancel_ui = 13;
+	bool android_enable_unplugged_tenx_view = 15;
+	bool android_enable_landscape_on_phone = 16;
+	bool android_enable_edge_to_edge = 17;
+}

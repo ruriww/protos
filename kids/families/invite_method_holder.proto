@@ -1,0 +1,19 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message InviteMethodHolder {
+	enum InviteMethod {
+		option features.enum_type = CLOSED;
+
+		INVITE_METHOD_UNKNOWN = 0;
+		EMAIL = 1;
+		SMS = 2;
+		BOARDINGPASS = 3;
+		NON_GAIA_EMAIL = 4;
+		NON_GAIA_INVITE = 5;
+		LINK_SHARING = 6;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/download_button_experiments.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageVideoExperiments {
+	DownloadButtonExperiments download_button_experiments = 1;
+	bool align_lockups_on_downloads_page = 2;
+	bool use_block_for_downloading_status_text = 4;
+	bool enable_offline_watch_handling_of_override_data = 5;
+}

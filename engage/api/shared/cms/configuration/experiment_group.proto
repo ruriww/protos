@@ -1,0 +1,19 @@
+edition = "2023";
+
+package engage.api.shared.cms.configuration;
+
+option objc_class_prefix = "EASC";
+
+message ExperimentGroup {
+	string experiment_id = 2;
+
+	enum ExperimentGroupType {
+		option features.enum_type = CLOSED;
+
+		EXPERIMENT_GROUP_TYPE_UNKNOWN = 0;
+		EXPERIMENT_GROUP_TYPE_CONTROL = 1;
+		EXPERIMENT_GROUP_TYPE_TREATMENT = 2;
+	}
+
+	ExperimentGroupType experiment_group_type = 3;
+}

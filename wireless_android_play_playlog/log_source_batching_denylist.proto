@@ -1,0 +1,9 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message LogSourceBatchingDenylist {
+	repeated string log_source_name = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadImageStickerShape {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_IMAGE_STICKER_SHAPE_UNSPECIFIED = 0;
+	UPLOAD_IMAGE_STICKER_SHAPE_SQUARE = 1;
+	UPLOAD_IMAGE_STICKER_SHAPE_PORTRAIT = 2;
+	UPLOAD_IMAGE_STICKER_SHAPE_LANDSCAPE = 3;
+	UPLOAD_IMAGE_STICKER_SHAPE_CIRCLE = 4;
+	UPLOAD_IMAGE_STICKER_SHAPE_STADIUM = 5;
+}

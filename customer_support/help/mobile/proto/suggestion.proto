@@ -1,0 +1,32 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/content_unit_type.proto";
+import "customer_support/help/mobile/proto/action_result.proto";
+import "customer_support/help/mobile/proto/result_category.proto";
+import "customer_support/help/mobile/proto/promotion_details.proto";
+import "customer_support/help/mobile/proto/help_center_details.proto";
+import "customer_support/help/mobile/proto/url_type.proto";
+import "customer_support/help/mobile/proto/you_tube_video_data.proto";
+import "customer_support/help/mobile/proto/promoted_product_link_data.proto";
+import "customer_support/help/mobile/proto/intentful_discovery_data.proto";
+
+option objc_class_prefix = "CSHM";
+
+message Suggestion {
+	string id = 1;
+	string title = 2;
+	string url = 3;
+	string snippet = 4;
+	ContentUnitType content_unit_type = 5;
+	ActionResult help_action_result = 6;
+	ResultCategory result_category = 7;
+	PromotionDetails promotion_details = 8;
+	HelpCenterDetails help_center_details = 9;
+	UrlType url_type = 10;
+	string tracking_id = 11;
+	repeated YouTubeVideoData youtube_video_metadata = 12;
+	PromotedProductLinkData promoted_product_link_data = 13;
+	IntentfulDiscoveryData intentful_discovery_data = 14;
+}

@@ -1,0 +1,34 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/display_info.proto";
+import "peoplestack/email.proto";
+import "peoplestack/phone.proto";
+import "peoplestack/in_app_target.proto";
+import "peoplestack/source_id.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_field_extended_data.proto";
+import "peoplestack/reachability.proto";
+import "peoplestack/disambiguation_label.proto";
+
+option objc_class_prefix = "PSK";
+
+message ContactMethod {
+	DisplayInfo display_info = 1;
+
+	oneof value {
+		Email email = 2;
+		Phone phone = 3;
+		InAppTarget in_app_target = 4;
+	}
+
+	repeated SourceId source_ids = 5;
+	bool is_self = 6;
+	bool is_google_group = 7;
+	bool is_personal = 8;
+	social.graph.wire.proto.peopleapi.extension.PeopleStackFieldExtendedData people_stack_field_extended_data = 9;
+	string type_label = 10;
+	bool is_blocked = 11;
+	Reachability reachability = 13;
+	DisambiguationLabel disambiguation_label = 14;
+}

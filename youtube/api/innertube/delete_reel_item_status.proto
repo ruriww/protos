@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DeleteReelItemStatus {
+	option features.enum_type = CLOSED;
+
+	DELETE_REEL_ITEM_STATUS_UNKNOWN = 0;
+	DELETE_REEL_ITEM_STATUS_SUCCEEDED = 1;
+	DELETE_REEL_ITEM_STATUS_TRANSIENT_ERROR = 2;
+	DELETE_REEL_ITEM_STATUS_FAILED = 3;
+}

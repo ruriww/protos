@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GameCardRenderer {
+	Renderer game = 1;
+	Renderer subscribe_button = 2;
+	Renderer menu = 3;
+	bytes tracking_params = 5;
+	Command navigation_endpoint = 6;
+}
+
+extend Renderer {
+	GameCardRenderer game_card_renderer = 194137132;
+}

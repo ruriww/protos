@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsAgeType {
+	option features.enum_type = CLOSED;
+
+	KIDS_AGE_TYPE_UNKNOWN = 0;
+	KIDS_AGE_TYPE_INVALID_AGE = 1;
+	KIDS_AGE_TYPE_YOUNGER_KID = 2;
+	KIDS_AGE_TYPE_OLDER_KID = 3;
+	KIDS_AGE_TYPE_ADULT = 4;
+	KIDS_AGE_TYPE_CURRENT_YEAR = 5;
+}

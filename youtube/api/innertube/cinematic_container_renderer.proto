@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/cinematic_container_presentation_style.proto";
+import "youtube/api/innertube/cinematic_container_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CinematicContainerRenderer {
+	extend Renderer {
+		CinematicContainerRenderer cinematic_container_renderer = 455752576;
+	}
+
+	message CinematicContainerBackgroundImageConfig {
+		oneof image_source {
+			ThumbnailDetails thumbnail = 1;
+		}
+	}
+
+	CinematicContainerBackgroundImageConfig background_image_config = 1;
+
+	message CinematicContainerGradientColorConfig {
+		uint32 light_theme_color = 1;
+		uint32 dark_theme_color = 2;
+		float start_location = 3;
+	}
+
+	repeated CinematicContainerGradientColorConfig gradient_color_config = 2;
+	CinematicContainerPresentationStyle presentation_style = 3;
+	CinematicContainerConfig config = 4;
+
+	message CinematicContainerGradientColorStore {
+		map<int64, uint32> sampled_colors = 1;
+	}
+
+	CinematicContainerGradientColorStore color_store = 5;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package drishti.app.skia;
+
+import "image/tenor/creation/property_config.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message GlSkottieRendererCalculatorRuntimeOptions {
+	string id = 1;
+	image.tenor.creation.PropertyConfig property_config = 2;
+
+	oneof playback_speed_info {
+		double playback_speed = 3;
+		int64 modified_duration_microseconds = 4;
+	}
+}

@@ -1,0 +1,88 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_video_renderer.proto";
+import "youtube/api/innertube/grid_video_renderer.proto";
+import "youtube/api/innertube/autoplay_endpoint_renderer.proto";
+import "youtube/api/innertube/mdx_autoplay_video_renderer.proto";
+import "youtube/api/innertube/autonav_endpoint_renderer.proto";
+import "youtube/api/innertube/maybe_history_endpoint_renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoplayRenderer {
+	message AutoplaySet {
+		enum Mode {
+			option features.enum_type = CLOSED;
+
+			MODE_UNKNOWN = 0;
+			NORMAL = 1;
+			SHUFFLE = 2;
+			LOOP = 3;
+			LOOP_SHUFFLE = 4;
+			TIMED = 5;
+			LOOP_ONE = 6;
+		}
+
+		Mode mode = 1;
+		Command autoplay_video = 2;
+		Command next_button_video = 3;
+		Command previous_button_video = 4;
+
+		message AutoplaySetSupportedRenderers {
+			oneof renderer {
+				CompactVideoRenderer compact_video_renderer = 50630979;
+				GridVideoRenderer grid_video_renderer = 60373625;
+				AutoplayEndpointRenderer autoplay_endpoint_renderer = 84996305;
+				MdxAutoplayVideoRenderer mdx_autoplay_video_renderer = 102744238;
+				AutonavEndpointRenderer autonav_endpoint_renderer = 111631903;
+				MaybeHistoryEndpointRenderer maybe_history_endpoint_renderer = 114177671;
+			}
+		}
+
+		AutoplaySetSupportedRenderers autoplay_video_renderer = 5;
+		AutoplaySetSupportedRenderers next_video_renderer = 6;
+		AutoplaySetSupportedRenderers previous_video_renderer = 7;
+	}
+
+	repeated AutoplaySet sets = 1;
+	FormattedString title = 2;
+	int32 count_down_secs = 3;
+	repeated AutoplaySet background_sets = 4;
+	repeated AutoplaySet modified_sets = 6;
+
+	message AutoplayReplaySupportedRenderers {
+	}
+
+	AutoplayReplaySupportedRenderers replay_video_renderer = 7;
+	int64 lead_time_to_display_in_millis = 9;
+	int32 start_count_down_secs = 10;
+	bytes tracking_params = 11;
+	AutoplaySet.Mode client_mode_at_request = 12;
+	Renderer autoplay_explicit_choice_dialog_renderer = 13;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	AutoplayRenderer autoplay_renderer = 46659098;
+}
+
+extend Renderer {
+	AutoplayEndpointRenderer autoplay_endpoint_renderer = 84996305;
+}
+
+extend Renderer {
+	AutonavEndpointRenderer autonav_endpoint_renderer = 111631903;
+}
+
+extend Renderer {
+	MaybeHistoryEndpointRenderer maybe_history_endpoint_renderer = 114177671;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+import "youtube/client/blocks/api/mdx/media_hub_ui_device_item_type.proto";
+import "youtube/client/blocks/api/mdx/media_hub_ui_device_icon_type.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/active_device_playback_data.proto";
+import "youtube/client/blocks/api/mdx/connection_state.proto";
+import "youtube/client/blocks/api/mdx/device_state.proto";
+
+option objc_class_prefix = "YTBA";
+
+message MediaHubUiDeviceDisplayParams {
+	MediaHubUiDeviceItemType item_type = 1;
+	MediaHubUiDeviceIconType icon_type = 2;
+	elements.AttributedString device_name = 3;
+	youtube.api.innertube.ActiveDevicePlaybackData playback = 4;
+	ConnectionState connection_state = 5;
+	elements.AttributedString device_description_multitask_view = 6;
+	elements.AttributedString device_description_transfer_view = 7;
+	elements.AttributedString device_description = 8;
+	int32 volume_level = 9;
+	bool is_local_playback_cached = 11;
+	DeviceState device_state = 12;
+}

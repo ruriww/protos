@@ -1,0 +1,31 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/data/data_accessibility_attributes.proto";
+import "moneta/orchestration2/ui/logging/logging_configuration.proto";
+import "moneta/orchestration2/ui/common/functionaldata/functional_data_validation.proto";
+import "moneta/orchestration2/ui/common/data/snapshot_mode.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Data {
+	DataValue data_value = 1;
+	bool is_optional = 2;
+	string required_error_text = 3;
+	repeated eventrules.trigger.Trigger trigger = 4;
+	repeated eventrules.condition.Condition condition = 5;
+	repeated eventrules.resultingaction.ResultingAction resulting_action = 6;
+	int32 extension_field_number = 7;
+	DataAccessibilityAttributes accessibility_attributes = 8;
+	repeated logging.LoggingConfiguration logging_configuration = 9;
+	bool skip_active_children = 10;
+	repeated functionaldata.FunctionalDataValidation functional_data_validation = 11;
+	SnapshotMode snapshot_mode = 12;
+
+	extensions 1000 to max;
+}

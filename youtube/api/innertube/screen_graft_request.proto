@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visual_element.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScreenGraftRequest {
+	int32 ve_type = 1;
+	bytes request_tracking_params = 4;
+	string csn = 5;
+	VisualElement parent_visual_element = 6;
+	string parent_csn = 7;
+	string clone_csn = 8;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package identity_consent;
+
+import "privacy/consent/consent_purpose.proto";
+import "identity_consent/prefetched_consent_screen_info.proto";
+import "identity_consent/image_preferences.proto";
+
+option objc_class_prefix = "IDC";
+
+message FtcConsentApiParameters {
+	privacy.consent.ConsentPurpose consent_purpose = 1;
+	PrefetchedConsentScreenInfo consent_screen_info = 2;
+	bool consent_texts_only = 3;
+	ImagePreferences image_preferences = 4;
+}

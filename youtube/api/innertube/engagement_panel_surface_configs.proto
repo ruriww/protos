@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/engagement_panel_watch_surface_configs.proto";
+import "youtube/api/innertube/engagement_panel_reel_surface_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelSurfaceConfigs {
+	oneof surface_configs {
+		EngagementPanelWatchSurfaceConfigs engagement_panel_watch_surface_configs = 1;
+		EngagementPanelReelSurfaceConfigs engagement_panel_reel_surface_configs = 2;
+	}
+}

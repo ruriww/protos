@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message QueueAddMenuItemCommand {
+	extend Command {
+		QueueAddMenuItemCommand queue_add_menu_item_command = 469942096;
+	}
+
+	Command active_playback_command = 1;
+	Command no_active_playback_command = 2;
+}

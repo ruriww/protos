@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_blacklisted_content.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetKidsBlocklistPickerCommand {
+	KidsBlacklistedContent blocked_for_kids_content = 1;
+	string sheet_id = 2;
+	Command on_failure_action = 3;
+}
+
+extend Command {
+	GetKidsBlocklistPickerCommand get_kids_blocklist_picker_command = 370504584;
+}

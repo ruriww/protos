@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_link_visibility.proto";
+import "google/internal/identity/accountlinking/v1/e_link_visibility_update_operation.proto";
+
+option objc_class_prefix = "ALK";
+
+message UpdateLinkVisibility {
+	ELinkVisibility update_link_visibility = 1;
+	ELinkVisibilityUpdateOperation update_operation = 2;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PrivacyDropdownItemRenderer {
+	FormattedString label = 1;
+	Icon icon = 2;
+	FormattedString description = 3;
+
+	oneof value_oneof {
+		int32 int32_value = 4;
+		string string_value = 5;
+	}
+
+	bool is_selected = 6;
+	AccessibilityData accessibility = 7;
+	bool disabled = 8;
+	Command on_select_command = 9;
+	FormattedString item_message = 10;
+}

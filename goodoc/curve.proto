@@ -1,0 +1,14 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message Curve {
+	message Point {
+		double x = 1 [ default = 0e0 ];
+		double y = 2 [ default = 0e0 ];
+	}
+
+	repeated Point points = 1;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/remix_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ApplyAudioTrackCommand {
+	extend Command {
+		ApplyAudioTrackCommand apply_audio_track_command = 485207817;
+	}
+
+	repeated RemixSource remix_sources = 3;
+	Command on_navigation = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+import "google/protobuf/any.proto";
+import "moneta/testing/demoserver/teststudio/proto/test_scenario_type.proto";
+import "moneta/integrator/common/api_error.proto";
+
+option objc_class_prefix = "TSLSSE";
+
+message ExecuteTestScenarioResponse {
+	google.protobuf.Any response = 1;
+	int64 execution_id = 2;
+	TestScenarioType scenario_type = 3;
+	integrator.common.ApiError error = 4;
+}

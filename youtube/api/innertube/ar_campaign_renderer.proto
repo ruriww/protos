@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/feature_control.proto";
+import "youtube/api/innertube/effect_package_config.proto";
+import "youtube/api/innertube/web_serving_layer.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ArCampaignRenderer {
+	string campaign_id = 1;
+	FeatureControl feature_control = 2;
+	EffectPackageConfig effect_package_config = 3;
+	WebServingLayer web_serving_layer = 4;
+	Renderer survey = 5;
+	LoggingInfo logging_info = 6;
+	Renderer welcome_element_renderer = 7;
+	string video_id = 8;
+	string ar_camera_status_key = 9;
+	Renderer product_banner_hint_renderer = 10;
+}

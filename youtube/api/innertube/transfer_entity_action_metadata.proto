@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/transfer_state_update.proto";
+import "youtube/api/innertube/transfer_failure_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TransferEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		TransferEntityActionMetadata transfer_entity_action_metadata = 330586086;
+	}
+
+	repeated string additional_interstitial_video_ids_to_delete = 1;
+	OfflineabilityFormatType maximum_download_quality = 2;
+	string preferred_audio_track = 3;
+	bool is_expired_player_response_refetch_failure_callback = 5;
+	string playlist_id = 6;
+	bool only_download_on_wifi = 7;
+	int32 download_priority = 10;
+	OfflineModeType offline_mode_type = 11;
+	TransferStateUpdate transfer_state_update = 13;
+	string cotn = 14;
+	bool is_enqueued_for_pes = 15;
+	bool is_external_media = 16;
+	TransferFailureReason failure_reason = 17;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/red_carpet_playlist_video_renderer.proto";
+import "youtube/api/innertube/ios_client_offline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCarpetPlaylistVideoRendererExtension {
+	extend RedCarpetPlaylistVideoRenderer {
+		IosClientOfflineData ios_client_offline_data = 60648772;
+	}
+}

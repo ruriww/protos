@@ -1,0 +1,44 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.tax;
+
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_visibility_dependency.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/components/document/document_upload_form.proto";
+import "moneta/orchestration/ui/common/components/phone_form.proto";
+import "moneta/orchestration/ui/common/components/name/name_form.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/components/country_selector.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/dynamic_list.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message TaxInfoForm {
+	string id = 1;
+	string label = 2;
+	repeated generic.UiField tax_info_field = 4;
+	repeated generic.UiFieldVisibilityDependency field_dependency = 5;
+	generic.DependencyGraph dependency_graph = 6;
+	FormHeader form_header = 7;
+	Button verify_button = 8;
+	generic.InfoMessage initial_message = 9;
+	generic.InfoMessage on_update_message = 10;
+	AddressForm tax_address = 12;
+	repeated document.DocumentUploadForm tax_document_upload_form = 13;
+	PhoneForm tax_phone_form = 14;
+	name.NameForm tax_name_form = 15;
+	Link widget_link = 16;
+	repeated CountrySelector country_selector = 17;
+	AddressForm tax_mailing_address = 18;
+	repeated dynamiclist.DynamicList dynamic_list = 20;
+	Button reset_tax_id_validation_state_button = 21;
+	proto2.bridge.MessageSet private_extensions = 22;
+	repeated generic.InfoMessage description = 23;
+	repeated generic.InfoMessage always_visible_description = 24;
+}

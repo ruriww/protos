@@ -1,0 +1,15 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum DeviceDisconnectReason {
+	option features.enum_type = CLOSED;
+
+	DEVICE_DISCONNECT_REASON_UNKNOWN = 0;
+	STATUS_ERROR_NETWORK = 1;
+	STATUS_ERROR_HEARTBEAT_TIMEOUT = 2;
+	STATUS_EXPLICIT_DISCONNECT = 3;
+	STATUS_IMPLICIT_DISCONNECT = 4;
+}

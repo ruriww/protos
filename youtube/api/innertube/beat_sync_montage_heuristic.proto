@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum BeatSyncMontageHeuristic {
+	option features.enum_type = CLOSED;
+
+	BEAT_SYNC_MONTAGE_HEURISTIC_UNKNOWN = 0;
+	BEAT_SYNC_MONTAGE_HEURISTIC_ALL = 1;
+	BEAT_SYNC_MONTAGE_HEURISTIC_DOWNBEAT = 2;
+	BEAT_SYNC_MONTAGE_HEURISTIC_CONFIDENCE_BEAT = 3;
+	BEAT_SYNC_MONTAGE_HEURISTIC_FIRST_TWO = 4;
+	BEAT_SYNC_MONTAGE_HEURISTIC_FIRST_LAST = 5;
+	BEAT_SYNC_MONTAGE_HEURISTIC_FIRST_LAST_TWO = 6;
+	BEAT_SYNC_MONTAGE_HEURISTIC_AUTO_TRIM = 7;
+}

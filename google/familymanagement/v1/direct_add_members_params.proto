@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/direct_add_identifier.proto";
+
+option objc_class_prefix = "GFM";
+
+message DirectAddMembersParams {
+	DirectAddIdentifier direct_add_identifier = 1;
+}

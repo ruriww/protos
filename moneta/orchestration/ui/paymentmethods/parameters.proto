@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message Parameters {
+	integrator.ui.common.CommonParameters common_parameters = 2;
+	bool default_instrument_mode = 9;
+	int32 display_extra_instruments_for_billable_service = 10;
+}

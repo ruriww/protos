@@ -1,0 +1,15 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message PhoneOptions {
+	bool available_now = 1;
+	string phone_number = 2;
+	string phone_hours = 3;
+	string phone_info = 4;
+	repeated string phone_number_info = 5;
+	repeated string phone_hours_info = 6;
+	string estimated_wait_time_id = 7;
+}

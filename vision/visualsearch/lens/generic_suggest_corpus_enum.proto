@@ -1,0 +1,14 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum GenericSuggestCorpusEnum {
+	option features.enum_type = CLOSED;
+
+	GENERIC_SUGGEST_CORPUS_UNSPECIFIED = 0;
+	GENERIC_SUGGEST_CORPUS_PRODUCTION = 1;
+	GENERIC_SUGGEST_CORPUS_TEST = 2;
+	GENERIC_SUGGEST_CORPUS_TEST2 = 3;
+}

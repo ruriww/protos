@@ -1,0 +1,33 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message Param {
+	string name = 1;
+	int64 int_value = 2;
+	bool bool_value = 3;
+	double float64_value = 4;
+	string string_value = 5;
+
+	message ExtensionValue {
+		bytes serialized_value = 1;
+	}
+
+	ExtensionValue extension_value = 6;
+
+	enum ParamValueType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		INT_VALUE = 1;
+		BOOL_VALUE = 2;
+		FLOAT64_VALUE = 3;
+		STRING_VALUE = 4;
+		EXTENSION_VALUE = 5;
+	}
+
+	ParamValueType value_type = 9;
+	bool is_forced = 10;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+option objc_class_prefix = "UVSLP";
+
+message ProductContext {
+	message SensitiveContext {
+		repeated string experiment_id = 1;
+	}
+
+	SensitiveContext sensitive_context = 1;
+	string product_version = 2;
+}

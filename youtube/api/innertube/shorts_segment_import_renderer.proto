@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/segment_import_footer_button_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsSegmentImportRenderer {
+	extend Renderer {
+		ShortsSegmentImportRenderer shorts_segment_import_renderer = 1283;
+	}
+
+	int32 max_asset_selection_limit = 1;
+	int32 download_auto_retry_limit = 2;
+	int32 transcode_failure_auto_retry_limit = 3;
+	google.protobuf.Duration auto_retry_timeout_duration = 4;
+	bool is_photos_import_enabled = 5;
+	Renderer primary_footer_button = 6;
+	SegmentImportFooterButtonState secondary_footer_button_state = 7;
+	Renderer secondary_footer_button = 8;
+	int32 image_duration_ms_interpretation = 9;
+}

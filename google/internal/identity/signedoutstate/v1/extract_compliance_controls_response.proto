@@ -1,0 +1,8 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+option objc_class_prefix = "SOS";
+
+message ExtractComplianceControlsResponse {
+}

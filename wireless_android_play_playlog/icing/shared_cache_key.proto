@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+option objc_class_prefix = "ICING";
+
+message SharedCacheKey {
+	int32 version = 1;
+	int64 ttl = 2;
+	string cache_group = 3;
+	string cache_name = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.feed;
+
+import "google/rpc/status.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ApplyMutationOperationsResult {
+	google.rpc.Status status = 1;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/change_markers_visibility_restriction_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChangeMarkersVisibilityCommand {
+	extend Command {
+		ChangeMarkersVisibilityCommand change_markers_visibility_command = 384712612;
+	}
+
+	bool is_visible = 1;
+	repeated string entity_keys = 2;
+	ChangeMarkersVisibilityRestrictionMode visibility_restriction_mode = 3;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package lens;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DeviceInfo {
+	string device_guid = 1;
+	string device_name = 2;
+
+	enum DeviceType {
+		UNSET = 0;
+		WIN = 1;
+		MACOSX = 2;
+		LINUX = 3;
+		CHROMEOS = 4;
+		OTHER = 5;
+		PHONE = 6;
+		TABLET = 7;
+	}
+
+	DeviceType device_type = 3;
+	google.protobuf.Timestamp most_recent_activity_timestamp = 5;
+	string device_full_name = 6;
+
+	enum NotEligibleReason {
+		UNKNOWN = 0;
+		INACTIVE = 1;
+		REMOTE_COPY_NOT_ENABLED = 2;
+		MISSING_ENCRYPTION_DATA = 3;
+		UNSUPPORTED_SYSTEM = 4;
+		CHROME_OUTDATED = 5;
+		RECENTLY_INACTIVE = 6;
+	}
+
+	repeated NotEligibleReason not_eligible_reason = 7;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DAIErrorType {
+	option features.enum_type = CLOSED;
+
+	DAI_ERROR_TYPE_UNKNOWN = 0;
+	DAI_ERROR_TYPE_NO_AD_BREAK_RENDERER = 1;
+	DAI_ERROR_TYPE_NO_AD_BREAK_PARAMS = 2;
+	DAI_ERROR_TYPE_CUEPOINT_WITH_INVALID_EVENT = 3;
+	DAI_ERROR_TYPE_LATE_CUEPOINT = 4;
+	DAI_ERROR_TYPE_AD_REQUEST_FAIL = 5;
+	DAI_ERROR_TYPE_CRITICAL_NO_SUPPORTED_ABR = 6;
+	DAI_ERROR_TYPE_NO_CUE_IDENTIFIER = 7;
+	DAI_ERROR_TYPE_DUPLICATED_CUE_IDENTIFIER = 8;
+	DAI_ERROR_TYPE_OUTDATED_CUEPOINT_ENDDATE = 9;
+	DAI_ERROR_TYPE_LATE_ADBREAK = 10;
+	DAI_ERROR_TYPE_ADBREAK_OUT_OF_RANGE = 11;
+	DAI_ERROR_TYPE_FILL_AD_BREAK_FAILURE = 12;
+	DAI_ERROR_TYPE_QUERY_UNFULFILLED = 13;
+}

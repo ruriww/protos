@@ -1,0 +1,16 @@
+edition = "2023";
+
+package geostore;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "GS";
+
+message AddressRangeProto {
+	repeated int32 number = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated float parameter = 2 [ features.repeated_field_encoding = EXPANDED ];
+	bool same_parity = 3 [ default = true ];
+	string prefix = 4;
+	string suffix = 5;
+	proto2.bridge.MessageSet temporary_data = 15;
+}

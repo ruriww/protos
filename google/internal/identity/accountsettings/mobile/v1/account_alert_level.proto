@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+enum AccountAlertLevel {
+	option features.enum_type = CLOSED;
+
+	ACCOUNT_ALERT_LEVEL_UNSPECIFIED = 0;
+	ACCOUNT_ALERT_LEVEL_INFORMATION = 1;
+	ACCOUNT_ALERT_LEVEL_SUGGESTION = 4;
+	ACCOUNT_ALERT_LEVEL_RECOMMENDATION = 2;
+	ACCOUNT_ALERT_LEVEL_CRITICAL = 3;
+}

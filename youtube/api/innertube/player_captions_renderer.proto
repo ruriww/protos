@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_captions_metadata_supported_renderers.proto";
+import "youtube/api/innertube/captions_initial_state.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerCaptionsRenderer {
+	string base_url = 1;
+
+	enum CaptionsVisibility {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OFF = 1;
+		ON = 2;
+		FORCED_ON = 3;
+		ON_WEAK = 4;
+		OFF_WEAK = 5;
+	}
+
+	CaptionsVisibility visibility = 2;
+	PlayerCaptionsMetadataSupportedRenderers contribute = 3;
+	bool show_auto_captions = 4;
+	string display_name = 5;
+	CaptionsInitialState captions_initial_state = 6;
+}
+
+extend Renderer {
+	PlayerCaptionsRenderer player_captions_renderer = 49413586;
+}

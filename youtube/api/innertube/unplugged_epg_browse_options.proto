@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedEpgBrowseOptions {
+	int32 max_airings_per_station = 1;
+	int64 epg_fetch_time_ms = 2;
+	int64 max_duration_ms = 3;
+	int64 initial_epg_fetch_start_time_ms = 4;
+	int32 initial_epg_fetch_duration_ms = 5;
+	int32 pagination_duration_ms = 6;
+	bool is_tvhtml5_channel_zapper = 7;
+}

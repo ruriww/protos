@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/visual_suggest_results.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message FetchVisualSuggestResultResponse {
+	string raw_result = 1;
+	.lens.VisualSuggestResults visual_suggest_results = 2;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "google/protobuf/timestamp.proto";
+import "notifications/frontend/data/common/inbox_image.proto";
+import "notifications/frontend/data/common/inbox_button.proto";
+import "notifications/frontend/data/common/inbox_action.proto";
+
+option objc_class_prefix = "NFDC";
+
+message InboxMessage {
+	string title = 1;
+	string text = 2;
+	google.protobuf.Timestamp timestamp = 3;
+	string subtitle = 4;
+	float priority = 5;
+	InboxImage icon = 6;
+	repeated InboxButton action_button = 7;
+	InboxAction click_action = 8;
+
+	message KeyValue {
+		string key = 1;
+		string value = 2;
+	}
+
+	repeated KeyValue app_payload = 9;
+}

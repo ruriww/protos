@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/poll_option_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollEditorInfo {
+	ButtonSupportedRenderers add_option_button = 1;
+	FormattedString option_placeholder_text = 2;
+	int32 min_poll_options = 3;
+	int32 max_poll_options = 4;
+	int32 min_poll_option_chars = 5;
+	int32 max_poll_option_chars = 6;
+	FormattedString question_placeholder_text = 7;
+	repeated FormattedString custom_option_placeholder_text = 8;
+	FormattedString header_text = 9;
+	Icon header_icon = 10;
+	int32 max_poll_question_chars = 11;
+	FormattedString poll_question_char_count_error_text = 12;
+	PollOptionData poll_option_data = 13;
+	FormattedString option_default_text = 14;
+}

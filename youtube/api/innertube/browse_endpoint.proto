@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/browse_endpoint_context_supported_configs.proto";
+import "youtube/api/innertube/browse_endpoint_form_data.proto";
+import "youtube/api/innertube/browse_navigation_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseEndpoint {
+	string browse_id = 2;
+	string params = 3;
+	string canonical_base_url = 4;
+	string query = 5;
+	BrowseEndpointContextSupportedConfigs browse_endpoint_context_supported_configs = 6;
+	bool offline = 7;
+	BrowseEndpointFormData form_data = 8;
+	bool nofollow = 11;
+	string parent_tab_identifier = 12;
+	BrowseNavigationType navigation_type = 14;
+	bool force_reload = 15;
+	bool present_in_shorts_context = 16;
+	bool hide_pivot_bar = 19;
+}
+
+extend Command {
+	BrowseEndpoint browse_endpoint = 48687626;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message QuizEditorInfo {
+	ButtonSupportedRenderers add_option_button = 1;
+	FormattedString option_placeholder_text = 2;
+	FormattedString explanation_placeholder_text = 3;
+	int32 min_quiz_options = 4;
+	int32 max_quiz_options = 5;
+	int32 min_quiz_option_chars = 6;
+	int32 max_quiz_option_chars = 7;
+	int32 min_quiz_explanation_chars = 8;
+	int32 max_quiz_explanation_chars = 9;
+	ButtonSupportedRenderers mark_answer_button = 10;
+	AccessibilitySupportedDatas remove_option_button_a11y_text = 11;
+}

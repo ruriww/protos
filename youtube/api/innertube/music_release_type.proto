@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicReleaseType {
+	option features.enum_type = CLOSED;
+
+	MUSIC_RELEASE_TYPE_UNKNOWN = 0;
+	MUSIC_RELEASE_TYPE_SINGLE = 1;
+	MUSIC_RELEASE_TYPE_EP = 2;
+	MUSIC_RELEASE_TYPE_ALBUM = 3;
+	MUSIC_RELEASE_TYPE_AUDIOBOOK = 4;
+	MUSIC_RELEASE_TYPE_AUDIODRAMA = 5;
+}

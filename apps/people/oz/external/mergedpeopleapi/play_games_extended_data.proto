@@ -1,0 +1,35 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/product_profile_failure.proto";
+
+option objc_class_prefix = "POEM";
+
+message PlayGamesExtendedData {
+	string gamer_tag = 1;
+	string avatar_image_url = 2;
+	int64 total_unlocked_achievements = 3;
+	int32 player_level = 4;
+
+	message Achievement {
+		string achievement_name = 1;
+		string achievement_unlocked_icon_url = 2;
+		float rarity_percentage = 3;
+	}
+
+	repeated Achievement achievements = 5;
+
+	enum ClientPlayerProfileVisibility {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CLIENT_PLAYER_PROFILE_VISIBILITY = 0;
+		PRIVATE_VISIBILITY = 1;
+		PUBLIC_VISIBILITY = 2;
+		FRIENDS_VISIBILITY = 3;
+	}
+
+	ClientPlayerProfileVisibility profile_visibility = 6;
+	int64 total_friends_count = 7;
+	ProductProfileFailure failure = 8;
+}

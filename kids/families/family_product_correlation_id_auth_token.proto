@@ -1,0 +1,12 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/family_product_correlation_id.proto";
+
+option objc_class_prefix = "FAM";
+
+message FamilyProductCorrelationIdAuthToken {
+	FamilyProductCorrelationId.Type type = 1;
+	bytes auth_token = 2;
+}

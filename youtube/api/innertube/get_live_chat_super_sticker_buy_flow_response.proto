@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetLiveChatSuperStickerBuyFlowResponse {
+	ResponseContext response_context = 1;
+
+	oneof content {
+		Renderer renderer = 2;
+		EngagementPanelSupportedRenderers engagement_panel = 3;
+		Command command = 6;
+	}
+
+	bytes tracking_params = 5;
+	repeated string app_store_product_ids = 7;
+	repeated string supported_app_stores = 8;
+	string app_store_content_entity_key = 9;
+	FrameworkUpdateTransport framework_updates = 777;
+}

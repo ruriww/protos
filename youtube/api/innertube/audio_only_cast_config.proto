@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_id_castability.proto";
+import "youtube/api/innertube/playlist_id_castability.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudioOnlyCastConfig {
+	VideoIdCastability video_id_castability = 1;
+	PlaylistIdCastability playlist_id_castability = 2;
+}

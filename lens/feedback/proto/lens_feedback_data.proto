@@ -1,0 +1,18 @@
+edition = "2023";
+
+package lens.feedback.proto;
+
+import "google/internal/lens/api/v1/client_image.proto";
+import "quality_genie/eyes/applied_filters.proto";
+import "google/internal/lens/api/v1/lens_request.proto";
+import "google/internal/lens/api/v1/lens_response.proto";
+
+option objc_class_prefix = "LNSUFM";
+
+message LensFeedbackData {
+	google.internal.lens.api.v1.ClientImage client_image = 1;
+	quality_genie.eyes.AppliedFilters client_filters = 3;
+	repeated google.internal.lens.api.v1.LensRequest request_sequence = 4;
+	repeated google.internal.lens.api.v1.LensResponse response_sequence = 5;
+	bool is_lensient_session = 9;
+}

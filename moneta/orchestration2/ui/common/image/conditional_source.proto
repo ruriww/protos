@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image;
+
+import "moneta/orchestration2/ui/common/node/device_state_condition.proto";
+import "webutil/html/types/safe_url_proto.proto";
+import "moneta/orchestration2/ui/common/image/embedded_image.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ConditionalSource {
+	repeated node.DeviceStateCondition condition = 1;
+
+	oneof source {
+		webutil.html.types.SafeUrlProto safe_uri = 2;
+		string data_uri = 3;
+		string fife_url = 4;
+		EmbeddedImage embedded_image = 5;
+		bytes raw_data = 8;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/gen_ai_response.proto";
+import "lens/common/detected_text.proto";
+import "google/internal/lens/frontend/api/v1/interaction_data.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message InteractionResponse {
+	string encoded_multimodal_suggest_image_signals = 3;
+	.lens.GenAiResponse gen_ai_response = 4;
+	.lens.common.DetectedText detected_text = 5;
+	InteractionData interaction_data = 6;
+}

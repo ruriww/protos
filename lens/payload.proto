@@ -1,0 +1,17 @@
+edition = "2023";
+
+package lens;
+
+import "lens/client_image.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Payload {
+	oneof type {
+		ClientImage client_image = 1;
+	}
+
+	bytes content_data = 7;
+	string content_type = 8;
+	string page_url = 12;
+}

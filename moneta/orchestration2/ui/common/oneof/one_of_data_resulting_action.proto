@@ -1,0 +1,41 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.oneof;
+
+import "moneta/orchestration2/ui/common/focus/focus_instruction.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message OneOfDataResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		OneOfDataResultingAction one_of_data_resulting_action_extension = 238549017;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SET_ACTIVE_OPTION_ID = 1;
+		RESULTING_ACTION_TYPE_SET_ACTIVE_OPTION_AND_FOCUS = 2;
+		RESULTING_ACTION_TYPE_SET_ACTIVE_OPTION_AND_FOCUS_BY_REFERENCE = 3;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	message SetActiveOptionAction {
+		int32 new_active_option_id = 1;
+		focus.FocusInstruction focus_instruction = 2;
+	}
+
+	message SetActiveOptionByReferenceAction {
+		int64 data_reference = 1;
+		focus.FocusInstruction focus_instruction = 2;
+	}
+
+	oneof resulting_action {
+		int32 new_active_option_id = 2;
+		SetActiveOptionAction set_active_option_action = 3;
+		SetActiveOptionByReferenceAction set_active_option_by_reference_action = 4;
+	}
+}

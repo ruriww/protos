@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/frame_processing_graph.proto";
+import "logs/proto/lens/on_device_model_manager_log_data.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message FrameProcessingGraphLogData {
+	FrameProcessingGraph.FrameProcessingGraphType frame_processing_graph_type = 1;
+	FrameProcessingGraph.FrameProcessingGraphConfigLabel frame_processing_graph_config_label = 2;
+	repeated OnDeviceModelManagerLogData.OnDeviceModelType on_device_model_type = 3;
+}

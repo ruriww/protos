@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/types/bank_account_verification.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/mandate_form.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+
+option objc_class_prefix = "Orch";
+
+message InstrumentActivationForm {
+	oneof form {
+		types.BankAccountVerification bank_account_verification = 1;
+		types.MandateForm mandate_form = 2;
+	}
+
+	FormHeader form_header = 3;
+}

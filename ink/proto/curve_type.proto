@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum CurveType {
+	option features.enum_type = CLOSED;
+
+	UNSPECIFIED_CURVE_TYPE = 0;
+	EASE_IN_OUT = 1;
+	EASE_IN = 2;
+	EASE_OUT = 3;
+	CUSTOM_CUBIC_BEZIER = 4;
+}

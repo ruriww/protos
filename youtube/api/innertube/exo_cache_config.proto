@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExoCacheConfig {
+	bool enable_exo_cache = 1;
+	uint64 large_exo_cache_size_bytes = 2;
+	uint64 small_exo_cache_size_bytes = 3;
+	bool enable_encrypted_cache_index_reading = 7;
+	bool enable_encrypted_cache_index_writing = 8;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationGreenScreenMediaPickerRenderer {
+	extend Renderer {
+		ShortsCreationGreenScreenMediaPickerRenderer shorts_creation_green_screen_media_picker_renderer = 1140;
+	}
+
+	repeated Renderer media_generation_entrypoints = 1;
+	LoggingDirectives logging_directives = 999;
+}

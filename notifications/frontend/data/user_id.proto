@@ -1,0 +1,23 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/gaia_user_credentials.proto";
+import "notifications/frontend/data/zwieback_user_credentials.proto";
+import "notifications/frontend/data/delegated_gaia_user_credentials.proto";
+import "notifications/frontend/data/you_tube_visitor_credentials.proto";
+import "notifications/frontend/data/fitbit_credentials.proto";
+import "notifications/frontend/data/gaia_user_without_credentials.proto";
+
+option objc_class_prefix = "NFD";
+
+message UserId {
+	oneof credentials {
+		GaiaUserCredentials gaia_credentials = 1;
+		ZwiebackUserCredentials zwieback_credentials = 2;
+		DelegatedGaiaUserCredentials delegated_gaia_credentials = 3;
+		YouTubeVisitorCredentials youtube_visitor_credentials = 4;
+		FitbitCredentials fitbit_credentials = 5;
+		GaiaUserWithoutCredentials gaia_without_credentials = 6;
+	}
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/privacy_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatePlaylistServiceEndpoint {
+	extend Command {
+		CreatePlaylistServiceEndpoint create_playlist_service_endpoint = 124747980;
+	}
+
+	repeated string video_ids = 1;
+	string source_playlist_id = 2;
+	bool hack = 3;
+	string params = 4;
+	string title = 5;
+	PrivacyStatus privacy_status = 6;
+	string description = 7;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/message_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message ContentReportId {
+	MessageId message_id = 1;
+	string report_id = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InputDataCondition {
+	extend eventrules.condition.Condition {
+		InputDataCondition input_data_condition_extension = 232901550;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_PASS_VALIDATION = 1;
+	}
+
+	ConditionType condition_type = 1;
+}

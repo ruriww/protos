@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.customerselector;
+
+option objc_class_prefix = "Orch";
+
+message CustomerSelectorValue {
+	bytes option_token = 2;
+	string id = 3;
+	int64 ui_reference = 4;
+	bytes form_token = 5;
+}

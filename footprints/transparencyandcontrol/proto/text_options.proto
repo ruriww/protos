@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_variant.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message TextOptions {
+	bool strip_html = 1;
+	ConsentVariant consent_variant = 2;
+}

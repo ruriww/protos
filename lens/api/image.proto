@@ -1,0 +1,19 @@
+edition = "2023";
+
+package lens.api;
+
+import "lens/api/image_attribute.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Image {
+	string source_url = 1;
+	int32 width = 2;
+	int32 height = 3;
+	string action_url = 4;
+	ImageAttribute attribute = 5;
+	string encrypted_docid = 8;
+	int32 original_image_width = 9;
+	int32 original_image_height = 10;
+	string original_referrer_url = 14;
+}

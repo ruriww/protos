@@ -1,0 +1,15 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+import "media/webrtc/server/chameleon/karma/push/client_receive_stream.proto";
+import "media/webrtc/server/chameleon/karma/push/stream_identifier.proto";
+import "media/webrtc/server/chameleon/karma/push/sync_metadata.proto";
+
+option objc_class_prefix = "WRTCSMR";
+
+message StreamsPush {
+	repeated ClientReceiveStream modified_streams = 1;
+	repeated StreamIdentifier deleted_streams = 2;
+	SyncMetadata sync_metadata = 4;
+}

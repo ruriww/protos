@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shopping_item_id.proto";
+import "youtube/api/innertube/crop_coordinates.proto";
+import "youtube/api/innertube/editing.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostCreateImageData {
+	string encrypted_blob_id = 1;
+	CropCoordinates preview_coordinates = 2;
+	Editing editing = 4;
+
+	message ShoppingData {
+		repeated ShoppingItemId shopping_item_ids = 1;
+	}
+
+	ShoppingData shopping_data = 5;
+	bytes generated_media_image = 6;
+}

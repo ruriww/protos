@@ -1,0 +1,14 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/error_domain.proto";
+
+option objc_class_prefix = "CADP";
+
+message CastErrorInfo {
+	uint32 error_id = 1;
+	uint32 count = 2;
+	cast.ErrorDomain underlying_error_domain = 3;
+	int32 underlying_error_code = 4;
+}

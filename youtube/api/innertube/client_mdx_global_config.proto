@@ -1,0 +1,64 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_notification.proto";
+import "youtube/api/innertube/mdx_notification_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientMdxGlobalConfig {
+	bool enable_mdx_smart_pairing = 1;
+	bool enable_cast_switch = 2;
+	bool enable_auto_casting = 3;
+	bool enable_skippable_ad = 4;
+	bool enable_promotions = 6;
+	bool enable_playlist_modes = 7;
+	bool enable_trailer_playback = 8;
+	MdxNotification select_screen_notification = 9;
+	bool enable_mdx_tap_to_queue = 10;
+	int32 shapeshifter_icon_id = 11;
+	int32 local_transport_option = 12;
+	bool enable_lock_screen_controls = 13;
+	bool enable_mdx_tap_to_queue_auto_playnow = 14;
+	repeated MdxNotification notifications = 15;
+	repeated MdxNotificationTrigger notification_triggers = 16;
+	int32 notification_counter_reference_id = 17;
+	bool enable_storyboard = 18;
+	bool enable_session_recovery = 19;
+	bool enable_local_transport_encryption = 20;
+	int32 local_notifications = 21;
+	bool unplugged_orbit = 22;
+	string local_notifications_bitmap_url = 23;
+	bool enable_fiji_jump_buttons = 25;
+	bool is_counterfactual = 26;
+	bool enable_android_cast_sdk_v3 = 27;
+	bool enable_continue_watching_on_tv_notifications = 28;
+	bool passive_seamless_sign_in = 29;
+	bool continue_watching_on_tv_notifications_is_counterfactual = 30;
+	bool passive_seamless_sign_in_counterfactual = 31;
+	uint32 passive_seamless_sign_in_text_options = 32;
+	bool enable_one_cast = 33;
+	uint32 continue_watching_on_tv_notifications_quiet_period_days = 36;
+	uint32 continue_watching_on_tv_notifications_remaining_time_seconds = 37;
+	bool mdx_rx_director = 38;
+	bool enable_orbit_queue_impl = 39;
+	bool enable_client_side_mdx_notification_requests = 40;
+	uint32 mdx_notification_requests_quiet_period_minutes = 41;
+	uint32 mdx_notification_device_scan_duration_seconds = 42;
+	uint32 mdx_notification_device_scan_period_seconds = 43;
+	uint32 mdx_notification_ttl_hours = 44;
+	bool mdx_simply_app_id_enabled = 46;
+	bool mdx_player_revo_listen_rx_player_event = 47;
+	bool mdx_player_revo_listen_rx_sequencer_event = 48;
+	bool mdx_player_revo_emit_rx_player_event = 49;
+	bool mdx_player_revo_use_mdx_director_2 = 50;
+	bool mdx_smart_remote_enable_fiji_modification = 51;
+	uint32 mdx_notification_requests_quiet_period_after_receiving_minutes = 52;
+	string mdx_impacted_sessions_server_event = 53;
+	bool enable_mdx_impacted_sessions_server_event = 54;
+	bool enable_mdx_assisted_sign_in_mobile = 55;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message MDNSRequestStatistics {
+	int32 peak_request = 1;
+	int32 average_request = 2;
+	int32 duration_sec = 3;
+}

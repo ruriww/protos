@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextInputFormFieldRenderer {
+	FormattedString label = 1;
+	string value = 2;
+	bool disabled = 3;
+	uint32 max_character_limit = 4;
+	string placeholder_text = 5;
+	string key = 6;
+	Command on_change = 7;
+	string valid_value_regexp = 8;
+	FormattedString invalid_value_error_message = 9;
+	bool is_multiline = 10;
+	bool required = 11;
+	uint32 rows = 12;
+	bool hide_char_counter = 14;
+}

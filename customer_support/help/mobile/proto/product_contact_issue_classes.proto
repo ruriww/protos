@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/contact_issue_class.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ProductContactIssueClasses {
+	string feedback_product_id = 1;
+	repeated ContactIssueClass issue_class = 2;
+	bool all_form_fields_required = 3 [ default = false ];
+}

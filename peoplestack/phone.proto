@@ -1,0 +1,11 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message Phone {
+	string display_value = 1;
+	string canonical_value = 2;
+	string original_value = 3;
+}

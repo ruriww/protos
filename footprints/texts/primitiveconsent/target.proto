@@ -1,0 +1,44 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/primitive_dialog_id.proto";
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message Target {
+	message Dialog {
+		PrimitiveDialogId dialog_id = 1;
+	}
+
+	Dialog dialog = 1;
+
+	message WebResource {
+		webutil.html.types.SafeUrlProto url = 1;
+		bool open_in_new_tab = 2;
+
+		enum PresentationType {
+			option features.enum_type = CLOSED;
+
+			PRESENTATION_TYPE_UNSPECIFIED = 0;
+			EMBEDDED_BROWSER = 1;
+			EXTERNAL_BROWSER = 2;
+		}
+
+		PresentationType presentation_type = 3;
+	}
+
+	enum ConsentDelegatedAction {
+		option features.enum_type = CLOSED;
+
+		CONSENT_DELEGATED_ACTION_UNSPECIFIED = 0;
+		TRIGGER_SIGN_IN_FLOW = 1;
+	}
+
+	oneof target {
+		Dialog dialog_v2 = 2;
+		WebResource web_resource = 3;
+		ConsentDelegatedAction consent_delegated_action = 4;
+	}
+}

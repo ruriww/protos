@@ -1,0 +1,12 @@
+edition = "2023";
+
+package knowledge;
+
+import "knowledge/query.proto";
+import "knowledge_answers/intent_query/function_call.proto";
+
+option objc_class_prefix = "KQBP";
+
+extend Query {
+	knowledge_answers.intent_query.FunctionCall intent_query = 56249026;
+}

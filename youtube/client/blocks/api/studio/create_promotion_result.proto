@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/create_promotion_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message CreatePromotionResult {
+	youtube.api.innertube.CreatePromotionResponse response = 1;
+}

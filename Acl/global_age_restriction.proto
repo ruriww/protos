@@ -1,0 +1,10 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+message GlobalAgeRestriction {
+	int32 minimum_age_years = 1;
+	int32 maximum_age_years = 2;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package engage.api.shared.cms.configuration;
+
+option objc_class_prefix = "EASC";
+
+message CmsValueRuleGraphReference {
+	int64 cms_configuration_value_rule_graph_id = 1;
+	string value_rule_graph_view_identifier = 2;
+}

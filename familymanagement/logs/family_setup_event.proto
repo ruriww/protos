@@ -1,0 +1,13 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/family_invites_event.proto";
+import "familymanagement/logs/family_management_event_enum.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilySetupEvent {
+	FamilyInvitesEvent invites_event = 2;
+	FamilyManagementEventEnum.FamilySetupEventType event_type = 3;
+}

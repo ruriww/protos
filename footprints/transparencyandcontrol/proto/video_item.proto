@@ -1,0 +1,11 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message VideoItem {
+	string thumbnail_image_src = 1;
+	string formatted_duration = 2;
+	int32 watched_percentage = 3;
+}

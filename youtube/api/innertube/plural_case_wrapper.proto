@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string_wrapper.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PluralCaseWrapper {
+	enum Keyword {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ZERO = 1;
+		ONE = 2;
+		TWO = 3;
+		FEW = 4;
+		MANY = 5;
+		OTHER = 6;
+	}
+
+	oneof selector {
+		Keyword keyword = 1;
+		int32 explicit_value = 4;
+	}
+
+	FormattedStringWrapper formatted_string_wrapper = 2;
+	int32 value_index = 3;
+}

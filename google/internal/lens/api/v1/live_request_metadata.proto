@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "speech/s3/request.proto";
+import "google/internal/lens/api/v1/live_history.proto";
+
+option objc_class_prefix = "LFE";
+
+message LiveRequestMetadata {
+	speech.s3.Request s3_request = 1;
+	LiveHistory history_for_eval = 2;
+}

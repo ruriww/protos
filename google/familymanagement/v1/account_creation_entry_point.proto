@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum AccountCreationEntryPoint {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_ENTRY_POINT = 0;
+	FAMILY_LINK = 1;
+	OUT_OF_BOX = 2;
+	ADD_ACCOUNT = 3;
+	ULP_YOUTUBE_CREATION = 4;
+	ULP_YOUTUBE_MIGRATION = 5;
+	ULP_AMATI_CREATION = 6;
+	MULTIUSER = 9;
+	ULP_DUMBLEDORE_CREATION = 7;
+	ULP_ASSISTANT_CREATION = 8;
+}

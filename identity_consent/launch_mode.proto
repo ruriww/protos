@@ -1,0 +1,14 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+enum LaunchMode {
+	option features.enum_type = CLOSED;
+
+	LAUNCH_MODE_UNSPECIFIED = 0;
+	LAUNCH_IMMEDIATELY = 1;
+	BACKGROUND_LOAD_LAUNCH_WHEN_READY = 2;
+	DARK_LAUNCH = 3;
+}

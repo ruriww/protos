@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowingResultsForRenderer {
+	FormattedString showing_results_for = 1;
+	FormattedString corrected_query = 2;
+	Command corrected_query_endpoint = 3;
+	FormattedString search_instead_for = 4;
+	FormattedString original_query = 5;
+	Command original_query_endpoint = 6;
+	bytes tracking_params = 8;
+	bool from_voice_query = 9;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+
+option objc_class_prefix = "GFM";
+
+message CanAddMemberResponse {
+	ApiResponseHeader api_header = 1;
+	bool can_add_member = 2;
+	repeated UnmetPrecondition unmet_preconditions = 3;
+	bytes instrument_challenge_token = 4;
+}

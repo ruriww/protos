@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/setting_category_entry_renderer.proto";
+import "youtube/api/innertube/setting_category_collection_renderer.proto";
+import "youtube/api/innertube/background_offline_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/music_shortcuts_setting_category_entry_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineSettingsResponseSupportedRenderers {
+	oneof renderer {
+		SettingCategoryEntryRenderer setting_category_entry_renderer = 61520386;
+		SettingCategoryCollectionRenderer setting_category_collection_renderer = 66930374;
+		CaptionSettingCategoryRenderer caption_setting_category_renderer = 85446662;
+		BackgroundOfflineSettingCategoryEntryRenderer background_offline_setting_category_entry_renderer = 88478200;
+		MusicShortcutsSettingCategoryEntryRenderer music_shortcuts_setting_category_entry_renderer = 230577543;
+	}
+}

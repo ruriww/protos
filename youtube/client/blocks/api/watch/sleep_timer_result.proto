@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/client/blocks/api/watch/sleep_timer_option.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SleepTimerResult {
+	SleepTimerOption sleep_timer_option = 1;
+}

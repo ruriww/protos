@@ -1,0 +1,20 @@
+edition = "2023";
+
+package focus_backend;
+
+import "focus_backend/device_raw_contact_id.proto";
+import "focus_backend/secondary_contact_id.proto";
+import "focus_backend/other_contact_id.proto";
+
+option objc_class_prefix = "FSBKD";
+
+message ContactPointer {
+	oneof primary_id {
+		int64 focus_contact_id = 1;
+		DeviceRawContactId device_raw_contact_id = 2;
+		int64 annotation_id = 4;
+	}
+
+	SecondaryContactId secondary_id = 3;
+	OtherContactId other_contact_id = 5;
+}

@@ -1,0 +1,113 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/mde_title_update_request.proto";
+import "youtube/api/innertube/mde_description_update_request.proto";
+import "youtube/api/innertube/mde_privacy_update_request.proto";
+import "youtube/api/innertube/mde_tags_update_request.proto";
+import "youtube/api/innertube/mde_category_update_request.proto";
+import "youtube/api/innertube/mde_license_update_request.proto";
+import "youtube/api/innertube/mde_comment_options_update_request.proto";
+import "youtube/api/innertube/mde_distribution_options_update_request.proto";
+import "youtube/api/innertube/mde_age_restriction_update_request.proto";
+import "youtube/api/innertube/mde_captions_certificate_update_request.proto";
+import "youtube/api/innertube/mde_location_update_request.proto";
+import "youtube/api/innertube/mde_monetization_settings_update_request.proto";
+import "youtube/api/innertube/mde_game_title_update_request.proto";
+import "youtube/api/innertube/mde_usage_policy_update_request.proto";
+import "youtube/api/innertube/mde_add_to_playlist_update_request.proto";
+import "youtube/api/innertube/mde_video_still_request_params.proto";
+import "youtube/api/innertube/mde_product_placement_request_params.proto";
+import "youtube/api/innertube/mde_match_policy_update_request_params.proto";
+import "youtube/api/innertube/mde_live_chat_update_request_params.proto";
+import "youtube/api/innertube/mde_live_stream_schedule_update_request_params.proto";
+import "youtube/api/innertube/mde_privacy_state_update_request_params.proto";
+import "youtube/api/innertube/mde_draft_state_update_request_params.proto";
+import "youtube/api/innertube/mde_premiere_request_params.proto";
+import "youtube/api/innertube/mde_sponsors_only_request_params.proto";
+import "youtube/api/innertube/mde_targeted_audience_update_request_params.proto";
+import "youtube/api/innertube/mde_made_for_kids_update_request_params.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/attestation_response_data.proto";
+import "youtube/api/innertube/mde_products_selection_update_request_params.proto";
+import "youtube/api/innertube/mde_flow_type.proto";
+import "youtube/api/innertube/mde_broadcast_conference_update_request_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MetadataUpdateRequest {
+	enum MdeBooleanState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ENABLED = 1;
+		DISABLED = 2;
+	}
+
+	InnerTubeContext context = 1;
+	string encrypted_video_id = 2;
+	MdeTitleUpdateRequest title = 3;
+	MdeDescriptionUpdateRequest description = 4;
+	MdePrivacyUpdateRequest privacy = 5;
+	MdeTagsUpdateRequest tags = 6;
+	MdeCategoryUpdateRequest category = 7;
+	MdeLicenseUpdateRequest license = 8;
+	MdeCommentOptionsUpdateRequest comment_options = 9;
+	MdeDistributionOptionsUpdateRequest distribution_options = 10;
+	MdeAgeRestrictionUpdateRequest age_restriction = 11;
+	MdeCaptionsCertificateUpdateRequest captions_certificate = 12;
+	MdeLocationUpdateRequest location = 13;
+	MdeMonetizationSettingsUpdateRequest monetization_settings = 14;
+	MdeAdFormatsUpdateRequest ad_formats = 15;
+	MdeAdBreaksUpdateRequest ad_breaks = 16;
+	MdeGameTitleUpdateRequest game_title = 17;
+	MdeUsagePolicyUpdateRequest usage_policy = 18;
+	MdeAddToPlaylistUpdateRequest add_to_playlist = 19;
+	MdeVideoStillRequestParams video_still = 20;
+	MdeProductPlacementRequestParams product_placement = 21;
+	MdeMatchPolicyUpdateRequestParams match_policy = 22;
+	MdeLiveChatUpdateRequestParams live_chat = 23;
+	MdeLiveStreamScheduleUpdateRequestParams live_stream_schedule = 25;
+	MdePrivacyStateUpdateRequestParams privacy_state = 38;
+	MdeDraftStateUpdateRequestParams draft_state = 39;
+	MdePremiereRequestParams premiere = 40;
+	MdeSponsorsOnlyRequestParams sponsors_only = 42;
+	MdeTargetedAudienceUpdateRequestParams targeted_audience = 50;
+	MdeAdSettingsUpdateRequestParams ad_settings = 55;
+	MdeMadeForKidsUpdateRequestParams made_for_kids = 68;
+	Command success_command = 73;
+	Command failure_command = 74;
+	AttestationResponseData attestation_response_data = 75;
+	bool is_upload = 79;
+	MdeProductsSelectionUpdateRequestParams products_selection = 80;
+	bool is_live = 81;
+	MdeFlowType flow_type = 83;
+	MdeBroadcastConferenceUpdateRequestParams broadcast_conference = 100;
+}
+
+message MdeAdFormatsUpdateRequest {
+	MetadataUpdateRequest.MdeBooleanState new_has_skippable_video_ads = 5;
+	MetadataUpdateRequest.MdeBooleanState new_has_non_skippable_video_ads = 6;
+	MetadataUpdateRequest.MdeBooleanState new_has_live_display_ads = 8;
+	MetadataUpdateRequest.MdeBooleanState new_disable_display_ads = 9;
+}
+
+message MdeAdBreaksUpdateRequest {
+	MetadataUpdateRequest.MdeBooleanState new_has_prerolls = 3;
+	MetadataUpdateRequest.MdeBooleanState new_has_postrolls = 4;
+	MetadataUpdateRequest.MdeBooleanState new_has_midroll_ads = 5;
+	MetadataUpdateRequest.MdeBooleanState new_has_manual_midrolls = 6;
+	repeated int32 new_manual_midroll_times_millis = 7 [ features.repeated_field_encoding = EXPANDED ];
+	MetadataUpdateRequest.MdeBooleanState new_boosted_auto_midrolls_enabled = 8;
+	MetadataUpdateRequest.MdeBooleanState new_auto_midroll_enabled = 9;
+}
+
+message MdeAdSettingsUpdateRequestParams {
+	MdeAdFormatsUpdateRequest ad_formats = 1;
+	MdeAdBreaksUpdateRequest ad_breaks = 2;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/family_product.proto";
+import "google/familymanagement/v1/family_calendar_info.proto";
+import "google/familymanagement/v1/family_youtube_premium_info.proto";
+import "google/familymanagement/v1/family_youtube_music_info.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetActiveFamilyProductsResponse {
+	ApiResponseHeader api_header = 1;
+	repeated FamilyProduct active_family_products = 2;
+	FamilyCalendarInfo family_calendar_info = 3;
+	FamilyYoutubePremiumInfo family_youtube_premium_info = 4;
+	FamilyYoutubeMusicInfo family_youtube_music_info = 5;
+}

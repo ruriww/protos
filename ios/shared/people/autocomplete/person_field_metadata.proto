@@ -1,0 +1,57 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_affinity.proto";
+import "ios/shared/people/autocomplete/person_match_info.proto";
+import "social/logs/social_affinity_extension.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonFieldMetadata {
+	enum Container {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 3;
+		PROFILE = 0;
+		CONTACT = 1;
+		CIRCLE = 2;
+		PLACE = 4;
+		ACCOUNT = 5;
+		EXTERNAL_ACCOUNT = 6;
+		DOMAIN_PROFILE = 7;
+		DOMAIN_CONTACT = 8;
+		DEVICE_CONTACT = 9;
+		GOOGLE_GROUP = 10;
+		AFFINITY = 11;
+	}
+
+	Container container = 2 [ default = UNKNOWN ];
+	bool primary = 3;
+	repeated string encoded_container_id = 9;
+	repeated PersonAffinity affinity = 10;
+	repeated PersonMatchInfo matching_info_internal = 14;
+	bool has_cloud_data = 88;
+	bool has_device_data = 89;
+	bool is_client_generated_field = 99;
+	repeated string edge_key_container_id = 100;
+	bool is_me_field_internal = 101;
+	string encoded_profile_id = 102;
+	int64 focus_contact_id = 103;
+	repeated social.logs.SocialAffinityExtension.SocialAffinityEntityProvenance provenance = 104 [ features.repeated_field_encoding = EXPANDED ];
+	bool is_placeholder = 105;
+	uint32 attributes_internal = 106;
+
+	enum DataSource {
+		option features.enum_type = CLOSED;
+
+		DATA_SOURCE_UNKNOWN = 0;
+		A_TO_Z_DEVICE_CONTACTS = 1;
+		TOP_N_CACHE = 2;
+		DEVICE_CONTACT_CACHE = 3;
+	}
+
+	DataSource data_source = 107;
+	uint32 a_to_z_device_contact_count = 108;
+	int32 rank = 109;
+}

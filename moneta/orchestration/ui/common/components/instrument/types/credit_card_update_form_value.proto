@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message CreditCardUpdateFormValue {
+	int32 new_month = 1;
+	int32 new_year = 2;
+	string encrypted_cvc = 3;
+	string ees_session_material = 4;
+	AddressFormValue billing_address = 5;
+	string legal_doc_data = 6;
+	string cardholder_name = 7;
+	string id = 8;
+	bytes data_token = 9;
+	string card_nickname = 10;
+}

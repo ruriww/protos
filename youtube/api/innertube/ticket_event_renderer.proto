@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TicketEventRenderer {
+	string title = 1;
+	string description = 2;
+	string time_text = 4;
+	string time_short_text = 5;
+	string time_month = 6;
+	string time_day = 7;
+	string location_text = 8;
+	string link_text = 9;
+	bytes tracking_params = 11;
+	string button_text = 12;
+	Command button_command = 13;
+	string subtitle1 = 14;
+	string subtitle2 = 15;
+	ThumbnailDetails thumbnail = 16;
+	string time_date = 17;
+	string time_time = 18;
+	string time_weekday = 19;
+	string subtitle = 20;
+	string accessibility_title = 21;
+	string button_accessibility_text = 22;
+	bool has_multiple_offers = 23;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message TemplateArgument {
+	oneof param_value {
+		string str = 1;
+		double num = 2;
+		TemplateDict dict = 3;
+	}
+
+	repeated TemplateArgument element = 4;
+}
+
+message TemplateDict {
+	message Parameter {
+		string key = 1;
+		TemplateArgument value = 2;
+	}
+
+	repeated Parameter arg = 1;
+}

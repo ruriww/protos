@@ -1,0 +1,21 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+import "apps/dynamite/customer_id.proto";
+
+option objc_class_prefix = "DYNProto";
+
+message OrganizationInfo {
+	message ConsumerInfo {
+	}
+
+	message CustomerInfo {
+		CustomerId customer_id = 1;
+	}
+
+	oneof type {
+		ConsumerInfo consumer_info = 1;
+		CustomerInfo customer_info = 2;
+	}
+}

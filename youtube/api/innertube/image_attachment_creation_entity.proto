@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/image_attachment_state.proto";
+import "youtube/api/innertube/backstage_post_creation_image_source.proto";
+import "youtube/api/innertube/crop_coordinates.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImageAttachmentCreationEntity {
+	string key = 1;
+	string encrypted_blob_id = 2;
+	string source_external_video_id = 3;
+	ImageAttachmentState state = 4;
+	BackstagePostCreationImageSource source = 5;
+	CropCoordinates preview_coordinates = 6;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.toggle;
+
+import "moneta/orchestration2/ui/common/selector/toggle/toggle_control_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ToggleControl {
+	ToggleControlType toggle_control_type = 1;
+}

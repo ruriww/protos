@@ -1,0 +1,242 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_type.proto";
+import "youtube/api/innertube/mobile_data_plan_info.proto";
+import "youtube/api/innertube/client_connection_type.proto";
+import "youtube/api/innertube/config_groups_client_info.proto";
+import "youtube/api/innertube/unplugged_location_info.proto";
+import "youtube/api/innertube/kids_app_info.proto";
+import "youtube/api/innertube/music_app_info.proto";
+import "youtube/api/innertube/unplugged_app_info.proto";
+import "youtube/api/innertube/location_info.proto";
+import "youtube/api/innertube/user_interface_theme.proto";
+import "experiments/heterodyne/experiment_ids.proto";
+import "youtube/api/innertube/notification_permission_info.proto";
+import "youtube/api/innertube/client_store_info.proto";
+import "youtube/api/innertube/srs_data_push_version.proto";
+import "youtube/api/innertube/player_data_push_version.proto";
+import "youtube/api/innertube/connected_client_info.proto";
+import "video_streaming/media_capabilities.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientInfo {
+	string hl = 1;
+	string gl = 2;
+	string geo = 3;
+	string remote_host = 4;
+	string device_id = 6;
+	bool is_internal = 7;
+	string debug_device_id_override = 8;
+	repeated int32 experiment_ids = 9 [ features.repeated_field_encoding = EXPANDED ];
+	string carrier_geo = 10;
+	bool cracked_hl = 11;
+	string device_make = 12;
+	string device_model = 13;
+	string visitor_data = 14;
+	string user_agent = 15;
+
+	enum ClientName {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INTERFACE = 0;
+		WEB = 1;
+		WEB_GAMING = 32;
+		WEB_MUSIC = 61;
+		WEB_REMIX = 67;
+		WEB_MUSIC_INTEGRATIONS = 103;
+		WEB_MUSIC_EMBEDDED_PLAYER = 86;
+		WEB_EXPERIMENTS = 42;
+		WEB_HEROES = 60;
+		WEB_CREATOR = 62;
+		WEB_LIVE_STREAMING = 73;
+		WEB_KIDS = 76;
+		WEB_PARENT_TOOLS = 88;
+		WEB_PHONE_VERIFICATION = 90;
+		WEB_SHOPPING_EXTENSION = 99;
+		WEB_EFFECT_MAKER = 98;
+		WEB_PLAYABLES_PORTAL = 100;
+		WEB_LIVE_APPS = 102;
+		WEB_UNPLUGGED = 41;
+		WEB_UNPLUGGED_ONBOARDING = 69;
+		WEB_UNPLUGGED_OPS = 70;
+		WEB_UNPLUGGED_PUBLIC = 71;
+		MWEB = 2;
+		MWEB_TIER_2 = 27;
+		ANDROID = 3;
+		ANDROID_CASUAL = 54;
+		ANDROID_CREATOR = 14;
+		ANDROID_PRODUCER = 91;
+		ANDROID_EMBEDDED_PLAYER = 55;
+		ANDROID_GAMING = 24;
+		ANDROID_INSTANT = 20;
+		ANDROID_KIDS = 18;
+		ANDROID_MUSIC = 21;
+		ANDROID_MUSIC_AOSP = 104;
+		ANDROID_TESTSUITE = 30;
+		ANDROID_UNPLUGGED = 29;
+		ANDROID_VR = 28;
+		VISIONOS = 101;
+		ANDROID_WITNESS = 34;
+		ANDROID_SPORTS = 36;
+		ANDROID_LITE = 38;
+		IOS = 5;
+		IOS_CREATOR = 15;
+		IOS_PRODUCER = 92;
+		IOS_DIRECTOR = 40;
+		IOS_GAMING = 25;
+		IOS_INSTANT = 17;
+		IOS_KIDS = 19;
+		IOS_LIVE_CREATION_EXTENSION = 64;
+		IOS_MESSAGES_EXTENSION = 66;
+		IOS_MUSIC = 26;
+		IOS_TABLOID = 22;
+		IOS_UNPLUGGED = 33;
+		IOS_UPTIME = 68;
+		IOS_WITNESS = 35;
+		IOS_PILOT_STUDIO = 53;
+		IOS_SPORTS = 37;
+		IOS_EMBEDDED_PLAYER = 39;
+		TVHTML5 = 7;
+		TVHTML5_AUDIO = 57;
+		TVHTML5_CAST = 43;
+		TVHTML5_KIDS = 59;
+		TVHTML5_FOR_KIDS = 93;
+		ANDROID_TV_KIDS = 74;
+		TVHTML5_SIMPLY = 75;
+		TVHTML5_SIMPLY_EMBEDDED_PLAYER = 85;
+		TVHTML5_UNPLUGGED = 65;
+		TVHTML5_YONGLE = 80;
+		TVLITE = 8;
+		TVANDROID = 10;
+		TV_UNPLUGGED_CAST = 58;
+		TV_UNPLUGGED_ANDROID = 63;
+		TVHTML5_VR = 72;
+		ANDROID_TV = 23;
+		XBOX = 11;
+		XBOXONEGUIDE = 13;
+		CLIENTX = 12;
+		TVAPPLE = 16;
+		WEB_EMBEDDED_PLAYER = 56;
+		WEB_MUSIC_ANALYTICS = 31;
+		MUSIC_INTEGRATIONS = 77;
+		GOOGLE_ASSISTANT = 84;
+		WEB_INTERNAL_ANALYTICS = 87;
+		GOOGLE_MEDIA_ACTIONS = 89;
+		GOOGLE_LIST_RECS = 94;
+		MEDIA_CONNECT_FRONTEND = 95;
+	}
+
+	ClientName client_name = 16;
+	string client_version = 17;
+	string os_name = 18;
+	string os_version = 19;
+	string project_id = 20;
+	string accept_language = 21;
+	string accept_region = 22;
+	string original_url = 23;
+	string raw_device_id = 25;
+	string config_data = 27;
+
+	enum Theme {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_THEME = 0;
+		CLASSIC = 1;
+		KIDS = 2;
+		INSTANT = 3;
+		CREATOR = 4;
+		MUSIC = 5;
+		GAMING = 6;
+		UNPLUGGED = 7;
+	}
+
+	Theme theme = 30;
+	string spacecast_token = 31;
+	string internal_geo = 34;
+
+	enum ApplicationState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_APPLICATION_STATE = 0;
+		ACTIVE = 1;
+		BACKGROUND = 2;
+		INACTIVE = 3;
+	}
+
+	ApplicationState application_state = 35;
+	PlayerType player_type = 36;
+	int32 screen_width_points = 37;
+	int32 screen_height_points = 38;
+	float screen_width_inches = 39;
+	float screen_height_inches = 40;
+	int32 screen_pixel_density = 41;
+	string gfe_frontline_info = 43;
+
+	enum ClientFormFactor {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FORM_FACTOR = 0;
+		SMALL_FORM_FACTOR = 1;
+		LARGE_FORM_FACTOR = 2;
+		AUTOMOTIVE_FORM_FACTOR = 3;
+		WEARABLE_FORM_FACTOR = 4;
+	}
+
+	ClientFormFactor client_form_factor = 46;
+	string forwarded_for = 48;
+	MobileDataPlanInfo mobile_data_plan_info = 49;
+	int32 gmscore_version_code = 50;
+	bool webp_support = 51;
+	string experiments_token = 54;
+	int32 window_width_points = 55;
+	int32 window_height_points = 56;
+	ClientConnectionType connection_type = 61;
+	ConfigGroupsClientInfo config_info = 62;
+	UnpluggedLocationInfo unplugged_location_info = 63;
+	int32 android_sdk_version = 64;
+	float screen_density_float = 65;
+	repeated int32 first_time_sign_in_experiment_ids = 66 [ features.repeated_field_encoding = EXPANDED ];
+	int32 utc_offset_minutes = 67;
+	bool animated_webp_support = 68;
+	KidsAppInfo kids_app_info = 69;
+	MusicAppInfo music_app_info = 70;
+	string internal_geo_ip = 72;
+	UnpluggedAppInfo unplugged_app_info = 73;
+	LocationInfo location_info = 74;
+
+	oneof text_scale_adjustment {
+		string content_size_category = 76;
+		float font_scale = 77;
+	}
+
+	UserInterfaceTheme user_interface_theme = 78;
+	string time_zone = 80;
+	bytes eml_template_context = 84;
+	bytes cold_app_bundle_config_data = 85;
+	repeated experiments.heterodyne.ExperimentIds heterodyne_ids = 86;
+	string browser_name = 87;
+	string browser_version = 88;
+	string location_playability_token = 89;
+	int32 release_year = 91;
+	string chipset = 92;
+	string firmware_version = 93;
+	int64 memory_total_kbytes = 95;
+	NotificationPermissionInfo notification_permission_info = 97;
+	string device_brand = 98;
+	ClientStoreInfo client_store_info = 99;
+	repeated SRSDataPushVersion srs_datapush_build_ids = 100;
+	repeated PlayerDataPushVersion player_datapush_build_ids = 101;
+	string accept_header = 103;
+	string device_experiment_id = 104;
+	int64 encoded_hacks = 105;
+	bool is_supervised_device = 107;
+	string rollout_token = 108;
+	ConnectedClientInfo connected_client_info = 109;
+	video_streaming.MediaCapabilities media_capabilities = 110;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+option objc_class_prefix = "NFD";
+
+message VersionedIdentifier {
+	int64 last_updated_version = 3;
+	string identifier = 4;
+	int64 creation_id = 5;
+	bytes opaque_backend_data = 6;
+}

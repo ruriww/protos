@@ -1,0 +1,16 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "google/type/color.proto";
+
+option objc_class_prefix = "GNPC";
+
+message ColorScheme {
+	google.type.Color primary = 1;
+	google.type.Color secondary = 2;
+	google.type.Color background = 3;
+	google.type.Color effect = 4;
+	google.type.Color scrim = 5;
+	google.type.Color outline = 6;
+}

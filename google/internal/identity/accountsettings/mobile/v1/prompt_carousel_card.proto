@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/prompt_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+
+option objc_class_prefix = "ASM";
+
+message PromptCarouselCard {
+	repeated PromptItem items = 1;
+	repeated ResourceKey prompt_item_keys = 2;
+	string overflow_expand_title = 4;
+	string overflow_expand_accessibility_tap_text = 5;
+	string overflow_collapse_title = 6;
+	string overflow_collapse_accessibility_tap_text = 7;
+	int32 max_visible_items = 8;
+}

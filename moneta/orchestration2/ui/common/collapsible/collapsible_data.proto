@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.collapsible;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CollapsibleData {
+	extend data.Data {
+		CollapsibleData collapsible_data_extension = 228971052;
+	}
+
+	int64 collapsible_grouping_data_reference = 1;
+	repeated int64 child_data_reference = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

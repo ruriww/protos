@@ -1,0 +1,24 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/token_metadata.proto";
+
+option objc_class_prefix = "ACL";
+
+message Invite {
+	int64 InviteId = 1;
+	string Email = 2;
+	bool SingleUse = 3 [ default = false ];
+	int32 Uses = 4;
+	int64 CreationTimeMs = 5;
+	int32 RoleValue = 6;
+	repeated string RecipientEmail = 7;
+	bool Indirect = 8;
+	int64 ExpirationTimeMs = 9;
+	bytes OBSOLETE_10 = 10;
+	bool AllowAnonymousUsage = 11;
+	repeated TokenMetadata TokenMetadata = 12;
+	bool RequireListedToken = 13 [ default = false ];
+	int64 Inviter = 14;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/co_watchability.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CoWatchWatchEndpointWrapperCommand {
+	extend Command {
+		CoWatchWatchEndpointWrapperCommand co_watch_watch_endpoint_wrapper_command = 462702848;
+	}
+
+	Command watch_endpoint = 1;
+	CoWatchability cowatchability = 2;
+	string dialog_data_entity_key = 3;
+	string video_title = 4;
+	string owner_display_name = 5;
+	Renderer dialog_renderer = 6;
+	Renderer start_session_dialog_renderer = 7;
+	Renderer no_access_dialog_renderer = 8;
+}

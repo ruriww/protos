@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationPlayerRenderer {
+	extend Renderer {
+		ShortsCreationPlayerRenderer shorts_creation_player_renderer = 1743;
+	}
+
+	uint32 player_view_corner_radius = 2;
+
+	oneof initial_composition {
+		Command load_composition_command = 3;
+	}
+
+	AccessibilitySupportedDatas tap_to_play_accessibility = 4;
+	AccessibilitySupportedDatas tap_to_pause_accessibility = 5;
+	LoggingDirectives logging_directives = 999;
+}

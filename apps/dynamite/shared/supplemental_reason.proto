@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+option objc_class_prefix = "DYNProto";
+
+enum SupplementalReason {
+	option features.enum_type = CLOSED;
+
+	SUPPLEMENTAL_REASON_UNSPECIFIED = 0;
+	GAIA_MEMBERSHIP_LIMIT_EXCEEDED = 1;
+	OTHER_ERRORS_EXIST = 2;
+}

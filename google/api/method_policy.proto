@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.api;
+
+import "google/api/field_policy.proto";
+import "google/api/policy_aspect.proto";
+
+option objc_class_prefix = "GAPI";
+
+/* protogen: source file = google/api/policy.proto */
+message MethodPolicy {
+	string action = 1;
+	repeated FieldPolicy request_policies = 2;
+	repeated FieldPolicy response_policies = 3;
+	string auditing = 4;
+	map<string, string> metadata = 5;
+	string authorization = 6;
+	string flags = 7;
+	bool active_developer_method = 8;
+	string selector = 9;
+	repeated PolicyAspect policy_aspects = 10;
+	string policy_set = 11;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+option objc_class_prefix = "WRTCSMR";
+
+message SyncMetadata {
+	int64 version = 1;
+}

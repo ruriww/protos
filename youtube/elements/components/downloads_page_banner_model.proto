@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/api/innertube/downloads_page_banner_entity.proto";
+import "youtube/api/innertube/client_ve_spec.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/elements/components/divider_style.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageBannerModel {
+	extend Model {
+		DownloadsPageBannerModel downloads_page_banner_model = 353892150;
+	}
+
+	Theme theme = 1;
+	string banner_entity_key = 2;
+	api.innertube.DownloadsPageBannerEntity banner_entity = 3;
+	api.innertube.ClientVeSpec client_ve_spec = 4;
+	api.innertube.ClientVeSpec button_client_ve_spec = 5;
+
+	oneof body_text {
+		string text = 6;
+		AttributedString formatted_text = 25;
+	}
+
+	int32 ui_type = 7;
+	string button_text = 8;
+	string button_navigation_url = 9;
+	int32 button_ui_type = 10;
+
+	oneof title_text {
+		string title = 12;
+		AttributedString formatted_title = 26;
+	}
+
+	Context context = 11;
+	Button primary_button = 13;
+	Button secondary_button = 14;
+	uint32 background_color = 15;
+	uint32 text_color = 16;
+	float padding_bottom_value = 17;
+	float title_padding_bottom_value = 18;
+	float text_padding_bottom_value = 19;
+	DividerStyle top_divider_style = 20;
+	DividerStyle bottom_divider_style = 21;
+	bool should_log_gesture_for_primary_button = 22;
+	bool should_log_gesture_for_secondary_button = 23;
+	float space_between_buttons_value = 24;
+}

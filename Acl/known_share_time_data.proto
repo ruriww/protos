@@ -1,0 +1,9 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+message KnownShareTimeData {
+	bool gaia_email = 1 [ default = false ];
+}

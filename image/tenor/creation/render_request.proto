@@ -1,0 +1,13 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/render_config.proto";
+import "image/tenor/creation/embedded_animation.proto";
+
+option objc_class_prefix = "TENOR";
+
+message RenderRequest {
+	RenderConfig render_config = 1;
+	AnimationConfig animation = 2;
+}

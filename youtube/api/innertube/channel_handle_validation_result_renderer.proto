@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_handle_validation_result.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelHandleValidationResultRenderer {
+	string handle = 1;
+	ChannelHandleValidationResult result = 2;
+	repeated string available_variations = 3;
+	FormattedString error_message = 4;
+	FormattedString ok_message = 6;
+}
+
+extend Renderer {
+	ChannelHandleValidationResultRenderer channel_handle_validation_result_renderer = 373134779;
+}

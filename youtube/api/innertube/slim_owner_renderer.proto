@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/slim_owner_subscription_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/membership_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/slim_owner_divider_style.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/slim_owner_padding_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SlimOwnerRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	Command navigation_endpoint = 3;
+	SlimOwnerSubscriptionButtonSupportedRenderers subscribe_button = 4;
+	repeated BadgeSupportedRenderers badges = 5;
+	MembershipButtonSupportedRenderers sponsor_button = 6;
+	Renderer creator_subs_promo_renderer = 7;
+	Renderer creator_subs_thankyou_renderer = 8;
+	FormattedString collapsed_subtitle = 9;
+	FormattedString expanded_subtitle = 10;
+	string channel_name = 11;
+	string channel_url = 12;
+	bytes tracking_params = 14;
+	FormattedString header = 15;
+	SlimOwnerDividerStyle top_divider_style = 19;
+	SlimOwnerDividerStyle bottom_divider_style = 20;
+	SlimOwnerDividerStyle bottom_divider_style_description_expanded = 21;
+	AccessibilityData accessibility_data = 22;
+	SlimOwnerPaddingStyle padding_style = 23;
+	Renderer channel_reel_avatar = 24;
+	Renderer purchase_button = 26;
+}

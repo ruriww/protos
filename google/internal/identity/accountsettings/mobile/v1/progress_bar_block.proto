@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/styled_text_entry.proto";
+import "google/internal/identity/accountsettings/mobile/v1/progress_bar.proto";
+
+option objc_class_prefix = "ASM";
+
+message ProgressBarBlock {
+	repeated StyledTextEntry text_entries = 1;
+	ProgressBar progress_bar = 2;
+}

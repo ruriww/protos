@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/video_payload.proto";
+import "youtube/api/innertube/playlist_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineRequest {
+	InnerTubeContext context = 1;
+	repeated string video_ids = 2;
+	repeated string playlist_ids = 3;
+	bool is_series_metadata_request = 4;
+	repeated VideoPayload video_payloads = 5;
+	repeated PlaylistPayload playlist_payloads = 6;
+}

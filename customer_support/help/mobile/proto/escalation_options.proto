@@ -1,0 +1,36 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/email_options.proto";
+import "customer_support/help/mobile/proto/phone_options.proto";
+import "customer_support/help/mobile/proto/chat_options.proto";
+import "customer_support/help/mobile/proto/click_to_call_options.proto";
+import "customer_support/help/mobile/proto/hangout_options.proto";
+import "customer_support/help/mobile/proto/enterprise_support_options.proto";
+import "customer_support/help/mobile/proto/escalation_options_display_preference.proto";
+import "customer_support/help/mobile/proto/product_contact_issue_classes.proto";
+import "customer_support/help/mobile/proto/channel_metadata.proto";
+import "customer_support/help/mobile/proto/gkms_settings.proto";
+import "customer_support/help/mobile/proto/feeling_lucky_options.proto";
+import "customer_support/help/mobile/proto/nd4c_escalation_options.proto";
+
+option objc_class_prefix = "CSHM";
+
+message EscalationOptions {
+	EmailOptions email = 1;
+	PhoneOptions phone = 2;
+	ChatOptions chat = 3;
+	ClickToCallOptions click_to_call = 4;
+	HangoutOptions hangout = 5;
+	int32 product_id = 6;
+	EnterpriseSupportOptions enterprise_support = 7;
+	string api_url_format = 8;
+	string rendering_url_format = 9;
+	EscalationOptionsDisplayPreference display_preference = 10;
+	ProductContactIssueClasses contact_issue_classes = 11;
+	repeated ChannelMetadata channel_metadata = 12;
+	GkmsSettings gkms_settings = 13;
+	FeelingLuckyOptions feeling_lucky = 14;
+	ND4CEscalationOptions nd4c_options = 15;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/content_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedAnimationDetails {
+	string animation_url = 1;
+	bool loop = 2;
+	uint32 placeholder_color = 3;
+	elements.ContentMode content_mode = 4;
+	uint32 width = 5;
+	uint32 height = 6;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/capability_consent_text.proto";
+import "google/internal/identity/accountlinking/v1/gen_x_consent_template.proto";
+
+option objc_class_prefix = "ALK";
+
+message CapabilityGroup {
+	string group_header_text = 2;
+	repeated CapabilityConsentText consent_texts = 3;
+	GenXConsentTemplate assistant_genx_template = 4;
+	string group_icon_url = 6;
+	string group_icon_name = 7;
+}

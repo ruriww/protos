@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message RectCorners {
+	bool top_left = 1 [ default = false ];
+	bool top_right = 2 [ default = false ];
+	bool bottom_left = 3 [ default = false ];
+	bool bottom_right = 4 [ default = false ];
+	bool top_start = 5 [ default = false ];
+	bool top_end = 6 [ default = false ];
+	bool bottom_start = 7 [ default = false ];
+	bool bottom_end = 8 [ default = false ];
+}

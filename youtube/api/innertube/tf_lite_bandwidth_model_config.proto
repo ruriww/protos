@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TFLiteBandwidthModelConfig {
+	string url = 1;
+	float samples_per_media_second = 2;
+	bool merge_audio_requests = 3;
+	bool allow_audio_only = 4;
+	bool persist_samples = 10;
+	bool disable_normalization = 11;
+	int32 onesie_bytes_per_sample = 12;
+	bool verify_model = 13;
+	bool enable_model_input_logging = 14;
+}

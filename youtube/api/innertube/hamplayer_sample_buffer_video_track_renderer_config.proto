@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerSampleBufferVideoTrackRendererConfig {
+	int32 samples_per_buffer = 1;
+	int32 read_loop_iterations = 2;
+	int32 max_pending_sample_count = 3;
+	int32 max_decoding_error_retries = 4;
+	int32 max_rendering_error_retries = 5;
+	int32 max_fall_behind_ms = 6;
+	int32 control_timebase_resync_period_ms = 7;
+	int32 max_timestamp_seconds = 8;
+}

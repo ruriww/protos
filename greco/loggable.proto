@@ -1,0 +1,9 @@
+edition = "2023";
+
+package greco;
+
+option objc_class_prefix = "GRC";
+
+message Loggable {
+	extensions 1089235 to 516688179;
+}

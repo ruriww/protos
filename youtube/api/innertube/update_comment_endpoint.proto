@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateCommentEndpoint {
+	extend Command {
+		UpdateCommentEndpoint update_comment_endpoint = 99326409;
+	}
+
+	string update_comment_params = 1;
+	FormattedString comment_text = 2;
+	bool from_civility_reminder_dialog = 3;
+	string text_entity_key = 4;
+	string button_entity_key = 5;
+}

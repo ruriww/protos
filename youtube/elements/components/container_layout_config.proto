@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/responsive_size.proto";
+import "youtube/api/innertube/container_size.proto";
+import "youtube/api/innertube/container_type.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ContainerLayoutConfig {
+	api.innertube.ResponsiveSize responsive_size = 1;
+	api.innertube.ContainerSize container_size = 2;
+	api.innertube.ContainerType container_type = 3;
+}

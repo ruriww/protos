@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/prefetch_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PrefetchPlaybackContext {
+	uint32 playback_begins_in_seconds = 1;
+	PrefetchReason prefetch_reason = 2;
+	bool is_autoplay = 3;
+	bool is_autonav = 4;
+}

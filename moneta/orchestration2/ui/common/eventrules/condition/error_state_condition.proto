@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.condition;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ErrorStateCondition {
+	extend Condition {
+		ErrorStateCondition error_state_condition_extension = 327301025;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_ERROR_TEXT_VISIBLE = 1;
+	}
+
+	ConditionType condition_type = 1;
+}

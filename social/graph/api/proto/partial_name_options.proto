@@ -1,0 +1,51 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message PartialNameOptions {
+	enum TruncationIndicator {
+		option features.enum_type = CLOSED;
+
+		TRUNCATION_INDICATOR_UNSPECIFIED = 0;
+		ELLIPSIS = 1;
+		PERIOD = 2;
+	}
+
+	message NamePartSpec {
+		oneof name_part_spec {
+			bool hide_all = 1;
+			bool show_initial = 2;
+			int32 show_first_n_chars = 3;
+			bool show_all = 4;
+		}
+
+		TruncationIndicator truncation_indicator = 5;
+	}
+
+	message TwoPartNameSpec {
+		NamePartSpec given_name_spec = 1;
+		NamePartSpec family_name_spec = 2;
+	}
+
+	message ParsedDisplayNameSpec {
+		oneof parsed_display_name_spec {
+			bool knowledge_graph_name_shortening = 1;
+			bool all_initials_from_parsed_name = 2;
+			bool very_first_name_and_all_initials = 4;
+			bool first_initial_and_very_last_name = 5;
+			bool very_first_name_only = 6;
+			bool first_initial_and_first_last_name = 7;
+		}
+
+		TruncationIndicator truncation_indicator = 3;
+	}
+
+	oneof spec {
+		TwoPartNameSpec two_part_name_spec = 1;
+		ParsedDisplayNameSpec parsed_display_name_spec = 2;
+	}
+
+	string language = 3;
+}

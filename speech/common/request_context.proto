@@ -1,0 +1,60 @@
+edition = "2023";
+
+package speech.common;
+
+option objc_class_prefix = "SPC";
+
+message RequestContext {
+	message Phrase {
+		string phrase = 1;
+		float affinity = 2 [ default = 1 ];
+		float boost = 3 [ default = 0e0 ];
+	}
+
+	message TopContact {
+		string name = 1;
+		float affinity = 2;
+		float boost = 3 [ default = 0e0 ];
+	}
+
+	enum ContextType {
+		option features.enum_type = CLOSED;
+
+		PHRASES = 0;
+		GRAMMARS = 1;
+		TOP_CONTACTS = 2;
+		GRAMMAR_IDS = 3;
+		GRAMMAR_FSTS = 4;
+		SURROUNDING_TEXT = 5;
+		FRESH_CONTACTS = 6;
+		DYNAMIC_CLASS = 7;
+		ENDPOINTER = 8;
+		ABNF_GRAMMARS = 9;
+		HOTWORD = 10;
+		FOCUS_CONTACTS = 11;
+		DENORM = 12;
+		ABNF_TAGGER = 13;
+		PHRASES_WITH_SUBSTITUTIONS = 14;
+		SEMANTIC_CLASS = 15;
+	}
+
+	ContextType type = 1;
+	string name = 2;
+	float confidence = 3;
+
+	message PhrasesContext {
+		repeated Phrase phrase = 1;
+	}
+
+	PhrasesContext phrases_context = 4;
+
+	message TopContactsContext {
+		repeated TopContact top_contact = 1;
+	}
+
+	TopContactsContext top_contacts_context = 6;
+	string language = 9;
+	bool negative_biasing = 12;
+
+	extensions 128 to max;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountLinkCommand {
+	extend Command {
+		AccountLinkCommand account_link_command = 194259413;
+	}
+
+	Command on_success_command = 1;
+	Command on_failure_command = 2;
+	string third_party_id = 3;
+	Command refresh_button_command = 4;
+	bool save_link_status = 5;
+	repeated string capabilities = 6;
+	string consent_language_keys = 7;
+}

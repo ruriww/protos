@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/survey_question_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/video_interactions_and_progress_commands.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/aspect_ratio.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/multi_choice_question_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SurveyAdRenderer {
+	repeated SurveyQuestionSupportedRenderers survey_question_supported_renderers = 1;
+	Command ad_choices_dialog_endpoint = 2;
+	Renderer interstitial = 3;
+	Command survey_question_displayed_command = 4;
+	bool show_skip_on_start = 5;
+	VideoInteractionsAndProgressCommands playback_commands = 6;
+	AdLayoutLoggingData ad_layout_logging_data = 7;
+	bytes tracking_params = 9;
+	AspectRatio aspect_ratio = 10;
+	bool show_skip_button = 11;
+	repeated ThumbnailDetails thumbnails = 12;
+	string layout_id = 13;
+	string associated_player_bytes_layout_id = 14;
+}
+
+extend Renderer {
+	SurveyAdRenderer survey_ad_renderer = 85201052;
+}
+
+extend Renderer {
+	MultiChoiceQuestionRenderer multi_choice_question_renderer = 87002692;
+}

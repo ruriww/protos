@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/frame_processing_graph_log_data.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message GraphSelectionLogData {
+	FrameProcessingGraphLogData frame_processing_graph_log_data = 1;
+}

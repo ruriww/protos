@@ -1,0 +1,24 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/survey_trigger_request.proto";
+import "uservoice/surveys/client/logging/survey_record_event_request.proto";
+import "uservoice/surveys/client/logging/survey_trigger_response.proto";
+import "uservoice/surveys/client/logging/survey_record_event_response.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message HttpEvent {
+	string path = 1;
+
+	oneof request {
+		SurveyTriggerRequest survey_trigger_request = 2;
+		SurveyRecordEventRequest survey_record_event_request = 3;
+	}
+
+	oneof response {
+		SurveyTriggerResponse survey_trigger_response = 4;
+		SurveyRecordEventResponse survey_record_event_response = 5;
+	}
+}

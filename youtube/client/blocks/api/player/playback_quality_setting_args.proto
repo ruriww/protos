@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/api/innertube/video_quality_setting.proto";
+import "youtube/client/blocks/api/player/playback_quality.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlaybackQualitySettingArgs {
+	oneof quality_selection {
+		youtube.api.innertube.VideoQualitySetting selected_video_quality_setting = 1;
+		PlaybackQuality advanced_quality_selection = 2;
+	}
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+message FileData {
+	oneof data {
+		bytes bytes = 1;
+		string full_path = 2;
+	}
+}

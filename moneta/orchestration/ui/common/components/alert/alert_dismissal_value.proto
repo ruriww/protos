@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.alert;
+
+option objc_class_prefix = "Orch";
+
+message AlertDismissalValue {
+	int64 ui_reference = 1;
+	bytes alert_dismissal_session_token = 2;
+	bytes dismissal_token = 3;
+}

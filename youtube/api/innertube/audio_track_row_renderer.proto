@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/url_endpoint.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudioTrackRowRenderer {
+	FormattedString title = 1;
+	FormattedString artist = 2;
+	int32 duration_ms = 3;
+	UrlEndpoint download_url = 4;
+	string audioswap_id = 5;
+	FormattedString genre = 6;
+}
+
+extend Renderer {
+	AudioTrackRowRenderer audio_track_row_renderer = 87992097;
+}

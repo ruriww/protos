@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileDataPlanInfo {
+	string cpid = 49;
+	repeated string serialized_data_plan_status = 50;
+	int64 carrier_id = 51;
+	bool data_saving_quality_picker_enabled = 52;
+	string mccmnc = 53;
+}

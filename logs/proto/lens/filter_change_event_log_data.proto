@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message FilterChangeEventLogData {
+	enum FilterChangeEventSource {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FILTER_CHANGE_EVENT_SOURCE = 0;
+		TAP = 1;
+		SCROLL = 2;
+		PAN_OR_SWIPE = 3;
+	}
+
+	FilterChangeEventSource source = 1;
+}

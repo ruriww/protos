@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/offline_action_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineVideoEndpoint {
+	extend Command {
+		OfflineVideoEndpoint offline_video_endpoint = 73080600;
+	}
+
+	oneof video_data {
+		string video_id = 1;
+		string video_entity_key = 7;
+	}
+
+	enum OfflineVideoActionType {
+		option features.enum_type = CLOSED;
+
+		ACTION_UNKNOWN = 0;
+		ACTION_ADD = 1;
+		ACTION_REMOVE = 2;
+		ACTION_REMOVE_WITH_PROMPT = 9;
+		ACTION_PAUSE = 3;
+		ACTION_RETRY = 4;
+		ACTION_RESUME = 5;
+		ACTION_DOWNLOAD_IMMEDIATELY = 6;
+		ACTION_REDOWNLOAD = 7;
+		ACTION_RENEW = 8;
+		ACTION_RENEW_WITH_PROMPT = 10;
+		ACTION_INFER_AUTOMATICALLY = 11;
+	}
+
+	OfflineVideoActionType action = 2;
+	bool hack = 3;
+	Renderer offlineability = 4;
+	string playlist_id = 5;
+	OfflineActionParams action_params = 6;
+	Command on_add_command = 8;
+}

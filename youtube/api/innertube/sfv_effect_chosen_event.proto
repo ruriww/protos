@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sfv_effect_identifier.proto";
+import "youtube/api/innertube/sfv_effect_category.proto";
+import "youtube/api/innertube/sfv_shorts_upload_data.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvEffectChosenEvent {
+	repeated SfvEffectIdentifier effect_id = 1;
+	repeated SfvEffectCategory effect_category_hint = 2;
+	int64 monotonic_time_ms = 3;
+	SfvShortsUploadData shorts_upload_data = 4;
+	SfvEffectPipelineData pipeline_data = 5;
+}

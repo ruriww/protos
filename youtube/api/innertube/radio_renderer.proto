@@ -1,0 +1,62 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/radio_renderer_style.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/api/innertube/active_state_descriptor_thumbnail_style.proto";
+import "youtube/api/innertube/radio_renderer_card_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RadioRenderer {
+	string playlist_id = 1;
+	FormattedString title = 2;
+	ThumbnailDetails thumbnail = 3;
+	FormattedString video_count_text = 4;
+	Command navigation_endpoint = 5;
+	FormattedString short_byline_text = 6;
+	string debug_html = 7;
+	bytes tracking_params = 9;
+	repeated Command service_endpoints = 12;
+	FormattedString thumbnail_text = 13;
+	FormattedString long_byline_text = 14;
+	MenuSupportedRenderers menu = 15;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 17;
+	FormattedString video_count_short_text = 18;
+	RadioRendererStyle radio_renderer_style = 19;
+	repeated ThumbnailDetails additional_thumbnails = 20;
+	ChannelThumbnailSupportedRenderers channel_thumbnail_supported_renderers = 21;
+	FormattedString published_time_text = 22;
+	ActiveStateDescriptor thumbnail_active_state_descriptor = 23;
+	ActiveStateDescriptor overlay_active_state_descriptor = 24;
+	repeated ActiveStateDescriptor thumbnail_active_state_descriptors = 25;
+	ActiveStateDescriptorThumbnailStyle active_state_descriptor_thumbnail_style = 26;
+	RadioRendererCardStyle radio_renderer_card_style = 27;
+	Renderer thumbnail_slideshow = 28;
+
+	oneof inline_playback_endpoints {
+		Command inline_playback_endpoint = 29;
+		Command multiple_inline_playback_endpoint = 31;
+	}
+
+	Renderer collection_thumbnail = 30;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 32;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	RadioRenderer radio_renderer = 62951200;
+}

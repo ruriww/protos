@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message PromptPurposeEnum {
+	enum Purpose {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PURPOSE = 0;
+		BIRTHDAY = 1;
+		ANNIVERSARY = 2;
+		SIGNIFICANT_DATE = 3;
+		CONNECTION_FREQUENCY = 4;
+	}
+}

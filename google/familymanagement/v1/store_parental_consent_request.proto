@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/parental_consent_type.proto";
+import "google/familymanagement/v1/parental_consent_purpose.proto";
+import "google/familymanagement/v1/audit_data.proto";
+
+option objc_class_prefix = "GFM";
+
+message StoreParentalConsentRequest {
+	ApiRequestHeader api_header = 1;
+	ParentalConsentType parental_consent_type = 2;
+	string reference_id = 3;
+	ParentalConsentPurpose parental_consent_purpose = 4;
+	int64 timestamp_millis = 5;
+	int64 child_gaia_id = 6;
+	int64 hoh_gaia_id = 7;
+	int64 family_id = 8;
+	AuditData ari_data = 9;
+}

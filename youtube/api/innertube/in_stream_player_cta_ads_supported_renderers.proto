@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/app_promo_ad_cta_renderer.proto";
+import "youtube/api/innertube/collapsible_ad_cta_renderer.proto";
+import "youtube/api/innertube/elements_ad_cta_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InStreamPlayerCtaAdsSupportedRenderers {
+	oneof renderer {
+		AppPromoAdCtaRenderer app_promo_ad_cta_renderer = 133765738;
+		CollapsibleAdCtaRenderer collapsible_ad_cta_renderer = 156617590;
+		ElementsAdCtaRenderer elements_ad_cta_renderer = 211734746;
+	}
+}

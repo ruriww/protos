@@ -1,0 +1,16 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "unknown/youtube/client_event_id_message.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UnresponsiveData {
+	int32 timing_event_id = 1;
+
+	oneof triggering_event {
+		unknown.youtube.ClientEventIdMessage visual_element_event_id = 2;
+		int64 o2_clearcut_event_uptime_millis = 3;
+	}
+}

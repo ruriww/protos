@@ -1,0 +1,11 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+option objc_class_prefix = "GCKOC";
+
+message WifiAccessPoint {
+	int32 signal_strength = 2;
+	string bssid = 3;
+	int32 frequency_band_mhz = 4 [ default = 2400 ];
+}

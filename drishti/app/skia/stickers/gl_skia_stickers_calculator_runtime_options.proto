@@ -1,0 +1,16 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "xeno/effect/runtime_options_proto.proto";
+import "drishti/app/skia/stickers/scene_config.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message GlSkiaStickersCalculatorRuntimeOptions {
+	extend xeno.effect.RuntimeOptionsProto {
+		GlSkiaStickersCalculatorRuntimeOptions ext = 506165916;
+	}
+
+	SceneConfig scene_config = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+option objc_class_prefix = "ORCH2";
+
+message LeastSignificantDigitFormattingStrategy {
+	string decimal_symbol = 1;
+	int32 max_magnitude = 2;
+	int32 max_precision = 3;
+	string prefix_units_symbol = 4;
+	string suffix_units_symbol = 5;
+	string group_separator_symbol = 6;
+	repeated int32 group_length = 7;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+option objc_class_prefix = "YTBA";
+
+enum EventActionType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_EVENT_ACTION_TYPE = 0;
+	WAIT_UNTIL_VIDEO_ENDS_EVENT_ACTION_TYPE = 1;
+}

@@ -1,0 +1,71 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/subscription_button.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/video_main_content_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/video_main_captions_metadata_supported_renderers.proto";
+import "youtube/api/innertube/video_main_video_view_count_supported_renderers.proto";
+import "youtube/api/innertube/video_main_metadata_row_container_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/share_button_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/video_main_content_add_to_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoMainContentRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString short_byline_text = 3;
+	FormattedString video_count_text = 4;
+	SubscriptionButton subscription_button = 5;
+	FormattedString subscriber_count_text = 6;
+	FormattedString date_text = 7;
+	FormattedString description = 8;
+	FormattedString view_count_text = 9;
+	FormattedString likes_count_text = 10;
+	int32 likes_count = 11;
+	FormattedString dislikes_count_text = 12;
+	int32 dislikes_count = 13;
+	string video_id = 14;
+	bool allow_ratings = 15;
+	FormattedString category = 16;
+	bool has_cc_license = 17;
+	repeated BadgeSupportedRenderers owner_badges = 18;
+	LikeStatus like_status = 21;
+	VideoMainContentSubscribeButtonSupportedRenderers subscribe_button = 23;
+	LikeButtonSupportedRenderers like_button = 24;
+	PrivacyStatus privacy_status = 25;
+	repeated BadgeSupportedRenderers badges = 26;
+	FormattedString short_view_count_text = 27;
+	bytes tracking_params = 28;
+	VideoMainCaptionsMetadataSupportedRenderers captions_metadata = 32;
+	VideoMainVideoViewCountSupportedRenderers view_count = 33;
+	VideoMainMetadataRowContainerSupportedRenderers metadata_row_container = 34;
+	string metadata_language = 36;
+	MenuSupportedRenderers menu = 37;
+	Command channel_navigation_endpoint = 38;
+	ShareButtonSupportedRenderers share_button = 39;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 40;
+	StandaloneBadgeSupportedRenderers under_title_standalone_badge = 41;
+	VideoMainContentAddToButtonSupportedRenderers add_to_button = 42;
+	bool is_limited_state = 45;
+	Renderer flag_button = 46;
+	Renderer account_linking_button = 47;
+}
+
+extend Renderer {
+	VideoMainContentRenderer video_main_content_renderer = 53187922;
+}

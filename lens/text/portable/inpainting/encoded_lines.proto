@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+import "lens/text/portable/inpainting/encoded_line.proto";
+
+option objc_class_prefix = "LNSINP";
+
+message EncodedLines {
+	repeated EncodedLine lines = 1;
+}

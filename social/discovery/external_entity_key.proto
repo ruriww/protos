@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.discovery;
+
+option objc_class_prefix = "SDIS";
+
+message ExternalEntityKey {
+	oneof id {
+		string profile_id = 1;
+		string email = 2;
+		string phone = 3;
+	}
+}

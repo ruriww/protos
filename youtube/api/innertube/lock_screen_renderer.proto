@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LockScreenRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString long_byline_text = 4;
+	FormattedString length_text = 7;
+	FormattedString short_byline_text = 10;
+	ThumbnailDetails channel_thumbnail = 14;
+	FormattedString album_text = 16;
+	string video_id = 17;
+	string channel_id = 18;
+}
+
+extend Renderer {
+	LockScreenRenderer lock_screen_renderer = 61479009;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+option objc_class_prefix = "TSL";
+
+message EnumType {
+	string enum_path = 1;
+	string trim_prefix = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/structured_phone.proto";
+
+option objc_class_prefix = "POEM";
+
+message PhoneExtendedData {
+	StructuredPhone structured_phone = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package products_sdk;
+
+option objc_class_prefix = "ASW";
+
+message AppSwitchingNewBrowserOptions {
+	enum AppSwitchingNewBrowserOptionsExperiment {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		DEFAULT_BROWSER_ICON = 1;
+		NO_SAFARI = 2;
+		NO_SAFARI_WITH_DEFAULT_BROWSER_ICON = 3;
+	}
+
+	AppSwitchingNewBrowserOptionsExperiment new_browser_options_experiment = 1;
+}

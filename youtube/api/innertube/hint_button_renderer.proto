@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/hint_button_style.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HintButtonRenderer {
+	HintButtonStyle style = 1;
+	bool is_disabled = 2;
+	Icon icon = 3;
+	FormattedString text = 4;
+	Command service_endpoint = 5;
+	Command navigation_endpoint = 6;
+	AccessibilitySupportedDatas accessibility = 7;
+	bytes tracking_params = 9;
+}

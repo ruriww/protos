@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/io_polyfill_sweep_info.proto";
+import "youtube/api/innertube/io_polyfill_frame_info.proto";
+import "youtube/api/innertube/early_browse_request_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KabukiInfo {
+	string browse_params = 1;
+	bool is_prefetch = 2;
+	bool is_secondary_nav = 3;
+	string prev_browse_id = 4;
+	string voz_type = 6;
+	IoPolyfillSweepInfo io_sweep_info = 7;
+	repeated IoPolyfillFrameInfo io_frame_info = 8;
+	EarlyBrowseRequestInfo early_browse_request_info = 9;
+	bool is_account_switch = 11;
+}

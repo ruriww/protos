@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflineabilityFormatType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_FORMAT_TYPE = 0;
+	LD = 4;
+	SD = 1;
+	HD = 2;
+	AUDIO_ONLY = 3;
+	LD_240 = 5;
+	SD_480 = 6;
+	HD_1080 = 7;
+	HD_1440 = 8;
+	HD_2160 = 9;
+	HD_4320 = 10;
+}

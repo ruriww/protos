@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/layout_configuration.proto";
+import "youtube/api/innertube/responsive_size.proto";
+import "youtube/api/innertube/responsive_container_mapping.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ResponsiveContainerConfiguration {
+	extend LayoutConfiguration {
+		ResponsiveContainerConfiguration responsive_container_configuration = 1000;
+	}
+
+	ResponsiveSize responsive_size = 1;
+	repeated ResponsiveContainerMapping responsive_map = 2;
+	bool enable_content_specific_aspect_ratio = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/bottom_drawer_menu_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/bottom_drawer_menu_divider.proto";
+
+option objc_class_prefix = "ASM";
+
+message BottomDrawerMenuBlock {
+	oneof type {
+		BottomDrawerMenuItem menu_item = 1;
+		BottomDrawerMenuDivider divider = 2;
+	}
+}

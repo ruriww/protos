@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/client_context.proto";
+import "social/people/backend/service/intelligence/proto/inferred_contact_extraction_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message ExtractGmailContactSuggestionsRequest {
+	ClientContext client_context = 1;
+	string thread_id = 2;
+	string message_id = 3;
+	repeated string filter_emails = 4;
+	InferredContactExtractionType extraction_type = 5;
+}

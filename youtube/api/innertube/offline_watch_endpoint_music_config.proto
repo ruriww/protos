@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_video_type.proto";
+import "youtube/api/innertube/offline_playlist_sort_order.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineWatchEndpointMusicConfig {
+	bool loop = 1;
+	bool loop_one = 2;
+	bool shuffle = 3;
+	repeated int32 shuffle_order = 4 [ features.repeated_field_encoding = EXPANDED ];
+	bool has_persistent_playlist_panel = 5;
+	MusicVideoType music_video_type = 6;
+	bool eligible_for_resumption = 7;
+	OfflinePlaylistSortOrder offline_playlist_sort_order = 8;
+}

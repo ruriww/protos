@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/initiator_type.proto";
+import "youtube/api/innertube/player_content_type.proto";
+import "youtube/api/innertube/ui_target.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CloseRequestedTrigger {
+	string triggering_layout_id = 1;
+	InitiatorType initiator_type = 2;
+	PlayerContentType player_content_type = 3;
+	UiTarget ui_target = 4;
+}

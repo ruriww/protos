@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message MobileSendMessageRequest {
+	string message_content = 1;
+	string smart_reply_prediction_id = 2;
+	string smart_reply_accepted_recommendation_id = 3;
+}

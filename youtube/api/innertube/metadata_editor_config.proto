@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MetadataEditorConfig {
+	string dirtiness_state_key = 1;
+	string thumbnail_state_key = 2;
+	string shorts_thumbnail_editor_state_key = 4;
+	string thumbnail_picker_state_key = 5;
+	string live_screencast_switch_key = 6;
+}

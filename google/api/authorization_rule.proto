@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+message AuthorizationRule {
+	string selector = 1;
+	string permissions = 2;
+}

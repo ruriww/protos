@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.transition;
+
+option objc_class_prefix = "ORCH2";
+
+message TranslationEffect {
+	enum Direction {
+		option features.enum_type = CLOSED;
+
+		DIRECTION_UNKNOWN = 0;
+		DIRECTION_START = 1;
+		DIRECTION_END = 2;
+		DIRECTION_TOP = 3;
+		DIRECTION_BOTTOM = 4;
+	}
+
+	Direction direction = 1;
+	bool translate_entirely_outside = 2;
+	int32 ancestor_transition_id = 3;
+}

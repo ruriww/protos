@@ -1,0 +1,121 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/setting_category_id.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/client_setting_item.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/setting_single_option_menu_renderer.proto";
+import "youtube/api/innertube/setting_boolean_renderer.proto";
+import "youtube/api/innertube/setting_action_renderer.proto";
+import "youtube/api/innertube/setting_notification_list_renderer.proto";
+import "youtube/api/innertube/setting_read_only_item_renderer.proto";
+import "youtube/api/innertube/client_storage_usage_renderer.proto";
+import "youtube/api/innertube/setting_text_renderer.proto";
+import "youtube/api/innertube/caption_preview_renderer.proto";
+import "youtube/api/innertube/setting_spacer_decoration_renderer.proto";
+import "youtube/api/innertube/unplugged_subscriptions_setting_category_renderer.proto";
+import "youtube/api/innertube/notification_entry_setting_renderer.proto";
+import "youtube/api/innertube/notification_type_opt_in_renderer.proto";
+import "youtube/api/innertube/unplugged_location_setting_renderer.proto";
+import "youtube/api/innertube/tv_mdx_setting_renderer.proto";
+import "youtube/api/innertube/unplugged_empty_state_renderer.proto";
+import "youtube/api/innertube/unplugged_billing_details_renderer.proto";
+import "youtube/api/innertube/unplugged_app_tour_setting_renderer.proto";
+import "youtube/api/innertube/unplugged_family_flow_message_renderer.proto";
+import "youtube/api/innertube/auto_offline_storage_usage_renderer.proto";
+import "youtube/api/innertube/gaming_account_link_setting_renderer.proto";
+import "youtube/api/innertube/gaming_third_party_setting_renderer.proto";
+import "youtube/api/innertube/unplugged_disclaimer_setting_renderer.proto";
+import "youtube/api/innertube/unplugged_live_guide_setting_category_renderer.proto";
+import "youtube/api/innertube/unplugged_notification_section_renderer.proto";
+import "youtube/api/innertube/unplugged_current_location_setting_item_renderer.proto";
+import "youtube/api/innertube/eom_settings_disclaimer_renderer.proto";
+import "youtube/api/innertube/unplugged_banner_renderer.proto";
+import "youtube/api/innertube/unplugged_storage_usage_renderer.proto";
+import "youtube/api/innertube/unplugged_setting_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingCategoryCollectionRenderer {
+	FormattedString title = 2;
+	repeated SettingCategoryCollectionSupportedRenderers items = 3;
+	SettingCategoryId category_id = 4;
+	Icon icon = 5;
+	FormattedString subtitle = 6;
+	bool focused = 7;
+	bytes tracking_params = 9;
+	Command on_show_command = 10;
+	ThumbnailDetails thumbnail_details = 11;
+}
+
+message SettingCategorySectionRenderer {
+	FormattedString title = 1;
+	FormattedString tooltip = 2;
+	Command service_endpoint = 3;
+	repeated SettingCategoryCollectionSupportedRenderers items = 4;
+	Icon icon = 5;
+	string identifier = 7;
+	bytes tracking_params = 9;
+	repeated ClientSettingItem client_setting_dependencies = 10;
+	Renderer icon_link = 12;
+}
+
+message CaptionSettingCategoryRenderer {
+	FormattedString title = 1;
+	repeated CaptionCategorySupportedRenderers items = 2;
+}
+
+message SettingCategoryCollectionSupportedRenderers {
+	SettingSingleOptionMenuRenderer setting_single_option_menu_renderer = 61321220;
+	SettingBooleanRenderer setting_boolean_renderer = 61331416;
+	SettingCategoryCollectionRenderer setting_category_collection_renderer = 66930374;
+	SettingActionRenderer setting_action_renderer = 71709717;
+	SettingCategorySectionRenderer setting_category_section_renderer = 75120871;
+	SettingNotificationListRenderer setting_notification_list_renderer = 75560919;
+	SettingReadOnlyItemRenderer setting_read_only_item_renderer = 76886494;
+	ClientStorageUsageRenderer storage_usage_renderer = 84082909;
+	SettingTextRenderer setting_text_renderer = 84887323;
+	CaptionPreviewRenderer caption_preview_renderer = 85346949;
+	CaptionSettingCategoryRenderer caption_setting_category_renderer = 85446662;
+	SettingSpacerDecorationRenderer setting_spacer_decoration_renderer = 124684298;
+	UnpluggedSubscriptionsSettingCategoryRenderer unplugged_subscriptions_setting_category_renderer = 128367722;
+	NotificationEntrySettingRenderer notification_entry_setting_renderer = 133017926;
+	NotificationTypeOptInRenderer notification_type_opt_in_renderer = 133044997;
+	UnpluggedLocationSettingRenderer unplugged_location_setting_renderer = 133074661;
+	TvMdxSettingRenderer tv_mdx_setting_renderer = 134624760;
+	UnpluggedEmptyStateRenderer unplugged_empty_state_renderer = 135842323;
+	UnpluggedBillingDetailsRenderer unplugged_billing_details_renderer = 136270667;
+	UnpluggedAppTourSettingRenderer unplugged_app_tour_setting_renderer = 139240142;
+	UnpluggedFamilyFlowMessageRenderer unplugged_family_flow_message_renderer = 142640027;
+	AutoOfflineStorageUsageRenderer auto_offline_storage_usage_renderer = 147386845;
+	GamingAccountLinkSettingRenderer gaming_account_link_setting_renderer = 155765234;
+	GamingThirdPartySettingRenderer gaming_third_party_setting_renderer = 155905127;
+	UnpluggedDisclaimerSettingRenderer unplugged_disclaimer_setting_renderer = 157490845;
+	UnpluggedLiveGuideSettingCategoryRenderer unplugged_live_guide_setting_category_renderer = 174749716;
+	UnpluggedNotificationSectionRenderer unplugged_notification_section_renderer = 177528310;
+	UnpluggedCurrentLocationSettingItemRenderer unplugged_current_location_setting_item_renderer = 192807389;
+	EomSettingsDisclaimerRenderer eom_settings_disclaimer_renderer = 198854564;
+	UnpluggedBannerRenderer unplugged_banner_renderer = 224687714;
+	UnpluggedStorageUsageRenderer unplugged_storage_usage_renderer = 339341032;
+	UnpluggedSettingItemRenderer unplugged_setting_item_renderer = 339688886;
+}
+
+message CaptionCategorySupportedRenderers {
+	SettingSingleOptionMenuRenderer setting_single_option_menu_renderer = 61321220;
+	SettingCategorySectionRenderer setting_category_section_renderer = 75120871;
+	CaptionPreviewRenderer caption_preview_renderer = 85346949;
+	CaptionCustomOptionsSectionRenderer caption_custom_options_section_renderer = 85732916;
+}
+
+message CaptionCustomOptionsSectionRenderer {
+	FormattedString title = 1;
+	repeated SettingCategoryCollectionSupportedRenderers items = 2;
+}

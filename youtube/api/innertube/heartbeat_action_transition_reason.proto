@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HeartbeatActionTransitionReason {
+	option features.enum_type = CLOSED;
+
+	HEARTBEAT_ACTION_TRANSITION_REASON_UNKNOWN = 0;
+	HEARTBEAT_ACTION_TRANSITION_REASON_LIVE_STREAM_WENT_ONLINE = 1;
+	HEARTBEAT_ACTION_TRANSITION_REASON_BROADCAST_ID_CHANGED = 3;
+	HEARTBEAT_ACTION_TRANSITION_REASON_HAS_NEW_STREAM_TRANSITION_ENDPOINT = 4;
+	HEARTBEAT_ACTION_TRANSITION_REASON_HOST_WENT_ONLINE = 5;
+	HEARTBEAT_ACTION_TRANSITION_REASON_SCHEDULED_START_TIME_CHANGED = 6;
+	HEARTBEAT_ACTION_TRANSITION_REASON_CROSSWALK_STATUS_CHANGED = 7;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/criterion.proto";
+
+option objc_class_prefix = "CADP";
+
+message PublishedDevice {
+	string receiver_metrics_id = 1;
+	repeated Criterion supported_criteria = 3;
+	bool has_active_connection = 4;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+message VideoGleamData {
+	string video_url = 1;
+	float aspect_ratio = 2;
+	int32 duration = 3;
+	bool has_audio = 4;
+	string youtube_id = 5;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+option objc_class_prefix = "YTI";
+
+message DataPushReleaseVersionInfo {
+	int64 build_id = 1;
+}

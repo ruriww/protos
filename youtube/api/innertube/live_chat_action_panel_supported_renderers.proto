@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/live_chat_message_input_renderer.proto";
+import "youtube/api/innertube/live_chat_restricted_participation_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatActionPanelSupportedRenderers {
+	oneof panel {
+		MessageRenderer message_renderer = 58508690;
+		LiveChatMessageInputRenderer live_chat_message_input_renderer = 121323709;
+		LiveChatRestrictedParticipationRenderer live_chat_restricted_participation_renderer = 132498670;
+	}
+}

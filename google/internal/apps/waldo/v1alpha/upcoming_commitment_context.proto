@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/protobuf/timestamp.proto";
+import "google/internal/apps/waldo/v1alpha/user_status.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message UpcomingCommitmentContext {
+	protobuf.Timestamp next_commitment_time = 1;
+	UserStatus next_commitment_status = 2;
+}

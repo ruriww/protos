@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/kids_blacklisted_content.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateKidsBlacklistEndpoint {
+	extend Command {
+		UpdateKidsBlacklistEndpoint update_kids_blacklist_endpoint = 126705043;
+	}
+
+	repeated KidsBlacklistedContent items = 1;
+	repeated Command actions = 3;
+	string kid_gaia_id = 4;
+	Command on_failure_action = 5;
+}

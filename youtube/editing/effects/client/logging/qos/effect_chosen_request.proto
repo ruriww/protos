@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "youtube/api/innertube/sfv_effect_identifier.proto";
+import "youtube/api/innertube/sfv_effect_category.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTEE";
+
+message EffectChosenRequest {
+	repeated api.innertube.SfvEffectIdentifier effect_id = 1;
+	repeated api.innertube.SfvEffectCategory effect_category_hint = 2;
+	google.protobuf.Timestamp request_time = 3;
+	string shorts_upload_frontend_id = 4;
+	int64 pipeline_reference_id = 5;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum FontDimensionUnit {
+	option features.enum_type = CLOSED;
+
+	FONT_DIMENSION_UNIT_UNKNOWN = 0;
+	FONT_DIMENSION_UNIT_POINT = 1;
+	FONT_DIMENSION_UNIT_FRACTION = 2;
+}

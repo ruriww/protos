@@ -1,0 +1,9 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+option objc_class_prefix = "ICING";
+
+message IosClientInfo {
+	string instance_id = 1;
+}

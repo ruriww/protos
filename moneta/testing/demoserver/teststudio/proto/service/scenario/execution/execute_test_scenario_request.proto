@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+import "moneta/testing/demoserver/teststudio/proto/test_scenario.proto";
+import "moneta/testing/demoserver/teststudio/proto/billable_service.proto";
+import "moneta/testing/demoserver/teststudio/proto/substitution_parameters.proto";
+import "moneta/testing/demoserver/teststudio/proto/service/scenario/execution/internal_user.proto";
+
+option objc_class_prefix = "TSLSSE";
+
+message ExecuteTestScenarioRequest {
+	TestScenario test_scenario = 1;
+	BillableService billable_service = 2;
+	SubstitutionParameters substitution_parameters = 3;
+	int64 execution_id = 5;
+	string external_user_product_role = 6;
+	InternalUser internal_user = 7;
+	repeated string external_user_granular_role = 8;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_image_download_failure_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineImageDownload {
+	bool is_successful = 1;
+	OfflineImageDownloadFailureReason failure_reason = 2;
+	bool is_using_ytimg_domain = 3;
+	int64 attempts = 4;
+	bool is_pinned = 5;
+	int64 initial_added_timestamp_sec = 6;
+}

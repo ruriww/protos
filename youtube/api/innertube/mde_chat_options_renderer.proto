@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeChatOptionsRenderer {
+	FormattedString chat_enabled_label = 1;
+	bool chat_enabled = 2;
+	FormattedString block_spam_label = 3;
+	bool block_spam = 4;
+	bool chat_has_members_only_mode = 5;
+	FormattedString chat_members_only_enabled_label = 6;
+	bool chat_members_only_enabled = 7;
+	FormattedString slow_mode_enabled_label = 8;
+	bool slow_mode_enabled = 9;
+	int32 slow_mode_timeout_duration_sec = 11;
+	bool show_super_chat_for_good_settings = 12;
+	bool super_chat_for_good_enabled = 13;
+	string super_chat_for_good_npo_id = 14;
+	string super_chat_for_good_donation_tally_url = 15;
+	FormattedString invite_only_mode_enabled_label = 16;
+	bool invite_only_mode_enabled = 17;
+	bool can_show_invite_only_chat_settings = 18;
+}
+
+extend Renderer {
+	MdeChatOptionsRenderer mde_chat_options_renderer = 91237681;
+}

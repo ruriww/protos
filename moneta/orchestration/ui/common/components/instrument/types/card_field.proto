@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/components/otp_field.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+
+option objc_class_prefix = "Orch";
+
+message CardField {
+	oneof card_field {
+		generic.UiField ui_field = 1;
+		AddressForm address_form = 2;
+		OtpField otp_field = 4;
+		Button button = 7;
+	}
+
+	bool hide_fields_below = 6;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/active_account_header_fab_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveAccountHeaderRenderer {
+	FormattedString account_name = 1;
+	ThumbnailDetails account_photo = 2;
+	ThumbnailDetails channel_art = 3;
+	Command settings_endpoint = 4;
+	Command channel_endpoint = 5;
+	ActiveAccountHeaderFabSupportedRenderers fab = 6;
+	repeated FormattedString unlimited_status = 7;
+	Command sign_in_endpoint = 8;
+	FormattedString email = 9;
+	Command service_endpoint = 10;
+	FormattedString manage_account_title = 11;
+	Renderer go_incognito_renderer = 13;
+	Renderer add_account_renderer = 14;
+	Renderer switch_account_renderer = 15;
+	bytes tracking_params = 17;
+	Renderer manage_google_account_renderer = 18;
+	Renderer switch_account_link_renderer = 19;
+	FormattedString channel_handle = 20;
+	string channel_data_entity_key = 21;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/horizontal_list_renderer.proto";
+import "youtube/api/innertube/grid_renderer.proto";
+import "youtube/api/innertube/expanded_shelf_contents_renderer.proto";
+import "youtube/api/innertube/vertical_list_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/generic_promo_renderer.proto";
+import "youtube/api/innertube/unplugged_table_section_renderer.proto";
+import "youtube/api/innertube/epg_pagination_renderer.proto";
+import "youtube/api/innertube/unplugged_horizontal_chip_list_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShelfSupportedRenderers {
+	HorizontalListRenderer horizontal_list_renderer = 51431404;
+	GridRenderer grid_renderer = 51805506;
+	ExpandedShelfContentsRenderer expanded_shelf_contents_renderer = 55636665;
+	VerticalListRenderer vertical_list_renderer = 57988071;
+	MessageRenderer message_renderer = 58508690;
+	GenericPromoRenderer generic_promo_renderer = 65665980;
+	UnpluggedTableSectionRenderer unplugged_table_section_renderer = 118821739;
+	EpgPaginationRenderer epg_pagination_renderer = 171740502;
+	UnpluggedHorizontalChipListRenderer unplugged_horizontal_chip_list_renderer = 174532213;
+}

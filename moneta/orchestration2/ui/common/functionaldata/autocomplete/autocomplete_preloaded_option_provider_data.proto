@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/autocomplete_provider_data_attributes.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/autocomplete_option.proto";
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/format_string.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AutocompletePreloadedOptionProviderData {
+	extend data.Data {
+		AutocompletePreloadedOptionProviderData autocomplete_preloaded_option_provider_data_extension = 318513491;
+	}
+
+	AutocompleteProviderDataAttributes autocomplete_provider_data_attributes = 1;
+	repeated AutocompleteOption preloaded_autocomplete_option = 2;
+	string format_string = 3;
+	repeated int32 autocomplete_field_id = 4 [ features.repeated_field_encoding = EXPANDED ];
+	FormatString format_string_with_optional_value = 5;
+}

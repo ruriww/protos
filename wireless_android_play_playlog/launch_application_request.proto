@@ -1,0 +1,17 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/launch_type.proto";
+import "cast/connection_type.proto";
+
+option objc_class_prefix = "CADP";
+
+message LaunchApplicationRequest {
+	int32 application_id = 1;
+	cast.LaunchType launch_type = 2;
+	bool relaunch_if_running = 3;
+	bool has_session_id = 4;
+	cast.ConnectionType connection_type = 5;
+	fixed32 request_id = 6;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/action_result.proto";
+import "customer_support/help/mobile/proto/smart_reply_data.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileMessageEvent {
+	string participant_id = 1;
+	string message_content = 2;
+	string participant_display_name = 3;
+	repeated ActionResult action_results = 4;
+
+	enum MessageType {
+		option features.enum_type = CLOSED;
+
+		PARTICIPANT = 0;
+		START_CHAT = 1;
+		END_CHAT = 2;
+	}
+
+	MessageType message_type = 5;
+	SmartReplyData smart_reply_data = 6;
+	string survey_url = 7;
+}

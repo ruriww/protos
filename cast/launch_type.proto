@@ -1,0 +1,13 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum LaunchType {
+	option features.enum_type = CLOSED;
+
+	LAUNCH_UNKNOWN = 0;
+	JOIN = 1;
+	LAUNCH = 2;
+}

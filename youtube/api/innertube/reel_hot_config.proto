@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reel_player_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelHotConfig {
+	bool android_destroy_playback_before_reels_camera = 1;
+	bool wn_stories_shelf = 3;
+	bool enable_multi_player_prebuffering = 5;
+	bool enable_refactored_player = 6;
+	bool enable_reel_lookahead_prefetch = 7;
+	bool android_reel_autoplay_v2_enabled = 8;
+	bool android_reel_csi_log_v2_enabled = 9;
+	bool enable_ios_prebuffer_first_video = 10;
+	bool enable_ios_prefetch_more = 11;
+	ReelPlayerConfig reel_player_config = 12;
+	bool comment_picker_enabled = 13;
+	bool enable_reel_educational_overlay = 14;
+	bool enable_ios_camera_timer = 15;
+	bool enable_icloud_library = 16;
+	bool enable_reel_dislike_auto_advance = 17;
+	bool enable_reel_player_backstack_restore_state_on_pop_android = 21;
+	bool enable_reels_lazy_loader_for_seedless = 22;
+	bool enable_shorts_tap_to_pause = 23;
+	bool enable_reel_pivot_page_menu = 24;
+	bool enable_reel_hdr_preview = 25;
+	bool enable_shorts_captions = 26;
+	bool enable_reel_shared_media_picker = 28;
+	bool enable_android_reel_watch_il_fix_watchpage_parent_after_exit = 29;
+	bool enable_reels_rhs_lazy_loader_for_seedless = 30;
+	bool enable_shorts_dismissal_paging_logic = 31;
+	bool enable_reel_product_excellence_extra_logging = 32;
+	bool enable_android_reel_clone_csn_logging = 33;
+	bool enable_ios_shorts_age_gating = 34;
+	bool enable_android_shorts_pivot_fab = 35;
+}

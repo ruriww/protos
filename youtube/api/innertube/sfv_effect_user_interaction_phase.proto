@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SfvEffectUserInteractionPhase {
+	option features.enum_type = CLOSED;
+
+	SFV_EFFECT_USER_INTERACTION_PHASE_UNKNOWN = 0;
+	SFV_EFFECT_USER_INTERACTION_PHASE_NONE = 1;
+	SFV_EFFECT_USER_INTERACTION_PHASE_BEGAN = 2;
+	SFV_EFFECT_USER_INTERACTION_PHASE_ENDED = 3;
+}

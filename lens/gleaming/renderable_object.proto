@@ -1,0 +1,22 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/pose.proto";
+import "lens/gleaming/elements_gleam_data.proto";
+import "lens/gleaming/simple_label_data.proto";
+import "lens/gleaming/three_d_model_data.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message RenderableObject {
+	Pose relative_pose = 1;
+
+	oneof rendered_content {
+		ElementsGleamData elements_data = 2;
+		SimpleLabelData simple_label_data = 3;
+		ThreeDModelData three_d_model_data = 4;
+	}
+
+	string id = 5;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/backstage_video_attachment.proto";
+import "youtube/api/innertube/backstage_poll_attachment.proto";
+import "youtube/api/innertube/backstage_image_attachment.proto";
+import "youtube/api/innertube/backstage_lightweight_video_attachment.proto";
+import "youtube/api/innertube/post_create_images_attachment.proto";
+import "youtube/api/innertube/post_create_poll_attachment.proto";
+import "youtube/api/innertube/post_create_quiz_attachment.proto";
+import "youtube/api/innertube/backstage_access_restrictions.proto";
+import "youtube/api/innertube/post_creation_data.proto";
+import "youtube/api/innertube/post_ephemerality_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateCommentRequest {
+	InnerTubeContext context = 1;
+	string create_comment_params = 2;
+	string comment_text = 3;
+	string botguard_response = 6;
+
+	oneof attachment {
+		BackstageVideoAttachment video_attachment = 7;
+		BackstagePollAttachment poll_attachment = 8;
+		BackstageImageAttachment image_attachment = 9;
+		BackstageLightweightVideoAttachment lightweight_video_attachment = 10;
+		PostCreateImagesAttachment images_attachment = 18;
+		PostCreatePollAttachment poll_attachment_data = 20;
+		PostCreateQuizAttachment quiz_attachment_data = 24;
+	}
+
+	BackstageAccessRestrictions access_restrictions = 11;
+	string access_restrictions_params = 12;
+	int64 scheduled_publish_time_sec = 16;
+	int64 commented_at_ms = 17;
+	PostCreationData post_creation_data = 19;
+	bool is_from_zero_step_creation = 21;
+	PostEphemeralitySettings ephemerality_settings = 23;
+	int32 rating = 26;
+	string video_position_mention = 27;
+	repeated string sources = 28;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerControlsConfig {
+	bool show_play_pause_button_when_buffering = 1;
+	bool show_cached_in_timebar = 2;
+	bool show_buffering_byte_progress = 3;
+	bool float_buffering_byte_progress = 4;
+}

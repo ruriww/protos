@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/text_badge_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/mde_delete_button_renderer.proto";
+import "youtube/api/innertube/mde_distribution_options_renderer.proto";
+import "youtube/api/innertube/mde_commit_button_renderer.proto";
+import "youtube/api/innertube/mde_thumbnail_renderer.proto";
+import "youtube/api/innertube/mde_game_title_renderer.proto";
+import "youtube/api/innertube/mde_recording_options_renderer.proto";
+import "youtube/api/innertube/mde_dvr_enabled_renderer.proto";
+import "youtube/api/innertube/mde_broadcast_delay_renderer.proto";
+import "youtube/api/innertube/mde_time_selector_renderer.proto";
+import "youtube/api/innertube/mde_stream_optimizations_renderer.proto";
+import "youtube/api/innertube/mde_add_to_playlist_renderer.proto";
+import "youtube/api/innertube/mde_detailed_commit_button_renderer.proto";
+import "youtube/api/innertube/mde_edit_custom_thumbnail_renderer.proto";
+import "youtube/api/innertube/mde_download_thumbnail_renderer.proto";
+import "youtube/api/innertube/location_edit_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MetadataEditorSectionSupportedRenderers {
+	TextBadgeRenderer text_badge_renderer = 50922968;
+	MessageRenderer message_renderer = 58508690;
+	MdeDeleteButtonRenderer delete_button = 68499675;
+	MdeDistributionOptionsRenderer distribution_options = 68547638;
+	MdeCommitButtonRenderer commit_button = 69322110;
+	MdeThumbnailRenderer thumbnail = 78345343;
+	MdeGameTitleRenderer game_title = 90664768;
+	MdeRecordingOptionsRenderer recording_options = 91369472;
+	MdeDvrEnabledRenderer dvr_enabled = 91405291;
+	MdeBroadcastDelayRenderer broadcast_delay = 91809583;
+	MdeTimeSelectorRenderer mde_time_selector_renderer = 93362959;
+	MdeStreamOptimizationsRenderer mde_stream_optimizations_renderer = 95179814;
+	MdeAddToPlaylistRenderer mde_add_to_playlist_renderer = 99226084;
+	MdeDetailedCommitButtonRenderer mde_detailed_commit_button_renderer = 100938265;
+	MdeEditCustomThumbnailRenderer mde_edit_custom_thumbnail_renderer = 113780970;
+	MdeDownloadThumbnailRenderer mde_download_thumbnail_renderer = 114364467;
+	LocationEditRenderer location_edit_renderer = 152345243;
+}

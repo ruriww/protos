@@ -1,0 +1,28 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/request_context/filter_detected_contexts.proto";
+import "lens/filter_recommendation.proto";
+import "lens/common/detected_object.proto";
+import "lens/common/detected_text.proto";
+import "lens/gleaming/deep_gleam_data.proto";
+import "lens/user_guidance.proto";
+import "lens/sticky_cluster_info.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message ObjectsResponse {
+	repeated .lens.common.DetectedObject detected_object = 2;
+	.lens.common.DetectedText detected_text = 3;
+	repeated .lens.gleaming.DeepGleamData deep_gleams = 4;
+	.lens.UserGuidance user_guidance = 5;
+
+	message FilterData {
+		.lens.request_context.FilterDetectedContexts filter_detected_contexts = 1;
+		repeated .lens.FilterRecommendation filter_recommendations = 2;
+	}
+
+	FilterData filter_data = 6;
+	.lens.StickyClusterInfo sticky_cluster_info = 7;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorTrigger {
+	extend eventrules.trigger.Trigger {
+		SelectorTrigger selector_trigger_extension = 310014650;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_EXPANDED_STATE_CHANGED = 1;
+		TRIGGER_TYPE_ACTIVE_GROUP_IDS_CHANGED = 2;
+	}
+
+	TriggerType trigger_type = 1;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CameraNodeProperties {
+	node.UnitSize inner_corner_radius = 1;
+	uint32 margin_scrim_color_argb = 2;
+	repeated uint32 corner_indicator_color_argb = 3 [ features.repeated_field_encoding = EXPANDED ];
+	node.UnitSize corner_indicator_stroke_width = 4;
+	node.UnitSize corner_indicator_arm_length = 5;
+	repeated uint32 edge_indicator_color_argb = 6 [ features.repeated_field_encoding = EXPANDED ];
+	node.UnitSize edge_indicator_stroke_width = 7;
+}

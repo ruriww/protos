@@ -1,0 +1,31 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message Tooltip {
+	string help_center = 1;
+	int32 answer_id = 2;
+	ImageWithCaption icon = 3;
+	string title = 4;
+	InfoMessage info_message = 5;
+	repeated ImageWithCaption image = 6;
+
+	enum ImagePosition {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ABOVE_MESSAGE = 1;
+		BELOW_MESSAGE = 2;
+		START_OF_MESSAGE_WRAP_TEXT = 3;
+		END_OF_MESSAGE_WRAP_TEXT = 4;
+	}
+
+	ImagePosition image_position = 7 [ default = BELOW_MESSAGE ];
+	bool hide_tooltip_icon = 8;
+	bool use_disabled_icon_style = 9;
+}

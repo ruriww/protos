@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleAccountCheckupInfo {
+	enum EntryPointState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NO_ADVICE = 1;
+		ADVICE = 2;
+		ADVICE_REQUIRING_ATTENTION = 3;
+	}
+
+	EntryPointState entry_point_state = 1;
+}

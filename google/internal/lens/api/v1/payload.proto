@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/client_image.proto";
+import "google/internal/lens/api/v1/remote_image.proto";
+
+option objc_class_prefix = "LFE";
+
+message Payload {
+	oneof type {
+		ClientImage client_image = 1;
+		RemoteImage remote_image = 6;
+	}
+
+	bytes content_data = 9;
+	string content_type = 10;
+	string page_url = 14;
+}

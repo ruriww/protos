@@ -1,0 +1,11 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/co_doing_state.proto";
+
+option objc_class_prefix = "GHM";
+
+message CoDoingStateUpdate {
+	CoDoingState state = 1;
+}

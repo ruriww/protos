@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.rpcmessage;
+
+import "moneta/orchestration2/ui/common/request_context.proto";
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SubmitRequest {
+	RequestContext context = 1;
+	repeated data.DataValue data_value = 2;
+	node.Node initial_node = 3;
+	repeated node.Node additional_node = 4;
+	bytes encrypted_parameters = 5;
+	bytes serialized_unencrypted_parameters = 6;
+}

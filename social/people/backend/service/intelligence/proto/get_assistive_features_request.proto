@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/client_context.proto";
+import "social/people/backend/service/intelligence/proto/assistive_feature_request.proto";
+import "social/people/backend/service/intelligence/proto/moments_highlights_params.proto";
+
+option objc_class_prefix = "PIL";
+
+message GetAssistiveFeaturesRequest {
+	ClientContext client_context = 1;
+	repeated AssistiveFeatureRequest assistive_feature_requests = 2;
+	MomentsHighlightsParams moments_highlights_params = 3;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicPersistentCacheCheckedState {
+	option features.enum_type = CLOSED;
+
+	MUSIC_PERSISTENT_CACHE_CHECKED_STATE_UNKNOWN = 0;
+	MUSIC_PERSISTENT_CACHE_CHECKED_STATE_NOT_FOUND = 1;
+	MUSIC_PERSISTENT_CACHE_CHECKED_STATE_FRESH = 2;
+	MUSIC_PERSISTENT_CACHE_CHECKED_STATE_STALE = 3;
+	MUSIC_PERSISTENT_CACHE_CHECKED_STATE_EXPIRED = 4;
+}

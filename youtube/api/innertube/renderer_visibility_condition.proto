@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RendererVisibilityCondition {
+	enum VisibilityConditionType {
+		option features.enum_type = CLOSED;
+
+		VISIBILITY_CONDITION_TYPE_UNKNOWN = 0;
+		VISIBILITY_CONDITION_TYPE_MDX_CONNECTED = 1;
+		VISIBILITY_CONDITION_TYPE_MDX_DISCONNECTED = 2;
+		VISIBILITY_CONDITION_TYPE_MDX_DISCONNECTED_HAS_AVAILABLE_DEVICES = 3;
+		VISIBILITY_CONDITION_TYPE_QUEUEABLE = 4;
+		VISIBILITY_CONDITION_TYPE_UPCOMING_EVENT_REMINDER_STATE_NONE = 5;
+		VISIBILITY_CONDITION_TYPE_UPCOMING_EVENT_REMINDER_STATE_SINGLE = 6;
+		VISIBILITY_CONDITION_TYPE_UPCOMING_EVENT_REMINDER_STATE_SERIES = 7;
+		VISIBILITY_CONDITION_TYPE_LOCATION_PERMISSION_GRANTED = 8;
+		VISIBILITY_CONDITION_TYPE_IS_PLAYING_PLAYLIST_WITH_MORE_THAN_ONE_VIDEO = 9;
+	}
+
+	VisibilityConditionType type = 1;
+}

@@ -1,0 +1,105 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/separator.proto";
+import "moneta/orchestration/ui/common/generic/message_template.proto";
+import "moneta/orchestration/ui/common/generic/style_enums.proto";
+import "moneta/orchestration/ui/common/generic/layout.proto";
+import "proto2/bridge/message_set.proto";
+import "moneta/orchestration/ui/common/generic/link_action.proto";
+
+option objc_class_prefix = "Orch";
+
+message InfoMessage {
+	string message_html = 1;
+	string detailed_message_html = 2;
+	string show_detailed_message_label = 3;
+	int64 ui_reference = 4;
+
+	enum DisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		DEFAULT = 1;
+		DEFAULT_WITH_IMAGE = 52;
+		DETAIL = 7;
+		DETAIL_WITH_IMAGE = 50;
+		EMPHASIS = 3;
+		HEADER = 5;
+		HEADER_REGULAR = 48;
+		SUB_HEADER = 6;
+		SUB_HEADER_PRIMARY = 33;
+		ERROR = 4;
+		PENDING = 13;
+		DISABLED = 51;
+		INFO = 8;
+		DETAIL_INFO = 9;
+		DETAIL_INFO_NON_HEADER = 10;
+		SCORECARD = 12;
+		INPUT = 14;
+		EXTERNAL_DISPLAY_AUTO_SIZE = 16;
+		HEADLINE_1 = 17;
+		HEADLINE_4 = 58;
+		HEADLINE_5 = 27;
+		SUBHEAD_1 = 20;
+		SUBHEAD_2 = 21;
+		SUBTITLE_2 = 49;
+		BODY_1 = 22;
+		BODY_2 = 23;
+		OVERLINE_DECLINED = 24;
+		OVERLINE_REFUNDED = 25;
+		OVERLINE_PENDING = 26;
+		LARGE_CODE_DISPLAY = 18;
+		DETAIL_INFO_WITH_TOP_BOTTOM_BORDER = 19;
+		IMPORTANT_NON_HEADER = 29;
+		QUOTE = 28;
+		AMOUNT_DEBIT = 30;
+		AMOUNT_CREDIT = 31;
+		AMOUNT_CANCELED = 32;
+		STATUS_CANCELED = 46;
+		STATUS_REFUNDED = 47;
+		MATERIAL_1_HEADLINE_1 = 34;
+		MATERIAL_1_HEADLINE_2 = 35;
+		MATERIAL_1_HEADLINE_3 = 36;
+		MATERIAL_1_HEADLINE_3_SECONDARY = 37;
+		MATERIAL_1_BODY_1 = 38;
+		MATERIAL_1_BODY_2 = 40;
+		MATERIAL_1_BODY_2_SECONDARY = 41;
+		MATERIAL_1_BODY_3 = 42;
+		MATERIAL_1_BODY_3_SECONDARY = 43;
+		MATERIAL_1_BODY_4 = 45;
+		BADGE_NUDGE = 53;
+		BADGE_SUCCESS = 54;
+		BADGE_WARNING = 55;
+		BADGE_ERROR = 56;
+		BADGE_DISABLED = 57;
+		BANNER_INFO = 59;
+		BANNER_WARNING = 60;
+		BANNER_ERROR = 61;
+		BANNER_CONFIRMATION = 62;
+	}
+
+	DisplayType display_type = 5;
+	repeated ImageWithCaption image = 6;
+	int32 indent_level = 7;
+	bool show_bullet_character = 8;
+	Separator separator = 9;
+	string hide_detailed_message_label = 10;
+	MessageTemplate message_template = 11;
+	DisplayType detail_display_type = 12;
+	StyleEnums.Alignment alignment = 14 [ default = START ];
+	bool is_compact = 15;
+	bool append_detail_message = 16 [ default = false ];
+	string bullet_overlay_character = 17;
+
+	oneof width {
+		int32 width_in_pixels = 18;
+		int32 width_in_relative_percent = 19;
+	}
+
+	Layout layout = 20;
+	proto2.bridge.MessageSet private_extensions = 21;
+	repeated LinkAction link_action = 22;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/properties.proto";
+import "youtube/elements/command_run.proto";
+import "youtube/elements/attachment_run.proto";
+import "youtube/elements/interaction_config.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message LoggingProperties {
+	extend Properties {
+		LoggingProperties logging_properties = 255496645;
+	}
+
+	extend CommandRun {
+		LoggingProperties command_run_logging_properties = 452831677;
+	}
+
+	extend AttachmentRun {
+		LoggingProperties attachment_run_logging_properties = 452831677;
+	}
+
+	string node_key = 2;
+	InteractionConfig interaction_config = 3;
+
+	extensions 900 to max;
+}

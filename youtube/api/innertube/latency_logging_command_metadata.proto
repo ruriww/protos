@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command_metadata.proto";
+import "youtube/api/innertube/latency_action_type.proto";
+import "youtube/api/innertube/latency_action_command_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LatencyLoggingCommandMetadata {
+	extend CommandMetadata {
+		LatencyLoggingCommandMetadata latency_logging_command_metadata = 471377396;
+	}
+
+	LatencyActionType action_type = 1;
+	LatencyActionCommandType command_type = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ink.proto.camera_constraints;
+
+import "ink/proto/camera_constraints/fling_dynamics.proto";
+
+option objc_class_prefix = "INKPB";
+
+message MovementConstraints {
+	bool allow_horizontal_pan = 1 [ default = true ];
+	bool allow_vertical_pan = 2 [ default = true ];
+	bool allow_zoom = 3 [ default = true ];
+	bool allow_rotation = 4 [ default = false ];
+	bool allow_fling = 5 [ default = false ];
+	bool allow_elastic_constraints = 6 [ default = true ];
+	FlingDynamics fling_dynamics = 7;
+}

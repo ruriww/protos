@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/account_item_renderer.proto";
+import "youtube/api/innertube/compact_link_renderer.proto";
+import "youtube/api/innertube/next_continuation_data.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/account_item_section_header_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountItemSectionRenderer {
+	message AccountItemSectionSupportedRenderers {
+		oneof renderer {
+			AccountItemRenderer account_item = 62381864;
+			CompactLinkRenderer compact_link_renderer = 79129962;
+		}
+	}
+
+	repeated AccountItemSectionSupportedRenderers contents = 1;
+	FormattedString title = 5;
+	bytes tracking_params = 6;
+	AccountItemSectionHeaderSupportedRenderers header = 7;
+
+	message AccountItemSectionSupportedContinuations {
+		NextContinuationData next_continuation_data = 52047593;
+	}
+
+	repeated AccountItemSectionSupportedContinuations continuations = 8;
+	string target_id = 9;
+}

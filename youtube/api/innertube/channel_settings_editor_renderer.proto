@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/channel_settings_editor_boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelSettingsEditorRenderer {
+	FormattedString title = 1;
+	FormattedString privacy_settings_title = 2;
+	repeated ChannelSettingsEditorBooleanFormFieldSupportedRenderers privacy_settings = 3;
+	FormattedString account_settings_text = 4;
+	ChannelSettingsEditorBooleanFormFieldSupportedRenderers layout_setting = 5;
+	ButtonSupportedRenderers save_button = 6;
+	FormattedString advanced_settings_text = 7;
+	ChannelSettingsEditorBooleanFormFieldSupportedRenderers discussion_tab_setting = 8;
+	FormattedString translate_info_title = 10;
+	FormattedString translate_info_body = 11;
+}
+
+extend Renderer {
+	ChannelSettingsEditorRenderer channel_settings_editor_renderer = 107614686;
+}

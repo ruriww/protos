@@ -1,0 +1,15 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+import "media/webrtc/server/chameleon/karma/push/participant_id.proto";
+import "media/webrtc/server/chameleon/karma/push/client_receive_stream_type.proto";
+import "media/webrtc/server/chameleon/karma/push/rtp_encoded_stream.proto";
+
+option objc_class_prefix = "WRTCSMR";
+
+message ClientReceiveStream {
+	ParticipantId sending_client_id = 1;
+	ClientReceiveStreamType type = 2;
+	RtpEncodedStream rtp = 3;
+}

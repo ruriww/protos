@@ -1,0 +1,14 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message AuthToken {
+	string name = 1;
+	string token = 2;
+	int32 user_id_type = 4;
+	bool is_primary_account = 7;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoEditorProject {
+	repeated int32 shot_boundary_ms = 3 [ features.repeated_field_encoding = EXPANDED ];
+	double accurate_max_fps = 6;
+	bool edit_will_downgrade = 13;
+}

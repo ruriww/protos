@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/reminder_identifier.proto";
+
+option objc_class_prefix = "PIL";
+
+message DeleteContactRemindersRequest {
+	repeated ReminderIdentifier reminder_ids = 2;
+}

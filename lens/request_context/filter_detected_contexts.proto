@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "lens/request_context/filter_detected_context.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message FilterDetectedContexts {
+	repeated FilterDetectedContext context = 1;
+}

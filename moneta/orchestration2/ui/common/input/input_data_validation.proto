@@ -1,0 +1,60 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+import "moneta/orchestration2/ui/common/input/value_range.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InputDataValidation {
+	enum ChecksumType {
+		option features.enum_type = CLOSED;
+
+		CHECKSUM_TYPE_UNKNOWN = 0;
+		CHECKSUM_TYPE_IBAN = 1;
+		CHECKSUM_TYPE_BRAZIL_CNPJ = 2;
+		CHECKSUM_TYPE_BRAZIL_CPF = 3;
+		CHECKSUM_TYPE_MA_RIB = 4;
+		CHECKSUM_TYPE_BRAZIL_CNPJ_OR_CPF = 5;
+		CHECKSUM_TYPE_ISO_7064_MOD_11_10 = 6;
+		CHECKSUM_TYPE_AUSTRIA_TAX_NUMBER = 9;
+		CHECKSUM_TYPE_BELGIUM_TAX_NUMBER = 10;
+		CHECKSUM_TYPE_CROATIA_TAX_NUMBER = 11;
+		CHECKSUM_TYPE_DENMARK_TAX_NUMBER = 12;
+		CHECKSUM_TYPE_FINLAND_TAX_NUMBER = 13;
+		CHECKSUM_TYPE_GERMANY_TAX_NUMBER = 14;
+		CHECKSUM_TYPE_GREECE_TAX_NUMBER = 15;
+		CHECKSUM_TYPE_IRELAND_TAX_NUMBER = 16;
+		CHECKSUM_TYPE_ITALY_VAT_IVA = 8;
+		CHECKSUM_TYPE_LUXEMBOURG_TAX_NUMBER = 17;
+		CHECKSUM_TYPE_NETHERLAND_TAX_NUMBER = 18;
+		CHECKSUM_TYPE_PORTUGAL_TAX_NUMBER = 19;
+		CHECKSUM_TYPE_SPAIN_VAT_NIF = 7;
+		CHECKSUM_TYPE_SWEDEN_TAX_NUMBER = 20;
+		CHECKSUM_TYPE_UNITED_KINGDOM_TAX_NUMBER = 21;
+		CHECKSUM_TYPE_ARGENTINA_TAX_NUMBER = 23;
+		CHECKSUM_TYPE_AUSTRALIA_TAX_NUMBER = 24;
+		CHECKSUM_TYPE_MEXICO_TAX_NUMBER = 26;
+		CHECKSUM_TYPE_TAIWAN_TAX_NUMBER = 22;
+		CHECKSUM_TYPE_TURKEY_TAX_NUMBER = 25;
+		CHECKSUM_TYPE_LUHN = 27;
+	}
+
+	message RegexCondition {
+		string validity_regex = 1;
+		string terminal_regex = 2;
+	}
+
+	oneof condition {
+		int32 min_length = 1;
+		int32 max_length = 2;
+		string regex = 3;
+		ChecksumType checksum_type = 4;
+		RegexCondition regex_condition = 7;
+		int64 equality_data_reference = 8;
+		ValueRange value_range = 9;
+	}
+
+	string error_text = 5;
+	int32 validation_id = 6;
+}
