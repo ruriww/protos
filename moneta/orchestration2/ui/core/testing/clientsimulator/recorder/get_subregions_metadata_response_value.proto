@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.core.testing.clientsimulator.recorder;
+
+import "moneta/orchestration2/ui/addressmetadata/get_subregions_metadata_response.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GetSubregionsMetadataResponseValue {
+	addressmetadata.GetSubregionsMetadataResponse get_subregions_metadata_response = 2;
+}

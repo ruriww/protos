@@ -1,0 +1,31 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/formatted_string.proto";
+import "footprints/texts/primitiveconsent/link.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message TextWithIcon {
+	enum IconPosition {
+		option features.enum_type = CLOSED;
+
+		ICON_POSITION_UNSPECIFIED = 0;
+		ICON_POSITION_LEADING = 1;
+		ICON_POSITION_TRAILING = 2;
+	}
+
+	oneof text_block {
+		FormattedString formatted_string = 1;
+		Link link = 2;
+	}
+
+	message Icon {
+		string url = 1;
+		string url_dark = 2;
+		IconPosition position = 3;
+	}
+
+	Icon icon = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message ContactPickerOptions {
+	string title = 1;
+	string search_hint_text = 2;
+	string search_hint_text_with_selections = 3;
+	string contacts_header = 4;
+	string suggested_contacts_header = 5;
+	string confirmation_button_text = 6;
+	string sms_charges_warning = 7;
+	string invalid_contact_method_warning = 8;
+	string selection_limit_hint = 9;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+import "boq/identitywebviewoctarine/bridge/click_target.proto";
+import "boq/identitywebviewoctarine/bridge/preferred_item_placement.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "OCT";
+
+message ActionItem {
+	string title = 1;
+	repeated ClickTarget click_targets = 2;
+	PreferredItemPlacement preferred_placement = 3;
+	google.internal.identity.accountsettings.mobile.v1.Image icon = 4;
+}

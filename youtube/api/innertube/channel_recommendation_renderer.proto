@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/channel_recommendation_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelRecommendationRenderer {
+	FormattedString channel_title = 1;
+	FormattedString subscriber_count = 2;
+	ChannelRecommendationSubscribeButtonSupportedRenderers subscribe_button = 3;
+	ThumbnailDetails background_image = 4;
+	ThumbnailDetails avatar = 5;
+	Command endpoint = 6;
+	FormattedString channel_description = 7;
+	FormattedString channel_category = 8;
+}
+
+extend Renderer {
+	ChannelRecommendationRenderer channel_recommendation_renderer = 146012302;
+}

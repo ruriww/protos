@@ -1,0 +1,36 @@
+edition = "2023";
+
+package kids.families;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+
+option objc_class_prefix = "FAM";
+
+message FamilyProductCorrelationId {
+	enum State {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_STATE = 0;
+		NOT_SET_UP = 4;
+		PENDING = 1;
+		VALID = 2;
+		INVALID = 3;
+	}
+
+	State state = 1;
+	moneta.integrator.common.ProductCorrelationId product_correlation_id = 2;
+	int64 state_last_update_timestamp_millis = 3;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPE = 0;
+		PLAY = 1;
+		YOUTUBE = 2;
+		CLOUDCAST = 3;
+		P11 = 4;
+	}
+
+	Type type = 4;
+	bool is_ever_valid = 5;
+}

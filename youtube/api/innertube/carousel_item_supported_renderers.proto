@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/interstitial_promo_renderer.proto";
+import "youtube/api/innertube/default_promo_panel_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CarouselItemSupportedRenderers {
+	oneof renderer {
+		InterstitialPromoRenderer interstitial_promo_renderer = 86135402;
+		DefaultPromoPanelRenderer default_promo_panel_renderer = 144881215;
+	}
+}

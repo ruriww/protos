@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto.camera_constraints;
+
+import "ink/proto/camera_constraints/toolbar_margin.proto";
+
+option objc_class_prefix = "INKPB";
+
+message MultiPagePolicy {
+	float max_margin_px = 1 [ default = 30 ];
+	float min_visible_pages = 2 [ default = 0.25 ];
+	float max_visible_pages = 3 [ default = 3.5 ];
+	ToolbarMargin toolbar_margin = 4;
+}

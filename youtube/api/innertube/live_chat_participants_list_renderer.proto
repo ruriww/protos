@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_participant_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/live_chat_participant_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatParticipantsListRenderer {
+	FormattedString title = 1;
+	ButtonSupportedRenderers back_button = 2;
+	repeated LiveChatParticipantSupportedRenderers participants = 3;
+}
+
+extend Renderer {
+	LiveChatParticipantsListRenderer live_chat_participants_list_renderer = 137059817;
+}
+
+extend Renderer {
+	LiveChatParticipantRenderer live_chat_participant_renderer = 139838092;
+}

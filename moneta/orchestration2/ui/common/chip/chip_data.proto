@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.chip;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/image/image_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ChipData {
+	extend data.Data {
+		ChipData chip_data_extension = 340762285;
+	}
+
+	image.ImageContent leading_icon_content = 1;
+	bool has_remove_button = 2;
+	string chip_label_text = 3;
+}

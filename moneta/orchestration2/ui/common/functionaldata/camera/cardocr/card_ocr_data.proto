@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.cardocr;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/cardocr/card_ocr_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CardOcrData {
+	extend data.Data {
+		CardOcrData card_ocr_data_extension = 426759536;
+	}
+
+	CardOcrOptions ocr_options = 1;
+	float region_of_interest_margin_fraction_start = 2;
+	float region_of_interest_margin_fraction_top = 3;
+	float region_of_interest_margin_fraction_end = 4;
+	float region_of_interest_margin_fraction_bottom = 5;
+}

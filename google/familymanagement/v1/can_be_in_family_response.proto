@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message CanBeInFamilyResponse {
+	bool can_be_in_family = 1;
+}

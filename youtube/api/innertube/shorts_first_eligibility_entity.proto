@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/start_to_shorts_client_pause_config.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsFirstEligibilityEntity {
+	extend EntityMutationPayload {
+		ShortsFirstEligibilityEntity shorts_first_eligibility_entity = 387;
+	}
+
+	string key = 1;
+	uint32 start_to_shorts_duration_minutes = 2;
+	StartToShortsClientPauseConfig start_to_shorts_pause_config = 3;
+	Command updated_endpoint_proto = 5;
+	Command resume_to_shorts_endpoint_proto = 6;
+}

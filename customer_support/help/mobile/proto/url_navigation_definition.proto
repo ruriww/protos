@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message UrlNavigationDefinition {
+	string url = 1;
+	bool create_new_tab = 2;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/orientation_info_config.proto";
+import "youtube/api/innertube/error_logging_config.proto";
+import "youtube/api/innertube/flow_logging_config.proto";
+import "youtube/api/innertube/sampling_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoggingColdConfig {
+	bool is_logging_enabled = 1;
+	OrientationInfoConfig orientation_info_config = 2;
+	ErrorLoggingConfig error_logging_config = 3;
+	FlowLoggingConfig flow_logging_config = 4;
+	bool ios_enable_elements_interaction_logger = 5;
+	bool ios_enable_pivot_tab_page_parenting = 6;
+	SamplingConfig sampling_config = 7;
+}

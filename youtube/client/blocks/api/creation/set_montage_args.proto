@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/api/innertube/command.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SetMontageArgs {
+	youtube.api.innertube.Command command = 1;
+}

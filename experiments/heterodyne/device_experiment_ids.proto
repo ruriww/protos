@@ -1,0 +1,12 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message DeviceExperimentIds {
+	repeated int32 by_gaia = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 by_pseudonymous = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 always = 3 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 by_other = 4 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.integrator.ui.timelineview;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+
+option objc_class_prefix = "Orch";
+
+message TimelineViewParameters {
+	common.CommonParameters common_parameters = 1;
+
+	enum TimelineViewScenario {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ONE_TIME_PURCHASE = 1;
+		BILLING_ACCOUNT = 3;
+		MULTIUSE_BILLING_ACCOUNT = 5;
+		BILLING_ACCOUNT_STATEMENTS = 7;
+		STORED_VALUE_STATEMENTS = 8;
+		SUPERVISED_STORED_VALUE_STATEMENTS = 10;
+		ACTIVITY = 9;
+	}
+
+	TimelineViewScenario timeline_view_scenario = 2;
+}

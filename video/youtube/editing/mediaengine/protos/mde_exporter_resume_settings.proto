@@ -1,0 +1,9 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeExporterResumeSettings {
+	uint64 start_time_ms = 1;
+}

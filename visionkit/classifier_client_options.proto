@@ -1,0 +1,30 @@
+edition = "2023";
+
+package visionkit;
+
+import "visionkit/external_file.proto";
+import "visionkit/class_trigger_condition.proto";
+
+option objc_class_prefix = "VKS";
+
+message ClassifierClientOptions {
+	string classifier_client_name = 1;
+	int32 max_results = 2 [ default = -1 ];
+	float score_threshold = 3;
+	repeated string class_name_whitelist = 4;
+	repeated string class_name_blacklist = 5;
+
+	message ExternalFiles {
+		ExternalFile model_file = 5;
+		ExternalFile label_map_file = 6;
+	}
+
+	ExternalFiles external_files = 6;
+	bool prune_ancestors = 8;
+	ExternalFile model_file_with_metadata = 10;
+	string display_names_locale = 11 [ default = "en" ];
+	ExternalFile text_label_map_file = 12;
+	int32 num_threads = 13 [ default = -1 ];
+	string model_id = 15;
+	repeated ClassTriggerCondition class_trigger_conditions = 16;
+}

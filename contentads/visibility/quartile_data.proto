@@ -1,0 +1,13 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message QuartileData {
+	int32 start_pct = 1;
+	int32 quartile1_pct = 2;
+	int32 quartile2_pct = 3;
+	int32 quartile3_pct = 4;
+	int32 quartile4_pct = 5;
+}

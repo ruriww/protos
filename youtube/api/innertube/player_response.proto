@@ -1,0 +1,131 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/playability_status.proto";
+import "youtube/api/innertube/streaming_data.proto";
+import "youtube/api/innertube/heartbeat_params.proto";
+import "youtube/api/innertube/playback_tracking.proto";
+import "youtube/api/innertube/captions_supported_renderers.proto";
+import "youtube/api/innertube/video_details.proto";
+import "youtube/api/innertube/annotations_supported_renderers.proto";
+import "youtube/api/innertube/offline_state.proto";
+import "youtube/api/innertube/player_config.proto";
+import "youtube/api/innertube/storyboards_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/info_cards_supported_renderers.proto";
+import "youtube/api/innertube/attestation_supported_renderers.proto";
+import "youtube/api/innertube/video_quality_promo_supported_renderers.proto";
+import "youtube/api/innertube/player_message_supported_renderers.proto";
+import "youtube/api/innertube/endscreen_supported_renderers.proto";
+import "youtube/api/innertube/survey_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/player_companion_ads_supported_renderers.proto";
+import "youtube/api/innertube/paid_content_overlay_supported_renderers.proto";
+import "youtube/api/innertube/player_controls_overlay_supported_renderers.proto";
+import "youtube/api/innertube/in_stream_player_cta_ads_supported_renderers.proto";
+import "youtube/api/innertube/player_ads_placement_supported_renderers.proto";
+import "youtube/api/innertube/auxiliary_ui.proto";
+import "youtube/api/innertube/interstitial_pod.proto";
+import "youtube/api/innertube/video_interactions.proto";
+import "youtube/api/innertube/clip_config.proto";
+import "youtube/api/innertube/account_linking_config.proto";
+import "youtube/api/innertube/player_cue_range.proto";
+import "youtube/api/innertube/contextual_playback_config.proto";
+import "youtube/api/innertube/deferred_player_data.proto";
+import "youtube/api/innertube/player_cue_range_set.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+import "youtube/api/innertube/player_request.proto";
+import "youtube/api/innertube/vmap_renderer.proto";
+import "youtube/api/innertube/player_legacy_desktop_watch_ads_renderer.proto";
+import "youtube/api/innertube/vast_renderer.proto";
+import "youtube/api/innertube/ad_break_renderer.proto";
+import "youtube/api/innertube/ad_intro_renderer.proto";
+import "youtube/api/innertube/ad_video_end_renderer.proto";
+import "youtube/api/innertube/ad_player_overflow_button_renderer.proto";
+import "youtube/api/innertube/ad_message_renderer.proto";
+import "youtube/api/innertube/ad_player_webview_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerResponse {
+	ResponseContext response_context = 1;
+	PlayabilityStatus playability_status = 2;
+	StreamingData streaming_data = 4;
+	HeartbeatParams heartbeat_params = 6;
+	repeated PlayerAdsSupportedRenderers player_ads = 7;
+	PlaybackTracking playback_tracking = 9;
+	CaptionsSupportedRenderers captions = 10;
+	VideoDetails video_details = 11;
+	repeated AnnotationsSupportedRenderers annotations = 13;
+	OfflineState offline_state = 14;
+	PlayerConfig player_config = 15;
+	StoryboardsSupportedRenderers storyboards = 16;
+	Renderer threed = 17;
+	InfoCardsSupportedRenderers cards = 20;
+	bytes tracking_params = 21;
+	AttestationSupportedRenderers attestation = 22;
+	string ad_params = 23;
+	string ad_next_params = 25;
+	VideoQualityPromoSupportedRenderers video_quality_promo_supported_renderers = 26;
+	string ad_break_params = 27;
+	repeated PlayerMessageSupportedRenderers messages = 30;
+	EndscreenSupportedRenderers endscreen = 32;
+	string iba_debug_info = 34;
+	SurveySupportedRenderers survey = 35;
+	repeated Command on_response_received_endpoints = 36;
+	PlayerCompanionAdsSupportedRenderers player_companion_ad = 38;
+	bool hide_addto_button_small_screen = 39;
+	bool hide_share_button_small_screen = 40;
+	PaidContentOverlaySupportedRenderers paid_content_overlay = 41;
+	PlayerControlsOverlaySupportedRenderers overlay = 42;
+	InStreamPlayerCtaAdsSupportedRenderers instream_player_cta_ad = 44;
+	repeated PlayerAdsPlacementSupportedRenderers ad_placements = 45;
+	AuxiliaryUi auxiliary_ui = 46;
+	bytes prefetched_preroll_ad_break_response = 48;
+	repeated Command on_response_received_actions = 49;
+	repeated InterstitialPod interstitial_pods = 51;
+	bytes onesie_player_service_info = 53;
+	Renderer cta_overlay = 54;
+	VideoInteractions video_interactions = 55;
+	ClipConfig clip_config = 56;
+	AccountLinkingConfig account_linking_config = 58;
+	repeated Renderer player_overlay_layer_renderers = 60;
+	Renderer mini_player_byline = 61;
+	repeated PlayerCueRange player_cue_ranges = 62;
+	repeated ContextualPlaybackConfig contextual_playback_configs = 63;
+	DeferredPlayerData deferred_player_data = 64;
+	string client_param = 66;
+	repeated Renderer ad_slots = 68;
+	bytes ad_break_heartbeat_params = 69;
+	repeated PlayerCueRangeSet player_cue_range_set = 71;
+	bytes heartbeat_logging_token = 72;
+	FrameworkUpdateTransport framework_updates = 777;
+
+	extensions 1000 to max;
+}
+
+message PlayerInstreamAdRenderer {
+	PlayerResponse player_response = 1;
+	PlayerRequest player_request = 2;
+	float navigation_confidence = 3;
+}
+
+message PlayerAdsSupportedRenderers {
+	oneof renderer {
+		VmapRenderer vmap_renderer = 48841103;
+		PlayerLegacyDesktopWatchAdsRenderer player_legacy_desktop_watch_ads_renderer = 55860145;
+		PlayerInstreamAdRenderer player_instream_ad_renderer = 63112829;
+		VastRenderer vast_renderer = 63178286;
+		AdBreakRenderer ad_break_renderer = 84813246;
+		AdIntroRenderer ad_intro_renderer = 88254013;
+		AdVideoEndRenderer ad_video_end_renderer = 89145698;
+		AdPlayerOverflowButtonRenderer ad_player_overflow_button_renderer = 97725940;
+		AdMessageRenderer ad_message_renderer = 201403539;
+		AdPlayerWebviewButtonRenderer ad_player_webview_button_renderer = 514514525;
+	}
+}

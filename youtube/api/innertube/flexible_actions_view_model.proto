@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/flexible_actions_row.proto";
+import "youtube/api/innertube/flexible_actions_justify_content.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlexibleActionsViewModel {
+	extend Renderer {
+		FlexibleActionsViewModel flexible_actions_view_model = 520990934;
+	}
+
+	repeated FlexibleActionsRow actions_rows = 1;
+	bool respect_action_intrinsic_width = 3;
+	FlexibleActionsJustifyContent justify_content = 4;
+	float minimum_row_height = 5;
+	RendererContext renderer_context = 997;
+}

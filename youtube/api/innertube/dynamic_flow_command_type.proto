@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DynamicFlowCommandType {
+	option features.enum_type = CLOSED;
+
+	DYNAMIC_FLOW_COMMAND_TYPE_UNKNOWN = 0;
+	DYNAMIC_FLOW_COMMAND_TYPE_DISMISS = 1;
+	DYNAMIC_FLOW_COMMAND_TYPE_NEXT = 2;
+}

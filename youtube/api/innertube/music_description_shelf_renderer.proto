@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/music_shelf_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicDescriptionShelfRenderer {
+	FormattedString header = 1;
+	FormattedString subheader = 2;
+	FormattedString description = 3;
+	Renderer more_button = 4;
+	bytes tracking_params = 6;
+	uint32 max_collapsed_lines = 7;
+	uint32 max_expanded_lines = 8;
+	repeated Command on_show_commands = 9;
+	FormattedString footer = 10;
+	MusicShelfStyle shelf_style = 11;
+	Renderer subheader_thumbnail = 12;
+	FormattedString strapline = 13;
+	repeated Renderer strapline_badge = 14;
+}
+
+extend Renderer {
+	MusicDescriptionShelfRenderer music_description_shelf_renderer = 221496734;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/trigger_condition_container.proto";
+import "youtube/api/innertube/trigger_condition_surface.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TriggerConditionGroup {
+	string identifier = 1;
+	repeated TriggerConditionContainer any_of_conditions = 2;
+	TriggerConditionSurface surface = 3;
+}

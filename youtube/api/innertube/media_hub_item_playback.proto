@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/image.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaHubItemPlayback {
+	elements.AttributedString title = 1;
+	elements.Image image = 2;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_state_video.proto";
+import "youtube/api/innertube/offline_state_playlist.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+import "youtube/api/innertube/additional_offline_client_state.proto";
+import "youtube/api/innertube/offline_state_orchestration_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineClientState {
+	repeated OfflineStateVideo offline_videos = 1;
+	repeated OfflineStatePlaylist offline_playlists = 2;
+	int64 free_disk_space_bytes = 3;
+	int64 last_offline_usage_time_ms = 4;
+	int64 last_offline_playback_time_ms = 5;
+	int64 last_offline_save_time_ms = 6;
+	int64 last_offline_download_success_time_ms = 7;
+	bool is_battery_charging = 8;
+	DetailedNetworkType detailed_network_type = 9;
+	int32 battery_level_percentage = 10;
+	bool is_post_migration_state = 11;
+	AdditionalOfflineClientState additional_offline_client_state = 13;
+	repeated OfflineStateOrchestrationAction orchestration_action_queue = 14;
+	repeated OfflineStateOrchestrationAction orchestration_actions_waiting_for_constraints_queue = 15;
+	repeated OfflineStateOrchestrationAction orchestration_actions_waiting_for_prereqs_queue = 16;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+option objc_class_prefix = "GHCC";
+
+enum PlayerState {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_PLAYER_STATE = 0;
+	IDLE = 1;
+	PLAYING = 2;
+	BUFFERING = 3;
+	PAUSED = 4;
+}

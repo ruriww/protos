@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message ATTSignalConfig {
+	repeated string url_patterns = 1;
+	string param_name = 2;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+message HatsSurveyContext {
+	string session_id = 1;
+}

@@ -1,0 +1,53 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_privacy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorVideoFilter {
+	message And {
+		repeated CreatorVideoFilter operands = 1;
+	}
+
+	message Or {
+		repeated CreatorVideoFilter operands = 1;
+	}
+
+	message Not {
+		CreatorVideoFilter operand = 1;
+	}
+
+	message IsSponsorsOnly {
+	}
+
+	message PrivacyIs {
+		VideoPrivacy value = 1;
+	}
+
+	message VideoOriginIs {
+	}
+
+	message MetricsViewCountLess {
+		uint64 value = 1;
+	}
+
+	message MetricsViewCountGreater {
+		uint64 value = 1;
+	}
+
+	oneof value {
+		And and = 1;
+		Or or = 2;
+		Not not = 3;
+		IsSponsorsOnly is_sponsors_only = 29;
+		PrivacyIs privacy_is = 402;
+		VideoOriginIs video_origin_is = 700;
+		MetricsViewCountLess metrics_view_count_less = 80103;
+		MetricsViewCountGreater metrics_view_count_greater = 80105;
+	}
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ExpressiveCaptionType {
+	option features.enum_type = CLOSED;
+
+	EXPRESSIVE_CAPTION_TYPE_UNSPECIFIED = 0;
+	EXPRESSIVE_CAPTION_TYPE_WORD = 1;
+	EXPRESSIVE_CAPTION_TYPE_PAUSE = 2;
+	EXPRESSIVE_CAPTION_TYPE_MATURE_WORD = 3;
+	EXPRESSIVE_CAPTION_TYPE_SEGMENT_BREAK = 4;
+	EXPRESSIVE_CAPTION_TYPE_SENTENCE = 5;
+}

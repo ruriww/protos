@@ -1,0 +1,108 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "quality_genie/eyes/detection_result_set.proto";
+import "google/internal/lens/api/v1/tap_selection_region.proto";
+import "quality_genie/eyes/detection_result.proto";
+import "google/internal/lens/api/v1/text_selection_range.proto";
+import "lens/center_rotated_box.proto";
+import "lens/zoomed_crop.proto";
+import "google/internal/lens/api/v1/client_image.proto";
+import "lens/client_signals.proto";
+import "google/internal/lens/api/v1/payload.proto";
+import "quality_genie/eyes/assistant_eyes_request_id.proto";
+import "google/internal/lens/api/v1/client_context.proto";
+import "quality_genie/eyes/query_request_metadata.proto";
+import "google/protobuf/any.proto";
+import "google/internal/lens/api/v1/user_interaction.proto";
+import "lens/prefetch_metadata.proto";
+import "lens/device_sensors.proto";
+import "lens/auto_text_selection.proto";
+import "vision/visualsearch/lens/lens_module_options.proto";
+import "vision/visualsearch/lens/precomputed_signals.proto";
+import "lens/request_context/request_id.proto";
+import "google/internal/lens/api/v1/live_request_metadata.proto";
+import "lens/request_context/visual_search_interaction_data.proto";
+
+option objc_class_prefix = "LFE";
+
+message LensRequest {
+	quality_genie.eyes.AssistantEyesRequestId request_id = 1;
+	Payload payload = 2;
+	ClientContext client_context = 3;
+
+	message TrackingRequestMetadata {
+		quality_genie.eyes.DetectionResultSet tracked_objects = 1;
+		repeated TapSelectionRegion tap_selection_region = 2;
+		repeated quality_genie.eyes.DetectionResult.DetectedObject requested_objects = 3;
+		repeated TextSelectionRange text_selection_range = 4;
+		string object_id = 5;
+		.lens.CenterRotatedBox object_detection_bounding_box = 6;
+		.lens.CenterRotatedBox reticle_region = 7;
+	}
+
+	TrackingRequestMetadata tracking_metadata = 4;
+	quality_genie.eyes.QueryRequestMetadata query_metadata = 9;
+	repeated protobuf.Any debug = 10;
+
+	message RegionSearchRequestMetadata {
+		.lens.ZoomedCrop zoomed_crop = 1;
+	}
+
+	RegionSearchRequestMetadata region_search_metadata = 12;
+	UserInteraction user_interaction = 13;
+	.lens.PrefetchMetadata prefetch_metadata = 14;
+	.lens.ClientSignals client_signals = 15;
+
+	message ImageCrop {
+		string crop_id = 1;
+		ClientImage image = 2;
+		.lens.ZoomedCrop zoomed_crop = 3;
+		.lens.ClientSignals client_signals = 4;
+		uint64 crop_payload_id = 5;
+	}
+
+	repeated ImageCrop image_crops = 17;
+	bytes override_server_state = 18;
+	bool ack_requested = 19;
+	.lens.DeviceSensors device_sensors = 20;
+	bool include_server_state = 21;
+	.lens.AutoTextSelection auto_text_selection = 22;
+	vision.visualsearch.lens.LensModuleOptions lens_module_options = 23;
+
+	message ServerStateOptions {
+		message ResponseOptions {
+			message FullServerState {
+			}
+
+			message CompactServerState {
+				bool require_consistency = 1;
+			}
+
+			oneof type {
+				FullServerState full_server_state = 1;
+				CompactServerState compact_server_state = 2;
+			}
+		}
+
+		ResponseOptions response_options = 1;
+		Payload previous_payload_for_fallback = 2;
+	}
+
+	ServerStateOptions server_state_options = 24;
+	vision.visualsearch.lens.PrecomputedSignals precomputed_signals = 25;
+	bytes analytics_id = 26;
+
+	message ServerStateConfig {
+		bool disable_relay_states = 1;
+		bool enable_image_metadata = 2;
+	}
+
+	ServerStateConfig server_state_config = 28;
+	.lens.request_context.RequestId ng_request_id = 29;
+	bool is_oneshot_request = 31;
+	bool is_multimodal_suggest_signals_request = 32;
+	LiveRequestMetadata live_request_metadata = 34;
+	.lens.request_context.VisualSearchInteractionData visual_search_interaction_data = 36;
+}

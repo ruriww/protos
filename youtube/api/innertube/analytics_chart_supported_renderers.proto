@@ -1,0 +1,75 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/analytics_line_chart_renderer.proto";
+import "youtube/api/innertube/analytics_stepped_area_chart_renderer.proto";
+import "youtube/api/innertube/analytics_spark_line_chart_renderer.proto";
+import "youtube/api/innertube/analytics_realtime_chart_renderer.proto";
+import "youtube/api/innertube/analytics_spark_audience_retention_chart_renderer.proto";
+import "youtube/api/innertube/analytics_spark_realtime_chart_renderer.proto";
+import "youtube/api/innertube/analytics_area_chart_renderer.proto";
+import "youtube/api/innertube/analytics_audience_retention_chart_renderer.proto";
+import "youtube/api/innertube/analytics_spark_area_chart_renderer.proto";
+import "youtube/api/innertube/analytics_first_n_days_line_chart_renderer.proto";
+import "youtube/api/innertube/analytics_bar_chart_renderer.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsChartSupportedRenderers {
+	AnalyticsLineChartRenderer analytics_line_chart_renderer = 92832547;
+	AnalyticsSteppedAreaChartRenderer analytics_stepped_area_chart_renderer = 95003392;
+	AnalyticsSparkLineChartRenderer analytics_spark_line_chart_renderer = 95004133;
+	AnalyticsRealtimeChartRenderer analytics_realtime_chart_renderer = 96567965;
+	AnalyticsSparkAudienceRetentionChartRenderer analytics_spark_audience_retention_chart_renderer = 96874899;
+	AnalyticsSparkRealtimeChartRenderer analytics_spark_realtime_chart_renderer = 96875201;
+	AnalyticsAreaChartRenderer analytics_area_chart_renderer = 97585657;
+	AnalyticsAudienceRetentionChartRenderer analytics_audience_retention_chart_renderer = 97763295;
+	AnalyticsSparkAreaChartRenderer analytics_spark_area_chart_renderer = 98120908;
+	AnalyticsFirstNDaysLineChartRenderer analytics_first_n_days_line_chart_renderer = 139593767;
+	AnalyticsBarChartRenderer analytics_bar_chart_renderer = 278825308;
+}
+
+extend Renderer {
+	AnalyticsLineChartRenderer analytics_line_chart_renderer = 92832547;
+}
+
+extend Renderer {
+	AnalyticsFirstNDaysLineChartRenderer analytics_first_n_days_line_chart_renderer = 139593767;
+}
+
+extend Renderer {
+	AnalyticsSparkLineChartRenderer analytics_spark_line_chart_renderer = 95004133;
+}
+
+extend Renderer {
+	AnalyticsSteppedAreaChartRenderer analytics_stepped_area_chart_renderer = 95003392;
+}
+
+extend Renderer {
+	AnalyticsRealtimeChartRenderer analytics_realtime_chart_renderer = 96567965;
+}
+
+extend Renderer {
+	AnalyticsSparkRealtimeChartRenderer analytics_spark_realtime_chart_renderer = 96875201;
+}
+
+extend Renderer {
+	AnalyticsSparkAudienceRetentionChartRenderer analytics_spark_audience_retention_chart_renderer = 96874899;
+}
+
+extend Renderer {
+	AnalyticsAudienceRetentionChartRenderer analytics_audience_retention_chart_renderer = 97763295;
+}
+
+extend Renderer {
+	AnalyticsAreaChartRenderer analytics_area_chart_renderer = 97585657;
+}
+
+extend Renderer {
+	AnalyticsSparkAreaChartRenderer analytics_spark_area_chart_renderer = 98120908;
+}

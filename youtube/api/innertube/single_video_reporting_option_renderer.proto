@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SingleVideoReportingOptionRenderer {
+	FormattedString title = 1;
+	repeated FormattedString texts = 2;
+	FormattedString report_label = 3;
+	FormattedString cancel_label = 4;
+	Command service_endpoint = 5;
+	bytes tracking_params = 7;
+	AccessibilityData accessibility = 8;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+enum ThumbnailStatus {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_THUMBNAIL_STATUS = 0;
+	NOT_LOADED = 1;
+	LOADED = 2;
+	BROKEN = 3;
+}

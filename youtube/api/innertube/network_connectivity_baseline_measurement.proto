@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/network_connectivity_baseline_error_domain.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NetworkConnectivityBaselineMeasurement {
+	int32 status_code = 1;
+	int32 round_trip_time_in_ms = 2;
+	NetworkConnectivityBaselineErrorDomain error_domain = 3;
+	string error_domain_string = 4;
+	int32 error_code = 5;
+	uint64 response_length_in_bytes = 6;
+	NetworkConnectivityBaselineErrorDomain underlying_error_domain = 7;
+	string underlying_error_domain_string = 8;
+	int32 underlying_error_code = 9;
+}

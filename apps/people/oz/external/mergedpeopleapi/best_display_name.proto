@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/container_type.proto";
+
+option objc_class_prefix = "POEM";
+
+message BestDisplayName {
+	string display_name = 1;
+	string display_name_last_first = 2;
+	ContainerType container_type = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image_unit.proto";
+import "google/internal/identity/accountsettings/mobile/v1/profile_picture_unit.proto";
+import "google/internal/identity/accountsettings/mobile/v1/state_chip_unit.proto";
+import "google/internal/identity/accountsettings/mobile/v1/expansion_unit.proto";
+
+option objc_class_prefix = "ASM";
+
+message StackItemTrailingUnit {
+	oneof unit_type {
+		ImageUnit image_unit = 1;
+		ProfilePictureUnit profile_picture_unit = 2;
+		StateChipUnit state_chip_unit = 3;
+		ExpansionUnit expansion_unit = 4;
+	}
+}

@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_data_usage_notice_type.proto";
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/internal/identity/accountlinking/v1/aa_account_linking_flow_type.proto";
+import "google/internal/identity/accountlinking/v1/e_account_linking_entry_point.proto";
+import "id/consent/audit/common/audit_token.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "ALK";
+
+message StartLinkingSessionRequest {
+	RequestHeader header = 1;
+	string service_id = 2;
+	repeated string scopes = 3;
+	repeated AAAccountLinkingFlowType supported_flows = 4;
+	repeated string capabilities = 5;
+	string completion_url = 6;
+	bool two_way_linking = 8;
+	EAccountLinkingEntryPoint entry_point = 9;
+	id.consent.audit.common.AuditToken ari_audit_token = 10;
+	string device_id = 11;
+	bytes caller_state = 12;
+	string login_hint = 13;
+	string link_name = 14;
+	bool use_ping_pong = 15;
+	string client_provided_consent_language_keys = 16;
+
+	message LinkRequestDetails {
+		repeated string google_scopes = 1;
+		repeated EDataUsageNoticeType supported_data_usage_notice_type = 2;
+	}
+
+	LinkRequestDetails link_request_details = 17;
+	protobuf.Timestamp partner_config_min_read_timestamp = 18;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/mini_app_ad_trigger_type.proto";
+import "youtube/api/innertube/mini_app_orientation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetMiniAppAdsRequest {
+	InnerTubeContext context = 1;
+	MiniAppAdTriggerType trigger_type = 3;
+	string external_post_id = 4;
+	MiniAppOrientation orientation = 5;
+	string external_channel_id = 6;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LivePlayerConfig {
+	double live_readahead_seconds = 1;
+	bool has_subfragmented_fmp4 = 2;
+	int64 live_experimental_content_id = 3;
+	bool defragged_from_subfragments = 4;
+	bool use_manifestless_for_post_live = 5;
+	bool has_subfragmented_webm = 6;
+	double live_head_window_seconds = 7;
+	bool is_live_head_playable = 8;
+}

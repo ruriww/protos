@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/client_id.proto";
+import "google/familymanagement/v1/device_info.proto";
+
+option objc_class_prefix = "GFM";
+
+message ClientInfo {
+	string version = 1;
+	ClientId client_id = 2;
+
+	message RequesterProductInfo {
+		string requester_product_id = 1;
+	}
+
+	RequesterProductInfo requester_product_info = 4;
+	DeviceInfo device_info = 5;
+}

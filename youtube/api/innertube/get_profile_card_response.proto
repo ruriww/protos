@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetProfileCardResponse {
+	ResponseContext response_context = 1;
+	Renderer profile_identity_info = 2;
+	Renderer channel_access = 3;
+	Renderer profile_info = 4;
+	bytes tracking_params = 6;
+	bool should_show_hats_survey = 7;
+	Command update_command = 8;
+	Renderer profile_card = 9;
+	Command popup_command = 10;
+	FrameworkUpdateTransport framework_updates = 777;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ContactIssueClass {
+	string issue_class_id = 1;
+	string gkms_string_id = 2;
+	string default_user_visible_label = 3;
+	string user_visible_localized_label = 4;
+}

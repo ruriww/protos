@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/watch_card_list_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchCardSectionDropdownRenderer {
+	repeated WatchCardListSupportedRenderers lists = 1;
+	repeated FormattedString dropdown_titles = 2;
+	bytes tracking_params = 4;
+	repeated FormattedString dropdown_subtitles = 5;
+	int32 dropdown_default_selected_index = 6;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package gaia_frontend;
+
+option objc_class_prefix = "GFE";
+
+message SecurityDomainKeys {
+	string security_domain_name = 1;
+
+	message SharedKey {
+		int32 epoch = 1;
+		bytes key = 2;
+	}
+
+	repeated SharedKey key = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum NetworkType {
+	option features.enum_type = CLOSED;
+
+	NETWORK_TYPE_UNKNOWN = 0;
+	NETWORK_TYPE_MOBILE = 1;
+	NETWORK_TYPE_WIFI = 2;
+	NETWORK_TYPE_ETHERNET = 3;
+}

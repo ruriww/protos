@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InfrastructureDataValue {
+	extend data.DataValue {
+		InfrastructureDataValue infrastructure_data_value_extension = 239872231;
+	}
+
+	bytes submit_resulting_action_token = 1;
+	int32 submit_action_reference = 2;
+}

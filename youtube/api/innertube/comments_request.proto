@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/comment_request_options.proto";
+import "youtube/api/innertube/comments_filter.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentsRequest {
+	InnerTubeContext context = 1;
+	string channel_id = 2;
+	string continuation = 3;
+	string video_id = 4;
+	bool channel_discussion_only = 5;
+
+	enum SortOrder {
+		option features.enum_type = CLOSED;
+
+		BEST = 0;
+		NEWEST = 1;
+		TIMED = 2;
+		MOST_RELEVANT = 3;
+	}
+
+	SortOrder sort_order = 6 [ default = BEST ];
+	bool notable_only = 7;
+	uint32 max_threads = 9 [ default = 20 ];
+	uint32 max_replies = 10 [ default = 2 ];
+	string search_query = 11;
+	CommentRequestOptions comment_options = 13;
+	repeated string comment_ids = 14;
+	CommentsFilter comments_filter = 15;
+	string search_query_for_held_for_review_tab = 16;
+	string search_query_for_spam_tab = 17;
+	CommentsFilter comments_filter_for_held_for_review_tab = 18;
+	CommentsFilter comments_filter_for_spam_tab = 19;
+	string post_id = 20;
+	string playlist_id = 22;
+}

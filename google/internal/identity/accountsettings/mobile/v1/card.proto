@@ -1,0 +1,31 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/summary_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/prompt_carousel_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/search_result_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/one_google_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/security_hub_prompt_carousel_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/segment_header_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/collection_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/sign_in_card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/search_card.proto";
+
+option objc_class_prefix = "ASM";
+
+message Card {
+	oneof type {
+		SummaryCard summary = 1;
+		PromptCarouselCard prompt_carousel = 2;
+		SearchResultCard search_result_card = 4;
+		OneGoogleCard one_google = 5;
+		SecurityHubPromptCarouselCard security_hub_prompt_carousel = 9;
+		SegmentHeaderCard segment_header_card = 10;
+		CollectionCard collection_card = 12;
+		SignInCard sign_in_card = 13;
+		SearchCard search_card = 14;
+	}
+
+	string anchor = 11;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmbeddedPlayerColdConfig {
+	bool enable_host_app_verification_for_embedded_player = 2;
+	bool enable_workmanager_for_embedded_player = 3;
+	bool request_havs_token_on_init_for_android_embedded_player = 6;
+	bool refresh_global_config_on_init_for_android_embedded_player = 7;
+	bool enable_android_api_environment_reuse_per_app = 8;
+	bool android_enable_app_session_scope_permissions = 24;
+}

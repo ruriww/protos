@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+option objc_class_prefix = "LNSINP";
+
+message EncodedLineChunk {
+	uint32 line_index = 1;
+	uint32 chunk_in_line_index = 2;
+	int32 x_position = 3;
+	int32 left_offset = 4;
+	int32 image_width = 6;
+	int32 image_height = 7;
+}

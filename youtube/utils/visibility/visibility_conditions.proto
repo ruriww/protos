@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.utils.visibility;
+
+option objc_class_prefix = "YTIV";
+
+message VisibilityConditions {
+	extensions 1 to 3;
+}

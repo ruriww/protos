@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/update_broadcast_conference_params.proto";
+import "youtube/api/innertube/update_broadcast_conference_params_mask.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateBroadcastConferenceRequest {
+	InnerTubeContext context = 1;
+	string external_video_id = 2;
+	UpdateBroadcastConferenceParams update_params = 3;
+	UpdateBroadcastConferenceParamsMask update_params_mask = 4;
+}

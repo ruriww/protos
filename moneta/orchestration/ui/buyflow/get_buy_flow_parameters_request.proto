@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/buyflow/internal_buy_flow_parameters.proto";
+import "moneta/orchestration/ui/buyflow/funds_guarantee_details.proto";
+import "moneta/orchestration/ui/buyflow/managed_purchase_details.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message GetBuyFlowParametersRequest {
+	common.RequestContext context = 3;
+	InternalBuyFlowParameters unencrypted_buy_flow_parameters = 4;
+
+	oneof buyflow_type {
+		FundsGuaranteeDetails funds_guarantee_details = 6;
+		ManagedPurchaseDetails managed_purchase_details = 7;
+	}
+}

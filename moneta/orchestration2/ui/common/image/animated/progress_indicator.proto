@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ProgressIndicator {
+	enum Style {
+		option features.enum_type = CLOSED;
+
+		STYLE_UNKNOWN = 0;
+		STYLE_CIRCULAR = 1;
+	}
+
+	Style style = 1;
+	repeated uint32 color_argb = 2 [ features.repeated_field_encoding = EXPANDED ];
+	node.UnitSize stroke_width = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package lens.api;
+
+option objc_class_prefix = "LNSAPI";
+
+message GwsParam {
+	string key = 1;
+	string value = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/notification_metadata_mask.proto";
+import "youtube/api/innertube/monetization_metadata_mask.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoMetadataMask {
+	bool set_title = 1;
+	bool set_description = 2;
+	bool set_video_category = 3;
+	bool set_privacy_status = 4;
+	NotificationMetadataMask notification_metadata_mask = 5;
+	MonetizationMetadataMask monetization_metadata_mask = 6;
+	bool set_has_racy_content = 7;
+	bool set_has_place_id = 8;
+	bool set_has_place_description = 9;
+	bool set_is_screencast = 10;
+	bool set_game_title_mid = 11;
+	bool set_targeted_audience = 13;
+}

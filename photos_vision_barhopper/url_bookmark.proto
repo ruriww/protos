@@ -1,0 +1,10 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+option objc_class_prefix = "BAR";
+
+message UrlBookmark {
+	string title = 1;
+	string url = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/channel_creation_source.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetChannelCreationFormRequest {
+	InnerTubeContext context = 1;
+	bytes channel_creation_token = 3;
+	ChannelCreationSource source = 4;
+	string channel_name = 5;
+	ThumbnailDetails thumbnail = 6;
+	bool use_element_renderer_form = 7;
+	bool use_full_element_renderer_form = 8;
+}

@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/yt_main_video_entity_localized_strings.proto";
+import "youtube/api/innertube/main_video_user_state_metadata.proto";
+import "youtube/api/innertube/download_format.proto";
+import "youtube/api/innertube/main_video_additional_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MainVideoEntity {
+	extend EntityMutationPayload {
+		MainVideoEntity main_video_entity = 261;
+	}
+
+	string key = 1;
+	bytes video_version = 2;
+	string video_id = 3;
+	string owner = 4;
+	string title = 5;
+	uint64 published_timestamp_millis = 6;
+	int32 length_seconds = 7;
+	ThumbnailDetails thumbnail = 8;
+	FormattedString formatted_description = 9;
+	uint64 view_count = 10;
+	uint64 like_count = 11;
+	uint64 dislike_count = 12;
+	YtMainVideoEntityLocalizedStrings localized_strings = 13;
+	MainVideoUserStateMetadata user_state = 14;
+	string download_state = 15;
+	repeated DownloadFormat download_formats = 16;
+	MainVideoAdditionalMetadata additional_metadata = 17;
+	map<int32, ThumbnailDetails> thumbnail_details_data = 18;
+
+	extensions 1001 to 1002;
+}

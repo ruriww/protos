@@ -1,0 +1,14 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+import "id/logging/frontend/mobile/accountsettings/client_capabilities.proto";
+import "id/logging/frontend/mobile/accountsettings/client_version.proto";
+
+option objc_class_prefix = "GIDLOGAS";
+
+message AsmClientInfo {
+	ClientCapabilities client_capabilities = 1;
+	ClientVersion client_version = 2;
+	bool is_auto = 8;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FooterPosition {
+	option features.enum_type = CLOSED;
+
+	FOOTER_POSITION_UNSPECIFIED = 0;
+	FOOTER_POSITION_IN_SAFE_AREA = 1;
+	FOOTER_POSITION_IN_SAFE_AREA_STAYS_ABOVE_KEYBOARD = 2;
+}

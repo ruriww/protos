@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeroPlaylistThumbnailRenderer {
+	ThumbnailDetails thumbnail = 1;
+	float max_ratio = 2;
+	bytes tracking_params = 4;
+	Command on_tap = 5;
+	ThumbnailOverlaySupportedRenderers thumbnail_overlays = 6;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message PronounEntry {
+	string value = 1;
+
+	enum PronounType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CUSTOM = 1;
+		FEMININE = 2;
+		MASCULINE = 3;
+		NEUTRAL = 4;
+	}
+
+	PronounType pronoun_type = 2;
+	string language_code = 3;
+}

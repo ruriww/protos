@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTEE";
+
+message GlThreadBlockedRequest {
+	int32 ms_since_last_gl_thread_operation = 1;
+	int32 gl_thread_operation_count = 3;
+	google.protobuf.Timestamp request_time = 4;
+	int64 pipeline_reference_id = 5;
+}

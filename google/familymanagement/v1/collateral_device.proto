@@ -1,0 +1,33 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message CollateralDevice {
+	string device_id = 1;
+	string friendly_name = 2;
+	string icon_url = 3;
+	int64 last_activity_timestamp_millis = 4;
+
+	enum Category {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SUPERVISABLE_WITH_ACTION = 1;
+		UNSUPERVISABLE_BUT_ALLOWED = 2;
+		NOT_ALLOWED = 3;
+	}
+
+	Category category = 5;
+
+	enum Os {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_OS = 0;
+		ANDROID_OS = 1;
+		CHROME_OS = 2;
+	}
+
+	Os os = 6;
+}

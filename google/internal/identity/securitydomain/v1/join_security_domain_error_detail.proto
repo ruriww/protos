@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+import "google/internal/identity/securitydomain/v1/join_security_domain_response.proto";
+
+option objc_class_prefix = "SDS";
+
+message JoinSecurityDomainErrorDetail {
+	JoinSecurityDomainResponse already_exists_response = 1;
+}

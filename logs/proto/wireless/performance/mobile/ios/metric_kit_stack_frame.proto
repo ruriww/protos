@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitStackFrame {
+	string binary_name = 1;
+	string binary_uuid = 2;
+	int64 address = 3;
+	int64 offset_into_binary_text_segment = 4;
+	int64 sample_count = 5;
+	repeated MetricKitStackFrame sub_frames = 6;
+	string source_file_name = 7;
+	string function_name = 8;
+	int32 line_number = 9;
+	int64 code_module_index = 10;
+	repeated MetricKitStackFrame symbolicated_inlined_frames = 11;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/web_view_use_case.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WebViewContext {
+	string hostname = 1;
+	WebViewUseCase web_view_use_case = 2;
+	bool is_loaded = 3;
+	int32 web_view_engagement_sec = 4;
+	bool is_first_party_host = 5;
+}

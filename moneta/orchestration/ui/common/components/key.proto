@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+option objc_class_prefix = "Orch";
+
+message Key {
+	enum KeyType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_KEY_TYPE = 0;
+		P256_ECDH_PUB = 1;
+		A128GCM = 2;
+	}
+
+	KeyType key_type = 1;
+
+	oneof key_content {
+		string content = 2;
+		string secure_content = 3;
+	}
+
+	string ees_session_material = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/accessibility_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccessibilityData {
+	extend Datas {
+		AccessibilityData accessibility_data = 75730170;
+	}
+
+	string accessibility_identifier = 1;
+	string label = 2;
+	AccessibilityId identifier = 3;
+}

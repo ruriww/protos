@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/hamplayer_software_stream_filter.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerStreamFilter {
+	bool enable_video_codec_splicing = 1;
+	HamplayerSoftwareStreamFilter vp9 = 2;
+	HamplayerSoftwareStreamFilter av1 = 3;
+}

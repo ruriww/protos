@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/legal_report_details.proto";
+import "youtube/api/innertube/flag_request_type.proto";
+import "youtube/api/innertube/video_report_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlagActionRequest {
+	InnerTubeContext context = 1;
+	string action = 2;
+	int32 elapsed_media_time_seconds = 3;
+	string user_comments = 4;
+	string relationship_to_impersonated = 5;
+	string impersonated_url = 6;
+	string cc_track_id = 7;
+	string cc_track_is_contrib = 8;
+	string audio_track_id = 9;
+	string subreason_code = 10;
+	string user_to_block_focus_id = 14;
+	string user_to_unblock_focus_id = 15;
+	LegalReportDetails legal_report_details = 16;
+	FlagRequestType flag_request_type = 17;
+	VideoReportDetails video_report_details = 18;
+	bool legal_checkbox_checked = 19;
+	bool additional_detail_checkbox_checked = 20;
+	bool is_gff = 22;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/youtube_assistant_voice_tip_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicSearchHotConfig {
+	bool enable_voz_voice_search_integration = 1;
+	bool enable_sideloaded_search = 2;
+	bool enable_ios_assistant_search_integration_with_tips = 3;
+	YoutubeAssistantVoiceTipType youtube_assistant_tip_type = 4;
+	bool enable_voz_surface_adapter_streaming = 6;
+	string voz_s3_experiment_str = 7;
+	bool enable_search_privately_owned_content = 9;
+	bool enable_slim_music_card_ui = 10;
+	bool enable_search_bar_with_isolated_voice_bar = 12;
+	bool enable_long_search_placeholder_ui = 13;
+	bool enable_lightweight_search_suggestion_migration_ios = 14;
+	bool enable_round_search_bar_ux_with_isolated_bar = 15;
+	bool enable_search_session_tab_stickyness = 16;
+	string android_voz_assistant_api_override_endpoint = 17;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DisplayFullScreenPageCommand {
+	extend Command {
+		DisplayFullScreenPageCommand display_full_screen_page_command = 22508;
+	}
+
+	Renderer header = 1;
+	Renderer footer = 3;
+	Renderer contents = 4;
+	FrameworkUpdateTransport framework_updates = 777;
+}

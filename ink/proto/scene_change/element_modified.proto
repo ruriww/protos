@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+import "ink/proto/rect.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementModified {
+	string uuid = 1;
+	string layer_uuid = 2;
+	Rect world_bounds = 3;
+	string new_parent_uuid = 4;
+	string old_parent_uuid = 5;
+}

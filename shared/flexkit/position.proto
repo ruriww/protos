@@ -1,0 +1,11 @@
+edition = "2023";
+
+package shared.flexkit;
+
+option objc_class_prefix = "FLX";
+
+enum Position {
+	option features.enum_type = CLOSED;
+
+	POS_ABSOLUTE = 0;
+}

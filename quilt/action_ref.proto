@@ -1,0 +1,10 @@
+edition = "2023";
+
+package quilt;
+
+option objc_class_prefix = "QLT";
+
+message ActionRef {
+	string name = 1;
+	int32 callback_id = 2;
+}

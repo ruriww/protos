@@ -1,0 +1,13 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/youtube_kid_persona_profile.proto";
+
+option objc_class_prefix = "FAM";
+
+message YoutubeKidPersona {
+	int64 gaia_id = 1;
+	int64 owner_gaia_id = 2;
+	YoutubeKidPersonaProfile profile = 3;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ToolbeltButtonType {
+	option features.enum_type = CLOSED;
+
+	TOOLBELT_BUTTON_TYPE_UNSPECIFIED = 0;
+	TOOLBELT_BUTTON_TYPE_RELIGHT = 1;
+	TOOLBELT_BUTTON_TYPE_RETOUCH = 2;
+	TOOLBELT_BUTTON_TYPE_FILTER_PICKER = 3;
+	TOOLBELT_BUTTON_TYPE_GREEN_SCREEN = 4;
+	TOOLBELT_BUTTON_TYPE_PROMPT_STICKER = 5;
+	TOOLBELT_BUTTON_TYPE_COMMENTS_PICKER = 6;
+	TOOLBELT_BUTTON_TYPE_STICKER_PICKER = 7;
+	TOOLBELT_BUTTON_TYPE_AI_PLAYGROUND = 8;
+	TOOLBELT_BUTTON_TYPE_EFFECT_PICKER = 9;
+	TOOLBELT_BUTTON_TYPE_TEMPLATE_PICKER = 10;
+}

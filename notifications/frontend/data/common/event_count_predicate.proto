@@ -1,0 +1,18 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/clearcut_event.proto";
+import "notifications/frontend/data/common/visual_element_event.proto";
+
+option objc_class_prefix = "NFDC";
+
+message EventCountPredicate {
+	oneof event {
+		ClearcutEvent clearcut_event = 1;
+		VisualElementEvent visual_element_event = 2;
+	}
+
+	int32 min_value_inclusive = 3;
+	int32 max_value_exclusive = 4;
+}

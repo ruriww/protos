@@ -1,0 +1,13 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeVideoInfo {
+	int32 resolution_width = 1;
+	int32 resolution_height = 2;
+	float frame_rate = 3;
+	uint64 duration_ms = 4;
+	uint64 source_offset_ms = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/local_event_id_message.proto";
+
+option objc_class_prefix = "YTI";
+
+message LocalInnerTubeClickTrackingProto {
+	int32 ve_index = 1;
+	int32 ve_type = 2;
+	LocalEventIdMessage previous_eventid = 4;
+}

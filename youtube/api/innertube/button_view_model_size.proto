@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ButtonViewModelSize {
+	option features.enum_type = CLOSED;
+
+	BUTTON_VIEW_MODEL_SIZE_UNKNOWN = 0;
+	BUTTON_VIEW_MODEL_SIZE_DEFAULT = 1;
+	BUTTON_VIEW_MODEL_SIZE_COMPACT = 2;
+	BUTTON_VIEW_MODEL_SIZE_XSMALL = 3;
+	BUTTON_VIEW_MODEL_SIZE_LARGE = 4;
+	BUTTON_VIEW_MODEL_SIZE_XLARGE = 5;
+	BUTTON_VIEW_MODEL_SIZE_XXLARGE = 6;
+}

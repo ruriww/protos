@@ -1,0 +1,27 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "speech/s3/response.proto";
+import "google/internal/lens/api/v1/text_response.proto";
+import "google/internal/lens/api/v1/corroboration_response.proto";
+import "google/internal/lens/api/v1/state_token.proto";
+import "google/internal/lens/api/v1/html_response.proto";
+import "google/internal/lens/api/v1/error_response.proto";
+import "google/internal/lens/api/v1/debug_metadata.proto";
+
+option objc_class_prefix = "LFE";
+
+message LensLiveResponse {
+	oneof content {
+		speech.s3.Response speech_recognition_response = 1;
+		speech.s3.Response tts_response = 2;
+		TextResponse text_response = 3;
+		CorroborationResponse corroboration_response = 4;
+		StateToken state_token = 6;
+		HtmlResponse html_response = 7;
+		ErrorResponse error_response = 8;
+	}
+
+	DebugMetadata debug_metadata = 5;
+}

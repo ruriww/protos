@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_swipeable_row_button_animated_icon.proto";
+import "youtube/api/innertube/music_swipeable_row_button_background_style.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicSwipeableRowButton {
+	MusicSwipeableRowButtonAnimatedIcon default_icon = 1;
+	MusicSwipeableRowButtonBackgroundStyle default_background_style = 2;
+	Command default_command = 3;
+	AccessibilitySupportedDatas default_accessibility_label = 4;
+	MusicSwipeableRowButtonAnimatedIcon toggled_icon = 5;
+	MusicSwipeableRowButtonBackgroundStyle toggled_background_style = 6;
+	Command toggled_command = 7;
+	AccessibilitySupportedDatas toggled_accessibility_label = 8;
+	bool is_toggled = 9;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.rpc.context;
+
+option objc_class_prefix = "RPC";
+
+message Match {
+	repeated string entity_tags = 1;
+	bool exists = 2;
+}

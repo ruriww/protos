@@ -1,0 +1,9 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.images;
+
+option objc_class_prefix = "MSPI";
+
+message ImageId {
+	string encrypted_docid = 1;
+}

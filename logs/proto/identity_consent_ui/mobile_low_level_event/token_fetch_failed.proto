@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+option objc_class_prefix = "GIDLLE";
+
+message TokenFetchFailed {
+	enum ErrorReason {
+		option features.enum_type = CLOSED;
+
+		ERROR_REASON_UNSPECIFIED = 0;
+		UNAUTHENTICATED = 1;
+		NOT_ELIGIBLE_ALREADY_CONSENTED = 2;
+		NOT_ELIGIBLE_CANNOT_CONSENT = 3;
+		VERIFICATION_TOKEN_ERROR = 4;
+		UNAVAILABLE = 5;
+		UNKNOWN_STATUS = 6;
+		UNKNOWN_INTERNAL_ERROR = 7;
+		NULL_VERIFICATION_TOKEN = 8;
+	}
+
+	ErrorReason error_reason = 1;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.devicebinding;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/devicebinding/public_key_credential.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FidoDataValue {
+	extend data.DataValue {
+		FidoDataValue fido_data_value_extension = 333082969;
+	}
+
+	bytes credential_id = 1;
+	bytes authenticator_data = 2;
+	bytes signature = 3;
+	bytes client_data = 4;
+	PublicKeyCredential public_key_credential = 5;
+}

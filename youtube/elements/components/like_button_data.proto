@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/video_action_toggle_button_data.proto";
+import "youtube/api/innertube/like_status_entity.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message LikeButtonData {
+	VideoActionToggleButtonData button_data = 1;
+	api.innertube.LikeStatusEntity like_status_entity = 2;
+	Command reset_animation_command = 3;
+	bool enable_animation_url = 9;
+	string like_animation_light_url = 10;
+	string like_animation_dark_url = 11;
+}

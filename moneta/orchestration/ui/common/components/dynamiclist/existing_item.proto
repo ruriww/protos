@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.dynamiclist;
+
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/sub_item.proto";
+
+option objc_class_prefix = "Orch";
+
+message ExistingItem {
+	SimpleForm item_form = 1;
+	bool deletable = 2 [ default = true ];
+	repeated SubItem sub_item = 4;
+	string delete_button_aria_label = 5;
+}

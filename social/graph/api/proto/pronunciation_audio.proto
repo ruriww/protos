@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message PronunciationAudio {
+	bytes pronunciation = 1;
+
+	enum Encoding {
+		option features.enum_type = CLOSED;
+
+		ENCODING_UNSPECIFIED = 0;
+		WEBM_OPUS = 1;
+	}
+
+	Encoding encoding = 2;
+}

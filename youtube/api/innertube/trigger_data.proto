@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/trigger_type.proto";
+import "youtube/api/innertube/trigger_category.proto";
+import "youtube/api/innertube/layout_id_entered_trigger_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TriggerData {
+	TriggerType type = 1;
+	TriggerCategory category = 2;
+
+	oneof triggering_data {
+		LayoutIdEnteredTriggerData layout_id_entered_trigger_data = 3;
+	}
+
+	bool should_only_trigger_once = 5;
+}

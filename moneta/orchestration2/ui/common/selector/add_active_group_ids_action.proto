@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+option objc_class_prefix = "ORCH2";
+
+message AddActiveGroupIdsAction {
+	repeated int32 group_id = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

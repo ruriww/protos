@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "notifications/frontend/data/common/custom_ui_types.proto";
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "GNPC";
+
+message Placement {
+	frontend.data.common.CustomUiTypes.CustomUiType custom_ui_type = 1;
+	google.protobuf.Any placement_payload = 2;
+}

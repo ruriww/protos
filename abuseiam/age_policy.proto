@@ -1,0 +1,12 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message AgePolicy {
+	int32 logged_in_effective_age_years = 1;
+	int32 logged_in_powerup_effective_age_years = 2;
+	int32 logged_out_effective_age_years = 3;
+	int32 crawler_effective_age_years = 4;
+}

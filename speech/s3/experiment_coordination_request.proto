@@ -1,0 +1,15 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message ExperimentCoordinationRequest {
+	extend Request {
+		ExperimentCoordinationRequest experiment_coordination_request = 313216766;
+	}
+
+	repeated int32 trigger_ids = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message C2CConfiguration {
+	string c2c_vertical = 1;
+	string cases_product = 2;
+	string cases_category = 3;
+	bool c2c_enabled = 4;
+	repeated string c2c_request_metadata = 5;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message LookupIntentEnum {
+	enum LookupIntent {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		EXTERNAL_SELECT = 1;
+		PASTE = 2;
+	}
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package visionkit;
+
+option objc_class_prefix = "VKS";
+
+message Class {
+	int32 index = 1;
+	float score = 2;
+	string display_name = 3;
+	string class_name = 4;
+}

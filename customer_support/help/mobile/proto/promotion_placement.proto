@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum PromotionPlacement {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_PROMOTION_PLACEMENT = 0;
+	PROMOTION_PLACEMENT_TOP = 1;
+	PROMOTION_PLACEMENT_BOTTOM = 2;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_manager_video_title.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoSnapshotRenderer {
+	VideoManagerVideoTitle title = 1;
+	FormattedString length_string = 2;
+	ThumbnailDetails thumbnail = 3;
+	FormattedString headline_text = 4;
+	Renderer headline_view_more_button = 5;
+	FormattedString table_header = 6;
+	FormattedString ranking_by_views_label = 7;
+	FormattedString ranking_by_views_value = 8;
+	repeated Renderer metrics = 9;
+	Renderer ranking = 10;
+	bytes tracking_params = 12;
+	Command headline_command = 13;
+	Command thumbnail_command = 14;
+}

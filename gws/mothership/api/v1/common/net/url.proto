@@ -1,0 +1,12 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.net;
+
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "MSP";
+
+message Url {
+	string raw_url = 1;
+	webutil.html.types.SafeUrlProto safe_url = 2;
+}

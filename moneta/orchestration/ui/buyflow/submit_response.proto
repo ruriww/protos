@@ -1,0 +1,36 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/buyflow/page.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+import "moneta/orchestration/ui/buyflow/overflow_menu_option.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+import "moneta/orchestration/ui/common/widgetreference/load_target.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message SubmitResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	string integrator_data = 3;
+	Page next_page = 4;
+	common.IntegratorCallbackData callback_data = 5;
+	string checkout_order_id = 6;
+	repeated OverflowMenuOption overflow_menu_option = 7;
+	bool flow_complete = 8;
+	bool invalidate_templates = 9;
+	common.generic.FlowInstruction flow_instruction = 10;
+	Page base_page = 11;
+	common.SecureDataHeader secure_header = 12;
+	string integrator_display_message = 13;
+	int64 legacy_managed_profile_id = 15;
+	repeated Page additional_page = 16;
+	common.widgetreference.WidgetReference next_widget = 17;
+	common.IntegratorCallbackData integrator_callback_data = 19;
+	common.widgetreference.LoadTarget next_load_target = 20;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/person.proto";
+import "peoplestack/group.proto";
+import "peoplestack/contact_label.proto";
+
+option objc_class_prefix = "PSK";
+
+message Autocompletion {
+	oneof data {
+		Person person = 1;
+		Group group = 2;
+		ContactLabel contact_label = 3;
+	}
+}

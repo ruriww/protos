@@ -1,0 +1,13 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+import "unknown/youtube/csm_client_type12477.proto";
+
+option objc_class_prefix = "ASX";
+
+message IphSurface {
+	string flow = 1;
+	unknown.youtube.CSMClientType12477.CSMClientType client_type = 2;
+	string iph_user_agent = 3;
+}

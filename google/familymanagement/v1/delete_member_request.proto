@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/direct_add_identifier.proto";
+
+option objc_class_prefix = "GFM";
+
+message DeleteMemberRequest {
+	ApiRequestHeader api_header = 1;
+	string user_id = 2;
+	DirectAddIdentifier direct_add_identifier = 3;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+import "youtube/client/datapush/utils/manifest_extension.proto";
+
+option objc_class_prefix = "YTI";
+
+message DataPushManifest {
+	string manifest_identifier = 1;
+	repeated ManifestExtension manifests = 2;
+}

@@ -1,0 +1,8 @@
+edition = "2023";
+
+package tacotown.socialgraph;
+
+option objc_class_prefix = "TSG";
+
+message asrc {
+}

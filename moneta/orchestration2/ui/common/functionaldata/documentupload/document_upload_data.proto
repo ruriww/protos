@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.documentupload;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DocumentUploadData {
+	extend data.Data {
+		DocumentUploadData document_upload_data_extension = 268341327;
+	}
+
+	bytes upload_token = 2;
+	int32 secure_data_type = 3;
+	string xsrf_token = 4;
+
+	oneof document_upload_url {
+		string upload_url = 5;
+		webutil.html.types.SafeUrlProto safe_upload_url = 8;
+	}
+
+	map<string, string> upload_url_params = 6;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TabHeaderElementBarRenderer {
+	Renderer content = 1;
+	string filter_chip_bar_element_id = 3;
+	bool is_bar_translucent = 4;
+	bool android_use_section_list_reload_contination_for_chip_reload = 5;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message MemberSubscriptionInfo {
+	enum SubscriptionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SUBSCRIPTION = 0;
+		YT_TANDEM_SUBSCRIPTION = 1;
+	}
+
+	repeated SubscriptionType subscription_type = 1;
+}

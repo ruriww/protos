@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/grade_questions_for_policy_school_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GradeQuestionsForPolicySchoolElementsCommand {
+	extend elements.Command {
+		GradeQuestionsForPolicySchoolElementsCommand grade_policy_school_questions_elements_command = 504719989;
+	}
+
+	GradeQuestionsForPolicySchoolRequest request = 1;
+}

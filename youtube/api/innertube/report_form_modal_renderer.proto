@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/options_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReportFormModalRenderer {
+	OptionsSupportedRenderers options_supported_renderers = 1;
+	bytes tracking_params = 3;
+	FormattedString title = 4;
+	ButtonSupportedRenderers submit_button = 5;
+	ButtonSupportedRenderers cancel_button = 6;
+	FormattedString description = 7;
+	FormattedString footer = 8;
+	ButtonSupportedRenderers next_button = 9;
+	BooleanFormFieldSupportedRenderers legal_report_checkbox = 10;
+	BooleanFormFieldSupportedRenderers additional_detail_checkbox = 11;
+}
+
+extend Renderer {
+	ReportFormModalRenderer report_form_modal_renderer = 113762946;
+}

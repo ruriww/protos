@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum FlexWrap {
+	option features.enum_type = CLOSED;
+
+	FLEX_WRAP_UNKNOWN = 0;
+	FLEX_WRAP = 1;
+	FLEX_WRAP_REVERSE = 2;
+}

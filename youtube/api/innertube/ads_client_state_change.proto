@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cue_point_trigger.proto";
+import "youtube/api/innertube/dai_state_trigger.proto";
+import "youtube/api/innertube/dai_ad_break_critical_error.proto";
+import "youtube/api/innertube/dai_ad_break_warning.proto";
+import "youtube/api/innertube/dai_ad_break_info.proto";
+import "youtube/api/innertube/playback_timeline_ad_break_state_trigger.proto";
+import "youtube/api/innertube/ads_client_event.proto";
+import "youtube/api/innertube/dai_ad_state_tracking.proto";
+import "youtube/api/innertube/ads_attribution_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsClientStateChange {
+	oneof event {
+		CuePointTrigger cuepoint_trigger = 1;
+		DAIStateTrigger dai_state_trigger = 2;
+		DAIAdBreakCriticalError dai_ad_break_critical_error = 3;
+		DAIAdBreakWarning dai_ad_break_warning = 4;
+		DAIAdBreakInfo dai_ad_break_info = 5;
+		PlaybackTimelineAdBreakStateTrigger playback_timeline_ad_break_state_trigger = 7;
+		AdsClientEvent ads_client_event = 11;
+		DAIAdStateTracking dai_ad_state_tracking = 12;
+		AdsAttributionEvent ads_attribution_event = 14;
+	}
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package com.google.video.youtube.editing.mobile;
+
+import "youtube/api/innertube/sfv_effect_identifier.proto";
+
+option objc_class_prefix = "YTEM";
+
+message CreationEffect {
+	.youtube.api.innertube.SfvEffectIdentifier effect_id = 1;
+}

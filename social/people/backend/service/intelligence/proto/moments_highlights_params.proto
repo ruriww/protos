@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "logs/people/intelligence/assistive_feature_type.proto";
+import "google/protobuf/field_mask.proto";
+
+option objc_class_prefix = "PIL";
+
+message MomentsHighlightsParams {
+	repeated logs.people.intelligence.AssistiveFeatureType highlights_features = 1;
+	int32 max_results = 2;
+	google.protobuf.FieldMask include_fields_for_person = 3;
+}

@@ -1,0 +1,57 @@
+edition = "2023";
+
+package moneta.orchestration.common.fixflow;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+import "moneta/orchestration/common/fixflow/instrument_details.proto";
+import "moneta/orchestration/common/fixflow/fix_action_data.proto";
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/common/funds_guarantee_id.proto";
+
+option objc_class_prefix = "FixFlow";
+
+message Parameters {
+	integrator.common.ProductCorrelationId product_correlation_id = 2;
+
+	enum FixActionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FIX_ACTION_TYPE = 0;
+		MAKE_A_PAYMENT = 1;
+		PAYMENT_SETTINGS = 2;
+		CONTACT_SUPPORT = 3;
+		ADD_INSTRUMENT = 5;
+		ACCEPT_TERMS_AND_CONDITIONS = 6;
+		BILLING_PROFILE = 7;
+		FIX_INSTRUMENT = 8;
+		FIX_BILLING_ACCOUNT_WITH_INSTRUMENT = 9;
+		BILLING_ACCOUNT_CANCELLED = 10;
+		O2_FIX_BILLING_ACCOUNT_WITH_INSTRUMENT = 27;
+		SVID_VERIFICATION = 11;
+		TAX_FORM = 12;
+		CONTACT_PAY_OPS = 13;
+		MAKE_A_PAYMENT_WITHOUT_AMOUNT_DUE = 15;
+		FIX_FUNDS_GUARANTEE = 16;
+		USER_MANAGEMENT = 17;
+		ONE_TIME_PURCHASE = 18;
+		MANAGE_BUDGETS = 20;
+		PRODUCT_CUSTOMER_HISTORY = 21;
+		COLLECTIONS_SUSPENSION_HELP_CENTER = 22;
+		INDIA_TAX_TERMS_COLLECTION_FORM = 23;
+		SELLER_IDENTITY_VERIFICATION = 24;
+		FIX_CUSTOMER_INFO = 25;
+		CREDIT_SUSPENSION_HELP_CENTER = 26;
+	}
+
+	FixActionType fix_action_type = 4;
+	string dismissal_key = 5;
+
+	oneof fix_action_data {
+		InstrumentDetails instrument_details = 6;
+	}
+
+	FixActionData fix_action_data_2 = 8;
+	integrator.ui.common.CommonParameters common_parameters = 9;
+	integrator.common.FundsGuaranteeId funds_guarantee_id = 11;
+	int64 billing_account_id = 13;
+}

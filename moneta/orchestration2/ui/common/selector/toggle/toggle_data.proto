@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.toggle;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/image/image_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ToggleData {
+	extend data.Data {
+		ToggleData toggle_data_extension = 220794719;
+	}
+
+	repeated int64 content_data_reference = 1;
+	image.ImageContent unchecked_icon = 2;
+	image.ImageContent checked_icon = 3;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.utils;
+
+import "youtube/client/blocks/utils/block_method.proto";
+
+option objc_class_prefix = "YTB";
+
+message BlockMethodCall {
+	BlockMethod block_method = 1;
+	bytes args = 2;
+}

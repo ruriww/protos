@@ -1,0 +1,18 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message TopicLabelId {
+	enum TopicLabelType {
+		option features.enum_type = CLOSED;
+
+		LABEL_TYPE_UNSPECIFIED = 0;
+		THREAD_FOLLOWED = 1;
+		UNREAD = 2;
+	}
+
+	TopicLabelType topic_label_type = 1;
+	string label_secondary_key = 2;
+}

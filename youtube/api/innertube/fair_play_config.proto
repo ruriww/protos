@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FairPlayConfig {
+	bytes certificate = 1;
+	int32 max_error_count_per_request = 2;
+	int32 backoff_ms = 3;
+	bool key_request_failure_non_fatal = 4;
+	int32 key_rotation_period_ms = 6;
+	int32 key_prefetch_margin_ms = 7;
+	int32 first_prefetch_delay_ms = 8;
+	bool enable_error_monitoring = 9;
+}

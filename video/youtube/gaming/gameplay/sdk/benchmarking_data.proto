@@ -1,0 +1,23 @@
+edition = "2023";
+
+package video.youtube.gaming.gameplay.sdk;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTG";
+
+message BenchmarkingData {
+	google.protobuf.Duration round_trip_native_bridge_latency = 1;
+	google.protobuf.Duration iframe_to_host_latency = 2;
+
+	oneof send_time {
+		google.protobuf.Timestamp host_message_send_time = 3;
+		google.protobuf.Timestamp iframe_message_send_time = 4;
+	}
+
+	oneof data {
+		bytes payload = 5;
+		uint32 payload_size = 6;
+	}
+}

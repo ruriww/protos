@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.alertmanager;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/alertmanager/page.proto";
+
+option objc_class_prefix = "AlertManager";
+
+message InitializeResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	Page initial_page = 3;
+}

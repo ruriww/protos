@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/movie_card_badge_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MovieCardRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	FormattedString subtitle = 3;
+	Command navigation_endpoint = 4;
+	bytes tracking_params = 5;
+	MovieCardBadgeSupportedRenderers movie_badge = 8;
+	FormattedString length_text = 10;
+	repeated Renderer badges = 11;
+}
+
+extend Renderer {
+	MovieCardRenderer movie_card_renderer = 122092730;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/bubble_hint_button_supported_renderers.proto";
+import "youtube/api/innertube/hint_target_effect.proto";
+import "youtube/api/innertube/basic_color_palette_data.proto";
+import "youtube/api/innertube/themed_basic_color_palette.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BubbleHintRenderer {
+	FormattedString text = 1;
+	bytes tracking_params = 3;
+	AccessibilityData accessibility = 4;
+	FormattedString details_text = 5;
+	float max_width_percentage = 6;
+	BubbleHintButtonSupportedRenderers dismiss_button = 7;
+	BubbleHintButtonSupportedRenderers accept_button = 8;
+	bool is_visible = 9;
+	HintTargetEffect hint_target_effect = 10;
+
+	oneof style_oneof {
+		BasicColorPaletteData basic_color_palette_data = 12;
+		ThemedBasicColorPalette themed_basic_color_palette = 13;
+	}
+
+	repeated Renderer contents = 14;
+	bool show_close_button = 15;
+}

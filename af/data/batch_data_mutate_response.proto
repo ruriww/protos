@@ -1,0 +1,13 @@
+edition = "2023";
+
+package af.data;
+
+import "af/data/mutate_data_response_with_error.proto";
+import "af/data/batch_data_response_header.proto";
+
+option objc_class_prefix = "AFD";
+
+message BatchDataMutateResponse {
+	MutateDataResponseWithError mutate_data_response_with_error = 1;
+	BatchDataResponseHeader header = 2;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/person.proto";
+import "notifications/frontend/data/common/group.proto";
+
+option objc_class_prefix = "NFDC";
+
+message TextCommunicationNotification {
+	Person sender = 1;
+	repeated Person recipients = 2;
+	string content = 3;
+	Group recipient_group = 4;
+	string conversation_identifier = 5;
+	bool should_donate = 6 [ default = true ];
+	bool is_reply_to_current_user = 7;
+	bool mentions_current_user = 8;
+	int32 recipient_count = 9;
+	bool notify_recipient_anyway = 10;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "id/logging/frontend/user_interaction.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message IdentityFrontendExtension {
+	UserInteraction interaction = 1;
+}

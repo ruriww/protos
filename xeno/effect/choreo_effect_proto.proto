@@ -1,0 +1,26 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "xeno/effect/output_audio_config_proto.proto";
+import "xeno/effect/graph_input_config_proto.proto";
+import "xeno/effect/asset_registry_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message ChoreoEffectProto {
+	string conductor_name = 1;
+	string input_frame_stream_name = 2;
+	string input_frame_presentation_timestamp_stream_name = 3;
+	string output_frame_stream_name = 4;
+	string input_audio_stream_name = 5;
+	string input_audio_presentation_timestamp_stream_name = 6;
+	OutputAudioConfigProto output_audio_config = 7;
+	GraphInputConfigProto inputs = 8;
+	repeated string graph_input_side_packet_name = 9;
+	repeated string aux_output_stream_name = 10;
+	int32 max_frames_in_flight = 11;
+	AssetRegistryProto assets = 12;
+
+	extensions 1000 to max;
+}

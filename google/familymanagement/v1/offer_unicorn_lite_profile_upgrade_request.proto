@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message OfferUnicornLiteProfileUpgradeRequest {
+	ApiRequestHeader api_header = 1;
+
+	oneof blocked_product {
+		string blocked_app_package_name = 3;
+	}
+}

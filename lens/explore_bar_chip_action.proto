@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens;
+
+import "lens/explore_bar_selection.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ExploreBarChipAction {
+	oneof action {
+		ExploreBarSelection selection = 6;
+	}
+}

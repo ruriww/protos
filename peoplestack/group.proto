@@ -1,0 +1,21 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/display_info.proto";
+import "peoplestack/person.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "PSK";
+
+message Group {
+	DisplayInfo display_info = 1;
+	repeated Person members = 2;
+	int32 full_group_size = 3;
+	string group_id = 4;
+	string group_type = 5;
+	google.protobuf.Timestamp created_at_utc = 9;
+	bool is_full = 18;
+	repeated Person deleted_members = 20;
+	google.protobuf.Timestamp last_updated_at_utc = 21;
+}

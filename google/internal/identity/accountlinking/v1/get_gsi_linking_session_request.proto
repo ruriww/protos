@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_account_linking_service_data_realm.proto";
+
+option objc_class_prefix = "ALK";
+
+message GetGsiLinkingSessionRequest {
+	string linking_session_key = 1;
+	EAccountLinkingServiceDataRealm data_realm = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.filepicker;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FilePickerCondition {
+	extend eventrules.condition.Condition {
+		FilePickerCondition file_picker_condition_extension = 306369471;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_FILE_SELECTED = 1;
+	}
+
+	ConditionType condition_type = 1;
+}

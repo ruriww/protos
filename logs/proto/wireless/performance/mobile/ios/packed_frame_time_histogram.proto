@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message PackedFrameTimeHistogram {
+	repeated int32 population = 1;
+	repeated int32 lower_bound = 2;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DisplayAdMacroExpanderConfiguration {
+	bool enable_display_ad_macro_expander_config = 1;
+}

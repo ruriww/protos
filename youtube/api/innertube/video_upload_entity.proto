@@ -1,0 +1,51 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoUploadEntity {
+	extend EntityMutationPayload {
+		VideoUploadEntity video_upload_entity = 463;
+	}
+
+	string key = 1;
+	string frontend_upload_id = 2;
+	string video_id = 3;
+	string title = 4;
+	string thumbnail_url = 5;
+	bool is_presumed_short = 6;
+	string failed_or_rejected_message = 7;
+	string resolve_command_title = 8;
+	elements.Command resolve_command = 9;
+	bool is_from_shorts_creation = 10;
+
+	message UploadProgress {
+		float progress_start = 1;
+		float progress_end = 2;
+		float animation_progress_override = 3;
+	}
+
+	UploadProgress upload_progress = 12;
+
+	oneof upload_status_message_oneof {
+		string upload_status_message = 13;
+		string transfer_progress_message = 18;
+		string transfer_precondition_message = 19;
+	}
+
+	oneof upload_status_detailed_message_oneof {
+		string upload_status_detailed_message = 14;
+		string transfer_progress_detailed_message = 20;
+		string transfer_precondition_detailed_message = 21;
+	}
+
+	int64 created_timestamp_seconds = 15;
+	bool is_failed_or_rejected = 17;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PdgHotConfig {
+	bool super_chat_like_stickers_ui = 1;
+	string pdg_flash_money_button_animation_android = 2;
+	bool update_super_chat_moderation = 3;
+	bool show_super_chat_bottom_sheet_from_response_ios = 5;
+	bool pdg_expand_money_button_hitbox_android = 6;
+	bool pdg_enable_ios_outertube_refactoring = 7;
+	bool pdg_disable_visibility_gate_for_overlay_chat_ios = 8;
+	bool no_dismiss_pdg_buy_flow_command_for_client_errors = 9;
+	bool pdg_loading_spinner_after_buy_and_send = 10;
+	bool pdg_enable_flow_logging_for_super_chat = 11;
+}

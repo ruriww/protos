@@ -1,0 +1,11 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+import "frameworks/client/logging/proto/blocked_parameter.proto";
+
+option objc_class_prefix = "CLI";
+
+message ClientSideConfiguration {
+	repeated BlockedParameter blocked_parameters = 1;
+}

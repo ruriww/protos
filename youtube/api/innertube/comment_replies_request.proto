@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/comment_request_options.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentRepliesRequest {
+	InnerTubeContext context = 1;
+	string comment_id = 2;
+	string continuation = 3;
+	CommentRequestOptions comment_options = 4;
+	string channel_id = 5;
+	string video_id = 6;
+	bool viewer_can_reply = 8;
+	int32 max_replies = 9;
+	string linked_reply_id = 11;
+	string cluster_id = 14;
+	string post_id = 15;
+	bool fetch_extra_low_quality = 17;
+	bool use_engagement_panel_for_replies = 19;
+	string playlist_id = 20;
+}

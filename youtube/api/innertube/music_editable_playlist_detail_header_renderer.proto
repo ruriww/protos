@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_playlist_edit_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicEditablePlaylistDetailHeaderRenderer {
+	Renderer header = 1;
+	Renderer edit_header = 2;
+	bytes tracking_params = 4;
+	string playlist_id = 5;
+}
+
+extend Renderer {
+	MusicEditablePlaylistDetailHeaderRenderer music_editable_playlist_detail_header_renderer = 173690432;
+}
+
+extend Renderer {
+	MusicPlaylistEditHeaderRenderer music_playlist_edit_header_renderer = 173686611;
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MessageStyle {
+	enum RenderStyle {
+		option features.enum_type = CLOSED;
+
+		RENDER_STYLE_UNKNOWN = 0;
+		RENDER_STYLE_DEFAULT = 1;
+		RENDER_STYLE_HORIZONTAL = 2;
+		RENDER_STYLE_EMPTY_STATE = 3;
+		RENDER_STYLE_BANNER = 4;
+		RENDER_STYLE_DIALOG = 5;
+		RENDER_STYLE_PANEL = 6;
+		RENDER_STYLE_SIMPLE_HEADER = 7;
+		RENDER_STYLE_VERTICAL_CENTERED = 8;
+		RENDER_STYLE_BANNER_PANEL = 9;
+		RENDER_STYLE_NO_PADDING = 10;
+		RENDER_STYLE_SHORTS_SURVEYS = 11;
+		RENDER_STYLE_NATURAL_ALIGNMENT = 12;
+		RENDER_STYLE_FULL_PAGE_CENTERED = 13;
+		RENDER_STYLE_SIMPLE_START_ALIGNED = 14;
+		RENDER_STYLE_EMPTY_STATE_WITH_ICON = 15;
+		RENDER_STYLE_BANNER_RESPONSIVE_GRID = 16;
+		RENDER_STYLE_SUBTLE = 17;
+	}
+
+	RenderStyle value = 1;
+}

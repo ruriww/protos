@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_device_matcher.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxFeatureControl {
+	enum Feature {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ENABLE_ROUTE = 1;
+		WAKEUP = 2;
+		ENABLE_FALLBACK_ROUTE = 3;
+	}
+
+	Feature feature = 1;
+	repeated MdxDeviceMatcher whitelisted_devices = 2;
+	repeated MdxDeviceMatcher blacklisted_devices = 3;
+	repeated MdxDeviceMatcher allowed_devices = 4;
+	repeated MdxDeviceMatcher blocked_devices = 5;
+}

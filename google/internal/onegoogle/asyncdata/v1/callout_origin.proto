@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+option objc_class_prefix = "OGADS";
+
+enum CalloutOrigin {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_ORIGIN = 0;
+	INWEB_ORIGIN = 1;
+	PROMOSLINGER_ORIGIN = 2;
+	SOS_ORIGIN = 3;
+}

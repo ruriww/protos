@@ -1,0 +1,141 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+import "moneta/orchestration/ui/common/generic/selectable_ui_field_group_form_value.proto";
+import "moneta/orchestration/ui/common/generic/variable.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+import "moneta/orchestration/common/download/download_spec.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+
+option objc_class_prefix = "Orch";
+
+message ResultingActionReference {
+	enum ActionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ACTION_TYPE = 0;
+		SHOW_COMPONENT = 1;
+		HIDE_COMPONENT = 11;
+		TOGGLE_COMPONENT_VISIBILITY = 27;
+		RESET_INPUT = 2;
+		SEND_SUBMIT_REQUEST = 3;
+		SEND_REFRESH_REQUEST = 4;
+		UPDATE_AMOUNT_LIMITS_FROM_INSTRUMENT_RESTRICTIONS = 5;
+		UPDATE_PRESUBMIT_ACTIONS = 9;
+		UPDATE_VARIABLE = 14;
+		RELOAD_PAGE = 6;
+		DISABLE_COMPONENT = 7;
+		ENABLE_COMPONENT = 16;
+		COMPLETE_FLOW = 8;
+		PRINT_PAGE = 10;
+		MODIFY_COMPONENT_VALUES = 12;
+		SHOW_DIALOG = 13;
+		NEXT_SCREEN = 15;
+		SET_VALUE = 17;
+		SHOW_PAGE_IN_OVERLAY = 18;
+		LAUNCH_REDIRECT = 19;
+		LAUNCH_REDIRECT_OR_SUBMIT_IF_PREVIOUSLY_ABORTED = 26;
+		SEND_INTEGRATOR_CALLBACK_DATA = 20;
+		LOAD_TARGET = 21;
+		FOCUS_COMPONENT = 22;
+		SCROLL_DOWN_BY_VISIBLE_HEIGHT = 23;
+		SCROLL_TO_BOTTOM = 33;
+		DOWNLOAD = 24;
+		FLOW_INSTRUCTION = 25;
+		ANNOUNCE_MESSAGE = 28;
+		SWITCH_GAIA_SESSION_INDEX = 29;
+		COPY_TO_CLIPBOARD = 30;
+		LOAD_INTEGRATOR_WIDGET = 31;
+		SHOW_TOAST = 32;
+		ASK_INTEGRATOR_FOR_UPDATED_PARAMS = 34;
+		REASSEMBLE_MESSAGE = 35;
+		START_AUTHENTICATION = 36;
+		CLEAR_UPLOADED_DOCUMENTS = 37;
+		DISPLAY_ACCESS_CONTROLS = 38;
+	}
+
+	ActionType action_type = 1;
+	int64 component_id = 2;
+
+	message SendRequestAction {
+		repeated int64 component_id_to_validate = 1;
+		bool validate_all_elements = 2;
+		repeated int64 component_id_to_disable = 3;
+		bool disable_all_elements = 4;
+		bytes dependency_graph_action_token = 5;
+		repeated int64 component_id_to_send_back = 6;
+		string action_url = 8;
+		bool include_hidden_components = 9;
+	}
+
+	message CompleteFlowAction {
+		IntegratorCallbackData integrator_callback_data = 1;
+		bool cancel_flow = 2;
+	}
+
+	message ModifyComponentValuesAction {
+		repeated int64 value_id = 1;
+
+		enum ModifyType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_MODIFY_TYPE = 0;
+			SHOW = 1;
+			HIDE = 2;
+			ENABLE = 3;
+			DISABLE = 4;
+		}
+
+		ModifyType modify_type = 2;
+
+		enum ListType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_LIST_TYPE = 0;
+			ONLY_SPECIFIED_VALUES = 1;
+			ALL_VALUES = 2;
+		}
+
+		ListType list_type = 3;
+	}
+
+	message UpdateVariableAction {
+		Variable variable_value = 2;
+	}
+
+	message SetValueAction {
+		oneof component_value {
+			UiFieldValue ui_field_value = 1;
+			SelectableUiFieldGroupFormValue selectable_value = 2;
+			int64 selected_option_ui_reference = 3;
+		}
+	}
+
+	message DownloadAction {
+		string download_url = 1;
+		orchestration.common.download.DownloadSpec download_spec = 2;
+	}
+
+	message FlowInstructionAction {
+		FlowInstruction flow_instruction = 1;
+		bytes dependency_graph_action_token = 2;
+		repeated int64 main_page_component_id_to_send_back = 3;
+	}
+
+	message CopyToClipboardAction {
+		string text = 1;
+	}
+
+	oneof action {
+		SendRequestAction send_request_action = 4;
+		CompleteFlowAction complete_flow_action = 6;
+		ModifyComponentValuesAction modify_component_values_action = 9;
+		UpdateVariableAction update_variable_action = 10;
+		SetValueAction set_value_action = 11;
+		DownloadAction download_action = 13;
+		FlowInstructionAction flow_instruction_action = 15;
+		CopyToClipboardAction copy_to_clipboard_action = 19;
+	}
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+option objc_class_prefix = "PIL";
+
+message InferredPhone {
+	string value = 1;
+}

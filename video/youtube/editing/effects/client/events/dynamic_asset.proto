@@ -1,0 +1,16 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+import "video/youtube/editing/effects/client/events/image_data.proto";
+
+option objc_class_prefix = "YTEE";
+
+message DynamicAsset {
+	oneof asset {
+		string text = 1;
+		ImageData image = 2;
+	}
+
+	string dynamic_asset_id = 3;
+}

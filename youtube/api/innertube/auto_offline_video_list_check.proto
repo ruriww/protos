@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlined_content_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoOfflineVideoListCheck {
+	enum ListType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		KIDS_RECS_AUTO_OFFLINE = 1;
+		MAIN_DAILY_AUTO_OFFLINE = 2;
+		MUSIC_OFFLINE_MIXTAPE = 3;
+	}
+
+	ListType list_type = 1;
+	uint64 current_video_list_storage_bytes = 2;
+	uint64 total_video_list_storage_bytes = 3;
+	uint32 time_since_last_video_list_playback_seconds = 4;
+	repeated OfflinedContentSupportedDatas current_offlined_contents = 5;
+}

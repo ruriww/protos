@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/helpcenter_page_type_lite.proto";
+
+option objc_class_prefix = "CSHM";
+
+message PageMetadataLite {
+	string language = 1;
+	string actual_language = 2;
+	HelpcenterPageTypeLite page_type = 3;
+	bool deleted_item = 4;
+	bool redirected = 5;
+	bool searchable = 6;
+	string canonical_url = 7;
+}

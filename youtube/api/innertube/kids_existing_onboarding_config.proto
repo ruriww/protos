@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_existing_onboarding_display_period.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsExistingOnboardingConfig {
+	KidsExistingOnboardingDisplayPeriod first_period = 1;
+	KidsExistingOnboardingDisplayPeriod second_period = 2;
+	KidsExistingOnboardingDisplayPeriod third_period = 3;
+	bool enable_clean_history_and_search_off = 4;
+	bool enable_clear_history = 5;
+	bool enable_search_off = 6;
+	bool enable_global_config_refresh_on_startup = 7;
+}

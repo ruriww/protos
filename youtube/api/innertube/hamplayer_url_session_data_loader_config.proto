@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_network_service_type.proto";
+import "youtube/api/innertube/ios_quality_of_service_class.proto";
+import "youtube/api/innertube/ios_network_stack_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerUrlSessionDataLoaderConfig {
+	IosNetworkServiceType network_service_type = 1;
+	int32 request_timeout_seconds = 2;
+	int32 resource_timeout_seconds = 3;
+	int32 max_connections_per_host = 4;
+	bool use_pipelining = 5;
+	bool use_cronet = 6;
+	IosQualityOfServiceClass qos_class = 7;
+	sint32 qos_relative_priority = 8;
+	bool use_cronet_native = 9;
+	bool cronet_native_enable_timeouts = 10;
+	IosNetworkStackType network_stack_type = 11;
+	bool assume_http3_capable = 12;
+	bool cronet_retain_parent_task_in_blocks = 13;
+	bool bypass_single_queue_data_loader = 286624171;
+}

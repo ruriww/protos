@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/player_visibility.proto";
+import "youtube/api/innertube/ad_thumbnail_player_overlay_supported_renderers.proto";
+import "youtube/api/innertube/ad_player_overlay_learn_more_cta_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/ad_player_overlay_learn_more_cta_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdPlayerOverlayRenderer {
+	FormattedString title = 1;
+	FormattedString visit_advertiser_text = 2;
+	Command click_navigation_endpoint = 3;
+	ThumbnailDetails thumbnail = 4;
+	Command thumbnail_navigation_endpoint = 5;
+	bool show_share_button = 6;
+	PlayerVisibility title_player_visibility = 7;
+	PlayerVisibility thumbnail_player_visibility = 8;
+	AdThumbnailPlayerOverlaySupportedRenderers video_thumbnail = 9;
+	Command ad_choices_dialog_endpoint = 10;
+	Command share_navigation_endpoint = 11;
+	FormattedString short_byline_text = 12;
+	AdPlayerOverlayLearnMoreCTASupportedRenderers learn_more_cta_renderers = 13;
+	ThumbnailDetails trvfa_banner = 14;
+	int32 video_count = 15;
+	FormattedString video_count_text = 16;
+	bytes tracking_params = 18;
+	Renderer skip_ad_renderer = 19;
+}
+
+extend Renderer {
+	AdPlayerOverlayRenderer ad_player_overlay_renderer = 62960614;
+}
+
+extend Renderer {
+	AdPlayerOverlayLearnMoreCTARenderer ad_player_overlay_learn_more_cta_renderer = 105631473;
+}

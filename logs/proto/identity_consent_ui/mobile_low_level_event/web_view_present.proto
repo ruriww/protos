@@ -1,0 +1,8 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+option objc_class_prefix = "GIDLLE";
+
+message WebViewPresent {
+}

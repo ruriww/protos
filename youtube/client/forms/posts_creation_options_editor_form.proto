@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.client.forms;
+
+import "youtube/client/forms/state.proto";
+import "youtube/client/forms/posts_creation_option_list_form_field.proto";
+import "youtube/client/forms/string_form_field.proto";
+import "youtube/client/forms/int32_form_field.proto";
+import "youtube/client/forms/bool_form_field.proto";
+
+option objc_class_prefix = "YTFA";
+
+message PostsCreationOptionsEditorForm {
+	string id = 1;
+	State state = 2;
+	PostsCreationOptionListFormField options = 3;
+	StringFormField explanation_text = 4;
+	Int32FormField correct_answer_index = 5;
+	BoolFormField is_image_type = 6;
+}

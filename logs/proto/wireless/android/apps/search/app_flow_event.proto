@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.android.apps.search;
+
+import "unknown/youtube/calsap_product_id15192.proto";
+
+option objc_class_prefix = "SAFP";
+
+message AppFlowEvent {
+	int32 app_id = 1;
+	int32 flow_event = 2;
+	unknown.youtube.CALSAPProductID15192.CALSAPProductID product_id = 3;
+	repeated int32 tags = 4;
+}

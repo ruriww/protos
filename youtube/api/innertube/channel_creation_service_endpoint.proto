@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/zero_step_channel_creation_params.proto";
+import "youtube/api/innertube/channel_creation_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelCreationServiceEndpoint {
+	extend Command {
+		ChannelCreationServiceEndpoint channel_creation_service_endpoint = 75058710;
+	}
+
+	bytes channel_creation_token = 2;
+	ZeroStepChannelCreationParams zero_step_channel_creation_params = 3;
+	repeated Command commands = 4;
+	ChannelCreationSource source = 5;
+}

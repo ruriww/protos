@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StickerConfig {
+	message PromptStickerContext {
+		Renderer comment_disabled_dialog = 1;
+	}
+
+	message ProductStickerContext {
+		Command select_command = 1;
+	}
+
+	message GenAiStickerContext {
+		Command select_command = 1;
+	}
+
+	Renderer sticker_replacement_confirm_dialog_renderer = 1;
+
+	message PromptStickerConfig {
+		Renderer comment_disabled_dialog = 1;
+		Renderer sticker_renderer = 3;
+	}
+
+	PromptStickerConfig prompt_sticker = 2;
+
+	message Sticker {
+		Renderer sticker_renderer = 1;
+
+		oneof context {
+			PromptStickerContext prompt_sticker_context = 2;
+			ProductStickerContext product_sticker_context = 3;
+			GenAiStickerContext gen_ai_sticker_context = 4;
+		}
+	}
+
+	map<int32, Sticker> stickers = 3;
+}

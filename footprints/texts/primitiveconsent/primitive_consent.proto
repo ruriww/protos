@@ -1,0 +1,67 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/primitive_dialog_button.proto";
+import "footprints/texts/primitiveconsent/rich_text.proto";
+import "footprints/texts/primitiveconsent/dialog_triggering.proto";
+import "footprints/texts/consent_screen_id.proto";
+import "footprints/texts/primitiveconsent/primitive_alert_dialog.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "footprints/texts/primitiveconsent/close_action.proto";
+import "footprints/texts/primitiveconsent/primitive_consent_content.proto";
+import "footprints/texts/primitiveconsent/primitive_dialog.proto";
+import "footprints/texts/primitiveconsent/consent_decision_button.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message PrimitiveConsent {
+	PrimitiveConsentContent content = 1;
+	map<int32, PrimitiveDialog> dialog_map = 2;
+	repeated ConsentDecisionButton consent_decision_button = 3;
+
+	message ScreenMetadata {
+		ConsentScreenId consent_screen_id = 1;
+		bool is_back_navigable = 2;
+
+		message ScrollToBottom {
+			string icon_url = 1;
+			string icon_url_dark = 2;
+			string text = 3;
+		}
+
+		ScrollToBottom scroll_to_bottom = 3;
+
+		message DiscardOnDismissalDialog {
+			PrimitiveDialogButton edit_choices_button = 2;
+			PrimitiveDialogButton close_button = 3;
+			RichText title = 5;
+			repeated RichText paragraph = 6;
+			string title_v2 = 7;
+			repeated string paragraph_v2 = 8;
+			DialogTriggering dialog_triggering = 9;
+		}
+
+		DiscardOnDismissalDialog discard_on_dismissal_dialog = 4;
+		PrimitiveAlertDialog continue_without_required_choices_dialog = 5;
+		bool is_closable = 6;
+		repeated transparencyandcontrol.proto.ConsentSetting flow_required_settings_for_logging = 7;
+		CloseAction close_action = 8;
+	}
+
+	ScreenMetadata screen_metadata = 4;
+
+	message PrimitiveConsentStyle {
+		enum ConsentDecisionButtonsArrangement {
+			option features.enum_type = CLOSED;
+
+			ARRANGEMENT_UNSPECIFIED = 0;
+			ARRANGEMENT_TRY_HORIZONTAL = 1;
+			ARRANGEMENT_VERTICAL = 2;
+		}
+
+		ConsentDecisionButtonsArrangement consent_decision_buttons_arrangement = 1;
+	}
+
+	PrimitiveConsentStyle primitive_consent_style = 5;
+}

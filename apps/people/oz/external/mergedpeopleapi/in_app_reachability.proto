@@ -1,0 +1,61 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message InAppReachability {
+	PersonFieldMetadata metadata = 1;
+
+	enum AppType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		BABEL = 1;
+		YOUTUBE = 2;
+		WHOS_DOWN = 3;
+		YOUTUBE_MANGO = 4;
+		PHOTOS = 5;
+		KABOO = 6;
+		COMMERCE_PLATFORM = 7;
+		SPACES = 8;
+		GOOGLE_ASSISTANT = 9;
+		PEOPLE_PLAYGROUND = 10;
+		MAPS = 24;
+		LOUPE_UNUSED = 27;
+		POMEROY = 28;
+		LOUPE = 29;
+		NEWS_360 = 34;
+		DUO = 40;
+		MEET = 48;
+	}
+
+	AppType app_type = 2 [ default = UNKNOWN ];
+
+	enum ReachableStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_REACHABLE_STATUS = 0;
+		REACHABLE = 1;
+		NOT_REACHABLE = 2;
+	}
+
+	ReachableStatus status = 3 [ default = UNKNOWN_REACHABLE_STATUS ];
+
+	message ReachabilityKey {
+		enum KeyType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_KEY_TYPE = 0;
+			PHONE = 1;
+			OBFUSCATED_GAIA_ID = 2;
+		}
+
+		KeyType key_type = 1;
+		string key_value = 2;
+	}
+
+	ReachabilityKey reachability_key = 4;
+}

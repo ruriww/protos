@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/container_item_events.proto";
+import "youtube/api/innertube/playback_scrubbing_event.proto";
+import "youtube/api/innertube/playback_audio_event.proto";
+import "youtube/api/innertube/prominence_dwell_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortItemEvents {
+	extend ContainerItemEvents {
+		ShortItemEvents short_item_events = 3;
+	}
+
+	string video_id = 5;
+	bool is_liked = 6;
+	bool is_disliked = 7;
+	bool do_not_recommend_clicked = 8;
+	bool pivot_clicked = 9;
+	repeated PlaybackScrubbingEvent scrub_events = 10;
+	repeated PlaybackAudioEvent audio_events = 11;
+	repeated ProminenceDwellEvent prominence_dwell_events = 12;
+}

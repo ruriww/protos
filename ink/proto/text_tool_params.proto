@@ -1,0 +1,21 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/text/font.proto";
+import "ink/proto/alignment.proto";
+import "ink/proto/text_tool_shadow_params.proto";
+import "ink/proto/int_packed_color.proto";
+
+option objc_class_prefix = "INKPB";
+
+message TextToolParams {
+	text.Font font = 1;
+	Alignment alignment = 2;
+	TextToolShadowParams shadow = 3;
+	IntPackedColor background_color = 4;
+	IntPackedColor border_color = 5;
+	bool edit_existing_text = 6 [ default = true ];
+	float initial_width_on_screen = 7;
+	float initial_height_on_screen = 8;
+}

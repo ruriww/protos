@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/metrics_data.proto";
+
+option objc_class_prefix = "CSHM";
+
+message BatchedMetricsData {
+	repeated MetricsData metrics_data = 1;
+}

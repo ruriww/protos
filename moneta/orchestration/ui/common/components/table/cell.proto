@@ -1,0 +1,59 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.table;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/components/menu/menu.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form.proto";
+
+option objc_class_prefix = "OrchTable";
+
+message Cell {
+	int64 ui_reference = 1;
+	generic.ImageWithCaption icon = 2;
+
+	enum IconPosition {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_POSITION = 0;
+		LEFT_OF_VALUE = 1;
+		RIGHT_OF_VALUE = 2;
+	}
+
+	IconPosition icon_position = 3 [ default = LEFT_OF_VALUE ];
+	generic.InfoMessage value = 4;
+	int32 column_span = 5;
+	Link link = 6;
+	repeated Button button = 7;
+	generic.Tooltip tooltip = 8;
+	repeated ConfirmationDialog confirmation_dialog = 9;
+	repeated generic.InfoMessage info_message = 11;
+	repeated menu.Menu menu = 12;
+
+	enum ContentType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CONTENT_TYPE = 0;
+		TEXT = 1;
+		NUMERIC = 2;
+		EMPTY_TABLE_MESSAGE = 3;
+		PAGINATION_FORM = 4;
+		TRUNCATED_CONTENT = 5;
+		IMAGE = 6;
+		MAIN_CONTENT = 7;
+		FALLTHROUGH = 8;
+	}
+
+	ContentType content_type = 13;
+	int32 row_span = 14;
+	SimpleForm simple_form = 15;
+	tax.TaxInfoForm tax_info_form = 16;
+	bool header_cell = 17;
+	string aria_label = 28;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+option objc_class_prefix = "GCKOC";
+
+enum PinType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN = 0;
+	CACHED = 1;
+	AUDIO = 2;
+	MANUAL = 3;
+}

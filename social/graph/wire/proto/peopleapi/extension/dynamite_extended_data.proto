@@ -1,0 +1,50 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.extension;
+
+import "apps/dynamite/shared/organization_info.proto";
+import "apps/dynamite/shared/segmented_membership_counts.proto";
+
+option objc_class_prefix = "SGWPPE";
+
+message DynamiteExtendedData {
+	enum Presence {
+		option features.enum_type = CLOSED;
+
+		UNDEFINED_PRESENCE = 0;
+		ACTIVE = 1;
+		INACTIVE = 2;
+		UNKNOWN = 3;
+		SHARING_DISABLED = 4;
+	}
+
+	Presence presence = 1;
+	int64 member_count = 2;
+	string avatar_url = 3;
+
+	enum EntityType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ENTITY_TYPE = 0;
+		PERSON = 1;
+		GOOGLE_GROUP = 2;
+		BOT = 3;
+	}
+
+	EntityType entity_type = 4;
+	string developer_name = 5;
+	string description = 6;
+
+	enum DndState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_DND_STATE = 0;
+		AVAILABLE = 1;
+		DND = 2;
+	}
+
+	DndState dnd_state = 7;
+	apps.dynamite.shared.OrganizationInfo organization_info = 8;
+	apps.dynamite.shared.SegmentedMembershipCounts segmented_membership_counts = 9;
+	bool is_membership_visible_to_caller = 10;
+}

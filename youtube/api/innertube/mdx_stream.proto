@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxStream {
+	bytes encrypted_backend_spec = 1;
+	string lounge_token = 2;
+	string mdx_discovery_id = 3;
+	string mdx_session_id = 4;
+	bool enable_punctual_delivery = 5;
+	string mdx_queue_id = 6;
+}

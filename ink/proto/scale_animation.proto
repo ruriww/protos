@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/animation_curve.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ScaleAnimation {
+	double duration = 1 [ default = 0.5 ];
+	AnimationCurve curve = 2;
+	float scale_x = 3;
+	float scale_y = 4;
+}

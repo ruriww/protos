@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/partial_name_options.proto";
+
+option objc_class_prefix = "SGAP";
+
+message LimitedProfileNameSettings {
+	PartialNameOptions partial_name_options = 1;
+	string verbatim_full_name = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_endpoint_promo_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosClientOfflineData {
+	bool available_on_client = 1;
+	string client_availability_reason = 2;
+	uint32 client_offline_state = 3;
+	string client_expiry_message = 4;
+	bool has_access_to_offline = 5;
+	OfflineEndpointPromoSupportedRenderers promo = 6;
+	uint32 expires_in_seconds = 7;
+	uint64 estimated_total_size_in_bytes = 8;
+}

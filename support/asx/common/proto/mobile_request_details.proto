@@ -1,0 +1,15 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+import "support/asx/common/proto/mobile_app_data.proto";
+import "support/asx/common/proto/mobile_device_data.proto";
+import "support/asx/common/proto/mobile_help_client_data.proto";
+
+option objc_class_prefix = "ASX";
+
+message MobileRequestDetails {
+	MobileAppData app_data = 1;
+	MobileDeviceData device_data = 2;
+	MobileHelpClientData help_client_data = 3;
+}

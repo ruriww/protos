@@ -1,0 +1,15 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+enum ScreenDensity {
+	option features.enum_type = CLOSED;
+
+	SCREEN_DENSITY_UNSPECIFIED = 0;
+	SCREEN_DENSITY_1X = 1;
+	SCREEN_DENSITY_2X = 2;
+	SCREEN_DENSITY_3X = 3;
+	SCREEN_DENSITY_4X = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.purchasemanager;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_form_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/encryption_form_value.proto";
+
+option objc_class_prefix = "PurchaseManager";
+
+message PageValue {
+	common.components.instrument.InstrumentFormValue form_value = 1;
+	bytes dependency_graph_action_token = 2;
+	repeated common.components.SimpleFormValue simple_form_value = 4;
+	common.components.EncryptionFormValue encryption_form_value = 5;
+}

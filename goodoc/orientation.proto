@@ -1,0 +1,14 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+enum Orientation {
+	option features.enum_type = CLOSED;
+
+	ORIENTATION_PAGE_UP = 0;
+	ORIENTATION_PAGE_RIGHT = 1;
+	ORIENTATION_PAGE_DOWN = 2;
+	ORIENTATION_PAGE_LEFT = 3;
+}

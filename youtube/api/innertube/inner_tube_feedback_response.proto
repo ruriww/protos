@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/feedback_response_data.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InnerTubeFeedbackResponse {
+	ResponseContext response_context = 1;
+	repeated FeedbackResponseData feedback_responses = 4;
+	repeated Command actions = 5;
+	bytes tracking_params = 12;
+	FrameworkUpdateTransport framework_updates = 777;
+}

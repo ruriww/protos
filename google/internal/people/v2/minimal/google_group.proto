@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.people.v2.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/name.proto";
+import "social/graph/wire/proto/peopleapi/minimal/email.proto";
+import "apps/people/oz/external/mergedpeopleapi/google_group_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/minimal/affinity.proto";
+import "social/graph/wire/proto/peopleapi/minimal/photo.proto";
+
+option objc_class_prefix = "GIPM";
+
+message GoogleGroup {
+	string person_id = 1;
+	repeated social.graph.wire.proto.peopleapi.minimal.Name names = 3;
+	repeated social.graph.wire.proto.peopleapi.minimal.Email emails = 4;
+	apps.people.oz.external.mergedpeopleapi.GoogleGroupExtendedData extended_data = 5;
+	repeated social.graph.wire.proto.peopleapi.minimal.Affinity affinities = 6;
+	repeated social.graph.wire.proto.peopleapi.minimal.Photo photos = 7;
+}

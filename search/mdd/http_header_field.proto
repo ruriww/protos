@@ -1,0 +1,10 @@
+edition = "2023";
+
+package search.mdd;
+
+option objc_class_prefix = "MDD";
+
+message HttpHeaderField {
+	string key = 1;
+	string value = 2;
+}

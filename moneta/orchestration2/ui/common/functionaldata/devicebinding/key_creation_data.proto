@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.devicebinding;
+
+import "moneta/orchestration2/ui/common/functionaldata/devicebinding/fido_relying_party_info.proto";
+import "moneta/orchestration2/ui/common/functionaldata/devicebinding/fido_user_info.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message KeyCreationData {
+	FidoRelyingPartyInfo relying_party_info = 1;
+	FidoUserInfo user_info = 2;
+	bytes challenge_data = 3;
+	int64 algorithm_id = 4;
+	int64 timeout_millis = 5;
+	repeated string attestation_format = 7;
+	int32 invocation_type = 8;
+	string attestation = 11;
+}

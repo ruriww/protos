@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message SetParentsAction {
+	repeated string uuid = 1;
+	repeated string old_parent_uuid = 2;
+	repeated Transform old_transform = 3;
+	repeated string new_parent_uuid = 4;
+	repeated Transform new_transform = 5;
+}

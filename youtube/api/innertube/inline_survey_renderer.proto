@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/inline_content_supported_renderers.proto";
+import "youtube/api/innertube/survey_response_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/in_card_video_renderer.proto";
+import "youtube/api/innertube/horizontal_survey_buttons_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlineSurveyRenderer {
+	Icon icon = 1;
+	Icon dismiss_icon = 2;
+	Command dismissal_endpoint = 3;
+	FormattedString title = 4;
+	FormattedString subtitle = 5;
+	InlineContentSupportedRenderers inline_content = 6;
+	SurveyResponseSupportedRenderers response = 7;
+	bytes tracking_params = 9;
+	FormattedString dismissal_text = 11;
+	repeated Command impression_endpoints = 13;
+}
+
+extend Renderer {
+	InlineSurveyRenderer inline_survey_renderer = 125105119;
+}
+
+extend Renderer {
+	InCardVideoRenderer in_card_video_renderer = 125014205;
+}
+
+extend Renderer {
+	HorizontalSurveyButtonsRenderer horizontal_survey_buttons_renderer = 116011845;
+}

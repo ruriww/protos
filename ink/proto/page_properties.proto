@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/int_packed_color.proto";
+import "ink/proto/background_image_info.proto";
+import "ink/proto/rect.proto";
+import "ink/proto/grid_info.proto";
+
+option objc_class_prefix = "INKPB";
+
+message PageProperties {
+	IntPackedColor background_color = 1;
+	BackgroundImageInfo background_image = 2;
+	Rect bounds = 3;
+	GridInfo grid_info = 5;
+}

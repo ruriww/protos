@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/time_range.proto";
+import "google/internal/apps/waldo/v1alpha/user_status.proto";
+import "google/internal/apps/waldo/v1alpha/user_context.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message UserAvailability {
+	TimeRange time_range = 1;
+	UserStatus status = 2;
+	UserContext contexts = 3;
+}

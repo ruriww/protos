@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.validation;
+
+option objc_class_prefix = "ORCH2";
+
+message Validation {
+	string error_text = 1;
+	int32 validation_id = 2;
+	int32 extension_field_number = 3;
+
+	extensions 1000 to max;
+}

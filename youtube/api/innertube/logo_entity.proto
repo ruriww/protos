@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/logo_lottie_animation_details.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LogoEntity {
+	extend EntityMutationPayload {
+		LogoEntity logo_entity = 245;
+	}
+
+	string key = 1;
+
+	message OneofIconOrThumbnail {
+		oneof image {
+			Icon icon = 1;
+			ThumbnailDetails thumbnail = 2;
+			LogoLottieAnimationDetails lottie_animation = 3;
+		}
+	}
+
+	OneofIconOrThumbnail light_theme_logo = 2;
+	OneofIconOrThumbnail dark_theme_logo = 3;
+	Command on_tap_command = 4;
+	FormattedString tooltip_text = 5;
+	AccessibilitySupportedDatas accessibility_data = 6;
+	ThumbnailDetails light_theme_animated_logo = 8;
+	ThumbnailDetails dark_theme_animated_logo = 9;
+	string promo_id = 10;
+	LoggingDirectives logging_directives = 999;
+}

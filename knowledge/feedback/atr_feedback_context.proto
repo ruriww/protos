@@ -1,0 +1,12 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message AtrFeedbackContext {
+	string result_url = 1;
+	string safe_search_state = 2;
+	bool is_safe_search_overridden = 3;
+	bool is_personalized = 4;
+}

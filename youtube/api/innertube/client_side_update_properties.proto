@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientSideUpdateProperties {
+	string game_title_key = 1;
+	string live_conference_state_key = 2;
+	string orientation_state_key = 3;
+}

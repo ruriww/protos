@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/element.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message AttachmentRun {
+	uint32 start_index = 1;
+	uint32 length = 2;
+	Element element = 3;
+
+	enum Alignment {
+		option features.enum_type = CLOSED;
+
+		ALIGNMENT_UNKNOWN = 0;
+		ALIGNMENT_BOTTOM = 1;
+		ALIGNMENT_BASELINE = 2;
+		ALIGNMENT_VERTICAL_CENTER = 3;
+	}
+
+	Alignment alignment = 4;
+	bool hide_on_error = 5;
+
+	extensions 999 to max;
+}

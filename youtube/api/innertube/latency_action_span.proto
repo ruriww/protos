@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/span_info.proto";
+import "youtube/api/innertube/latency_action_error.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LatencyActionSpan {
+	string span_name = 1;
+	string client_action_nonce = 2;
+	int64 span_length_usec = 3;
+	int64 span_start_time_usec = 4;
+	SpanInfo span_info = 5;
+	int32 span_nonce = 6;
+	int32 parent_span_nonce = 7;
+	int64 span_thread_sleep_usec = 8;
+	int64 span_device_sleep_usec = 9;
+	LatencyActionError span_error = 10;
+	bool timed_out = 11;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/direct_add_member_info.proto";
+import "google/familymanagement/v1/failed_direct_add_member_info.proto";
+
+option objc_class_prefix = "GFM";
+
+message DirectAddMembersResponse {
+	ApiResponseHeader api_header = 1;
+	repeated DirectAddMemberInfo direct_add_infos = 2;
+	repeated FailedDirectAddMemberInfo failure_infos = 3;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+option objc_class_prefix = "OGADS";
+
+enum BadgeSource {
+	option features.enum_type = CLOSED;
+
+	BADGE_SOURCE_UNDEFINED = 0;
+	BADGE_SOURCE_AO = 1;
+	BADGE_SOURCE_G1 = 2;
+	BADGE_SOURCE_CS = 3;
+}

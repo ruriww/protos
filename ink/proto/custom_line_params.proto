@@ -1,0 +1,22 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/tip_shape_params.proto";
+
+option objc_class_prefix = "INKPB";
+
+message CustomLineParams {
+	TipShapeParams tip_shape_params = 3;
+	bool expand_small_strokes = 4 [ default = false ];
+
+	enum TipType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TIP_TYPE = 0;
+		ROUND = 1;
+		SQUARE = 2;
+	}
+
+	TipType tip_type = 5 [ default = ROUND ];
+}

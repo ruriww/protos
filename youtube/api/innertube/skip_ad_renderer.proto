@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/skip_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SkipAdRenderer {
+	Renderer preskip_renderer = 1;
+	Renderer skippable_renderer = 2;
+	string element_id = 3;
+	bytes tracking_params = 7;
+	int32 skip_offset_milliseconds = 8;
+	string target_id = 10;
+}
+
+extend Renderer {
+	SkipAdRenderer skip_ad_renderer = 106887036;
+}
+
+extend Renderer {
+	SkipButtonRenderer skip_button_renderer = 106894322;
+}

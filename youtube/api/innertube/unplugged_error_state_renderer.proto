@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_icon.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedErrorStateRenderer {
+	FormattedString primary_text = 1;
+	FormattedString secondary_text = 2;
+	UnpluggedIcon unplugged_icon = 3;
+	bytes tracking_params = 4;
+	UnpluggedAnimationDetails animation = 6;
+	Renderer primary_button = 7;
+	Renderer secondary_button = 8;
+	ThumbnailDetails primary_image = 10;
+}
+
+extend Renderer {
+	UnpluggedErrorStateRenderer unplugged_error_state_renderer = 208280511;
+}

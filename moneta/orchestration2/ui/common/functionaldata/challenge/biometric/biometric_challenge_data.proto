@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.challenge.biometric;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BiometricChallengeData {
+	extend data.Data {
+		BiometricChallengeData biometric_challenge_data_extension = 277998451;
+	}
+
+	string description = 1;
+	string negative_button_text = 2;
+	string subtitle = 3;
+	string title = 4;
+	bool is_confirmation_required = 5 [ default = true ];
+	bool prefer_device_unlock_fallback = 6;
+}

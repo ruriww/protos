@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlayabilityErrorCode {
+	option features.enum_type = CLOSED;
+
+	PLAYABILITY_ERROR_CODE_UNKNOWN = 0;
+	PLAYABILITY_ERROR_CODE_VIDEO_BLOCK_BY_MRM = 151;
+	PLAYABILITY_ERROR_CODE_VIDEO_NOT_AVAILABLE = 100;
+	PLAYABILITY_ERROR_CODE_PERMISSION_DENIED = 150;
+	PLAYABILITY_ERROR_CODE_EMBEDDER_IDENTITY_DENIED = 152;
+	PLAYABILITY_ERROR_CODE_EMBEDDER_IDENTITY_MISSING_REFERRER = 153;
+	PLAYABILITY_ERROR_CODE_EMBARGOED = 1000;
+}

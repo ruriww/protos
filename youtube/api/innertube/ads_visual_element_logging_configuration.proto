@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsVisualElementLoggingConfiguration {
+	bool log_as_ve_click = 1;
+	bool log_click_xy_coordinates = 2;
+	bool log_no_op_signal_in_ads_click_data = 4;
+}

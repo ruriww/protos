@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.innertube;
+
+import "youtube/api/innertube/flag_value.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetExperimentFlagResult {
+	youtube.api.innertube.FlagValue flag_value = 1;
+}

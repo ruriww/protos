@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/companion_completion_action.proto";
+import "youtube/api/innertube/ad_logging_data_container.proto";
+import "youtube/api/innertube/suggestion_data.proto";
+import "youtube/api/innertube/feed_metadata.proto";
+import "youtube/api/innertube/targeting_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ElementRendererCompatibilityOptions {
+	bool use_backstage_cell_controller_on_ios = 1;
+	bool use_video_cell_controller_on_ios = 2;
+	string backstage_poll_id = 3;
+	Command on_first_visible_action = 4;
+	CompanionCompletionAction companion_completion_action = 5;
+	bool use_new_runtime = 6;
+	string backstage_poll_state_id = 7;
+	string backstage_poll_content_id = 8;
+	bool contains_inline_muted_element = 9;
+	bool use_incremental_mount_on_android = 10;
+	bool use_flat_buffers = 11;
+	string unplugged_generic_lens_card_state_entity_id = 12;
+	string live_chat_id = 13;
+	bool use_cell_controller_for_cell_node_on_ios = 14;
+	string live_chat_author_external_channel_id = 15;
+	bool is_post_zero_state_renderer = 16;
+	AdLoggingDataContainer ad_logging_data = 17;
+	bool use_legacy_visible_event = 18;
+	SuggestionData suggestion_data = 19;
+	bool used_as_card_in_horizontal_card_list = 21;
+	bool used_as_card_in_vertical_card_list = 22;
+	bool disable_cell_height_animation = 23;
+	bool enable_render_next = 24;
+	string target_id = 25;
+	FeedMetadata feed_metadata = 26;
+	TargetingContext targeting_context = 27;
+
+	extensions 259430334;
+	extensions 346823646;
+	extensions 362120156;
+	extensions 396644439;
+	extensions 422589597;
+	extensions 424441953;
+	extensions 428106216;
+	extensions 488411642;
+	extensions 523554294;
+}

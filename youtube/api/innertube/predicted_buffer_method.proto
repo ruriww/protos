@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PredictedBufferMethod {
+	PREDICTED_BUFFER_METHOD_UNKNOWN = 0;
+	PREDICTED_BUFFER_METHOD_OLDEST_CHUNK = 4;
+	PREDICTED_BUFFER_METHOD_LAST_CHUNK = 2;
+	PREDICTED_BUFFER_METHOD_CONSTANT_DURATION = 3;
+	PREDICTED_BUFFER_METHOD_SEGMENT_INDEX = 5;
+}

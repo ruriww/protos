@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.webview;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/webview/page.proto";
+
+option objc_class_prefix = "WebView";
+
+message InitializeResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	common.generic.FlowInstruction flow_instruction = 3;
+	Page initial_page = 4;
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/themed_basic_color_palette.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentFabRenderer {
+	Icon icon = 1;
+
+	oneof endpoint {
+		Command service_endpoint = 2;
+		Command navigation_endpoint = 3;
+	}
+
+	AccessibilityData accessibility = 4;
+	bytes tracking_params = 6;
+	FormattedString text = 8;
+	ThemedBasicColorPalette style = 9;
+}
+
+extend Renderer {
+	ContentFabRenderer content_fab_renderer = 93737126;
+}

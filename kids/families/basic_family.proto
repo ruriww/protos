@@ -1,0 +1,36 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/family_role.proto";
+import "kids/families/family_member.proto";
+import "kids/families/member_supervision_info.proto";
+import "kids/families/member_attributes.proto";
+import "kids/families/direct_add_identifier.proto";
+import "kids/families/member_subscription_info.proto";
+import "kids/families/family.proto";
+import "kids/families/family_product_correlation_id.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "FAM";
+
+message BasicFamily {
+	int64 family_id = 1;
+
+	message BasicFamilyMember {
+		int64 gaia_id = 1;
+		FamilyRole role = 2;
+		FamilyMember.State state = 3;
+		MemberSupervisionInfo member_supervision_info = 5;
+		MemberAttributes member_attributes = 6;
+		DirectAddIdentifier direct_add_identifier = 7;
+		string non_gaia_invitation_url = 8;
+		MemberSubscriptionInfo member_subscription_info = 9;
+	}
+
+	repeated BasicFamilyMember basic_family_member = 2;
+	Family.FamilyState family_state = 3;
+	repeated FamilyProductCorrelationId family_product_correlation_id = 4;
+	google.protobuf.Timestamp family_last_update_timestamp = 6;
+	google.protobuf.Timestamp family_state_last_update_timestamp = 7;
+}

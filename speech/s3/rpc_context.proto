@@ -1,0 +1,20 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "google/rpc/context/http_header_context.proto";
+import "google/rpc/context/origin_context.proto";
+import "google/rpc/context/project_context.proto";
+
+option objc_class_prefix = "S3";
+
+message RpcContext {
+	extend Request {
+		RpcContext rpc_context = 276077951;
+	}
+
+	google.rpc.context.HttpHeaderContext http_header_context = 1;
+	google.rpc.context.OriginContext origin_context = 2;
+	google.rpc.context.ProjectContext project_context = 3;
+}

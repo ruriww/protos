@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackPrefetchHintConfig {
+	int32 prefetch_priority = 1;
+	bool prefetch_if_visible = 2;
+	int32 playback_relative_seconds_prefetch_condition = 4;
+	int32 countdown_ui_relative_seconds_prefetch_condition = 5;
+	bool is_autoplay = 6;
+}

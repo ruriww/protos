@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/creation_editor_positional_guideline_snap_direction.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationEditorGuidelinesRenderer {
+	message PositionalGuideline {
+		float margin_fraction = 1;
+		CreationEditorPositionalGuidelineSnapDirection snap_direction = 2;
+	}
+
+	PositionalGuideline leading_border_guideline = 1;
+	PositionalGuideline trailing_border_guideline = 2;
+	PositionalGuideline top_border_guideline = 3;
+	PositionalGuideline bottom_border_guideline = 4;
+	repeated PositionalGuideline positional_guidelines = 5;
+
+	message RotationalGuideline {
+		int32 angle_modulo_in_degrees = 1;
+	}
+
+	repeated RotationalGuideline rotational_guidelines = 6;
+	int32 snap_angle_degrees = 7;
+	float snap_threshold_dp = 8;
+	float fade_in_threshold_dp = 9;
+	float target_container_view_aspect_ratio = 10;
+	float fade_in_threshold_fraction = 11;
+}
+
+extend Renderer {
+	CreationEditorGuidelinesRenderer creation_editor_guidelines_renderer = 1833;
+}

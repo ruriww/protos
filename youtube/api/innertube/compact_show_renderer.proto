@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/show_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactShowRenderer {
+	FormattedString title = 1;
+	ShowThumbnailSupportedRenderers thumbnail_renderer = 2;
+	Command navigation_endpoint = 4;
+	FormattedString short_byline_text = 5;
+	FormattedString long_byline_text = 6;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 7;
+	MenuSupportedRenderers menu = 8;
+	bytes tracking_params = 10;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 11;
+	string debug_html = 12;
+	MainAppCompactRendererStyle main_app_style = 13;
+}
+
+extend Renderer {
+	CompactShowRenderer compact_show_renderer = 106862445;
+}

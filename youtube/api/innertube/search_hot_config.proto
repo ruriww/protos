@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchHotConfig {
+	string suggest_exp_str = 1;
+	bool enable_on_device_suggest = 2;
+	string on_device_suggest_index_url = 3;
+	bool enable_on_device_suggest_counterfactual_logging = 4;
+	bool ios_enable_logging_search_suggest_payload = 5;
+}

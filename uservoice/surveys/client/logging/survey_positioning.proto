@@ -1,0 +1,27 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+option objc_class_prefix = "UVSLP";
+
+message SurveyPositioning {
+	double left = 1;
+	double top = 2;
+	double screen_width = 3;
+	double screen_height = 4;
+	double survey_width = 5;
+	double survey_height = 6;
+	double horizontal_margin = 7;
+	double vertical_margin = 8;
+	bool is_modal = 9;
+
+	enum Anchor {
+		BOTTOM_RIGHT = 0;
+		BOTTOM_LEFT = 1;
+		TOP_RIGHT = 2;
+		TOP_LEFT = 3;
+		CENTER = 4;
+	}
+
+	Anchor anchor = 10;
+}

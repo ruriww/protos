@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/android_intent_rule.proto";
+import "google/internal/identity/accountsettings/mobile/v1/android_intent.proto";
+import "google/internal/identity/accountsettings/mobile/v1/android_intent_check.proto";
+
+option objc_class_prefix = "ASM";
+
+message AndroidIntentAlternative {
+	repeated AndroidIntentRule rules = 1;
+	AndroidIntent intent = 2;
+	AndroidIntentCheck check = 3;
+}

@@ -1,0 +1,56 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/ypc_offers_list_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ypc_offers_list_coupon_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/subscription_offers_renderer.proto";
+import "youtube/api/innertube/single_ypc_offer_list_renderer.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/single_ypc_offer_renderer.proto";
+import "youtube/api/innertube/ypc_promotion_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YpcOffersListRenderer {
+	FormattedString header = 1;
+	YpcOffersListSupportedRenderers offers_list = 2;
+	repeated FormattedString additional_infos = 4;
+	Command help_endpoint = 6;
+	FormattedString coupon_apply_text = 7;
+	YpcOffersListCouponSupportedRenderers coupon = 8;
+	bytes tracking_params = 10;
+	repeated FormattedString visible_additional_infos = 11;
+	repeated FormattedString more_additional_infos = 12;
+	FormattedString more_additional_info_header = 13;
+}
+
+extend Renderer {
+	YpcOffersListRenderer ypc_offers_list_renderer = 58521717;
+}
+
+extend Renderer {
+	SubscriptionOffersRenderer subscription_offers_renderer = 56859034;
+}
+
+extend Renderer {
+	SingleYpcOfferListRenderer single_ypc_offer_list_renderer = 61913328;
+}
+
+extend ContinuationSupportedRenderers {
+	SingleYpcOfferListRenderer single_ypc_offer_list_continuation = 61913328;
+}
+
+extend Renderer {
+	SingleYpcOfferRenderer single_ypc_offer_renderer = 62107028;
+}
+
+extend Renderer {
+	YpcPromotionRenderer ypc_promotion_renderer = 113555799;
+}

@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package video_streaming;
+
+import "youtube/api/innertube/compression_type.proto";
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message EncryptedInnertubeResponsePart {
+	optional bytes onesie_innertube_response = 1;
+	optional bytes hmac = 2;
+	optional bytes iv = 3;
+	optional youtube.api.innertube.CompressionType compression_type = 4;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message GroupLabelId {
+	enum GroupLabelType {
+		option features.enum_type = CLOSED;
+
+		LABEL_TYPE_UNSPECIFIED = 0;
+		PINNED = 1;
+		APP = 8;
+		APP_SHORTCUT = 2;
+		MUTED = 3;
+		CUSTOM_SECTION = 4;
+		HAS_UNREAD_MAIN_MESSAGE = 5;
+		GROUP_TYPE = 6;
+		WORKFLOW = 7;
+		MEMBER_JOINED = 9;
+		MEETING_CHAT = 10;
+	}
+
+	GroupLabelType group_label_type = 1;
+	string label_secondary_key = 2;
+}

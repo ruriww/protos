@@ -1,0 +1,11 @@
+edition = "2023";
+
+package focus_backend;
+
+import "focus_backend/device_contact_id.proto";
+
+option objc_class_prefix = "FSBKD";
+
+message OtherContactId {
+	repeated DeviceContactId device_contact_id = 1;
+}

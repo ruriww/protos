@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/audience_settings_question_option.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudienceSettingsServerStateEntity {
+	string key = 1;
+	AudienceSettingsQuestionOption made_for_kids_selected_option = 2;
+	AudienceSettingsQuestionOption age_restriction_selected_option = 3;
+	bool is_made_for_kids_dirty = 4;
+	bool is_age_restriction_dirty = 5;
+	bool has_seen_audience_settings_legalese = 6;
+}

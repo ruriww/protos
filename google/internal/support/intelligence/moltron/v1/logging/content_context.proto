@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+import "google/internal/support/intelligence/moltron/v1/logging/content_interaction.proto";
+
+option objc_class_prefix = "SIML";
+
+message ContentContext {
+	ContentInteraction content_interaction = 1;
+	string clicked_url = 2;
+	string clicked_difm = 3;
+}

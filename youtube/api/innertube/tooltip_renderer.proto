@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/promo_renderer_config.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/tooltip_suggested_position.proto";
+import "youtube/api/innertube/tooltip_target_effect.proto";
+import "youtube/api/innertube/tooltip_dismiss_strategy.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TooltipRenderer {
+	PromoRendererConfig promo_config = 1;
+	string target_id = 2;
+	FormattedString text = 3;
+	FormattedString details_text = 4;
+	Renderer dismiss_button = 5;
+	Renderer accept_button = 6;
+	float max_width_percentage = 7;
+	TooltipSuggestedPosition suggested_position = 8;
+	TooltipTargetEffect target_effect = 9;
+	TooltipDismissStrategy dismiss_strategy = 10;
+	int64 dwell_time_ms = 11;
+	bytes tracking_params = 12;
+	Command dismiss_action = 15;
+	int64 impression_cap = 18;
+	Renderer content = 19;
+	string position_entity_key = 20;
+}
+
+extend Renderer {
+	TooltipRenderer tooltip_renderer = 152873793;
+}

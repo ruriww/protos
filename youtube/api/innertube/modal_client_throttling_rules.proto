@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/deep_link_throttling_rule.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ModalClientThrottlingRules {
+	DeepLinkThrottlingRule deep_link_throttling_rule = 1;
+	bool throttled_after_recent_sign_in = 2 [ default = false ];
+	bool once_per_time_window = 3 [ default = false ];
+}

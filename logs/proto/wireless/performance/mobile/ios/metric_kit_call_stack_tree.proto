@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_call_stack.proto";
+import "unknown/youtube/code_module_proto.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitCallStackTree {
+	repeated MetricKitCallStack call_stacks = 1;
+	bool call_stack_per_thread = 2;
+	repeated unknown.youtube.CodeModuleProto code_modules = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/interaction_logging_client_data.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LogStateChangeCommand {
+	extend elements.Command {
+		LogStateChangeCommand log_state_change_command = 375538462;
+	}
+
+	InteractionLoggingClientData interaction_logging_client_data = 1;
+	LoggingDirectives logging_directives = 999;
+}

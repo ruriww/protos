@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/camera_permission_state.proto";
+import "youtube/api/innertube/loading_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ArCameraStatusEntity {
+	extend EntityMutationPayload {
+		ArCameraStatusEntity ar_camera_status_entity = 163;
+	}
+
+	string key = 1;
+	CameraPermissionState camera_permission_state = 2;
+	LoadingState camera_loading_state = 3;
+	bool is_welcome_page_passed = 4;
+	bool is_device_compatible = 5;
+	LoadingState web_loading_state = 6;
+}

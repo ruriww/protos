@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenLegacyExternalShareFlowCommand {
+	extend Command {
+		OpenLegacyExternalShareFlowCommand open_legacy_external_share_flow_command = 1436;
+	}
+
+	string video_source_file_uri = 1;
+	string video_source_file_mime_type = 2;
+}

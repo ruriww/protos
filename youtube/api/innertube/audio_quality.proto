@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AudioQuality {
+	option features.enum_type = CLOSED;
+
+	AUDIO_QUALITY_UNKNOWN = 0;
+	AUDIO_QUALITY_ULTRALOW = 5;
+	AUDIO_QUALITY_LOW = 10;
+	AUDIO_QUALITY_MEDIUM = 20;
+	AUDIO_QUALITY_HIGH = 30;
+}

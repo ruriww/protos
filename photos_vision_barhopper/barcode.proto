@@ -1,0 +1,45 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+import "photos_vision_barhopper/barcode_format.proto";
+import "photos_vision_barhopper/barcode_value_format.proto";
+import "photos_vision_barhopper/contact_info.proto";
+import "photos_vision_barhopper/email.proto";
+import "photos_vision/phone.proto";
+import "photos_vision_barhopper/sms.proto";
+import "photos_vision_barhopper/wi_fi.proto";
+import "photos_vision_barhopper/url_bookmark.proto";
+import "photos_vision_barhopper/point.proto";
+import "photos_vision_barhopper/geo_point.proto";
+import "photos_vision_barhopper/calendar_event.proto";
+import "photos_vision_barhopper/driver_license.proto";
+import "photos_vision_barhopper/boarding_pass.proto";
+import "photos_vision_barhopper/payload_segments.proto";
+
+option objc_class_prefix = "BAR";
+
+message Barcode {
+	BarcodeFormat format = 1;
+	bytes raw_value = 2;
+	string display_value = 3;
+	BarcodeValueFormat value_format = 4;
+	ContactInfo contact_info = 5;
+	Email email = 6;
+	photos_vision.Phone phone = 7;
+	Sms sms = 8;
+	WiFi wifi = 9;
+	UrlBookmark url = 10;
+	repeated Point corner_point = 11;
+	string supplement_value = 12;
+	repeated Point supplement_corner_point = 13;
+	bytes debug_info = 14;
+	GeoPoint geo_point = 15;
+	CalendarEvent calendar_event = 16;
+	DriverLicense driver_license = 17;
+	repeated int32 oriented_corner_index = 18 [ features.repeated_field_encoding = EXPANDED ];
+	BoardingPass boarding_pass = 19;
+	bool is_recognized = 20 [ default = true ];
+	double confidence_score = 21;
+	PayloadSegments payload = 23;
+}

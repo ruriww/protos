@@ -1,0 +1,10 @@
+edition = "2023";
+
+package speech.s3.bard;
+
+option objc_class_prefix = "S3BD";
+
+message SavedUserQuery {
+	string text = 1;
+	repeated string detected_languages = 2;
+}

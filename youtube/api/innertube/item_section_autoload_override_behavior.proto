@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ItemSectionAutoloadOverrideBehavior {
+	option features.enum_type = CLOSED;
+
+	ITEM_SECTION_AUTOLOAD_OVERRIDE_BEHAVIOR_UNSPECIFIED = 0;
+	ITEM_SECTION_AUTOLOAD_OVERRIDE_BEHAVIOR_DEFAULT = 1;
+	ITEM_SECTION_AUTOLOAD_OVERRIDE_BEHAVIOR_LOAD_IMMEDIATELY = 2;
+}

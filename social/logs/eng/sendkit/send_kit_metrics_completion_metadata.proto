@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_close_type.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsCompletionMetadata {
+	bool suggestions_loaded = 1;
+	SendKitCloseType close_type = 2;
+}

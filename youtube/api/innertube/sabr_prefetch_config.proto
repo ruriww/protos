@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/readahead_based_prefetch_policy.proto";
+import "youtube/api/innertube/prefetch_window_based_prefetch_policy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SabrPrefetchConfig {
+	oneof prefetch_policy {
+		ReadaheadBasedPrefetchPolicy readahead_based_prefetch_policy = 1;
+		PrefetchWindowBasedPrefetchPolicy prefetch_window_based_prefetch_policy = 2;
+	}
+
+	bool prefetch_immediately_for_offline_videos = 3;
+	bool should_use_onesie = 5;
+}

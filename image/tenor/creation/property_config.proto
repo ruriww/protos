@@ -1,0 +1,23 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/text_property.proto";
+import "image/tenor/creation/color_property.proto";
+import "image/tenor/creation/opacity_property.proto";
+import "image/tenor/creation/scalar_property.proto";
+import "image/tenor/creation/vector_property.proto";
+import "image/tenor/creation/media_resource.proto";
+import "image/tenor/creation/clip_interval.proto";
+
+option objc_class_prefix = "TENOR";
+
+message PropertyConfig {
+	repeated TextProperty text_properties = 1;
+	repeated ColorProperty color_properties = 2;
+	repeated OpacityProperty opacity_properties = 3;
+	repeated ScalarProperty scalar_properties = 4;
+	repeated VectorProperty vector_properties = 5;
+	repeated MediaResource media_properties = 6;
+	ClipInterval interval = 7;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+
+option objc_class_prefix = "Orch";
+
+message DisplayAddress {
+	string address_format = 3;
+	AddressFormValue address_form_value = 4;
+	int64 ui_reference = 5;
+
+	enum AddressState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ADDRESS_STATE = 0;
+		NOT_USABLE = 1;
+		USABLE = 2;
+		REQUIRES_FIX = 3;
+	}
+
+	AddressState address_state = 6;
+
+	enum AddressFixType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ADDRESS_FIX_TYPE = 0;
+		PHONE_NUMBER_UPGRADE = 1;
+	}
+
+	AddressFixType fix_type = 7;
+	string status_message = 8;
+	generic.ImageWithCaption icon = 9;
+	string label = 11;
+}

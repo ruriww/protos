@@ -1,0 +1,19 @@
+edition = "2023";
+
+package ccc_groups;
+
+import "ccc_groups/semantic_type.proto";
+
+option objc_class_prefix = "CCCG";
+
+message Validation {
+	SemanticType type = 1 [ default = NO_SEMANTIC_TYPE ];
+	bool required = 2;
+	int32 min_elements = 3;
+	int32 max_elements = 4;
+	double min_value = 5;
+	double max_value = 6;
+	int32 min_length = 7;
+	int32 max_length = 8;
+	repeated string resource_patterns = 9;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedsettings;
+
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form.proto";
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/dynamic_list.proto";
+import "moneta/orchestration/ui/common/components/table/table.proto";
+import "moneta/orchestration/ui/common/components/cardheader/card_header.proto";
+import "moneta/orchestration/ui/common/components/actionbar/action_bar.proto";
+import "moneta/orchestration/ui/common/partial_update_data.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector.proto";
+import "moneta/orchestration/ui/common/integrator_callback_client_data.proto";
+
+option objc_class_prefix = "EmbeddedSettings";
+
+message Page {
+	repeated common.components.SimpleForm simple_form = 2;
+	repeated common.components.tax.TaxInfoForm tax_info_form = 3;
+	repeated common.generic.ComponentGroup component_group = 4;
+	common.generic.DependencyGraph dependency_graph = 5;
+	repeated common.components.ConfirmationDialog confirmation_dialog = 7;
+	repeated common.components.dynamiclist.DynamicList dynamic_list = 8;
+	repeated common.components.table.Table table = 10;
+	repeated common.components.cardheader.CardHeader card_header = 12;
+	repeated common.components.actionbar.ActionBar action_bar = 13;
+	repeated common.PartialUpdateData partial_update_data = 14;
+	string title = 15;
+	repeated common.components.Link widget_link = 18;
+	common.components.webview.WebViewComponent web_view_component = 19;
+	repeated common.components.customerselector.CustomerSelector customer_selector = 20;
+	int64 simple_form_scroll_to_ui_reference = 22;
+	repeated common.IntegratorCallbackClientData integrator_callback_client_data = 24;
+}

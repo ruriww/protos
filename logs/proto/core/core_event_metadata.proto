@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.core;
+
+import "unknown/youtube/client_event_id_message.proto";
+
+option objc_class_prefix = "CORE";
+
+message CoreEventMetadata {
+	unknown.youtube.ClientEventIdMessage root_event_id = 1;
+}

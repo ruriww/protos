@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/post_click_event_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AboutThisAdData {
+	bool page_load_succeeded = 1;
+	bool page_load_timed_out = 2;
+	bool ad_mute_requested = 3;
+	PostClickEventType post_click_event_type = 4;
+}

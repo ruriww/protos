@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "util/status_proto.proto";
+import "youtube/client/blocks/telemetry_attribution.proto";
+import "youtube/client/blocks/severity.proto";
+
+option objc_class_prefix = "YTB";
+
+message BindingError {
+	util.StatusProto status = 2;
+	TelemetryAttribution error_attribution = 4;
+	Severity severity = 5;
+
+	extensions 1000 to max;
+}

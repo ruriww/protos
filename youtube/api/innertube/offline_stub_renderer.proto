@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/offline_stub_replacement_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineStubRenderer {
+	FormattedString title = 1;
+	bytes tracking_params = 3;
+	OfflineStubReplacementSupportedRenderers replacement = 4;
+	bool show_zero_offline_videos_link = 5;
+	bool show_auto_offline_videos_link = 6;
+}
+
+extend Renderer {
+	OfflineStubRenderer offline_stub_renderer = 89421563;
+}

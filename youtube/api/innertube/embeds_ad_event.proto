@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/embeds_ad_event_type.proto";
+import "youtube/api/innertube/embeds_ad_break_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmbedsAdEvent {
+	EmbedsAdEventType event_type = 1;
+	EmbedsAdBreakType break_type = 2;
+	string package_name = 3;
+	string embed_url = 4;
+	string youtube_host = 6;
+}

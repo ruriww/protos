@@ -1,0 +1,67 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/active_identity_supported_tokens.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountsListRequest {
+	InnerTubeContext context = 1;
+
+	enum CallCircumstance {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SWITCHING_USERS_SHORT = 1;
+		SWITCHING_USERS_FULL = 2;
+		PERIODIC_POLLING = 3;
+		SUPPLEMENTAL_USER = 4;
+		SIGNIN = 5;
+		HOME = 6;
+		APP_ONBOARDING = 7;
+		REQUIRED_SIGNIN = 8;
+		UNICORN_SIGNIN = 9;
+		ACCOUNT_SYNC = 10;
+		ACCOUNT_SWITCHER_POPUP = 11;
+	}
+
+	CallCircumstance call_circumstance = 2;
+	string continuation = 3;
+	repeated ActiveIdentitySupportedTokens supported_tokens = 4;
+	Command next_navendpoint = 5;
+	bytes next_page_token = 6;
+	bytes persona_version = 10;
+
+	message AccountReadMask {
+		bool return_owner = 1;
+		bool return_brand_accounts = 2;
+		bool return_persona_accounts = 3;
+		bool return_family_child_accounts = 4;
+		bool return_family_members_accounts = 5;
+	}
+
+	AccountReadMask account_read_mask = 11;
+
+	oneof selected_account {
+		string obfuscated_selected_gaia_id = 13;
+		string selected_serialized_delegation_context = 14;
+	}
+
+	string channel_switcher_query = 16;
+	bool should_disable_signout = 17;
+
+	message AccountSwitcherExperiments {
+		bool enable_names_account_switcher = 1;
+		bool enable_family_adults_in_livingroom_unplugged = 2;
+	}
+
+	AccountSwitcherExperiments account_switcher_experiments = 18;
+	string permission_next_page_token = 19;
+	bool trigger_channel_creation = 20;
+}

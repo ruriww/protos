@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/playlist_notification_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistNotificationRenderer {
+	Icon icon = 1;
+	FormattedString text = 2;
+	repeated PlaylistNotificationButtonSupportedRenderers actions = 3;
+}
+
+extend Renderer {
+	PlaylistNotificationRenderer playlist_notification_renderer = 92406643;
+}

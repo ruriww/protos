@@ -1,0 +1,17 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/user_id.proto";
+import "apps/dynamite/roster_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message MemberId {
+	oneof id {
+		UserId user_id = 1;
+		RosterId roster_id = 2;
+	}
+
+	string email = 3;
+}

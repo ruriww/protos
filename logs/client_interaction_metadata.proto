@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs;
+
+option objc_class_prefix = "LOG";
+
+message ClientInteractionMetadata {
+	extensions 100 to 340;
+}

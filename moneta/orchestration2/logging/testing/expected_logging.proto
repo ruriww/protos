@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.logging.testing;
+
+import "moneta/orchestration2/logging/testing/expected_log.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ExpectedLogging {
+	repeated ExpectedLog expected_log = 1;
+}

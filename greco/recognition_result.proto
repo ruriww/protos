@@ -1,0 +1,31 @@
+edition = "2023";
+
+package greco;
+
+import "greco/hypothesis.proto";
+
+option objc_class_prefix = "GRC";
+
+message RecognitionResult {
+	int64 start_time_usec = 1;
+	int64 end_time_usec = 2;
+	repeated Hypothesis hypothesis = 3;
+	bytes lattice_fst = 4;
+	repeated string phoneme = 6;
+	bool rescoring_modified_lattice = 7;
+	bytes detailed_lattice_fst = 8;
+	bool top_hypothesis_contains_hotword = 9;
+	bool prepend_space = 13;
+	bytes audio_data = 14;
+	bytes confidence_fst = 15;
+	double decoder_id = 17;
+	int32 segment_idx = 19;
+	bool ends_with_pause_predicted_by_llm = 23;
+
+	extensions 102383575;
+	extensions 118575020;
+	extensions 145636938;
+	extensions 149802042;
+	extensions 198524388;
+	extensions 265755217;
+}

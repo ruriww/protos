@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TotalPricingRenderer {
+	FormattedString total_price_explanation = 1;
+	FormattedString promotional_price_explanation = 3;
+	FormattedString promotional_price_value_text = 4;
+	int64 promotion_end_time = 5;
+	FormattedString extra_tax_explanation = 6;
+	repeated ButtonSupportedRenderers continue_bundle_endpoints = 7;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/device_orientation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StackTraceSampleMetaDataProto {
+	int64 client_timestamp_ms = 1;
+	float sample_time_cost_ms = 2;
+	int32 number_of_busted_frames = 3;
+	int32 dropped_frame_duration_ms = 4;
+	DeviceOrientation device_orientation = 5;
+	int64 process_uptime_ms = 6;
+	int64 memory_usage_kbytes = 7;
+	float battery_percentage = 8;
+	string exception_name = 9;
+	string exception_reason = 10;
+	int32 signal_number = 11;
+	int32 signal_code = 12;
+}

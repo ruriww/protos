@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.dynamiclist;
+
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/document/document_upload_form.proto";
+
+option objc_class_prefix = "Orch";
+
+message SubItem {
+	oneof sub_item_form {
+		SimpleForm simple_form = 1;
+		document.DocumentUploadForm document_upload_form = 2;
+	}
+
+	SimpleForm summary_form = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FormfillTextInputType {
+	option features.enum_type = CLOSED;
+
+	FORMFILL_TEXT_INPUT_TYPE_UNKNOWN = 0;
+	FORMFILL_TEXT_INPUT_TYPE_EMAIL = 1;
+	FORMFILL_TEXT_INPUT_TYPE_FREE_FORM = 2;
+}

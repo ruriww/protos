@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TrimContext {
+	option features.enum_type = CLOSED;
+
+	TRIM_CONTEXT_UNKNOWN = 0;
+	TRIM_CONTEXT_GALLERY_UPLOADS = 1;
+	TRIM_CONTEXT_SEGMENT_IMPORT = 2;
+	TRIM_CONTEXT_CLIP_EDIT = 3;
+	TRIM_CONTEXT_CLIP_EDIT_SINGLE_VIDEO = 13;
+	TRIM_CONTEXT_GREEN_SCREEN_LOCAL = 4;
+	TRIM_CONTEXT_GREEN_SCREEN_REMOTE = 5;
+	TRIM_CONTEXT_SPLICE = 6;
+	TRIM_CONTEXT_GAMING_CLIPS = 7;
+	TRIM_CONTEXT_COLLABS = 8;
+	TRIM_CONTEXT_GENERATED_ASSET = 12;
+	TRIM_CONTEXT_EFFECT_PICKER_LOCAL = 9;
+	TRIM_CONTEXT_VOD_IMPORT = 10;
+	TRIM_CONTEXT_EXTERNAL_SHARE = 11;
+	TRIM_CONTEXT_AI_EXTENSION = 14;
+}

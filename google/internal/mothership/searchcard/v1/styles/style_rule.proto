@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.mothership.searchcard.v1.styles;
+
+import "google/internal/mothership/searchcard/v1/styles/style_declaration.proto";
+
+option objc_class_prefix = "MSP";
+
+message StyleRule {
+	StyleDeclaration style_declaration = 2;
+	string id = 3;
+}

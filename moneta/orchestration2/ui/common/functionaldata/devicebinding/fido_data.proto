@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.devicebinding;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/devicebinding/key_creation_data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/devicebinding/key_assertion_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FidoData {
+	extend data.Data {
+		FidoData fido_data_extension = 333822692;
+	}
+
+	bool check_key_availability = 1;
+	string relying_party_id = 2;
+	bytes challenge_data = 3;
+	int32 request_id = 4;
+
+	oneof action_data {
+		KeyCreationData key_creation_data = 5;
+		KeyAssertionData key_assertion_data = 6;
+	}
+}

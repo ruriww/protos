@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+enum PlayerOverlayVisibilitySignal {
+	option features.enum_type = CLOSED;
+
+	PLAYER_OVERLAY_VISIBILITY_SIGNAL_UNKNOWN = 0;
+	PLAYER_OVERLAY_VISIBILITY_SIGNAL_TO_SHOW = 1;
+	PLAYER_OVERLAY_VISIBILITY_SIGNAL_TO_HIDE = 2;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+import "google/cryptauth/enrollment/v1/certificate_request.proto";
+
+option objc_class_prefix = "CRPT";
+
+message EnrollKeysRequest {
+	bytes random_session_id = 1;
+	bytes client_ephemeral_dh = 2;
+
+	message EnrollSingleKeyRequest {
+		string key_name = 1;
+		bytes new_key_handle = 2;
+		bytes key_material = 3;
+		bytes key_proof = 4;
+
+		message KeyCrossproof {
+			string other_key_name = 1;
+			bytes other_key_proof = 2;
+		}
+
+		repeated KeyCrossproof key_crossproofs = 5;
+		repeated CertificateRequest certificate_requests = 6;
+
+		message KeyAttestation {
+			enum KeyAttestationType {
+				KEY_ATTESTATION_TYPE_UNSPECIFIED = 0;
+				ANDROID_KEYSTORE_ATTESTATION = 1;
+				ANDROID_INDIVIDUAL_ATTESTATION = 2;
+			}
+
+			KeyAttestationType type = 1;
+			bytes payload = 2;
+		}
+
+		KeyAttestation key_attestation = 7;
+	}
+
+	repeated EnrollSingleKeyRequest enroll_single_key_requests = 3;
+}

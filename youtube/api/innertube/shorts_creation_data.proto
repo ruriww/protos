@@ -1,0 +1,197 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_creation_media_attribution.proto";
+import "youtube/api/innertube/camera_source.proto";
+import "youtube/api/innertube/video_segment_input_media_type.proto";
+import "youtube/api/innertube/draft_save_location.proto";
+import "youtube/api/innertube/shorts_duration_toggle_state.proto";
+import "youtube/api/innertube/shorts_creation_segment_generator_type.proto";
+import "youtube/api/innertube/volume_type.proto";
+import "youtube/api/innertube/upload_video_codec.proto";
+import "youtube/api/innertube/text_background_style.proto";
+import "youtube/api/innertube/trim_context.proto";
+import "youtube/api/innertube/trim_event.proto";
+import "youtube/api/innertube/shorts_creation_entry_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationData {
+	message ScrubberAudioStartingPoint {
+		int64 scrubber_audio_start_point_ms = 1;
+	}
+
+	message TrimAsset {
+		bool is_trimmable = 1;
+		bool is_playable = 2;
+		bool is_parseable = 3;
+		bool is_slomo = 4;
+		bool is_spherical = 5;
+		int64 start_time_secs = 6;
+		int64 end_time_secs = 7;
+		int64 original_duration_secs = 8;
+		int64 transcoding_time_msecs = 9;
+		int64 max_key_frame_spacing_msecs = 10;
+		float frame_rate = 11;
+	}
+
+	TrimAsset creation_trim_asset = 2;
+
+	message CropSelection {
+		int64 original_width = 1;
+		int64 original_height = 2;
+		float crop_top = 3;
+		float crop_right = 4;
+		float crop_bottom = 5;
+		float crop_left = 6;
+	}
+
+	CropSelection creation_crop_selection = 3;
+
+	message ScrubberSelection {
+		int64 selected_start_point_ms = 1;
+		repeated ScrubberAudioStartingPoint default_start_points_ms = 2;
+	}
+
+	ScrubberSelection scrubber_selection = 4;
+
+	message ShortsUploadData {
+		string upload_frontend_id = 1;
+		repeated ShortsCreationMediaAttribution media_attribution = 24;
+	}
+
+	ShortsUploadData shorts_upload_data = 6;
+
+	message CameraToolbeltData {
+		CameraSource camera_source = 1;
+	}
+
+	CameraToolbeltData camera_toolbelt_data = 8;
+	ShortsDurationToggleState duration_toggle_state = 10;
+
+	message ShortsProjectDraftData {
+		string project_id = 1;
+		DraftSaveLocation draft_location = 2;
+		int32 num_saves = 3;
+		bool has_metadata = 4;
+		bool has_edits = 5;
+		bool is_recovered = 6;
+		int64 time_since_creation_ms = 7;
+		int32 project_size_bytes = 8;
+	}
+
+	ShortsProjectDraftData current_project_draft_data = 11;
+
+	message ShortsProjectData {
+		int32 num_drafts = 1;
+	}
+
+	ShortsProjectData project_data = 12;
+
+	message DurationToggleData {
+		ShortsDurationToggleState duration_toggle_button_state = 1;
+	}
+
+	DurationToggleData duration_toggle_data = 13;
+
+	message TrimData {
+		int64 original_duration_millis = 1;
+		int64 original_width = 2;
+		int64 original_height = 3;
+		TrimAsset trim_asset = 4;
+		CropSelection crop_selection = 5;
+
+		message DefaultStartPoint {
+			int64 start_point_ms = 1;
+			ShortsCreationSegmentGeneratorType generator_type = 2;
+		}
+
+		repeated DefaultStartPoint default_start_points = 6;
+
+		message StartPointSelection {
+			int64 selected_segment_start_point_ms = 1;
+			int64 original_segment_start_point_ms = 2;
+			string source_video_id = 3;
+			int64 selected_segment_duration_ms = 4;
+		}
+
+		StartPointSelection start_point_selection = 7;
+		VideoSegmentInputMediaType input_media_type = 8;
+	}
+
+	TrimData trim_data = 14;
+	TrimContext trim_context = 15;
+	TrimEvent trim_event = 16;
+
+	message VolumeTrackData {
+		VolumeType type = 1;
+		float volume = 2;
+		float ui_volume = 3;
+	}
+
+	repeated VolumeTrackData volume_tracks_available = 17;
+	VolumeTrackData volume_track_changed_by_user = 18;
+
+	message DeviceSpecifications {
+		int64 min_supported_resolution_width = 1;
+		int64 min_supported_resolution_height = 2;
+		float min_supported_frame_rate = 3;
+		int64 highest_resolution_width_supported_by_all_cameras = 4;
+		int64 highest_resolution_height_supported_by_all_cameras = 5;
+		float highest_fps_at_highest_resolution_supported_by_all_cameras = 6;
+		int64 free_disk_space_mbytes = 7;
+		int32 android_media_performance_class = 8;
+		UploadVideoCodec preferred_video_codec = 9;
+	}
+
+	DeviceSpecifications device_specifications = 19;
+
+	message RemixData {
+		string source_video_id = 1;
+	}
+
+	RemixData remix_data = 20;
+	ShortsCreationEntryContext entry_context = 21;
+	bool is_transformer_enabled_for_feature = 22;
+
+	message CreationTextData {
+		TextBackgroundStyle text_background_style = 1;
+	}
+
+	CreationTextData creation_text_data = 23;
+
+	message ProjectStateMutationData {
+		int32 video_segment_undo_stack_size = 1;
+	}
+
+	ProjectStateMutationData project_state_mutation_data = 25;
+	string text_to_speech_selected_voice = 26;
+
+	message GalleryData {
+		int64 num_of_selected_assets_in_gallery = 1;
+		int64 num_of_fetch_retries = 2;
+		int64 num_of_transcoding_retries = 3;
+
+		message SelectedAsset {
+			VideoSegmentInputMediaType asset_type = 1;
+			int64 duration_ms = 2;
+		}
+
+		repeated SelectedAsset selected_assets = 4;
+	}
+
+	GalleryData gallery_data = 27;
+
+	message CameraRecording {
+		int64 duration_ms = 1;
+		int64 audio_offset_ms = 2;
+		bool mic_enabled = 3;
+		int64 recording_rate = 4;
+	}
+
+	CameraRecording camera_recording = 30;
+}

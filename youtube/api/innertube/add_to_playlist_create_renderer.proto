@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/add_to_playlist_open_create_supported_renderers.proto";
+import "youtube/api/innertube/add_to_playlist_create_name_supported_renderers.proto";
+import "youtube/api/innertube/add_to_playlist_create_privacy_supported_renderers.proto";
+import "youtube/api/innertube/add_to_playlist_create_action_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddToPlaylistCreateRenderer {
+	AddToPlaylistOpenCreateSupportedRenderers open_create_link = 1;
+	AddToPlaylistCreateNameSupportedRenderers name_input = 2;
+	AddToPlaylistCreatePrivacySupportedRenderers privacy_input = 3;
+	AddToPlaylistCreateActionSupportedRenderers create_action = 4;
+	Command service_endpoint = 5;
+}
+
+extend Renderer {
+	AddToPlaylistCreateRenderer add_to_playlist_create_renderer = 124474691;
+}

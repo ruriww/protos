@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+enum STBSystemTrayBehavior {
+	option features.enum_type = CLOSED;
+
+	SYSTEM_TRAY_BEHAVIOR_UNSPECIFIED = 0;
+	SHOW_IN_SYSTEM_TRAY = 1;
+	REMOVE_FROM_SYSTEM_TRAY = 2;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message RemoveAction {
+	repeated string uuid = 1;
+	repeated string was_below_uuid = 2;
+}

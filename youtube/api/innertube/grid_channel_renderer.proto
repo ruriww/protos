@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/grid_channel_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/associated_game_supported_renderers.proto";
+import "youtube/api/innertube/main_app_grid_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridChannelRenderer {
+	string channel_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString video_count_text = 4;
+	FormattedString subscriber_count_text = 5;
+	Command navigation_endpoint = 6;
+	string debug_html = 7;
+	FormattedString title = 9;
+	GridChannelSubscribeButtonSupportedRenderers subscribe_button = 11;
+	repeated BadgeSupportedRenderers badges = 12;
+	repeated BadgeSupportedRenderers owner_badges = 13;
+	bytes tracking_params = 14;
+	repeated Command service_endpoints = 15;
+	MenuSupportedRenderers menu = 16;
+	AssociatedGameSupportedRenderers associated_game = 17;
+	MainAppGridRendererStyle main_app_style = 19;
+	FormattedString short_video_count_text = 20;
+	FormattedString short_subscriber_count_text = 21;
+	Renderer action_button = 22;
+}
+
+extend Renderer {
+	GridChannelRenderer grid_channel_renderer = 60373547;
+}

@@ -1,0 +1,49 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.table;
+
+import "moneta/orchestration/ui/common/components/table/cell.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+
+option objc_class_prefix = "OrchTable";
+
+message Row {
+	int64 ui_reference = 1;
+
+	enum RowType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ROW_TYPE = 0;
+		DATA_ROW_TYPE = 1;
+		HEADER_ROW_TYPE = 2;
+		MESSAGE_ROW_TYPE = 3;
+	}
+
+	RowType row_type = 3 [ default = DATA_ROW_TYPE ];
+	repeated Cell cell = 4;
+
+	enum SemanticHint {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SEMANTIC_HINT = 0;
+		RECEIPT_TOTAL = 1;
+		CLICKABLE = 2;
+		GROUP_ROW = 3;
+		SUMMARY_ROW = 4;
+	}
+
+	SemanticHint semantic_hint = 5;
+	generic.UiField row_checkbox = 6;
+
+	enum RowCheckboxType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SELECT_ALL = 1;
+		SELECT_ITEM = 2;
+		EMPTY_PLACEHOLDER = 3;
+	}
+
+	RowCheckboxType row_checkbox_type = 7;
+	bytes data_token = 8;
+}

@@ -1,0 +1,58 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+option objc_class_prefix = "ORCH2";
+
+message FreeformInputFormattingStrategy {
+	string decimal_symbol = 1;
+
+	enum MultipleDecimalBehavior {
+		option features.enum_type = CLOSED;
+
+		MULTIPLE_DECIMAL_BEHAVIOR_UNKNOWN = 0;
+		MULTIPLE_DECIMAL_BEHAVIOR_KEEP_LEFTMOST = 1;
+		MULTIPLE_DECIMAL_BEHAVIOR_KEEP_LATEST = 2;
+	}
+
+	MultipleDecimalBehavior multiple_decimal_behavior = 2;
+	string non_numeric_error_text = 3;
+	int32 max_magnitude = 4;
+	int32 max_precision = 5;
+	string prefix_units_symbol = 6;
+	string suffix_units_symbol = 7;
+	string group_separator_symbol = 8;
+	repeated int32 group_length = 9 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum LeadingZeroBehavior {
+		option features.enum_type = CLOSED;
+
+		LEADING_ZERO_BEHAVIOR_UNKNOWN = 0;
+		LEADING_ZERO_BEHAVIOR_REMOVE_NEVER = 1;
+		LEADING_ZERO_BEHAVIOR_REMOVE_IMMEDIATELLY = 2;
+		LEADING_ZERO_BEHAVIOR_REMOVE_WHEN_LOSE_FOCUS = 3;
+	}
+
+	LeadingZeroBehavior leading_zero_behavior = 10;
+
+	enum IntegralZeroBehavior {
+		option features.enum_type = CLOSED;
+
+		INTEGRAL_ZERO_BEHAVIOR_UNKNOWN = 0;
+		INTEGRAL_ZERO_BEHAVIOR_ADD_NEVER = 1;
+		INTEGRAL_ZERO_BEHAVIOR_ADD_IMMEDIATELLY = 2;
+		INTEGRAL_ZERO_BEHAVIOR_ADD_WHEN_LOSE_FOCUS = 3;
+	}
+
+	IntegralZeroBehavior integral_zero_behavior = 11;
+
+	enum TrailingZeroBehavior {
+		option features.enum_type = CLOSED;
+
+		TRAILING_ZERO_BEHAVIOR_UNKNOWN = 0;
+		TRAILING_ZERO_BEHAVIOR_ADD_NEVER = 1;
+		TRAILING_ZERO_BEHAVIOR_ADD_WHEN_LOSE_FOCUS = 2;
+	}
+
+	TrailingZeroBehavior trailing_zero_behavior = 12;
+}

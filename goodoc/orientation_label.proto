@@ -1,0 +1,17 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/orientation.proto";
+import "goodoc/writing_direction.proto";
+import "goodoc/textline_order.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message OrientationLabel {
+	Orientation orientation = 1 [ default = ORIENTATION_PAGE_UP ];
+	WritingDirection writing_direction = 2 [ default = WRITING_DIRECTION_LEFT_TO_RIGHT ];
+	TextlineOrder textline_order = 3 [ default = TEXTLINE_ORDER_TOP_TO_BOTTOM ];
+	float deskew_angle = 4 [ default = 0e0 ];
+	bool mirrored = 5 [ default = false ];
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message LatencyEvent {
+	int32 start_time_ms = 1;
+	int32 end_time_ms = 2;
+	int32 duration_ms = 3;
+	string type = 4;
+	string id = 5;
+	string parent_type = 6;
+	string parent_id = 7;
+}

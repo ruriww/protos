@@ -1,0 +1,27 @@
+edition = "2023";
+
+package logs.proto.identity.mobile.identitykit;
+
+option objc_class_prefix = "GIKEXT";
+
+message SignInStateEvent {
+	enum SignInState {
+		SIGN_IN_STATE_UNDEFINED = 0;
+		SIGNED_IN = 1;
+		NOT_SIGNED_IN = 2;
+	}
+
+	SignInState sign_in_state = 1;
+
+	enum ForegroundAccountType {
+		FOREGROUND_ACCOUNT_UNDEFINED = 0;
+		GAIA = 1;
+		EMAIL = 2;
+		PHONE = 3;
+		NO_ACCOUNT_ID = 4;
+		INCOGNITO = 5;
+		NONE = 6;
+	}
+
+	ForegroundAccountType foreground_account_type = 2;
+}

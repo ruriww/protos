@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/client/blocks/container_instance_config.proto";
+
+option objc_class_prefix = "YTB";
+
+message TelemetryConfig {
+	extend ContainerInstanceConfig {
+		TelemetryConfig telemetry_config = 410667140;
+	}
+
+	bool should_log_binding_errors = 1;
+	bool should_log_performance_spans = 2;
+	uint64 performance_sampling_rate = 3;
+	uint64 binding_error_info_severity_sampling_rate = 4;
+	uint64 binding_error_warning_severity_sampling_rate = 5;
+	uint64 binding_error_error_severity_sampling_rate = 6;
+	uint64 binding_error_unknown_severity_sampling_rate = 7;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message PermissionMetadata {
+	bool camera_permission_granted = 1;
+	bool storage_permission_granted = 2;
+}

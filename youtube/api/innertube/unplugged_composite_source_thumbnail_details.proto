@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/unplugged_thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedCompositeSourceThumbnailDetails {
+	oneof composite_thumbnail {
+		ThumbnailDetails thumbnail = 1;
+		UnpluggedThumbnailDetails unplugged_thumbnail = 6;
+	}
+
+	float top_left_corner_x = 2;
+	float top_left_corner_y = 3;
+	float width = 4;
+	float height = 5;
+	uint32 thumbnail_background_color = 7;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package identity_keychain;
+
+import "gaia_frontend/all_security_domain_keys.proto";
+import "identity_keychain/member.proto";
+
+option objc_class_prefix = "IKC";
+
+message KeychainClientData {
+	string obfuscated_gaia_id = 1;
+	gaia_frontend.AllSecurityDomainKeys domain_keys = 2;
+	repeated Member member = 3;
+}

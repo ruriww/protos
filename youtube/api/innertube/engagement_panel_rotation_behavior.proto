@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelRotationBehavior {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_ROTATION_BEHAVIOR_UNSPECIFIED = 0;
+	ENGAGEMENT_PANEL_ROTATION_BEHAVIOR_HIDE_BY_DEFAULT_ON_LANDSCAPE = 1;
+	ENGAGEMENT_PANEL_ROTATION_BEHAVIOR_KEEP_VISIBLE_ON_LANDSCAPE = 2;
+}

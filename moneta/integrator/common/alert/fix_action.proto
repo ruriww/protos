@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.integrator.common.alert;
+
+option objc_class_prefix = "AlertService";
+
+message FixAction {
+	string url = 1;
+	bytes fix_flow_token = 3;
+}

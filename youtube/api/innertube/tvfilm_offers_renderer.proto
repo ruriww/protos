@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/offer_group_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TvfilmOffersRenderer {
+	repeated Renderer offer_groups = 1;
+	Renderer coupon = 2;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	TvfilmOffersRenderer tvfilm_offers_renderer = 161497951;
+}
+
+extend Renderer {
+	OfferGroupRenderer offer_group_renderer = 161499349;
+}

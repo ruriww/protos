@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetDownloadActionRequest {
+	InnerTubeContext context = 1;
+	string params = 2;
+
+	oneof downloadable_content_id {
+		string playlist_id = 3;
+		string video_id = 8;
+	}
+
+	bool content_check_ok = 4;
+	bool racy_check_ok = 5;
+	OfflineabilityFormatType preferred_format_type = 6;
+	bool offline_format_remember_my_setting = 9;
+	int64 last_offline_quality_settings_saved_ms = 11;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/orchestration/ui/paymentmethods/instrument_details_section.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/paymentmethods/action_confirmation.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/components/cardheader/card_header.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message Page {
+	string title = 1;
+	repeated InstrumentDetailsSection instrument_details_section = 3;
+	common.generic.ImageWithCaption image = 4;
+	repeated common.generic.InfoMessage message = 5;
+
+	oneof add_payment_method {
+		common.components.Button add_payment_method_button = 6;
+		common.components.Button add_payment_method_box = 7;
+	}
+
+	ActionConfirmation action_confirmation = 9;
+	int64 ui_reference = 10;
+	common.widgetreference.WidgetReference add_instrument_widget_reference = 11;
+	common.components.Link add_instrument_link = 12;
+	repeated common.components.Button button = 15;
+	common.generic.DependencyGraph dependency_graph = 16;
+	repeated common.components.instrument.InstrumentSelector instrument_selector = 17;
+	common.components.webview.WebViewComponent web_view_component = 19;
+	repeated common.generic.InfoMessage page_description = 20;
+	repeated common.components.ConfirmationDialog confirmation_dialog = 22;
+	common.components.cardheader.CardHeader card_header = 23;
+}

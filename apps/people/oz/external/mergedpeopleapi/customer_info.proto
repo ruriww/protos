@@ -1,0 +1,11 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message CustomerInfo {
+	int64 customer_id = 1;
+	string customer_name = 2;
+	string obfuscated_customer_id = 3;
+}

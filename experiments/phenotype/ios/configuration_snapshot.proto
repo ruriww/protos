@@ -1,0 +1,20 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+import "experiments/heterodyne/application_response.proto";
+import "experiments/phenotype/ios/cross_experiment_tokens.proto";
+import "experiments/heterodyne/param.proto";
+
+option objc_class_prefix = "EPI";
+
+message ConfigurationSnapshot {
+	heterodyne.ApplicationResponse heterodyne_response = 1;
+	map<string, CrossExperimentTokens> cross_tokens = 2;
+	string obfuscated_gaia_id = 3;
+	string snapshot_token = 4;
+	int64 server_configuration_version = 5;
+	int64 sync_time_seconds = 6;
+	map<string, heterodyne.Param> flag_overrides = 7;
+	int64 flags_hash = 8;
+}

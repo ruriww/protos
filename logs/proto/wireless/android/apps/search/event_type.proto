@@ -1,0 +1,29 @@
+edition = "2023";
+
+package logs.proto.wireless.android.apps.search;
+
+import "logs/proto/wireless/android/apps/search/app_flow_event.proto";
+import "unknown/youtube/event_id_message.proto";
+
+option objc_class_prefix = "SAFP";
+
+message EventType {
+	enum EventNamespace {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		APP_FLOW = 1;
+	}
+
+	EventNamespace namespace = 1;
+	int32 ve_id = 2;
+	AppFlowEvent app_flow_event = 3;
+
+	oneof request_ids {
+		int64 request_id = 4;
+		string request_id_string = 5;
+	}
+
+	unknown.youtube.EventIdMessage event_id = 6;
+	string uuid = 100;
+}

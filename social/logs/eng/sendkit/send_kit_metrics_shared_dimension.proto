@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_metrics_user_interface_type.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_data_source_type.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsSharedDimension {
+	SendKitMetricsUserInterfaceType interface_type = 1;
+	SendKitMetricsDataSourceType data_source_type = 2;
+	int32 entry_index = 3;
+}

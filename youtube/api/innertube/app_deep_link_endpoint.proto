@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/musically_matching_segment_map.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppDeepLinkEndpoint {
+	string app_id = 1;
+	string deep_link = 2;
+	bool is_universal_deep_link = 3;
+	Command fallback_command = 4;
+	repeated Command error_commands = 5;
+	repeated Command termination_commands = 6;
+	MusicallyMatchingSegmentMap segment_map = 7;
+}
+
+extend Command {
+	AppDeepLinkEndpoint app_deep_link_endpoint = 179103219;
+}

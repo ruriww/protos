@@ -1,0 +1,35 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+import "moneta/integrator/common/customer_context.proto";
+import "moneta/integrator/common/product_context.proto";
+import "moneta/integrator/common/rollup_context.proto";
+import "moneta/integrator/common/user_context.proto";
+import "moneta/integrator/common/tracking_parameters.proto";
+
+option objc_class_prefix = "Orch";
+
+message ClientContext {
+	string language_code = 2;
+
+	oneof context {
+		CustomerContext customer_context = 4;
+		ProductContext product_context = 5;
+		bool use_user_context = 11;
+		RollupContext rollup_context = 13;
+	}
+
+	repeated int64 integrator_experiment_ids = 7;
+
+	oneof caller_context {
+		UserContext user_context = 9;
+		bytes pre_authorized_call_token = 16;
+	}
+
+	int32 billable_service = 8;
+	TrackingParameters tracking_parameters = 10;
+	bytes encrypted_client_context = 12;
+	bytes internal_tracking_token = 14;
+	int64 target_android_id = 15;
+}

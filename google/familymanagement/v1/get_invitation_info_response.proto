@@ -1,0 +1,30 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/family_role.proto";
+import "google/familymanagement/v1/family_member_profile.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetInvitationInfoResponse {
+	ApiResponseHeader api_header = 1;
+	FamilyRole invited_role = 2;
+	int64 invited_timestamp_millis = 3;
+	int64 valid_until_timestamp_millis = 4;
+	bool invited_by_token = 5;
+	FamilyMemberProfile inviter_profile = 6;
+
+	enum InvitationError {
+		option features.enum_type = CLOSED;
+
+		INVALID_INVITATION_SECRET = 0;
+		INVITATION_EXPIRED = 1;
+		OTHER = 2;
+	}
+
+	InvitationError error = 7;
+	string app_id = 8;
+	bool already_in_family = 9;
+}

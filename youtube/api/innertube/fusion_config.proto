@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FusionConfig {
+	bool enable_fusion_nav = 1;
+	bool enable_inline_playback = 2;
+	bool enable_inline_playback_renderer_suggestion_dropping = 3;
+	bool enable_compact_video_renderer_suggestion_dropping = 4;
+
+	enum InlinePlaybackDefaultSetting {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ON = 1;
+		WIFI_ONLY = 2;
+		OFF = 3;
+	}
+
+	InlinePlaybackDefaultSetting inline_playback_default = 5;
+	bool enable_tabloid = 6;
+	bool enable_inline_controls = 7;
+	bool inline_controls_show_lozenge_on_pause = 8;
+	bool inline_controls_swipe_seek = 10;
+	bool enable_inline_controls_long_tap = 13;
+}

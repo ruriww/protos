@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/flow_image_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/flow_body_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/flow_change_control_supported_renderers.proto";
+import "youtube/api/innertube/flow_progress_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChangeableFlowItemRenderer {
+	FlowImageSupportedRenderers image = 1;
+	FormattedString title = 2;
+	FlowBodySupportedRenderers body_renderer = 3;
+	ButtonSupportedRenderers previous_button = 4;
+	repeated FlowChangeControlSupportedRenderers change_controls = 5;
+	ButtonSupportedRenderers next_button = 6;
+	bytes tracking_params = 8;
+	FlowProgressSupportedRenderers progress_meter = 9;
+	int32 default_selection = 10;
+}

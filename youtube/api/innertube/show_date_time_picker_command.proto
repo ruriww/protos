@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/privacy_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowDateTimePickerCommand {
+	extend elements.Command {
+		ShowDateTimePickerCommand show_date_time_picker_command = 262904603;
+	}
+
+	string privacy_picker_state_key = 1;
+	string privacy_picker_scheduled_option_title = 2;
+	PrivacyType selected_privacy_type = 3;
+	bool use_privacy_picker_v2 = 4;
+	string result_entity_key = 5;
+	uint64 seconds_from_epoch = 6;
+}

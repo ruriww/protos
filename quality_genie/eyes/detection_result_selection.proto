@@ -1,0 +1,9 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+option objc_class_prefix = "LNSAE";
+
+message DetectionResultSelection {
+	repeated string visual_object_id = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/buyflow/payment_method_token.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message MerchantCallbackData {
+	PaymentMethodToken payment_method_token = 3;
+	bool is_preauthorized = 4;
+	string transaction_date = 6;
+	bytes transaction_completion_token = 7;
+	string payment_request_data = 8;
+
+	message ExtraData {
+		string key = 1;
+		string value = 2;
+	}
+
+	repeated ExtraData extra_data = 9;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/red_carpet_horizontal_list_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCarpetHorizontalListRenderer {
+	repeated RedCarpetHorizontalListSupportedRenderers items = 1;
+	Renderer next_button_renderer = 2;
+	Renderer prev_button_renderer = 3;
+}
+
+extend Renderer {
+	RedCarpetHorizontalListRenderer red_carpet_horizontal_list_renderer = 138661147;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum EAccessTokenState {
+	ACCESS_TOKEN_STATE_UNSPECIFIED = 0;
+	VALID = 1;
+	INVALIDATED = 2;
+	REFRESHED = 3;
+	NOT_FOUND = 4;
+}

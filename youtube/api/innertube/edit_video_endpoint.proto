@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/video_attachment_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EditVideoEndpoint {
+	extend Command {
+		EditVideoEndpoint edit_video_endpoint = 83469195;
+	}
+
+	message GalleryAsset {
+		string uri = 1;
+		bool is_video = 2;
+		bool from_network = 3;
+	}
+
+	oneof target {
+		string client_video_id = 1;
+		GalleryAsset gallery_asset = 3;
+	}
+
+	VideoAttachmentSettings attachment_settings = 2;
+	string frontend_upload_id = 4;
+}

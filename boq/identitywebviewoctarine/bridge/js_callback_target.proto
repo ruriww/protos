@@ -1,0 +1,9 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+option objc_class_prefix = "OCT";
+
+message JsCallbackTarget {
+	int32 id = 1;
+}

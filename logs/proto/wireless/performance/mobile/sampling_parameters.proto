@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile;
+
+option objc_class_prefix = "PRMS";
+
+message SamplingParameters {
+	double per_time_interval_sampling_probability = 1;
+	int64 sample_rate_permille = 2;
+
+	enum SamplingStrategy {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SAMPLING_STRATEGY_FLOOR = 1;
+		SAMPLING_STRATEGY_ALWAYS_ON = 2;
+		SAMPLING_STRATEGY_PROCESS_LEVEL_PROBABILITY = 3;
+		SAMPLING_STRATEGY_FIXED_EVENT_PROBABILITY = 5;
+		SAMPLING_STRATEGY_DYNAMIC_EVENT_PROBABILITY = 4;
+	}
+
+	SamplingStrategy sampling_strategy = 3;
+}

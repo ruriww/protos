@@ -1,0 +1,12 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "id/metrics/semantics/accountsettings/account_settings_user_action.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message AccountSettingsUserActionEvent {
+	int32 current_area_id = 1;
+	metrics.semantics.accountsettings.AccountSettingsUserAction user_action = 2;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message WebviewCapabilities {
+	bool security_key = 1;
+	bool telephony = 2;
+	bool trust_agent = 3;
+	bool terms_and_policy_pages = 4;
+	bool obake_web = 5;
+	bool passkey = 6;
+}

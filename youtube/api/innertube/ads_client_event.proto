@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ads_client_event_type.proto";
+import "youtube/api/innertube/ad_client_data_entry.proto";
+import "youtube/api/innertube/ads_client_error_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsClientEvent {
+	AdsClientEventType event_type = 1;
+	AdClientDataEntry ad_client_data = 3;
+	bytes serialized_ad_serving_data = 4;
+	int32 event_order = 5;
+	bytes serialized_slot_ad_serving_data = 6;
+	AdsClientErrorInfo error_info = 7;
+	bool is_v2_enabled = 8;
+}

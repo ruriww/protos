@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/player_bar_collection_visibility.proto";
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarCollectionState {
+	PlayerBarCollectionVisibility visibility = 1;
+	bool enable_media_time_activation = 2;
+	bool support_snaptic_feedback = 3;
+}

@@ -1,0 +1,112 @@
+edition = "2023";
+
+package onegoogle.logging.mobile;
+
+import "unknown/youtube/one_google_mobile_consent_kit_ios_error_code.proto";
+import "unknown/youtube/one_google_mobile_ios_error_domain.proto";
+import "identity_consent/ui_interaction.proto";
+import "identity_consent/consent_flow_not_completed_reason.proto";
+import "identity_consent/dismiss_method.proto";
+import "unknown/youtube/ccs_core_platform_service.proto";
+import "unknown/youtube/one_google_mobile_consent_event_category.proto";
+import "google/protobuf/timestamp.proto";
+import "identity_consent/consent_flow_id.proto";
+import "privacy/consent/consent_purpose.proto";
+import "privacy/consent/product_surface.proto";
+import "identity_consent/ui_parameters.proto";
+import "privacy/consent/consent_session_id.proto";
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleMobileConsentEvents {
+	message Event {
+		unknown.youtube.OneGoogleMobileConsentEventCategory category = 1;
+		google.protobuf.Timestamp timestamp = 2;
+
+		message FlowCompletedEventMetadata {
+			identity_consent.UiInteraction completion_user_interaction = 1;
+		}
+
+		message FlowNotCompletedEventMetadata {
+			identity_consent.ConsentFlowNotCompletedReason not_completed_reason = 1;
+		}
+
+		message DismissEventMetadata {
+			identity_consent.DismissMethod user_initiated_dismiss_method = 1;
+		}
+
+		message FirstNativeScreenPresentedEventMetadata {
+			repeated unknown.youtube.CCSCorePlatformService cps = 1;
+		}
+
+		oneof event_metadata {
+			FlowCompletedEventMetadata flow_completed_event_metadata = 3;
+			FlowNotCompletedEventMetadata flow_not_completed_event_metadata = 4;
+			DismissEventMetadata dismiss_event_metadata = 5;
+			FirstNativeScreenPresentedEventMetadata first_native_screen_presented_event_metadata = 6;
+		}
+
+		message ErrorInformation {
+			message IosErrorInformation {
+				unknown.youtube.OneGoogleMobileConsentKitIOSErrorCode error_code = 1;
+				int32 root_cause_error_code = 2;
+				unknown.youtube.OneGoogleMobileIOSErrorDomain root_cause_error_domain = 3;
+			}
+
+			oneof mobile_error_information {
+				IosErrorInformation ios_error_information = 1;
+			}
+		}
+
+		ErrorInformation error_information = 8;
+	}
+
+	repeated Event consent_events = 1;
+	privacy.consent.ConsentSessionId consent_session_id = 2;
+
+	message Metadata {
+		identity_consent.ConsentFlowId flow_id = 1;
+		privacy.consent.ConsentPurpose consent_purpose = 2;
+		int32 product_id = 3;
+		privacy.consent.ProductSurface product_surface = 4;
+		identity_consent.ConsentFlowNotCompletedReason flow_not_completed_reason = 5;
+
+		enum ConsentRenderType {
+			option features.enum_type = CLOSED;
+
+			CONSENT_RENDER_TYPE_UNSPECIFIED = 0;
+			OCTARINE = 1;
+			CUSTOM_WEBVIEW = 2;
+			NATIVE_UI = 3;
+		}
+
+		ConsentRenderType consent_render_type = 6;
+		identity_consent.DismissMethod dismiss_method = 7;
+		string locale = 8;
+
+		enum ColorTheme {
+			option features.enum_type = CLOSED;
+
+			COLOR_THEME_UNSPECIFIED = 0;
+			LIGHT = 1;
+			DARK = 2;
+		}
+
+		ColorTheme color_theme = 9;
+
+		enum Dismissibility {
+			option features.enum_type = CLOSED;
+
+			DISMISSIBILITY_UNSPECIFIED = 0;
+			DISMISSIBLE = 1;
+			NOT_DISMISSIBLE = 2;
+		}
+
+		Dismissibility dismissibility = 10;
+		string client_event_id = 11;
+		string entrypoint_id = 12;
+		identity_consent.UiParameters.InitialLoadingStrategy initial_loading_strategy = 13;
+	}
+
+	Metadata metadata = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package greco;
+
+option objc_class_prefix = "GRC";
+
+message Dependency {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		FILE = 1;
+		DIRECTORY = 2;
+		RESOURCE = 3;
+		RESOURCE_NAME = 4;
+	}
+
+	Type type = 1;
+}

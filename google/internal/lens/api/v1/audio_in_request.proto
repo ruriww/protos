@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "speech/s3/request.proto";
+import "lens/request_context/client_context.proto";
+
+option objc_class_prefix = "LFE";
+
+message AudioInRequest {
+	speech.s3.Request s3_request = 1;
+	.lens.request_context.ClientContext client_context = 2;
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_location_resolution_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_location_step_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_location_acquisition_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLocationResolutionRenderer {
+	UnpluggedLocationResolutionSupportedRenderers item = 1;
+	UnpluggedLocationStepSupportedRenderers services_item = 2;
+	UnpluggedLocationStepSupportedRenderers unasked_permission_item = 3;
+	UnpluggedLocationStepSupportedRenderers asked_permission_item = 4;
+	UnpluggedLocationAcquisitionSupportedRenderers acquisition_item = 5;
+	UnpluggedLocationStepSupportedRenderers vpn_item = 6;
+	repeated Command impression_endpoints = 7;
+	UnpluggedLocationStepSupportedRenderers check_in_delinquent_item = 8;
+	Command resolution_destination = 9;
+	FormattedString settings_title = 10;
+	bytes tracking_params = 11;
+}
+
+extend Renderer {
+	UnpluggedLocationResolutionRenderer unplugged_location_resolution_renderer = 133553674;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/focus/focus_instruction.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UpdateFocusAction {
+	focus.FocusInstruction focus_instruction = 1;
+	repeated focus.FocusInstruction focus_instructions = 2;
+}

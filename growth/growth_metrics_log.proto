@@ -1,0 +1,46 @@
+edition = "2023";
+
+package growth;
+
+import "growth/accessibility_info.proto";
+import "growth/application_event.proto";
+import "growth/app_switching_event.proto";
+import "growth/google_app_install_event.proto";
+import "growth/intent_event.proto";
+import "growth/translate_event.proto";
+import "growth/promo_event.proto";
+import "growth/error_event.proto";
+import "growth/google_actions_event.proto";
+import "growth/permission_event.proto";
+import "growth/impression_counter_message.proto";
+import "growth/app_switching_preference.proto";
+import "growth/you_tube_creator_studio_event.proto";
+import "growth/ios_debug_event.proto";
+import "growth/google_app_uninstall_event.proto";
+import "growth/third_party_apps_installed_event.proto";
+
+option objc_class_prefix = "GRW";
+
+message GrowthMetricsLog {
+	string app_name = 1;
+	bool is_foreground = 2;
+	AccessibilityInfo accessibility_info = 4;
+	ApplicationEvent application_event = 5;
+	AppSwitchingEvent app_switching_event = 6;
+	GoogleAppInstallEvent google_app_install_event = 9;
+	IntentEvent intent_event = 17;
+	int32 growthkit_version = 18;
+	TranslateEvent translate_event = 19;
+	PromoEvent promo_event = 20;
+	ErrorEvent error_event = 21;
+	GoogleActionsEvent google_actions_event = 22;
+	string language = 24;
+	bytes encoded_additional_data = 25;
+	PermissionEvent permission_event = 27;
+	repeated ImpressionCounterMessage impression_counter_messages = 29;
+	AppSwitchingPreference app_switching_preference = 30;
+	YouTubeCreatorStudioEvent youtube_creator_studio_event = 32;
+	IOSDebugEvent ios_debug_event = 34;
+	GoogleAppUninstallEvent google_app_uninstall_event = 36;
+	ThirdPartyAppsInstalledEvent third_party_apps_installed_event = 37;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/gallery_section.proto";
+import "logs/proto/lens/thumbnail_status.proto";
+import "logs/proto/lens/image_fetch_status.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message TappedImage {
+	GallerySection section = 1;
+	int64 position = 2;
+	int64 width = 3;
+	int64 height = 4;
+	int64 creation_age_in_minutes = 5;
+	int64 modification_age_in_minutes = 6;
+	ThumbnailStatus thumbnail_status = 7;
+	bool is_in_expanded_section = 8;
+	ImageFetchStatus fetch_status = 9;
+}

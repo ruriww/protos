@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+import "lens/text/portable/inpainting/line_box.proto";
+
+option objc_class_prefix = "LNSINP";
+
+message ParagraphBoxes {
+	string paragraph_id = 1;
+	repeated LineBox line_boxes = 3;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/protobuf/duration.proto";
+import "quality_genie/eyes/assistant_eyes_request_id.proto";
+
+option objc_class_prefix = "LFE";
+
+message TranslateTextResponse {
+	protobuf.Duration server_latency = 3;
+	quality_genie.eyes.AssistantEyesRequestId request_id = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineRefreshContinuation {
+	extend ContinuationData {
+		OfflineRefreshContinuation offline_refresh_continuation = 51512153;
+	}
+
+	string continuation = 1;
+	uint32 continue_in_seconds = 2;
+	uint32 expires_in_seconds = 3;
+	bytes click_tracking_params = 4;
+}

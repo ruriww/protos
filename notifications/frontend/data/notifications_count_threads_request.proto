@@ -1,0 +1,12 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/target_metadata.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsCountThreadsRequest {
+	string client_id = 1;
+	TargetMetadata target_metadata = 4;
+}

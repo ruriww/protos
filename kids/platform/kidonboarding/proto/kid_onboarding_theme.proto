@@ -1,0 +1,14 @@
+edition = "2023";
+
+package kids.platform.kidonboarding.proto;
+
+option objc_class_prefix = "GKP";
+
+enum KidOnboardingTheme {
+	option features.enum_type = CLOSED;
+
+	THEME_UNSPECIFIED = 0;
+	AUTO = 1;
+	LIGHT = 2;
+	DARK = 3;
+}

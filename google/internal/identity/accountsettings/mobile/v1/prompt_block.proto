@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/prompt_description_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/prompt_progress_bar_block.proto";
+
+option objc_class_prefix = "ASM";
+
+message PromptBlock {
+	oneof block_type {
+		PromptDescriptionBlock description_block = 1;
+		PromptProgressBarBlock progress_block = 2;
+	}
+}

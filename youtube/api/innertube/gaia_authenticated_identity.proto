@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/gaia_delegation_type.proto";
+import "youtube/api/innertube/registered_gaia_services.proto";
+import "youtube/api/innertube/data_sync_id_token.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GaiaAuthenticatedIdentity {
+	string visitor_data = 2;
+	string effective_obfuscated_gaia_id = 3;
+	string owner_obfuscated_gaia_id = 4;
+	GaiaDelegationType gaia_delegation_type = 5;
+	repeated RegisteredGaiaServices registered_gaia_services = 6 [ features.repeated_field_encoding = EXPANDED ];
+	string client_identity_id = 7;
+	string android_device_user_id = 8;
+	DataSyncIdToken datasync_id_token = 9;
+	string delegation_context = 10;
+}

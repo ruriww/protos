@@ -1,0 +1,19 @@
+edition = "2023";
+
+package social.discovery;
+
+option objc_class_prefix = "SDIS";
+
+message PublicApplication {
+	enum Name {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		PHOTOS = 1;
+		MAPS = 2;
+		GMAIL = 3;
+		MEET = 4;
+	}
+
+	Name type = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+import "youtube/api/innertube/crop_coordinates.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PrepareImageEditorArgs {
+	string uri = 1;
+	youtube.api.innertube.CropCoordinates crop_coordinates = 2;
+}

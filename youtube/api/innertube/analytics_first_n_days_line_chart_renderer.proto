@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/analytics_named_color.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/analytics_chart_values_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsFirstNDaysLineChartRenderer {
+	message FirstNDaysChartLine {
+		repeated double values = 1 [ features.repeated_field_encoding = EXPANDED ];
+		repeated int64 day_indices = 2 [ features.repeated_field_encoding = EXPANDED ];
+		AnalyticsNamedColor line_color = 3;
+		FormattedString line_label = 4;
+	}
+
+	FirstNDaysChartLine new_best_video_line = 1;
+	FirstNDaysChartLine previous_best_video_line = 2;
+	AnalyticsChartValuesType chart_values_type = 3;
+}

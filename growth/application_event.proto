@@ -1,0 +1,19 @@
+edition = "2023";
+
+package growth;
+
+import "growth/accessibility_info.proto";
+import "growth/device_state_info.proto";
+import "growth/permission_state.proto";
+import "growth/watch_info.proto";
+
+option objc_class_prefix = "GRW";
+
+message ApplicationEvent {
+	AccessibilityInfo accessibility_info = 1;
+	DeviceStateInfo device_state_info = 2;
+	int64 app_first_used_timestamp_ms = 3;
+	repeated PermissionState permission_state = 4;
+	WatchInfo watch_info = 5;
+	string client_id = 6;
+}

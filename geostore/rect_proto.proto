@@ -1,0 +1,17 @@
+edition = "2023";
+
+package geostore;
+
+import "proto2/bridge/message_set.proto";
+import "geostore/point_proto.proto";
+
+option objc_class_prefix = "GS";
+
+message RectProto {
+	extend proto2.bridge.MessageSet {
+		RectProto message_set_extension = 26764887;
+	}
+
+	PointProto lo = 1;
+	PointProto hi = 2;
+}

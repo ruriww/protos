@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/container_size.proto";
+import "youtube/api/innertube/container_type.proto";
+import "youtube/api/innertube/spacing_configuration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ResponsiveContainerMapping {
+	ContainerSize container_size = 1;
+	ContainerType container_type = 2;
+	int32 max_width = 3;
+	int32 min_column_size = 4;
+	int32 min_column_count = 5;
+	int32 max_column_count = 6;
+	SpacingConfiguration spacing_configuration = 7;
+	int32 column_multiplier = 8;
+	int32 column_adder = 9;
+	int32 max_height = 10;
+}

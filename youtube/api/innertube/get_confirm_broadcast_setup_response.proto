@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/confirm_broadcast_setup_supported_renderers.proto";
+import "youtube/api/innertube/video_effects_settings.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/orientation_option.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetConfirmBroadcastSetupResponse {
+	ResponseContext response_context = 1;
+	ConfirmBroadcastSetupSupportedRenderers confirm_broadcast = 3;
+	VideoEffectsSettings effects_settings = 4;
+	bytes tracking_params = 6;
+	Renderer live_chat = 7;
+	string video_id = 8;
+	repeated Command commands = 9;
+	double pre_join_participant_preview_scale = 10;
+	OrientationOption orientation_option = 11;
+	bool skip_go_live_screen = 12;
+	Renderer orientation_nudge_renderer = 13;
+	Renderer go_live_countdown_view_model = 14;
+	Command start_stream_command = 15;
+	FrameworkUpdateTransport framework_updates = 777;
+}

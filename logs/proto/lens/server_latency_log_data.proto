@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message ServerLatencyLogData {
+	int32 request_processing_time_ms = 1;
+	int32 image_decode_time_ms = 2;
+}

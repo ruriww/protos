@@ -1,0 +1,24 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message CameraIntrinsics {
+	double horizontal_focal_length_pixels = 1;
+	double vertical_focal_length_pixels = 2;
+	double optical_axis_x_pixels = 3;
+	double optical_axis_y_pixels = 4;
+	int32 width_pixels = 5;
+	int32 height_pixels = 6;
+
+	message DeviceModelIdentifiers {
+		string android_build_fingerprint = 1;
+		string exif_device_model_name = 2;
+		string ios_machine_id = 3;
+	}
+
+	DeviceModelIdentifiers device_model_identifiers = 7;
+	double focal_length_35mm = 8;
+	double digital_zoom_factor = 9;
+}

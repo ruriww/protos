@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum LineCapKind {
+	option features.enum_type = CLOSED;
+
+	LINECAP_KIND_NONE = 0;
+	LINECAP_KIND_ROUND = 1;
+	LINECAP_KIND_TRIANGLE = 2;
+}

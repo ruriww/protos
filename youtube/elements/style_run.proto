@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/line_style.proto";
+import "youtube/elements/font_weight.proto";
+import "youtube/elements/style_run_extensions.proto";
+import "youtube/elements/baseline_offset.proto";
+import "youtube/elements/font_size_unit.proto";
+import "youtube/elements/ios_dynamic_font_spec.proto";
+import "youtube/elements/dynamic_text_configuration.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message StyleRun {
+	uint32 start_index = 1;
+	uint32 length = 2;
+	string font_name = 3;
+	float font_size = 4;
+	uint32 font_color = 5;
+	LineStyle underline = 6;
+
+	oneof font_weight {
+		uint32 weight = 7;
+		FontWeight weight_label = 8;
+	}
+
+	bool italic = 9;
+	StyleRunExtensions style_run_extensions = 10;
+	float letter_spacing = 11;
+	LineStyle strikethrough = 12;
+	BaselineOffset baseline_offset = 13;
+	string font_family_name = 14;
+	uint32 background_color = 15;
+	float background_corner_radius = 16;
+	FontSizeUnit font_size_unit = 17;
+	IosDynamicFontSpec ios_dynamic_font_spec = 18;
+	DynamicTextConfiguration dynamic_text_configuration = 19;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message Person {
+	string email_address = 1;
+	string phone_number = 2;
+	string display_name = 3;
+	string profile_image_url = 4;
+	string custom_user_visible_handle = 5;
+}

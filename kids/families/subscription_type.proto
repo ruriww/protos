@@ -1,0 +1,12 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+enum SubscriptionType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_SUBSCRIPTION = 0;
+	YT_TANDEM_SUBSCRIPTION = 1;
+}

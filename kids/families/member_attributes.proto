@@ -1,0 +1,15 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message MemberAttributes {
+	bool is_child_over_13_in_eu = 1;
+	bool has_griffin_policy = 2;
+	bool remove_from_family_after_opt_out_supervision = 3;
+	bool can_upgrade_to_unicorn = 4;
+	bool has_2sv_enabled = 5;
+	bool show_parental_password_reset = 6;
+	bool disabled_account_hint = 7;
+}

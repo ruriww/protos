@@ -1,0 +1,12 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+option objc_class_prefix = "GIDLOGAS";
+
+enum ScreenRotation {
+	option features.enum_type = CLOSED;
+
+	LANDSCAPE = 1;
+	PORTRAIT = 2;
+}

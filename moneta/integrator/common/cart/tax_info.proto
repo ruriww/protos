@@ -1,0 +1,38 @@
+edition = "2023";
+
+package moneta.integrator.common.cart;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+import "unknown/youtube/postal_address.proto";
+import "moneta/integrator/common/amount.proto";
+
+option objc_class_prefix = "OrchCart";
+
+message TaxInfo {
+	message TaxComputationInfo {
+		ProductCorrelationId seller_product_correlation_id = 2;
+		int64 product_code = 3;
+		int32 movement_code = 4;
+		string end_user_country_code = 5;
+		unknown.youtube.PostalAddress ship_from_address = 6;
+	}
+
+	message PrecomputedTaxInfo {
+		oneof third_party_seller_identifier {
+			ProductCorrelationId seller_product_correlation_id = 2;
+			bool unspecified_third_party_seller = 6;
+		}
+
+		unknown.youtube.PostalAddress assessee_address = 3;
+	}
+
+	message NoTaxInfo {
+	}
+
+	oneof tax_info {
+		Amount precomputed_tax_amount = 2;
+		TaxComputationInfo tax_computation_info = 3;
+		PrecomputedTaxInfo precomputed_tax_info = 4;
+		NoTaxInfo no_tax_info = 5;
+	}
+}

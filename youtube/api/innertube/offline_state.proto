@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_refresh_message_supported_renderers.proto";
+import "youtube/api/innertube/client_endpoint_builder_data.proto";
+import "youtube/api/innertube/offline_playback_disabled_reason.proto";
+import "youtube/api/innertube/offline_future_unplayable_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineState {
+	string token = 1;
+	uint32 refresh_in_seconds = 2;
+	uint32 expires_in_seconds = 3;
+
+	enum OfflineAction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OK = 1;
+		DELETE = 2;
+		DISABLE = 3;
+		REFRESH = 4;
+		REFRESH_AD = 5;
+		DELETE_AD = 6;
+	}
+
+	OfflineAction action = 5;
+	string short_message = 6;
+
+	oneof on_tap {
+		OfflineRefreshMessageSupportedRenderers offline_refresh_message = 7;
+		ClientEndpointBuilderData endpoint_override_data = 15;
+	}
+
+	bool is_offline_sharing_allowed = 8;
+	bytes offline_sharing_decryption_key = 9;
+	OfflinePlaybackDisabledReason offline_playback_disabled_reason = 11;
+	bytes offline_logging_params = 12;
+	OfflineFutureUnplayableInfo offline_future_unplayable_info = 13;
+}

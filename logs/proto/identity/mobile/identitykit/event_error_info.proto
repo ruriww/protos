@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.identity.mobile.identitykit;
+
+option objc_class_prefix = "GIKEXT";
+
+message EventErrorInfo {
+	string error_domain = 1;
+	int32 error_code = 2;
+}

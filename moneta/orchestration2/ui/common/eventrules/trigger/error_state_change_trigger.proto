@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.trigger;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ErrorStateChangeTrigger {
+	extend Trigger {
+		ErrorStateChangeTrigger error_state_change_trigger_extension = 327301025;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_ERROR_VISIBILITY_CHANGE = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

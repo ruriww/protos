@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message LinkMessage {
+	string prefix = 1;
+	string text = 2;
+	string suffix = 3;
+	string url = 4;
+	string aria_label = 5;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.payments.teststudio.v1;
+
+option objc_class_prefix = "PTS";
+
+message DeviceExecuteTestScenarioRequest {
+	bytes serialized_execute_test_scenario_request = 1;
+}

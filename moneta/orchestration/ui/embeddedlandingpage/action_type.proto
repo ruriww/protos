@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedlandingpage;
+
+option objc_class_prefix = "EmbeddedLandingPage";
+
+enum ActionType {
+	option features.enum_type = CLOSED;
+
+	ACTION_TYPE_UNKNOWN = 0;
+	ACTION_TYPE_REQUEST_MANUAL_FLUSH = 1;
+	ACTION_TYPE_CANCEL_PAYMENTS_MANAGED_SUBSCRIPTION = 4;
+	ACTION_TYPE_CANCEL_RECURRENCE = 2;
+	ACTION_TYPE_DOWNLOAD_DOCUMENT = 3;
+}

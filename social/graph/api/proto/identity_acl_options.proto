@@ -1,0 +1,27 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/identity_acl_context.proto";
+import "social/graph/api/proto/group_service_acl_context.proto";
+
+option objc_class_prefix = "SGAP";
+
+message IdentityAclOptions {
+	enum IdentityAclMode {
+		option features.enum_type = CLOSED;
+
+		IDENTITY_ACL_MODE_UNSPECIFIED = 0;
+		DEFAULT = 1;
+		DISABLED = 2;
+		CRITICAL = 3;
+		BATCH = 4;
+	}
+
+	IdentityAclMode mode = 1;
+
+	oneof acl_context {
+		IdentityAclContext context = 2;
+		GroupServiceAclContext group_service_context = 3;
+	}
+}

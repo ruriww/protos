@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delayed_event_tier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ManagedRegistrationsConfig {
+	DelayedEventTier delayed_event_tier = 1;
+	int32 delayed_event_max_retries = 2;
+	int32 apns_registration_max_retries = 3;
+}

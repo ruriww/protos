@@ -1,0 +1,36 @@
+edition = "2023";
+
+package lens;
+
+import "google/protobuf/timestamp.proto";
+import "lens/request_context/location_context.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/wrappers.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ImageContext {
+	google.protobuf.Timestamp create_time = 1;
+	request_context.LocationContext location_context = 2;
+	int32 width = 3;
+	int32 height = 4;
+	int32 orientation = 5;
+
+	message CompressionConfig {
+		enum CompressFormat {
+			UNKNOWN = 0;
+			JPEG = 1;
+			PNG = 2;
+			WEBP = 3;
+			HEIF = 4;
+		}
+
+		CompressFormat compression_format = 1;
+	}
+
+	CompressionConfig compression_config = 6;
+	google.protobuf.Duration exposure_duration = 8;
+	google.protobuf.BoolValue focused = 9;
+	google.protobuf.BoolValue exposure_converged = 10;
+	google.protobuf.FloatValue sharpness_score = 11;
+}

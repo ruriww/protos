@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message OverflowMenu {
+	int64 ui_reference = 1;
+
+	message MenuItem {
+		string label = 1;
+		int64 option_ui_reference = 2;
+	}
+
+	repeated MenuItem item = 2;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

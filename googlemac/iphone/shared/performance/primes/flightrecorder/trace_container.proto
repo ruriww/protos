@@ -1,0 +1,12 @@
+edition = "2023";
+
+package googlemac.iphone.shared.performance.primes.flightrecorder;
+
+import "logs/proto/wireless/performance/mobile/trace.proto";
+
+option objc_class_prefix = "PFR";
+
+message TraceContainer {
+	string sidecar_file_path = 1;
+	logs.proto.wireless.performance.mobile.Trace trace = 2;
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.customer;
+
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message_set.proto";
+import "moneta/orchestration/ui/common/components/country_selector.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form.proto";
+import "moneta/orchestration/ui/common/components/name/name_form.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/phone_form.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message CustomerForm {
+	AddressForm legal_address_form = 1;
+	instrument.InstrumentForm instrument_form = 2;
+	legal.LegalMessageSet legal_messages = 4;
+	string id = 5;
+	CountrySelector legal_country_selector = 6;
+	repeated tax.TaxInfoForm tax_info_form = 7;
+	int32 initial_tax_info_form = 8 [ default = -1 ];
+	name.NameForm name_form = 9;
+	generic.UiField credit_check_identifier_field = 10;
+	SimpleForm contact_form = 11;
+	PhoneForm phone_form = 12;
+	SimpleForm legal_entity_type_selector = 13;
+	FormHeader form_header = 14;
+	bool hide_collapsing_form_icon = 15;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

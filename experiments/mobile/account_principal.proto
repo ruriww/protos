@@ -1,0 +1,15 @@
+edition = "2023";
+
+package experiments.mobile;
+
+import "experiments/mobile/logged_out.proto";
+
+option objc_class_prefix = "PHT";
+
+message AccountPrincipal {
+	oneof identifier {
+		LoggedOut logged_out = 1;
+		string email = 2;
+		string obfuscated_gaia_id = 4;
+	}
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/shorts_creation_draft_save_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationProjectMetadataEntity {
+	extend EntityMutationPayload {
+		ShortsCreationProjectMetadataEntity shorts_creation_project_metadata_entity = 311;
+	}
+
+	string project_id_key = 1;
+	uint64 created_timestamp_millis = 2;
+	uint64 last_modified_timestamp_millis = 3;
+	uint32 user_save_count = 4;
+	ShortsCreationDraftSaveAction last_save_action = 5;
+
+	oneof thumbnail_content {
+		bytes image_data = 6;
+		string image_file_path = 7;
+	}
+
+	uint64 composition_duration_millis = 8;
+	string project_title = 9;
+	bytes snapshot_data = 10;
+	string draft_frontend_id = 11;
+	bool project_is_modified_since_last_mde_snapshot = 12;
+	string thumbnail_file_full_path = 13;
+	uint32 assets_count = 14;
+}

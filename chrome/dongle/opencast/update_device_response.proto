@@ -1,0 +1,11 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/receiver_ble_token.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message UpdateDeviceResponse {
+	repeated ReceiverBleToken ble_tokens = 1;
+}

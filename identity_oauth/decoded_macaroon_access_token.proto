@@ -1,0 +1,12 @@
+edition = "2023";
+
+package identity_oauth;
+
+import "identity_oauth/macaroon_access_token.proto";
+
+option objc_class_prefix = "SSO";
+
+message DecodedMacaroonAccessToken {
+	MacaroonAccessToken token = 1;
+	bytes payload = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum ComputedTranslation {
+	option features.enum_type = CLOSED;
+
+	TRANSLATION_UNKNOWN_VALUE = 0;
+	TRANSLATION_Y_VALUE_FIRST_ITEM = 1;
+	TRANSLATION_Y_VALUE_FIXED = 2;
+	TRANSLATION_Y_VALUE_STICKY = 3;
+}

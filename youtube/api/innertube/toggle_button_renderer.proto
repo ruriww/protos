@@ -1,0 +1,55 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/toggle_button_style.proto";
+import "youtube/api/innertube/button_color_supported_datas.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/toggle_button_hint_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/toggle_button_supported_datas.proto";
+import "youtube/api/innertube/button_icon_position_type.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ToggleButtonRenderer {
+	oneof style_oneof {
+		ToggleButtonStyle style = 1;
+		ButtonColorSupportedDatas color_data = 23;
+	}
+
+	bool is_toggled = 3;
+	bool is_disabled = 4;
+	Icon default_icon = 5;
+	FormattedString default_text = 6;
+	Command default_service_endpoint = 7;
+	Icon toggled_icon = 8;
+	FormattedString toggled_text = 9;
+	Command toggled_service_endpoint = 10;
+	AccessibilityData accessibility = 11;
+	bytes tracking_params = 13;
+	string default_tooltip = 14;
+	string toggled_tooltip = 15;
+	ToggleButtonStyle toggled_style = 16;
+	Command default_navigation_endpoint = 17;
+	ToggleButtonHintSupportedRenderers hint = 18;
+	AccessibilitySupportedDatas accessibility_data = 19;
+	AccessibilitySupportedDatas toggled_accessibility_data = 20;
+	ToggleButtonSupportedDatas toggle_button_supported_data = 21;
+	string target_id = 24;
+	ButtonIconPositionType icon_position = 25;
+	bool prevent_auto_toggle = 26;
+	Command disabled_endpoint = 27;
+	Command default_command = 28;
+	Command toggled_command = 29;
+	bool is_exclusive_option = 30;
+	bool is_expandable = 31;
+	LoggingDirectives logging_directives = 999;
+}

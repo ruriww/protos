@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_chat_rich_message_input.proto";
+import "youtube/api/innertube/emoji_run.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoyaltyMessageEntity {
+	string message = 1;
+	string key = 2;
+	LiveChatRichMessageInput rich_message = 3;
+	repeated EmojiRun emoji_runs = 4;
+	bool editable_text_is_focused = 5;
+	int64 display_character_count = 6;
+}

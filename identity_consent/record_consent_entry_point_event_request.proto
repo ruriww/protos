@@ -1,0 +1,17 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_primitive_request.proto";
+import "identity_consent/record_consent_entry_point_parameters.proto";
+import "identity_consent/mobile_metadata.proto";
+import "identity_consent/privacy_primitive_config.proto";
+
+option objc_class_prefix = "IDC";
+
+message RecordConsentEntryPointEventRequest {
+	ConsentPrimitiveRequest consent_primitive_request = 1;
+	RecordConsentEntryPointParameters record_consent_entry_point_parameters = 2;
+	MobileMetadata mobile_metadata = 3;
+	PrivacyPrimitiveConfig privacy_primitive_config = 4;
+}

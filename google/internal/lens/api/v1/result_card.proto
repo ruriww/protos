@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/mothership/searchcard/v1/rendered_card.proto";
+import "lens/api/lens_card.proto";
+
+option objc_class_prefix = "LFE";
+
+message ResultCard {
+	mothership.searchcard.v1.RenderedCard rendered_card = 1;
+	.lens.api.LensCard raw_card = 3;
+	string result_id = 4;
+	repeated string per_item_result_id = 5;
+	bool onelrp_enabled = 10;
+}

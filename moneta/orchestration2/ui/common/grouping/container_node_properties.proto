@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.grouping;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ContainerNodeProperties {
+	node.UnitSize label_start_margin = 1;
+}

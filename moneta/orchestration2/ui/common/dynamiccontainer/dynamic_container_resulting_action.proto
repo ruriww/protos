@@ -1,0 +1,55 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dynamiccontainer;
+
+import "moneta/orchestration2/ui/common/data/data_value_field_reference.proto";
+import "moneta/orchestration2/ui/common/focus/focus_instruction.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DynamicContainerResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		DynamicContainerResultingAction dynamic_container_resulting_action_extension = 440798148;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SET_ACTIVE_DATA_REFERENCES = 1;
+		RESULTING_ACTION_TYPE_GENERATE_DATA_FROM_TEMPLATE = 2;
+	}
+
+	ResultingActionType action_type = 1;
+
+	message SetActiveDataReferenceAction {
+		repeated int64 active_data_reference = 1 [ features.repeated_field_encoding = EXPANDED ];
+	}
+
+	message GenerateDataFromTemplateAction {
+		message TemplateChild {
+			int64 template_child_data_reference = 1;
+
+			message ReplacementMap {
+				repeated int32 input_data_field_number = 1;
+				repeated int32 new_data_field_number = 2;
+				int32 input_key = 3;
+			}
+
+			repeated ReplacementMap replacement_map = 2;
+		}
+
+		repeated TemplateChild template_child = 1;
+		int64 template_dynamic_child_data_reference = 2;
+		repeated int64 template_event_rule_id = 3;
+		bool delete_existing_data = 4;
+		data.DataValueFieldReference input_data_value_field_reference = 5;
+		focus.FocusInstruction focus_instruction = 6;
+	}
+
+	oneof resulting_action {
+		SetActiveDataReferenceAction set_active_data_reference_action = 2;
+		GenerateDataFromTemplateAction generate_data_from_template_action = 3;
+	}
+}

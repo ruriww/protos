@@ -1,0 +1,23 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ToolSize {
+	float stroke_width = 7;
+
+	enum SizeType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SIZE = 0;
+		WORLD_UNITS = 1;
+		POINTS = 2;
+		ZOOM_INDEPENDENT_DP = 3;
+		VIRTUAL_PIXELS = 6;
+		PERCENT_WORLD = 4;
+		PERCENT_ZOOM_INDEPENDENT = 5;
+	}
+
+	SizeType units = 8 [ default = WORLD_UNITS ];
+}

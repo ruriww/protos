@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/ios_app_info.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AppRedirectData {
+	extend data.Data {
+		AppRedirectData app_redirect_data_extension = 294483524;
+	}
+
+	oneof app_info {
+		IosAppInfo ios_app_info = 2;
+	}
+
+	repeated string secure_data_value_key = 3;
+}

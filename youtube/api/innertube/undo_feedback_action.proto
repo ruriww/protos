@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UndoFeedbackAction {
+	extend Command {
+		UndoFeedbackAction undo_feedback_action = 124178661;
+	}
+
+	bool hack = 1;
+	bool undo_section_dismissal = 2;
+	string target_id = 3;
+	string target_group_id = 4;
+}

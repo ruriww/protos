@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message StoreProductKeyRequest {
+	string product_name = 1;
+	bytes wrapped_product_key_material = 2;
+	int32 shared_key_epoch = 3;
+}

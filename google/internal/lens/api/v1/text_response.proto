@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message TextResponse {
+	string incremental_text_response = 1;
+}

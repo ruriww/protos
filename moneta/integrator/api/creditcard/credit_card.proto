@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.integrator.api.creditcard;
+
+import "moneta/integrator/common/instrument/instrument_description.proto";
+import "moneta/integrator/common/instrument/instrument_status.proto";
+import "moneta/integrator/common/instrument/credit_card_details.proto";
+
+option objc_class_prefix = "Orch";
+
+message CreditCard {
+	int64 id = 1;
+	string checkout_id = 2;
+	string real_pan_secure_id = 3;
+	common.instrument.InstrumentDescription instrument_description = 4;
+	common.instrument.InstrumentStatus instrument_status = 5;
+	common.instrument.CreditCardDetails details = 6;
+}

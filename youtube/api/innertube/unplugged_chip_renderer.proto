@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_chip_renderer_style_type.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedChipRenderer {
+	int64 chip_id = 1;
+	FormattedString title = 2;
+	ThumbnailDetails thumbnail = 3;
+	Command navigation_endpoint = 4;
+	bytes tracking_params = 5;
+	UnpluggedChipRendererStyleType style_type = 7;
+	Command on_select_command = 8;
+	Command on_unselect_command = 9;
+	AccessibilitySupportedDatas selected_accessibility = 10;
+	AccessibilitySupportedDatas unselected_accessibility = 11;
+	bool is_selected = 13;
+	Icon icon = 16;
+}
+
+extend Renderer {
+	UnpluggedChipRenderer unplugged_chip_renderer = 173171611;
+}

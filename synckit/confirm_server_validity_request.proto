@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+import "google/rpc/status.proto";
+
+option objc_class_prefix = "GSYP";
+
+message ConfirmServerValidityRequest {
+	google.rpc.Status status = 1;
+}

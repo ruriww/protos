@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+enum ClickType {
+	option features.enum_type = CLOSED;
+
+	CLICK_TYPE_UNSPECIFIED = 0;
+	CLICK_TYPE_CLICKED = 1;
+	CLICK_TYPE_UNCLICKED = 2;
+}

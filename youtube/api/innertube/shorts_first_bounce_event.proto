@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_first_tab_switch_bounce.proto";
+import "youtube/api/innertube/shorts_first_backgrounded_bounce.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsFirstBounceEvent {
+	oneof bounce_type {
+		ShortsFirstTabSwitchBounce tab_switch_bounce = 1;
+		ShortsFirstBackgroundedBounce backgrounded_bounce = 2;
+	}
+
+	int32 consecutive_bounce_count = 3;
+	bool did_pause = 4;
+	int32 elapsed_time_ms = 5;
+	string last_csn = 6;
+	string last_cpn = 7;
+}

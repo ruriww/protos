@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/variable.proto";
+
+option objc_class_prefix = "Orch";
+
+message DependentVariable {
+	int64 ui_reference = 1;
+	Variable initial_value = 2;
+}

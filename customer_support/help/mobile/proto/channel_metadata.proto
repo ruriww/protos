@@ -1,0 +1,15 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/contact_mode_type.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ChannelMetadata {
+	ContactModeType contact_channel = 1;
+	string estimated_wait_time = 2;
+	repeated string hours_of_operation = 3;
+	bool channel_closed = 4;
+	string matched_rule_id = 5;
+}

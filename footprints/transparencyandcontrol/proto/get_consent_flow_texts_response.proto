@@ -1,0 +1,21 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/texts/footprints_consent_flow_texts.proto";
+import "footprints/transparencyandcontrol/proto/consent_eligibility.proto";
+import "footprints/transparencyandcontrol/proto/consent_screen.proto";
+import "footprints/transparencyandcontrol/proto/opaque_verification_token.proto";
+import "privacy/consent/consent_session_id.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetConsentFlowTextsResponse {
+	texts.FootprintsConsentFlowTexts legacy_texts = 1;
+	ConsentEligibility eligibility = 8;
+	repeated ConsentScreen consent_screens = 9;
+	OpaqueVerificationToken opaque_verification_token = 10;
+	privacy.consent.ConsentSessionId session_id = 11;
+	privacy.consent.SharedConsentSessionId shared_session_id = 12;
+}

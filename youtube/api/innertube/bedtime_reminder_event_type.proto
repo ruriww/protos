@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum BedtimeReminderEventType {
+	option features.enum_type = CLOSED;
+
+	BEDTIME_REMINDER_EVENT_TYPE_UNKNOWN = 0;
+	BEDTIME_REMINDER_EVENT_TYPE_IMPRESSION = 1;
+	BEDTIME_REMINDER_EVENT_TYPE_DISMISS = 2;
+	BEDTIME_REMINDER_EVENT_TYPE_SNOOZE = 3;
+	BEDTIME_REMINDER_EVENT_TYPE_ENABLEMENT = 4;
+	BEDTIME_REMINDER_EVENT_TYPE_DISABLEMENT = 5;
+}

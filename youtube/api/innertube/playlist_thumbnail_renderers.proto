@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/playlist_video_thumbnail_renderer.proto";
+import "youtube/api/innertube/playlist_cropped_thumbnail_renderer.proto";
+import "youtube/api/innertube/playlist_custom_thumbnail_renderer.proto";
+import "youtube/api/innertube/hero_playlist_thumbnail_renderer.proto";
+import "youtube/api/innertube/playlist_collage_thumbnail_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	PlaylistVideoThumbnailRenderer playlist_video_thumbnail_renderer = 72426341;
+}
+
+extend Renderer {
+	PlaylistCroppedThumbnailRenderer playlist_cropped_thumbnail_renderer = 48535492;
+}
+
+extend Renderer {
+	PlaylistCustomThumbnailRenderer playlist_custom_thumbnail_renderer = 72426385;
+}
+
+extend Renderer {
+	HeroPlaylistThumbnailRenderer hero_playlist_thumbnail_renderer = 111638594;
+}
+
+extend Renderer {
+	PlaylistCollageThumbnailRenderer playlist_collage_thumbnail_renderer = 165537212;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/slim_metadata_button_renderer.proto";
+import "youtube/api/innertube/slim_metadata_toggle_button_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/slim_metadata_add_to_button_renderer.proto";
+import "youtube/api/innertube/account_link_button_renderer.proto";
+import "youtube/api/innertube/button_view_model.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SlimMetadataButtonSupportedRenderers {
+	oneof renderer {
+		SlimMetadataButtonRenderer slim_metadata_button_renderer = 124608017;
+		SlimMetadataToggleButtonRenderer slim_metadata_toggle_button_renderer = 124608045;
+		ElementRenderer element_renderer = 153515154;
+		SlimMetadataAddToButtonRenderer slim_metadata_add_to_button_renderer = 186676672;
+		AccountLinkButtonRenderer account_link_button_renderer = 265166751;
+		ButtonViewModel button_view_model = 461054335;
+	}
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package datapol;
+
+option objc_class_prefix = "GCDP";
+
+message Qualifier {
+	bool is_public = 1 [ default = false ];
+	bool is_google = 2 [ default = false ];
+	bool other_user = 3 [ default = false ];
+	bool is_partner = 4 [ default = false ];
+	bool is_publisher = 5 [ default = false ];
+	bool has_explicit_consent = 6 [ default = false ];
+	bool is_encrypted = 7 [ default = false ];
+	int32 related_field = 8;
+	bool non_user_location = 9 [ default = false ];
+	bool limited_access = 10 [ default = false ];
+	bool auto_delete_within_wipeout = 11 [ default = false ];
+	bool is_access_target = 12 [ default = false ];
+	bool auto_delete_within_180_days = 13 [ default = false ];
+	bool auto_tombstone = 14 [ default = false ];
+	bool is_user_visible = 15 [ default = false ];
+	bool is_access_grantee = 16 [ default = false ];
+	bool is_actor = 17 [ default = false ];
+	bool is_action_target = 18 [ default = false ];
+	bool is_action_time = 19 [ default = false ];
+}

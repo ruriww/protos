@@ -1,0 +1,45 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message StructuredPhone {
+	message PhoneNumber {
+		enum ValidationResult {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 99;
+			IS_POSSIBLE = 0;
+			INVALID_COUNTRY_CODE = 1;
+			TOO_SHORT = 2;
+			TOO_LONG = 3;
+			IS_POSSIBLE_LOCAL_ONLY = 4;
+			INVALID_LENGTH = 5;
+		}
+
+		string e164 = 1;
+
+		message I18nData {
+			string national_number = 1;
+			string international_number = 2;
+			int32 country_code = 3;
+			string region_code = 4;
+			bool is_valid = 5;
+			ValidationResult validation_result = 6;
+		}
+
+		I18nData i18n_data = 2;
+	}
+
+	PhoneNumber phone_number = 1;
+
+	message ShortCode {
+		string code = 1;
+		string country_code = 2;
+	}
+
+	ShortCode short_code = 2;
+	string type = 3;
+	string formatted_type = 4;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.panentry;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/input/panentry/pan_prefix_set.proto";
+import "moneta/orchestration2/ui/common/input/input_data_transform.proto";
+import "moneta/orchestration2/ui/common/input/input_data_validation.proto";
+import "moneta/orchestration2/ui/common/input/input_data_filter.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PanCategoryData {
+	extend data.Data {
+		PanCategoryData pan_category_data_extension = 243313294;
+	}
+
+	repeated PanPrefixSet prefix_set = 1;
+	repeated InputDataTransform default_transform = 2;
+	repeated InputDataTransform default_template_text_behaviour = 3;
+	repeated InputDataValidation validation = 4;
+	int64 card_brand_logo_data_reference = 5;
+	repeated InputDataFilter default_filter = 7;
+}

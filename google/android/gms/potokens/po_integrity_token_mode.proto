@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package google.android.gms.potokens;
+
+option java_package = "com.google.android.gms.potokens";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+enum PoIntegrityTokenMode {
+	UNKNOWN = 0;
+	ANDROID_FAST_MODE = 1;
+	ANDROID_HARDWARE_BACKED_MODE = 2;
+}

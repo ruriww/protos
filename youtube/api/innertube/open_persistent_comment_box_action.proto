@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/persistent_comment_box_supported_renderers.proto";
+import "youtube/api/innertube/comment_action_confirm_dialog_supported_renderers.proto";
+import "youtube/api/innertube/persistent_comment_box_scrolling_behavior.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenPersistentCommentBoxAction {
+	extend Command {
+		OpenPersistentCommentBoxAction open_persistent_comment_box_action = 154107992;
+	}
+
+	PersistentCommentBoxSupportedRenderers dialog = 1;
+	bool show_input_view = 2;
+	CommentActionConfirmDialogSupportedRenderers comment_without_vote_dialog = 3;
+	CommentActionConfirmDialogSupportedRenderers no_more_comment_dialog = 4;
+	Command prepare_account_endpoint = 5;
+	PersistentCommentBoxScrollingBehavior scrolling_behavior = 6;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/s3_session_event_metadata.proto";
+import "speech/common/recognition_context.proto";
+import "speech/logs/recognizer_log.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message SpeechRecognizerEventMetadata {
+	S3SessionEventMetadata session_meta_data = 1;
+	float sample_rate = 2;
+	bool preamble_audio = 3;
+	uint32 num_max_best_results = 4;
+	bool enable_partial_results = 5;
+	double partial_result_confidence_threshold = 6;
+	bool enable_endpointer_events = 7;
+	string spoken_language = 8;
+	repeated string additional_spoken_languages = 9;
+	.speech.common.RecognitionContext recognition_context = 10;
+	.speech.logs.RecognizerLog.AudioEncodingType audio_encoding_type = 11;
+}

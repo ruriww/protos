@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstageImageRenderer {
+	ThumbnailDetails image = 1;
+	bytes tracking_params = 3;
+	Command command = 4;
+	string encrypted_blob_id = 5;
+	AccessibilitySupportedDatas accessibility = 6;
+	Icon icon = 7;
+}
+
+extend Renderer {
+	BackstageImageRenderer backstage_image_renderer = 120744665;
+}

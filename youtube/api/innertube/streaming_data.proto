@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/format_stream.proto";
+import "youtube/api/innertube/license_info.proto";
+import "youtube/api/innertube/metadata_format.proto";
+import "youtube/api/innertube/drm_track_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StreamingData {
+	int64 expires_in_seconds = 1;
+	repeated FormatStream formats = 2;
+	repeated FormatStream adaptive_formats = 3;
+	string dash_manifest_url = 4;
+	string hls_manifest_url = 5;
+	repeated FormatStream hls_formats = 6;
+	string probe_url = 7;
+	repeated LicenseInfo license_infos = 8;
+	string onesie_streaming_url = 11;
+	float aspect_ratio = 13;
+	string drm_params = 14;
+	string server_abr_streaming_url = 15;
+	repeated MetadataFormat metadata_formats = 16;
+	repeated DrmTrackType initial_authorized_drm_track_types = 17 [ features.repeated_field_encoding = EXPANDED ];
+	string streaming_url_template = 19;
+}

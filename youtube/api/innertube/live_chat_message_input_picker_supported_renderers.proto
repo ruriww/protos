@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/emoji_picker_renderer.proto";
+import "youtube/api/innertube/live_chat_creator_support_renderer.proto";
+import "youtube/api/innertube/live_chat_product_picker_renderer.proto";
+import "youtube/api/innertube/live_chat_poll_editor_panel_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatMessageInputPickerSupportedRenderers {
+	oneof picker {
+		EmojiPickerRenderer emoji_picker_renderer = 126326492;
+		LiveChatCreatorSupportRenderer live_chat_creator_support_renderer = 129042058;
+		LiveChatProductPickerRenderer live_chat_product_picker_renderer = 189846535;
+		LiveChatPollEditorPanelRenderer live_chat_poll_editor_panel_renderer = 265796092;
+	}
+}

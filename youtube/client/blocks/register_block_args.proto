@@ -1,0 +1,10 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+option objc_class_prefix = "YTB";
+
+message RegisterBlockArgs {
+	bytes key = 1;
+	string instance_id = 2;
+}

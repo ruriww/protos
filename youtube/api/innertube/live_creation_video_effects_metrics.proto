@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_media_attribution.proto";
+import "youtube/api/innertube/live_creation_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationVideoEffectsMetrics {
+	LiveCreationContext live_creation_context = 1;
+
+	message VideoEffectUsage {
+		string effect_id = 1;
+		int64 effect_runtime_ms = 2;
+		float avg_runtime_screen_fps = 3;
+		float avg_camera_fps = 4;
+		LiveCreationMediaAttribution media_attribution = 5;
+	}
+
+	repeated VideoEffectUsage video_effect_usages = 2;
+}

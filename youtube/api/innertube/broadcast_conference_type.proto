@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum BroadcastConferenceType {
+	option features.enum_type = CLOSED;
+
+	BROADCAST_CONFERENCE_TYPE_UNSPECIFIED = 0;
+	BROADCAST_CONFERENCE_TYPE_COLLABORATIVE = 1;
+	BROADCAST_CONFERENCE_TYPE_LIVE_BROADCAST_COMPOSITE = 2;
+	BROADCAST_CONFERENCE_TYPE_COMPRESSED_DOMAIN_COMPOSITE = 3;
+	BROADCAST_CONFERENCE_TYPE_CREATOR_COMMENTARY = 4;
+}

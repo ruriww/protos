@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/account_static_config_group.proto";
+import "youtube/api/innertube/account_dynamic_config_group.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GlobalConfigGroup {
+	oneof cold_config_group {
+		string serialized_cold_config_group = 1;
+		bytes bytes_serialized_cold_config_group = 6;
+	}
+
+	oneof hot_config_group {
+		string serialized_hot_config_group = 3;
+		bytes bytes_serialized_hot_config_group = 7;
+	}
+
+	string hot_hash_data = 4;
+	string cold_hash_data = 5;
+
+	oneof account_static_config_group {
+		bytes bytes_serialized_account_static_config_group = 8;
+		AccountStaticConfigGroup raw_account_static_config_group = 12;
+	}
+
+	string account_static_hash_data = 9;
+
+	oneof account_dynamic_config_group {
+		bytes bytes_serialized_account_dynamic_config_group = 10;
+		AccountDynamicConfigGroup raw_account_dynamic_config_group = 13;
+	}
+
+	string account_dynamic_hash_data = 11;
+	string finch_static_hash_data = 15;
+
+	oneof finch_static_config_group {
+		bytes bytes_serialized_finch_static_config_group = 16;
+	}
+
+	extensions 120941151;
+	extensions 121075448;
+}

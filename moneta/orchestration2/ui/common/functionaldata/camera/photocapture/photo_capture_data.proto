@@ -1,0 +1,47 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.photocapture;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/photocapture/camera_direction.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/flashlight_state.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhotoCaptureData {
+	extend data.Data {
+		PhotoCaptureData photo_capture_data_extension = 310995137;
+	}
+
+	float region_of_interest_aspect_ratio = 1;
+	float region_of_interest_margin_fraction_start = 2;
+	float region_of_interest_margin_fraction_top = 3;
+	float region_of_interest_margin_fraction_end = 4;
+	float region_of_interest_margin_fraction_bottom = 5;
+	int32 image_max_pixels = 6;
+	CameraDirection preferred_camera_direction = 7;
+
+	enum AutoCaptureMode {
+		option features.enum_type = CLOSED;
+
+		AUTO_CAPTURE_MODE_UNKNOWN = 0;
+		AUTO_CAPTURE_MODE_EDGE_DETECTION_V1 = 1;
+		AUTO_CAPTURE_MODE_EDGE_DETECTION_V2 = 2;
+	}
+
+	repeated AutoCaptureMode auto_capture_modes = 9 [ features.repeated_field_encoding = EXPANDED ];
+	bool tap_to_focus_enabled = 10;
+	FlashlightState initial_flashlight_state = 11;
+	bool upload_mirror_image_for_selfie = 12;
+
+	enum ImageFormat {
+		option features.enum_type = CLOSED;
+
+		IMAGE_FORMAT_UNKNOWN = 0;
+		IMAGE_FORMAT_HEIF = 1;
+		IMAGE_FORMAT_JPEG = 2;
+	}
+
+	ImageFormat preferred_image_format = 13;
+	float image_compression_quality = 14;
+}

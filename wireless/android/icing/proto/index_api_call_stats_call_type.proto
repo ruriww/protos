@@ -1,0 +1,21 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message IndexApiCallStatsCallType {
+	enum Code {
+		CONTENT_UPDATE = 0;
+		CONTENT_REMOVE = 1;
+		CONTENT_REMOVE_ALL = 2;
+		ACTION_START = 3;
+		ACTION_END = 4;
+		CONTENT_UPDATE_TAGS = 5;
+		CONTENT_GET = 6;
+		CONTENT_SEARCH = 7;
+		CONTENT_PATCH = 8;
+		CONTENT_MUTATE_REQUEST_INVALID = 9;
+		CONTENT_REMOVE_TYPES = 10;
+	}
+}

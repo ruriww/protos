@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/focus/focus_instruction.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SubmitAction {
+	repeated int64 data_reference_to_submit = 1 [ features.repeated_field_encoding = EXPANDED ];
+	bytes submit_token = 2;
+
+	enum ValidationStrategy {
+		option features.enum_type = CLOSED;
+
+		VALIDATION_STRATEGY_UNKNOWN = 0;
+		VALIDATION_STRATEGY_WITHOUT_VALIDATION = 1;
+		VALIDATION_STRATEGY_VALIDATE_DATA_TO_SUBMIT = 2;
+		VALIDATION_STRATEGY_VALIDATE_SPECIFIED_REFERENCES = 3;
+	}
+
+	ValidationStrategy validation_strategy = 3;
+	repeated int64 data_reference_to_validate = 4 [ features.repeated_field_encoding = EXPANDED ];
+	focus.FocusInstruction focus_on_error = 5;
+	int32 submit_action_reference = 7;
+
+	extensions 1100;
+}

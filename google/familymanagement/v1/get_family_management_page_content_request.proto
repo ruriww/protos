@@ -1,0 +1,42 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "kids/families/direct_add_identifier.proto";
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/page.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyManagementPageContentRequest {
+	ApiRequestHeader api_header = 1;
+	Page.Type page_type = 2;
+
+	message LeaveFamilyPageContentParams {
+	}
+
+	LeaveFamilyPageContentParams leave_family_page_content_params = 3;
+
+	message DeleteFamilyPageContentParams {
+	}
+
+	DeleteFamilyPageContentParams delete_family_page_content_params = 4;
+
+	message RemoveMemberPageContentParams {
+		string member_to_remove_id = 1;
+	}
+
+	RemoveMemberPageContentParams remove_member_page_content_params = 5;
+
+	message InviteNonGaiaSmsPageContentParams {
+		string hoh_id = 3;
+	}
+
+	InviteNonGaiaSmsPageContentParams invite_non_gaia_sms_page_content_params = 6;
+
+	message RemoveNonGaiaMemberPageContentParams {
+		kids.families.DirectAddIdentifier direct_add_identifier = 1;
+	}
+
+	RemoveNonGaiaMemberPageContentParams remove_non_gaia_member_page_content_params = 7;
+}

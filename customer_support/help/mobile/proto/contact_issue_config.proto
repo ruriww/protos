@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/product_contact_issue_classes.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ContactIssueConfig {
+	repeated ProductContactIssueClasses product_class = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/dvr_button_renderer.proto";
+import "youtube/api/innertube/unplugged_bell_follow_button_renderer.proto";
+import "youtube/api/innertube/unplugged_download_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedButtonSupportedRenderers {
+	oneof renderer {
+		ButtonRenderer button_renderer = 65153809;
+		DvrButtonRenderer dvr_button_renderer = 121336944;
+		UnpluggedBellFollowButtonRenderer unplugged_bell_follow_button_renderer = 159985495;
+		UnpluggedDownloadButtonRenderer unplugged_download_button_renderer = 335953221;
+	}
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package java.com.google.moneta.orchestration2.ui.core.testing.compatibility;
+
+option objc_class_prefix = "ORCH2";
+
+message RecordingMetadata {
+	string name = 1;
+	string widget_type = 2;
+	string client_type = 3;
+	string recording_type = 4;
+	string target = 5;
+	string test_method_name = 10;
+}

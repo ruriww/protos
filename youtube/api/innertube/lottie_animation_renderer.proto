@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "webutil/html/types/trusted_resource_url_proto.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LottieAnimationRenderer {
+	oneof lottie_url {
+		string animation_url = 1;
+		webutil.html.types.TrustedResourceUrlProto trusted_animation_url = 7;
+	}
+
+	bool loop = 2;
+	uint32 placeholder_color = 3;
+	string dark_theme_animation_url = 4;
+	ThumbnailDetails active_fallback_image_path = 5;
+	ThumbnailDetails inactive_fallback_image_path = 6;
+}
+
+extend Renderer {
+	LottieAnimationRenderer lottie_animation_renderer = 415313868;
+}

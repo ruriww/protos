@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.htmldocument;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message HtmlDocumentDataValue {
+	extend data.DataValue {
+		HtmlDocumentDataValue html_document_data_value_extension = 346198508;
+	}
+
+	bool viewed_document = 1;
+}

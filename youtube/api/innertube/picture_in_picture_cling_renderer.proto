@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PictureInPictureClingRenderer {
+	FormattedString title = 1;
+	FormattedString message_text = 2;
+	FormattedString settings_text = 3;
+	Command settings_endpoint = 4;
+	ButtonSupportedRenderers dismiss_button = 5;
+	bytes tracking_params = 6;
+}

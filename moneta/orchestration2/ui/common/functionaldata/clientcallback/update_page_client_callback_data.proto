@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.clientcallback;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UpdatePageClientCallbackData {
+	extend data.Data {
+		UpdatePageClientCallbackData update_page_client_callback_data_extension = 525000001;
+	}
+
+	int64 shipping_option_selector_data_reference = 1;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/video_effects_context.proto";
+import "youtube/api/innertube/shorts_creation_package.proto";
+import "youtube/api/innertube/shorts_creation_suggestion_context.proto";
+import "youtube/api/innertube/shorts_creation_feature_context.proto";
+import "youtube/api/innertube/shorts_creation_entry_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetShortsCreationRequest {
+	InnerTubeContext context = 1;
+	VideoEffectsContext effects_context = 2;
+	repeated ShortsCreationPackage creation_package = 3 [ features.repeated_field_encoding = EXPANDED ];
+	ShortsCreationSuggestionContext shorts_creation_suggestion_context = 5;
+	repeated ShortsCreationFeatureContext feature_context = 6;
+	ShortsCreationEntryContext shorts_creation_entry_context = 7;
+}

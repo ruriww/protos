@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/header_element.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message HeaderRow {
+	repeated HeaderElement leading_elements = 1;
+	repeated HeaderElement center_elements = 2;
+	repeated HeaderElement trailing_elements = 3;
+	bool is_sticky = 4;
+}

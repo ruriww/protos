@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ElementOpacityMutations {
+	message Mutation {
+		string uuid = 1;
+		int32 opacity = 2;
+	}
+
+	repeated Mutation mutation = 1;
+}

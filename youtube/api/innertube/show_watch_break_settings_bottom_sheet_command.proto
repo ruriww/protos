@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/watch_break_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowWatchBreakSettingsBottomSheetCommand {
+	extend Command {
+		ShowWatchBreakSettingsBottomSheetCommand show_watch_break_settings_bottom_sheet_command = 22581;
+	}
+
+	WatchBreakType watch_break_type = 2;
+	bool should_display_ep_bottom_sheet = 3 [ default = false ];
+}

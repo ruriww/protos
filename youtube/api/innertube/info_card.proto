@@ -1,0 +1,55 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/info_card_action.proto";
+import "youtube/api/innertube/info_card_tracking_event.proto";
+import "youtube/api/innertube/info_card_ad.proto";
+import "youtube/api/innertube/info_card_product.proto";
+import "youtube/api/innertube/info_card_app.proto";
+import "youtube/api/innertube/info_card_social_link.proto";
+import "youtube/api/innertube/info_card_vote.proto";
+import "youtube/api/innertube/info_card_location.proto";
+import "youtube/api/innertube/info_card_website.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InfoCard {
+	message Version {
+		int32 major_version = 1;
+		int32 minor_version = 2;
+	}
+
+	Version version = 2;
+	int32 priority = 3;
+	int64 start_time_ms = 4 [ default = 0 ];
+	int64 end_time_ms = 5;
+	repeated InfoCardAction action = 6;
+	repeated InfoCardTrackingEvent event = 7;
+	InfoCardAd ad_card = 8;
+	InfoCardProduct product_card = 9;
+	InfoCardApp app_card = 10;
+	InfoCardSocialLink social_card = 12;
+	InfoCardVote vote_card = 13;
+	bool sponsored = 14;
+	string teaser_text = 15;
+
+	message Placement {
+		bool hide_in_drawer = 1;
+		bool show_in_endcap = 2;
+		bool show_in_companion = 3;
+		bool show_in_cta = 4;
+		bool override_clickthrough = 5;
+		bool show_in_promotion_shelf = 6;
+		bool show_in_immersive_panel = 7;
+	}
+
+	Placement placement = 16;
+	InfoCardLocation location_card = 17;
+	InfoCardWebsite website_card = 18;
+	string header_text = 22;
+	bool is_hotel_ads_info_card = 24;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/product_specific_data_entry.proto";
+
+option objc_class_prefix = "CSHM";
+
+message FormContent {
+	repeated ProductSpecificDataEntry form_content_data = 1;
+}

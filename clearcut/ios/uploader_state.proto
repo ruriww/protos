@@ -1,0 +1,19 @@
+edition = "2023";
+
+package clearcut.ios;
+
+import "wireless_android_play_playlog/qos_tiers_override.proto";
+
+option objc_class_prefix = "CCT";
+
+message UploaderState {
+	int64 last_upload_time_milliseconds = 1;
+	int64 last_default_upload_time_milliseconds = 2;
+	int64 next_upload_time_milliseconds = 3;
+	bool upload_in_progress = 4;
+	int64 upload_state_uptime_milliseconds = 5;
+	int64 upload_end_uptime_milliseconds = 6;
+	int64 collect_for_debug_expiry_time_milliseconds = 7;
+	wireless_android_play_playlog.QosTiersOverride qos_tier = 8;
+	int64 collect_for_debug_start_time_milliseconds = 10;
+}

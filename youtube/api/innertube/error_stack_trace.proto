@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/android_stack_info.proto";
+import "youtube/api/innertube/browser_stack_info.proto";
+import "youtube/api/innertube/ios_stack_info.proto";
+import "youtube/api/innertube/multi_language_stack_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ErrorStackTrace {
+	bool is_obfuscated = 1;
+
+	oneof platform_stack_info {
+		AndroidStackInfo android_stack_info = 2;
+		BrowserStackInfo browser_stack_info = 3;
+		IosStackInfo ios_stack_info = 4;
+		MultiLanguageStackInfo multi_language_stack_info = 5;
+	}
+}

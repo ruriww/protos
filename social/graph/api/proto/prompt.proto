@@ -1,0 +1,22 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/prompt_purpose_enum.proto";
+import "social/graph/api/proto/prompt_content.proto";
+import "social/graph/api/proto/recurrence.proto";
+import "social/graph/api/proto/notification_trigger.proto";
+import "google/type/date.proto";
+import "social/graph/api/proto/prompt_active_state_enum.proto";
+
+option objc_class_prefix = "SGAP";
+
+message Prompt {
+	string unique_prompt_id = 1;
+	PromptPurposeEnum.Purpose purpose = 2;
+	PromptContent content = 3;
+	Recurrence recurrence = 4;
+	repeated NotificationTrigger notification_triggers = 5;
+	google.type.Date last_dismiss_date = 7;
+	PromptActiveStateEnum.ActiveState active_state = 8;
+}

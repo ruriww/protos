@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadFlowFlavor {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_FLOW_FLAVOR_UNKNOWN = 0;
+	UPLOAD_FLOW_FLAVOR_NORMAL = 1;
+	UPLOAD_FLOW_FLAVOR_REELS = 2;
+	UPLOAD_FLOW_FLAVOR_ARCHIVE_REPLACEMENT = 3;
+	UPLOAD_FLOW_FLAVOR_FEEDBACK_ONLY = 4;
+	UPLOAD_FLOW_FLAVOR_LIVESTREAM_HIGHLIGHT = 5;
+	UPLOAD_FLOW_FLAVOR_SHORT = 6;
+	UPLOAD_FLOW_FLAVOR_POSTS = 7;
+	UPLOAD_FLOW_FLAVOR_COMMENTS = 8;
+	UPLOAD_FLOW_FLAVOR_CREATION_MEDIA_ENTITY = 9;
+}

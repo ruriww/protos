@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_visibility_condition.proto";
+import "youtube/api/innertube/menu_item_supported_accessibility_datas.proto";
+import "youtube/api/innertube/renderer_visibility_condition_data.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MenuConditionalServiceItemRenderer {
+	FormattedString text = 1;
+	Icon icon = 2;
+	Command service_endpoint = 3;
+	bytes tracking_params = 5;
+	MenuVisibilityCondition.MenuVisibilityConditionType visibility_condition_type = 7;
+	MenuItemSupportedAccessibilityDatas accessibility = 8;
+	RendererVisibilityConditionData visibility_condition = 9;
+	bool has_separator = 10;
+	string menu_item_identifier = 11;
+	Icon secondary_icon = 12;
+	bool should_tint_secondary_icon = 13 [ default = true ];
+	LoggingDirectives logging_directives = 999;
+}

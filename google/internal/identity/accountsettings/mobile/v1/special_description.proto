@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/type/color.proto";
+import "google/internal/identity/accountsettings/mobile/v1/themed_color.proto";
+import "google/internal/identity/accountsettings/mobile/v1/state_chip_unit.proto";
+
+option objc_class_prefix = "ASM";
+
+message SpecialDescription {
+	string text = 1;
+	Image icon = 2;
+	type.Color color = 3;
+	ThemedColor themed_color = 4;
+	StateChipUnit state_chip_unit = 5;
+}

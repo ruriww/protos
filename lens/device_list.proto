@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens;
+
+import "lens/device_info.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DeviceList {
+	repeated DeviceInfo device_info = 1;
+	google.protobuf.Timestamp fetch_timestamp = 3;
+	repeated DeviceInfo actionable_not_eligible_device_info = 4;
+}

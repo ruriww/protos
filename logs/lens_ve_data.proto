@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs;
+
+import "logs/visual_element_lite_proto.proto";
+import "logs/proto/lens/gleam_log_data.proto";
+import "logs/proto/lens/filters_log_data.proto";
+
+option objc_class_prefix = "LOG";
+
+message LensVeData {
+	extend VisualElementLiteProto {
+		LensVeData lens_ve_data = 482;
+	}
+
+	proto.lens.GleamLogData gleam_log_data = 1;
+	proto.lens.FiltersLogData filters_log_data = 6;
+	int32 instance_id_seq = 9 [ default = -1 ];
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/comment_poll_status.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateBackstagePollAction {
+	extend Command {
+		UpdateBackstagePollAction update_backstage_poll_action = 139609360;
+	}
+
+	CommentPollStatus updated_poll_status = 1;
+	FormattedString total_votes = 2;
+	int32 selected_choice_index = 3;
+	string comment_id = 4;
+}

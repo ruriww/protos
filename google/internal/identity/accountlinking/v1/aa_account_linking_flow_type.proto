@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum AAAccountLinkingFlowType {
+	ACCOUNT_LINKING_FLOW_UNSPECIFIED = 0;
+	OAUTH2_FLOW = 1;
+	GSI_OAUTH_LINKING_FLOW = 2;
+	GSI_OAUTH_CREATION_FLOW = 3;
+	GSI_ONLY_FLOW = 4;
+	THIRD_PARTY_INITIATED_FLOW = 5;
+	MOBILE_APP_REDIRECT_FLOW = 6;
+	CLIENT_CREDENTIALS_FLOW = 7;
+}

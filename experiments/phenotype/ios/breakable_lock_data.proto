@@ -1,0 +1,9 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+option objc_class_prefix = "EPI";
+
+message BreakableLockData {
+	int64 lock_uptime_milliseconds = 1;
+}

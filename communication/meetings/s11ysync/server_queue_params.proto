@@ -1,0 +1,10 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+option objc_class_prefix = "GHM";
+
+message ServerQueueParams {
+	string queue_id = 1;
+	int64 queue_version = 2;
+}

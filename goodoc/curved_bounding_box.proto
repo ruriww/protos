@@ -1,0 +1,15 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/curve.proto";
+import "goodoc/rotated_bounding_box.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message CurvedBoundingBox {
+	Curve mid_line_curve = 1;
+	double thickness = 2;
+	bool top_to_bottom = 3;
+	RotatedBoundingBox rotated_bounding_box = 4;
+}

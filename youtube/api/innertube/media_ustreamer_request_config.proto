@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaUstreamerRequestConfig {
+	bool enable_video_playback_request = 2;
+	bool video_playback_use_ump = 3;
+	bytes video_playback_ustreamer_config = 4;
+	bool video_playback_post_empty_body = 5;
+	bool is_video_playback_request_idempotent = 6;
+}

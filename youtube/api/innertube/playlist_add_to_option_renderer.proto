@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistAddToOptionRenderer {
+	string playlist_id = 1;
+	FormattedString title = 2;
+	PrivacyStatus privacy = 3;
+	FormattedString short_byline_text = 4;
+
+	enum ContainsSelectedVideos {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NONE = 1;
+		SOME = 2;
+		ALL = 3;
+	}
+
+	ContainsSelectedVideos contains_selected_videos = 5;
+	Icon privacy_icon = 6;
+	Command add_to_playlist_service_endpoint = 7;
+	Command remove_from_playlist_service_endpoint = 8;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 9;
+	bytes tracking_params = 11;
+	repeated Icon additional_icons = 12;
+
+	extensions 1000 to max;
+}

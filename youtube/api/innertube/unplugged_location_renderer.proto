@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/unplugged_edit_text_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLocationRenderer {
+	ThumbnailDetails header_icon = 1;
+	FormattedString location_name = 2;
+	FormattedString body_text = 3;
+	UnpluggedEditTextSupportedRenderers unplugged_edit_text = 4;
+	bytes tracking_params = 5;
+	ButtonSupportedRenderers change_location_button = 7;
+	FormattedString title_text = 8;
+	ButtonSupportedRenderers log_in_button = 9;
+	repeated ButtonSupportedRenderers buttons = 10;
+	uint32 body_text_color = 11;
+	FormattedString header_text = 12;
+	ButtonSupportedRenderers action_button = 13;
+	ButtonSupportedRenderers improve_location_ghelp_button = 14;
+	ButtonSupportedRenderers improve_location_start_flow_button = 15;
+
+	message LocationChoice {
+		FormattedString location_name = 1;
+		string dma_id = 2;
+	}
+
+	repeated LocationChoice location_choices = 16;
+	FormattedString zip_code = 17;
+	UnpluggedAnimationDetails animation = 19;
+}
+
+extend Renderer {
+	UnpluggedLocationRenderer unplugged_location_renderer = 121478669;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message InitializeTemplateRequest {
+	common.RequestContext context = 1;
+	repeated bytes purchase_context = 2;
+}

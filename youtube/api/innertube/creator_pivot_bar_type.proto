@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CreatorPivotBarType {
+	option features.enum_type = CLOSED;
+
+	CREATOR_PIVOT_BAR_TYPE_UNSPECIFIED = 0;
+	CREATOR_PIVOT_BAR_TYPE_THROUGHOUT = 1;
+	CREATOR_PIVOT_BAR_TYPE_TOP_LEVEL = 2;
+}

@@ -1,0 +1,213 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/pruned_ocr.proto";
+import "lens/gleaming/detected_barcode_data.proto";
+import "lens/gleaming/detected_planar_gleam_data.proto";
+import "lens/gleaming/detected_actionable_text_data.proto";
+import "lens/gleaming/detected_outdoor_gleam_data.proto";
+import "lens/gleaming/detected_math_gleam_data.proto";
+import "lens/gleaming/detected_homework_gleam_data.proto";
+import "lens/gleaming/detected_product_data.proto";
+import "quality_genie/eyes/assistant_eyes_request_id.proto";
+import "lens/gleaming/renderable_object.proto";
+import "google/protobuf/timestamp.proto";
+import "lens/geometry.proto";
+import "lens/polygon.proto";
+import "lens/framing.proto";
+import "webutil/html/types/safe_url_proto.proto";
+import "lens/center_rotated_box.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message DetectionResult {
+	int64 tracking_id = 1;
+
+	message DetectedBoundingBox {
+		float center_x = 1;
+		float center_y = 2;
+		float width = 3;
+		float height = 4;
+		float rotation_z = 5;
+	}
+
+	oneof geometry_data {
+		DetectedBoundingBox bounding_box = 2;
+		lens.Geometry geometry = 7;
+	}
+
+	message DetectedObject {
+		enum DetectionSource {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			VSS_SONIC = 1;
+			COCA = 2;
+			LVS = 3;
+			ON_DEVICE = 5;
+		}
+
+		DetectionSource detection_source = 1;
+		string object_id = 2;
+		string debug_name = 3;
+		float score = 4;
+		google.protobuf.Timestamp detection_timestamp = 5;
+
+		message DetectedObjectMetadata {
+			repeated string collections = 1;
+
+			message IcaAncestor {
+				string mid = 1;
+				int64 distance = 2;
+			}
+
+			repeated IcaAncestor ica_ancestors = 2;
+			repeated string equivalent_mids = 3;
+			PrunedOcr.Paragraph text_paragraph = 4;
+			repeated PrunedOcr.Word selectable_word = 6;
+
+			oneof corpus_specific_metadata {
+				lens.gleaming.DetectedBarcodeData barcode_metadata = 8;
+				lens.gleaming.DetectedPlanarGleamData planar_gleam_metadata = 9;
+				lens.gleaming.DetectedActionableTextData actionable_text_metadata = 10;
+				lens.gleaming.DetectedOutdoorGleamData outdoor_gleam_metadata = 11;
+				lens.gleaming.DetectedMathGleamData math_gleam_metadata = 12;
+				lens.gleaming.DetectedHomeworkGleamData homework_gleam_metadata = 14;
+				lens.gleaming.DetectedProductData product_metadata = 18;
+			}
+		}
+
+		DetectedObjectMetadata metadata = 6;
+
+		message SourceSignalId {
+			AssistantEyesRequestId eyes_request_id = 1;
+			string visual_object_id = 3;
+		}
+
+		SourceSignalId source_signal_id = 7;
+		ResponseType response_type = 8;
+
+		enum Vertical {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_VERTICAL = 0;
+			NATURAL_WORLD = 1;
+			PRODUCTS = 2;
+			HOMEGOODS_PRODUCTS = 20;
+			APPAREL_PRODUCTS = 21;
+			FASHION_ACCESSORIES_PRODUCTS = 22;
+			FURNITURE_PRODUCTS = 23;
+			CONGAS_PRODUCTS = 24;
+			BARCODE_PRODUCTS = 25;
+			LABELED_PRODUCTS_WEB = 26;
+			CONSUMER_PRODUCT = 27;
+			MENU_ITEM = 28;
+			PLAY = 29;
+			POI = 3;
+			TOURIST_ATTRACTION = 30;
+			VEHICLE = 4;
+			PERSON = 5;
+			BOOK = 6;
+			MUSIC_ALBUM = 7;
+			FILM_OR_TV_SHOW = 8;
+			VIDEO_GAME = 9;
+			ARTWORK = 10;
+			FOOD = 11;
+			BARCODE = 12;
+			ADDRESS = 13;
+			CONTACT = 14;
+			EVENT = 15;
+			LINK = 16;
+			RECEIPT = 17;
+			EMAIL_ADDRESS = 18;
+			PHONE_NUMBER = 19;
+			MAGAZINE = 31;
+			BUILDING = 32;
+			FLAG = 33;
+			FICTIONAL_CHARACTER = 34;
+			DERMATOLOGY = 36;
+			KG_ENTITY_ELIGIBLE_FOR_KP_CARD = 35;
+			PAYMENT = 37;
+		}
+
+		repeated Vertical verticals = 9 [ features.repeated_field_encoding = EXPANDED ];
+		string display_name = 10;
+		bool detected_on_last_frame = 11 [ default = true ];
+
+		message DebugInformation {
+			repeated string annotator_name = 1;
+		}
+
+		DebugInformation debug_information = 12;
+
+		message RenderingMetadata {
+			repeated lens.gleaming.RenderableObject renderable_object = 1;
+		}
+
+		RenderingMetadata rendering_metadata = 13;
+
+		message ResultPrefetchMetadata {
+			string search_url = 1;
+
+			message SearchResultsMetadata {
+				string query = 1;
+				string kgmid = 2;
+				string vertical = 4;
+				string stickiness_signals = 5;
+			}
+
+			SearchResultsMetadata search_metadata = 2;
+		}
+
+		ResultPrefetchMetadata prefetch_metadata = 14;
+	}
+
+	repeated DetectedObject detected_objects = 3;
+
+	message ReconciliationInfo {
+		repeated int64 merged_tracking_ids = 1 [ features.repeated_field_encoding = EXPANDED ];
+
+		enum RenderType {
+			option features.enum_type = CLOSED;
+
+			DEFAULT = 0;
+			GLEAM = 1;
+			NONE = 2;
+			TEXT_GLEAM = 3;
+			DOCUMENT_GLEAM = 4;
+			PLANAR_GLEAM = 5;
+			BARCODE_GLEAM = 6;
+			OUTDOOR_GLEAM = 8;
+			REGION_GLEAM = 10;
+			MATH_GLEAM = 11;
+			BOOK_GLEAM = 12;
+		}
+
+		RenderType render_type = 2 [ default = GLEAM ];
+	}
+
+	ReconciliationInfo reconciliation_info = 4;
+
+	enum ResponseType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CARD = 1;
+		CHIP = 2;
+		PROMPT = 3;
+		FALLBACK_PROMPT = 4;
+		CUSTOM_PROMPT = 5;
+		NONE = 6;
+	}
+
+	ResponseType response_type = 5;
+	lens.Polygon.Vertex render_offset = 8;
+	bool is_early = 9;
+	lens.Framing framing = 11;
+	string object_id = 12;
+	bool select_on_tap = 13;
+	bool is_selected = 14;
+	webutil.html.types.SafeUrlProto segmentation_mask_image_url = 15;
+	lens.CenterRotatedBox contextual_framing_box = 16;
+}

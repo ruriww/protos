@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/processing_progress_bar_renderer.proto";
+import "youtube/api/innertube/upload_status_renderer.proto";
+import "youtube/api/innertube/thumbnail_status_renderer.proto";
+import "youtube/api/innertube/video_id_renderer.proto";
+import "youtube/api/innertube/upload_actions_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadFeedbackItemSupportedRenderers {
+	ProcessingProgressBarRenderer processing_progress_bar = 64206306;
+	UploadStatusRenderer upload_status = 65387055;
+	ThumbnailStatusRenderer thumbnail_status = 75126882;
+	VideoIdRenderer video_id = 78753760;
+	UploadActionsRenderer upload_actions = 84864450;
+}

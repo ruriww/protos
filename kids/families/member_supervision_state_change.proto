@@ -1,0 +1,13 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+enum MemberSupervisionStateChange {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CHANGE = 0;
+	OPT_IN = 1;
+	OPT_OUT = 2;
+}

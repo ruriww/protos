@@ -1,0 +1,98 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message LensModule {
+	message Storefronts {
+		bool disable_text_based_results = 1;
+	}
+
+	message StyleAI {
+	}
+
+	message SimilarImages {
+	}
+
+	message Places {
+	}
+
+	message Text {
+	}
+
+	message Education {
+	}
+
+	message Translate {
+	}
+
+	message Dining {
+	}
+
+	message CoreImageSearch {
+	}
+
+	message RostiQueries {
+	}
+
+	message RostiEntities {
+	}
+
+	message Lenslets {
+	}
+
+	message Barcodes {
+	}
+
+	message LensOnImageSearch {
+	}
+
+	message ImageProvenance {
+	}
+
+	message UnifiedGrid {
+	}
+
+	message ObjectDetection {
+	}
+
+	message EducationLeanExperimental {
+	}
+
+	message NaturalWorld {
+	}
+
+	message GenerativeImages {
+		bool generative_results_in_response = 1;
+		int32 page_index = 2;
+		int32 max_results = 3;
+	}
+
+	message LensOnImageSearchPrecompute {
+	}
+
+	oneof module {
+		Storefronts storefronts = 1;
+		StyleAI style_ai = 2;
+		SimilarImages similar_images = 3;
+		Places places = 4;
+		Text text = 5;
+		Education education = 6;
+		Translate translate = 7;
+		Dining dining = 8;
+		CoreImageSearch core_image_search = 9;
+		RostiQueries rosti_queries = 10;
+		RostiEntities rosti_entities = 11;
+		Lenslets lenslets = 12;
+		Barcodes barcodes = 13;
+		LensOnImageSearch lens_on_image_search = 14;
+		ImageProvenance image_provenance = 15;
+		UnifiedGrid unified_grid = 16;
+		ObjectDetection object_detection = 17;
+		EducationLeanExperimental education_lean_experimental = 18;
+		NaturalWorld natural_world = 19;
+		GenerativeImages generative_images = 20;
+		LensOnImageSearchPrecompute lens_on_image_search_precompute = 21;
+	}
+}

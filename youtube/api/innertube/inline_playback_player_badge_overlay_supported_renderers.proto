@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_overlay_equalizer_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_time_status_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlinePlaybackPlayerBadgeOverlaySupportedRenderers {
+	oneof renderer {
+		ThumbnailOverlayEqualizerRenderer thumbnail_overlay_equalizer_renderer = 1005;
+		ThumbnailOverlayTimeStatusRenderer thumbnail_overlay_time_status_renderer = 121720768;
+	}
+}

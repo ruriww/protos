@@ -1,0 +1,36 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/sub_form.proto";
+import "moneta/orchestration/ui/common/components/field.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_grouping.proto";
+import "moneta/orchestration/ui/common/generic/layout.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message SimpleForm {
+	FormHeader form_header = 1;
+
+	message FormField {
+		oneof formfield {
+			SubForm sub_form = 1;
+			Field field = 2;
+		}
+
+		bool show_only_on_edit_mode = 3 [ default = false ];
+	}
+
+	repeated FormField form_field = 2;
+	legal.LegalMessage legal_message = 3;
+	int64 ui_reference = 4;
+	repeated generic.InfoMessage bottom_info_message = 5;
+	repeated generic.UiFieldGrouping ui_field_grouping = 7;
+	bytes attestation_nonce = 8;
+	generic.Layout layout = 9;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

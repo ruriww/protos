@@ -1,0 +1,43 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+import "google/internal/identity/signedoutstate/v1/signed_out_web_view.proto";
+import "google/internal/identity/signedoutstate/v1/serialized_signed_out_state.proto";
+
+option objc_class_prefix = "SOS";
+
+message SignedOutStateResponse {
+	bool state_changed = 1;
+
+	enum StateChange {
+		STATE_CHANGE_UNSPECIFIED = 0;
+		ZWIEBACK_UID = 1;
+		EOM_TREATMENT = 2;
+	}
+
+	repeated StateChange state_changes = 3;
+	SignedOutWebView signed_out_webview = 4;
+	SerializedSignedOutState serialized_signed_out_state = 5;
+
+	message ZwiebackTokenStatus {
+		enum SetCookieReason {
+			SET_COOKIE_UNKNOWN = 0;
+			SET_COOKIE_NEW = 1;
+			SET_COOKIE_REFRESH = 2;
+			SET_COOKIE_REASSIGNED = 3;
+		}
+
+		SetCookieReason set_cookie_reason = 1;
+
+		enum ValidationStatus {
+			VALIDATION_UNKNOWN_OR_OK = 0;
+			VALIDATION_INVALIDATED = 1;
+			VALIDATION_INVALID = 2;
+		}
+
+		ValidationStatus validation_status = 2;
+	}
+
+	ZwiebackTokenStatus zwieback_token_status = 6;
+}

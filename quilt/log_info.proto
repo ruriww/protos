@@ -1,0 +1,28 @@
+edition = "2023";
+
+package quilt;
+
+import "logs/click_tracking_cgi.proto";
+
+option objc_class_prefix = "QLT";
+
+message LogInfo {
+	logs.ClickTrackingCGI click_tracking_cgi = 1;
+	bool enable_click_track = 2;
+
+	enum Visibility {
+		option features.enum_type = CLOSED;
+
+		VISIBLE = 0;
+		HIDDEN = 1;
+		CHILDREN_HIDDEN = 2;
+	}
+
+	Visibility visibility = 3 [ default = VISIBLE ];
+	string psig = 4;
+	string ust = 5;
+	string signature = 100;
+	string ved = 200;
+	string escaped_event_id = 300;
+	string shown_query_info = 400;
+}

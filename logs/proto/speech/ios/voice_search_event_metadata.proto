@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/speech_recognizer_event_metadata.proto";
+import "logs/proto/speech/ios/voice_search_ui_type.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message VoiceSearchEventMetadata {
+	SpeechRecognizerEventMetadata recognizer_metadata = 1;
+	bool show_language_picker = 2;
+	VoiceSearchUIType voice_search_ui_type = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message FauxbakePictureInfo {
+	string accessibility_label = 1;
+	string accessibility_hint = 2;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+import "moneta/orchestration2/ui/common/input/redaction_strategy.proto";
+import "moneta/orchestration2/ui/common/input/template_formatting_strategy.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InputDataTransform {
+	oneof strategy {
+		RedactionStrategy redaction_strategy = 2;
+		TemplateFormattingStrategy template_formatting_strategy = 4;
+	}
+}

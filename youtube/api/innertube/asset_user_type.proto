@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AssetUserType {
+	option features.enum_type = CLOSED;
+
+	ASSET_USER_TYPE_UNKNOWN = 0;
+	ASSET_USER_TYPE_SHORTS = 1;
+	ASSET_USER_TYPE_PRODUCER = 2;
+	ASSET_USER_TYPE_SHORTS_PREVIEW = 3;
+	ASSET_USER_TYPE_CREATOR_STUDIO = 4;
+	ASSET_USER_TYPE_YOUTUBE_MUSIC = 5;
+	ASSET_USER_TYPE_YT_LIVE = 6;
+	ASSET_USER_TYPE_YT_SHORTS_EDITOR = 7;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration.ui.purchasemanager;
+
+import "moneta/integrator/common/funds_guarantee_id.proto";
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/ui/purchasemanager/purchase_manager_parameter_enums.proto";
+import "moneta/integrator/ui/common/securedata/secure_data_parameters.proto";
+import "moneta/integrator/common/product_correlation_id.proto";
+
+option objc_class_prefix = "PurchaseManager";
+
+message Parameters {
+	oneof context {
+		string checkout_order_id = 1;
+		integrator.common.FundsGuaranteeId funds_guarantee_id = 8;
+	}
+
+	integrator.ui.common.CommonParameters common_parameters = 3;
+	integrator.ui.purchasemanager.PurchaseManagerParameterEnums.PurchaseManagerScenario purchase_manager_scenario = 4;
+	string integrator_request_id = 5;
+	int64 instrument_id = 6;
+	bool is_standing_instruction_applicable = 9;
+	string integrator_package_name = 11;
+	string credit_card_id = 12;
+	integrator.ui.common.securedata.SecureDataParameters secure_data_parameters = 13;
+	string integrator_merchant_identifier = 14;
+	bool display_brand_image = 15;
+	bool user_allows_fido_authentication = 16 [ default = true ];
+	bool virtual_card_requested = 20;
+	bool is_explicit_user_action = 21;
+	string instrument_flow_id = 22;
+	string client_resumability_key = 43;
+	bytes integrator_callback_data = 47;
+	integrator.common.ProductCorrelationId seller_product_correlation_id = 50;
+	int64 billing_account_id = 57;
+}

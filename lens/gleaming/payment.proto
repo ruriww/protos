@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/gleaming/pix_payment_data.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Payment {
+	oneof payment_data {
+		PixPaymentData pix_payment_data = 1;
+	}
+}

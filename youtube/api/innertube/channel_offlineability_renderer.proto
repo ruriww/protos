@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_offlineability_quality_supported_renderers.proto";
+import "youtube/api/innertube/channel_offlineability_videos_supported_renderers.proto";
+import "youtube/api/innertube/channel_offlineability_post_enable_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_offlineability_video_count_option_renderer.proto";
+import "youtube/api/innertube/channel_offlineability_video_options_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelOfflineabilityRenderer {
+	ChannelOfflineabilityQualitySupportedRenderers quality = 1;
+	ChannelOfflineabilityVideosSupportedRenderers videos = 2;
+	ChannelOfflineabilityPostEnableSupportedRenderers post_enable = 3;
+}
+
+extend Renderer {
+	ChannelOfflineabilityRenderer channel_offlineability_renderer = 111331471;
+}
+
+extend Renderer {
+	ChannelOfflineabilityVideoCountOptionRenderer channel_offlineability_video_count_option_renderer = 110470616;
+}
+
+extend Renderer {
+	ChannelOfflineabilityVideoOptionsRenderer channel_offlineability_video_options_renderer = 112709047;
+}

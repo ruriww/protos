@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto.text;
+
+option objc_class_prefix = "INKPB";
+
+message RelativeSize {
+	float width_multiplier = 1;
+	float height_multiplier = 2;
+}

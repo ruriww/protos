@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Edges {
+	UnitSize top = 1;
+	UnitSize bottom = 2;
+	UnitSize start = 3;
+	UnitSize end = 4;
+}

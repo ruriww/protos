@@ -1,0 +1,22 @@
+edition = "2023";
+
+package growth;
+
+import "growth/event_enums.proto";
+
+option objc_class_prefix = "GRW";
+
+message AppSwitchingPreference {
+	EventEnums.IntentType intent_type = 1;
+	string preferred_app_installed_bundle_identifier = 2;
+
+	enum AskEveryTimeTogglePreference {
+		option features.enum_type = CLOSED;
+
+		NOT_SET = 0;
+		SET_ENABLED = 1;
+		SET_DISABLED = 2;
+	}
+
+	AskEveryTimeTogglePreference ask_every_time_preference = 3;
+}

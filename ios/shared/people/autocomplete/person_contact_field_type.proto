@@ -1,0 +1,20 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+enum PersonContactFieldType {
+	option features.enum_type = CLOSED;
+
+	FIELD_TYPE_UNSPECIFIED = 0;
+	PERSON_NAME = 1;
+	PERSON_EMAIL = 2;
+	PERSON_NICKNAME = 3;
+	PERSON_PHONE = 4;
+	PERSON_PHONE_CANONICALIZED_FORM = 5;
+	PERSON_ORGANIZATION_NAME = 6;
+	PERSON_ORGANIZATION_DOMAIN = 7;
+	CONTACT_GROUP_NAME = 8;
+	PERSON_IN_APP_NOTIFICATION_TARGET = 9;
+}

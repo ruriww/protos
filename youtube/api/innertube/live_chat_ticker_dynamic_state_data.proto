@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/live_chat_ticker_slide_direction.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTickerDynamicStateData {
+	string like_count_entity_key = 1;
+	Icon like_icon = 2;
+	LiveChatTickerSlideDirection state_slide_direction = 3;
+	uint32 state_slide_duration_ms = 4;
+	uint32 state_update_delay_before_ms = 5;
+	uint32 state_update_delay_after_ms = 6;
+	elements.AttributedString likes_empty_state_text = 7;
+	Icon liked_icon = 8;
+	string engagement_state_entity_key = 9;
+	string reply_count_entity_key = 10;
+	Icon reply_icon = 11;
+	elements.AttributedString empty_state_text = 12;
+}

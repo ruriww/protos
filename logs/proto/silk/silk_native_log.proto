@@ -1,0 +1,63 @@
+edition = "2023";
+
+package logs.proto.silk;
+
+import "search/frontend/silk/runtime/silk_surface_enums.proto";
+
+option objc_class_prefix = "SLKLOG";
+
+message SilkNativeLog {
+	uint64 service_name = 1;
+	uint64 method_name = 2;
+
+	enum RuntimeEnvironment {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_RUNTIME_ENVIRONMENT = 0;
+		WEB = 1;
+		XUIKIT = 2;
+	}
+
+	RuntimeEnvironment runtime_environment = 3 [ default = UNKNOWN_RUNTIME_ENVIRONMENT ];
+
+	enum Feature {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FEATURE = 0;
+	}
+
+	Feature feature = 4 [ default = UNKNOWN_FEATURE ];
+	search.frontend.silk.runtime.SilkSurfaceEnums.NativeSurface native_surface = 5 [ default = UNKNOWN_SURFACE ];
+
+	enum Resolution {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_RESOLUTION = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		DEALLOCATED = 3;
+		DISCARDED = 4;
+	}
+
+	Resolution resolution = 6 [ default = UNKNOWN_RESOLUTION ];
+	uint64 error_id = 7;
+	string string_service_name = 8;
+	string string_method_name = 9;
+	string string_error_id = 10;
+	string app_version = 11;
+	int32 memory_usage = 12;
+	uint64 latency = 13;
+	uint64 attribution_id = 14;
+	string host = 15;
+	string url_path = 16;
+
+	enum ErrorType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ERROR = 0;
+		INFRASTRUCTURE_ERROR = 1;
+		SERVICE_ERROR = 2;
+	}
+
+	ErrorType error_type = 17;
+}

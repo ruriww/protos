@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+option objc_class_prefix = "ORCH2";
+
+message InputDataAutoAdvance {
+	int64 scope_data_reference = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/confirm_dialog_renderer.proto";
+import "youtube/api/innertube/ypc_transaction_error_message_renderer.proto";
+import "youtube/api/innertube/ypc_transaction_success_message_renderer.proto";
+import "youtube/api/innertube/membership_post_cancel_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCCancelRecurrenceSupportedRenderers {
+	oneof renderer {
+		ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+		YPCTransactionErrorMessageRenderer error_message = 65500215;
+		YPCTransactionSuccessMessageRenderer ypc_transaction_success_message_renderer = 94806945;
+		MembershipPostCancelRenderer membership_post_cancel_renderer = 96619486;
+	}
+}

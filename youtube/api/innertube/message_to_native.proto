@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/set_effect.proto";
+import "youtube/api/innertube/log_ve.proto";
+import "youtube/api/innertube/start_camera.proto";
+import "youtube/api/innertube/open_link.proto";
+import "youtube/api/innertube/web_layer_loaded.proto";
+import "youtube/api/innertube/start_ar_forward.proto";
+import "youtube/api/innertube/go_to_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MessageToNative {
+	oneof command {
+		SetEffect effect = 1;
+		LogVe log_ve = 2;
+		StartCamera start_camera = 3;
+		OpenLink open_link = 7;
+		WebLayerLoaded web_layer_loaded = 8;
+		StartArForward start_ar_forward = 14;
+		GoToSettings go_to_settings = 18;
+	}
+}

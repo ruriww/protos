@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+import "ink/proto/element_attributes.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementRemoved {
+	string uuid = 1;
+	string layer_uuid = 2;
+	ElementAttributes attributes = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeProductPlacementRequestParams {
+	bool new_has_paid_product_placement = 1;
+	bool new_show_paid_product_placement_overlay = 2;
+	bool new_is_paid_product_placement_self_declared_definitive = 3;
+	bool new_has_paid_political_content = 4;
+}

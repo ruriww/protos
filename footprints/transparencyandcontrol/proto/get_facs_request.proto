@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/caller_info.proto";
+import "footprints/transparencyandcontrol/proto/activity_controls_setting.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetFacsRequest {
+	CallerInfo caller_info = 1;
+	repeated ActivityControlsSetting setting = 2;
+}

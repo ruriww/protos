@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/data/data_accessibility_attributes.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorDataAccessibilityAttributes {
+	extend data.DataAccessibilityAttributes {
+		SelectorDataAccessibilityAttributes selector_data_accessibility_attributes_extension = 317666136;
+	}
+
+	string first_time_selector_expansion_accessibility_text = 1;
+}

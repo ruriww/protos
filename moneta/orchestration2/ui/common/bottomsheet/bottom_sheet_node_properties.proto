@@ -1,0 +1,29 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+import "moneta/orchestration2/ui/common/bottomsheet/rendering_mode_height_properties.proto";
+import "moneta/orchestration2/ui/common/bottomsheet/rendering_mode_state_properties.proto";
+import "moneta/orchestration2/ui/common/modal/modal_node_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BottomSheetNodeProperties {
+	enum BottomSheetRenderingMode {
+		option features.enum_type = CLOSED;
+
+		BOTTOM_SHEET_RENDERING_MODE_UNKNOWN = 0;
+		BOTTOM_SHEET_RENDERING_MODE_HEIGHT = 1;
+		BOTTOM_SHEET_RENDERING_MODE_STATE = 2;
+	}
+
+	BottomSheetRenderingMode rendering_mode = 1;
+
+	oneof properties {
+		RenderingModeHeightProperties height_mode_properties = 2;
+		RenderingModeStateProperties state_mode_properties = 3;
+	}
+
+	bool user_draggable = 4;
+	modal.ModalNodeProperties modal_node_properties = 5;
+}

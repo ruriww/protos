@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FlowLoggingEventClassification {
+	option features.enum_type = CLOSED;
+
+	FLOW_LOGGING_EVENT_CLASSIFICATION_UNKNOWN = 0;
+	FLOW_LOGGING_EVENT_CLASSIFICATION_START_EVENT = 1;
+}

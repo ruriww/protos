@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/point.proto";
+
+option objc_class_prefix = "INKPB";
+
+message RotRect {
+	Point center = 1;
+	float width = 2;
+	float height = 3;
+	float rotation_radians = 4;
+}

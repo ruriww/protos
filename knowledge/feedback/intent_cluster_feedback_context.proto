@@ -1,0 +1,8 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message IntentClusterFeedbackContext {
+}

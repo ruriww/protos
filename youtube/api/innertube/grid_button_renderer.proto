@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridButtonRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	Icon icon = 3;
+
+	oneof endpoint {
+		Command navigation_endpoint = 4;
+		Command service_endpoint = 7;
+	}
+
+	bytes tracking_params = 6;
+	Icon title_icon = 8;
+	ThumbnailDetails thumbnail = 9;
+}
+
+extend Renderer {
+	GridButtonRenderer grid_button_renderer = 72566494;
+}

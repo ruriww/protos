@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package video_streaming;
+
+import "youtube/api/innertube/client_info.proto";
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message StreamerContext {
+	optional youtube.api.innertube.ClientInfo client = 1;
+	optional bytes po_token = 2;
+	optional bytes playback_cookie = 3;
+	optional bytes unnamed_field_4 = 4;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ParentLoginConfig {
+	bool enable_non_red_promo = 1;
+	int32 login_blocking_duration_secs = 2;
+	bool enable_auto_login = 3;
+	bool force_sign_out = 4;
+	bool force_sign_out_for_zero_profiles = 5;
+	bool force_onboarding_on_sign_out = 6;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/key_exchange_result.proto";
+import "cast/broadcast_error.proto";
+
+option objc_class_prefix = "CADP";
+
+message KeyExchangeRequest {
+	cast.KeyExchangeResult result = 1;
+	int64 request_timestamp_ms = 2;
+	cast.BroadcastError key_exchange_error = 3;
+}

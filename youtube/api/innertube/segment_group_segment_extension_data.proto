@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/segment_extension_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SegmentGroupSegmentExtensionData {
+	extend SegmentExtensionData {
+		SegmentGroupSegmentExtensionData segment_group_segment_extension_data = 1003;
+	}
+
+	string segment_group_id = 1;
+}

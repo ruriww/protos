@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_list_video_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_badge_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/music_list_video_swipe_supported_renderers.proto";
+import "youtube/api/innertube/music_list_video_offlineability_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicListVideoRenderer {
+	MusicListVideoThumbnailSupportedRenderers thumbnail_renderer = 1;
+	FormattedString title = 2;
+	FormattedString byline_text = 3;
+	Command navigation_endpoint = 4;
+	repeated ThumbnailBadgeSupportedRenderers thumbnail_badges = 5;
+	bytes tracking_params = 7;
+	Icon byline_icon = 8;
+	LikeButtonSupportedRenderers like_button = 9;
+	bool child_item = 10;
+	MenuSupportedRenderers menu = 11;
+	MusicListVideoSwipeSupportedRenderers swipe_from_left_renderer = 12;
+	FormattedString index_text = 13;
+	MusicListVideoSwipeSupportedRenderers swipe_from_right_renderer = 14;
+	repeated MusicListVideoSwipeSupportedRenderers swipe_buttons = 15;
+	MusicListVideoOfflineabilitySupportedRenderers offlineability = 16;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	MusicListVideoRenderer music_list_video_renderer = 89166951;
+}

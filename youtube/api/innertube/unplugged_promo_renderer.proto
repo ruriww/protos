@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/app_dialog_type.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedPromoRenderer {
+	FormattedString primary_text = 1;
+	FormattedString secondary_text = 2;
+	FormattedString tertiary_text = 3;
+	ThumbnailDetails foreground_image = 4;
+	ButtonSupportedRenderers action_button = 5;
+	ButtonSupportedRenderers dismiss_button = 6;
+	Command dismiss_action = 7;
+	repeated Command impression_endpoints = 8;
+	bytes tracking_params = 10;
+	ButtonSupportedRenderers terms_button = 11;
+	AppDialogType app_dialog_type = 12;
+	Command on_open_command = 13;
+	ButtonSupportedRenderers secondary_button = 14;
+	UnpluggedAnimationDetails animation = 16;
+	bool is_visible = 17 [ default = true ];
+	bool is_placeholder_for_on_open_command = 18;
+	google.protobuf.Duration minimum_open_duration = 19;
+}
+
+extend Renderer {
+	UnpluggedPromoRenderer unplugged_promo_renderer = 144754891;
+}

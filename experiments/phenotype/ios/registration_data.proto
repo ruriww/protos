@@ -1,0 +1,16 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+option objc_class_prefix = "EPI";
+
+message RegistrationData {
+	string config_package = 1;
+	int64 version_code = 2;
+	bytes application_properties = 3;
+	string bundle_id = 4;
+	int64 registration_time_seconds = 5;
+	sfixed64 baseline_cl = 6;
+	bytes runtime_application_properties = 7;
+	bytes heterodyne_info = 8;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsProfileSwitcherContext {
+	option features.enum_type = CLOSED;
+
+	KIDS_PROFILE_SWITCHER_CONTEXT_UNKNOWN = 0;
+	KIDS_PROFILE_SWITCHER_CONTEXT_ONBOARDING = 1;
+	KIDS_PROFILE_SWITCHER_CONTEXT_SIGN_IN_REQUIRED = 2;
+	KIDS_PROFILE_SWITCHER_CONTEXT_USER_INITIATED = 3;
+	KIDS_PROFILE_SWITCHER_CONTEXT_CONFIRMATION = 4;
+}

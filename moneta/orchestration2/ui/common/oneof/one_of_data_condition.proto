@@ -1,0 +1,30 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.oneof;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message OneOfDataCondition {
+	extend eventrules.condition.Condition {
+		OneOfDataCondition one_of_data_condition_extension = 306364199;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_ACTIVE_OPTION_MATCH = 1;
+	}
+
+	ConditionType condition_type = 1;
+
+	message ActiveOptionMatchCondition {
+		int32 active_option_id = 1;
+	}
+
+	oneof condition {
+		ActiveOptionMatchCondition active_option_match_condition = 2;
+	}
+}

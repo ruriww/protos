@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextInputRenderer {
+	string placeholder_text = 1;
+	AccessibilitySupportedDatas accessibility_data = 2;
+}
+
+extend Renderer {
+	TextInputRenderer text_input_renderer = 91227761;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "xeno/effect/vec2_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message CameraViewTransformEventProto {
+	Vec2Proto position = 1;
+	Vec2Proto scale = 2;
+	float rotation = 3;
+	Vec2Proto uv_offset = 4;
+	Vec2Proto uv_repeat = 5;
+}

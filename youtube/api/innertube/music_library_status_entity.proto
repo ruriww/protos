@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicLibraryStatusEntity {
+	string id = 1;
+	bool in_library = 2;
+	bytes add_to_library_feedback_token = 3;
+	bytes remove_from_library_feedback_token = 4;
+}

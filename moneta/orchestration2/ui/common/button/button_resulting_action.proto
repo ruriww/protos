@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.button;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/button/button_new_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ButtonResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		ButtonResultingAction button_resulting_action_extension = 232057536;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_NEW_VALUE = 1;
+		RESULTING_ACTION_TYPE_NEW_EXPANSION_STATE = 2;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof resulting_action {
+		ButtonNewValue new_value = 2;
+	}
+}

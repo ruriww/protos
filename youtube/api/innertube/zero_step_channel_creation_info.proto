@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ZeroStepChannelCreationInfo {
+	option features.enum_type = CLOSED;
+
+	ZERO_STEP_CHANNEL_CREATION_INFO_UNKNOWN = 0;
+	ZERO_STEP_CHANNEL_CREATION_INFO_COMMENT_FLOW_SUCCESS = 1;
+	ZERO_STEP_CHANNEL_CREATION_INFO_SHORT_UPLOAD_FLOW_SUCCESS = 2;
+	ZERO_STEP_CHANNEL_CREATION_INFO_COSTREAM_FLOW_SUCCESS = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message InputAttributes {
+	string rows = 1;
+	string cols = 2;
+	int32 char_limit = 3 [ default = 1000 ];
+}

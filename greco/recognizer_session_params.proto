@@ -1,0 +1,125 @@
+edition = "2023";
+
+package greco;
+
+import "speech/common/recognition_context.proto";
+import "greco/diarization_params.proto";
+
+option objc_class_prefix = "GRC";
+
+message RecognizerSessionParams {
+	enum AudioType {
+		option features.enum_type = CLOSED;
+
+		LINEAR16 = 0;
+		FLOAT32 = 1;
+		FLAC = 2;
+		AMR = 3;
+		MULAW = 4;
+		SPEEX_NB = 5;
+		SPEEX_WB = 6;
+		OGG_VORBIS = 7;
+		ADTS_AAC = 8;
+		AMR_WB = 9;
+		OGG_OPUS = 10;
+		WEBM_OPUS = 11;
+		MKV = 12;
+		MP3 = 13;
+		OPUS = 14;
+		ALAW = 15;
+	}
+
+	AudioType type = 1 [ default = LINEAR16 ];
+	float sample_rate = 2 [ default = 8000 ];
+	bool mask_offensive_words = 3 [ default = true ];
+	bool enable_alternates = 4 [ default = false ];
+	int32 num_nbest = 6;
+	bool enable_partial_results = 7 [ default = true ];
+	int32 reset_interval_ms = 8;
+	float hotword_decision_threshold = 9;
+	int32 channel_count = 10 [ default = 1 ];
+	bool enable_frame_logging = 11 [ default = false ];
+	string force_transcript = 12;
+	bool enable_partial_nbest = 13;
+	bool enable_speaker_training = 14 [ default = false ];
+	string speaker_id = 15;
+	string speaker_profiles_filename = 16;
+	bool enable_result_prefetch = 17;
+	AudioType preamble_type = 18;
+	float preamble_sample_rate = 19;
+	int32 preamble_channel_count = 20 [ default = 1 ];
+	bool enable_partial_confidence_scores = 21;
+	string myhotword_model_filepath = 22;
+	float vt_warp_factor = 24 [ default = 1 ];
+	string surrounding_text_prefix = 25;
+	string surrounding_text_suffix = 26;
+	bool enable_tracing = 27;
+	string tracing_inspector = 28;
+	bool enable_decoder_events = 29;
+	speech.common.RecognitionContext recognition_context = 32;
+	bool enable_predicted_recognition_events = 33;
+	bool enable_debugging = 34;
+	float predicted_recognition_probability_threshold = 35 [ default = 1 ];
+	repeated string preamble_word = 36;
+	bool decode_and_drop_preamble_audio = 37;
+	int32 hotword_start_time_ms = 38;
+	bool enable_intended_query_result = 39;
+	bool apply_preamble_based_dynamic_scale = 40;
+	bool is_open_mic_query = 41;
+	bool enable_automatic_punctuation = 42;
+	bool enable_second_pass_rescoring = 43 [ default = true ];
+	bool output_partial_alignments = 44;
+	DiarizationParams diarization_params = 45;
+	bytes preamble_audio_bytes = 48;
+	string previous_transcript = 49;
+	bool enable_combined_nbest = 50 [ default = true ];
+	bytes speaker_profiles_bytes_overwrite = 51;
+	string recognized_hotword_speaker_id = 52;
+	bool enable_voice_filter = 53 [ default = false ];
+	bool force_disable_speaker_verification = 54 [ default = false ];
+	string ondevice_program_cache_dir = 56;
+	bool force_disable_open_mic = 57 [ default = false ];
+	bool enable_spoken_punctuation = 58;
+	bool enable_spoken_emoji = 59;
+	int32 segmenter_impatience_start_ms = 61;
+	int32 segmenter_impatience_limit_ms = 62;
+	repeated string langid_allowlist = 64;
+
+	message SideInfoChannelConfig {
+		enum SideInfoType {
+			option features.enum_type = CLOSED;
+
+			NOT_SET = 0;
+			SYNCED_LOOPBACK = 1;
+			CLEANER_OUTPUT = 2;
+			BEAMFORMER_OUTPUT = 3;
+			BUDS_INNER_MIC = 4;
+			BUDS_ACCEL = 5;
+		}
+
+		repeated SideInfoType side_info_channels = 1;
+	}
+
+	SideInfoChannelConfig side_info_channel_config = 66;
+	bool enable_personal_vad = 67 [ default = false ];
+	bool ondevice_async_resource_loading = 68 [ default = false ];
+	repeated float ondevice_word_confidence_thresholds_list = 69;
+	repeated float ondevice_utt_confidence_thresholds_list = 70;
+	bool enable_audio_logging = 71 [ default = true ];
+	string impersonated_speaker_id = 73;
+	float original_lm_factor = 74;
+	float new_lm_factor = 75;
+	string transcript = 76;
+	bool voice_filter_only_on_recognized_speaker = 77;
+	bool force_disable_cleanformer = 78 [ default = false ];
+	bool force_disable_nes = 79 [ default = false ];
+	int64 predicted_recognition_partner_id = 80;
+	bool return_preprocessed_audio = 81;
+	bool force_disable_fft_enhancer = 82 [ default = false ];
+	bool enable_signal_quality_metrics = 83;
+	int64 aicore_session_manager_handle = 84;
+	bool enable_token_outputs = 85;
+	float nam_retriever_threshold_score = 87;
+	string locale = 88;
+	string source_locale = 89;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message ProcessStats {
+	int32 thread_count = 1;
+}

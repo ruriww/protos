@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/epg_supported_renderers.proto";
+import "youtube/api/innertube/continuation_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgPaginationRenderer {
+	extend ContinuationSupportedRenderers {
+		EpgPaginationRenderer epg_pagination_renderer = 171740502;
+	}
+
+	int64 begin_time_ms = 1;
+	int64 end_time_ms = 2;
+	repeated EpgSupportedRenderers contents = 3;
+	repeated ContinuationData continuations = 4;
+	Renderer header = 8;
+	bool is_from_continuation = 9;
+	int32 width_per_minute = 10;
+}

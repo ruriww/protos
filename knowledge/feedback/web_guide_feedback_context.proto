@@ -1,0 +1,11 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message WebGuideFeedbackContext {
+	string debug_link = 1;
+
+	extensions 2;
+}

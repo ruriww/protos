@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdeMadeForKidsUpdateOperation {
+	option features.enum_type = CLOSED;
+
+	MDE_MADE_FOR_KIDS_UPDATE_OPERATION_UNKNOWN = 0;
+	MDE_MADE_FOR_KIDS_UPDATE_OPERATION_SET = 1;
+	MDE_MADE_FOR_KIDS_UPDATE_OPERATION_CLEAR = 2;
+}

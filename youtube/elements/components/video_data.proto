@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/video_thumbnail_data.proto";
+import "youtube/elements/components/metadata.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/avatar_view_model.proto";
+import "youtube/elements/components/button.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message VideoData {
+	api.innertube.VideoThumbnailData thumbnail = 1;
+
+	oneof metadata_field {
+		Metadata metadata = 2;
+		api.innertube.Renderer lockup_metadata = 21;
+	}
+
+	api.innertube.AvatarViewModel avatar = 3;
+	bool is_android = 4;
+	bool is_large_form_factor = 5;
+	string drag_and_drop_url = 6;
+	string video_id = 7;
+	string channel_id = 9;
+	Button call_to_action_button = 15;
+	string dismiss_state_entity_id = 18;
+	string transition_key_suffix = 20;
+	api.innertube.Renderer decorated_avatar_view_model = 23;
+	api.innertube.Renderer avatar_stack = 24;
+}

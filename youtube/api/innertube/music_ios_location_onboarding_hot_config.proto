@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicIosLocationOnboardingHotConfig {
+	bool ios_enable_location_onboarding_fine_grained_permission = 1;
+	bool ios_enable_location_onboarding_user_location_reporting = 2;
+	int32 ios_fine_grained_first_request_delay_seconds = 3;
+	int32 ios_ulr_first_request_delay_seconds = 4;
+	bool ios_fine_grained_request_when_in_use_instead_of_always_on = 5;
+	bool ios_enable_no_context_location_history_bottom_sheet = 6;
+}

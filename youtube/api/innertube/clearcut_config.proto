@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/clearcut_directive.proto";
+import "youtube/api/innertube/eom_denied_clearcut_log.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClearcutConfig {
+	bool clearcut_logging_disabled = 1;
+	bool monitor_clearcut_logs_enabled = 2;
+	repeated ClearcutDirective clearcut_directives = 3;
+	repeated EOMDeniedClearcutLog eom_deny_list = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message OpenText {
+	string subtitle = 1;
+	string placeholder = 2;
+	string footer = 3;
+}

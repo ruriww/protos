@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelWatchSequenceProvider {
+	option features.enum_type = CLOSED;
+
+	REEL_WATCH_SEQUENCE_PROVIDER_UNSPECIFIED = 0;
+	REEL_WATCH_SEQUENCE_PROVIDER_SHELF = 1;
+	REEL_WATCH_SEQUENCE_PROVIDER_RPC = 2;
+	REEL_WATCH_SEQUENCE_PROVIDER_OFFLINE = 3;
+}

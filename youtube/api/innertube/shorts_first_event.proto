@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_first_bounce_event.proto";
+import "youtube/api/innertube/shorts_first_bounce_count_reset_event.proto";
+import "youtube/api/innertube/shorts_first_app_launch_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsFirstEvent {
+	oneof event {
+		ShortsFirstBounceEvent bounce_event = 1;
+		ShortsFirstBounceCountResetEvent bounce_reset_event = 2;
+		ShortsFirstAppLaunchEvent app_launch_event = 3;
+	}
+
+	string shorts_first_nonce = 4;
+}

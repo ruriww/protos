@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message Separator {
+	int64 ui_reference = 1;
+	string description = 3;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

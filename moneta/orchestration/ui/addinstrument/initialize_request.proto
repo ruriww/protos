@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addinstrument;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/addinstrument/parameters.proto";
+import "moneta/orchestration/ui/common/bootstrap/client_parameters.proto";
+
+option objc_class_prefix = "AddInstrument";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+
+	oneof params {
+		Parameters parameters = 2;
+		bytes encrypted_parameters = 3;
+	}
+
+	common.bootstrap.ClientParameters payments_client_parameters = 4;
+}

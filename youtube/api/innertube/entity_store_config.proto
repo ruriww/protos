@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EntityStoreConfig {
+	bool ios_android_enable_in_memory_entity_store_eviction = 1;
+	float minimum_keep_until_interval = 2;
+	bool enable_memory_warning_eviction = 3;
+	bool ios_enable_single_reader_writer_locking = 5;
+	bool ios_enable_error_logging = 6;
+	uint32 ios_error_logging_maximum_count = 7;
+	bool android_enable_error_logging = 8;
+	uint32 android_error_logging_maximum_count = 9;
+	bool enable_entity_batch_update_timestamp_checks = 11;
+	bool ios_enable_entity_store_query_support = 12;
+	bool ios_enable_entity_store_update_type = 13;
+	bool ios_enable_caching_in_persistent_entity_store = 14;
+	uint32 persistent_entity_store_caching_entry_limit = 15;
+	bool ios_enable_cpp_in_memory_store = 16;
+	bool android_enable_cpp_in_memory_store = 17;
+	bool android_enable_persistent_store_v2 = 19;
+	bool ios_enable_in_memory_entity_store_single_key_metadata_storage = 22;
+	bool bytestore_update_contents_preobserver = 23;
+	bool ios_enable_srl_account_scoped_persistent_entity_store_in_provider = 24;
+	bool ios_disable_entity_store_lock_fetch_in_byte_store_observation = 25;
+}

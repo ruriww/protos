@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/asset_detail.proto";
+import "youtube/api/innertube/image_asset.proto";
+import "youtube/api/innertube/video_asset.proto";
+import "youtube/api/innertube/skottie_asset.proto";
+import "youtube/api/innertube/xeno_effect_asset.proto";
+import "youtube/api/innertube/audio_asset.proto";
+import "youtube/api/innertube/font_asset.proto";
+import "youtube/api/innertube/avatar_asset.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetRuntimeData {
+	AssetDetail asset_detail = 1;
+
+	oneof asset {
+		ImageAsset image = 2;
+		VideoAsset video = 3;
+		SkottieAsset skottie = 4;
+		XenoEffectAsset xeno_effect = 5;
+		AudioAsset audio = 7;
+		FontAsset font = 9;
+		AvatarAsset avatar = 10;
+	}
+
+	string asset_logging_id = 6;
+	Renderer renderer = 8;
+}

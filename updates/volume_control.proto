@@ -1,0 +1,61 @@
+edition = "2023";
+
+package updates;
+
+option objc_class_prefix = "Update";
+
+message VolumeControl {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		CIRCLE = 1;
+		WHATS_HOT = 2;
+		GAMES = 3;
+		SQUARES = 4;
+	}
+
+	message Key {
+		Type type = 1;
+		string focus_group_id = 2;
+		string obfuscated_gaia_id = 3;
+		string deleted_4 = 4;
+	}
+
+	enum Value {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		LESS = 1;
+		NORMAL = 2;
+		MORE = 3;
+		NOTIFY = 4;
+	}
+
+	enum NotificationSetting {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OFF = 1;
+		ON = 2;
+	}
+
+	message VolumeSettings {
+		Value stream_volume_setting = 1 [ default = NORMAL ];
+		NotificationSetting notification_setting = 2 [ default = OFF ];
+	}
+
+	message VolumePair {
+		Key key = 1;
+		VolumeSettings volume_settings = 2;
+	}
+
+	message Map {
+		repeated Pair setting = 1;
+		repeated VolumePair volume_pair = 2;
+	}
+
+	message Pair {
+		Key key = 1;
+		Value value = 2;
+	}
+}

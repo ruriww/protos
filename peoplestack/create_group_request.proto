@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+import "social/graph/wire/proto/peopleapi/minimal/affinity.proto";
+import "peoplestack/client_information.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "PSK";
+
+message CreateGroupRequest {
+	social.graph.wire.proto.peopleapi.minimal.Affinity.AffinityType affinity_type = 1;
+	ClientInformation client_information = 2;
+	string name = 3;
+	google.protobuf.Duration ttl = 5;
+	string external_resource_id = 6;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+option objc_class_prefix = "YTBA";
+
+message BedtimeReminderInfoResult {
+	string bedtime_content_subtitle_text = 1;
+}

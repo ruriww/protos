@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/common/components/customer/customer_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/credit_card_update_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form_value.proto";
+import "moneta/orchestration/ui/common/components/encryption_form_value.proto";
+
+option objc_class_prefix = "IManager";
+
+message PageValue {
+	oneof form {
+		common.components.customer.CustomerFormValue new_customer = 1;
+		common.components.instrument.InstrumentFormValue new_instrument = 2;
+		common.components.instrument.types.CreditCardUpdateFormValue credit_card_update_form_value = 3;
+		common.components.instrument.InstrumentActivationFormValue instrument_activation_form_value = 7;
+	}
+
+	bytes dependency_graph_action_token = 6;
+	repeated string legal_doc_data = 8;
+	common.components.EncryptionFormValue encryption_form_value = 10;
+}

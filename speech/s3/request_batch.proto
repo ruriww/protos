@@ -1,0 +1,13 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message RequestBatch {
+	repeated Request requests = 1;
+
+	extensions 1024 to max;
+}

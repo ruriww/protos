@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatActionPanelRenderer {
+	Renderer header = 1;
+	Renderer contents = 2;
+	string id = 3;
+	string target_id = 4;
+	Command on_dismiss_command = 5;
+}
+
+extend Renderer {
+	LiveChatActionPanelRenderer live_chat_action_panel_renderer = 236157862;
+}

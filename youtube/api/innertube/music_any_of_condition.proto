@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_settings_condition.proto";
+import "youtube/api/innertube/music_video_condition.proto";
+import "youtube/api/innertube/music_playlist_condition.proto";
+import "youtube/api/innertube/music_album_release_condition.proto";
+import "youtube/api/innertube/music_track_condition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicAnyOfCondition {
+	repeated MusicCondition conditions = 1;
+}
+
+message MusicAllOfCondition {
+	repeated MusicCondition conditions = 1;
+}
+
+message MusicCondition {
+	oneof condition {
+		MusicAnyOfCondition any = 1;
+		MusicAllOfCondition all = 2;
+		MusicSettingsCondition settings_condition = 3;
+		MusicVideoCondition video_condition = 4;
+		MusicPlaylistCondition playlist_condition = 5;
+		MusicAlbumReleaseCondition album_release_condition = 6;
+		MusicTrackCondition track_condition = 7;
+	}
+}

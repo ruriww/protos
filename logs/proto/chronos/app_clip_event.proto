@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+import "logs/proto/chronos/maps_app_clip_event.proto";
+
+option objc_class_prefix = "CHR";
+
+message AppClipEvent {
+	enum Application {
+		option features.enum_type = CLOSED;
+
+		APPLICATION_UNSPECIFIED = 0;
+		MAPS = 1;
+	}
+
+	Application application = 1;
+	MapsAppClipEvent maps_app_clip_event = 2;
+	bool is_test_flight = 3;
+}

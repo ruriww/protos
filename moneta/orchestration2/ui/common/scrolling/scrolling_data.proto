@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingData {
+	extend data.Data {
+		ScrollingData scrolling_data_extension = 229613733;
+	}
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package engage.api.boq.support.discovery.logging.journey;
+
+import "unknown/youtube/csc_helpcenter_page_type12493.proto";
+import "wireless/mdl/unified_user_agent.proto";
+
+option objc_class_prefix = "SDL";
+
+message HelpCenterContext {
+	string support_journey_id = 1;
+	string url = 2;
+	string internal_help_center_name = 3;
+	unknown.youtube.CSCHelpcenterPageType12493.CSCHelpcenterPageType page_type = 4;
+	wireless.mdl.UnifiedUserAgent.DeviceRequestType udl_request_type = 5;
+	string language_served = 6;
+	string page_view_id = 7;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "proto2/bridge/message_set.proto";
+import "lens/request_context/routing_info.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message RequestId {
+	extend proto2.bridge.MessageSet {
+		RequestId message_set_extension = 525002142;
+	}
+
+	uint64 uuid = 1;
+	int32 sequence_id = 2;
+	int32 image_sequence_id = 3;
+	bytes analytics_id = 4;
+	string lbe_bns_address = 5;
+	RoutingInfo routing_info = 6;
+	uint64 time_usec = 7;
+	string image_reference_evals_only = 8;
+	int32 long_context_id = 9;
+
+	enum MediaType {
+		option features.enum_type = CLOSED;
+
+		MEDIA_TYPE_DEFAULT_IMAGE = 0;
+		MEDIA_TYPE_PDF = 1;
+		MEDIA_TYPE_WEBPAGE = 2;
+		MEDIA_TYPE_PDF_AND_IMAGE = 3;
+		MEDIA_TYPE_WEBPAGE_AND_IMAGE = 4;
+	}
+
+	MediaType media_type = 10;
+}

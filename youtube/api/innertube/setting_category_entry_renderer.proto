@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/setting_category_id.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingCategoryEntryRenderer {
+	Command navigation_endpoint = 1;
+	FormattedString title = 3;
+	SettingCategoryId category_id = 4;
+	bytes tracking_params = 6;
+	Command service_endpoint = 7;
+	Icon icon = 8;
+}

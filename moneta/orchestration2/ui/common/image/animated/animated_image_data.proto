@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/image/animated/animated_image_content.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AnimatedImageData {
+	extend data.Data {
+		AnimatedImageData animated_image_data_extension = 265527174;
+	}
+
+	AnimatedImageContent content = 1;
+	repeated eventrules.resultingaction.ResultingAction initial_resulting_action = 2;
+	repeated AnimatedImageContent ordered_content = 3;
+}

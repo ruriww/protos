@@ -1,0 +1,50 @@
+edition = "2023";
+
+package video_widevine;
+
+option objc_class_prefix = "WVI";
+
+message WidevinePsshData {
+	enum Algorithm {
+		option features.enum_type = CLOSED;
+
+		UNENCRYPTED = 0;
+		AESCTR = 1;
+	}
+
+	Algorithm algorithm = 1;
+	repeated bytes key_ids = 2;
+	string provider = 3;
+	bytes content_id = 4;
+	string track_type = 5;
+	string policy = 6;
+	uint32 crypto_period_index = 7;
+	bytes grouped_license = 8;
+	uint32 protection_scheme = 9;
+	uint32 crypto_period_seconds = 10;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		SINGLE = 0;
+		ENTITLEMENT = 1;
+		ENTITLED_KEY = 2;
+	}
+
+	Type type = 11 [ default = SINGLE ];
+	uint32 key_sequence = 12;
+	repeated bytes group_ids = 13;
+
+	message EntitledKey {
+		bytes entitlement_key_id = 1;
+		bytes key_id = 2;
+		bytes key = 3;
+		bytes iv = 4;
+		uint32 entitlement_key_size_bytes = 5 [ default = 32 ];
+	}
+
+	repeated EntitledKey entitled_keys = 14;
+	string video_feature = 15;
+	string audio_feature = 16;
+	uint32 entitlement_period_index = 17;
+}

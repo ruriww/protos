@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StartChildProfileCreationFlowCommand {
+	extend Command {
+		StartChildProfileCreationFlowCommand start_child_profile_creation_flow_command = 1830;
+	}
+
+	Command on_success = 1;
+	Command on_cancel = 2;
+}

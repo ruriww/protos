@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/active_view_traffic_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveViewTrackingPings {
+	repeated Ping active_view_viewable_pings = 1;
+	repeated Ping active_view_measurable_pings = 2;
+	repeated Ping active_view_fully_viewable_audible_half_duration_pings = 3;
+	repeated Ping active_view_end_of_session_pings = 4;
+	repeated Ping active_view_audio_audible_pings = 5;
+	repeated Ping active_view_audio_measurable_pings = 6;
+	ActiveViewTrafficType traffic_type = 7;
+	string identifier = 8;
+}

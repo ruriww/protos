@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/paymentmethods/page.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/common/widgetreference/load_target.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message SubmitResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+
+	oneof response {
+		bool refresh = 3;
+	}
+
+	Page next_page = 4;
+	common.generic.FlowInstruction flow_instruction = 5;
+	common.SecureDataHeader secure_header = 6;
+	common.widgetreference.LoadTarget next_load_target = 8;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/client/blocks/api/creation/text_transform_options.proto";
+
+option objc_class_prefix = "YTBA";
+
+message StyleIdTextTransformOptions {
+	extend TextTransformOptions {
+		StyleIdTextTransformOptions style_id_text_transform_options = 1000;
+	}
+
+	repeated int32 style_ids = 1;
+}

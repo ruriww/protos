@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_family_flow_confirmation_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedFamilyFlowProfileRenderer {
+	ThumbnailDetails main_thumbnail = 1;
+	repeated ThumbnailDetails secondary_thumbnails = 2;
+	FormattedString thumbnail_info = 3;
+	ButtonSupportedRenderers manage_button = 4;
+	FormattedString title = 5;
+	FormattedString content = 6;
+	FormattedString footer = 7;
+	ButtonSupportedRenderers dismiss_button = 8;
+	ButtonSupportedRenderers action_button = 9;
+	UnpluggedFamilyFlowConfirmationSupportedRenderers confirmation = 10;
+	bytes tracking_params = 12;
+}
+
+extend Renderer {
+	UnpluggedFamilyFlowProfileRenderer unplugged_family_flow_profile_renderer = 142642720;
+}

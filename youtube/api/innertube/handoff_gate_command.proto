@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/handoff_lr_device.proto";
+import "youtube/api/innertube/handoff_gates.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HandoffGateCommand {
+	extend Command {
+		HandoffGateCommand handoff_gate_command = 489362936;
+	}
+
+	Command on_success = 1;
+	Command on_failure = 2;
+	HandoffLrDevice lr_device = 3;
+	HandoffGates gates = 4;
+}

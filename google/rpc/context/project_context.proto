@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.rpc.context;
+
+import "google/rpc/context/project_property.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "RPC";
+
+message ProjectContext {
+	uint64 project_number = 1;
+	map<string, ProjectProperty> properties = 2;
+	string project_id = 3;
+	protobuf.Timestamp read_time = 4;
+}

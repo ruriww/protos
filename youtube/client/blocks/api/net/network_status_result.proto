@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.net;
+
+import "youtube/api/innertube/client_connection_type.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+import "youtube/api/innertube/network_metered_state.proto";
+
+option objc_class_prefix = "YTBA";
+
+message NetworkStatusResult {
+	youtube.api.innertube.ClientConnectionType connection_type = 1;
+	youtube.api.innertube.DetailedNetworkType detailed_network_type = 2;
+	youtube.api.innertube.NetworkMeteredState network_metered_state = 3;
+	bool low_data_mode = 4;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationEditorGhostOverlayRenderer {
+	Renderer header = 1;
+	Renderer rhs_button_bar = 2;
+	Renderer metadata_panel = 3;
+	Renderer leading_non_safe_area_indicator = 4;
+	Renderer trailing_non_safe_area_indicator = 5;
+	float fade_in_threshold_dp = 6;
+	float target_container_view_aspect_ratio = 7;
+	float fade_in_threshold_fraction = 8;
+}
+
+extend Renderer {
+	CreationEditorGhostOverlayRenderer creation_editor_ghost_overlay_renderer = 1834;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message CustomUiTypes {
+	enum CustomUiType {
+		option features.enum_type = CLOSED;
+
+		CUSTOM_UI_TYPE_UNKNOWN = 0;
+		CUSTOM_UI_TYPE_GROWTH_CATALOG_DIALOG = 1;
+		GROWTH_CATALOG_IOS_CUSTOM_UI_ID = 2;
+		CUSTOM_UI_TYPE_UI_TESTING_ID = 3;
+		CUSTOM_UI_TYPE_ANDROID_DESKTOP_GROWTH_NUDGE = 4;
+		CUSTOM_UI_TYPE_OG_CALLOUT = 5;
+		CUSTOM_UI_TYPE_APP_LAUNCHER = 6;
+		CUSTOM_UI_TYPE_TESTING_RPC_FETCHED = 7;
+	}
+}

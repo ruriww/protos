@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/non_video_prefetch_behavior.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SequencerPrefetchConfig {
+	NonVideoPrefetchBehavior non_video_prefetch_behavior = 1;
+	bool skip_noop_items = 2;
+	bool should_wrap = 3;
+}

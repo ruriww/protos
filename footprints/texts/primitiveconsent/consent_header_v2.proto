@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/header_row.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ConsentHeaderV2 {
+	HeaderRow header_row_one = 1;
+	HeaderRow header_row_two = 2;
+	HeaderRow header_row_three = 3;
+}

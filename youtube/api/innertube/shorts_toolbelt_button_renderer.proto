@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/toolbelt_button_type.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsToolbeltButtonRenderer {
+	ToolbeltButtonType toolbelt_button_type = 1;
+	Renderer button_renderer = 2;
+	string asset_item_entity_key = 3;
+	int32 entry_version_key = 4;
+}
+
+extend Renderer {
+	ShortsToolbeltButtonRenderer shorts_toolbelt_button_renderer = 491995789;
+}

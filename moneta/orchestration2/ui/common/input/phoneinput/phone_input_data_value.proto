@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/input/phoneinput/phone_number.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneInputDataValue {
+	extend data.DataValue {
+		PhoneInputDataValue phone_input_data_value_extension = 232060282;
+	}
+
+	PhoneNumber value = 1;
+}

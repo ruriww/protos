@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+import "google/internal/identity/securitydomain/v1/wrapped_product_key.proto";
+
+option objc_class_prefix = "SDS";
+
+message WrappedProductKeysByProductName {
+	string product_name = 1;
+	repeated WrappedProductKey wrapped_product_keys = 2;
+}

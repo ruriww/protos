@@ -1,0 +1,20 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/response.proto";
+
+option objc_class_prefix = "S3";
+
+message PinholeOutput {
+	extend Response {
+		PinholeOutput pinhole_output = 39442181;
+	}
+
+	string gws_header_fragment = 1;
+	bool gws_header_complete = 2;
+	bytes gws_body_fragment = 3;
+	bool gws_response_complete = 4;
+	string query = 6;
+	bool is_final_output = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/text_sticker_config.proto";
+import "drishti/app/skia/stickers/image_sticker_config.proto";
+import "drishti/app/skia/stickers/skottie_sticker_config.proto";
+import "drishti/app/skia/stickers/shape_sticker_config.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message DrawableConfig {
+	oneof drawable {
+		TextStickerConfig text_sticker = 1;
+		ImageStickerConfig image_sticker = 2;
+		SkottieStickerConfig skottie_sticker = 3;
+		ShapeStickerConfig shape_sticker = 4;
+	}
+}

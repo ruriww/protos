@@ -1,0 +1,12 @@
+edition = "2023";
+
+package securemessage;
+
+option objc_class_prefix = "SMSG";
+
+enum EncScheme {
+	option features.enum_type = CLOSED;
+
+	NONE = 1;
+	AES_256_CBC = 2;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DeviceIdType {
+	option features.enum_type = CLOSED;
+
+	DEVICE_ID_TYPE_UNSPECIFIED = 0;
+	DEVICE_ID_TYPE_APP_SPECIFIC_ID = 1;
+	DEVICE_ID_TYPE_GLOBAL_ID = 2;
+	DEVICE_ID_TYPE_ADVERTISER_ID = 3;
+	DEVICE_ID_TYPE_ADVERTISER_ID_UNHASHED = 4;
+	DEVICE_ID_TYPE_ANDROID_AD_ID = 5;
+	DEVICE_ID_TYPE_GFIBER_ADVERTISING_ID = 6;
+	DEVICE_ID_TYPE_PER_APP_ID = 7;
+	DEVICE_ID_TYPE_PER_APP_ID_V2 = 8;
+	DEVICE_ID_TYPE_CONNECTED_TV_IFA = 9;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/environment_scan.proto";
+import "chrome/dongle/opencast/device_capability.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message RegisterDeviceRequest {
+	string device_id = 1;
+	string gcm_id = 2;
+	EnvironmentScan environment_scan = 3;
+	bytes tls_server_pk_hash = 4;
+	string bssid = 5;
+	repeated DeviceCapability capabilities = 6 [ features.repeated_field_encoding = EXPANDED ];
+}

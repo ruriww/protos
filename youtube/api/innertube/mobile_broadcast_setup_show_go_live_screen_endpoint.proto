@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileBroadcastSetupShowGoLiveScreenEndpoint {
+	extend Command {
+		MobileBroadcastSetupShowGoLiveScreenEndpoint mobile_broadcast_setup_show_go_live_screen_endpoint = 127759225;
+	}
+
+	bool hack = 1;
+	string params = 2;
+	string video_id = 3;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/elements/image_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationThumbnailItemEntity {
+	extend EntityMutationPayload {
+		ShortsCreationThumbnailItemEntity shorts_creation_thumbnail_item_entity = 530;
+	}
+
+	string entity_key = 1;
+	elements.ImageSource image_source = 2;
+	string duration_sec = 3;
+
+	message Effect {
+		Command effect_command = 1;
+	}
+
+	repeated Effect effects = 4;
+}

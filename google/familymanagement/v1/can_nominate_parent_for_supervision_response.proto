@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+import "google/familymanagement/v1/consent_type.proto";
+import "google/familymanagement/v1/collateral_device.proto";
+
+option objc_class_prefix = "GFM";
+
+message CanNominateParentForSupervisionResponse {
+	ApiResponseHeader api_header = 1;
+	bool can_nominate_parent_for_supervision = 2;
+	repeated UnmetPrecondition unmet_precondition = 3;
+	repeated ConsentType required_consent = 4;
+	repeated CollateralDevice collateral_devices = 5;
+}

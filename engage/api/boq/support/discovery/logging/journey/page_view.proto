@@ -1,0 +1,11 @@
+edition = "2023";
+
+package engage.api.boq.support.discovery.logging.journey;
+
+option objc_class_prefix = "SDL";
+
+message PageView {
+	string title = 2;
+	string resource_id = 3;
+	string referrer_page_view_id = 4;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedHeartbeatRequestParams {
+	int64 client_player_position_utc_millis = 1;
+	google.protobuf.Duration free_preview_watched_duration = 2;
+
+	message FreePreviewUsageDetails {
+		string usage_tracking_key = 1;
+		google.protobuf.Duration free_preview_watched_duration = 2;
+	}
+
+	repeated FreePreviewUsageDetails free_preview_usage_details = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+option objc_class_prefix = "WRTCSMR";
+
+enum ClientReceiveStreamType {
+	UNKNOWN_STREAM_TYPE = 0;
+	AUDIO = 1;
+	VIDEO = 2;
+}

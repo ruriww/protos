@@ -1,0 +1,12 @@
+edition = "2023";
+
+package video_streaming;
+
+import "video_streaming/format_id.proto";
+import "video_streaming/debug_info.proto";
+
+message FormatDebugInfo {
+	string video_id = 1;
+	FormatId format_id = 2;
+	DebugInfo debug_info = 3;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/startup_power_saver_mode.proto";
+import "youtube/api/innertube/startup_thermal_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StartupEdgeCaseInfo {
+	StartupPowerSaverMode startup_power_saver_mode = 1 [ default = STARTUP_POWER_SAVER_MODE_UNKNOWN ];
+	int32 startup_low_battery_level = 2;
+	int32 startup_disk_space_level_mbytes = 3;
+	StartupThermalStatus startup_thermal_status = 4 [ default = STARTUP_THERMAL_STATUS_UNKNOWN ];
+	int32 startup_since_bootup_second = 5;
+	bool startup_was_in_background = 6;
+	int32 startup_browse_service_network_retry_count = 7;
+	bool startup_browse_cached = 8;
+	bool startup_configuration_changed = 9;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_secondary_info_video_owner_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/video_secondary_info_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/video_secondary_metadata_row_container_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoSecondaryInfoRenderer {
+	VideoSecondaryInfoVideoOwnerSupportedRenderers owner = 1;
+	FormattedString date_text = 2;
+	FormattedString description = 3;
+	VideoSecondaryInfoSubscribeButtonSupportedRenderers subscribe_button = 4;
+	VideoSecondaryMetadataRowContainerSupportedRenderers metadata_row_container = 5;
+	FormattedString show_more_text = 6;
+	FormattedString show_less_text = 7;
+	bytes tracking_params = 9;
+	bool default_expanded = 10;
+	int32 description_collapsed_lines = 11;
+	Command show_more_command = 12;
+	bool is_show_more_inline = 13;
+	Command show_less_command = 14;
+	elements.AttributedString attributed_description = 15;
+	string inline_expander_target_id = 16;
+	FormattedString description_placeholder = 17;
+}
+
+extend Renderer {
+	VideoSecondaryInfoRenderer video_secondary_info_renderer = 102519231;
+}

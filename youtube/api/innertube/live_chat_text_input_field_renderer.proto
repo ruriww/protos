@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTextInputFieldRenderer {
+	FormattedString placeholder = 1;
+	uint32 max_character_limit = 2;
+	uint32 placeholder_text_color = 3;
+	uint32 inactive_underline_color = 4;
+	uint32 active_underline_color = 5;
+	uint32 emoji_character_count = 6;
+	FormattedString unselected_placeholder = 7;
+}
+
+extend Renderer {
+	LiveChatTextInputFieldRenderer chat_text_input_form_field_renderer = 121291266;
+}

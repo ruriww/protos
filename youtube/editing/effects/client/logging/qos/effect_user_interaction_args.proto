@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/sfv_effect_user_interaction_type.proto";
+import "youtube/api/innertube/sfv_effect_user_interaction_phase.proto";
+
+option objc_class_prefix = "YTEE";
+
+message EffectUserInteractionArgs {
+	google.protobuf.Timestamp request_time = 1;
+	api.innertube.SfvEffectUserInteractionType type = 2;
+	api.innertube.SfvEffectUserInteractionPhase phase = 3;
+	int64 pipeline_reference_id = 4;
+}

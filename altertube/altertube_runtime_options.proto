@@ -1,0 +1,22 @@
+edition = "2023";
+
+package altertube;
+
+import "xeno/effect/runtime_options_proto.proto";
+import "youtube/api/innertube/avatar_config_definition.proto";
+import "youtube/api/innertube/avatar_composition_data.proto";
+
+option objc_class_prefix = "ALT";
+
+message AltertubeRuntimeOptions {
+	extend xeno.effect.RuntimeOptionsProto {
+		AltertubeRuntimeOptions extension = 525000000;
+	}
+
+	oneof avatar {
+		youtube.api.innertube.AvatarConfigDefinition innertube_avatar_config = 4;
+		youtube.api.innertube.AvatarCompositionData innertube_avatar_composition_data = 5;
+	}
+
+	int64 timestamp_in_millis = 7;
+}

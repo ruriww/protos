@@ -1,0 +1,12 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/proto.proto";
+
+option objc_class_prefix = "ACL";
+
+message SignedAclProto {
+	Proto Acl = 1;
+	string Signature = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/auto_offline_command_supported_datas.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoOfflineResponse {
+	ResponseContext response_context = 1;
+	uint32 check_in_seconds = 2;
+	repeated AutoOfflineCommandSupportedDatas auto_offline_command_datas = 3;
+	uint32 execution_window_length_seconds = 5;
+	map<string, Command> entity_update_commands = 6;
+	FrameworkUpdateTransport framework_updates = 777;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package speech.s3.bard;
+
+import "speech/s3/bard/model_response.proto";
+
+option objc_class_prefix = "S3BD";
+
+message SavedGenerateResponse {
+	ModelResponse selected_response = 1;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "vision/visualsearch/lens/starburst_feature.proto";
+import "vision/visualsearch/lens/allowed_starburst_suggestions_enum.proto";
+import "vision/visualsearch/lens/generic_suggest_corpus_enum.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message MultimodalSuggestImageSignals {
+	StarburstFeature starburst_feature = 3;
+	repeated AllowedStarburstSuggestionsEnum allowed_starburst_suggestions = 5;
+	GenericSuggestCorpusEnum generic_suggest_corpus_mode = 6;
+	fixed64 representative_image_docid = 7;
+	bytes debug_region_image_bytes = 8;
+	string previous_multimodal_text_query = 10;
+	bool is_dense_text_image = 14;
+	StarburstFeature alternate_starburst_feature = 15;
+	string top_text_entity = 16;
+	string multiref_caption = 17;
+	bytes image_bytes = 18;
+}

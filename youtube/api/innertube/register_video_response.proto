@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/upload_register_video_status.proto";
+import "youtube/api/innertube/register_video_response_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RegisterVideoResponse {
+	ResponseContext response_context = 1;
+	string video_id = 3;
+	UploadRegisterVideoStatus status = 4;
+	RegisterVideoResponseSupportedRenderers contents = 5;
+}

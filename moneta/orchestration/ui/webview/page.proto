@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.webview;
+
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+
+option objc_class_prefix = "WebView";
+
+message Page {
+	int64 ui_reference = 1;
+	string title = 2;
+	common.components.webview.WebViewComponent web_view_component = 3;
+}

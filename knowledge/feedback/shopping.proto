@@ -1,0 +1,16 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message Shopping {
+	string sori_id = 1;
+	string image_url = 2;
+	string image_feedback_data = 3;
+	string gws_viewer_url = 4;
+	string uvpv_url = 5;
+	int32 conversation_id = 38;
+	int32 conversation_turn_index = 39;
+	string chalet_prompt = 40;
+}

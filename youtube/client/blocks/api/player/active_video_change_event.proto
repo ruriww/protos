@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/client/blocks/api/player/playback_block_weak_ref.proto";
+import "youtube/client/blocks/api/player/playback_block_movable_ref.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ActiveVideoChangeEvent {
+	PlaybackBlockWeakRef playback_block = 1;
+	PlaybackBlockMovableRef movable_playback_block = 2;
+}

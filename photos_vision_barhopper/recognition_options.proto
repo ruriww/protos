@@ -1,0 +1,19 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+import "photos_vision_barhopper/barcode_format.proto";
+
+option objc_class_prefix = "BAR";
+
+message RecognitionOptions {
+	repeated BarcodeFormat barcode_formats = 1 [ features.repeated_field_encoding = EXPANDED ];
+	bool disable_pvb_reader = 2;
+	uint32 max_image_area = 3;
+	uint32 pvb_max_image_area = 4;
+	uint32 num_threads = 5 [ default = 5 ];
+	uint32 num_pvb_decode_threads = 6 [ default = 10 ];
+	uint32 timeout_ms = 8 [ default = 0 ];
+	bool output_unrecognized_barcodes = 9 [ default = false ];
+	bool run_affine_and_perspective = 10 [ default = false ];
+}

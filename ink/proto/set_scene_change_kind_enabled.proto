@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/scene_change_kind.proto";
+
+option objc_class_prefix = "INKPB";
+
+message SetSceneChangeKindEnabled {
+	SceneChangeKind kind = 1;
+	bool enabled = 2;
+}

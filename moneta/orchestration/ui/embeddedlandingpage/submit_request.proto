@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedlandingpage;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/embeddedlandingpage/page_value.proto";
+
+option objc_class_prefix = "EmbeddedLandingPage";
+
+message SubmitRequest {
+	common.RequestContext context = 1;
+	PageValue page_value = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TextFontSlant {
+	option features.enum_type = CLOSED;
+
+	TEXT_FONT_SLANT_UNSPECIFIED = 0;
+	TEXT_FONT_SLANT_UPRIGHT = 1;
+	TEXT_FONT_SLANT_ITALIC = 2;
+	TEXT_FONT_SLANT_OBLIQUE = 3;
+}

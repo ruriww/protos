@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/sticker_renderer.proto";
+import "youtube/api/innertube/dynamic_sticker_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StickerCatalogRenderer {
+	FormattedString title = 1;
+	Renderer back_button = 2;
+	repeated Renderer stickers = 3;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	StickerCatalogRenderer sticker_catalog_renderer = 153501065;
+}
+
+extend Renderer {
+	StickerRenderer sticker_renderer = 153501067;
+}
+
+extend Renderer {
+	DynamicStickerRenderer dynamic_sticker_renderer = 186690709;
+}

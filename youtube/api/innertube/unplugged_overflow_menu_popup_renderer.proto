@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedOverflowMenuPopupRenderer {
+	MenuSupportedRenderers menu = 1;
+	bool auto_select_only_non_cancel_option = 2;
+	bytes tracking_params = 3;
+}
+
+extend Renderer {
+	UnpluggedOverflowMenuPopupRenderer unplugged_overflow_menu_popup_renderer = 209930811;
+}

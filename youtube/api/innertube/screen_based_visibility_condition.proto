@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScreenBasedVisibilityCondition {
+	enum ScreenBasedVisibilityConditionType {
+		option features.enum_type = CLOSED;
+
+		SCREEN_BASED_VISIBILITY_CONDITION_TYPE_UNKNOWN = 0;
+		SCREEN_BASED_VISIBILITY_CONDITION_TYPE_COMPACT_WIDTH_ONLY = 1;
+		SCREEN_BASED_VISIBILITY_CONDITION_TYPE_REGULAR_WIDTH_ONLY = 2;
+		SCREEN_BASED_VISIBILITY_CONDITION_TYPE_REGULAR_WIDTH_SHOW_IN_SIDEBAR = 3;
+		SCREEN_BASED_VISIBILITY_CONDITION_TYPE_REGULAR_WIDTH_SHOW_IN_SIDEBAR_ONLY = 4;
+	}
+
+	ScreenBasedVisibilityConditionType type = 1;
+	bool show_only_in_landscape = 2;
+}

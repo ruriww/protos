@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/dimension_edges.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message FoldingDisplayInfo {
+	bool has_folding_info = 1;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		STATE_UNSPECIFIED = 0;
+		STATE_FLAT = 1;
+		STATE_HALF_OPENED = 2;
+	}
+
+	State state = 2;
+
+	enum Posture {
+		option features.enum_type = CLOSED;
+
+		POSTURE_UNSPECIFIED = 0;
+		POSTURE_FLAT = 1;
+		POSTURE_BOOK = 2;
+		POSTURE_TABLETOP = 3;
+	}
+
+	Posture posture = 3;
+	DimensionEdges fold_bounds = 4;
+}

@@ -1,0 +1,125 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/memory_usage_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/timer_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/cpu_usage_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/application_info.proto";
+import "logs/proto/wireless/performance/mobile/ios/network_usage_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/launch_time_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/battery_usage_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+import "logs/proto/wireless/performance/mobile/ios/trace_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/crash_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/uuid_proto.proto";
+import "logs/proto/wireless/performance/mobile/ios/dropped_frames_event.proto";
+import "logs/proto/wireless/performance/mobile/ios/cpu_time_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_payload.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_diagnostic_payload.proto";
+import "logs/proto/wireless/performance/mobile/sampling_parameters.proto";
+import "logs/proto/wireless/performance/mobile/ios/frame_metric_span.proto";
+import "logs/proto/wireless/performance/mobile/trace.proto";
+import "logs/proto/wireless/performance/mobile/ios/ios_directory_size_metric.proto";
+import "logs/proto/wireless/performance/mobile/cui_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/ios_thread_snapshot.proto";
+import "unknown/youtube/code_module_proto.proto";
+import "logs/proto/wireless/performance/mobile/ios/phenotype_package_experiment_ids.proto";
+import "logs/proto/wireless/performance/mobile/interaction_context.proto";
+import "logs/proto/wireless/performance/mobile/ios/crash_log_event.proto";
+import "logs/proto/wireless/performance/mobile/ios/active_cui_annotation.proto";
+
+option objc_class_prefix = "PRM";
+
+message IosSystemHealthMetrics {
+	fixed64 hashed_custom_event_name = 1;
+	string custom_event_name = 2;
+	MemoryUsageMetric memory_usage_metric = 3;
+	TimerMetric timer_metric = 4;
+	CPUUsageMetric cpu_usage_metric = 6;
+
+	enum MetricEventCode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		APP_TO_BACKGROUND = 1;
+		APP_TO_FOREGROUND = 2;
+		VIEW_CONTROLLER_APPEARED = 3;
+		VIEW_CONTROLLER_DISAPPEARED = 4;
+		APP_DID_FINISH_LAUNCH = 5;
+		FIRST_RUN_LOOP_ENDED = 6;
+		NETWORK_STATS_LIMIT_REACHED = 7;
+		APP_BECAME_ACTIVE = 8;
+		APP_WILL_TERMINATE = 9;
+		APP_READY = 10;
+		VIEW_CONTROLLER_SHOW_TO_HID = 11;
+		APP_FOREGROUND_TO_BACKGROUND = 12;
+		COLLECTIBLE_INITIALIZATION = 13;
+		APP_FIRST_FOREGROUND = 14;
+	}
+
+	MetricEventCode metric_event_code = 7;
+	ApplicationInfo application_info = 8;
+	string view_controller_name = 9;
+	NetworkUsageMetric network_usage_metric = 10;
+	LaunchTimeMetric launch_time_metric = 11;
+	uint64 primes_build_version = 12;
+	BatteryUsageMetric battery_usage_metric = 13;
+	bool is_on_wifi = 14;
+	bool low_power_mode_enabled = 15;
+
+	enum ApplicationState {
+		option features.enum_type = CLOSED;
+
+		APPLICATION_STATE_UNKNOWN = 3;
+		APPLICATION_STATE_FOREGROUND = 0;
+		APPLICATION_STATE_BACKGROUND = 1;
+		APPLICATION_STATE_INACTIVE = 2;
+	}
+
+	ApplicationState application_state = 16;
+	MetricExtension metric_extension = 17;
+	TraceMetric trace = 18;
+	CrashMetric crash_metric = 19;
+	UuidProto launch_id = 20;
+	DroppedFramesEvent dropped_frames_event = 21;
+	CPUTimeMetric cpu_time_metric = 22;
+	MetricKitPayload metric_kit_payload = 24;
+	MetricKitDiagnosticPayload metric_kit_diagnostic_payload = 25;
+	SamplingParameters sampling_parameters = 26;
+	FrameMetricSpan frame_metric_span = 27;
+	IosCrashReport crash_report = 28;
+	bool is_using_crashpad = 29;
+	Trace experimental_trace = 30;
+	repeated IosDirectorySizeMetric directory_size_metric = 31;
+	CuiMetric cui_metric = 32;
+}
+
+message IosCrashReport {
+	int32 exception_code = 1;
+	int32 exception_subcode = 2;
+	int64 crashed_thread_identifier = 3;
+	int64 crash_timestamp_ms = 4;
+	repeated IosThreadSnapshot thread_snapshots = 5;
+	repeated unknown.youtube.CodeModuleProto code_modules = 6;
+	MetricExtension metric_extension = 7;
+	string application_version = 8;
+	string base64_encoded_experiment_ids_when_crash_occurred = 10;
+	string exception_name = 11;
+	string bundle_identifier = 12;
+	repeated PhenotypePackageExperimentIds phenotype_package_experiment_ids = 13;
+	IosSystemHealthMetrics.ApplicationState application_state = 14;
+	repeated InteractionContext interaction_context = 15;
+	int32 exception_info = 16;
+	int64 exception_address = 17;
+	repeated int64 exception_extra_code = 18 [ features.repeated_field_encoding = EXPANDED ];
+	repeated CrashLogEvent crash_log_events = 19;
+	int64 build_changelist = 20;
+	int64 baseline_changelist = 21;
+	string exception_message = 22;
+	bool crash_consent_granted = 23;
+	IosThreadSnapshot first_exception_backtrace_snapshot = 26;
+	IosThreadSnapshot last_exception_backtrace_snapshot = 27;
+	string bundle_short_version_string = 30;
+	ActiveCuiAnnotation active_cui_annotation = 31;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/device_discovery_summary.proto";
+
+option objc_class_prefix = "CADP";
+
+message DiscoverySessionSummary {
+	repeated DeviceDiscoverySummary device_summary = 1;
+	bool is_cloud_discovery_triggered = 2;
+	bool is_cloud_device_probing_enabled = 3;
+	int64 session_start_timestamp_ms = 4;
+	int64 cchord_first_discovered_latency_ms = 5;
+	int64 mdns_first_discovered_latency_ms = 6;
+	bool is_active_scan = 7;
+}

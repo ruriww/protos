@@ -1,0 +1,19 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message UrlSchemeInfo {
+	string url_scheme = 1;
+
+	enum Openable {
+		option features.enum_type = CLOSED;
+
+		OPENABLE_UNSPECIFIED = 0;
+		OPENABLE_YES = 1;
+		OPENABLE_NO = 2;
+	}
+
+	Openable openable = 2;
+}

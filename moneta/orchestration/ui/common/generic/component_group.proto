@@ -1,0 +1,103 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/generic/view_mode.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message ComponentGroup {
+	string title = 1;
+	ImageWithCaption icon = 2;
+	Tooltip tooltip = 3;
+	repeated int64 component_reference = 5 [ features.repeated_field_encoding = EXPANDED ];
+	ViewMode view_mode = 7;
+
+	enum UiType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ORDERED_LIST = 1;
+		SECTION = 2;
+		FIELD_GROUP = 3;
+		SCREEN = 4;
+		CARD = 5;
+		CARD_COMPACT = 8;
+		MATERIAL_2_CARD = 9;
+		UNCOLLAPSABLE_FIELD_GROUP = 6;
+		FLYOUT = 7;
+		DIALOG = 10;
+		STICKY = 11;
+	}
+
+	UiType ui_type = 8;
+	int32 start_index = 9 [ default = -1 ];
+	int32 end_index = 10 [ default = -1 ];
+	repeated ComponentGroup component_group = 11;
+	int64 ui_reference = 13;
+
+	message SectionParameters {
+		enum SectionStyle {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			DEFAULT = 1;
+			NEW = 2;
+			COMPACT = 3;
+		}
+
+		SectionStyle section_style = 1;
+		string title_primary = 7;
+		string title_secondary = 8;
+		string description_primary = 9;
+		string description_secondary = 10;
+		string status = 11;
+	}
+
+	message CardParameters {
+		enum CardStyle {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			COLLAPSIBLE = 1;
+			NOT_COLLAPSIBLE = 2;
+			NOT_COLLAPSIBLE_WITH_HEADER = 4;
+			COLLAPSIBLE_WITH_EXPAND_CONTRACT_ICON = 3;
+		}
+
+		CardStyle card_style = 1;
+		bool is_initially_collapsed = 2;
+		int64 collapsed_component_ui_reference = 3;
+	}
+
+	message FieldGroupParameters {
+		bool hide_field_labels_in_display_state = 1;
+
+		enum TitleStyle {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			INLINE_TITLE = 1;
+			PERSISTENT_TITLE = 2;
+		}
+
+		TitleStyle title_style = 2;
+		bool ignore_focus_on_widget_link = 3;
+	}
+
+	message FlyoutParameters {
+		int64 header_component_ui_reference = 1;
+	}
+
+	oneof ui_type_parameters {
+		SectionParameters section_parameters = 15;
+		CardParameters card_parameters = 16;
+		FieldGroupParameters field_group_parameters = 17;
+		FlyoutParameters flyout_parameters = 18;
+	}
+
+	proto2.bridge.MessageSet private_extensions = 21;
+}

@@ -1,0 +1,69 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+option objc_class_prefix = "Orch";
+
+message TriggerValueReference {
+	message ComponentValue {
+		repeated int64 value_id = 1;
+		string value_string_regex = 2;
+		int64 numeric_value = 4;
+	}
+
+	int64 component_id = 1;
+
+	message ValueChangedTrigger {
+		ComponentValue new_value = 1;
+		bool skip_action_on_initialization = 2;
+	}
+
+	message ValueTrigger {
+		ComponentValue value = 1;
+	}
+
+	message ValueChangedOrEqualsTrigger {
+		ComponentValue new_or_current_value = 1;
+		bool skip_action_on_initialization = 2;
+	}
+
+	oneof trigger {
+		ValueChangedTrigger value_changed_trigger = 2;
+		ValueTrigger value_trigger = 5;
+		ValueChangedOrEqualsTrigger value_changed_or_equals_trigger = 6;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TRIGGER_TYPE = 0;
+		VALUE_CHANGED = 1;
+		CLICKED = 2;
+		VALUE = 3;
+		VALUE_CHANGED_OR_EQUALS = 4;
+		SELECTOR_VALUE_CHANGED = 18;
+		CAMERA_DATA_CAPTURED = 5;
+		INITIALIZED = 6;
+		RESUMED = 19;
+		ENTER_KEY_PRESSED = 7;
+		SCROLL_BOTTOM_REACHED = 8;
+		ADDITIONAL_COMPONENTS_DISPLAYED = 9;
+		REDIRECT_ABORTED = 10;
+		DOWNLOAD_STARTED = 11;
+		DOWNLOAD_FAILED = 12;
+		FETCH_PAYMENT_CREDENTIALS_FROM_DEVICE_CANCELED = 13;
+		FETCH_PAYMENT_CREDENTIALS_FROM_DEVICE_OUT_OF_CREDENTIALS_ERROR = 14;
+		FETCH_PAYMENT_CREDENTIALS_FROM_DEVICE_INTERNAL_ERROR = 15;
+		ABORTED = 16;
+		PULL_TO_REFRESH = 17;
+		AUTHENTICATION_ERROR = 20;
+		AUTHENTICATION_CANCEL = 21;
+		AUTHENTICATION_SUCCESS = 22;
+		STATE = 23;
+		NETWORK_TIMEOUT = 24;
+		SUBMITTING_STATE = 25;
+	}
+
+	TriggerType trigger_type = 3;
+	bool skip_default_action = 4;
+}

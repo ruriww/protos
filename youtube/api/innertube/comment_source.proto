@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CommentSource {
+	option features.enum_type = CLOSED;
+
+	COMMENT_SOURCE_UNSPECIFIED = 0;
+	COMMENT_SOURCE_VOD_COMMENTS = 1;
+	COMMENT_SOURCE_SHORT_COMMENTS = 2;
+	COMMENT_SOURCE_COMMENTS_PICKER_CAMERA_SUGGESTED = 3;
+	COMMENT_SOURCE_COMMENTS_PICKER_CAMERA_SAVED = 4;
+}

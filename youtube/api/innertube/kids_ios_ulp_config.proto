@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsIosULPConfig {
+	bool deprecate_signinchildendpoint = 1;
+	bool deprecate_quicksignincontroller = 2;
+	bool enable_child_profile_wrapper = 3;
+	bool deprecate_list_persona_api = 4;
+}

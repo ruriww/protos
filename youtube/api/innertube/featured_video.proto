@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/logging_url.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeaturedVideo {
+	int64 start_time_ms = 1;
+	int64 end_time_ms = 2;
+	string video_id = 3;
+	ThumbnailDetails thumbnails = 4;
+	string title = 5;
+	Command navigation_endpoint = 6;
+	FormattedString length_text = 9;
+	bytes tracking_params = 12;
+	repeated LoggingUrl impression_logging_urls = 14;
+	repeated LoggingUrl close_logging_urls = 15;
+	int32 collapse_after_ms = 16;
+	bool start_collapsed = 17;
+}

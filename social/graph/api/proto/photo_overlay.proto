@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/relative_scale.proto";
+import "social/graph/api/proto/relative_position.proto";
+
+option objc_class_prefix = "SGAP";
+
+message PhotoOverlay {
+	RelativeScale relative_scale = 1;
+	RelativePosition relative_position = 2;
+}

@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/promoted_video_cta_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/active_view_display_measurement.proto";
+import "youtube/api/innertube/ad_bleed_style_type.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/visit_site_cta_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString description = 4;
+	FormattedString long_byline_text = 5;
+	FormattedString short_byline_text = 6;
+	ThumbnailDetails channel_thumbnail = 7;
+	FormattedString length_text = 8;
+	Command navigation_endpoint = 9;
+	PromotedVideoCTASupportedRenderers cta_renderer = 10;
+	repeated string impression_urls = 11;
+	repeated string click_tracking_urls = 12;
+	string debug_html = 14;
+	bytes tracking_params = 16;
+	repeated Command service_endpoints = 17;
+	Command channel_endpoint = 18;
+	MenuSupportedRenderers menu = 19;
+	FormattedString view_count_text = 20;
+	string debug_ad_tag = 21;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 22;
+	ActiveViewDisplayMeasurement active_view = 25;
+	AdBleedStyleType style = 27 [ default = AD_BLEED_STYLE_TYPE_UNKNOWN ];
+	string identifier = 29;
+	string ad_playback_context_params = 30;
+	BadgeSupportedRenderers ad_badge = 31;
+	Renderer action_button = 32;
+	PromotedVideoCTASupportedRenderers watch_button_renderer = 33;
+	Command inline_playback_endpoint = 34;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	PromotedVideoRenderer promoted_video_renderer = 62887855;
+}
+
+extend Renderer {
+	VisitSiteCTARenderer visit_site_cta_renderer = 62897987;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EmbedsAdBreakType {
+	option features.enum_type = CLOSED;
+
+	EMBEDS_AD_BREAK_TYPE_UNKNOWN = 0;
+	EMBEDS_AD_BREAK_TYPE_PRE_ROLL = 1;
+	EMBEDS_AD_BREAK_TYPE_MID_ROLL = 2;
+	EMBEDS_AD_BREAK_TYPE_POST_ROLL = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+message AuditingRule {
+	string selector = 1;
+	string directive = 2;
+}

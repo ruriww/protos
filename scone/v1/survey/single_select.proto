@@ -1,0 +1,20 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+import "scone/v1/survey/answer_choices.proto";
+
+option objc_class_prefix = "UVSP";
+
+message SingleSelect {
+	AnswerChoices answer_choices = 1;
+
+	enum IconType {
+		ICON_TYPE_UNKNOWN = 0;
+		ICON_TYPE_NONE = 1;
+		ICON_TYPE_SMILEYS_SATISFIED_FIRST = 2;
+		ICON_TYPE_SMILEYS_DISSATISFIED_FIRST = 3;
+	}
+
+	IconType icon_type = 2;
+}

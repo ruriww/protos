@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_device.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DeviceContextEvent {
+	message DeviceContextFeaturesMdx {
+		repeated MdxDevice detected_mdx_devices = 1;
+	}
+
+	DeviceContextFeaturesMdx mdx = 5;
+
+	message DeviceContextFeaturesNotifTarget {
+		bytes device_messaging_id_in_bytes = 2;
+	}
+
+	DeviceContextFeaturesNotifTarget notif_target = 6;
+	bool test_notification = 7;
+}

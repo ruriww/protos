@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoudnessNormalizationConfig {
+	bool apply_stateful_normalization = 1;
+	bool preserve_stateful_loudness_target = 2;
+	int32 max_stateful_time_threshold_sec = 3;
+	int32 minimum_loudness_target_lkfs = 4;
+	int32 stateless_loudness_adjustment_gain = 5;
+}

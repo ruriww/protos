@@ -1,0 +1,10 @@
+edition = "2023";
+
+package clearcut.counters;
+
+option objc_class_prefix = "CLCC";
+
+message Bucket {
+	int64 key = 1;
+	int64 count = 2;
+}

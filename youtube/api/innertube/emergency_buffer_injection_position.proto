@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EmergencyBufferInjectionPosition {
+	option features.enum_type = CLOSED;
+
+	EMERGENCY_BUFFER_INJECTION_POSITION_UNSPECIFIED = 0;
+	EMERGENCY_BUFFER_INJECTION_POSITION_ADJACENT_TO_CURRENT_VIDEO = 1;
+}

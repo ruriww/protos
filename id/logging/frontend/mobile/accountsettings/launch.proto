@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+import "id/logging/frontend/mobile/accountsettings/utm_params.proto";
+
+option objc_class_prefix = "GIDLOGAS";
+
+message Launch {
+	string caller = 1;
+	int32 target_resource_id = 2;
+	int32 target_area = 3;
+	int32 screen_flavor = 4;
+	UtmParams utm_params = 6;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/product_profile_failure.proto";
+
+option objc_class_prefix = "POEM";
+
+message MapsExtendedData {
+	string profile_photo_url = 1;
+	string user_caption = 2;
+	int64 num_contributions = 3;
+	repeated string topic_expertise = 4;
+	string tagline = 5;
+	ProductProfileFailure failure = 6;
+	int64 followee_count = 7;
+	int32 follower_count = 8;
+	int64 local_guide_level = 9;
+}

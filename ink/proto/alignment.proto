@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum Alignment {
+	option features.enum_type = CLOSED;
+
+	DEFAULT_ALIGNMENT = 0;
+	LEFT = 1;
+	CENTERED = 2;
+	RIGHT = 3;
+	JUSTIFIED = 4;
+}

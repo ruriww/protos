@@ -1,0 +1,25 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+option objc_class_prefix = "LFEV1";
+
+message LrpRenderingMetadata {
+	int32 screen_width = 1;
+	int32 screen_height = 2;
+	int32 grid_column_count = 3;
+
+	enum PageType {
+		PAGE_TYPE_UNKNOWN = 0;
+		RESULT_PAGE = 1;
+		BLANK_PAGE = 2;
+		SERVER_WARMUP_PAGE = 3;
+		RESULT_HEADER_PAGE = 4;
+	}
+
+	PageType page_type = 4;
+	int32 bottom_padding_px = 5;
+	int32 top_padding_px = 6;
+	bool lrp_panel_expanded = 7;
+	int32 searchbox_overlap_px = 8;
+}

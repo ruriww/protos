@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+import "google/internal/identity/securitydomain/v1/security_domain_member.proto";
+import "google/internal/identity/securitydomain/v1/security_domain_member_view.proto";
+import "google/internal/identity/securitydomain/v1/request_header.proto";
+
+option objc_class_prefix = "SDS";
+
+message ListSecurityDomainMembersRequest {
+	string parent = 1;
+	repeated SecurityDomainMember.MemberType include_member_types = 2;
+	repeated string include_security_domains = 3;
+	SecurityDomainMemberView view = 4;
+	int32 page_size = 5;
+	string page_token = 6;
+	RequestHeader request_header = 7;
+	string client_session_id = 8;
+}

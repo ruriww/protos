@@ -1,0 +1,59 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/target_metadata.proto";
+import "notifications/frontend/data/render_context.proto";
+import "notifications/frontend/data/common/display_surface/notification_display_surface.proto";
+import "notifications/frontend/data/crb_rendering_behavior.proto";
+import "notifications/frontend/data/versioned_identifier.proto";
+import "notifications/frontend/data/common/thread_state_filters/thread_state_filters.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsFetchLatestThreadsRequest {
+	string client_id = 1;
+	int64 max_notification_threads = 4;
+	int64 paging_version = 5;
+	TargetMetadata target_metadata = 7;
+	RenderContext render_context = 8;
+
+	enum CFRFetchReason {
+		option features.enum_type = CLOSED;
+
+		FETCH_REASON_UNSPECIFIED = 0;
+		FULL_SYNC_INSTRUCTION = 1;
+		SYNC_INSTRUCTION = 2;
+		COLLABORATOR_API_CALL = 3;
+		GUNS_MIGRATION = 4;
+		INBOX = 5;
+		DELAYED_IMPRESSION = 6;
+		REMOTE_DELETED_MESSAGES = 7;
+		LOCALE_CHANGED = 8;
+		GROWTHKIT_PERIODIC_FETCH = 9;
+		GROWTHKIT_SYNC_ON_STARTUP = 10;
+		GROWTHKIT_SYNC_AFTER_PROMO_SHOWN = 11;
+		GROWTHKIT_SYNC_AFTER_USER_ACTION = 12;
+		GROWTHKIT_SYNC_FOR_TEST_REASON = 13;
+		GROWTHKIT_SYNC_INSTRUCTION = 14;
+		FETCH_STORED_NOTIFICATIONS = 15;
+	}
+
+	CFRFetchReason fetch_reason = 9;
+	repeated common.display_surface.NotificationDisplaySurface.Enum notification_display_surface = 12;
+
+	enum VersionOrder {
+		option features.enum_type = CLOSED;
+
+		ORDER_UNSPECIFIED = 0;
+		NEWEST_FIRST = 1;
+		OLDEST_FIRST = 2;
+		NEWEST_FIRST_BY_NOTIFICATION_TIME = 3;
+		OLDEST_FIRST_BY_NOTIFICATION_TIME = 4;
+	}
+
+	VersionOrder version_order = 13;
+	CRBRenderingBehavior rendering_behavior = 14;
+	repeated VersionedIdentifier known_threads = 15;
+	common.thread_state_filters.ThreadStateFilters thread_state_filters = 16;
+}

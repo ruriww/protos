@@ -1,0 +1,26 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+import "experiments/heterodyne/scope.proto";
+
+option objc_class_prefix = "EPI";
+
+message SyncMetadata {
+	int64 full_sync_time_seconds = 1;
+	int64 logged_out_sync_time_seconds = 2;
+	repeated heterodyne.Scope synced_scope = 3;
+	repeated string synced_obfuscated_gaia_id = 4;
+	int64 last_requested_serving_version = 5;
+
+	enum CorruptFlagState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NO_CORRUPTION = 1;
+		CORRUPTION_DETECTED = 2;
+	}
+
+	CorruptFlagState corrupt_flag_state = 6;
+	string corrupted_config_package = 7;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/proto/contacts/profile_primitives_dimensions.proto";
+import "logs/proto/contacts/profile_primitives_metric_entry.proto";
+
+option objc_class_prefix = "CST";
+
+message ProfilePrimitivesExtension {
+	oneof dimensions_field {
+		ProfilePrimitivesDimensions dimensions = 1;
+		ProfilePrimitivesDimensions dimension = 4;
+	}
+
+	ProfilePrimitivesMetricEntry metric_entry = 3;
+}

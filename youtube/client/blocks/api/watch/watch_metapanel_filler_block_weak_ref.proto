@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+message WatchMetapanelFillerBlockWeakRef {
+	string block_instance_id = 1;
+}

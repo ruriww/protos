@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GenerativeEffectsAsset {
+	bytes input_image = 3;
+	int32 preset_prompt_id = 4;
+	string effect_asset_id = 5;
+	string effect_asset_logging_id = 6;
+}

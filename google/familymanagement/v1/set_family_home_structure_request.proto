@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/family_home_structure.proto";
+
+option objc_class_prefix = "GFM";
+
+message SetFamilyHomeStructureRequest {
+	ApiRequestHeader api_header = 1;
+	string obfuscated_family_id = 2;
+	FamilyHomeStructure family_home_structure = 3;
+}

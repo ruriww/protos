@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/horizontal_list_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/horizontal_list_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/api/innertube/collection_style_item_size.proto";
+import "youtube/api/innertube/responsive_container_configuration.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalListRenderer {
+	repeated HorizontalListSupportedRenderers items = 1;
+	FormattedString view_all_text = 3;
+	bytes tracking_params = 4;
+	repeated HorizontalListSupportedContinuations continuations = 5;
+	int32 collapsed_item_count = 6;
+	int32 visible_item_count = 7;
+	Command view_all_endpoint = 8;
+	int32 selected_index = 9;
+	Renderer next_button = 11;
+	Renderer previous_button = 12;
+	ActiveStateDescriptor active_state_descriptor = 13;
+	CollectionStyleItemSize item_size = 15;
+	bool force_16_by_9_thumbnail_aspect_ratio = 16;
+	ResponsiveContainerConfiguration responsive_container_configuration = 17;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	HorizontalListRenderer horizontal_list_renderer = 51431404;
+}
+
+extend ContinuationSupportedRenderers {
+	HorizontalListRenderer horizontal_list_continuation = 51431404;
+}

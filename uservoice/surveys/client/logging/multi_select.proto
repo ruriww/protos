@@ -1,0 +1,11 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/answer_choices.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message MultiSelect {
+	AnswerChoices answer_choices = 1;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/waldo_assistive_feature.proto";
+import "social/people/backend/service/intelligence/proto/lookup_synonyms.proto";
+import "social/people/backend/service/intelligence/proto/birthday_reminder_assistive_feature.proto";
+
+option objc_class_prefix = "PIL";
+
+message GetAssistiveFeaturesResponse {
+	string response_id = 1;
+	repeated WaldoAssistiveFeature waldo_responses = 2;
+	repeated LookupSynonyms lookup_synonyms = 4;
+	repeated BirthdayReminderAssistiveFeature birthday_reminder = 7;
+}

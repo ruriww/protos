@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShelfHeaderStyle {
+	enum ShelfHeaderStyleType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		BLOCK = 1;
+		UNDERSTATED = 2;
+		MEDIUM = 3;
+		CHANNEL_SHELF = 4;
+		GREY_BLOCK = 5;
+		SMALL = 6;
+		INLINE_CHIPS = 7;
+	}
+
+	ShelfHeaderStyleType style_type = 1;
+}

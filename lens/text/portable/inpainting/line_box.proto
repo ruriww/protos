@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+import "lens/center_rotated_box.proto";
+
+option objc_class_prefix = "LNSINP";
+
+message LineBox {
+	int32 index_in_paragraph = 1;
+	CenterRotatedBox center_rotated_box = 2;
+	bool is_vertical = 3;
+	uint64 line_id = 4;
+}

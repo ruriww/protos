@@ -1,0 +1,11 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message Image {
+	string url = 1;
+	string alt_text = 2;
+	string fife_url = 3;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/suggested_action_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestedActionsRenderer {
+	repeated Renderer suggested_actions = 1;
+}
+
+extend Renderer {
+	SuggestedActionsRenderer suggested_actions_renderer = 272545348;
+}
+
+extend Renderer {
+	SuggestedActionRenderer suggested_action_renderer = 272543863;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DaiConfig {
+	bool enable_dai = 1;
+	int32 prefetch_window_secs = 2;
+	bool ios_enable_dai_for_airplay = 3;
+	bool ios_use_player_playback_timeline = 4;
+	bool ios_enable_dai_for_windowed_live = 5;
+	bool enable_server_stitched_dai = 6;
+	bool enable_ad_insertion_before_join_for_ios_unplugged = 7;
+	bool enable_preroll = 9;
+	bool gab_trim_player_response = 11;
+	bool ssa_enabled_playback = 12;
+	bool allow_ustreamer_request_adconfig = 14;
+	bool send_ssdai_missing_ad_break_reasons = 15;
+}

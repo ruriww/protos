@@ -1,0 +1,11 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message NameValuePair {
+	string name = 1;
+	string value = 2;
+	bytes non_utf8_value = 3;
+}

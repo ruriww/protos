@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosStartupPINRemoteImagePrewarmingMode {
+	option features.enum_type = CLOSED;
+
+	IOS_STARTUP_PIN_REMOTE_IMAGE_PREWARMING_MODE_UNKNOWN = 0;
+	IOS_STARTUP_PIN_REMOTE_IMAGE_PREWARMING_MODE_PRECRITICAL = 1;
+	IOS_STARTUP_PIN_REMOTE_IMAGE_PREWARMING_MODE_POSTCRITICAL = 2;
+	IOS_STARTUP_PIN_REMOTE_IMAGE_PREWARMING_MODE_NONCRITICAL = 3;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package id.accountnotifier;
+
+import "id/accountnotifier/account_messages_cache_invalidation.proto";
+import "id/accountnotifier/keychain_notification_payload.proto";
+
+option objc_class_prefix = "RCH";
+
+message SilentPayload {
+	oneof payload {
+		AccountMessagesCacheInvalidation account_messages_cache_invalidation = 1;
+		KeychainNotificationPayload keychain_notification = 2;
+	}
+
+	enum PayloadType {
+		option features.enum_type = CLOSED;
+
+		PAYLOAD_TYPE_UNSPECIFIED = 0;
+		ACCOUNT_MESSAGES_CACHE_INVALIDATION = 1;
+		KEYCHAIN_NOTIFICATION = 2;
+	}
+
+	PayloadType payload_type = 3;
+}

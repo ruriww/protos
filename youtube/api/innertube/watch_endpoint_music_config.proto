@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_video_type.proto";
+import "youtube/api/innertube/music_playlist_content_type.proto";
+import "youtube/api/innertube/music_watch_player_mode.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchEndpointMusicConfig {
+	bool has_persistent_playlist_panel = 1;
+	MusicVideoType music_video_type = 2;
+	MusicPlaylistContentType music_playlist_content_type = 3;
+	MusicWatchPlayerMode suggested_initial_player_mode = 4;
+	Command next_execution_command = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+import "youtube/api/innertube/srs_data_push_version.proto";
+import "youtube/api/innertube/player_data_push_version.proto";
+
+option objc_class_prefix = "YTI";
+
+message VersionReporting {
+	api.innertube.SRSDataPushVersion srs_datapush_version = 1;
+	api.innertube.PlayerDataPushVersion player_datapush_version = 2;
+}

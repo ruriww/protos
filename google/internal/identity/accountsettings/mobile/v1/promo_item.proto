@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/icon.proto";
+
+option objc_class_prefix = "ASM";
+
+message PromoItem {
+	int32 screen_id = 1;
+	string title_text = 2;
+	string subtitle_text = 3;
+	string button_text = 4;
+	Icon icon = 5;
+	string status_text = 6;
+}

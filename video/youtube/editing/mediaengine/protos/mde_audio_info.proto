@@ -1,0 +1,13 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeAudioInfo {
+	int64 source_offset_ms = 1;
+	int32 sample_rate_hz = 2;
+	int32 channel_count = 3;
+	bool is_remote = 4;
+	uint64 duration_ms = 5;
+}

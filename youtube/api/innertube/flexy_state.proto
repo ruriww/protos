@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/flexy_size.proto";
+import "youtube/api/innertube/flexy_fill_rule.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlexyState {
+	FlexySize flexy_size = 1;
+	bool triggered_by_user = 2;
+	FlexyFillRule flexy_fill_rule = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/gleaming/barcode_type.proto";
+import "lens/gleaming/barcode_value_format.proto";
+import "photos_vision_barhopper/barcode_format.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DetectedBarcodeData {
+	string intent = 1;
+	string display_name = 2;
+	string icon_image_url = 3;
+	BarcodeType barcode_type = 4;
+	BarcodeValueFormat barcode_value_format = 5;
+	string barcode_raw_value = 6;
+	photos_vision_barhopper.BarcodeFormat barcode_format = 9;
+}

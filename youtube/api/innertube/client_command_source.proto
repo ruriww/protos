@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ClientCommandSource {
+	option features.enum_type = CLOSED;
+
+	CLIENT_COMMAND_SOURCE_UNSPECIFIED = 0;
+	CLIENT_COMMAND_SOURCE_DELETE_VIDEO_ENDPOINT = 1;
+	CLIENT_COMMAND_SOURCE_DELETE_PENDING_UPLOAD_ENDPOINT = 2;
+	CLIENT_COMMAND_SOURCE_DELETE_VIDEO_COMMAND = 3;
+	CLIENT_COMMAND_SOURCE_DELETE_PENDING_UPLOAD_COMMAND = 4;
+}

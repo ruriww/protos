@@ -1,0 +1,41 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message RenderConfig {
+	int32 width = 1;
+	int32 height = 2;
+	int32 frames_per_second = 3;
+
+	enum OutputMediaFormat {
+		option features.enum_type = CLOSED;
+
+		OUTPUT_MEDIA_FORMAT_UNSPECIFIED = 0;
+		OUTPUT_MEDIA_FORMAT_GIF = 1;
+		OUTPUT_MEDIA_FORMAT_WEBP = 2;
+		OUTPUT_MEDIA_FORMAT_PNG = 3;
+		OUTPUT_MEDIA_FORMAT_NONE = 4;
+		OUTPUT_MEDIA_FORMAT_AVIF = 5;
+		OUTPUT_MEDIA_FORMAT_JPEG = 6;
+		OUTPUT_MEDIA_FORMAT_MP4 = 7;
+		OUTPUT_MEDIA_FORMAT_WEBM = 8;
+	}
+
+	OutputMediaFormat output_media_format = 4;
+	float start_percent = 6;
+	float stop_percent = 7;
+
+	enum GAIMetadataTag {
+		option features.enum_type = CLOSED;
+
+		METADATA_TAG_UNSPECIFIED = 0;
+		METADATA_TAG_TRAINED_ALGORITHMIC_MEDIA = 1;
+		METADATA_TAG_COMPOSITE_WITH_TRAINED_ALGORITHMIC_MEDIA = 2;
+	}
+
+	GAIMetadataTag gai_metadata_tag = 8;
+	float frames_per_second_decimal = 9;
+	int32 max_duration_ms = 10 [ default = 60000 ];
+}

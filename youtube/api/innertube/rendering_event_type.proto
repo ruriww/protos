@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RenderingEventType {
+	option features.enum_type = CLOSED;
+
+	RENDERING_EVENT_TYPE_UNSPECIFIED = 0;
+	RENDERING_EVENT_TYPE_THROTTLED = 1;
+	RENDERING_EVENT_TYPE_SEGMENT_INSERTED_QUEUE_AHEAD = 2;
+	RENDERING_EVENT_TYPE_SEGMENT_INSERTED_CURRENT_TIME = 3;
+	RENDERING_EVENT_TYPE_SLOT_ENTRY_CONDITION_MET = 4;
+}

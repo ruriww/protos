@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/web_view_entity.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InAppBrowserHeaderViewModel {
+	string title = 1;
+	Renderer close_button_view_model = 2;
+	Renderer back_button_view_model = 3;
+	Renderer menu_button_view_model = 4;
+	string web_view_entity_key = 5;
+	WebViewEntity web_view_entity = 6;
+	string subtitle = 7;
+	RendererContext renderer_context = 997;
+}
+
+extend Renderer {
+	InAppBrowserHeaderViewModel in_app_browser_header_view_model = 37094;
+}

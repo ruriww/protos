@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UnpluggedVideoDownloadState {
+	option features.enum_type = CLOSED;
+
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_UNKNOWN = 0;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_AVAILABLE = 1;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_UNAVAILABLE = 2;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_QUEUED = 3;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_DOWNLOADING = 4;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_DOWNLOADED = 5;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_FAILED = 6;
+	UNPLUGGED_VIDEO_DOWNLOAD_STATE_PAUSED_STORAGE_FULL = 7;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/permission.proto";
+import "youtube/api/innertube/permission_preprompt_dialog_supported_renderers.proto";
+import "youtube/api/innertube/permission_denied_forever_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PermissionEndpoint {
+	extend Command {
+		PermissionEndpoint permission_endpoint = 126857142;
+	}
+
+	Permission permission = 1;
+
+	oneof endpoint {
+		Command allowed_endpoint = 3;
+		Command allowed_service_endpoint = 6;
+		Command allowed_command = 10;
+	}
+
+	PermissionPrepromptDialogSupportedRenderers pre_prompt_dialog = 4;
+
+	oneof denied_forever {
+		PermissionDeniedForeverDialogSupportedRenderers denied_forever_dialog = 5;
+		Command denied_forever_endpoint = 7;
+	}
+
+	Command on_denied_command = 8;
+	Command on_ignored_command = 9;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.challenge.biometric;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BiometricChallengeDataValue {
+	extend data.DataValue {
+		BiometricChallengeDataValue biometric_challenge_data_value_extension = 277998451;
+	}
+}

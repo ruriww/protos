@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message VoiceLiveWebRtcErrorMessage {
+	string space = 1;
+	uint32 code = 2;
+	string message = 3;
+}

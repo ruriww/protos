@@ -1,0 +1,16 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message CrashData {
+	string exception_class_name = 1;
+	string exception_message = 2;
+	string throw_file_name = 3;
+	int32 throw_line_number = 4;
+	string throw_class_name = 5;
+	string throw_method_name = 6;
+	string stack_trace = 7;
+	int32 signal = 8;
+}

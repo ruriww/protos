@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_messaging_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineReceiveDebug {
+	string share_nonce = 1;
+
+	oneof event_type {
+		OfflineMessagingEvent messaging = 2;
+	}
+
+	string offline_share_session_nonce = 4;
+}

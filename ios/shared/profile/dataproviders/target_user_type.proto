@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ios.shared.profile.dataproviders;
+
+option objc_class_prefix = "GSCP";
+
+enum TargetUserType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_TYPE = 0;
+	CONTACT = 1;
+	GAIA = 2;
+	PEOPLE_API = 3;
+	PHONE = 4;
+	EMAIL = 5;
+}

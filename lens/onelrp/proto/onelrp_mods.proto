@@ -1,0 +1,24 @@
+edition = "2023";
+
+package lens.onelrp.proto;
+
+option objc_class_prefix = "LNSAPI";
+
+message OnelrpMods {
+	enum Mods {
+		option features.enum_type = CLOSED;
+
+		MODS_UNSPECIFIED = 0;
+		DARK_MODE = 1;
+		BLUEPILL = 3;
+		EXTERNAL_CSS = 4;
+		IMAGE_VIEWER = 7;
+		ENABLE_LBE_NG = 14;
+		SILK_UI_MODES = 19;
+		IMPROV_ABOUT_THIS_IMAGE = 21;
+		NO_HEADER_TOGGLE = 22;
+		ENABLE_IMAGE_METADATA_LBE_CACHE = 23;
+	}
+
+	repeated Mods mods = 1;
+}

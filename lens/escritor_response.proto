@@ -1,0 +1,28 @@
+edition = "2023";
+
+package lens;
+
+import "lens/mixed_query.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message EscritorResponse {
+	message Element {
+		oneof value {
+			MixedQuery text = 1;
+			MixedQuery latex = 2;
+		}
+	}
+
+	MixedQuery solve_for = 1;
+	repeated MixedQuery givens = 2;
+	repeated MixedQuery knowns = 3;
+	MixedQuery strategy = 4;
+
+	message Block {
+		repeated Element elements = 1;
+	}
+
+	repeated Block steps = 5;
+	Block solution = 6;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_text_update_operation.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeDescriptionUpdateRequest {
+	string new_description = 1;
+	MdeTextUpdateOperation description_operation = 5;
+	elements.AttributedString new_description_attributed_string = 6;
+}

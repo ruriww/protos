@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/utils/visibility/visibility_criteria.proto";
+import "youtube/api/innertube/inline_playback_descriptor.proto";
+import "youtube/api/innertube/post_descriptor.proto";
+import "youtube/api/innertube/collection_descriptor.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveStateDescriptor {
+	utils.visibility.VisibilityCriteria default_visibility_criteria = 1;
+	InlinePlaybackDescriptor inline_playback_descriptor = 2;
+	PostDescriptor posts_descriptor = 3;
+	CollectionDescriptor collection_descriptor = 5;
+}

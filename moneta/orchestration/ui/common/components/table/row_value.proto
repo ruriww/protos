@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.table;
+
+import "moneta/orchestration/ui/common/components/table/cell_value.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+
+option objc_class_prefix = "OrchTable";
+
+message RowValue {
+	int64 ui_reference = 1;
+	repeated CellValue cell_value = 2;
+	generic.UiFieldValue row_checkbox_value = 3;
+	bytes data_token = 4;
+}

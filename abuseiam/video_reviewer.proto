@@ -1,0 +1,26 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message VideoReviewer {
+	enum ReviewerType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CRT = 1;
+		TIERED_CRT = 2;
+		POLICY = 3;
+		ANALYSTS = 4;
+		LEGAL = 5;
+		LEGAL_CSAI = 6;
+		LEGAL_REMOVALS = 7;
+		HIJACKING_TEAM = 8;
+		CRT_CSAI = 9;
+		LEGAL_CSAI_LOW_PRIORITY = 10;
+	}
+
+	ReviewerType type = 1;
+	string username = 2;
+}

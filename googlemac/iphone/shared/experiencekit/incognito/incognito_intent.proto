@@ -1,0 +1,12 @@
+edition = "2023";
+
+package googlemac.iphone.shared.experiencekit.incognito;
+
+option objc_class_prefix = "EXP";
+
+message IncognitoIntent {
+	string destination_app = 1;
+	bool is_incognito = 2;
+	string source_app = 3;
+	string url_hash = 4;
+}

@@ -1,0 +1,49 @@
+edition = "2023";
+
+package search.mdd;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "MDD";
+
+message FileGroupFile {
+	string file_id = 1;
+	string sha_1 = 2;
+	string url = 3;
+	int64 byte_size = 4;
+
+	enum Compression {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		ZLIB = 1;
+	}
+
+	Compression source_compression = 5;
+	string relative_file_path = 6;
+	google.protobuf.Any custom_metadata = 7;
+
+	enum ChecksumType {
+		option features.enum_type = CLOSED;
+
+		CHECKSUM_TYPE_DEFAULT = 0;
+		CHECKSUM_TYPE_NONE = 1;
+	}
+
+	ChecksumType checksum_type = 8;
+	int64 downloaded_file_byte_size = 9;
+
+	message Encryption {
+		enum EncryptionType {
+			option features.enum_type = CLOSED;
+
+			NONE = 0;
+			AES_GCM = 1;
+		}
+
+		EncryptionType type = 1;
+		string key = 2;
+	}
+
+	Encryption source_encryption = 10;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.smssender;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/input/phoneinput/phone_number.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SmsSenderData {
+	extend data.Data {
+		SmsSenderData sms_sender_data_extension = 286058389;
+	}
+
+	input.phoneinput.PhoneNumber sms_phone_number = 1;
+	string sms_message = 2;
+	int32 subscription_id = 3;
+}

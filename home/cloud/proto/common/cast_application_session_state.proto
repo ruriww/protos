@@ -1,0 +1,13 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+option objc_class_prefix = "GHCC";
+
+message CastApplicationSessionState {
+	string app_id = 1;
+	string display_name = 2;
+	string application_session_id = 3;
+	string session_owner_device_id = 4;
+	string group_session_id = 5;
+}

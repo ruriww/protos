@@ -1,0 +1,12 @@
+edition = "2023";
+
+package chrome.dongle.senderconfig;
+
+import "chrome/dongle/senderconfig/sender_flag.proto";
+
+option objc_class_prefix = "GCKSF";
+
+message SenderConfig {
+	repeated int32 enabled_id = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated SenderFlag flag = 2;
+}

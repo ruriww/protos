@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_carousel_shelf_basic_header_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicCarouselShelfBasicHeaderRenderer {
+	FormattedString title = 1;
+	FormattedString strapline = 2;
+	AccessibilitySupportedDatas accessibility_data = 3;
+	Command navigation_endpoint = 4;
+	repeated Renderer end_icons = 5;
+	MusicCarouselShelfBasicHeaderStyle header_style = 6;
+	Renderer more_content_button = 7;
+	Renderer thumbnail = 10;
+	bytes tracking_params = 12;
+	repeated Renderer end_title_icons = 13;
+	Renderer section_above_text = 14;
+}

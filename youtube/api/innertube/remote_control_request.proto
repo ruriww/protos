@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/active_device_app_info.proto";
+import "youtube/api/innertube/remote_action.proto";
+import "youtube/api/innertube/device_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RemoteControlRequest {
+	InnerTubeContext context = 1;
+	ActiveDeviceAppInfo target_app_info = 2;
+	RemoteAction action = 3;
+	DeviceAction device_action = 4;
+}

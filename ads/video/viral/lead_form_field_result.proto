@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ads.video.viral;
+
+import "ads/video/viral/text_value.proto";
+
+option objc_class_prefix = "AVV";
+
+message LeadFormFieldResult {
+	bool changed_by_user = 3;
+
+	oneof lead_form_field_value {
+		TextValue text_value = 4;
+	}
+
+	string field_identifier = 6;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsProfilePinGateEventType {
+	option features.enum_type = CLOSED;
+
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_UNKNOWN = 0;
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_SUCCESS = 1;
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_FAIL = 2;
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_CREATE = 3;
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_RESET = 4;
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_EDIT = 5;
+	KIDS_PROFILE_PIN_GATE_EVENT_TYPE_FORGOT = 6;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/rectangle.proto";
+import "image/tenor/creation/rectangle_percent.proto";
+import "image/tenor/creation/quadrilateral.proto";
+import "image/tenor/creation/point.proto";
+
+option objc_class_prefix = "TENOR";
+
+message Position {
+	oneof position {
+		Rectangle absolute = 1;
+		RectanglePercent relative = 2;
+		Quadrilateral quadrilateral = 3;
+		Quadrilateral relative_quadrilateral = 4;
+	}
+
+	string outline_color = 5;
+
+	enum Scale {
+		option features.enum_type = CLOSED;
+
+		SCALE_UNSPECIFIED = 0;
+		SCALE_TO_FIT_START = 1;
+		SCALE_TO_FIT_CENTER = 2;
+		SCALE_TO_FIT_END = 3;
+		SCALE_TO_FIT_FILL = 4;
+	}
+
+	Scale scale = 6;
+	float rotation = 7;
+
+	oneof rotation_center {
+		Point absolute_center = 8;
+		Point relative_center = 9;
+	}
+}

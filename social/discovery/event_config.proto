@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.discovery;
+
+import "social/discovery/retention_policy.proto";
+
+option objc_class_prefix = "SDIS";
+
+message EventConfig {
+	RetentionPolicy retention_policy = 1 [ default = STANDARD_63_DAYS ];
+}

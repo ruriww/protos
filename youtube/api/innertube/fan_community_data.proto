@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FanCommunityData {
+	Renderer fan_community_guidelines_element_renderer = 1;
+	Command show_fan_community_guidelines_command = 2;
+	string fan_community_guidelines_state_key = 3;
+	string host_channel_name = 4;
+}

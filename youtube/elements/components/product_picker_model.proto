@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/product_picker_entity.proto";
+import "youtube/elements/context.proto";
+import "youtube/api/innertube/product_picker_server_state_entity.proto";
+import "youtube/elements/components/product_picker_data.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/api/innertube/client_info.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/api/innertube/matrix_data.proto";
+import "youtube/api/innertube/product_sticker_metadata.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ProductPickerModel {
+	extend Model {
+		ProductPickerModel product_picker_model = 406356191;
+	}
+
+	string client_state_entity_key = 1;
+	ProductPickerEntity client_state_entity = 2;
+	Context context = 3;
+	string server_state_entity_key = 4;
+	api.innertube.ProductPickerServerStateEntity server_state_entity = 5;
+	ProductPickerData data = 6;
+	Command on_change = 8;
+	float scuba_height_override = 9;
+	EnvironmentData environment = 10;
+	api.innertube.ClientInfo.ClientName client_name = 11;
+	Command on_product_selection_update_success = 12;
+	Command on_done_after_close_command = 14;
+	bool is_channel_product_picker = 15;
+	Theme theme = 20;
+	bool disable_drag_and_drop_for_tests = 21;
+	string sticker_entity_key = 22;
+	api.innertube.MatrixData initial_sticker_transform = 23;
+	api.innertube.ProductStickerMetadata.CreatorStickerMetadata initial_sticker_metadata = 24;
+}

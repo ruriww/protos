@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shopping_channel_config_update.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateShoppingConfig {
+	oneof id_type {
+		string external_channel_id = 1;
+	}
+
+	oneof update_type {
+		ShoppingChannelConfigUpdate channel_config_update = 4;
+	}
+}

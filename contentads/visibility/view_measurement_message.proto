@@ -1,0 +1,392 @@
+edition = "2023";
+
+package contentads.visibility;
+
+import "unknown/youtube/event_id_message.proto";
+import "contentads/visibility/measured_ads_position.proto";
+import "contentads/visibility/measured_ads_size.proto";
+import "contentads/visibility/viewability_buckets.proto";
+import "contentads/visibility/quartile_data.proto";
+import "contentads/visibility/third_party_viewability.proto";
+import "contentads/visibility/video_presence_signals.proto";
+import "contentads/visibility/time_bucket.proto";
+import "contentads/visibility/quartile_info.proto";
+import "contentads/visibility/omid_info.proto";
+
+option objc_class_prefix = "CAVIS";
+
+message ViewMeasurementMessage {
+	int32 view_state = 1;
+	int32 time_until_view_msec = 2;
+	int32 max_consecutive_view_msec = 3;
+	int32 cumulative_view_msec = 4;
+	int32 max_onscreen_pct = 5;
+	int64 page_correlator = 6;
+	uint64 ad_block_key = 7 [ default = 0 ];
+	MeasuredAdsPosition position = 8;
+	MeasuredAdsSize viewport_size = 9;
+	MeasuredAdsSize document_size = 10;
+	ViewabilityBuckets total_onscreen_time = 11;
+	ViewabilityBuckets max_consecutive_onscreen_time = 12;
+	QuartileData quartile_area_percentages = 13;
+	uint64 request_properties = 14;
+	int32 page_session_duration_msec = 15;
+	string original_request = 16;
+	float audio_volume = 17 [ default = -1 ];
+	int32 video_delta_tos_msec = 18 [ default = 0 ];
+	int32 video_delta_tos_seq = 19 [ default = 0 ];
+	bool DEPRECATED_gm_measurable = 21 [ deprecated = true, default = false ];
+	int32 gm_measurable_version = 22 [ default = 0 ];
+	ThirdPartyViewability third_party_viewability = 23;
+	bool audible_since_start = 24 [ default = false ];
+	int32 audible_time = 25 [ default = 0 ];
+	float onscreen_coverage = 26 [ default = -1 ];
+	uint64 instantaneous_state = 27 [ default = 0 ];
+	uint64 impression_counting = 28 [ default = 0 ];
+	int32 video_audible_delta_msec = 29 [ default = 0 ];
+	int32 video_audible_and_viewable_time_msec = 30 [ default = 0 ];
+	int32 video_audible_and_viewable_delta_msec = 31 [ default = 0 ];
+	int32 video_fullscreen_time_msec = 32 [ default = 0 ];
+	int32 video_fullscreen_delta_msec = 33 [ default = 0 ];
+	float maximum_onscreen_coverage = 34 [ default = -1 ];
+	float load_time_exposure = 35 [ default = -1 ];
+
+	enum VideoSdkType {
+		option features.enum_type = CLOSED;
+
+		SDK_INVALID = 0;
+		SDK_FLASH = 1;
+		SDK_HTML = 2;
+		SDK_NATIVE = 3;
+		SDK_ADMOB = 4;
+		SDK_YT_ANDROID = 5;
+		SDK_YT_IOS = 6;
+		SDK_PV = 7;
+		SDK_INMOBI = 8;
+		SDK_OMID = 9;
+		SDK_BULLEIT = 10;
+	}
+
+	VideoSdkType video_sdk_type = 36;
+
+	enum MeasurementStrategy {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_STRATEGY = 0;
+		GEOMETRIC_STRATEGY = 1;
+		ELEMENT_FROM_POINT_MONITORING_STRATEGY = 5;
+		NATIVE_INTERSECTION_OBSERVER_STRATEGY = 6;
+		MRAID_CUSTOM_MEASUREMENT_STRATEGY = 8;
+		ALWAYS_100_MEASUREMENT_STRATEGY = 9;
+		GMA_SDK_STRATEGY = 11;
+		NATIVE_IMA_SDK_STRATEGY = 12;
+		GMA_SDK_VIDEO_STRATEGY = 13;
+		EXTERNAL_COVERAGE_STRATEGY = 14;
+		PRESUMED_VIEWABILITY = 15;
+		NATIVE_LIDAR = 16;
+		OSD_VIEWPORT_PROVIDER = 17;
+		OMID_STRATEGY = 18;
+		OMID_INTERSECTION_OBSERVER_STRATEGY = 23;
+		OMID_GEOMETRIC_STRATEGY = 24;
+		AMP_ANALYTICS_STRATEGY = 19;
+		AMP_ANALYTICS_MRAID_STRATEGY = 21;
+		NOT_SELECTED = 20;
+		WALLED_GARDEN_PROVIDED = 22;
+		TURTLEX_STRATEGY = 25;
+		RAYCAST_STRATEGY = 26;
+		FLASH_MONITORING_STRATEGY = 2;
+		SAFARI_FLASH_MONITORING_STRATEGY = 3;
+		FIREFOX_HEADER_ESTIMATION_STRATEGY = 4;
+		AMP_INTERSECTION_OBSERVER_STRATEGY = 7;
+		REQUEST_ANIMATION_FRAME_STRATEGY = 10;
+	}
+
+	MeasurementStrategy measurement_strategy = 37 [ default = GEOMETRIC_STRATEGY ];
+	uint32 signals_version = 38 [ default = 0 ];
+
+	enum CodebaseType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CODEBASE = 0;
+		LIDAR_YOUTUBE_ANDROID = 2;
+		LIDAR_YOUTUBE_IOS = 3;
+		NO_CLIENT_CODE = 4;
+		LIDAR_DISPLAY_JAVASCRIPT = 5;
+		OSD_DISPLAY_JAVASCRIPT = 6;
+		RX_LIDAR_DISPLAY_JAVASCRIPT = 10;
+		BOW_LIDAR_DISPLAY_JAVASCRIPT = 7;
+		BOW_OSD_DISPLAY_JAVASCRIPT = 8;
+		LIDAR_VIDEO_OMNI_JAVASCRIPT = 9;
+		LIDAR_DISPLAY_LIBRARY = 11;
+		AMP_ANALYTICS = 12;
+		MRAID_RX_LIDAR_DISPLAY_JAVASCRIPT = 13;
+		WALLED_GARDEN_NO_CLIENT_CODE = 14;
+		RX_OMID_JAVASCRIPT = 15;
+		RX_OMID_DOM_JAVASCRIPT = 20;
+		RX_YOUTUBE_DISPLAY_DESKTOP = 28;
+		RX_YOUTUBE_DISPLAY_MOBILE_WEB = 29;
+		RX_YOUTUBE_DISPLAY_TVHTML5 = 31;
+		RX_OMID_VIDEO_JAVASCRIPT = 30;
+		RAYCAST_SDK = 32;
+		LIDAR_VIDEO_JAVASCRIPT_DRX_REWARDED_WEB = 16;
+		LIDAR_VIDEO_JAVASCRIPT_GAM_NATIVE_WEB = 17;
+		LIDAR_VIDEO_JAVASCRIPT_ADMOB_INTERSTITIAL = 18;
+		LIDAR_VIDEO_JAVASCRIPT_ADMOB_NATIVE = 22;
+		LIDAR_VIDEO_JAVASCRIPT_OUTSTREAM = 19;
+		LIDAR_VIDEO_JAVASCRIPT_IMA = 21;
+		LIDAR_VIDEO_JAVASCRIPT_NATIVE_IMA = 27;
+		LIDAR_VIDEO_JAVASCRIPT_MYSIDIA_BRAND_ADDON = 23;
+		LIDAR_VIDEO_JAVASCRIPT_MYSIDIA_REWARDED_BRAND_ADDON = 26;
+		LIDAR_VIDEO_JAVASCRIPT_YOUTUBE_WEB = 24;
+		LIDAR_VIDEO_JAVASCRIPT_CAST_SDK = 25;
+		LIDAR_VIDEO_JAVASCRIPT = 1;
+	}
+
+	CodebaseType codebase_type = 39 [ default = UNKNOWN_CODEBASE ];
+	int32 video_visible_delta_msec = 40 [ default = 0 ];
+	int32 video_audible_and_visible_delta_msec = 41 [ default = 0 ];
+	uint64 instantaneous_state_at_start = 42 [ default = 0 ];
+	uint64 instantaneous_state_at_q1 = 43 [ default = 0 ];
+	uint64 instantaneous_state_at_q2 = 44 [ default = 0 ];
+	uint64 instantaneous_state_at_q3 = 45 [ default = 0 ];
+	uint64 cumulative_state = 46 [ default = 0 ];
+	float minimum_onscreen_coverage = 47 [ default = -1 ];
+	float maximum_audio_volume = 48 [ default = -1 ];
+	float minimum_audio_volume = 49 [ default = -1 ];
+	ViewabilityBuckets quartile_max_consecutive_onscreen_time = 50;
+	float quartile_minimum_onscreen_coverage = 51 [ default = -1 ];
+	float quartile_maximum_audio_volume = 52 [ default = -1 ];
+	float quartile_minimum_audio_volume = 53 [ default = -1 ];
+	int32 video_ad_duration_msec = 54 [ default = 0 ];
+	int32 video_playback_time_msec = 55 [ default = 0 ];
+	VideoPresenceSignals video_presence_signals = 56;
+	int32 video_audible_and_fully_visible_delta_msec = 57 [ default = 0 ];
+	ViewabilityBuckets audible_onscreen_time = 58;
+	int32 video_fully_visible_delta_msec = 59 [ default = 0 ];
+	MeasuredAdsSize screen_size = 60;
+	int32 video_playback_time_delta_msec = 61 [ default = 0 ];
+	uint32 video_visible_per_second = 62;
+	uint32 video_fully_visible_per_second = 63;
+	uint32 video_audible_per_second = 64;
+	uint32 video_measurement_per_second = 65;
+	repeated int32 custom_events = 66 [ features.repeated_field_encoding = EXPANDED ];
+	int64 video_media_time_msec = 67 [ default = 0 ];
+	uint32 video_buffering_time_msec = 68 [ default = 0 ];
+
+	enum PingType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PINGTYPE = 0;
+		OSDIM = 1;
+		OSDTOS = 2;
+		GMOB = 3;
+		GMOBTOS = 4;
+		LIDAR2 = 5;
+		LIDARIM = 6;
+		LIDARTOS = 7;
+		LIDARV = 8;
+		AMPIM = 9;
+		AVTEST = 10;
+		OSD2 = 11;
+		OSDEXP = 12;
+		AMPEOS = 13;
+		DCM_WALLED_GARDEN = 14;
+		AUDIO_PING = 15;
+		TURTLEX_PING = 16;
+		RAYCAST_PING = 17;
+	}
+
+	PingType ping_type = 69 [ default = UNKNOWN_PINGTYPE ];
+	repeated TimeBucket screen_share_buckets = 70;
+	bool is_vpaid_creative = 71;
+
+	enum TimeCalculationMode {
+		option features.enum_type = CLOSED;
+
+		WALL_TIME = 0;
+		MEDIA_TIME = 1;
+	}
+
+	TimeCalculationMode time_calculation_mode = 72 [ default = WALL_TIME ];
+	int64 render_start_time_since_epoch_msec = 73;
+	int32 render_period_msec = 74;
+	int32 dom_loading_msec = 75;
+
+	enum ReasonCode {
+		option features.enum_type = CLOSED;
+
+		NOT_SET = 0;
+		REASON_AD_CLEARED = 1;
+		REASON_ENVIRONMENT_INCOMPLETE = 2;
+		REASON_DEPRECATED_API = 3;
+		REASON_VIDEO_EMBED_PING = 4;
+		REASON_LOSS_OF_FOCUS = 5;
+		REASON_FLASH_PIXEL = 6;
+		REASON_UNMEASURABLE_HOLDBACK = 7;
+		REASON_CROSS_DOMAIN_IFRAME = 8;
+		REASON_INVALID_BLOCK_ID = 9;
+		REASON_PAGE_NOT_LOADED = 10;
+		REASON_AD_MEASURABLE = 11;
+		REASON_MEASUREMENT_STRATEGY_FAILURE = 12;
+		REASON_NO_AD_FOUND = 13;
+		REASON_NO_OSD_FOUND = 14;
+		REASON_CROSS_DOMAIN_IFRAME_OPTOUT = 15;
+		REASON_OSD_PATH_MISSING = 16;
+		REASON_PAGE_VISIBILITY_UNKNOWN = 17;
+		REASON_TIMEOUT = 18;
+		REASON_PAGE_UNLOADED = 19;
+		REASON_UNKNOWN = 20;
+		REASON_AD_VIEWED = 21;
+		REASON_UNMEASURABLE_WEBVIEW = 22;
+		REASON_EXCEPTION = 23;
+		REASON_ZERO_AREA_AD = 24;
+		REASON_VISIBILITY_CHANGE_HIDDEN = 25;
+		REASON_PAGE_HIDE_EVENT = 26;
+		REASON_AMP_DOCUMENT_EXIT = 27;
+		REASON_AD_UNREGISTERED = 28;
+		REASON_BACKGROUNDED = 29;
+	}
+
+	ReasonCode reason_code = 76 [ default = NOT_SET ];
+
+	enum UnviewedReason {
+		option features.enum_type = CLOSED;
+
+		UNVIEWED_REASON_UNSPECIFIED = 0;
+		UNVIEWED_REASON_UNKNOWN = 1;
+		UNVIEWED_REASON_UNMEASURABLE = 2;
+		UNVIEWED_REASON_SLOT_NEVER_ENTERED_VIEWPORT = 3;
+		UNVIEWED_REASON_SCROLLED_PAST_BEFORE_AD_FILLED = 4;
+		UNVIEWED_REASON_SCROLLED_PAST_BEFORE_AD_LOADED = 5;
+		UNVIEWED_REASON_INSUFFICIENT_TIME_ON_SCREEN = 6;
+		UNVIEWED_REASON_INSUFFICIENT_PIXELS_ON_SCREEN = 7;
+	}
+
+	UnviewedReason unviewed_reason = 77 [ default = UNVIEWED_REASON_UNSPECIFIED ];
+	MeasuredAdsPosition container_position = 78;
+	int32 missed_viewable_opportunity_msec = 79;
+	int32 blank_rectangle_time_msec = 80;
+	QuartileInfo start = 82;
+	QuartileInfo q1 = 83;
+	QuartileInfo q2 = 84;
+	QuartileInfo q3 = 85;
+	int32 injected_template_id = 86 [ default = 1 ];
+
+	enum MeasuredElementType {
+		option features.enum_type = CLOSED;
+
+		MEASURED_ELEMENT_TYPE_UNSPECIFIED = 0;
+		MEASURED_ELEMENT_TYPE_INVALID = 1;
+		MEASURED_ELEMENT_TYPE_NONE = 2;
+		MEASURED_ELEMENT_TYPE_MARKED_UP = 3;
+		MEASURED_ELEMENT_TYPE_CONTAINER = 4;
+		MEASURED_ELEMENT_TYPE_INTERNAL = 5;
+	}
+
+	MeasuredElementType measured_element_type = 87 [ default = MEASURED_ELEMENT_TYPE_UNSPECIFIED ];
+	OmidInfo omid_info = 88;
+	repeated TimeBucket max_consecutive_audible_onscreen_time = 89;
+	bool ignore_user_agent_experiment = 90;
+
+	enum AudibleState {
+		option features.enum_type = CLOSED;
+
+		AUDIO_UNKNOWN = 0;
+		AUDIO_INVALID = 1;
+		AUDIO_VALID = 2;
+		AUDIO_MEASURED = 3;
+		AUDIO_AUDIBLE = 4;
+	}
+
+	AudibleState audible_state = 91 [ default = AUDIO_UNKNOWN ];
+
+	enum VastEventId {
+		option features.enum_type = CLOSED;
+
+		VAST_EVENT_ID_UNSPECIFIED = 0;
+		VAST_EVENT_ID_INVALID = 1;
+		VAST_EVENT_ID_UNKNOWN = 2;
+		VAST_EVENT_ID_START = 3;
+		VAST_EVENT_ID_FIRST_QUARTILE = 4;
+		VAST_EVENT_ID_MIDPOINT = 5;
+		VAST_EVENT_ID_THIRD_QUARTILE = 6;
+		VAST_EVENT_ID_COMPLETE = 7;
+		VAST_EVENT_ID_METRIC = 8;
+		VAST_EVENT_ID_PAUSE = 9;
+		VAST_EVENT_ID_RESUME = 10;
+		VAST_EVENT_ID_SKIPPED = 11;
+		VAST_EVENT_ID_VIEWABLE_IMPRESSION = 12;
+		VAST_EVENT_ID_MUTE = 13;
+		VAST_EVENT_ID_UNMUTE = 14;
+		VAST_EVENT_ID_FULLSCREEN = 15;
+		VAST_EVENT_ID_EXIT_FULLSCREEN = 16;
+		VAST_EVENT_ID_FULLY_VIEWABLE_AUDIBLE_HALF_DURATION_IMPRESSION = 17;
+		VAST_EVENT_ID_MEASURABLE_IMPRESSION = 18;
+		VAST_EVENT_ID_ABANDON = 19;
+		VAST_EVENT_ID_ENGAGED_VIEW = 20;
+		VAST_EVENT_ID_IMPRESSION = 21;
+		VAST_EVENT_ID_CREATIVE_VIEW = 22;
+		VAST_EVENT_ID_LOADED = 23;
+		VAST_EVENT_ID_CUSTOM_METRIC_VIEWABLE = 24;
+		VAST_EVENT_ID_BUFFER_START = 25;
+		VAST_EVENT_ID_BUFFER_FINISH = 26;
+		VAST_EVENT_ID_AUDIO_IMPRESSION = 27;
+		VAST_EVENT_ID_AUDIO_MEASURABLE = 28;
+		VAST_EVENT_ID_AUDIO_AUDIBLE = 29;
+	}
+
+	VastEventId vast_event_id = 92 [ default = VAST_EVENT_ID_UNSPECIFIED ];
+
+	oneof precise_signals_version {
+		int32 signals_version_manual_counter = 93;
+		int32 signals_version_seconds_from_unix_epoch = 94;
+	}
+
+	string rx_debugger = 95;
+
+	enum FencedFrameMeasurementMode {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		CREATIVE = 1;
+		SLOT = 2;
+	}
+
+	FencedFrameMeasurementMode fenced_frame_measurement_mode = 96;
+	bool iov2_currently_not_visible = 97;
+	bool iov2_not_visible_at_least_once = 98;
+	bool iov2_always_not_visible = 99;
+	uint64 satisfied_criteria = 100;
+
+	enum CreativeObstructionMethodology {
+		option features.enum_type = CLOSED;
+
+		NO_OBSTRUCTION_MEASUREMENT = 0;
+		INTERSECTION_OBSERVER_V2 = 1;
+	}
+
+	CreativeObstructionMethodology creative_obstruction_methodology = 101 [ default = NO_OBSTRUCTION_MEASUREMENT ];
+	uint32 creative_obstruction_state = 102 [ default = 0 ];
+
+	message DeltaTimes {
+		uint64 client_order = 1;
+		unknown.youtube.EventIdMessage origin_event_id = 2;
+		int32 video_delta_tos_seq = 3;
+		uint64 impression_counting = 4;
+		int32 cumulative_view_msec = 5;
+		int32 video_delta_tos_msec = 6;
+		int32 audible_time = 7;
+		int32 video_audible_delta_msec = 8;
+		int32 video_visible_delta_msec = 9;
+		int32 video_fully_visible_delta_msec = 10;
+		int32 video_audible_and_visible_delta_msec = 11;
+		int32 video_audible_and_fully_visible_delta_msec = 12;
+		int32 video_playback_time_delta_msec = 13;
+		int32 video_playback_time_msec = 14;
+	}
+
+	repeated DeltaTimes active_view_delta_times = 103;
+	uint64 client_order = 104 [ default = 0 ];
+	uint32 total_measurement_msec = 105;
+	uint32 total_unviewed_msec = 106;
+}

@@ -1,0 +1,51 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPlayerHotConfig {
+	bool android_offline_online_playback_requester = 1;
+	bool enable_audio_route_logging = 3;
+	bool enable_gapless_playback = 4;
+	bool music_disable_alarm_stream_playback = 5;
+	bool enable_watch_page_attach_queue_response_fix = 7;
+	bool music_enable_playback_error_redesign = 8;
+	bool music_enable_pinch_to_zoom = 9;
+	bool music_enable_restore_on_media_button_intent = 11;
+	bool music_restore_on_mbs_create = 12;
+	bool ios_enable_improved_csi_logging = 13;
+	bool enable_mdx_autoplay = 14;
+	bool music_enable_shuffle_all_downloads = 15;
+	bool android_prefetch_all_finite_containers = 16;
+	bool enable_playlist_id_override_for_single_song_queue = 19;
+	bool music_restore_on_get_root = 20;
+	bool android_music_clear_loop_state = 21;
+	bool ios_enable_unconditional_queue_restoration = 22;
+	bool enable_offline_aware_for_stream_wifi_only = 23;
+	bool enable_stop_prefetching_on_cellular_for_stream_wifi_only = 24;
+	bool enable_android_early_player_fetch_join = 25;
+	bool enable_persistent_media_session = 26;
+	int32 music_prebuffer_countdown_time_ms_free_tier = 27;
+	bool enable_seamless_radio_transition = 28;
+	bool enable_android_r_media_resumption = 29;
+	bool enable_free_tier_audio_cast = 30;
+	bool enable_unsynchronized_playback_ui = 31;
+	bool should_decorate_sideloaded_tracking_urls_with_headers = 32;
+	bool pre_open_related_tab = 33;
+	bool android_enable_queue_creation_logging = 34;
+	bool enable_watch_next_service_for_queue_endpoints = 35;
+	bool android_enable_sticky_player_page_tabs = 36;
+	bool enable_mdx_clientside_expansion_for_offline = 37;
+	bool pause_xwalk_playback_on_mpp_tabs = 38;
+	bool uao_fix = 39;
+	bool ios_enable_autoplay_queue_persistence = 40;
+	bool android_enable_playback_content_mode_refactor = 41;
+	bool enable_mdx_loop_mode = 42;
+	bool enable_recently_played_metadata = 43;
+	bool android_enable_reorder_autoplay_queue = 44;
+	bool android_use_low_res_thumbnails_for_media_session = 45;
+}

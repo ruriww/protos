@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/invitation.proto";
+
+option objc_class_prefix = "GFM";
+
+message RecreateInvitationResponse {
+	ApiResponseHeader api_header = 1;
+	Invitation invitation = 2;
+}

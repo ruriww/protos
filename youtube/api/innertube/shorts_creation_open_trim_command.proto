@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationOpenTrimCommand {
+	extend Command {
+		ShortsCreationOpenTrimCommand shorts_creation_open_trim_command = 1340;
+	}
+
+	string video_source_file_uri = 1;
+	string file_mime_type = 2;
+	string video_source_referring_app = 3;
+	bool should_fetch_image_uri_from_media_gen_block_asset_data = 5;
+}

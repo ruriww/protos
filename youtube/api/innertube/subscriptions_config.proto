@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionsConfig {
+	int32 sparkle_treatment_initial_duration_sec = 1;
+	int32 sparkle_treatment_subsequent_duration_sec = 2;
+	int32 sparkle_treatment_pause_duration_sec = 3;
+	bool enable_wia_gem_island = 4;
+}

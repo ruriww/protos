@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/emoji.proto";
+import "youtube/api/innertube/suggest_editable_text_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestEditableTextItemEntity {
+	extend EntityMutationPayload {
+		SuggestEditableTextItemEntity suggest_editable_text_item_entity = 256;
+	}
+
+	string key = 1;
+
+	oneof item {
+		string text = 2;
+		Emoji emoji = 3;
+	}
+
+	SuggestEditableTextAction action = 4;
+	bool should_append_whitespace = 5;
+	bool should_conditionally_prepend_whitespace = 6;
+}

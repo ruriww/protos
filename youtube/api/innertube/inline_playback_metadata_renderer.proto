@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/share_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/inline_playback_video_reporting_supported_renderers.proto";
+import "youtube/api/innertube/add_to_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/inline_playback_metadata_cta_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_badge_supported_renderers.proto";
+import "youtube/api/innertube/inline_playback_metadata_promo_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlinePlaybackMetadataRenderer {
+	FormattedString title = 1;
+	FormattedString short_byline_text = 2;
+	ThumbnailDetails channel_thumbnail = 4;
+	Command channel_navigation_endpoint = 5;
+	LikeButtonSupportedRenderers like_button = 6;
+	ShareButtonSupportedRenderers share_button = 7;
+	MenuSupportedRenderers menu = 8;
+	bytes tracking_params = 10;
+	FormattedString view_count_text = 11;
+	FormattedString short_view_count_text = 12;
+	InlinePlaybackVideoReportingSupportedRenderers video_reporting = 13;
+	AddToButtonSupportedRenderers add_to_button = 14;
+	FormattedString description = 15;
+	repeated BadgeSupportedRenderers badges = 16;
+	InlinePlaybackMetadataCTASupportedRenderers cta_renderer = 17;
+	repeated ThumbnailBadgeSupportedRenderers thumbnail_badges = 18;
+	InlinePlaybackMetadataPromoSupportedRenderers promo_renderer = 19;
+	FormattedString published_time_text = 20;
+	Renderer subscribe_renderer = 21;
+	Renderer bottom_standalone_badge = 22;
+	Renderer top_standalone_badge = 23;
+	FormattedString secondary_headline = 24;
+}

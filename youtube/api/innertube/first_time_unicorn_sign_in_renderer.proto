@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/gaia_authenticated_identity.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FirstTimeUnicornSignInRenderer {
+	GaiaAuthenticatedIdentity reauth_identity = 1;
+	Renderer reauth_user_account_item = 2;
+	bool disallow_client_suppression = 3;
+	int64 last_password_update_micros = 4;
+}
+
+extend Renderer {
+	FirstTimeUnicornSignInRenderer first_time_unicorn_sign_in_renderer = 268089666;
+}

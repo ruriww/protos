@@ -1,0 +1,8 @@
+edition = "2023";
+
+package googledata.experiments.mobile.ssoauth.ios.proto;
+
+option objc_class_prefix = "SSO";
+
+message ParadeLaunchStatus {
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.integrator.ui.embeddedlandingpage;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+
+option objc_class_prefix = "Orch";
+
+message EmbeddedLandingPageParameters {
+	common.CommonParameters common_parameters = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package cast;
+
+import "cast/crl.proto";
+
+option objc_class_prefix = "GCKPB";
+
+message CrlBundle {
+	repeated Crl crls = 1;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dynamic_readahead_config.proto";
+import "youtube/api/innertube/media_ustreamer_request_config.proto";
+import "youtube/api/innertube/server_readahead_config.proto";
+import "youtube/api/innertube/sabr_client_config.proto";
+import "youtube/api/innertube/server_playback_start_config.proto";
+import "youtube/api/innertube/scripted_player_config.proto";
+import "youtube/api/innertube/sabr_prefetch_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaCommonConfig {
+	DynamicReadaheadConfig dynamic_readahead_config = 1;
+	MediaUstreamerRequestConfig media_ustreamer_request_config = 2;
+	int32 hfr_dropped_framerate_fallback_threshold = 3;
+	bool optimize_for_gapless = 5;
+	int32 media_fetch_maximum_server_errors = 7;
+	int32 media_fetch_maximum_network_errors = 8;
+	int32 media_fetch_maximum_errors = 9;
+	ServerReadaheadConfig server_readahead_config = 10;
+	DynamicReadaheadConfig background_dynamic_readahead_config = 12;
+	bool use_server_driven_abr = 13;
+	SabrClientConfig sabr_client_config = 14;
+	ServerPlaybackStartConfig server_playback_start_config = 15;
+	ScriptedPlayerConfig scripted_player_config = 16;
+	bool enable_server_driven_request_cancellation = 17;
+	bool use_platypus = 18;
+	bool enable_drc_by_default = 21;
+	bool split_screen_eligible = 24;
+	bool disable_non_platypus_sabr = 25;
+	bool platypus_use_envoy_net_fetch = 26;
+	SabrPrefetchConfig sabr_prefetch_config = 27;
+	bool fix_live_playback_model_default_position = 28;
+}

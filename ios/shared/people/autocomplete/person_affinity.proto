@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "apps/people/oz/external/mergedpeopleapi/affinity.proto";
+import "ios/shared/people/autocomplete/person_affinity_metadata.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonAffinity {
+	apps.people.oz.external.mergedpeopleapi.Affinity.AffinityType affinity_type = 1;
+	double value = 2;
+	string logging_id = 3;
+	PersonAffinityMetadata affinity_metadata = 4;
+	bool is_device_affinity = 99;
+}

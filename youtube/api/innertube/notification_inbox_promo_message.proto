@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationInboxPromoMessage {
+	string promo_title = 1;
+	string promo_message = 2;
+	string yes_button_text = 3;
+	string no_button_text = 4;
+	Command click_yes_endpoint = 5;
+	Command click_no_endpoint = 6;
+}

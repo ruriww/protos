@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+option objc_class_prefix = "ORCH2";
+
+message RenderingModeStateProperties {
+	int32 expanded_percentage = 1;
+	int32 partially_expanded_percentage = 2;
+	int32 collapsed_percentage = 3;
+}

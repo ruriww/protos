@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+import "google/internal/identity/signedoutstate/v1/web_view_cookie.proto";
+
+option objc_class_prefix = "SOS";
+
+message SignedOutWebView {
+	repeated WebViewCookie cookies = 1;
+}

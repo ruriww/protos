@@ -1,0 +1,20 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message CheckboxList {
+	message Checkbox {
+		string image_url = 1;
+		transparencyandcontrol.proto.ConsentSetting consent_setting = 2;
+		webutil.html.types.SafeHtmlProto text = 3;
+	}
+
+	repeated Checkbox checkbox = 1;
+	bool has_select_all = 2;
+	webutil.html.types.SafeHtmlProto select_all_text = 3;
+}

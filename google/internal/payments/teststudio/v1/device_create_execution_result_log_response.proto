@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.payments.teststudio.v1;
+
+option objc_class_prefix = "PTS";
+
+message DeviceCreateExecutionResultLogResponse {
+	bytes serialized_create_execution_result_log_response = 1;
+}

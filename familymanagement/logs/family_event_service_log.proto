@@ -1,0 +1,11 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/family_event_service_create.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilyEventServiceLog {
+	FamilyEventServiceCreate create_event = 1;
+}

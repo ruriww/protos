@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/like_target.proto";
+import "youtube/api/innertube/request_execution_environment.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RemoveLikeRequest {
+	InnerTubeContext context = 1;
+	LikeTarget target = 2;
+	string params = 3;
+	bytes queue_context_params = 4;
+	RequestExecutionEnvironment request_execution_environment = 5;
+}

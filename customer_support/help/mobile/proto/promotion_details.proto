@@ -1,0 +1,16 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/promotion_type.proto";
+import "customer_support/help/mobile/proto/promotion_placement.proto";
+
+option objc_class_prefix = "CSHM";
+
+message PromotionDetails {
+	PromotionType type = 1;
+	string link_text = 2;
+	string image_base64 = 3;
+	int32 promotion_version = 4;
+	PromotionPlacement placement = 5;
+}

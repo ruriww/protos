@@ -1,0 +1,23 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/transparencyandcontrol/proto/consent_decision.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ToggleButtonGroup {
+	uint32 id = 1;
+
+	message ToggleButton {
+		string label = 1;
+		repeated transparencyandcontrol.proto.ConsentDecision decisions = 2;
+		bool selected_state = 3;
+		bool saved_state = 4;
+		string selected_aria_label = 5;
+		string unselected_aria_label = 6;
+	}
+
+	repeated ToggleButton toggle_button = 2;
+	string unselected_option_error_message = 3;
+}

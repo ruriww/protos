@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/player_request.proto";
+import "youtube/api/innertube/reel_watch_input_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelItemWatchRequest {
+	InnerTubeContext context = 1;
+	PlayerRequest player_request = 2;
+	string params = 3;
+	bool disable_player_response = 4;
+	ReelWatchInputType input_type = 5;
+	bool is_lens_eligible = 6;
+	bool enable_rotation = 7;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_chip.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message WelcomeHeader {
+	string name = 1;
+	string welcome_text = 2;
+	ResourceKey target = 3;
+	string avatar_accessibility_tap_text = 4;
+	ActionChip chip = 5;
+	bool show_product_lockup = 6 [ default = true ];
+	string title = 7;
+	repeated ActionItem action_items = 8;
+	Link link = 9;
+}

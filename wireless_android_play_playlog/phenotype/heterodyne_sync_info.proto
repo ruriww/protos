@@ -1,0 +1,24 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+import "experiments/heterodyne/experiments_and_configs_request.proto";
+import "experiments/heterodyne/fetch_reason.proto";
+import "wireless_android_play_playlog/phenotype/heterodyne_single_sync.proto";
+
+option objc_class_prefix = "PHT";
+
+message HeterodyneSyncInfo {
+	experiments.heterodyne.ExperimentsAndConfigsRequest.ClientType client_type = 1;
+	experiments.heterodyne.FetchReason.Type fetch_reason = 2;
+	string fetch_package_name = 3;
+	string host_application_name = 4;
+	repeated HeterodyneSingleSync single_sync = 5;
+	int32 sync_latency_ms = 7;
+	int64 packages_changed_count = 10;
+	int64 shared_storage_writes_count = 11;
+	int64 failed_shared_storage_writes_count = 12;
+	int64 accounts_removed_count = 13;
+	int64 experiment_states_removed_count = 14;
+	int64 shared_storage_files_deleted_count = 15;
+}

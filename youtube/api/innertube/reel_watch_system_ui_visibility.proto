@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelWatchSystemUiVisibility {
+	option features.enum_type = CLOSED;
+
+	REEL_WATCH_SYSTEM_UI_VISIBILITY_UNSPECIFIED = 0;
+	REEL_WATCH_SYSTEM_UI_VISIBILITY_HIDDEN = 1;
+	REEL_WATCH_SYSTEM_UI_VISIBILITY_SHOWN = 2;
+}

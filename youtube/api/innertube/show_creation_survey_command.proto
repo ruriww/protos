@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowCreationSurveyCommand {
+	extend Command {
+		ShowCreationSurveyCommand show_creation_survey_command = 1217;
+	}
+
+	oneof shorts_creation_survey {
+		bool intentful_shorts_creation_survey = 1;
+		bool non_intentful_shorts_creation_survey = 2;
+	}
+}

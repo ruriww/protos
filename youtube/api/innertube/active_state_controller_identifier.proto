@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ActiveStateControllerIdentifier {
+	option features.enum_type = CLOSED;
+
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_UNKNOWN = 0;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_INLINE_PLAYBACK = 1;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_LOGGING = 2;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_POST = 3;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_ASI_UI = 4;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_CUSTOM = 5;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_SCROLL_TICK_BUDGET_COST = 6;
+	ACTIVE_STATE_CONTROLLER_IDENTIFIER_COLLECTION = 7;
+}

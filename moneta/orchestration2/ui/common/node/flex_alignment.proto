@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum FlexAlignment {
+	option features.enum_type = CLOSED;
+
+	FLEX_ALIGNMENT_UNKNOWN = 0;
+	FLEX_ALIGNMENT_AUTO = 1;
+	FLEX_ALIGNMENT_START = 2;
+	FLEX_ALIGNMENT_END = 3;
+	FLEX_ALIGNMENT_CENTER = 4;
+	FLEX_ALIGNMENT_STRETCH = 5;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/channel_offer_card_supported_renderers.proto";
+import "youtube/api/innertube/channel_offer_card_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelOfferCardRenderer {
+	FormattedString header = 1;
+	ChannelOfferCardSupportedRenderers primary_offer = 2;
+	ChannelOfferCardSupportedRenderers secondary_offer = 3;
+	FormattedString subheader = 4;
+	ChannelOfferCardSubscribeButtonSupportedRenderers subscribe_button = 5;
+	bytes tracking_params = 7;
+}
+
+extend Renderer {
+	ChannelOfferCardRenderer channel_offer_card_renderer = 51249284;
+}

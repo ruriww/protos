@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingNode {
+	extend node.Node {
+		ScrollingNode scrolling_node_extension = 229613734;
+	}
+
+	node.Node child = 1;
+}

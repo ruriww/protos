@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message TrackingParameters {
+	int64 tracking_id = 1;
+	string tag = 2;
+	int64 sub_tracking_id = 3;
+
+	message PosPurchaseParameters {
+		string pos_id = 1;
+		string employee_id = 2;
+		string store_id = 3;
+	}
+
+	PosPurchaseParameters pos_purchase_parameters = 4;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.condition;
+
+option objc_class_prefix = "ORCH2";
+
+message Condition {
+	repeated int64 event_rule_id = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 extension_field_number = 2;
+	int32 condition_id = 3;
+	bool not_satisfied = 4;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sabr_prefetch_endpoint_config.proto";
+import "youtube/api/innertube/playback_prefetch_data_config.proto";
+import "youtube/api/innertube/playback_prefetch_hint_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchEndpointSupportedPrefetchConfig {
+	SabrPrefetchEndpointConfig sabr_prefetch_endpoint_config = 1;
+	PlaybackPrefetchDataConfig prefetch_data_config = 68202535;
+	PlaybackPrefetchHintConfig prefetch_hint_config = 68429767;
+}

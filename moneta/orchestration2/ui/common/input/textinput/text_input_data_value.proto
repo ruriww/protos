@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextInputDataValue {
+	extend data.DataValue {
+		TextInputDataValue text_input_data_value_extension = 235650857;
+	}
+
+	string value = 1;
+	string transformed_value = 2;
+	repeated int32 active_validation_id = 3 [ features.repeated_field_encoding = EXPANDED ];
+	bytes annotated_value = 4;
+	bytes annotated_transformed_value = 5;
+}

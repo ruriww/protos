@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "unknown/youtube/gerr_code10785.proto";
+import "logs/people/intelligence/assistive_feature_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message RpcMetadata {
+	repeated string request_id = 1;
+	int64 duration_usec = 2;
+	int64 blocked_usec = 3;
+	int64 processing_usec = 4;
+	unknown.youtube.GERRCode10785.GERRCode status_code = 5 [ default = UNKNOWN ];
+	repeated AssistiveFeatureType feature_type = 6 [ features.repeated_field_encoding = EXPANDED ];
+	string error_domain = 7;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_creation_form_renderer.proto";
+import "youtube/api/innertube/with_google_plus_content_renderer.proto";
+import "youtube/api/innertube/create_channel_and_plus_profile_content_renderer.proto";
+import "youtube/api/innertube/create_core_identity_channel_content_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	ChannelCreationFormRenderer channel_creation_form_renderer = 79964994;
+}
+
+extend Renderer {
+	WithGooglePlusContentRenderer with_google_plus_content_renderer = 75328637;
+}
+
+extend Renderer {
+	CreateChannelAndPlusProfileContentRenderer create_channel_and_plus_profile_content_renderer = 86209186;
+}
+
+extend Renderer {
+	CreateCoreIdentityChannelContentRenderer create_core_identity_channel_content_renderer = 91428091;
+}

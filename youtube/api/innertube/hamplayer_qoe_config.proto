@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerQoeConfig {
+	bool high_res_network = 1;
+	int32 high_res_network_request_limit = 2;
+	string high_res_cpn_prefix = 3;
+}

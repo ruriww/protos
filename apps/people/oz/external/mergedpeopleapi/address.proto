@@ -1,0 +1,25 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/point_spec.proto";
+
+option objc_class_prefix = "POEM";
+
+message Address {
+	PersonFieldMetadata metadata = 1;
+	string type = 2;
+	string formatted = 3;
+	string po_box = 4;
+	string street_address = 5;
+	string locality = 6;
+	string region = 7;
+	string postal_code = 8;
+	string country = 9;
+	string country_code = 10;
+	string formatted_type = 11;
+	string extended_address = 12;
+	string encoded_place_id = 13;
+	PointSpec point_spec = 14;
+}

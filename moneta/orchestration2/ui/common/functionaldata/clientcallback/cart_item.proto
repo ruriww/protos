@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.clientcallback;
+
+option objc_class_prefix = "ORCH2";
+
+message CartItem {
+	string label = 1;
+	string price = 2;
+}

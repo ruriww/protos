@@ -1,0 +1,13 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum PrecacheMessageType {
+	option features.enum_type = CLOSED;
+
+	PRECACHE_MESSAGE_TYPE_UNKNOWN = 0;
+	PRECACHE_MESSAGE_TYPE_ACTIVE_CONNECTION = 1;
+	PRECACHE_MESSAGE_TYPE_BROADCAST = 2;
+}

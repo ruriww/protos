@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationClipTrimSingleSegmentCommand {
+	extend Command {
+		ShortsCreationClipTrimSingleSegmentCommand shorts_creation_clip_trim_single_segment_command = 521508900;
+	}
+
+	int32 selected_segment_index = 1;
+}

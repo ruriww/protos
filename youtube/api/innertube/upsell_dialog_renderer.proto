@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/upsell_dialog_trigger_condition_supported_datas.proto";
+import "youtube/api/innertube/offer_restrictions_supported_renderers.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpsellDialogRenderer {
+	Icon icon = 1;
+	string title = 2;
+	string dialog_message = 3;
+	FormattedString endpoint_text = 4;
+	Command endpoint = 5;
+	FormattedString dismiss_text = 6;
+	bytes tracking_params = 8;
+	ThumbnailDetails header_background_image = 9;
+	ThumbnailDetails header_foreground_image = 10;
+	FormattedString dialog_message_title = 11;
+	FormattedString dialog_message_text = 12;
+	Command impression_endpoint = 13;
+	ButtonSupportedRenderers action_button = 14;
+	ButtonSupportedRenderers dismiss_button = 15;
+	repeated Command impression_endpoints = 16;
+	bool is_visible = 17;
+	string analytics_tag = 18;
+	UpsellDialogTriggerConditionSupportedDatas upsell_dialog_trigger_condition_supported_datas = 19;
+	OfferRestrictionsSupportedRenderers restrictions = 20;
+	Icon dialog_icon = 21;
+	bool is_modal = 24;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 26;
+	ThumbnailDetails header_foreground_image_dark = 29;
+	ThumbnailDetails header_background_image_dark = 30;
+	FormattedString dialog_message_supplemental_text = 31;
+}
+
+extend Renderer {
+	UpsellDialogRenderer upsell_dialog_renderer = 88122887;
+}

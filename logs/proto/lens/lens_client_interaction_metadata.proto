@@ -1,0 +1,30 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/client_interaction_metadata.proto";
+import "logs/proto/lens/filters_log_data.proto";
+import "wireless_android_play_playlog/lens_user_selection.proto";
+import "logs/proto/lens/presentation_log_data.proto";
+import "logs/proto/lens/gallery_metadata.proto";
+import "logs/proto/lens/screen_navigation_metadata.proto";
+import "logs/proto/lens/survey_metadata.proto";
+import "logs/proto/lens/text_selection_metadata.proto";
+import "logs/proto/lens/gleam_log_data.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message LensClientInteractionMetadata {
+	extend ClientInteractionMetadata {
+		LensClientInteractionMetadata lens_client_interaction_metadata = 106;
+	}
+
+	FiltersLogData filters_log_data = 2;
+	wireless_android_play_playlog.LensUserSelection lens_user_selection = 3;
+	PresentationLogData presentation_log_data = 5;
+	GalleryMetadata gallery_metadata = 11;
+	ScreenNavigationMetadata screen_navigation_metadata = 13;
+	SurveyMetadata survey_metadata = 14;
+	TextSelectionMetadata text_selection_metadata = 15;
+	GleamLogData selected_gleam_log_data = 21;
+}

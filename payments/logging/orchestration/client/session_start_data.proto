@@ -1,0 +1,20 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "payments/logging/orchestration/client/widget_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SessionStartData {
+	int64 integrator_request_start_time_millis = 1;
+	int32 billable_service = 4;
+	int32 region_code = 5;
+	string app_package_name = 6;
+	int32 app_version_code = 7;
+	string app_version_name = 8;
+	string o1_session_id = 9;
+	WidgetType widget_type = 10;
+	bool is_client_log_token_encrypted = 11;
+	string integrator_request_id = 14;
+}

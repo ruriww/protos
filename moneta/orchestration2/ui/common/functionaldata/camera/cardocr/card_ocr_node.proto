@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.cardocr;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CardOcrNode {
+	extend node.Node {
+		CardOcrNode card_ocr_node_extension = 426759541;
+	}
+}

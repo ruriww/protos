@@ -1,0 +1,47 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/protobuf/timestamp.proto";
+import "social/graph/api/proto/android_device_info.proto";
+import "social/graph/api/proto/third_party_info.proto";
+import "social/graph/api/proto/host_app_info.proto";
+
+option objc_class_prefix = "SGAP";
+
+message ContactMutationContext {
+	enum Source {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SOURCE = 0;
+		CONTACT_MERGE = 1;
+		WEB_CONTACTS = 2;
+		CONTACTS_COMPANION = 19;
+		HEALER_DUPLICATES = 3;
+		HEALER_EMPTY_CONTACT = 20;
+		HEALER_OTHER_CONTACT = 15;
+		HEALER_CONTACT_LIMIT = 18;
+		THIRD_PARTY = 4;
+		ANDROID_FSA1 = 5;
+		ANDROID_FSA2 = 6;
+		GMAIL_WEB_CONTACTS = 7;
+		CARBON_IMPORT_CONTACTS = 8;
+		IOS = 9;
+		MAC_OS_X = 10;
+		WINDOWS_PC = 11;
+		WINDOWS_PHONE = 12;
+		JUNK_EMAIL_CLEANUP = 13;
+		INTERNAL_TESTING = 14;
+		ONE_PICK = 16;
+		ASSISTANT_SMART_DEVICE_MANAGEMENT_API = 17;
+	}
+
+	Source source = 1;
+	google.protobuf.Timestamp timestamp = 2;
+
+	oneof source_info {
+		AndroidDeviceInfo android_device_info = 3;
+		ThirdPartyInfo third_party_info = 4;
+		HostAppInfo host_app_info = 5;
+	}
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+message ApiInclusion {
+	repeated string scopes = 1;
+}

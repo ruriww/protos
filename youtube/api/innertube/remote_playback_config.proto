@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/audio_only_cast_config.proto";
+import "youtube/api/innertube/tv_cast_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RemotePlaybackConfig {
+	bool is_mdx_playback = 1;
+	AudioOnlyCastConfig audio_only_cast_config = 2;
+	TVCastConfig tv_cast_config = 3;
+}

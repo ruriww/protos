@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/screen_based_visibility_condition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLensRenderer {
+	string id = 1;
+	Icon icon = 2;
+	bool selected = 3;
+	bool visible = 4;
+	Renderer contents = 5;
+	Command sync_command = 6;
+	bytes tracking_params = 7;
+	FormattedString title = 9;
+	Renderer hint = 10;
+	ScreenBasedVisibilityCondition screen_based_visibility_condition = 11;
+	Renderer footer = 12;
+	bool is_footer_always_visible = 13;
+}
+
+extend Renderer {
+	UnpluggedLensRenderer unplugged_lens_renderer = 174760621;
+}

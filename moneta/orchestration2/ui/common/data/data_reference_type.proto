@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+import "moneta/orchestration2/ui/common/data/data_reference_dynamic_container_template.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DataReferenceType {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNKNOWN = 0;
+		TYPE_DATA_REFERENCE = 1;
+		TYPE_DATA_REFERENCE_DYNAMIC_CONTAINER_TEMPLATE = 2;
+	}
+
+	Type type = 1;
+	int64 data_reference = 2;
+	DataReferenceDynamicContainerTemplate data_reference_dynamic_container_template = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reload_continuation_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListEngagementPanelExtras {
+	string scroll_to_item_section_identifier = 1;
+	int32 scroll_to_item_section_offset_index = 2;
+	int32 scroll_to_item_section_offset_distance = 3;
+	ReloadContinuationData reload_continuation_data_overwrite = 4;
+}

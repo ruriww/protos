@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+import "youtube/client/forms/posts_creation_metadata_form.proto";
+import "youtube/api/innertube/post_attachment_type_enum.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetPostsCreationMetadataDataResult {
+	forms.PostsCreationMetadataForm form = 1;
+	youtube.api.innertube.PostAttachmentTypeEnum attachment_type = 2;
+	bool has_image_options = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PageLoadTrigger {
+	option features.enum_type = CLOSED;
+
+	PAGE_LOAD_TRIGGER_UNKNOWN = 0;
+	PAGE_LOAD_TRIGGER_PULL_TO_REFRESH = 1;
+	PAGE_LOAD_TRIGGER_FILTER = 3;
+	PAGE_LOAD_TRIGGER_RETRY_BUTTON = 4;
+	PAGE_LOAD_TRIGGER_AUTOLOAD = 5;
+	PAGE_LOAD_TRIGGER_END_OF_FEED = 6;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package home.cloud.common;
+
+option objc_class_prefix = "GHCC";
+
+message DeviceCapabilities {
+	bool audio_supported = 1;
+	bool video_supported = 2;
+	bool allow_casting_from_different_network = 3;
+}

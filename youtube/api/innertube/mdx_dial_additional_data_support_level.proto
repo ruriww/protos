@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdxDialAdditionalDataSupportLevel {
+	option features.enum_type = CLOSED;
+
+	MDX_DIAL_ADDITIONAL_DATA_SUPPORT_LEVEL_UNKNOWN = 0;
+	MDX_DIAL_ADDITIONAL_DATA_SUPPORT_LEVEL_UNSUPPORTED = 1;
+	MDX_DIAL_ADDITIONAL_DATA_SUPPORT_LEVEL_SMOOTH_PAIRING_ONLY = 2;
+	MDX_DIAL_ADDITIONAL_DATA_SUPPORT_LEVEL_FULL = 3;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RenderingErrorType {
+	option features.enum_type = CLOSED;
+
+	RENDERING_ERROR_TYPE_UNKNOWN = 0;
+	RENDERING_ERROR_TYPE_EMPTY_CELL = 1;
+	RENDERING_ERROR_TYPE_EMPTY_ELEMENT = 2;
+	RENDERING_ERROR_TYPE_NEGATIVE_LAYOUT_SIZE = 3;
+	RENDERING_ERROR_TYPE_CELL_OUT_OF_BOUNDS = 4;
+	RENDERING_ERROR_TYPE_SECTION_OUT_OF_BOUNDS = 5;
+	RENDERING_ERROR_TYPE_TEXTURE_GENERAL = 6;
+}

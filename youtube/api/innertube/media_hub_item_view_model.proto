@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/media_hub_item.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaHubItemViewModel {
+	extend Renderer {
+		MediaHubItemViewModel media_hub_item_view_model = 1585;
+	}
+
+	MediaHubItem item = 1;
+	string device_entity_key = 2;
+	RendererContext renderer_context = 997;
+}

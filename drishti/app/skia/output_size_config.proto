@@ -1,0 +1,10 @@
+edition = "2023";
+
+package drishti.app.skia;
+
+option objc_class_prefix = "DrishtiSkia";
+
+message OutputSizeConfig {
+	int32 output_width = 1;
+	int32 output_height = 2;
+}

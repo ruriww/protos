@@ -1,0 +1,20 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message IOSDebugEvent {
+	enum EventCode {
+		option features.enum_type = CLOSED;
+
+		EVENT_CODE_UNKNOWN = 0;
+		EVENT_CODE_WILL_SHOW_PROMO = 1;
+		EVENT_CODE_POSITIVE_ACTION_PRESSED = 2;
+		EVENT_CODE_CACHE_SETUP = 3;
+		EVENT_CODE_AUTHENTICATED_URL_FAILED_AUTHENTICATION = 4;
+	}
+
+	EventCode event_code = 1;
+	repeated int32 mendel_ids = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

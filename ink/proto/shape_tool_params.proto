@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/shape_kind.proto";
+import "ink/proto/int_packed_color.proto";
+import "ink/proto/line_cap_kind.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ShapeToolParams {
+	ShapeKind shape_kind = 1;
+	IntPackedColor fill_color = 2;
+	LineCapKind start_linecap = 3;
+	LineCapKind end_linecap = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package growth;
+
+import "growth/s_ios_permission_type.proto";
+import "growth/permission_state.proto";
+import "growth/promo_event.proto";
+import "logs/chime_notifications/target_log.proto";
+
+option objc_class_prefix = "GRW";
+
+message PermissionEvent {
+	SIosPermissionType permission_type = 1;
+	PermissionState permission_state = 2;
+	int64 creation_id = 3;
+	PromoEvent.Environment environment = 4;
+	logs.chime_notifications.TargetLog target = 5;
+	string client_id = 6;
+	string thread_id = 7;
+	bytes opaque_backend_data = 8;
+}

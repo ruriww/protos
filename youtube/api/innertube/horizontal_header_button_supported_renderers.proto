@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/subscribe_button_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/menu_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalHeaderButtonSupportedRenderers {
+	oneof renderer {
+		SubscribeButtonRenderer subscribe_button_renderer = 55419609;
+		ButtonRenderer button_renderer = 65153809;
+		MenuRenderer menu_renderer = 66439850;
+	}
+}

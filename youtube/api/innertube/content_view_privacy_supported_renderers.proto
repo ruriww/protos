@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/boolean_form_field_renderer.proto";
+import "youtube/api/innertube/icon_link_renderer.proto";
+import "youtube/api/innertube/content_view_privacy_link_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentViewPrivacySupportedRenderers {
+	BooleanFormFieldRenderer boolean_form_field_renderer = 80310945;
+	IconLinkRenderer icon_link_renderer = 88842852;
+	ContentViewPrivacyLinkRenderer content_view_privacy_link_renderer = 101265218;
+}

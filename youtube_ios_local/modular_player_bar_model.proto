@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/player_bar_playing_state.proto";
+import "youtube_ios_local/player_bar_collection_model.proto";
+
+option objc_class_prefix = "YTI";
+
+message ModularPlayerBarModel {
+	PlayerBarPlayingState playing_state = 1;
+	map<string, PlayerBarCollectionModel> collection_map = 2;
+}

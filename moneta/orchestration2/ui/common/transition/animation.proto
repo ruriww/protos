@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.transition;
+
+import "moneta/orchestration2/ui/common/transition/effect.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Animation {
+	message CubicBezierInterpolator {
+		float control_x1 = 1;
+		float control_y1 = 2;
+		float control_x2 = 3;
+		float control_y2 = 4;
+	}
+
+	CubicBezierInterpolator cubic_bezier_interpolator = 1;
+	int32 duration_ms = 2;
+	int32 start_delay_ms = 3;
+	Effect effect = 4;
+}

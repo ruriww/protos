@@ -1,0 +1,19 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+option objc_class_prefix = "FOOTCP";
+
+message DialogTriggering {
+	bool check_dynamic_decision_elements_changes = 1;
+
+	enum Action {
+		option features.enum_type = CLOSED;
+
+		ACTION_UNSPECIFIED = 0;
+		GO_BACK = 1;
+		DISMISS_OR_CLOSE = 2;
+	}
+
+	repeated Action actions = 2;
+}

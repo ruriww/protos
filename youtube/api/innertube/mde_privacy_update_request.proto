@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/privacy_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdePrivacyUpdateRequest {
+	PrivacyStatus new_privacy = 1;
+	bool clear_privacy_draft = 2 [ default = true ];
+}

@@ -1,0 +1,55 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_two_column_item_thumbnail_aspect_ratio.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/music_playlist_item_data.proto";
+import "youtube/api/innertube/music_menu_icon_display_policy.proto";
+import "youtube/api/innertube/music_offline_item_data.proto";
+import "youtube/api/innertube/music_item_renderer_display_policy.proto";
+import "youtube/api/innertube/music_two_column_highlight_style.proto";
+import "youtube/api/innertube/music_two_column_item_thumbnail_size.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicTwoColumnItemRenderer {
+	Renderer thumbnail = 1;
+	MusicTwoColumnItemThumbnailAspectRatio thumbnail_aspect_ratio = 2;
+	FormattedString title = 3;
+	FormattedString subtitle = 4;
+	Command navigation_endpoint = 5;
+	bytes tracking_params = 7;
+	AccessibilitySupportedDatas accessibility_data = 8;
+	Renderer menu = 9;
+	Command double_tap_navigation_endpoint = 10;
+	FormattedString index_text = 11;
+	MusicPlaylistItemData playlist_item_data = 12;
+	MusicMenuIconDisplayPolicy menu_icon_display_policy = 13;
+	Renderer offlineability = 14;
+	repeated Renderer subtitle_badges = 15;
+	Renderer swipe_right_to_left_to_reveal_renderer = 16;
+	repeated Renderer potential_thumbnail_overlays = 17;
+	MusicOfflineItemData music_offline_item_data = 18;
+	Renderer custom_index_column = 19;
+	MusicItemRendererDisplayPolicy music_item_renderer_display_policy = 20;
+	repeated Renderer title_badges = 21;
+	MusicTwoColumnHighlightStyle highlight_style = 22;
+	MusicTwoColumnItemThumbnailSize thumbnail_size = 23;
+	bool is_reorderable = 24;
+	Renderer swipeable_row_renderer = 25;
+	Renderer extra_top_level_buttons = 26;
+	Renderer engagement_bar = 27;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	MusicTwoColumnItemRenderer music_two_column_item_renderer = 161429595;
+}

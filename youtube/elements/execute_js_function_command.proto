@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ExecuteJSFunctionCommand {
+	extend Command {
+		ExecuteJSFunctionCommand execute_js_function_command = 342268478;
+	}
+
+	string module_identifier = 1;
+	string function_name = 2;
+	string persistent_context_id = 4;
+
+	enum PersistentContextEffect {
+		option features.enum_type = CLOSED;
+
+		PERSISTENT_CONTEXT_EFFECT_NONE = 0;
+		PERSISTENT_CONTEXT_EFFECT_CLEAR = 1;
+	}
+
+	PersistentContextEffect persistent_context_effect = 5;
+	string controller_identifier = 6;
+	uint64 module_set_version = 7;
+
+	extensions 3;
+}

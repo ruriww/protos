@@ -1,0 +1,14 @@
+edition = "2023";
+
+package peoplestack.flexorgs.proto;
+
+option objc_class_prefix = "PSKFO";
+
+enum InternalExternalState {
+	option features.enum_type = CLOSED;
+
+	INTERNAL_EXTERNAL_STATE_UNSPECIFIED = 0;
+	INTERNAL = 1;
+	EXTERNAL = 2;
+	NOT_APPLICABLE = 3;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/asset_runtime_data.proto";
+import "youtube/api/innertube/asset_retrieval_error.proto";
+import "youtube/api/innertube/asset_browse_data.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetAssetResponse {
+	ResponseContext response_context = 1;
+	repeated AssetRuntimeData authoring_asset_runtime_data = 2;
+	repeated AssetRetrievalError error = 3;
+	repeated AssetBrowseData asset_browse_data = 4;
+	FrameworkUpdateTransport framework_updates = 777;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,8 @@
+syntax = "proto2";
+
+package unknown.youtube;
+
+enum OneGoogleMobileIOSErrorDomain {
+	IOS_ERROR_DOMAIN_UNSPECIFIED = 0;
+	IOS_ERROR_DOMAIN_OCTARINE = 1;
+}

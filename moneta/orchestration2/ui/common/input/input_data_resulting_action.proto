@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/input/new_active_validation_id_action.proto";
+import "moneta/orchestration2/ui/common/input/new_error_text.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InputDataResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		InputDataResultingAction input_data_resulting_action_extension = 234055753;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_RUN_VALIDATION = 1;
+		RESULTING_ACTION_TYPE_NEW_ACTIVE_VALIDATION_ID = 2;
+		RESULTING_ACTION_TYPE_NEW_ERROR_TEXT = 3;
+		RESULTING_ACTION_TYPE_CLEAR_ERROR_TEXT = 4;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof resulting_action {
+		NewActiveValidationIdAction new_active_validation_id_action = 3;
+		NewErrorText new_error_text = 4;
+	}
+}

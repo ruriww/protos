@@ -1,0 +1,55 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/navigation_drawer_promo.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/music_app_navigation_drawer_footer_supported_renderers.proto";
+import "youtube/api/innertube/music_app_settings_supported_renderers.proto";
+import "youtube/api/innertube/home_screen_quick_action_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_app_settings_boolean_renderer.proto";
+import "youtube/api/innertube/music_app_navigation_drawer_promo_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicAppMetadataRenderer {
+	NavigationDrawerPromo navigation_drawer_promo = 1;
+	FormattedString navigation_drawer_moniker = 2;
+	ButtonSupportedRenderers unlimited_settings_page_button = 3;
+	bool is_offline_entry_visible = 4;
+	bool is_audio_only_button_visible = 5;
+	bool is_restricted_player_layout = 6;
+	bool is_search_button_hidden = 7;
+	MusicAppNavigationDrawerFooterSupportedRenderers navigation_drawer_footer = 8;
+	repeated MusicAppSettingsSupportedRenderers settings = 9;
+	bool is_notifications_prompt_enabled = 10;
+	repeated HomeScreenQuickActionSupportedRenderers home_screen_quick_actions = 11;
+	bool is_stream_over_wifi_only_available = 12;
+	bool is_offline_mixtape_v2_enabled = 14;
+	bool is_audio_cast_enabled = 15;
+	Renderer impressum_settings_page_button = 16;
+	bool has_privately_owned_content = 17;
+	Renderer user_channel_page_button = 18;
+	bool is_mobile_audio_tier = 19;
+	Renderer listening_review_page_button = 20;
+	bool mat_avod_cast_enabled = 21;
+	Renderer cancel_memberships_page_button = 23;
+	Renderer trophies_page_button = 24;
+}
+
+extend Renderer {
+	MusicAppMetadataRenderer music_app_metadata_renderer = 100625508;
+}
+
+extend Renderer {
+	MusicAppSettingsBooleanRenderer music_app_settings_boolean_renderer = 114225100;
+}
+
+extend Renderer {
+	MusicAppNavigationDrawerPromoRenderer music_app_navigation_drawer_promo_renderer = 104347096;
+}

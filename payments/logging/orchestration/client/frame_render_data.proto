@@ -1,0 +1,14 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "payments/logging/orchestration/client/client_log_enums.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FrameRenderData {
+	ClientLogEnums.FrameRenderEventType frame_render_event_type = 1;
+	int32 total_render_time_millis = 2;
+	int32 total_frame_count = 3;
+	repeated int32 hitch_time_millis = 4;
+}

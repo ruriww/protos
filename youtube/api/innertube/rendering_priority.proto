@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RenderingPriority {
+	option features.enum_type = CLOSED;
+
+	RENDERING_PRIORITY_UNKNOWN = 0;
+	RENDERING_PRIORITY_PINNED_COMMENT = 10;
+	RENDERING_PRIORITY_LINKED_COMMENT = 20;
+	RENDERING_PRIORITY_REALTIME_COMMENT = 30;
+	RENDERING_PRIORITY_COMMUNITY_GUIDELINES_BELOW_HEADER = 80;
+	RENDERING_PRIORITY_FAN_COMMUNITY_SETUP_CARD = 90;
+	RENDERING_PRIORITY_COMMENT_HEADER = 100;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/components_dependency.proto";
+import "moneta/orchestration/ui/common/generic/component_values_dependency.proto";
+
+option objc_class_prefix = "Orch";
+
+message DependencyGraph {
+	repeated ComponentsDependency components_dependency = 1;
+	repeated ComponentValuesDependency values_dependency = 2;
+	int64 page_ui_reference = 5;
+}

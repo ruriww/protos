@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/flex_direction.proto";
+import "moneta/orchestration2/ui/common/node/flex_alignment.proto";
+import "moneta/orchestration2/ui/common/node/flex_justification.proto";
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+import "moneta/orchestration2/ui/common/node/flex_wrap.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FlexContainerProperties {
+	FlexDirection flex_direction = 1;
+	FlexAlignment align_items = 2;
+	FlexJustification justify_content = 3;
+	UnitSize space_between_children = 4;
+	FlexWrap wrap_content = 5;
+}

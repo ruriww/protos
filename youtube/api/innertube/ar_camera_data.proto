@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ARCameraData {
+	string effect_id = 1;
+	string activity_type = 2;
+	string campaign_id = 3;
+	string video_id = 4;
+	int32 recorded_video_length_ms = 5;
+
+	message Effect {
+		string effect_value = 1;
+	}
+
+	repeated Effect active_effects = 6;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package com.google.video.youtube.editing.mobile;
+
+import "google/protobuf/duration.proto";
+import "com/google/video/youtube/editing/mobile/creation_feature_mixin.proto";
+
+option objc_class_prefix = "YTEM";
+
+message CreationAudioSegment {
+	int64 id = 1;
+	.google.protobuf.Duration start_time = 2;
+	.google.protobuf.Duration duration = 3;
+	float volume = 4;
+	.google.protobuf.Duration source_start_time = 5;
+	repeated CreationFeatureMixin mixins = 6;
+}

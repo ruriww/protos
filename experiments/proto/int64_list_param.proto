@@ -1,0 +1,9 @@
+edition = "2023";
+
+package experiments.proto;
+
+option objc_class_prefix = "EPP";
+
+message Int64ListParam {
+	repeated int64 element = 1;
+}

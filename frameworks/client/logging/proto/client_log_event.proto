@@ -1,0 +1,38 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+import "logs/proto/wireless/performance/mobile/ios/ns_error.proto";
+import "frameworks/client/logging/proto/client_event_metadata.proto";
+import "unknown/youtube/log_record_proto.proto";
+import "frameworks/client/logging/proto/parameter.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+
+option objc_class_prefix = "CLI";
+
+message ClientLogEvent {
+	message SafeFormatArgumentValue {
+		oneof argument_value {
+			string string_value = 1;
+			logs.proto.wireless.performance.mobile.ios.NSError ns_error = 2;
+		}
+	}
+
+	ClientEventMetadata metadata = 2;
+	unknown.youtube.LogRecordProto log_record = 3;
+	bytes custom_data = 8;
+	repeated Parameter allowed_parameters = 9;
+	string component_id = 10;
+	double sampling_rate = 11;
+	int64 count = 13;
+	logs.proto.wireless.performance.mobile.ios.MetricExtension ios_metric_extension = 15;
+
+	message SafeFormatArguments {
+		repeated int32 index = 1;
+		repeated string value = 2;
+		repeated SafeFormatArgumentValue argument_value = 3;
+	}
+
+	SafeFormatArguments safe_format_arguments = 16;
+	repeated int64 active_cui_ids = 17;
+}

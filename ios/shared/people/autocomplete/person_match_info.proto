@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_lookup_token_match.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonMatchInfo {
+	repeated PersonLookupTokenMatch match = 1;
+	string query = 2;
+	bool exact_match = 3;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosCrashReportingConfig {
+	bool count_all_crashes = 1;
+	bool enable_report_oom_force_quit = 2;
+	bool report_foreground_oom_and_breakpad_only = 3;
+	repeated string crash_context_whitelist_labels = 4;
+	bool enable_restore_video_after_crash = 5;
+	string restore_video_after_crash_string_key = 6;
+	string restore_video_after_crash_button_string_key = 7;
+	uint32 restore_video_after_crash_toast_duration = 8;
+	bool start_breakpad_on_private_queue = 9;
+	uint32 restore_video_after_crash_update_ms = 11;
+	uint32 restore_video_after_crash_timeout_display_dialog_s = 12;
+	bool enable_debug_crashy_config = 13;
+	bool enable_storage_module_app_state_info = 14;
+	bool adjust_ooms_for_uptime = 15;
+	bool ios_startup_app_state_avoid_uiapplication = 16;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package wireless_android_play_playlog.accessibility;
+
+option objc_class_prefix = "WAPPA";
+
+message IosAccessibilityState {
+	bool assistive_touch_running = 1;
+	bool voice_over_running = 2;
+	bool switch_control_running = 3;
+	bool shake_to_undo_enabled = 4;
+	bool closed_captioning_enabled = 5;
+	bool bold_text_enabled = 6;
+	bool darker_system_colors_enabled = 7;
+	bool grayscale_enabled = 8;
+	bool guided_access_enabled = 9;
+	bool invert_colors_enabled = 10;
+	bool mono_audio_enabled = 11;
+	bool reduce_motion_enabled = 12;
+	bool reduce_transparency_enabled = 13;
+	bool speak_screen_enabled = 14;
+	bool speak_selection_enabled = 15;
+	bool on_off_switch_labels_enabled = 16;
+	bool video_autoplay_enabled = 17;
+	bool differentiate_without_color_enabled = 18;
+}

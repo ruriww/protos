@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/search_profile_state.proto";
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileMetadata {
+	string account_mid = 1;
+	string ares_id = 2;
+	repeated SearchProfileState state = 3;
+	string account_id = 4;
+}

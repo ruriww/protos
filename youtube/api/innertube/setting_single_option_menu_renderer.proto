@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/setting_menu_item_supported_renderers.proto";
+import "youtube/api/innertube/client_setting_item.proto";
+import "youtube/api/innertube/setting_confirm_dialog_supported_renderers.proto";
+import "youtube/api/innertube/setting_item_id.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingSingleOptionMenuRenderer {
+	FormattedString title = 2;
+	FormattedString summary = 3;
+	repeated SettingMenuItemSupportedRenderers items = 4;
+	repeated ClientSettingItem client_setting_dependencies = 6;
+	bytes tracking_params = 8;
+	SettingConfirmDialogSupportedRenderers confirm_change_dialog = 9;
+	SettingItemId item_id = 10;
+	ButtonSupportedRenderers button = 11;
+	ThumbnailDetails thumbnail = 12;
+	Icon icon = 13;
+	Command command = 14;
+}

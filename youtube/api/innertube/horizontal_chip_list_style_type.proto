@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HorizontalChipListStyleType {
+	option features.enum_type = CLOSED;
+
+	HORIZONTAL_CHIP_LIST_STYLE_TYPE_UNKNOWN = 0;
+	HORIZONTAL_CHIP_LIST_STYLE_TYPE_INTENT = 1;
+	HORIZONTAL_CHIP_LIST_STYLE_TYPE_DEFAULT = 2;
+	HORIZONTAL_CHIP_LIST_STYLE_TYPE_TAB_HEADER = 3;
+}

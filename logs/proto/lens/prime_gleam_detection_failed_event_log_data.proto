@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message PrimeGleamDetectionFailedEventLogData {
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_REASON = 0;
+		CANCELLED = 1;
+		SHOPPY_CHECK_FAILED = 2;
+		DETECTION_FAILURE = 3;
+		TIMEOUT = 4;
+		OTHER = 5;
+	}
+
+	FailureReason failure_reason = 1;
+}

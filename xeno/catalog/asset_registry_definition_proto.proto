@@ -1,0 +1,24 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "xeno/effect/asset_registry_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message AssetRegistryDefinitionProto {
+	message GlobalRegistryImports {
+		string global_registry_id = 1;
+		repeated string imported_asset_id = 2;
+
+		message Mapping {
+			string local_asset_id = 1;
+			string global_asset_id = 2;
+		}
+
+		repeated Mapping import_mapping = 3;
+	}
+
+	GlobalRegistryImports global_registry_imports = 2;
+	repeated effect.AssetRegistryProto.AssetEntry local_entry = 3;
+}

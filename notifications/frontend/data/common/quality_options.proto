@@ -1,0 +1,9 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message QualityOptions {
+	double ranking_score = 1;
+}

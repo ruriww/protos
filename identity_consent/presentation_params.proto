@@ -1,0 +1,16 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/color_theme.proto";
+import "identity_consent/dismissibility.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "IDC";
+
+message PresentationParams {
+	string locale = 1;
+	ColorTheme color_theme = 2;
+	Dismissibility dismissibility = 3;
+	google.protobuf.Duration load_timeout = 4;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package knowledge;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "KQBP";
+
+message Query {
+	extend proto2.bridge.MessageSet {
+		Query message_set_extension = 41401449;
+	}
+
+	extensions 10000 to max;
+}

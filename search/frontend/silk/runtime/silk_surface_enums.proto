@@ -1,0 +1,50 @@
+edition = "2023";
+
+package search.frontend.silk.runtime;
+
+option objc_class_prefix = "SLKRTM";
+
+message SilkSurfaceEnums {
+	enum NativeSurface {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SURFACE = 0;
+		IGA = 1;
+		AGA_CLASSIC = 2;
+		GOOGLE_GO = 3;
+		AOPA = 4;
+		TNG_DISCOVER = 5;
+		TNG_SEARCH = 6;
+		LENS = 7;
+		LIBRARY_ASSISTANT_KIT = 8;
+		LIBRARY_GOOGLE_SEARCH_XUIKIT = 9;
+		LIBRARY_DISCOVER = 10;
+		PLAYGROUND_ANDROID = 11;
+		LENS_ANDROID = 12;
+		TNG = 13;
+		TNG_COLLECTIONS = 14;
+		TNG_NOTIFICATION = 15;
+		TNG_SILK_PANE = 16;
+		TNG_NIU = 17;
+		TNG_ASSISTANT = 18;
+		TNG_WEATHER = 19;
+		CARD_VIEWER = 20;
+		XBLEND_IOS = 21;
+		XBLEND_ANDROID = 22;
+		INTERNAL_TESTING = 23;
+		JUMP_BACK_IN_IOS = 24;
+		SEARCH_NOTIFICATIONS_IOS = 25;
+		TNG_SETTINGS = 26;
+		TNG_SUGGEST = 27;
+		IOS_SUGGEST = 28;
+		ZERO_SERVER = 29;
+		TNG_CREATOR_PROFILE = 30;
+		TNG_OMNIENT = 31;
+		TNG_ASSISTANT_SILK_PANE = 32;
+		TNG_AMBIENT = 33;
+		IOS_PHOTOMATH = 34;
+		TNG_EMBER = 35;
+		IOS_EMBER = 37;
+		SUBZERO = 36;
+	}
+}

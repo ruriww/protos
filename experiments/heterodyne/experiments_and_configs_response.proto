@@ -1,0 +1,16 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "experiments/heterodyne/application_response.proto";
+
+option objc_class_prefix = "EXH";
+
+message ExperimentsAndConfigsResponse {
+	repeated ApplicationResponse application_response = 1;
+	bytes request_config_tag = 2;
+	string pseudonymous_cookie = 3;
+	int64 server_configuration_version = 4;
+	int64 server_build_version = 5;
+	repeated int32 invalid_auth_token_index = 6 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThirdPartyQueryConfig {
+	message ThirdPartyMerchants {
+		repeated int64 merchant_ids = 1;
+	}
+
+	message ThirdPartyAggregator {
+		int64 aggregator_id = 1;
+	}
+
+	oneof allowed_list {
+		ThirdPartyMerchants allowed_merchant_ids = 2;
+		ThirdPartyAggregator allowed_aggregator_id = 3;
+	}
+
+	bool exclude_zero_commission_products = 5;
+}

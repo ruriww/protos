@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/playlist_entity_visibility.proto";
+import "youtube/api/innertube/music_podcast_show_additional_metadata.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPlaylistEntity {
+	extend EntityMutationPayload {
+		MusicPlaylistEntity music_playlist = 24;
+	}
+
+	string id = 1;
+	string title = 2;
+	string full_list_id = 3;
+	string user_details = 5;
+	ThumbnailDetails thumbnail_details = 6;
+	string details = 10;
+	string owner_display_name = 11;
+	int64 estimated_playable_track_count = 12;
+	string entry_collection = 14;
+	string android_media_store_content_uri = 15;
+	string download_metadata = 16;
+	string playlist_id = 17;
+	PlaylistEntityVisibility visibility = 18;
+	int64 track_count = 19;
+	repeated string tracks = 20;
+	string sideload_metadata = 21;
+	string share = 22;
+	string music_library_status_entity = 23;
+	MusicPodcastShowAdditionalMetadata podcast_show_additional_metadata = 26;
+	string refresh = 27;
+	bytes offline_playlist_token = 28;
+	FormattedString description = 29;
+	bool library_curation_allowed = 30;
+
+	extensions 1000;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/promoted_native_text_ctd_click_location.proto";
+import "youtube/api/innertube/promoted_native_ad_click_behavior_type.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/unclickable_border_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedNativeTextCtdContent {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	float rating = 3;
+	FormattedString price = 4;
+	FormattedString description_text = 5;
+	FormattedString action_text = 6;
+	Command navigation_endpoint = 7;
+	repeated Command impression_endpoints = 8;
+	ButtonSupportedRenderers close_button = 9;
+	int64 click_target_delay_ms = 10;
+	UnclickableBorderInfo unclickable_border_info = 11;
+
+	message PromotedNativeTextCtdClickLocationTarget {
+		PromotedNativeTextCtdClickLocation location = 1;
+		int32 code = 2;
+		PromotedNativeAdClickBehaviorType behavior_type_base_state = 3;
+		PromotedNativeAdClickBehaviorType behavior_type_15_click_state = 4;
+	}
+
+	repeated PromotedNativeTextCtdClickLocationTarget click_location_targets = 12;
+	bool show_bottom_separator = 14;
+}

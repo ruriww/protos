@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HashAlgorithm {
+	option features.enum_type = CLOSED;
+
+	HASH_ALGORITHM_UNKNOWN = 0;
+	HASH_ALGORITHM_SHA256 = 1;
+	HASH_ALGORITHM_BLOCKS_SHA256 = 2;
+	HASH_ALGORITHM_STREAM_KEY_SHA256 = 3;
+}

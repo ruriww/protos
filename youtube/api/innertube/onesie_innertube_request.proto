@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/http_header.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OnesieInnertubeRequest {
+	optional string url = 1;
+	repeated HTTPHeader http_headers = 2;
+	optional bytes post_body = 3;
+	optional bool proxied_by_trusted_bandaid = 4;
+	optional bool skip_response_encryption = 6;
+}

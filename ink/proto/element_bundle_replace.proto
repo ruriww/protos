@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/element_bundle_adds.proto";
+import "ink/proto/element_id_list.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementBundleReplace {
+	ElementBundleAdds elements_to_add = 1;
+	ElementIdList elements_to_remove = 2;
+}

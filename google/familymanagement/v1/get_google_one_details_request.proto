@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetGoogleOneDetailsRequest {
+	ApiRequestHeader api_header = 1;
+	bool fetch_benefits = 2;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message Completion {
+	string completion_text = 1;
+	string follow_up_text = 2;
+	string follow_up_url = 3;
+
+	enum CompletionStyle {
+		COMPLETION_STYLE_UNKNOWN = 0;
+		COMPLETION_STYLE_CARD = 1;
+		COMPLETION_STYLE_TOAST = 2;
+	}
+
+	repeated CompletionStyle allowed_completion_style = 4;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/guide_section_renderer.proto";
+import "youtube/api/innertube/pivot_bar_renderer.proto";
+import "youtube/api/innertube/mobile_topbar_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineGuideResponseSupportedRenderers {
+	oneof renderer {
+		GuideSectionRenderer guide_section_renderer = 46887524;
+		PivotBarRenderer pivot_bar_renderer = 117866661;
+		MobileTopbarRenderer mobile_topbar_renderer = 123267149;
+	}
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerStoryboardSpecRenderer {
+	string spec = 1;
+	int32 recommended_level = 3;
+	int32 threed_layout = 4;
+	int32 fine_scrubbing_recommended_level = 5;
+	int32 cinematic_watch_recommended_level = 6;
+	int32 high_resolution_recommended_level = 7;
+}
+
+extend Renderer {
+	PlayerStoryboardSpecRenderer player_storyboard_spec_renderer = 55735497;
+}

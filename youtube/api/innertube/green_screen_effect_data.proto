@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/image_source_type.proto";
+import "youtube/api/innertube/media_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GreenScreenEffectData {
+	MediaType media_type = 1;
+	int32 media_id = 2;
+
+	message ForegroundTransform {
+		bool has_scale = 1;
+		bool has_rotation = 2;
+		bool has_translation = 3;
+	}
+
+	ForegroundTransform foreground_transform = 3;
+
+	message MediaMetadata {
+		bytes serialized_generative_media_params = 1;
+
+		message ImageMetadata {
+			ImageSourceType image_source_type = 1;
+		}
+
+		ImageMetadata image_metadata = 2;
+	}
+
+	MediaMetadata media_metadata = 4;
+}

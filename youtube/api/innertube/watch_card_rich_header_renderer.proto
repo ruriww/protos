@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/watch_card_badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/universal_watch_card_header_color_supported_datas.proto";
+import "youtube/api/innertube/watch_card_rich_header_renderer_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchCardRichHeaderRenderer {
+	FormattedString title = 1;
+	Command title_navigation_endpoint = 2;
+
+	oneof subtitle_content {
+		FormattedString subtitle = 3;
+	}
+
+	repeated WatchCardBadgeSupportedRenderers badges = 4;
+
+	oneof end_content {
+		ThumbnailDetails avatar = 5;
+		FormattedString avatar_text = 9;
+		ButtonSupportedRenderers action_button = 10;
+		Renderer channel_thumbnail = 14;
+	}
+
+	UniversalWatchCardHeaderColorSupportedDatas color_supported_datas = 6;
+	bytes tracking_params = 8;
+	Renderer call_to_action_button = 11;
+	Renderer title_badge = 12;
+	UniversalWatchCardHeaderColorSupportedDatas dark_theme_color_supported_datas = 13;
+	WatchCardRichHeaderRendererStyle style = 15;
+	repeated Renderer call_to_action_buttons = 16;
+}

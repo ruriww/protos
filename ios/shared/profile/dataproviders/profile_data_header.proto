@@ -1,0 +1,44 @@
+edition = "2023";
+
+package ios.shared.profile.dataproviders;
+
+import "ios/shared/profile/dataproviders/metadata.proto";
+
+option objc_class_prefix = "GSCP";
+
+message ProfileDataHeader {
+	enum Container {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		PROFILE = 1;
+		CONTACT = 2;
+		DOMAIN_PROFILE = 3;
+	}
+
+	Metadata metadata = 1;
+	string display_name = 2;
+	string profile_photo_url = 3;
+	string tagline = 4;
+	string cover_photo_url = 5;
+	bool display_name_verified = 6;
+	string domain = 7;
+	bool in_viewer_domain = 8;
+	string given_name = 10;
+	bool blocked = 11;
+	string job_title = 12;
+	string department = 13;
+	string organization = 14;
+	string person_id = 15;
+	bool editable = 16;
+	bool starred = 17;
+	string obfuscated_gaia_id = 18;
+
+	message Photo {
+		Container container = 1;
+		bool is_primary = 2;
+		string url = 3;
+	}
+
+	repeated Photo photo = 19;
+}

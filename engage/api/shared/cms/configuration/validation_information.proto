@@ -1,0 +1,19 @@
+edition = "2023";
+
+package engage.api.shared.cms.configuration;
+
+import "engage/enums/cms/configuration/cms_configuration_common_enums.proto";
+
+option objc_class_prefix = "EASC";
+
+message ValidationInformation {
+	enums.cms.configuration.CmsConfigurationCommonEnums.ValidationStatus validation_status = 1;
+	enums.cms.configuration.CmsConfigurationCommonEnums.ValidationAction validation_action = 2;
+
+	message IssueCountBySeverity {
+		enums.cms.configuration.CmsConfigurationCommonEnums.IssueSeverity issue_severity = 4;
+		int64 issue_count = 5;
+	}
+
+	repeated IssueCountBySeverity issue_count_by_severity = 3;
+}

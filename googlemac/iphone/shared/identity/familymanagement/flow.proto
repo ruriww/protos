@@ -1,0 +1,14 @@
+edition = "2023";
+
+package googlemac.iphone.shared.identity.familymanagement;
+
+option objc_class_prefix = "GFM";
+
+enum Flow {
+	FLOW_UNSPECIFIED = 0;
+	FLOW_CREATE_FAMILY = 1;
+	FLOW_INVITE_MEMBER = 2;
+	FLOW_TANDEM_STATUS = 3;
+	FLOW_INVITE_SECOND_PARENT = 4;
+	FLOW_FAMILY_DETAILS = 5;
+}

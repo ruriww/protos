@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/asset_item_selected_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetItemCurrentlySelectedEntity {
+	extend EntityMutationPayload {
+		AssetItemCurrentlySelectedEntity asset_item_selected_entity = 364;
+	}
+
+	string key = 1;
+	string asset_id = 2;
+	AssetItemSelectedState asset_item_selected_state = 3;
+	int32 asset_item_type = 4;
+}

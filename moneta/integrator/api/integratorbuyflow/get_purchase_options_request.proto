@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.integrator.api.integratorbuyflow;
+
+import "moneta/integrator/common/client_context.proto";
+import "moneta/integrator/api/integratorbuyflow/purchase_context.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "moneta/integrator/common/product_context.proto";
+import "unknown/youtube/postal_address.proto";
+
+option objc_class_prefix = "IBuyFlow";
+
+message GetPurchaseOptionsRequest {
+	string customer_legal_country_guess = 1;
+	common.ClientContext context = 2;
+	PurchaseContext purchase_context = 3;
+
+	oneof client_info {
+		bytes client_token = 5;
+	}
+
+	bool payments_client_not_available = 7;
+	bool guest_user = 10 [ default = false ];
+	webutil.html.types.SafeHtmlProto additional_bottom_message = 12;
+	common.ProductContext billing_account_selection_context = 14;
+	bool return_thin_action_tokens = 17 [ default = false ];
+	bool display_brand_image = 18;
+	unknown.youtube.PostalAddress customer_address_hint = 20;
+	bool for_instrument_management = 23;
+
+	extensions 1000 to max;
+}

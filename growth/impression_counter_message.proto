@@ -1,0 +1,10 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message ImpressionCounterMessage {
+	repeated int32 mendel_ids = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 impression_capping_id = 2;
+}

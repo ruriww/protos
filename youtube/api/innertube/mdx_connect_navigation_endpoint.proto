@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/mdx_device.proto";
+import "youtube/api/innertube/mdx_page.proto";
+import "youtube/api/innertube/mdx_playback_descriptor.proto";
+import "youtube/api/innertube/mdx_connection_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxConnectNavigationEndpoint {
+	extend Command {
+		MdxConnectNavigationEndpoint mdx_connect_navigation_endpoint = 119886855;
+	}
+
+	MdxDevice mdx_device = 2;
+	MdxPage mdx_page = 3;
+	MdxPlaybackDescriptor playback_descriptor = 4;
+	MdxConnectionTrigger connection_trigger = 6;
+	Command on_connection_success = 8;
+	Command on_connection_skip = 9;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/unplugged_pricing_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/total_pricing_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBasePackageRenderer {
+	FormattedString package_title = 1;
+	FormattedString package_description = 2;
+	repeated ThumbnailDetails above_fold_icons = 3;
+	repeated ThumbnailDetails below_fold_icons = 4;
+	FormattedString see_all = 5;
+	ThumbnailDetails disclaimer_station = 6;
+	FormattedString disclaimer_details = 7;
+	UnpluggedPricingDetails pricing_details = 8;
+	bool user_has_purchased = 9;
+	ButtonSupportedRenderers continue_button = 11;
+	bytes tracking_params = 13;
+	TotalPricingSupportedRenderers total_pricing = 14;
+	int32 preferred_span_count_compact_width = 15;
+	string package_id = 16;
+	FormattedString legal_terms = 17;
+	int32 preferred_span_count_regular_width = 18;
+	bool use_shared_bottom_line = 19;
+	repeated Renderer above_fold_white_icons = 20;
+	repeated Renderer below_fold_white_icons = 21;
+	Renderer paywall_message = 22;
+	Command back_button_override = 23;
+	Command direct_to_paywall_command = 24;
+	bool is_supported_web = 25;
+}

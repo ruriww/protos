@@ -1,0 +1,24 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "google/protobuf/wrappers.proto";
+import "customer_support/help/mobile/proto/mobile_send_message_request.proto";
+import "customer_support/help/mobile/proto/mobile_join_conversation_request.proto";
+import "customer_support/help/mobile/proto/mobile_leave_conversation_request.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileUpdateConversationRequest {
+	string converastion_id = 1;
+	google.protobuf.UInt64Value last_seen_event_id = 2;
+
+	oneof mobile_update_conversation_request_data {
+		MobileSendMessageRequest send_message_data = 3;
+		MobileJoinConversationRequest join_conversation_data = 4;
+		MobileLeaveConversationRequest leave_conversation_data = 5;
+	}
+
+	google.protobuf.UInt64Value client_time = 6;
+	bool can_rejoin_chat = 8;
+}

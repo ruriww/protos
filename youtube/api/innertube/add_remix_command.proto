@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddRemixCommand {
+	extend Command {
+		AddRemixCommand add_remix_command = 1901;
+	}
+
+	string source_external_video_id = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.integrator.common.image;
+
+option objc_class_prefix = "MICI";
+
+message ImageDetails {
+	string uri = 1;
+	int32 width_pixels = 2;
+	int32 height_pixels = 3;
+	string alt_text = 4;
+}

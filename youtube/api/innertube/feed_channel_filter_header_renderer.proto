@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/feed_channel_filter_header_action_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeedChannelFilterHeaderRenderer {
+	FormattedString title = 1;
+	FormattedString subscriber_count_text = 2;
+	Command navigation_endpoint = 3;
+	ThumbnailDetails avatar = 4;
+	FeedChannelFilterHeaderActionSupportedRenderers action = 5;
+	bytes tracking_params = 7;
+	repeated Renderer buttons = 8;
+	Renderer view_channel_button = 9;
+}
+
+extend Renderer {
+	FeedChannelFilterHeaderRenderer feed_channel_filter_header_renderer = 107984702;
+}

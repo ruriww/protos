@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_creation_media_type.proto";
+import "youtube/api/innertube/shorts_creation_media_selection_point.proto";
+import "youtube/api/innertube/shorts_creation_entry_context.proto";
+import "youtube/api/innertube/shorts_creation_remix_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationMediaAttribution {
+	ShortsCreationMediaType media_type = 1;
+	ShortsCreationMediaSelectionPoint selection_point = 2;
+	ShortsCreationEntryContext entry_context = 3;
+	ShortsCreationRemixType remix_type = 4;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+import "ads/conversion_tracking/on_device_attribution/conversion_data_sent_to_client.proto";
+import "ads/conversion_tracking/on_device_attribution/status.proto";
+
+option objc_class_prefix = "ADCO";
+
+message UnattributedConversionResponse {
+	int32 api_version = 1;
+	string encrypted_auth_token = 2;
+	repeated ConversionDataSentToClient conversion_data = 3;
+	int64 latest_processed_timestamp = 4;
+	Status status = 5;
+	string kansas_version_info_for_auth_token = 6;
+	map<string, bytes> serialized_conversion_data = 7;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message VoiceLiveWebRtcSdp {
+	enum SdpType {
+		SDP_TYPE_UNSPECIFIED = 0;
+		OFFER = 1;
+		ANSWER = 2;
+	}
+
+	SdpType sdp_type = 1;
+	string sdp_data = 2;
+}

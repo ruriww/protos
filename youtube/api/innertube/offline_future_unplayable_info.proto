@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_future_unplayable_reason.proto";
+import "youtube/api/innertube/client_endpoint_builder_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineFutureUnplayableInfo {
+	uint64 becomes_unplayable_in_seconds = 1;
+	OfflineFutureUnplayableReason unplayable_reason = 2;
+	ClientEndpointBuilderData post_unplayable_endpoint_override = 4;
+}

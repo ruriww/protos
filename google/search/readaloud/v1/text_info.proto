@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/text_type.proto";
+import "google/search/readaloud/v1/text_timing_info.proto";
+import "google/search/readaloud/v1/time_location.proto";
+
+option objc_class_prefix = "RAS";
+
+message TextInfo {
+	TextType text_type = 1;
+	repeated TextTimingInfo timing_info = 2;
+	TimeLocation time_location = 3;
+	int32 paragraph_index = 4;
+	int32 paragraph_text_part_index = 5;
+	string text = 6;
+}

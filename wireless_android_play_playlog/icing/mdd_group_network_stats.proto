@@ -1,0 +1,14 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless_android_play_playlog/icing/icing_data_download_file_group_stats.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddGroupNetworkStats {
+	IcingDataDownloadFileGroupStats data_download_file_group_stats = 1;
+	int64 total_wifi_bytes = 2;
+	int64 total_cellular_bytes = 3;
+	int64 total_other_bytes = 4;
+}

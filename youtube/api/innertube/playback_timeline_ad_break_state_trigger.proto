@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dai_ad_break_ad_request_state.proto";
+import "youtube/api/innertube/dai_ad_break_segment_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackTimelineAdBreakStateTrigger {
+	string cue_identifier = 1;
+	int64 timestamp_unix_epoch_sec = 2;
+	DAIAdBreakAdRequestState ad_request_state = 3;
+	DAIAdBreakSegmentState segment_state = 4;
+	int64 timestamp_unix_epoch_ms = 5;
+}

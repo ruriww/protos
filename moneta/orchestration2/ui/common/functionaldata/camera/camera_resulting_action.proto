@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/flashlight_state.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CameraResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		CameraResultingAction camera_resulting_action_extension = 311411159;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_FLASHLIGHT_STATE_CHANGE = 2;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof action {
+		FlashlightState new_flashlight_state = 2;
+	}
+}

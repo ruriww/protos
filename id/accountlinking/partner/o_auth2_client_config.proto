@@ -1,0 +1,13 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message OAuth2ClientConfig {
+	string client_id = 1;
+	string client_secret = 2;
+	repeated string redirect_urls = 3;
+	repeated string default_scopes = 4;
+	string token_bucket = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+import "google/internal/onegoogle/asyncdata/v1/badge_source.proto";
+import "google/internal/onegoogle/asyncdata/v1/context.proto";
+
+option objc_class_prefix = "OGADS";
+
+message MobileDataRequest {
+	repeated BadgeSource badge_sources = 1;
+	Context context = 2;
+}

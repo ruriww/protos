@@ -1,0 +1,52 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/player_overlay_autoplay_button_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_next_button_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_autoplay_paused_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerOverlayAutoplayRenderer {
+	FormattedString title = 1;
+	FormattedString video_title = 2;
+	FormattedString byline = 3;
+	FormattedString cancel_text = 4;
+	FormattedString pause_text = 5;
+	Command next_endpoint = 6;
+	ThumbnailDetails background = 7;
+	int32 count_down_secs = 8;
+	PlayerOverlayAutoplayButtonSupportedRenderers cancel_button = 9;
+	PlayerOverlayNextButtonSupportedRenderers next_button = 10;
+	bytes tracking_params = 12;
+	PlayerOverlayAutoplayButtonSupportedRenderers close_button = 13;
+	FormattedString title_autonav_off = 14;
+	PlayerOverlayAutoplayPausedSupportedRenderers paused_renderer = 15;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 16;
+	BadgeSupportedRenderers secondary_badge = 17;
+	bool show_paused_when_disabled = 18;
+	repeated Renderer top_badges = 19;
+	bool prefer_immediate_redirect = 20;
+	string video_id = 21;
+	FormattedString alternative_title = 22;
+	FormattedString published_time_text = 23;
+	bool web_show_new_autonav_countdown = 24;
+	bool web_show_big_thumbnail_endscreen = 25;
+	FormattedString short_view_count_text = 26;
+	int32 start_count_down_secs = 27;
+	int32 count_down_secs_for_fullscreen = 28 [ default = -1 ];
+	Renderer watch_to_watch_transition_renderer = 29;
+	repeated Renderer post_play_buttons = 30;
+	ThumbnailDetails next_video_preview = 31;
+	PlayerOverlayAutoplayButtonSupportedRenderers cancel_button_autonav_off = 32;
+}

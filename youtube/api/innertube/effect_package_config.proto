@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EffectPackageConfig {
+	oneof package_source {
+		string effect_package_url = 1;
+		bytes effect_package_proto = 2;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TvSignInProtocolType {
+	option features.enum_type = CLOSED;
+
+	TV_SIGN_IN_PROTOCOL_TYPE_UNKNOWN = 0;
+	TV_SIGN_IN_PROTOCOL_TYPE_DIAL = 1;
+	TV_SIGN_IN_PROTOCOL_TYPE_CAST = 2;
+	TV_SIGN_IN_PROTOCOL_TYPE_CLOUD = 3;
+}

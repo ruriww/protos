@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/utils/visibility/visibility_criteria.proto";
+import "youtube/api/innertube/prominence_observer_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CollectionDescriptor {
+	utils.visibility.VisibilityCriteria collection_focus_visibility_criteria = 1;
+
+	oneof selection_mechanism_config {
+		ProminenceObserverConfig prominence_observer_config = 2;
+	}
+}

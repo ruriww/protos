@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/watch_break_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchBreakRenderer {
+	FormattedString heading = 1;
+	FormattedString notice = 2;
+	Renderer primary_button = 3;
+	Renderer secondary_button = 4;
+	bytes tracking_params = 6;
+	WatchBreakType watch_break_type = 7;
+}
+
+extend Renderer {
+	WatchBreakRenderer watch_break_renderer = 189993098;
+}

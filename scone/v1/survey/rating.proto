@@ -1,0 +1,30 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+import "scone/v1/survey/branching_destination.proto";
+
+option objc_class_prefix = "UVSP";
+
+message Rating {
+	enum RatingType {
+		RATING_TYPE_UNKNOWN = 0;
+		RATING_TYPE_SMILEYS = 1;
+		RATING_TYPE_STARS = 2;
+		RATING_TYPE_NUMBERS = 3;
+		RATING_TYPE_THUMBS_UP_THUMBS_DOWN = 4;
+	}
+
+	RatingType rating_type = 1;
+	uint32 num_rating_choices = 2;
+	repeated uint32 screen_in_ordinal = 3;
+	string min_ordinal_label = 4;
+	string max_ordinal_label = 5;
+
+	message BranchingConfig {
+		repeated int32 rating_ordinal = 1;
+		BranchingDestination branching_destination = 2;
+	}
+
+	repeated BranchingConfig branching_config = 6;
+}

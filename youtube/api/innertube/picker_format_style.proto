@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PickerFormatStyle {
+	option features.enum_type = CLOSED;
+
+	PICKER_FORMAT_STYLE_UNSPECIFIED = 0;
+	PICKER_FORMAT_STYLE_NONE = 1;
+	PICKER_FORMAT_STYLE_SHORT = 2;
+	PICKER_FORMAT_STYLE_MEDIUM = 3;
+	PICKER_FORMAT_STYLE_LONG = 4;
+	PICKER_FORMAT_STYLE_FULL = 5;
+}

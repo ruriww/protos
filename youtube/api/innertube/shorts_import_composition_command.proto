@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/orchestration_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsImportCompositionCommand {
+	extend Command {
+		ShortsImportCompositionCommand shorts_import_composition_command = 1683;
+	}
+
+	OrchestrationId orchestration_id = 1;
+	Command on_success_command = 2;
+	Command on_failure_command = 3;
+}

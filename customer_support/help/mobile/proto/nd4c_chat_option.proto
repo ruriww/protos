@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ND4CChatOption {
+	bool available_now = 1;
+	string subtext_snippet = 2;
+}

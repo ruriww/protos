@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.collapsible;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CollapsibleNode {
+	extend node.Node {
+		CollapsibleNode collapsible_node_extension = 228971051;
+	}
+
+	node.Node expanded_node = 1;
+	node.Node collapsed_node = 2;
+}

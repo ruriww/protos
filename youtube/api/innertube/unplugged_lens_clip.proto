@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_video_playback_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLensClip {
+	message TimeRange {
+		uint64 start_ms = 1;
+		uint64 end_ms = 2;
+	}
+
+	TimeRange media_range = 1;
+	TimeRange utc_range = 2;
+	TimeRange stream_time_range = 3;
+	UnpluggedVideoPlaybackPosition start = 4;
+	UnpluggedVideoPlaybackPosition end = 5;
+}

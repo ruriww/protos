@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message InAppPageTypeSettings {
+	string nd4c_country_code = 1;
+	bool feedback_enabled = 2;
+	bool has_promoted_product_link_click_callback = 3;
+	bool is_in_chat_session_on_device = 4;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "logs/click_tracking_cgi.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message LrpLoggingData {
+	logs.ClickTrackingCGI parent_ved = 1;
+	bytes analytics_id = 2;
+	string client_zwieback_cookie = 3;
+}

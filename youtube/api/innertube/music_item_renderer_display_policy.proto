@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicItemRendererDisplayPolicy {
+	option features.enum_type = CLOSED;
+
+	MUSIC_ITEM_RENDERER_DISPLAY_POLICY_UNKNOWN = 0;
+	MUSIC_ITEM_RENDERER_DISPLAY_POLICY_DEFAULT = 1;
+	MUSIC_ITEM_RENDERER_DISPLAY_POLICY_GREY_OUT = 2;
+}

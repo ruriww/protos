@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_cancel_feedback_option_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_cancel_feedback_option_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedCancelFeedbackDialogRenderer {
+	FormattedString title = 1;
+	FormattedString description = 2;
+	repeated UnpluggedCancelFeedbackOptionSupportedRenderers options = 3;
+	ButtonSupportedRenderers finish_button = 4;
+	ButtonSupportedRenderers support_button = 5;
+	bytes tracking_params = 7;
+	repeated Renderer feedback_options = 8;
+	Renderer next_button = 9;
+}
+
+extend Renderer {
+	UnpluggedCancelFeedbackDialogRenderer unplugged_cancel_feedback_dialog_renderer = 142349960;
+}
+
+extend Renderer {
+	UnpluggedCancelFeedbackOptionRenderer unplugged_cancel_feedback_option_renderer = 142391083;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message MagicEraserToolParams {
+	bool erase_text = 1 [ default = true ];
+	bool erase_invisible_elements = 2 [ default = false ];
+	bool erase_elements_eagerly = 3 [ default = false ];
+}

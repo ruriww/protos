@@ -1,0 +1,11 @@
+edition = "2023";
+
+package image_base;
+
+import "image_base/thumbnail_type.proto";
+
+option objc_class_prefix = "IMB";
+
+message ThumbnailTypeValues {
+	repeated ThumbnailType values = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

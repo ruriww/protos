@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_request_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MainPlaylistEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		MainPlaylistEntityActionMetadata main_playlist_entity_action_metadata = 403433066;
+	}
+
+	bytes click_tracking_params = 1;
+	OfflineabilityFormatType maximum_download_quality = 2;
+	int32 max_playlist_size = 3;
+	int32 stream_transfer_condition = 4;
+	OfflineRequestSource request_source = 5;
+	bool auto_sync = 6;
+	bool disable_playlist_sync_check = 7;
+	int32 download_video_stream_param = 8;
+	uint32 next_auto_refresh_interval_seconds = 9;
+	bool approve_playlist = 10;
+}

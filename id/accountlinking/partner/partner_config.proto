@@ -1,0 +1,25 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "id/accountlinking/partner/account_linking_config.proto";
+import "id/accountlinking/partner/branding_info.proto";
+import "id/accountlinking/partner/google_metadata.proto";
+import "id/accountlinking/partner/consent_config.proto";
+import "id/accountlinking/partner/risc_config.proto";
+import "id/accountlinking/partner/third_party_initiated_linking_config.proto";
+import "id/accountlinking/partner/private_ip_config.proto";
+
+option objc_class_prefix = "ALKP";
+
+message PartnerConfig {
+	string partner_id = 1;
+	AccountLinkingConfig account_linking_config = 2;
+	BrandingInfo branding_info = 3;
+	GoogleMetadata google_metadata = 4;
+	ConsentConfig consent_config = 5;
+	bool need_token_id = 6;
+	RiscConfig risc_config = 7;
+	ThirdPartyInitiatedLinkingConfig third_party_initiated_linking_config = 8;
+	PrivateIpConfig private_ip_config = 9;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_table_section_header_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_table_section_row_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_table_section_player_stats_header_renderer.proto";
+import "youtube/api/innertube/unplugged_table_section_team_stats_header_renderer.proto";
+import "youtube/api/innertube/unplugged_table_section_player_stats_row_renderer.proto";
+import "youtube/api/innertube/unplugged_table_section_team_stats_row_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedTableSectionRenderer {
+	UnpluggedTableSectionHeaderSupportedRenderers header = 1;
+	repeated UnpluggedTableSectionRowSupportedRenderers rows = 2;
+	Command endpoint = 3;
+	bytes tracking_params = 4;
+	string id = 6;
+}
+
+extend Renderer {
+	UnpluggedTableSectionRenderer unplugged_table_section_renderer = 118821739;
+}
+
+extend Renderer {
+	UnpluggedTableSectionPlayerStatsHeaderRenderer unplugged_table_section_team_player_header_renderer = 180841221;
+}
+
+extend Renderer {
+	UnpluggedTableSectionTeamStatsHeaderRenderer unplugged_table_section_team_stats_header_renderer = 118823926;
+}
+
+extend Renderer {
+	UnpluggedTableSectionPlayerStatsRowRenderer unplugged_table_section_player_stats_row_renderer = 121498508;
+}
+
+extend Renderer {
+	UnpluggedTableSectionTeamStatsRowRenderer unplugged_table_section_team_stats_row_renderer = 118824051;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+enum MeetingState {
+	MEETING_STATE_UNSPECIFIED = 0;
+	MEETING_STATE_NOT_CONNECTED = 1;
+	MEETING_STATE_CONNECTED = 2;
+	MEETING_STATE_CONNECTED_WITH_COACTIVITY = 3;
+}

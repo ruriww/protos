@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_spoiler_mode_entity.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgAiringRenderer {
+	int64 begin_time_ms = 1;
+	int64 end_time_ms = 2;
+	FormattedString title = 3;
+	FormattedString snippet = 4;
+	ThumbnailDetails thumbnail = 5;
+	bytes tracking_params = 6;
+	string video_id = 9;
+	FormattedString primary_text = 10;
+	FormattedString secondary_text = 11;
+	FormattedString tertiary_text = 12;
+	FormattedString quaternary_text = 13;
+	BadgeSupportedRenderers badge = 14;
+	Command navigation_endpoint = 15;
+	MenuSupportedRenderers menu = 16;
+	repeated UnpluggedSpoilerModeEntity spoiler_mode_entities = 18;
+	BadgeSupportedRenderers spoiler_mode_badge = 19;
+	BadgeSupportedRenderers secondary_badge = 20;
+	FormattedString info_text = 21;
+	BadgeSupportedRenderers ultra_high_resolution_badge = 22;
+	repeated Renderer tertiary_container = 25;
+	int64 rendering_start_time_ms = 26;
+	Renderer info_panel = 27;
+	repeated Renderer primary_containers = 28;
+	repeated int64 chips = 30 [ features.repeated_field_encoding = EXPANDED ];
+	Command on_record_press = 34;
+	Command on_multiview_press = 35;
+}

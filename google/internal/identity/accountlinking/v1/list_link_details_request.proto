@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/internal/identity/accountlinking/v1/read_options.proto";
+import "google/internal/identity/accountlinking/v1/e_link_details_view.proto";
+
+option objc_class_prefix = "ALK";
+
+message ListLinkDetailsRequest {
+	RequestHeader header = 1;
+	bool include_gsi_only = 2;
+	ReadOptions read_options = 3;
+	string page_token = 4;
+	ELinkDetailsView view = 5;
+	int32 page_size = 6;
+	bool return_invalidated = 7;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.feed;
+
+import "youtube/client/blocks/api/feed/section_list_continuation_controller_block_weak_ref.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetSectionListContinuationControllerResult {
+	SectionListContinuationControllerBlockWeakRef section_list_continuation_controller = 1;
+}

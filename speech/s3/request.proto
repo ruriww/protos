@@ -1,0 +1,25 @@
+edition = "2023";
+
+package speech.s3;
+
+import "greco/loggable.proto";
+import "greco/params.proto";
+
+option objc_class_prefix = "S3";
+
+message Request {
+	extend greco.Loggable {
+		Request log_id = 29732317;
+	}
+
+	extend greco.Params {
+		Request initial_s3_request = 21492436;
+	}
+
+	string service = 1;
+	bool logging_enabled = 2 [ default = true ];
+	bool end_of_data = 3 [ default = false ];
+	bool debugging_enabled = 4 [ default = false ];
+
+	extensions 128 to max;
+}

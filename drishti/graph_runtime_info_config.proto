@@ -1,0 +1,10 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message GraphRuntimeInfoConfig {
+	bool enable_graph_runtime_info = 1;
+	uint32 capture_period_msec = 2;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+import "google/internal/identity/accountsettings/mobile/v1/help_params.proto";
+
+option objc_class_prefix = "OCT";
+
+message HelpTarget {
+	string help_context = 1;
+	google.internal.identity.accountsettings.mobile.v1.HelpParams help_params = 2;
+}

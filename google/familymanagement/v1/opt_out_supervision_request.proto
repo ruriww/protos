@@ -1,0 +1,26 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message OptOutSupervisionRequest {
+	ApiRequestHeader api_header = 1;
+	string person_id = 2;
+
+	enum EntryPoint {
+		option features.enum_type = CLOSED;
+
+		ENTRY_POINT_UNSPECIFIED = 0;
+		ENTRY_POINT_LOCAL_CONTROLS = 1;
+		ENTRY_POINT_MY_ACCOUNT = 2;
+		ENTRY_POINT_SIDE_EFFECT = 3;
+		ENTRY_POINT_SIGN_IN_SPEED_BUMP = 4;
+		ENTRY_POINT_FAMILY_LINK_APP = 5;
+	}
+
+	EntryPoint entry_point = 3;
+	bool opt_out_youtube_teen_supervision = 4;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/action_text_button.proto";
+import "footprints/texts/primitiveconsent/close_button.proto";
+import "footprints/texts/primitiveconsent/back_button.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message HeaderButton {
+	oneof button_type {
+		ActionTextButton text_button = 1;
+		CloseButton close_button = 2;
+		BackButton back_button = 3;
+	}
+}

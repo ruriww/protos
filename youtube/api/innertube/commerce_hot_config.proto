@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_connection_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommerceHotConfig {
+	bool enable_overlay_controller = 2;
+	string brand_name = 3;
+	bool enable_downloads_page_commute_entry_point = 4;
+	bool enable_android_full_screen_alert_dialog = 5;
+	bool ios_enable_orchestration_api_for_drm = 6;
+	bool deprecate_buyflow_order_id = 7;
+	bool enable_downloads_page_drm_videos_decoration = 8;
+	bool ios_use_bottom_sheet_for_download_drm_videos = 9;
+	bool enable_buyflow_prefetch_on_initialization = 10;
+	repeated ClientConnectionType buyflow_prefetch_connection_type_disablelist = 11 [ features.repeated_field_encoding = EXPANDED ];
+	int32 buyflow_prefetch_minimum_processors = 12;
+	bool android_enable_orchestration_api_for_drm = 13;
+	bool enable_shoptube_webview_latency_improvement = 14;
+	bool enable_drop_invalid_account_in_buyflow = 15;
+	bool enable_shoptube_webview_chrome_client = 16;
+	int32 play_billing_options = 17;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridSpacingOverrideData {
+	int32 small_form_factor_portrait_page_margin = 1;
+	int32 large_form_factor_portrait_page_margin = 2;
+	int32 small_form_factor_landscape_page_margin = 3;
+	int32 large_form_factor_landscape_page_margin = 4;
+	int32 small_form_factor_portrait_interitem_spacing = 5;
+	int32 large_form_factor_portrait_interitem_spacing = 6;
+	int32 small_form_factor_landscape_interitem_spacing = 7;
+	int32 large_form_factor_landscape_interitem_spacing = 8;
+}

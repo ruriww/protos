@@ -1,0 +1,16 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+option objc_class_prefix = "GIDLOGAS";
+
+message ClientVersion {
+	string android_os_version = 1;
+	string gmscore_module_version = 2;
+	string gmscore_module_apk_version_name = 3;
+	string ios_library_version = 4;
+	string ios_app_bundle_id = 5;
+	string ios_app_version = 6;
+	string android_system_webview_version = 7;
+	string android_library_version = 8;
+}

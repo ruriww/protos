@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/flow_event_type.proto";
+import "youtube/api/innertube/flow_event_metadata.proto";
+import "youtube/api/innertube/flow_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowEvent {
+	string flow_nonce = 1;
+	FlowEventType flow_event_type = 2;
+	FlowEventMetadata flow_metadata = 3;
+	FlowType flow_type = 4;
+	int32 flow_event_status = 5;
+	string csn = 6;
+	string can = 7;
+}

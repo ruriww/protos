@@ -1,0 +1,16 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+option objc_class_prefix = "GCKOC";
+
+message AudioPinData {
+	repeated float start_transition = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated float main_loop = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated float stop_transition = 3 [ features.repeated_field_encoding = EXPANDED ];
+	float sample_rate = 4;
+	int32 num_channels = 5;
+	int32 repeat_main_loop = 6;
+	float lower_amplitude_scale_factor = 7;
+	float upper_amplitude_scale_factor = 8;
+}

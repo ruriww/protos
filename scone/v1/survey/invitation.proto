@@ -1,0 +1,10 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message Invitation {
+	bool show_invitation = 1;
+	string invitation_message = 2;
+}

@@ -1,0 +1,134 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_panel_video_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/automix_preview_video_renderer.proto";
+import "youtube/api/innertube/unplugged_compact_video_renderer.proto";
+import "youtube/api/innertube/unplugged_grid_video_renderer.proto";
+import "youtube/api/innertube/playlist_expandable_message_renderer.proto";
+import "youtube/api/innertube/playlist_panel_link_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/playlist_panel_video_wrapper_renderer.proto";
+import "youtube/api/innertube/playlist_panel_segment_header_renderer.proto";
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_supported_continuations.proto";
+import "youtube/api/innertube/player_info_view_type.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/automix_tuner_control_supported_renderers.proto";
+import "youtube/api/innertube/playlist_panel_button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_save_button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_panel_share_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistPanelRenderer {
+	extend ContinuationSupportedRenderers {
+		PlaylistPanelRenderer playlist_panel_continuation = 50631000;
+	}
+
+	string title = 1;
+
+	message PlaylistPanelVideoSupportedRenderers {
+		PlaylistPanelVideoRenderer playlist_panel_video_renderer = 51779701;
+		MessageRenderer message_renderer = 58508690;
+		AutomixPreviewVideoRenderer automix_preview_video_renderer = 96821433;
+		UnpluggedCompactVideoRenderer unplugged_compact_video_renderer = 97141623;
+		UnpluggedGridVideoRenderer unplugged_grid_video_renderer = 97141704;
+		PlaylistExpandableMessageRenderer playlist_expandable_message_renderer = 114367561;
+		PlaylistPanelLinkRenderer playlist_panel_link_renderer = 139406549;
+		ElementRenderer element_renderer = 153515154;
+		PlaylistPanelVideoWrapperRenderer playlist_panel_video_wrapper_renderer = 206848145;
+		PlaylistPanelSegmentHeaderRenderer playlist_panel_segment_header_renderer = 216407981;
+	}
+
+	repeated PlaylistPanelVideoSupportedRenderers contents = 2;
+	int32 current_index = 3;
+	string playlist_id = 5;
+	int32 total_videos = 6;
+	FormattedString owner_name = 7;
+	bool is_infinite = 8 [ default = false ];
+	bool allow_likes = 11;
+	LikeStatus like_status = 12 [ default = INDIFFERENT ];
+	string playlist_share_url = 13;
+	LikeButtonSupportedRenderers like_button = 14;
+	repeated PlaylistSupportedContinuations continuations = 15;
+	FormattedString short_byline_text = 16;
+	FormattedString long_byline_text = 17;
+	FormattedString total_videos_text = 18;
+	PlayerInfoViewType player_info_view = 19;
+	bytes tracking_params = 20;
+	repeated BadgeSupportedRenderers owner_badges = 21;
+	FormattedString title_text = 22;
+	bool is_editable = 23 [ default = false ];
+	Command endpoint = 24;
+
+	message PlaylistPanelOfflineabilitySupportedRenderers {
+		oneof renderer {
+			OfflineabilityRenderer offlineability_renderer = 60572968;
+			ButtonRenderer button_renderer = 65153809;
+		}
+	}
+
+	PlaylistPanelOfflineabilitySupportedRenderers offlineability = 25;
+	MenuSupportedRenderers menu = 26;
+	int32 local_current_index = 27;
+	AutomixTunerControlSupportedRenderers automix_tuner_control = 28;
+	FormattedString preview_description = 29;
+	PlaylistPanelButtonSupportedRenderers playlist_buttons = 30;
+	PlaylistSaveButtonSupportedRenderers save_button = 31;
+	PlaylistPanelShareButtonSupportedRenderers share_button = 32;
+	int32 num_items_to_show = 33;
+
+	oneof shuffle_button {
+		Renderer shuffle_toggle_button = 34;
+	}
+
+	repeated BadgeSupportedRenderers badges = 35;
+	FormattedString video_count_text = 36;
+	Command on_reorder_endpoint = 37;
+	bool is_course = 38;
+	Icon icon = 39;
+	FormattedString next_video_label = 40;
+	PlaylistPanelVideoSupportedRenderers content_header = 41;
+	Renderer next_button_video = 42;
+	Renderer previous_button_video = 43;
+	string target_id = 44;
+	repeated Renderer action_buttons = 46;
+	Icon playlist_entrypoint_icon = 47;
+	int32 automix_num_items_to_show = 48;
+	Renderer recommendations = 49;
+	repeated PlaylistPanelVideoSupportedRenderers additional_contents = 50;
+	Renderer minimized_panel_next_button = 51;
+	Renderer minimized_panel_previous_button = 52;
+	bool show_autoplay_status_in_minimized_panel = 54;
+	bool hide_sub_header = 55;
+	bool move_three_dots_menu_to_main_header = 56;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	PlaylistPanelRenderer playlist_panel_renderer = 50631000;
+}
+
+extend Renderer {
+	PlaylistPanelLinkRenderer playlist_panel_link_renderer = 139406549;
+}
+
+extend Renderer {
+	PlaylistPanelVideoRenderer playlist_panel_video_renderer = 51779701;
+}

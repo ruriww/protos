@@ -1,0 +1,19 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "drishti/calculator_graph_config.proto";
+import "xeno/effect/output_audio_config_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message GraphDefinitionProto {
+	string graph_id = 1;
+	string input_frame_stream_name = 2;
+	string output_frame_stream_name = 3;
+	int32 max_frames_in_flight = 4;
+	drishti.CalculatorGraphConfig graph = 5;
+	string input_audio_stream_name = 6;
+	repeated string auxiliary_output_stream_name = 8;
+	effect.OutputAudioConfigProto output_audio_config = 9;
+}

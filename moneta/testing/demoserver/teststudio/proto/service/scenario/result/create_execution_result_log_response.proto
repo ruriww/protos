@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.result;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "TSLSSR";
+
+message CreateExecutionResultLogResponse {
+	int64 results_log_id = 1;
+	google.protobuf.Any data = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ios.gscore.protos.common;
+
+option objc_class_prefix = "GSCP";
+
+message Date {
+	int32 year = 1;
+	int32 month = 2;
+	int32 day = 3;
+}

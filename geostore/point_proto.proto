@@ -1,0 +1,19 @@
+edition = "2023";
+
+package geostore;
+
+import "proto2/bridge/message_set.proto";
+import "geostore/field_metadata_proto.proto";
+
+option objc_class_prefix = "GS";
+
+message PointProto {
+	extend proto2.bridge.MessageSet {
+		PointProto message_set_extension = 14827556;
+	}
+
+	fixed32 lat_e7 = 1;
+	fixed32 lng_e7 = 2;
+	proto2.bridge.MessageSet temporary_data = 15;
+	FieldMetadataProto metadata = 500;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_info.proto";
+import "youtube/api/innertube/user_info.proto";
+import "youtube/api/innertube/capability_info.proto";
+import "youtube/api/innertube/request_info.proto";
+import "youtube/api/innertube/click_tracking_info.proto";
+import "youtube/api/innertube/third_party_info.proto";
+import "youtube/api/innertube/ad_signals_info.proto";
+import "youtube/api/innertube/experimental_data.proto";
+import "youtube/api/innertube/active_player_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InnerTubeContext {
+	ClientInfo client = 1;
+	UserInfo user = 3;
+	CapabilityInfo capabilities = 4;
+	RequestInfo request = 5;
+	ClickTrackingInfo click_tracking = 6;
+	ThirdPartyInfo third_party = 7;
+	ClientInfo remote_client = 8;
+	AdSignalsInfo ad_signals_info = 9;
+	ExperimentalData experimental_data = 10;
+	string client_screen_nonce = 11;
+	repeated ActivePlayerInfo active_players = 12;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/client/blocks/container_instance_config.proto";
+
+option objc_class_prefix = "YTB";
+
+message GlobalRuntimeContainerInstanceConfig {
+	extend ContainerInstanceConfig {
+		GlobalRuntimeContainerInstanceConfig global_runtime_container_instance_config = 409515602;
+	}
+
+	uint64 container_version = 1;
+}

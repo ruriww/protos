@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/share_button_supported_renderers.proto";
+import "youtube/api/innertube/add_to_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoActionsRenderer {
+	LikeButtonSupportedRenderers like_button = 1;
+	ShareButtonSupportedRenderers share_button = 2;
+	AddToButtonSupportedRenderers add_to_button = 3;
+}
+
+extend Renderer {
+	VideoActionsRenderer video_actions_renderer = 100349614;
+}

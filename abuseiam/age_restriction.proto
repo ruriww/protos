@@ -1,0 +1,10 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message AgeRestriction {
+	int32 age_years = 1 [ default = 2147483647 ];
+	int32 min_age_years = 2 [ default = -1 ];
+}

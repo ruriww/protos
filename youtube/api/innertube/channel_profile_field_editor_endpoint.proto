@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/channel_profile_field_editor_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelProfileFieldEditorEndpoint {
+	extend Command {
+		ChannelProfileFieldEditorEndpoint channel_profile_field_editor_endpoint = 106088718;
+	}
+
+	ChannelProfileFieldEditorSupportedRenderers editor = 1;
+}

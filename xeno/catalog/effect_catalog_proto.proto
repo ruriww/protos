@@ -1,0 +1,20 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "xeno/catalog/effect_category_proto.proto";
+import "xeno/effect/effect_proto.proto";
+import "xeno/effect/preprocessing_graph_proto.proto";
+import "xeno/catalog/preprocessing_graph_definition_proto.proto";
+import "xeno/catalog/effect_variant_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message EffectCatalogProto {
+	repeated EffectCategoryProto category = 1;
+	map<string, effect.EffectProto> effect_map = 2;
+	map<string, bytes> icon_map = 3;
+	effect.PreprocessingGraphProto preprocessing_graph = 4;
+	PreprocessingGraphDefinitionProto preprocessing_graph_definition = 5;
+	map<string, EffectVariantProto> effect_variant_map = 6;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/account_transition_type.proto";
+
+option objc_class_prefix = "FML";
+
+message OptOutSupervisionEvent {
+	int64 target_gaia_id = 1;
+	AccountTransitionType account_transition_type = 2;
+	int32 flow_originated = 3;
+	int32 entry_point = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens.ondevice;
+
+import "lens/ondevice/merge_strategy.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DetectionReconciliationConfig {
+	MergeStrategy merge_strategy = 1;
+	float geometric_overlap_threshold = 2;
+	float anti_crowding_minimum_distance = 3;
+	bool prefer_tracked_detections_disabled = 4;
+	bool source_signal_id_disabled = 5;
+	bool enable_anti_crowding = 6;
+}

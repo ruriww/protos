@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/mutation_transaction.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MutateCreationArgs {
+	api.innertube.MutationTransaction mutation_transaction = 1;
+}

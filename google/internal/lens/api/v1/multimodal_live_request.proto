@@ -1,0 +1,33 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "speech/s3/request.proto";
+import "google/internal/lens/api/v1/start_session_request.proto";
+import "google/internal/lens/api/v1/interruption.proto";
+import "google/internal/lens/api/v1/live_history.proto";
+import "google/internal/lens/api/v1/client_context.proto";
+import "lens/live_tts_config.proto";
+import "google/internal/lens/api/v1/video_frame_request.proto";
+import "google/protobuf/timestamp.proto";
+import "lens/voice_live_web_rtc_setup_request_payload.proto";
+
+option objc_class_prefix = "LFE";
+
+message MultimodalLiveRequest {
+	oneof query {
+		string text_query = 1;
+		speech.s3.Request s3_request = 2;
+		StartSessionRequest start_session_request = 6;
+		Interruption interruption = 8;
+	}
+
+	LiveHistory history_for_eval = 3;
+	uint64 uuid = 4;
+	ClientContext client_context = 5;
+	.lens.LiveTtsConfig tts_config = 7;
+	VideoFrameRequest video_frame_request = 9;
+	protobuf.Timestamp timestamp = 10;
+	.lens.VoiceLiveWebRtcSetupRequestPayload web_rtc_setup_request = 11;
+	bool use_ansrp_prompt = 12;
+}

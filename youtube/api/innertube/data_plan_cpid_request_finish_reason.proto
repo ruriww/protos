@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DataPlanCpidRequestFinishReason {
+	option features.enum_type = CLOSED;
+
+	DATA_PLAN_CPID_REQUEST_FINISH_REASON_UNKNOWN = 0;
+	DATA_PLAN_CPID_REQUEST_FINISH_REASON_SUCCESS = 1;
+	DATA_PLAN_CPID_REQUEST_FINISH_REASON_FAILED = 2;
+	DATA_PLAN_CPID_REQUEST_FINISH_REASON_CANCELLED = 3;
+}

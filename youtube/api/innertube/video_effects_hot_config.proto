@@ -1,0 +1,57 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoEffectsHotConfig {
+	bool instant_dynamic_kazoo_enabled = 1;
+	bool dynamic_kazoo_reels_capture_enabled = 2;
+	bool ios_advanced_text_editor_enabled = 3;
+	bool ios_enable_text_background_rounded_corners = 4;
+	bool text_editor_text_preset_enabled = 5;
+	bool ios_enable_reels_camera_presets = 6;
+	bool ios_enable_recently_used_sticker_page = 7;
+	bool ios_enable_tap_to_change_for_stickers = 8;
+	bool text_editor_improved_colors_enabled = 9;
+	bool reels_camera_default_preset_enabled = 10;
+	bool debug_video_interactions_targets_enabled = 11;
+	bool android_enable_tap_to_change_for_stickers = 12;
+	bool mentions_text_sticker_enabled = 13;
+	bool enable_idk_in_editor = 14;
+	bool enable_sticker_selector_tab = 15;
+	bool enable_redesigned_reels_camera = 16;
+	bool android_enable_reels_quick_video_capture = 17;
+	bool enable_swipe_to_change_effect = 18;
+	bool enable_swazzle_effects = 19;
+	bool enable_l2l_camera_recording_analysis = 20;
+	bool enable_camera_pixel_buffer_pool = 21;
+	bool enable_ink_in_editor = 22;
+	int32 video_sticker_videos_in_restricted_days = 23;
+	int32 video_sticker_restricted_days = 24;
+	bool enable_sticker_precise_hit_test = 25;
+	bool enable_sheet_component_in_editor = 26;
+	bool enable_android_mention_text_sticker = 27;
+	bool android_enable_tap_to_change_flicker_fix = 28;
+	bool enable_ios_sticker_kazoo_processing = 30;
+	bool enable_coppa_compliant_creation_flow = 31;
+	bool enable_editor_toolbar_layout_update = 32;
+	bool enable_photos_in_library_picker = 33;
+	bool enable_ios_view_based_sticker_infra = 34;
+	bool enable_internal_shorts_creation = 35;
+	bool enable_in_camera_new_effect_indicator = 36;
+	bool enable_guidelines_in_stories_editor = 37;
+	bool android_write_state_event_to_upload_file = 38;
+	bool enable_audio_swap_in_stories_editor = 39;
+	bool enable_photo_to_video_exporter_ios = 40;
+	bool android_enable_alloc_exact_buffer_pool_size = 41;
+	bool looking_to_listen_camera_recording_analysis = 42;
+	bool looking_to_listen_user_prompt_blue_dot_indicator = 43;
+	bool looking_to_listen_user_prompt_persistent_alert = 44;
+	bool looking_to_listen_user_prompt_tutorial_alert = 45;
+	bool enable_android_ink_in_editor = 46;
+	bool enable_video_frame_source_v2 = 47;
+}

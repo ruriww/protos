@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.ios.commerce;
+
+option objc_class_prefix = "YTIAP";
+
+enum StoreKitTransactionType {
+	option features.enum_type = CLOSED;
+
+	STORE_KIT_TRANSACTION_TYPE_UNSPECIFIED = 0;
+	STORE_KIT_TRANSACTION_TYPE_PARTNER_BILLING = 1;
+}

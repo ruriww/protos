@@ -1,0 +1,144 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+import "paymentfraud/mobile/device_fingerprinting.proto";
+import "moneta/orchestration2/ui/common/app_api_support_info.proto";
+import "moneta/orchestration2/ui/common/location_info.proto";
+import "moneta/orchestration2/ui/common/device_instrument_info.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NativeClientContext {
+	string imsi_hash = 1;
+	string mcc_mnc = 2;
+	string os_version = 3;
+	string device = 4;
+	int32 screen_width_px = 5;
+	int32 screen_height_px = 6;
+	float screen_x_dpi = 7;
+	float screen_y_dpi = 8;
+	string package_name = 9;
+	string package_version_code = 10;
+	string package_version_name = 11;
+	paymentfraud.mobile.DeviceFingerprinting.Parsed risk_data = 12;
+	string integrator_package_name = 13;
+	string market_client_id = 14;
+
+	enum AndroidClientSubtype {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SHARED_LIBRARY = 1;
+		GOOGLE_PLAY_SERVICES = 2;
+		POS_PAYMENTS_LIBRARY = 3;
+	}
+
+	AndroidClientSubtype android_client_subtype = 15;
+
+	enum PermissionState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PERMISSION_STATE = 0;
+		GRANTED = 1;
+		NO_PERMISSION = 2;
+	}
+
+	PermissionState read_phone_state_permission_state = 16;
+	string sim_operator_name = 17;
+	string gid_1 = 18;
+	int64 rounded_imsi = 19;
+	int64 module_version = 20;
+
+	enum SystemFeature {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FEATURE = 0;
+		ANDROID_LEANBACK = 1;
+		CAMERA_DOCUMENT_CAPTURE = 2;
+		ANDROID_WEAR = 3;
+		ANDROID_VIRTUAL_REALITY_SETUP = 4;
+		ANDROID_VIRTUAL_REALITY = 5;
+		ANDROID_FINGERPRINT = 6;
+		NFC_DEVICE_SUPPORT = 7;
+		FELICA_SUPPORT = 8;
+		TOKENIZATION_SUPPORT = 9;
+	}
+
+	repeated SystemFeature available_system_feature = 21;
+	PermissionState camera_permission_state = 22;
+	int64 network_download_rate_bps = 23;
+	int64 network_upload_rate_bps = 24;
+	bool network_metered = 25;
+
+	enum AuthType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_AUTH_TYPE = 0;
+		FINGERPRINT = 2;
+		PIN_PASSWORD_OR_PATTERN = 3;
+		BIOMETRIC = 4;
+		FACE_ID = 5;
+	}
+
+	repeated AuthType supported_auth_types = 26 [ features.repeated_field_encoding = EXPANDED ];
+	repeated AppApiSupportInfo app_api_support_info = 27;
+	int32 logical_dpi = 28;
+	LocationInfo location = 29;
+	string access_point_name = 30;
+	bool subscription_supports_sms_transmission = 31;
+	int32 subscription_count = 32;
+	repeated string heterodyne_server_token = 33;
+
+	enum UiStyle {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_UI_STYLE = 0;
+		PLAY_LEGACY = 1;
+		PLAY_PHOENIX = 2;
+	}
+
+	UiStyle ui_style = 34;
+	int64 device_uptime_millis = 35;
+	string timezone_name = 36;
+
+	enum PhoneType {
+		option features.enum_type = CLOSED;
+
+		PHONE_TYPE_UNKNOWN = 0;
+		PHONE_TYPE_UNSPECIFIED = 1;
+		PHONE_TYPE_NONE = 2;
+		PHONE_TYPE_GSM = 3;
+		PHONE_TYPE_CDMA = 4;
+		PHONE_TYPE_SIP = 5;
+	}
+
+	PhoneType phone_type = 37;
+	repeated DeviceInstrumentInfo device_instrument_info = 38;
+	int64 android_id = 39;
+
+	enum SecureElementState {
+		option features.enum_type = CLOSED;
+
+		SECURE_ELEMENT_STATE_UNKNOWN = 0;
+		SECURE_ELEMENT_STATE_NOT_SUPPORTED = 1;
+		SECURE_ELEMENT_STATE_SUPPORTED = 2;
+	}
+
+	SecureElementState secure_element_state = 40;
+	string integrator_package_version_code = 41;
+
+	enum DeviceBasedInputType {
+		option features.enum_type = CLOSED;
+
+		DEVICE_BASED_INPUT_TYPE_UNKNOWN = 0;
+		DEVICE_BASED_INPUT_TYPE_CARD_OCR = 1;
+		DEVICE_BASED_INPUT_TYPE_NFC = 2;
+	}
+
+	repeated DeviceBasedInputType supported_device_based_input_types = 43 [ features.repeated_field_encoding = EXPANDED ];
+	bool supports_ocr_module = 44;
+	string gmscore_version_code = 45;
+	bool supports_reauth_ios = 46;
+	string model_name = 52;
+}

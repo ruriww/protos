@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UnpluggedIconBadgeRendererBadgeType {
+	option features.enum_type = CLOSED;
+
+	UNPLUGGED_ICON_BADGE_RENDERER_BADGE_TYPE_UNKNOWN = 0;
+	UNPLUGGED_ICON_BADGE_RENDERER_BADGE_TYPE_COLLECT = 1;
+	UNPLUGGED_ICON_BADGE_RENDERER_BADGE_TYPE_UPCOMING = 2;
+	UNPLUGGED_ICON_BADGE_RENDERER_BADGE_TYPE_ENTITY_PLAYABLE = 3;
+}

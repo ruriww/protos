@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/help_info.proto";
+
+option objc_class_prefix = "ASM";
+
+message MessageAlternative {
+	string message_text = 1;
+	string title_text = 2;
+	HelpInfo help_info = 3;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package unknown.youtube;
+
+enum KCHMarkKeysAsStaleEvent {
+	MARK_KEYS_AS_STALE_EVENT_UNSPECIFIED = 0;
+	MARK_KEYS_AS_STALE_INITIATED = 1;
+	MARK_KEYS_AS_STALE_SUCCESS = 2;
+}

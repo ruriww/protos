@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message SegmentHeaderCard {
+	string title = 1;
+	string description_text = 2;
+	Image image = 3;
+	Image large_image = 4;
+	string link_text = 5;
+	string link_accessibility_label = 6;
+	Link link_target_link = 7;
+	Image link_icon = 8;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+import "youtube/client/blocks/api/reminders/timed_duration_type.proto";
+import "youtube/client/blocks/api/reminders/event_action_type.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SnoozeType {
+	oneof type {
+		TimedDurationType timed_duration_type = 1;
+		EventActionType event_action_type = 2;
+	}
+}

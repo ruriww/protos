@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.trigger;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ValueChangeDataTrigger {
+	extend Trigger {
+		ValueChangeDataTrigger value_change_data_trigger_extension = 231698332;
+	}
+}

@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/playlist_visibility.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/playlist_thumbnail_data.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtMainPlaylistEntity {
+	extend EntityMutationPayload {
+		YtMainPlaylistEntity yt_main_playlist_entity = 154;
+	}
+
+	string id = 1;
+	bytes playlist_version = 2;
+	string playlist_id = 3;
+	string channel_owner = 4;
+	string title = 5;
+	elements.AttributedString description = 6;
+	PlaylistVisibility visibility = 7;
+	ThumbnailDetails thumbnail = 8;
+	repeated string videos = 9;
+	repeated string collaborator_channels = 10;
+	map<int32, PlaylistThumbnailData> thumbnail_style_data = 11;
+	FormattedString formatted_description = 12;
+}

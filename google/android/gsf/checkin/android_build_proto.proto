@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package google.android.gsf.checkin;
+
+option java_package = "com.google.android.gsf.checkin.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message AndroidBuildProto {
+	optional string id = 1;
+	optional string product = 2;
+	optional string carrier = 3;
+	optional string radio = 4;
+	optional string bootloader = 5;
+	optional string client = 6;
+	optional int64 timestamp = 7;
+	optional int32 google_services = 8;
+	optional string device = 9;
+	optional int32 sdk_version = 10;
+	optional string model = 11;
+	optional string manufacturer = 12;
+	optional string build_product = 13;
+	optional bool ota_installed = 14;
+	optional bytes unnamed_field_15 = 15;
+	optional string unnamed_field_19 = 19;
+	optional bytes unnamed_field_23 = 23;
+}

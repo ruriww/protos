@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UpdateReelWatchSequenceMutationType {
+	option features.enum_type = CLOSED;
+
+	UPDATE_REEL_WATCH_SEQUENCE_MUTATION_TYPE_UNKNOWN = 0;
+	UPDATE_REEL_WATCH_SEQUENCE_MUTATION_TYPE_NONE = 1;
+	UPDATE_REEL_WATCH_SEQUENCE_MUTATION_TYPE_REMOVE_CURRENT = 2;
+	UPDATE_REEL_WATCH_SEQUENCE_MUTATION_TYPE_REMOVE_ALL = 3;
+	UPDATE_REEL_WATCH_SEQUENCE_MUTATION_TYPE_REMOVE_UPCOMING = 4;
+}

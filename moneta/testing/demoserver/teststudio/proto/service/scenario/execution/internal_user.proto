@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+option objc_class_prefix = "TSLSSE";
+
+message InternalUser {
+	string internal_user_role = 1;
+	string internal_user_ldap = 2;
+}

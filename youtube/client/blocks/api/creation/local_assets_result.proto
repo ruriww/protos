@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/client/blocks/api/creation/asset_info.proto";
+
+option objc_class_prefix = "YTBA";
+
+message LocalAssetsResult {
+	repeated AssetInfo assets = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message FirstPartyAppCaller {
+	string ios_bundle_id = 1;
+	string package_name = 2;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.integrator.common.cart;
+
+import "moneta/integrator/common/image/image_details.proto";
+
+option objc_class_prefix = "OrchCart";
+
+message RenderingInfo {
+	string localized_title = 1;
+	image.ImageDetails image = 2;
+	bool render_as_hero = 3;
+	int32 render_as_sub_item_of_line_item = 4;
+	bool hide_pre_deduction_amount = 8;
+	bool include_top_divider = 10;
+	string amount_display_text_description = 12;
+	string product_detail_url = 14;
+
+	extensions 10000 to max;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InlineSettingStatus {
+	option features.enum_type = CLOSED;
+
+	INLINE_SETTING_STATUS_UNKNOWN = 0;
+	INLINE_SETTING_STATUS_ENABLED = 1;
+	INLINE_SETTING_STATUS_DISABLED_TRANSIENT = 3;
+	INLINE_SETTING_STATUS_ON = 4;
+	INLINE_SETTING_STATUS_ON_DEFAULT = 5;
+	INLINE_SETTING_STATUS_ENABLED_WIFI = 6;
+	INLINE_SETTING_STATUS_ENABLED_WIFI_DEFAULT = 7;
+	INLINE_SETTING_STATUS_DISABLED_WIFI = 8;
+	INLINE_SETTING_STATUS_DISABLED_WIFI_DEFAULT = 9;
+	INLINE_SETTING_STATUS_DISABLED = 2;
+	INLINE_SETTING_STATUS_DISABLED_DEFAULT = 10;
+}

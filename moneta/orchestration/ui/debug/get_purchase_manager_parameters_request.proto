@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/integrator/ui/purchasemanager/request_challenge_parameters.proto";
+import "moneta/orchestration/ui/debug/purchase_manager_request_details.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetPurchaseManagerParametersRequest {
+	common.RequestContext context = 1;
+	integrator.ui.purchasemanager.RequestChallengeParameters request_challege_parameters = 2;
+	PurchaseManagerRequestDetails purchase_manager_request_detail = 3;
+}

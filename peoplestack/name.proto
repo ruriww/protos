@@ -1,0 +1,16 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/source_type_enum.proto";
+import "social/graph/api/proto/display_name_source.proto";
+
+option objc_class_prefix = "PSK";
+
+message Name {
+	string value = 1;
+	string given_name = 2;
+	string family_name = 3;
+	SourceTypeEnum.SourceType source_type = 4;
+	social.graph.api.proto.DisplayNameSource.Source source_qualifier = 5;
+}

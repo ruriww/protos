@@ -1,0 +1,12 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "xeno/catalog/asset_registry_definition_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message PreprocessingGraphDefinitionProto {
+	string graph_id = 1;
+	AssetRegistryDefinitionProto assets = 2;
+}

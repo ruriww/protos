@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ServiceItemsRowRenderer {
+	FormattedString service_desc_text = 1;
+	Icon basic_check_box = 2;
+	Icon premium_check_box = 3;
+	AccessibilitySupportedDatas basic_check_box_acessibility = 6;
+	AccessibilitySupportedDatas premium_check_box_acessibility = 7;
+	bool remove_grid_line_separator = 8;
+}

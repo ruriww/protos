@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addinstrument;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_type_enum.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+
+option objc_class_prefix = "AddInstrument";
+
+message Parameters {
+	integrator.ui.common.CommonParameters common_parameters = 3;
+	common.widgetreference.WidgetTypeEnum.WidgetType return_to_widget = 4;
+	common.widgetreference.WidgetReference return_to_widget_reference = 5;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/shopping_ad_info_card_content_layout.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingAdInfoCardContentRenderer {
+	FormattedString sponsored_text = 1;
+	Command ad_choices_dialog_endpoint = 2;
+	ThumbnailDetails image = 3;
+	FormattedString title = 4;
+	FormattedString description = 5;
+	FormattedString call_to_action = 6;
+	Icon link_out_icon = 7;
+	Command action = 8;
+	repeated LoggingUrl impression_logging_urls_v2s = 9;
+	bytes tracking_params = 11;
+	float rating = 12;
+	FormattedString review_text = 13;
+	ShoppingAdInfoCardContentLayout layout = 14;
+	ThumbnailDetails badge = 15;
+	int32 background_color = 16;
+	int64 autoflip_delay_ms = 19;
+	Renderer on_hover_overlay = 20;
+	Renderer qr_code = 60;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message LunarDate {
+	int32 year = 1;
+	int32 month = 2;
+	int32 day = 3;
+
+	enum LeapMonthState {
+		LEAP_MONTH_STATE_UNSPECIFIED = 0;
+		LEAP_MONTH_STATE_NONE = 1;
+		LEAP_MONTH_STATE_CURRENT = 2;
+	}
+
+	LeapMonthState leap_month_state = 4;
+}

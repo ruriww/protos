@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExecuteEntityCommand {
+	extend Command {
+		ExecuteEntityCommand execute_entity_command = 445684868;
+	}
+
+	string command_entity_key = 1;
+	bool overwrite_interaction_logging_extension = 2;
+	bool overwrite_click_tracking_params = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_rpc_name.proto";
+
+option objc_class_prefix = "CTC";
+
+message RpcCallEventMetadata {
+	customer_support.content.guidance.chat.v1.ARpcName rpc_name = 1;
+}

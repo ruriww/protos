@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/formatted_string.proto";
+import "footprints/texts/primitiveconsent/link.proto";
+import "footprints/texts/primitiveconsent/text_with_icon.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message TextSpan {
+	oneof text_block {
+		FormattedString formatted_string = 1;
+		Link link = 2;
+		TextWithIcon text_with_icon = 3;
+	}
+}

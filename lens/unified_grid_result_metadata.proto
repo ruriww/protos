@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens;
+
+import "lens/geometry.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message UnifiedGridResultMetadata {
+	Geometry bounding_box = 1;
+	bytes encoded_explore_grid_hcc_results = 2;
+}

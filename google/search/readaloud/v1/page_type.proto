@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum PageType {
+	PAGE_TYPE_UNSPECIFIED = 0;
+	PAGE_TYPE_DESKTOP = 1;
+	PAGE_TYPE_MOBILE = 2;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+enum DeviceSelectionDeviceType {
+	option features.enum_type = CLOSED;
+
+	DEVICE_TYPE_UNKNOWN = 0;
+	PHONE = 1;
+	CHIRP = 2;
+	WATCH = 3;
+	TV = 4;
+	TABLET = 5;
+	PHONE_IOS = 6;
+	PHONE_ANDROID = 7;
+	STELLAR = 8;
+	LIBASSISTANT = 9;
+	DRAGONGLASS = 10;
+	ON_DEVICE_ARBITER = 11;
+	WRIST_WORN = 12;
+	BISTO_ON_EAR = 13;
+	SMART_DISPLAY_ANDROID = 14;
+	AUTO = 15;
+	HEARABLE = 16;
+	SMART_DISPLAY_ANDROID_DOCKED = 17;
+	SMART_DISPLAY_ANDROID_UNDOCKED = 18;
+	AUTO_PROJECTED = 19;
+	AUTO_EMBEDDED = 20;
+}

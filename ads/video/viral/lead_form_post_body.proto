@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ads.video.viral;
+
+import "ads/video/viral/lead_form_field_result.proto";
+
+option objc_class_prefix = "AVV";
+
+message LeadFormPostBody {
+	string lead_metadata = 1;
+	repeated LeadFormFieldResult lead_form_field_results = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "social/graph/wire/proto/peopleapi/extension/dynamite_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_person_extended_data.proto";
+
+option objc_class_prefix = "POEM";
+
+message GoogleGroupExtendedData {
+	social.graph.wire.proto.peopleapi.extension.DynamiteExtendedData dynamite_extended_data = 1;
+	social.graph.wire.proto.peopleapi.extension.PeopleStackPersonExtendedData people_stack_person_extended_data = 2;
+}

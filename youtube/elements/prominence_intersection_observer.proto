@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/intersection_observer.proto";
+import "youtube/elements/intersection_criteria.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/intersection_observer_config.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ProminenceIntersectionObserver {
+	extend IntersectionObserver {
+		ProminenceIntersectionObserver prominence_intersection_observer = 408993103;
+	}
+
+	IntersectionCriteria prominence_enter_criteria = 1;
+	IntersectionCriteria prominence_exit_criteria = 2;
+	string group_key = 3;
+	Command on_enter = 4;
+	Command on_exit = 5;
+	Command on_visibility_change = 6;
+	IntersectionObserverConfig custom_config = 7;
+	uint32 delay_time_in_ms = 8;
+	Command on_dwell = 9;
+}

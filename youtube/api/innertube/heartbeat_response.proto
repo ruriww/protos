@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/playability_status.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/heartbeat_attestation_config.proto";
+import "youtube/api/innertube/player_cue_range.proto";
+import "youtube/api/innertube/player_cue_range_set.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeartbeatResponse {
+	ResponseContext response_context = 1;
+	PlayabilityStatus playability_status = 2;
+	bool stop_heartbeat = 4;
+	Command video_transition_endpoint = 6;
+	int64 poll_delay_ms = 7;
+	HeartbeatAttestationConfig heartbeat_attestation_config = 8;
+	bool authentication_mismatch = 9;
+	bytes heartbeat_server_data = 10;
+	repeated PlayerCueRange player_cue_ranges = 11;
+	bytes ad_break_heartbeat_params = 13;
+	repeated PlayerCueRangeSet player_cue_range_set = 15;
+	string composite_live_status_token = 16;
+	string composite_live_ingestion_offset_token = 17;
+	Command on_response_received_command = 19;
+	bool html5_premium_live_hb_resolution_cap = 20;
+	bytes heartbeat_logging_token = 21;
+	FrameworkUpdateTransport framework_updates = 777;
+}

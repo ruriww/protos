@@ -1,0 +1,19 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/stroke_outline.proto";
+import "ink/proto/text_box.proto";
+import "ink/proto/rotated_image.proto";
+
+option objc_class_prefix = "INKPB";
+
+message VectorElement {
+	oneof kind {
+		StrokeOutline outline = 1;
+		TextBox text = 2;
+		RotatedImage image = 4;
+	}
+
+	uint64 page_index = 3;
+}

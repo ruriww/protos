@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.api;
+
+import "google/protobuf/duration.proto";
+import "google/api/flow_control_limit_exceeded_behavior_proto.proto";
+
+option objc_class_prefix = "GAPI";
+
+message BatchingSettingsProto {
+	int32 element_count_threshold = 1;
+	int64 request_byte_threshold = 2;
+	protobuf.Duration delay_threshold = 3;
+	int32 element_count_limit = 4;
+	int32 request_byte_limit = 5;
+	int32 flow_control_element_limit = 6;
+	int32 flow_control_byte_limit = 7;
+	FlowControlLimitExceededBehaviorProto flow_control_limit_exceeded_behavior = 8;
+}

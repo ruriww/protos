@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+import "google/internal/identity/signedoutstate/v1/mobile_signed_out_consent.proto";
+
+option objc_class_prefix = "SOS";
+
+message SignedOutState {
+	string zwieback_token = 1;
+	MobileSignedOutConsent mobile_signed_out_consent = 2;
+	bytes rollout_bucket = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+
+option objc_class_prefix = "ASM";
+
+message ResourceToOmit {
+	ResourceKey resource_key = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message ConsistencyOptions {
+	enum Consistency {
+		option features.enum_type = CLOSED;
+
+		CONSISTENCY_UNSPECIFIED = 0;
+		CONSISTENCY_STRONG = 1;
+		CONSISTENCY_WEAK = 2;
+		CONSISTENCY_WEAK_FACS_ONLY = 3;
+	}
+
+	Consistency consistency = 1;
+}

@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/image.proto";
+import "youtube/api/innertube/elements_inline_muted_state.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/inline_scrubbing_ui_style.proto";
+import "youtube/api/innertube/inline_audio_control_ui_style.proto";
+import "youtube/api/innertube/inline_playback_fullscreen_ui_style.proto";
+import "youtube/elements/content_mode.proto";
+import "youtube/api/innertube/thumbnail_overlay_time_status_renderer.proto";
+import "youtube/api/innertube/inline_playback_host_container_style.proto";
+import "youtube/api/innertube/inline_playback_captions_ui_style.proto";
+import "youtube/api/innertube/inline_playback_misc_ui_style.proto";
+import "youtube/api/innertube/thumbnail_overlay_equalizer_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlineMutedCommand {
+	extend elements.Command {
+		InlineMutedCommand inline_muted_command = 199166265;
+	}
+
+	bool selected = 1;
+	elements.Command inline_playback_endpoint = 2;
+	elements.Image thumbnail = 3;
+	ElementsInlineMutedState playback_state = 4;
+	bool is_live = 6;
+	elements.AttributedString length_text = 7;
+	elements.Command navigation_endpoint = 8;
+	InlineScrubbingUIStyle inline_scrubbing_ui_style = 9;
+	InlineAudioControlUIStyle inline_audio_control_ui_style = 10;
+	bool is_premiering_now = 11;
+	InlinePlaybackFullscreenUiStyle inline_playback_fullscreen_ui_style = 12;
+	elements.ContentMode content_mode = 13;
+	ThumbnailOverlayTimeStatusRenderer thumbnail_overlay_time_status_renderer = 14;
+	InlinePlaybackHostContainerStyle inline_playback_host_container_style = 15;
+	InlinePlaybackCaptionsUIStyle inline_playback_captions_ui_style = 16;
+	InlinePlaybackMiscUIStyle inline_playback_misc_ui_style = 17;
+	ThumbnailOverlayEqualizerRenderer thumbnail_overlay_equalizer_renderer = 19;
+}

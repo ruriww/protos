@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/guide_response_supported_renderers.proto";
+import "youtube/api/innertube/offline_guide_response_supported_renderers.proto";
+import "youtube/api/innertube/guide_account_list_supported_renderers.proto";
+import "youtube/api/innertube/guide_account_list_header_supported_renderers.proto";
+import "youtube/api/innertube/guide_footer_supported_renderers.proto";
+import "youtube/api/innertube/guide_topbar_supported_renderers.proto";
+import "youtube/api/innertube/guide_supported_configs.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/bedtime_reminder.proto";
+import "youtube/api/innertube/app_startup_behaviour.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/reminders.proto";
+import "youtube/api/innertube/user_profile.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideResponse {
+	ResponseContext response_context = 1;
+	repeated GuideResponseSupportedRenderers items = 4;
+	bytes tracking_params = 5;
+	repeated OfflineGuideResponseSupportedRenderers offline_items = 6;
+	GuideAccountListSupportedRenderers account_list = 7;
+	GuideAccountListHeaderSupportedRenderers account_list_header = 8;
+	GuideFooterSupportedRenderers footer = 9;
+	GuideTopbarSupportedRenderers topbar = 10;
+	repeated GuideSupportedConfigs configs = 12;
+	Renderer exit_confirmation_dialog = 13;
+	BedtimeReminder bedtime_reminder = 14;
+	Renderer logo = 15;
+	Renderer overlay = 16;
+	repeated AppStartupBehaviour startup_behaviours = 17;
+	Command on_response_received_action = 18;
+	Reminders reminders = 19;
+	UserProfile user_profile = 20;
+	FrameworkUpdateTransport framework_updates = 777;
+}

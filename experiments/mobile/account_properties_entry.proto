@@ -1,0 +1,13 @@
+edition = "2023";
+
+package experiments.mobile;
+
+import "experiments/mobile/account_principal.proto";
+import "experiments/mobile/account_properties.proto";
+
+option objc_class_prefix = "PHT";
+
+message AccountPropertiesEntry {
+	AccountPrincipal account = 1;
+	AccountProperties properties = 2;
+}

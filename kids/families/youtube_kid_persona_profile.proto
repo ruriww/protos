@@ -1,0 +1,11 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/youtube_kid_persona_name.proto";
+
+option objc_class_prefix = "FAM";
+
+message YoutubeKidPersonaProfile {
+	YoutubeKidPersonaName name = 1;
+}

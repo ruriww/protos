@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "lens/request_context/request_id.proto";
+
+option objc_class_prefix = "LFE";
+
+message ImageRequest {
+	bytes image_bytes = 1;
+	.lens.request_context.RequestId image_id = 2;
+}

@@ -1,0 +1,176 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+import "social/graph/autocomplete/data_source_enum.proto";
+import "social/graph/autocomplete/count_type_enum.proto";
+import "social/graph/autocomplete/latency_type_enum.proto";
+import "social/graph/autocomplete/memory_label_enum.proto";
+import "social/graph/autocomplete/error_type_enum.proto";
+import "social/graph/autocomplete/error_cause_type_enum.proto";
+import "unknown/youtube/gerr_code10785.proto";
+import "social/graph/autocomplete/ios_error_info.proto";
+import "social/graph/autocomplete/rpc_label_enum.proto";
+import "social/graph/autocomplete/network_state_enum.proto";
+import "social/graph/autocomplete/rpc_status_enum.proto";
+import "social/graph/autocomplete/lookup_intent_enum.proto";
+import "social/graph/autocomplete/api_label_enum.proto";
+import "social/graph/autocomplete/api_scope_enum.proto";
+import "social/graph/autocomplete/api_status_enum.proto";
+import "social/graph/autocomplete/cache_status_enum.proto";
+import "social/logs/social_affinity_extension.proto";
+
+option objc_class_prefix = "SGAC";
+
+message AutocompleteExtension {
+	message Resources {
+		float cpu_peak_usage_fraction = 1;
+		float cpu_average_usage_fraction = 2;
+		int64 memory_peak_usage_bytes = 3;
+		int64 memory_average_usage_bytes = 4;
+	}
+
+	message LookupInfo {
+		int32 phone_item_count = 1;
+		int32 email_item_count = 2;
+		int32 gaia_item_count = 3;
+		int32 not_found_phone_item_count = 4;
+		int32 not_found_email_item_count = 5;
+		int32 not_found_gaia_item_count = 6;
+		int32 out_of_date_self_item_count = 7;
+		bool bypass_caches = 8;
+		bool person_object_changed = 9;
+		bool name_changed = 10;
+		bool profile_picture_changed = 11;
+		bool no_changes = 12;
+		bool is_background_refresh = 13;
+		int32 items_with_name_count = 14;
+		LookupIntentEnum.LookupIntent intent = 15;
+		int32 contact_id_item_count = 16;
+		int32 not_found_contact_id_item_count = 17;
+	}
+
+	logs.SocialAffinityExtension.SocialAffinityClientInterface client_interface = 1;
+	logs.SocialAffinityExtension.AutocompleteSessions autocomplete_sessions = 2;
+
+	enum AutocompleteEventType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_AUTOCOMPLETE_EVENT_TYPE = 0;
+		COUNT = 1;
+		LATENCY = 2;
+		ERROR = 3;
+		RPC_REQUEST = 4;
+		RPC_RESPONSE = 5;
+		API_CALL = 6;
+		API_RESULT = 7;
+		MEMORY = 8;
+	}
+
+	AutocompleteEventType event_type = 3;
+
+	message Count {
+		string label = 1;
+		int64 value = 2 [ default = 1 ];
+		DataSourceEnum.DataSource data_source = 3;
+		CountTypeEnum.CountType type = 4;
+	}
+
+	Count count = 4;
+
+	message Latency {
+		string label = 1;
+		int64 latency_usec = 2;
+		LatencyTypeEnum.LatencyType type = 3;
+	}
+
+	Latency latency = 5;
+
+	message Error {
+		string label = 1;
+		string cause = 2;
+		ErrorTypeEnum.ErrorType type = 3;
+		ErrorCauseTypeEnum.ErrorCauseType cause_type = 4;
+		unknown.youtube.GERRCode10785.GERRCode status_code = 5 [ default = UNKNOWN ];
+
+		oneof platform_error_info {
+			IOSErrorInfo ios_error_info = 6;
+		}
+	}
+
+	Error error = 6;
+
+	message RpcRequest {
+		RpcLabelEnum.RpcLabel label = 1;
+		int64 request_proto_bytes = 2;
+		int64 request_bytes = 3;
+		NetworkStateEnum.NetworkState network_state = 4;
+	}
+
+	RpcRequest rpc_request = 7;
+
+	message RpcResponse {
+		RpcLabelEnum.RpcLabel label = 1;
+		RpcStatusEnum.RpcStatus status = 2;
+		int64 latency_usec = 3;
+		int64 error_code = 4;
+		int64 response_proto_bytes = 5;
+		int64 response_bytes = 6;
+		unknown.youtube.GERRCode10785.GERRCode status_code = 7 [ default = UNKNOWN ];
+		int64 blocked_usec = 8;
+		int64 processing_usec = 9;
+		NetworkStateEnum.NetworkState network_state = 10;
+	}
+
+	RpcResponse rpc_response = 8;
+
+	message ApiCall {
+		ApiLabelEnum.ApiLabel label = 1;
+		int32 item_count = 2;
+		LookupInfo lookup_info = 3;
+		int32 query_length = 4;
+		ApiScopeEnum.Scope query_scope = 5 [ default = UNSPECIFIED ];
+	}
+
+	ApiCall api_call = 9;
+
+	message ApiResult {
+		ApiLabelEnum.ApiLabel label = 1;
+		ApiStatusEnum.ApiStatus status = 2;
+		int64 latency_usec = 3;
+		int32 result_index = 4;
+		CacheStatusEnum.CacheStatus cache_status_at_query = 5;
+		CacheStatusEnum.CacheStatus cache_status_at_result = 6;
+		DataSourceEnum.DataSource data_source = 7;
+		int32 item_count = 8;
+		Resources resources = 9;
+		LookupInfo lookup_info = 10;
+		unknown.youtube.GERRCode10785.GERRCode status_code = 11 [ default = UNKNOWN ];
+		int32 duplicates_rejected_count = 12;
+		int32 query_length = 13;
+		ApiScopeEnum.Scope query_scope = 14 [ default = UNSPECIFIED ];
+	}
+
+	ApiResult api_result = 10;
+
+	message Memory {
+		MemoryLabelEnum.MemoryLabel label = 1;
+		int64 memory_used_bytes = 2;
+		int64 memory_average_used_bytes = 3;
+	}
+
+	Memory memory = 11;
+
+	message CacheStatus {
+		int32 topn_cache_item_count = 1;
+		int32 ios_device_cache_item_count = 2;
+	}
+
+	CacheStatus cache_status = 12;
+
+	message DeviceInfo {
+		int64 number_of_contacts = 1;
+	}
+
+	DeviceInfo device_info = 13;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_media_channel_direction.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationAudioTrackInfo {
+	int64 sent_bytes = 1;
+	int64 packets_sent = 2;
+	LiveCreationMediaChannelDirection channel_direction = 3;
+	string ssrc = 4;
+	string codec_name = 5;
+	int64 received_bytes = 6;
+	int64 packets_received = 7;
+	int64 packets_lost = 8;
+	int64 total_samples_duration = 9;
+	int32 sent_bitrate_kbps = 10;
+}

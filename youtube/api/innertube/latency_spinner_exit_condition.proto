@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LatencySpinnerExitCondition {
+	option features.enum_type = CLOSED;
+
+	LATENCY_SPINNER_EXIT_CONDITION_UNKNOWN = 0;
+	LATENCY_SPINNER_EXIT_CONDITION_SUCCESS = 1;
+	LATENCY_SPINNER_EXIT_CONDITION_ERROR = 2;
+	LATENCY_SPINNER_EXIT_CONDITION_DID_NOT_COMPLETE = 3;
+}

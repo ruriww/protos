@@ -1,0 +1,18 @@
+edition = "2023";
+
+package lens;
+
+import "lens/transformation_double.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Geometry6dof {
+	TransformationDouble ecef_t_pose = 1;
+
+	message Rectangle {
+		float width = 1;
+		float height = 2;
+	}
+
+	Rectangle rectangle_xy = 2;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/upload_info.proto";
+import "youtube/api/innertube/upload_processor_type.proto";
+import "youtube/api/innertube/upload_task_info.proto";
+import "youtube/api/innertube/upload_ios_error.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadProcessorStarted {
+	UploadInfo upload_info = 1;
+	UploadProcessorType type = 2;
+	UploadTaskInfo upload_task_info = 3;
+	UploadIosError ns_error = 4;
+}

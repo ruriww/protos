@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelAgeGateRenderer {
+	string channel_title = 2;
+	ThumbnailDetails avatar = 3;
+	FormattedString header = 4;
+	FormattedString main_text = 5;
+	ButtonSupportedRenderers sign_in_button = 6;
+	FormattedString secondary_text = 7;
+	bytes tracking_params = 8;
+}
+
+extend Renderer {
+	ChannelAgeGateRenderer channel_age_gate_renderer = 114001023;
+}

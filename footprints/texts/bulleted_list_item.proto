@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message BulletedListItem {
+	webutil.html.types.SafeHtmlProto heading = 2;
+	webutil.html.types.SafeHtmlProto text = 3;
+}

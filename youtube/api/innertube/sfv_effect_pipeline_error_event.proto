@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sfv_effect_graph_frozen_event.proto";
+import "youtube/api/innertube/sfv_effect_gl_thread_blocked_event.proto";
+import "youtube/api/innertube/sfv_effect_gl_error_event.proto";
+import "youtube/api/innertube/mde_error_event.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvEffectPipelineErrorEvent {
+	oneof event {
+		SfvEffectGraphFrozenEvent graph_frozen_event = 1;
+		SfvEffectGlThreadBlockedEvent gl_thread_blocked_event = 2;
+		SfvEffectGlErrorEvent gl_error_event = 3;
+		MdeErrorEvent mde_error_event = 4;
+	}
+
+	int64 monotonic_time_ms = 5;
+	SfvEffectPipelineData pipeline_data = 6;
+}

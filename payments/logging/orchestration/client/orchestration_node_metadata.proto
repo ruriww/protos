@@ -1,0 +1,9 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+option objc_class_prefix = "ORCH2";
+
+message OrchestrationNodeMetadata {
+	int64 ui_reference = 1;
+}

@@ -1,0 +1,77 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/platform.proto";
+import "google/internal/lens/api/v1/locale_context.proto";
+import "google/internal/lens/api/v1/location_context.proto";
+import "quality_genie/eyes/features.proto";
+import "quality_genie/eyes/client_capabilities.proto";
+import "quality_genie/eyes/applied_filters.proto";
+import "lens/camera_intrinsics.proto";
+import "lens/surface.proto";
+import "google/internal/lens/api/v1/rendering_context.proto";
+import "google/internal/lens/api/v1/client_logging_data.proto";
+import "google/internal/lens/api/v1/web_request_context.proto";
+
+option objc_class_prefix = "LFE";
+
+message ClientContext {
+	Platform platform = 5;
+	LocaleContext locale_context = 6;
+	LocationContext location_context = 7;
+	string app_id = 8;
+	quality_genie.eyes.Features features = 9;
+	quality_genie.eyes.ClientCapabilities client_capabilities = 10;
+	quality_genie.eyes.AppliedFilters client_filters = 11;
+	.lens.CameraIntrinsics camera_intrinsics = 12;
+	.lens.Surface surface = 15;
+
+	enum ClientTheme {
+		DEFAULT_THEME = 0;
+		YOUTUBE_LIGHT = 1;
+		YOUTUBE_DARK = 2;
+		LENS_DARK = 3;
+	}
+
+	ClientTheme client_theme = 17;
+	uint32 user_account_index = 18;
+
+	message ScreenDimension {
+		int32 width = 1;
+		int32 height = 2;
+
+		enum Unit {
+			DEFAULT_PX = 0;
+			DP = 1;
+		}
+
+		Unit unit = 3;
+	}
+
+	ScreenDimension screen_dimension = 19;
+	RenderingContext rendering_context = 20;
+	ClientLoggingData client_logging_data = 23;
+
+	message ImageProvenanceMetadata {
+		bytes encoded_explore_grid_hcc_results = 2;
+	}
+
+	ImageProvenanceMetadata image_provenance_metadata = 24;
+
+	message ResultPanelContext {
+		int32 bottom_padding_px = 1;
+		string silk_capabilities_header = 2;
+		int32 top_padding_px = 3;
+		bool expanded = 4;
+		int32 searchbox_overlap_px = 5;
+		int32 aim_top_padding_px = 6;
+	}
+
+	ResultPanelContext result_panel_context = 25;
+	WebRequestContext web_request_context = 30;
+	string ambient_context_encoded = 31;
+	string video_context_encoded = 32;
+	bool select_whole_image_in_auto_selection = 34;
+	float font_size_scale_factor = 35;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message Timezone {
+	string iana_id = 1;
+}

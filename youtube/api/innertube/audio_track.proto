@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudioTrack {
+	string display_name = 4;
+	string id = 5;
+	bool audio_is_default = 6;
+	bool is_auto_dubbed = 7;
+}

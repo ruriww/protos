@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/single_column_watch_next_results_renderer.proto";
+import "youtube/api/innertube/two_column_watch_next_results_renderer.proto";
+import "youtube/api/innertube/single_column_music_watch_next_results_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchNextSupportedRenderers {
+	oneof renderer {
+		SingleColumnWatchNextResultsRenderer single_column_watch_next_results = 51779735;
+		TwoColumnWatchNextResultsRenderer two_column_watch_next_results = 51779759;
+		SingleColumnMusicWatchNextResultsRenderer single_column_music_watch_next_results_renderer = 125354411;
+	}
+}

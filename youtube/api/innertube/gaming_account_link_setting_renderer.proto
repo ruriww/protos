@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GamingAccountLinkSettingRenderer {
+	bytes tracking_params = 1;
+	bool linked = 3;
+	ThumbnailDetails user_avatar = 4;
+	ThumbnailDetails third_party_avatar = 5;
+	FormattedString third_party_name = 6;
+	FormattedString user_identity = 7;
+	ButtonSupportedRenderers link_button = 8;
+	ButtonSupportedRenderers unlink_button = 9;
+	FormattedString header = 10;
+	repeated FormattedString descriptions = 11;
+	FormattedString linked_header = 12;
+	string third_party_id = 13;
+	Renderer link_success_dialog = 14;
+	Renderer unlink_success_dialog = 15;
+	FormattedString title = 16;
+	ThumbnailDetails header_image = 17;
+	Icon icon = 18;
+	ButtonSupportedRenderers dismiss_button = 19;
+	Command on_success_command = 20;
+	Command on_failure_command = 21;
+	bool is_continue_dialog = 22;
+}
+
+extend Renderer {
+	GamingAccountLinkSettingRenderer gaming_account_link_setting_renderer = 155765234;
+}

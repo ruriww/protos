@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscribeButtonStyle {
+	enum SubscribeButtonStyleType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		UNBRANDED = 1;
+		FREE_CHANNEL_BRANDED = 2;
+		PAID_CHANNEL_BRANDED = 3;
+		MUSIC = 4;
+		MEDIUM_BLUE = 5;
+		MEDIUM_RED = 6;
+		COMPACT_GRAY = 7;
+		COMPACT_RED = 8;
+		VISIBLY_DISABLED = 9;
+		MEDIUM_BRAND_LINK = 10;
+		MEDIUM_TEXT_BRAND = 11;
+		MEDIUM_GRAY = 12;
+		OVERLAY = 13;
+	}
+
+	SubscribeButtonStyleType style_type = 1;
+	bool suppress_free_icon = 2;
+}

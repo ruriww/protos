@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_sub_menu_item.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/content_view_privacy_supported_renderers.proto";
+import "youtube/api/innertube/channel_back_button_supported_renderers.proto";
+import "youtube/api/innertube/channel_sub_menu_play_all_button_supported_renderers.proto";
+import "youtube/api/innertube/channel_sub_menu_sort_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/content_view_privacy_link_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelSubMenuRenderer {
+	repeated ChannelSubMenuItem content_type_sub_menu_items = 4;
+	repeated ChannelSubMenuItem sort_filter_sub_menu_items = 5;
+	repeated ChannelSubMenuItem flow_sub_menu_items = 6;
+	ButtonSupportedRenderers create_playlist_button = 7;
+	ContentViewPrivacySupportedRenderers privacy_setting = 8;
+	ChannelBackButtonSupportedRenderers back_button_renderer = 9;
+	ChannelSubMenuPlayAllButtonSupportedRenderers play_all_button = 10;
+	ChannelSubMenuSortSupportedRenderers sort_setting = 11;
+	repeated Renderer right_buttons = 12;
+	ButtonSupportedRenderers manage_videos_button = 13;
+}
+
+extend Renderer {
+	ChannelSubMenuRenderer channel_sub_menu_renderer = 53577639;
+}
+
+extend Renderer {
+	ContentViewPrivacyLinkRenderer content_view_privacy_link_renderer = 101265218;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message MobileAttachmentEvent {
+	string attachment_id = 1;
+	string attachment_mime_type = 2;
+	string attachment_file_name = 3;
+	string attachment_download_url = 4;
+}

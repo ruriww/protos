@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicReadaheadConfig {
+	int32 max_read_ahead_media_time_ms = 1;
+	int32 min_read_ahead_media_time_ms = 2;
+	int32 read_ahead_growth_rate_ms = 3;
+	float read_ahead_watermark_margin_ratio = 4;
+	int32 min_read_ahead_watermark_margin_ms = 5;
+	int32 max_read_ahead_watermark_margin_ms = 6;
+	bool should_incorporate_network_active_state = 7;
+	bool only_apply_energy_optimizations_on_5g = 8;
+}

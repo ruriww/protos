@@ -1,0 +1,15 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+enum SupercatSummaryType {
+	option features.enum_type = CLOSED;
+
+	SUPERCAT_UNKNOWN_SUMMARY_TYPE = 0;
+	SUPERCAT_ONLINE_FAST_JUSTIFICATION = 1;
+	SUPERCAT_SNAPCACHE_FAST_JUSTIFICATION = 2;
+	SUPERCAT_FUSED_TOPICS_JUSTIFICATION = 3;
+	SUPERCAT_TOPIC_PREAMBLE = 4;
+}

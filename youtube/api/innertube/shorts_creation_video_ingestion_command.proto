@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/shorts_creation_segment_generator_type.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/shorts_creation_multimix_context.proto";
+import "youtube/api/innertube/shorts_audio_visual_remix_source.proto";
+import "youtube/api/innertube/format_stream.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/remix_source.proto";
+import "youtube/api/innertube/shorts_creation_media_attribution.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationVideoIngestionCommand {
+	extend Command {
+		ShortsCreationVideoIngestionCommand shorts_creation_video_ingestion_command = 410389781;
+	}
+
+	int32 max_duration_secs = 1;
+	ShortsCreationMultimixContext multimix_context = 2;
+	string external_video_id = 3;
+	string player_params = 4;
+
+	message VideoSegment {
+		int64 offset_ms = 1;
+		google.protobuf.Duration duration = 2;
+		ShortsCreationSegmentGeneratorType generator_type = 3;
+	}
+
+	repeated VideoSegment default_start_points = 5;
+	ShortsAudioVisualRemixSource remix_source = 6;
+	repeated VideoSegment suggested_start_points = 7;
+	int64 full_visual_source_duration_secs = 8;
+	FormatStream audio_format = 9;
+	FormatStream video_format = 10;
+	string default_layout_asset_id = 11;
+	Renderer video_ingestion_renderer = 12;
+	RemixSource unified_remix_source = 13;
+	Command effect_asset_item_select_command = 14;
+	ShortsCreationMediaAttribution media_attribution = 15;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/elements/image.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FirstThumbnailHint {
+	oneof thumbnail {
+		ThumbnailDetails first_thumbnail = 1;
+		elements.Image first_element_thumbnail = 2;
+	}
+
+	string field_descriptor_name = 3;
+	string element_identifier = 4;
+	string cheatsheet_cache_key = 5;
+}

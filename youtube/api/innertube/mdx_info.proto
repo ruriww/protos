@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/latency_mdx_channel_type.proto";
+import "youtube/api/innertube/mdx_session_type.proto";
+import "youtube/api/innertube/mdx_session_source.proto";
+import "youtube/api/innertube/mdx_session_disconnect_reason.proto";
+import "youtube/api/innertube/mdx_receiver.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxInfo {
+	string message_sent = 1;
+	string message_received = 2;
+	LatencyMdxChannelType channel_type_sent = 3;
+	LatencyMdxChannelType channel_type_received = 4;
+	MdxSessionType mdx_session_type = 5;
+	MdxSessionSource mdx_session_source = 6;
+	string mdx_session_nonce = 7;
+	int64 mdx_session_index = 8;
+	bool is_retry = 9;
+	bool smooth_pairing_used = 10;
+	MdxSessionDisconnectReason disconnect_reason = 11;
+	MdxReceiver receiver_device = 12;
+	bool connected_with_playback = 13;
+}

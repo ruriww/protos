@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DefaultPromoPanelRendererMetadataOrder {
+	option features.enum_type = CLOSED;
+
+	DEFAULT_PROMO_PANEL_RENDERER_METADATA_ORDER_UNSPECIFIED = 0;
+	DEFAULT_PROMO_PANEL_RENDERER_METADATA_ORDER_TITLE_DESCRIPTION = 1;
+	DEFAULT_PROMO_PANEL_RENDERER_METADATA_ORDER_DESCRIPTION_TITLE = 2;
+}

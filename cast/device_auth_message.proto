@@ -1,0 +1,15 @@
+edition = "2023";
+
+package cast;
+
+import "cast/auth_challenge.proto";
+import "cast/auth_response.proto";
+import "cast/auth_error.proto";
+
+option objc_class_prefix = "GCKPB";
+
+message DeviceAuthMessage {
+	AuthChallenge challenge = 1;
+	AuthResponse response = 2;
+	AuthError error = 3;
+}

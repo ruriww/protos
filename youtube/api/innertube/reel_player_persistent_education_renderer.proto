@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/edu_trigger_type.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/reel_player_persistent_edu_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelPlayerPersistentEducationRenderer {
+	FormattedString education_text = 1;
+	float trigger_time_in_ms = 2;
+
+	message ImpressionCapConfig {
+		int32 daily_impression_threshold = 1;
+		int32 daily_swipe_count_threshold = 2;
+	}
+
+	ImpressionCapConfig impression_cap_config = 3;
+	ReelPlayerPersistentEduStyle persistent_education_style = 4;
+	int32 auto_dismiss_heavy_persistent_edu_time_in_ms = 5;
+
+	message TriggerTime {
+		EduTriggerType trigger_type = 1;
+		int64 trigger_delay_in_ms = 2;
+	}
+
+	TriggerTime trigger_time = 6;
+	string storage_key = 7;
+	int32 ve_type = 8;
+}

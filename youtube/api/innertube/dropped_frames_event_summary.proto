@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DroppedFramesEventSummary {
+	int32 severity_ms = 1;
+	int32 event_count = 2;
+	int32 average_duration_between_events_ms = 3;
+}

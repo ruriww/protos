@@ -1,0 +1,63 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/inline_playback_metadata_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/main_app_inline_playback_style.proto";
+import "youtube/api/innertube/inline_muted_tooltip_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/inline_scrubbing_ui_style.proto";
+import "youtube/api/innertube/inline_audio_control_ui_style.proto";
+import "youtube/api/innertube/inline_playback_fullscreen_ui_style.proto";
+import "youtube/api/innertube/inline_playback_playing_badge_overlay_supported_renderers.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/api/innertube/inline_playback_content_mode.proto";
+import "youtube/api/innertube/inline_playback_misc_ui_style.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/inline_playback_metadata_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlinePlaybackRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString length_text = 2;
+	InlinePlaybackMetadataSupportedRenderers metadata_renderer = 3;
+	bytes tracking_params = 5;
+	Command navigation_endpoint = 6;
+	string video_id = 7;
+	Command inline_playback_endpoint = 8;
+	Command related_dropping_endpoint = 9;
+	int32 related_dropping_delay = 10;
+	string debug_html = 11;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 12;
+	MainAppInlinePlaybackStyle main_app_style = 13;
+	InlineMutedTooltipSupportedRenderers inline_muted_tooltip = 14;
+	Renderer connection_lost_thumbnail_overlay = 15;
+	VideoClientBindingData video_client_binding_data = 16;
+	Renderer endorsement_renderer = 17;
+	InlineScrubbingUIStyle inline_scrubbing_ui_style = 18;
+	InlineAudioControlUIStyle inline_audio_control_ui_style = 19;
+	InlinePlaybackFullscreenUiStyle inline_playback_fullscreen_ui_style = 20;
+	InlinePlaybackPlayingBadgeOverlaySupportedRenderers playing_badge_overlay = 21;
+	ActiveStateDescriptor thumbnail_active_state_descriptor = 22;
+	InlinePlaybackContentMode content_mode = 24;
+	Renderer spotlight_mode = 25;
+	InlinePlaybackMiscUIStyle inline_playback_misc_ui_style = 26;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	InlinePlaybackRenderer inline_playback_renderer = 83537025;
+}
+
+extend Renderer {
+	InlinePlaybackMetadataRenderer inline_playback_metadata_renderer = 83784541;
+}

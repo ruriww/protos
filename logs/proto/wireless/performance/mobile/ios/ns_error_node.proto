@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message NSErrorNode {
+	string compile_time_literal_error_domain = 1;
+	int64 error_code = 2;
+	repeated int64 underlying_error_indices = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

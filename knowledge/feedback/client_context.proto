@@ -1,0 +1,116 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "knowledge/feedback/shopping.proto";
+import "knowledge/feedback/web_answers.proto";
+import "knowledge/feedback/feedback_configuration.proto";
+import "knowledge/feedback/magi_feedback_context.proto";
+import "knowledge/feedback/delphi_disambiguation_context.proto";
+import "knowledge/feedback/crisis_alert_context.proto";
+import "knowledge/feedback/supercat_feedback_context.proto";
+import "knowledge/feedback/taxonomy.proto";
+import "knowledge/feedback/atr_feedback_context.proto";
+import "knowledge/feedback/super_nav_feedback_context.proto";
+import "knowledge/feedback/p13n_quality_feedback.proto";
+import "knowledge/feedback/hybrid_knowledge_base_feedback.proto";
+import "knowledge/feedback/intent_cluster_feedback_context.proto";
+import "knowledge/feedback/sports_feedback_context.proto";
+import "knowledge/feedback/snippet_context.proto";
+import "knowledge/feedback/srp_landing_feedback_context.proto";
+import "knowledge/feedback/qtalk_feedback_context.proto";
+import "knowledge/feedback/web_guide_feedback_context.proto";
+
+option objc_class_prefix = "UFR";
+
+message ClientContext {
+	Shopping shopping = 1;
+	WebAnswers web_answers = 2;
+	FeedbackConfiguration feedback_configuration = 3;
+	MagiFeedbackContext magi_feedback_context = 4;
+	map<string, string> opt_psd = 8;
+	repeated string urls = 9;
+	repeated string blob_ids = 10;
+	DelphiDisambiguationContext delphi_disambiguation_context = 11;
+
+	message UploadedImage {
+		string blob_id = 1;
+
+		enum ImageSource {
+			option features.enum_type = CLOSED;
+
+			UNSPECIFIED_IMAGE_SOURCE = 0;
+			USER = 1;
+			MAGI = 2;
+			USER_UPLOADED_IMAGE = 3;
+			AI_GENERATED_IMAGE = 4;
+			SEARCH_CONTENT_IMAGE = 5;
+		}
+
+		ImageSource image_source = 2;
+		bool is_cloned_in_contribservice = 3;
+	}
+
+	repeated UploadedImage uploaded_images = 12;
+	repeated CrisisAlertContext crisis_alerts_context = 13;
+
+	message UploadedFile {
+		string blob_id = 1;
+
+		message SrpHtmlFile {
+			int32 viewport_width = 1;
+			int32 viewport_height = 2;
+			int32 scroll_width = 3;
+			int32 scroll_height = 4;
+		}
+
+		message OversizeFeedbackFile {
+			enum Status {
+				option features.enum_type = CLOSED;
+
+				UNSPECIFIED_STATUS = 0;
+				UPLOADED = 1;
+				DOWNLOADED = 2;
+			}
+
+			Status status = 1;
+		}
+
+		message BinaryDataFile {
+			string name = 1;
+			string mime_type = 2;
+		}
+
+		oneof file {
+			SrpHtmlFile srp_html_file = 2;
+			OversizeFeedbackFile oversize_feedback_file = 4;
+			BinaryDataFile binary_data_file = 6;
+		}
+
+		bool is_cloned_in_contribservice = 3;
+		string error_message = 5;
+	}
+
+	repeated UploadedFile uploaded_files = 14;
+	SupercatFeedbackContext supercat_feedback_context = 15;
+	int32 one_namespace_type = 16;
+	string osrp_ui_vertical = 17;
+	repeated Taxonomy.FeatureTag additional_feature_tags = 18;
+	string encoded_feature_id = 19;
+	string feature_id = 20;
+	string one_namespace_type_name = 21;
+	AtrFeedbackContext atr_feedback_context = 22;
+	SuperNavFeedbackContext supernav_feedback_context = 23;
+	P13nQualityFeedback p13n_quality_feedback = 24;
+	repeated HybridKnowledgeBaseFeedback hkb_feedback_context = 25;
+	IntentClusterFeedbackContext intent_cluster_feedback_context = 26;
+	SportsFeedbackContext sports_feedback_context = 27;
+	SnippetContext snippet_context = 28;
+	SrpLandingFeedbackContext srp_landing_feedback_context = 29;
+	string kp_id = 30;
+	bool corrupt_data_detected = 31;
+	bool corrupt_data_erased = 32;
+	QtalkFeedbackContext qtalk_feedback_context = 33;
+	WebGuideFeedbackContext web_guide_feedback_context = 34;
+	string uuid = 35;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_capability.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CapabilityInfo {
+	string profile = 1;
+	repeated InnerTubeCapability supported_capabilities = 2;
+	repeated InnerTubeCapability disabled_capabilities = 3;
+	string snapshot = 5;
+}

@@ -1,0 +1,71 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "unknown/youtube/csss_request_client12461.proto";
+import "unknown/youtube/csss_network_type.proto";
+import "unknown/youtube/csss_data_type.proto";
+import "unknown/youtube/csss_user_action_type.proto";
+import "unknown/youtube/csss_sub_user_action_type.proto";
+import "unknown/youtube/csss_view_type.proto";
+import "unknown/youtube/csss_contact_mode.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/moltron_interaction.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MetricData {
+	message CommonData {
+		string session_id = 1;
+		string mobile_app_identifier = 2;
+		string product_specific_context = 3;
+		unknown.youtube.CSSSRequestClient12461.CSSSRequestClient request_client = 4;
+		string flow = 5;
+		string app_version = 6;
+		string client_version = 7;
+		string os_version = 8;
+		unknown.youtube.CSSSNetworkType network_type = 9;
+		string device_model = 10;
+		string device_locale = 11;
+		string mobile_app_identifier_override = 12;
+		string internal_help_center_name = 13;
+		int32 product_id = 14;
+	}
+
+	CommonData common_data = 1;
+
+	message AndroidSpecificData {
+		int32 gmscore_version = 1 [ default = -1 ];
+		int32 feedback_policy_set_version = 2 [ default = -1 ];
+	}
+
+	AndroidSpecificData android_specific_data = 2;
+
+	message UserAction {
+		unknown.youtube.CSSSUserActionType user_action_type = 1;
+		unknown.youtube.CSSSSubUserActionType sub_user_action_type = 2;
+		int64 elapsed_millis = 3 [ default = -1 ];
+		int32 click_rank = 4 [ default = -1 ];
+		string query = 5;
+		string url = 6;
+		string shown_content_list = 7;
+		unknown.youtube.CSSSViewType view_type = 8;
+		unknown.youtube.CSSSContactMode contact_mode = 9;
+
+		message DataSize {
+			unknown.youtube.CSSSDataType data_type = 1;
+			int32 size = 2;
+		}
+
+		DataSize data_size = 10;
+		int32 fragment_type = 11 [ default = -1 ];
+		string user_account_id = 12;
+		int32 view_id = 13;
+		string gse_chat_session_id = 14;
+		string js_error_message = 15;
+	}
+
+	oneof event_data {
+		UserAction user_action = 3;
+		google.internal.support.intelligence.moltron.v1.logging.MoltronInteraction moltron_interaction = 4;
+	}
+}

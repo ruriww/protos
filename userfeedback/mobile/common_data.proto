@@ -1,0 +1,38 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/product_specific_data.proto";
+import "userfeedback/mobile/feedback_client_experiment_data.proto";
+
+option objc_class_prefix = "UFM";
+
+message CommonData {
+	string description = 2;
+	string user_email = 3;
+	string ui_language = 6 [ default = "en_US" ];
+	repeated ProductSpecificData product_specific_data = 11;
+	string product_specific_context = 15;
+	string help_flow_session_id = 20;
+	repeated string experiment_id = 28;
+	repeated FeedbackClientExperimentData feedback_client_experiment_data = 30;
+
+	enum FeedbackSource {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WEB_CLASSIC = 1;
+		WEB_ALOHA = 2;
+		WEB_HEADLESS = 3;
+		WEB_HELP = 4;
+		MOBILE_WEB = 5;
+		WEB_CLASSIC_WIZARD = 6;
+		ANDROID_CLASSIC = 7;
+		ANDROID_ALOHA = 8;
+		MWEB_ALOHA = 9;
+		IOS_CLASSIC = 10;
+		IOS_ALOHA = 11;
+	}
+
+	FeedbackSource feedback_source = 33 [ default = UNKNOWN ];
+}

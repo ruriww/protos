@@ -1,0 +1,23 @@
+edition = "2023";
+
+package java.com.google.support.asx.frontend.server.proto;
+
+import "support/asx/common/proto/common_request_details.proto";
+import "support/asx/common/proto/mobile_request_details.proto";
+import "java/com/google/support/asx/frontend/server/proto/theme_settings.proto";
+import "java/com/google/support/asx/frontend/server/proto/gse_page_data.proto";
+import "java/com/google/support/asx/frontend/server/proto/home_page_data.proto";
+
+option objc_class_prefix = "ASX";
+
+message MobileRenderPageRequest {
+	.support.asx.common.proto.CommonRequestDetails common_request_details = 1;
+	.support.asx.common.proto.MobileRequestDetails mobile_request_details = 2;
+	string url = 3;
+	ThemeSettings theme_settings = 4;
+
+	oneof page_data {
+		GsePageData gse_page_data = 5;
+		HomePageData home_page_data = 6;
+	}
+}

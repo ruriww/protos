@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/id_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message LookupId {
+	IdType id_type = 1;
+
+	oneof value {
+		string string_value = 2;
+		int64 int64_value = 3;
+	}
+}

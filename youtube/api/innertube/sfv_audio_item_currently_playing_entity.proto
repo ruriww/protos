@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/sfv_audio_item_playback_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvAudioItemCurrentlyPlayingEntity {
+	extend EntityMutationPayload {
+		SfvAudioItemCurrentlyPlayingEntity sfv_audio_item_currently_playing_entity = 186;
+	}
+
+	string key = 1;
+	string external_video_id = 2;
+	SfvAudioItemPlaybackState sfv_audio_item_playback_state = 3;
+	string now_playing_entity_value = 4;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/grid_video_renderer.proto";
+import "youtube/api/innertube/search_refinement_card_renderer.proto";
+import "youtube/api/innertube/video_card_renderer.proto";
+import "youtube/api/innertube/movie_card_renderer.proto";
+import "youtube/api/innertube/refinement_card_renderer.proto";
+import "youtube/api/innertube/refinement_chip_renderer.proto";
+import "youtube/api/innertube/playlist_card_renderer.proto";
+import "youtube/api/innertube/channel_card_renderer.proto";
+import "youtube/api/innertube/compact_channel_recommendation_card_renderer.proto";
+import "youtube/api/innertube/ghost_card_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/premium_season_card_renderer.proto";
+import "youtube/api/innertube/reel_item_renderer.proto";
+import "youtube/api/innertube/empty_card_renderer.proto";
+import "youtube/api/innertube/game_card_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalCardListSupportedRenderers {
+	GridVideoRenderer grid_video_renderer = 60373625;
+	SearchRefinementCardRenderer search_refinement_card_renderer = 88967868;
+	VideoCardRenderer video_card_renderer = 120168182;
+	MovieCardRenderer movie_card_renderer = 122092730;
+	RefinementCardRenderer refinement_card_renderer = 122308254;
+	RefinementChipRenderer refinement_chip_renderer = 122472668;
+	PlaylistCardRenderer playlist_card_renderer = 123979689;
+	ChannelCardRenderer channel_card_renderer = 128741973;
+	CompactChannelRecommendationCardRenderer compact_channel_recommendation_card_renderer = 137097475;
+	GhostCardRenderer ghost_card_renderer = 145440959;
+	ElementRenderer element_renderer = 153515154;
+	PremiumSeasonCardRenderer premium_season_card_renderer = 154306134;
+	ReelItemRenderer reel_item_renderer = 158884182;
+	EmptyCardRenderer empty_card_renderer = 168084322;
+	GameCardRenderer game_card_renderer = 194137132;
+}

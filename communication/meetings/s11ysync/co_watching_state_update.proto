@@ -1,0 +1,29 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/co_watching_state.proto";
+
+option objc_class_prefix = "GHM";
+
+message CoWatchingStateUpdate {
+	CoWatchingState state = 1;
+
+	enum CoWatchingIntentType {
+		INVALID = 0;
+		SWITCH_MEDIA = 1;
+		ALTER_POSITION = 2;
+		ALTER_PLAYBACK_STATE = 3;
+		ALTER_SPEED = 4;
+		ALTER_QUEUE = 5;
+	}
+
+	CoWatchingIntentType intent = 2;
+
+	message LamportPair {
+		int64 lamport_counter = 1;
+		string participant_id = 2;
+	}
+
+	map<int32, LamportPair> intent_counter = 3;
+}

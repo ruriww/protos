@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/non_http_scheme_link_loading_policy.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WebViewDeepLinkConfig {
+	NonHttpSchemeLinkLoadingPolicy non_http_scheme_link_loading_policy = 1;
+	repeated string blocked_domains = 2;
+	Command on_deep_link_failed_command = 3;
+}

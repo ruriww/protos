@@ -1,0 +1,32 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message SecurityHubPromptItem {
+	string title = 1;
+	string body = 3;
+
+	enum SecurityHubSeverity {
+		option features.enum_type = CLOSED;
+
+		SECURITY_HUB_SEVERITY_UNSPECIFIED = 0;
+		CRITICAL_WARNING = 1;
+		RECOMMENDATION = 2;
+		INFORMATION = 3;
+	}
+
+	SecurityHubSeverity severity = 4;
+
+	message SecurityHubButton {
+		string label = 1;
+		ResourceKey target = 2;
+		Link link = 3;
+	}
+
+	SecurityHubButton primary_button = 5;
+}

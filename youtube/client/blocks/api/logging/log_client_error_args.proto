@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.client.blocks.api.logging;
+
+import "youtube/api/innertube/error_level.proto";
+import "youtube/api/innertube/exception_category.proto";
+import "youtube/api/innertube/exception_type.proto";
+import "util/status_proto.proto";
+import "youtube/api/innertube/blocks_method_execution_info.proto";
+
+option objc_class_prefix = "YTBA";
+
+message LogClientErrorArgs {
+	youtube.api.innertube.ErrorLevel level = 1;
+	youtube.api.innertube.ExceptionCategory category = 2;
+	youtube.api.innertube.ExceptionType type = 3;
+	util.StatusProto status = 4;
+	youtube.api.innertube.BlocksMethodExecutionInfo method_execution_info = 5;
+	float sample_weight = 6;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicRadioBuilderButtonState {
+	option features.enum_type = CLOSED;
+
+	MUSIC_RADIO_BUILDER_BUTTON_STATE_UKNNOWN = 0;
+	MUSIC_RADIO_BUILDER_BUTTON_STATE_SHOWING_INVALID_RADIO_MESSAGE = 1;
+	MUSIC_RADIO_BUILDER_BUTTON_STATE_SHOWING_LOADING_SPINNER = 2;
+	MUSIC_RADIO_BUILDER_BUTTON_STATE_CLICKABLE = 3;
+	MUSIC_RADIO_BUILDER_BUTTON_STATE_NO_DATA_AVAILABLE = 4;
+	MUSIC_RADIO_BUILDER_BUTTON_STATE_CLICKABLE_EDIT_COMMAND = 5;
+}

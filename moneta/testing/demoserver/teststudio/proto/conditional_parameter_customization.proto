@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/custom_substitution_parameter.proto";
+
+option objc_class_prefix = "TSL";
+
+message ConditionalParameterCustomization {
+	string condition = 1;
+	repeated CustomSubstitutionParameter custom_substitution_parameter = 2;
+	repeated string field_to_clear = 3;
+}

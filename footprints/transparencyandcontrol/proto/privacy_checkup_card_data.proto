@@ -1,0 +1,36 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/get_privacy_checkup_cards_response.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "footprints/transparencyandcontrol/proto/setting_state.proto";
+import "footprints/transparencyandcontrol/proto/responsive_image.proto";
+import "footprints/transparencyandcontrol/proto/link_message.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message PrivacyCheckupCardData {
+	GetPrivacyCheckupCardsResponse.PrivacyCheckupCard privacy_checkup_card = 1;
+	string title = 2;
+	webutil.html.types.SafeHtmlProto description = 3;
+	SettingState setting_state = 4;
+	ResponsiveImage icon = 5;
+
+	enum DataSnippetType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		UDC_CARD = 1;
+		ACTION_BUTTON = 2;
+	}
+
+	DataSnippetType data_snippet_type = 6;
+
+	message ActionButton {
+		string action_label = 1;
+	}
+
+	ActionButton action_button = 7;
+	LinkMessage description_link_message = 8;
+}

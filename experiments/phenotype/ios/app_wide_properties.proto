@@ -1,0 +1,9 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+option objc_class_prefix = "EPI";
+
+message AppWideProperties {
+	bytes signed_out_consent_info = 1;
+}

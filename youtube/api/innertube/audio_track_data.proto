@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/captions_initial_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudioTrackData {
+	repeated int32 caption_track_indices = 2 [ features.repeated_field_encoding = EXPANDED ];
+	int32 default_caption_track_index = 3;
+	int32 forced_caption_track_index = 4;
+
+	enum CaptionsVisibilityForTrackList {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OFF = 1;
+		ON = 2;
+		FORCED_ON = 3;
+		ON_WEAK = 4;
+		OFF_WEAK = 5;
+	}
+
+	CaptionsVisibilityForTrackList visibility = 5;
+	bool has_default_track = 6;
+	bool has_forced_track = 7;
+	string audio_track_id = 8;
+	bool can_override_default_caption_track = 9 [ default = true ];
+	CaptionsInitialState captions_initial_state = 11;
+}

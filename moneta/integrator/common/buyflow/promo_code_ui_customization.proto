@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.integrator.common.buyflow;
+
+option objc_class_prefix = "Buyflow";
+
+message PromoCodeUiCustomization {
+	bool no_leading_icon_for_promo_code_chip = 1;
+}

@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message ProductDetails {
+	message ChromeSyncProductDetails {
+		bool degraded_recoverability = 1;
+	}
+
+	oneof product_specific_data_variant {
+		ChromeSyncProductDetails chrome_sync_product_details = 1;
+	}
+
+	message DegradedRecoverabilityDetails {
+		enum DegradedRecoverabilityReason {
+			DEGRADED_RECOVERABILITY_REASON_UNKNOWN = 0;
+			GAIA_PASSWORD_OUT_OF_SYNC = 1;
+			LOCK_SCREEN_KNOWLEDGE_FACTORS_EXPIRING_SOON = 2;
+		}
+
+		DegradedRecoverabilityReason degraded_recoverability_reason = 1;
+	}
+
+	repeated DegradedRecoverabilityDetails degraded_recoverability_details = 2;
+
+	enum DomainStatus {
+		DOMAIN_STATUS_UNKNOWN = 0;
+		DOMAIN_STATUS_EMPTY = 1;
+		DOMAIN_STATUS_PREENROLLED = 2;
+		DOMAIN_STATUS_DEGRADED_RECOVERABILITY = 3;
+		DOMAIN_STATUS_FULL_RECOVERABILITY = 4;
+		DOMAIN_STATUS_IRRETRIEVABLE = 5;
+	}
+
+	DomainStatus domain_status = 3;
+}

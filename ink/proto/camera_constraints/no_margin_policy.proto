@@ -1,0 +1,9 @@
+edition = "2023";
+
+package ink.proto.camera_constraints;
+
+option objc_class_prefix = "INKPB";
+
+message NoMarginPolicy {
+	float max_zoom_factor = 1 [ default = 10 ];
+}

@@ -1,0 +1,51 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/key.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/generic/message_template.proto";
+import "moneta/orchestration/ui/common/generic/dependent_variable.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/html_snippet.proto";
+
+option objc_class_prefix = "Orch";
+
+message EncryptionForm {
+	FormHeader form_header = 1;
+
+	enum ActionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ACTION_TYPE = 0;
+		GENERATE_ECDH_KEY_PAIR = 1;
+		CALCULATE_ECDH_SHARED_KEY_AND_ENCRYPT_VALUE_A128GCM = 2;
+		ENCRYPT_VALUE_A128GCM = 3;
+	}
+
+	ActionType action_type = 2;
+	repeated generic.MessageTemplate return_value_template = 3;
+	generic.DependentVariable return_value_template_index = 4;
+	generic.DependentVariable is_active = 5;
+
+	oneof challenge_page {
+		SimpleForm simple_form = 6;
+		string html = 7;
+		HtmlSnippet html_snippet = 11;
+	}
+
+	message CalculateEcdhSharedKey {
+		Key public_key = 1;
+		string agreement_party_v_info = 2;
+	}
+
+	CalculateEcdhSharedKey calculate_ecdh_shared_key = 8;
+
+	message A128GcmEncryption {
+		string key_id = 1;
+		string initialization_vector = 2;
+	}
+
+	A128GcmEncryption a128_gcm_encryption = 9;
+	bool is_return_key_secure = 10;
+}

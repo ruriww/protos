@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.core;
+
+import "logs/proto/core/timestamp.proto";
+import "logs/visual_element_lite_proto.proto";
+import "logs/client_interaction_metadata.proto";
+
+option objc_class_prefix = "CORE";
+
+message CoreMetadata {
+	Timestamp timestamp = 1;
+}
+
+extend VisualElementLiteProto {
+	CoreMetadata core_ve_metadata = 618;
+}
+
+extend ClientInteractionMetadata {
+	CoreMetadata core_interaction_metadata = 126;
+}

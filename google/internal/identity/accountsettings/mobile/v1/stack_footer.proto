@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+import "google/internal/identity/accountsettings/mobile/v1/stack_footer_content_unit.proto";
+import "google/internal/identity/accountsettings/mobile/v1/stack_footer_trailing_unit.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message StackFooter {
+	string description = 1;
+	string hyperlink_text = 2;
+	Link hyperlink = 3;
+	repeated StackFooterContentUnit content_units = 4;
+	repeated StackFooterTrailingUnit trailing_units = 5;
+	Image image = 6;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.rpcmessage;
+
+import "moneta/orchestration2/ui/common/request_context.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InitializeTemplateRequest {
+	RequestContext context = 1;
+	repeated bytes template_context = 2;
+}

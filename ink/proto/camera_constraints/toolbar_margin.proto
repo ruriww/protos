@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto.camera_constraints;
+
+option objc_class_prefix = "INKPB";
+
+message ToolbarMargin {
+	float top_margin_px = 1;
+	float bottom_margin_px = 2;
+	float left_margin_px = 3;
+	float right_margin_px = 4;
+}

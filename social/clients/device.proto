@@ -1,0 +1,29 @@
+edition = "2023";
+
+package social.clients;
+
+option objc_class_prefix = "SC";
+
+enum Device {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_DEVICE = 0;
+	DESKTOP = 1;
+	ANDROID_PHONE = 2;
+	ANDROID_TABLET = 3;
+	IOS_PHONE = 4;
+	IOS_TABLET = 5;
+	TIER_2_3 = 6;
+	BORG_JOB = 7;
+	GLASS = 8;
+	ANDROID_TV = 9;
+	DIGITAL_WHITEBOARD = 10;
+	VIDEO_CONFERENCE_SYSTEM = 11;
+	ANDROID_WEAR_OS = 12;
+	ANDROID_XR = 13;
+	UNSET_DEVICE = 100;
+	TOTAL_DEVICE = 200;
+	TOTAL_DEVICE_MOBILE = 201;
+	TOTAL_DEVICE_MOBILE_ANDROID = 202;
+	TOTAL_DEVICE_MOBILE_IOS = 203;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorAppSettings {
+	int32 video_list_page_size = 2;
+	repeated int32 dismissed_guided_tours = 3 [ features.repeated_field_encoding = EXPANDED ];
+	bool acknowledged_aadc_warning = 6;
+	bool acknowledged_aadc_upload_default_privacy_override = 7;
+	bool prechecks_notification_opt_in_default = 8;
+	bool acknowledged_ips_warning = 9;
+}

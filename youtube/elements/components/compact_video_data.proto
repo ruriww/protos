@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/video_data.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CompactVideoData {
+	VideoData video_data = 1;
+	string accessibility_text = 2;
+	Command on_tap = 3;
+	Command menu_on_tap = 4;
+	string menu_a11y_label = 5;
+	bool disable_ripple_effects = 7;
+	Command impression_command = 8;
+	bool is_channels_spotlight = 15;
+	Button action_button = 17;
+	bool is_collection_lockup = 18;
+	string thumbnail_overlay_icon_name = 19;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

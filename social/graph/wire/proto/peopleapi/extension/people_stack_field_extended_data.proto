@@ -1,0 +1,24 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.extension;
+
+import "apps/people/oz/external/mergedpeopleapi/phone_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_tags.proto";
+
+option objc_class_prefix = "SGWPPE";
+
+message PeopleStackFieldExtendedData {
+	enum GrammaticalGender {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MASCULINE = 1;
+		FEMININE = 2;
+	}
+
+	GrammaticalGender grammatical_gender = 1;
+	apps.people.oz.external.mergedpeopleapi.PhoneExtendedData phone_extended_data = 2;
+	PeopleStackTags.SuggestionConfidence suggestion_confidence = 3;
+
+	extensions 1000 to max;
+}

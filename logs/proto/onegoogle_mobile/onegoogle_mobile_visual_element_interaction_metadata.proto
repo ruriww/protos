@@ -1,0 +1,24 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+import "logs/client_interaction_metadata.proto";
+import "logs/proto/onegoogle_mobile/one_google_education_info.proto";
+import "logs/proto/onegoogle_mobile/one_google_coordinates_info.proto";
+import "logs/proto/onegoogle_mobile/one_google_alert_info.proto";
+import "logs/proto/onegoogle_mobile/one_google_storage_info.proto";
+import "logs/proto/onegoogle_mobile/one_google_backup_sync_info.proto";
+
+option objc_class_prefix = "OGL";
+
+message OnegoogleMobileVisualElementInteractionMetadata {
+	extend ClientInteractionMetadata {
+		OnegoogleMobileVisualElementInteractionMetadata onegoogle_mobile_ve_interaction_metadata = 118;
+	}
+
+	OneGoogleEducationInfo education_info = 1;
+	OneGoogleCoordinatesInfo coordinates_info = 2;
+	OneGoogleAlertInfo alert_info = 3;
+	OneGoogleStorageInfo storage_info = 4;
+	OneGoogleBackupSyncInfo backup_sync_info = 5;
+}

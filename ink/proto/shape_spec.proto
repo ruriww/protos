@@ -1,0 +1,20 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/shape_kind.proto";
+import "ink/proto/point.proto";
+import "ink/proto/int_packed_color.proto";
+import "ink/proto/line_cap_kind.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ShapeSpec {
+	ShapeKind kind = 1;
+	repeated Point control_point = 2;
+	IntPackedColor fill_color = 3;
+	IntPackedColor stroke_color = 4;
+	float stroke_width_world = 5;
+	LineCapKind start_linecap = 6;
+	LineCapKind end_linecap = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/create_livestream_highlight_clip_params.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateLivestreamHighlightClipCommand {
+	CreateLivestreamHighlightClipParams settings = 2;
+}
+
+extend Command {
+	CreateLivestreamHighlightClipCommand create_livestream_highlight_clip_command = 214850962;
+}

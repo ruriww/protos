@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlaybackButtonState {
+	option features.enum_type = CLOSED;
+
+	PLAYBACK_BUTTON_STATE_UNKNOWN = 0;
+	PLAYBACK_BUTTON_STATE_LOADING_CONTENT = 1;
+	PLAYBACK_BUTTON_STATE_PLAYING = 2;
+	PLAYBACK_BUTTON_STATE_PAUSED = 3;
+	PLAYBACK_BUTTON_STATE_BUFFERING = 4;
+	PLAYBACK_BUTTON_STATE_SEEKING = 5;
+	PLAYBACK_BUTTON_STATE_FINISHED = 6;
+	PLAYBACK_BUTTON_STATE_ERROR = 7;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CircularRevealTransition {
+	int32 animation_duration_ms = 1;
+	float origin_percent_x = 2;
+	float origin_percent_y = 3;
+}

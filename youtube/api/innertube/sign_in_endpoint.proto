@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/gaia_authenticated_identity.proto";
+import "youtube/api/innertube/user_profile.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SignInEndpoint {
+	bool hack = 1;
+	Command next_endpoint = 2;
+	bool use_popup = 3;
+	string auth_feature = 4;
+	string continue_action = 5;
+	string direct_signin_id = 6;
+	GaiaAuthenticatedIdentity direct_signin_identity = 7;
+	string idam_tag = 8;
+	UserProfile direct_signin_user_profile = 9;
+	string gae_param = 10;
+	Command fallback_endpoint = 11;
+	Command dismiss_fallback_endpoint = 12;
+	bool suppress_mobile_biometrics = 13;
+}
+
+extend Command {
+	SignInEndpoint sign_in_endpoint = 49706687;
+}

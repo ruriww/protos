@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration.common.fixflow;
+
+option objc_class_prefix = "FixFlow";
+
+message InstrumentDetails {
+	string instrument_id = 1;
+	int64 f1_instrument_id = 2;
+}

@@ -1,0 +1,8 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+option objc_class_prefix = "APPSWALDO";
+
+message HomeLocation {
+}

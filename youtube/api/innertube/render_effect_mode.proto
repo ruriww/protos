@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RenderEffectMode {
+	RENDER_EFFECT_MODE_UNKNOWN = 0;
+	RENDER_EFFECT_MODE_NOOP = 1;
+	RENDER_EFFECT_MODE_ALL = 2;
+	RENDER_EFFECT_MODE_RECTANGULAR = 3;
+	RENDER_EFFECT_MODE_SPHERICAL = 4;
+	RENDER_EFFECT_MODE_VR = 5;
+}

@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package google.android.gms.potokens;
+
+import "google/android/gms/potokens/device_proof_of_origin_token_fast_mode.proto";
+import "google/android/gms/potokens/device_proof_of_origin_token_hardware_mode.proto";
+
+option java_package = "com.google.android.gms.potokens";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message ProofOfOriginToken {
+	oneof oneof0 {
+		DeviceProofOfOriginTokenFastMode device_fast_po_token = 1;
+		DeviceProofOfOriginTokenHardwareMode device_hw_po_token = 2;
+		bytes unnamed_field_7 = 7;
+	}
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "google/protobuf/wrappers.proto";
+import "customer_support/help/mobile/proto/mobile_message_event.proto";
+import "customer_support/help/mobile/proto/mobile_join_event.proto";
+import "customer_support/help/mobile/proto/mobile_leave_event.proto";
+import "customer_support/help/mobile/proto/mobile_end_event.proto";
+import "customer_support/help/mobile/proto/mobile_add_participants_event.proto";
+import "customer_support/help/mobile/proto/mobile_attachment_event.proto";
+import "customer_support/help/mobile/proto/mobile_conversation_state_change_event.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileConversationEvent {
+	uint64 id = 1;
+	google.protobuf.UInt64Value timestamp_millis = 2;
+
+	oneof mobile_conversation_event_data {
+		MobileMessageEvent message_event = 3;
+		MobileJoinEvent join_event = 4;
+		MobileLeaveEvent leave_event = 5;
+		MobileEndEvent end_event = 6;
+		MobileAddParticipantsEvent add_participants_event = 7;
+		MobileAttachmentEvent attachment_event = 11;
+		MobileConversationStateChangeEvent conversation_state_change_event = 12;
+	}
+
+	google.protobuf.UInt64Value client_time = 8;
+	string participant_id = 9;
+	string display_name = 10;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/yt_system_health_metric.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineTransferStarted {
+	string encrypted_video_id = 1;
+	int64 content_bytes = 2;
+	OfflineabilityFormatType selected_video_quality = 3;
+	int64 itag = 4;
+	int64 time_since_last_auth_usec = 5;
+	YtSystemHealthMetric system_health = 6;
+	bool is_ad = 7;
+	DetailedNetworkType detailed_network_type = 8;
+}

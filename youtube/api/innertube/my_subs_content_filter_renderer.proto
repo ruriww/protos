@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/my_subs_sub_menu_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/my_subs_content_filter_hint_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MySubsContentFilterRenderer {
+	oneof supported_titles {
+		FormattedString title = 1;
+		MySubsSubMenuSupportedRenderers filter_sub_menu = 6;
+	}
+
+	repeated ButtonSupportedRenderers buttons = 2;
+	bytes tracking_params = 4;
+	MySubsContentFilterHintSupportedRenderers hint = 5;
+}
+
+extend Renderer {
+	MySubsContentFilterRenderer my_subs_content_filter_renderer = 117271479;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/inactive.proto";
+import "google/internal/apps/waldo/v1alpha/outside_working_hours.proto";
+import "google/internal/apps/waldo/v1alpha/out_of_office.proto";
+import "google/internal/apps/waldo/v1alpha/in_meeting.proto";
+import "google/internal/apps/waldo/v1alpha/calendar_busy.proto";
+import "google/internal/apps/waldo/v1alpha/do_not_disturb.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message UserStatus {
+	oneof status {
+		Inactive inactive = 2;
+		OutsideWorkingHours outside_working_hours = 3;
+		OutOfOffice out_of_office = 4;
+		InMeeting in_meeting = 5;
+		CalendarBusy calendar_busy = 6;
+		DoNotDisturb do_not_disturb = 7;
+	}
+}

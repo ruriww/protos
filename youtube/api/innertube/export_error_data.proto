@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_exporter_error.proto";
+import "youtube/api/innertube/insufficient_disk_space_data.proto";
+import "youtube/api/innertube/mde_debug_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExportErrorData {
+	MediaEngineExporterError exporter_error = 1;
+	InsufficientDiskSpaceData insufficient_disk_space_data = 2;
+	MdeDebugInfo debug_info = 3;
+}

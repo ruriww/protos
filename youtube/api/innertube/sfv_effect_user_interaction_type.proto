@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SfvEffectUserInteractionType {
+	option features.enum_type = CLOSED;
+
+	SFV_EFFECT_USER_INTERACTION_TYPE_UNKNOWN = 0;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_SWIPE = 1;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_ROTATE = 2;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_TAP = 3;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_DOUBLE_TAP = 4;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_LONG_PRESS = 5;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_PAN = 6;
+	SFV_EFFECT_USER_INTERACTION_TYPE_GESTURE_PINCH = 7;
+	SFV_EFFECT_USER_INTERACTION_TYPE_TOUCH = 8;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/bottom_drawer_menu_block.proto";
+
+option objc_class_prefix = "ASM";
+
+message BottomDrawerMenu {
+	repeated BottomDrawerMenuBlock blocks = 1;
+}

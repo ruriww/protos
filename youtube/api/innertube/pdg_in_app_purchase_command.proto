@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PdgInAppPurchaseCommand {
+	extend Command {
+		PdgInAppPurchaseCommand pdg_in_app_purchase_command = 327106765;
+	}
+
+	string app_store_product_id = 1;
+	Command command = 2;
+}

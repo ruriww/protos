@@ -1,0 +1,90 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "quality_genie/eyes/detection_result_set.proto";
+import "lens/gleaming/deep_gleam_data.proto";
+import "lens/gleaming/elements_gleam_data.proto";
+import "lens/request_context/routing_info.proto";
+import "quality_genie/eyes/assistant_eyes_request_id.proto";
+import "google/internal/lens/api/v1/presentation_result.proto";
+import "google/internal/lens/api/v1/text_data.proto";
+import "google/internal/lens/api/v1/backend_metadata.proto";
+import "google/protobuf/any.proto";
+import "google/rpc/status.proto";
+import "quality_genie/eyes/filter_detected_contexts.proto";
+import "lens/user_guidance.proto";
+import "quality_genie/eyes/detection_result_selection.proto";
+import "lens/interaction_data.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "lens/filter_recommendation.proto";
+import "google/internal/lens/api/v1/native_rendered_presentation_result.proto";
+import "lens/unified_grid_result_metadata.proto";
+import "lens/gen_ai_response.proto";
+import "lens/visual_suggest_results.proto";
+import "google/internal/lens/api/v1/lens_live_response.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option objc_class_prefix = "LFE";
+
+message LensResponse {
+	quality_genie.eyes.AssistantEyesRequestId request_id = 1;
+	repeated PresentationResult presentation_result = 2;
+
+	message GleamsData {
+		quality_genie.eyes.DetectionResultSet detected_objects = 4;
+		repeated .lens.gleaming.DeepGleamData deep_gleams = 5;
+		.lens.gleaming.ElementsGleamData elements_annotations_metadata = 6;
+	}
+
+	GleamsData gleams_data = 3;
+	TextData text_data = 4;
+	BackendMetadata backend_metadata = 7;
+	bool channel_complete = 8;
+	string object_id = 9;
+	repeated protobuf.Any debug = 10;
+	rpc.Status status = 11;
+
+	message LogInfo {
+		bytes serialized_presentation_log = 1;
+		bytes serialized_server_latency_log = 2;
+		bytes serialized_server_experiment_info = 3;
+	}
+
+	LogInfo log_info = 12;
+	quality_genie.eyes.FilterDetectedContexts filter_detected_contexts = 14;
+	.lens.UserGuidance user_guidance = 15;
+	quality_genie.eyes.DetectionResultSelection selected_result = 16;
+	bool ack_response = 19;
+	bytes server_state = 20;
+	.lens.InteractionData interaction_data = 23;
+	webutil.html.types.SafeHtmlProto presentation_html = 26;
+	repeated .lens.FilterRecommendation filter_recommendations = 27;
+	bytes compressed_presentation_html_bytes = 28;
+	string reverse_image_search_url = 29;
+	bytes serialized_multimodal_suggest_image_signals = 30;
+	NativeRenderedPresentationResult native_rendered_presentation_result = 32;
+	bool is_fail_state = 33;
+	bool expect_presentation_html = 34;
+
+	message StickyClusterInfo {
+		string session_id = 1;
+		string gws_session_id = 2;
+		string lbe_bns_address = 3;
+		.lens.request_context.RoutingInfo routing_info = 4;
+	}
+
+	StickyClusterInfo sticky_cluster_info = 37;
+	.lens.UnifiedGridResultMetadata top_unified_grid_result_metadata = 38;
+	.lens.GenAiResponse gen_ai_response = 39;
+	.lens.VisualSuggestResults visual_suggest_results = 40;
+
+	message SffeImageData {
+		string thumbnail_url = 1;
+		bytes thumbnail_image_bytes = 2;
+	}
+
+	SffeImageData sffe_image_data = 41;
+	LensLiveResponse lens_live_response = 42;
+	youtube.api.innertube.FrameworkUpdateTransport framework_updates = 777;
+}

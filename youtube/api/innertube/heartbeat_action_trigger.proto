@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HeartbeatActionTrigger {
+	option features.enum_type = CLOSED;
+
+	HEARTBEAT_ACTION_TRIGGER_UNKNOWN = 0;
+	HEARTBEAT_ACTION_TRIGGER_IMMEDIATE = 1;
+	HEARTBEAT_ACTION_TRIGGER_NEAR_LIVE_HEAD = 2;
+	HEARTBEAT_ACTION_TRIGGER_NEAR_BUT_NOT_PLAYING_AT_LIVE_HEAD = 3;
+	HEARTBEAT_ACTION_TRIGGER_AT_STREAM_END = 4;
+	HEARTBEAT_ACTION_TRIGGER_AT_AUTONAV_COUNTDOWN = 5;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_text_supported_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdText {
+	string text = 1;
+	AdTextSupportedStyle style = 2;
+	bool is_templated = 3;
+	bytes tracking_params = 5;
+	string target_id = 8;
+	int64 text_timeout_ms = 10 [ default = 0 ];
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	AdText ad_text = 266982641;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/creator_delegate_email_validation_result.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CreatorDelegateEmailValidationResultEntity {
+	api.innertube.CreatorDelegateEmailValidationResult email_result = 1;
+}

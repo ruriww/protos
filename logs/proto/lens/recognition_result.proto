@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message RecognitionResult {
+	repeated int32 lvs_source = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 lvs_result_type = 2;
+	float confidence = 3;
+	float utility = 4;
+	float topicality = 5;
+	string result_id = 10;
+	bool is_low_similarity_result = 11;
+}

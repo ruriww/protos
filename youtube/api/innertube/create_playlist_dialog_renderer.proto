@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/privacy_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatePlaylistDialogRenderer {
+	FormattedString dialog_title = 1;
+	string title_placeholder = 2;
+	Renderer privacy_option = 3;
+	Renderer cancel_button = 4;
+	Renderer create_button = 5;
+	PrivacyStatus privacy_status = 6;
+	Renderer playlist_collaborate_toggle = 7;
+	string create_playlist_params_collaboration_enabled = 8;
+	string create_playlist_params_collaboration_disabled = 9;
+}
+
+extend Renderer {
+	CreatePlaylistDialogRenderer create_playlist_dialog_renderer = 308293426;
+}

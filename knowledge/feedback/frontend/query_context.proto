@@ -1,0 +1,15 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+import "knowledge/feedback/frontend/image.proto";
+
+option objc_class_prefix = "UFR";
+
+message QueryContext {
+	string query = 1;
+	repeated Image query_images = 2;
+	string url = 3;
+	string country_code = 4;
+	string language_code = 5;
+}

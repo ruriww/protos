@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/offline_setting_category_collection_renderer.proto";
+import "youtube/api/innertube/background_setting_category_collection_renderer.proto";
+import "youtube/api/innertube/background_offline_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/unlimited_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/unplugged_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/blocked_contact_setting_category_renderer.proto";
+import "youtube/api/innertube/subscription_products_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/history_setting_category_entry_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	OfflineSettingCategoryCollectionRenderer offline_setting_category_collection_renderer = 68107127;
+}
+
+extend Renderer {
+	BackgroundSettingCategoryCollectionRenderer background_setting_category_collection_renderer = 68501585;
+}
+
+extend Renderer {
+	BackgroundOfflineSettingCategoryEntryRenderer background_offline_setting_category_entry_renderer = 88478200;
+}
+
+extend Renderer {
+	UnlimitedSettingCategoryEntryRenderer unlimited_setting_category_entry_renderer = 94214034;
+}
+
+extend Renderer {
+	UnpluggedSettingCategoryEntryRenderer unplugged_setting_category_entry_renderer = 144484052;
+}
+
+extend Renderer {
+	BlockedContactSettingCategoryRenderer blocked_contact_setting_category_renderer = 124189785;
+}
+
+extend Renderer {
+	SubscriptionProductsSettingCategoryEntryRenderer subscription_products_setting_category_entry_renderer = 173548507;
+}
+
+extend Renderer {
+	HistorySettingCategoryEntryRenderer history_setting_category_entry_renderer = 359641852;
+}

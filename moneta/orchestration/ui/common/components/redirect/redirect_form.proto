@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.redirect;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/generic/auth_info.proto";
+
+option objc_class_prefix = "Orch";
+
+message RedirectForm {
+	FormHeader form_header = 1;
+	string initial_url = 2;
+	string initial_post_body = 3;
+	string intercept_non_terminal_url_regex = 4;
+	string intercept_terminal_url_regex = 5;
+	Button submit_button = 6;
+	bool must_enforce_whitelist = 8;
+	repeated string whitelist_url_regex = 9;
+	string user_agent = 10;
+	generic.InfoMessage waiting_message = 11;
+	generic.InfoMessage aborted_error_message = 12;
+	string error_message_whitelist_error_html = 13;
+	string error_message_retryable_error_html = 14;
+	string error_message_non_retryable_error_html = 15;
+	string initial_loading_message = 17;
+	string error_message_unsupported_url_html = 18;
+	repeated generic.InfoMessage waiting_message_in_dialog = 19;
+	SimpleForm additional_form = 20;
+	string landing_message_url_regex = 22;
+	repeated string required_auth_scope = 23;
+	generic.AuthInfo auth_info = 24;
+	bool accept_third_party_cookies = 25;
+	bool disable_auto_submit = 28;
+}

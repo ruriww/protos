@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicTwoRowItemThumbnailAspectRatio {
+	option features.enum_type = CLOSED;
+
+	MUSIC_TWO_ROW_ITEM_THUMBNAIL_ASPECT_RATIO_UNKNOWN = 0;
+	MUSIC_TWO_ROW_ITEM_THUMBNAIL_ASPECT_RATIO_SQUARE = 1;
+	MUSIC_TWO_ROW_ITEM_THUMBNAIL_ASPECT_RATIO_RECTANGLE_16_9 = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflineVideoPolicyAction {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_VIDEO_POLICY_ACTION_UNKNOWN = 0;
+	OFFLINE_VIDEO_POLICY_ACTION_OK = 1;
+	OFFLINE_VIDEO_POLICY_ACTION_DISABLE = 2;
+	OFFLINE_VIDEO_POLICY_ACTION_DOWNLOAD_FAILED = 3;
+}

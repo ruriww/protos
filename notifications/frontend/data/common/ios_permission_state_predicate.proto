@@ -1,0 +1,12 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/platform/sdk/proto/app_permission.proto";
+
+option objc_class_prefix = "NFDC";
+
+message IosPermissionStatePredicate {
+	platform.sdk.proto.AppPermission.IosPermissionType type = 1;
+	platform.sdk.proto.AppPermission.IosPermissionState state = 2;
+}

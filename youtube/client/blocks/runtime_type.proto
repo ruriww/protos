@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+option objc_class_prefix = "YTB";
+
+enum RuntimeType {
+	option features.enum_type = CLOSED;
+
+	RUNTIME_TYPE_UNKNOWN = 0;
+	RUNTIME_TYPE_CORE = 1;
+	RUNTIME_TYPE_CC = 2;
+	RUNTIME_TYPE_JAVA = 3;
+	RUNTIME_TYPE_OBJC = 4;
+	RUNTIME_TYPE_JS = 5;
+}

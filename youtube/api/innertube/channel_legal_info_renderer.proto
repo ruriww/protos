@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelLegalInfoRenderer {
+	FormattedString text = 1;
+	bool autoscroll = 2;
+	repeated Command service_endpoints = 3;
+}
+
+extend Renderer {
+	ChannelLegalInfoRenderer channel_legal_info_renderer = 52052136;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/client.proto";
+
+option objc_class_prefix = "AIA";
+
+message RetrieveMessageRequest {
+	string id = 1;
+	repeated string chunk_id = 2;
+	string content_url = 3;
+	int64 max_chunks = 4;
+	Client client = 5;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/backstage_attachment_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentHistoryEntryRenderer {
+	FormattedString content = 1;
+	FormattedString summary = 2;
+	FormattedString timestamp = 3;
+	MenuSupportedRenderers action_menu = 4;
+	BackstageAttachmentSupportedRenderers backstage_attachment = 5;
+	bytes tracking_params = 6;
+	FormattedString read_more_text = 8;
+	FormattedString show_less_text = 9;
+}
+
+extend Renderer {
+	CommentHistoryEntryRenderer comment_history_entry_renderer = 135834874;
+}

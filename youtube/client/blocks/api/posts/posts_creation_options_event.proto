@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+import "youtube/client/blocks/api/posts/image_event_data.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PostsCreationOptionsEvent {
+	enum EventType {
+		option features.enum_type = CLOSED;
+
+		EVENT_TYPE_UNKNOWN = 0;
+		EVENT_TYPE_IMAGE = 1;
+		EVENT_TYPE_CLEAR_DATA = 3;
+	}
+
+	EventType type = 1;
+
+	oneof event {
+		ImageEventData image_event = 2;
+	}
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/music_background_overlay_style.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicExpandableShelfSimpleHeaderRenderer {
+	Renderer header_background = 1;
+	FormattedString title = 2;
+	FormattedString strapline = 3;
+	MusicBackgroundOverlayStyle background_overlay = 4;
+	bytes tracking_params = 6;
+	AccessibilitySupportedDatas accessibility_data = 7;
+}

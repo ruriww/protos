@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ComputeUnicodeStringLengthCommand {
+	extend elements.Command {
+		ComputeUnicodeStringLengthCommand compute_unicode_string_length_command = 279698363;
+	}
+
+	string unicode_string_length_entity_key = 1;
+	string unicode_string = 2;
+	int32 max_unicode_string_length = 3;
+	bool disable_empty_string_validation = 4;
+	string invalid_characters = 5;
+}

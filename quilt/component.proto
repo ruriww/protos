@@ -1,0 +1,19 @@
+edition = "2023";
+
+package quilt;
+
+import "quilt/log_info.proto";
+import "quilt/action_ref.proto";
+
+option objc_class_prefix = "QLT";
+
+message Component {
+	string type = 2;
+	Component impl_root = 4;
+	LogInfo log_info = 6;
+	repeated ActionRef action_ref = 8;
+	string card_id = 9;
+	string key = 10;
+
+	extensions 20000 to max;
+}

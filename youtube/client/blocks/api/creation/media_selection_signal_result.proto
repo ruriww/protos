@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+option objc_class_prefix = "YTBA";
+
+message MediaSelectionSignalResult {
+	string local_asset_uri = 1;
+
+	enum MediaSelectionUploadState {
+		option features.enum_type = CLOSED;
+
+		MEDIA_SELECTION_UPLOAD_STATE_UNKNOWN = 0;
+		MEDIA_SELECTION_UPLOAD_STATE_IDLE = 1;
+		MEDIA_SELECTION_UPLOAD_STATE_IN_PROGRESS = 2;
+		MEDIA_SELECTION_UPLOAD_STATE_SUCCESS = 3;
+		MEDIA_SELECTION_UPLOAD_STATE_FAILURE = 4;
+	}
+
+	MediaSelectionUploadState upload_state = 2;
+}

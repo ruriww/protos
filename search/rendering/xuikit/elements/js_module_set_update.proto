@@ -1,0 +1,11 @@
+edition = "2023";
+
+package search.rendering.xuikit.elements;
+
+import "search/rendering/xuikit/elements/js_module.proto";
+
+option objc_class_prefix = "XUI";
+
+message JsModuleSetUpdate {
+	repeated JsModule js_modules = 1;
+}

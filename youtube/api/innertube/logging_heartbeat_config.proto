@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoggingHeartbeatConfig {
+	bool enabled = 1;
+	int32 foreground_capture_interval_secs = 2;
+	int32 inactive_timeout_secs = 3;
+	bool account_change_heartbeat_enabled = 4;
+	bool send_dummy_payload = 5;
+	int32 heartbeat_persist_modulus = 6;
+	bool log_heartbeat_cdn = 7;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "ALKP";
+
+message CommitMetadata {
+	string client_loas = 1;
+	string justification = 2;
+	string requestor_loas = 3;
+	string approver_loas = 4;
+	google.protobuf.Timestamp commit_timestamp = 5;
+}

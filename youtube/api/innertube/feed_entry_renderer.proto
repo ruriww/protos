@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/feed_entry_supported_renderers.proto";
+import "youtube/api/innertube/feed_entry_action_menu_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/comment_approval_feed_entry_action_menu_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeedEntryRenderer {
+	oneof title_image {
+		ThumbnailDetails owner_thumbnail = 1;
+		Icon title_icon = 14;
+	}
+
+	Command owner_endpoint = 2;
+	FormattedString title = 3;
+	FormattedString time_text = 4;
+	FormattedString post_text = 5;
+	string dismissal = 6;
+	repeated FeedEntrySupportedRenderers items = 7;
+	FeedEntryActionMenuSupportedRenderers action_menu = 8;
+	FeedEntrySupportedRenderers item = 10;
+	repeated Command service_endpoints = 11;
+	bytes tracking_params = 12;
+	MenuSupportedRenderers menu = 13;
+	repeated Command impression_endpoints = 15;
+	VideoClientBindingData video_client_binding_data = 16;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	FeedEntryRenderer feed_entry_renderer = 50779196;
+}
+
+extend Renderer {
+	CommentApprovalFeedEntryActionMenuRenderer comment_approval_feed_entry_action_menu_renderer = 51492904;
+}

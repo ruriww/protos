@@ -1,0 +1,22 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleBackupSyncInfo {
+	enum BackupSyncState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OFF = 1;
+		COMPLETE = 2;
+		PREPARE = 3;
+		IN_PROGRESS = 4;
+		PAUSED = 5;
+		FAILURE = 6;
+		CUSTOM = 7;
+	}
+
+	BackupSyncState backup_sync_state = 1;
+}

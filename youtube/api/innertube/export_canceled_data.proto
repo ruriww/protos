@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_exporter_cancellation_reason.proto";
+import "youtube/api/innertube/mde_debug_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExportCanceledData {
+	MediaEngineExporterCancellationReason cancellation_reason = 1;
+	MdeDebugInfo debug_info = 2;
+}

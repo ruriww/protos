@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/input/textinput/keyboard_layout.proto";
+import "moneta/orchestration2/ui/common/input/textinput/text_input_node.proto";
+import "moneta/orchestration2/ui/common/input/textinput/input_node_material_type.proto";
+import "moneta/orchestration2/ui/common/input/text_keyboard_layout_variations.proto";
+import "moneta/orchestration2/ui/common/input/number_keyboard_layout_variations.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SegmentedInputNode {
+	extend node.Node {
+		SegmentedInputNode segmented_input_node_extension = 318837757;
+	}
+
+	KeyboardLayout keyboard_layout = 1;
+	TextInputNode.ContentType content_type = 2;
+	InputNodeMaterialType input_node_material_type = 3;
+
+	oneof keyboard_layout_variations {
+		TextKeyboardLayoutVariations text_keyboard_layout_variations = 4;
+		NumberKeyboardLayoutVariations number_keyboard_layout_variations = 5;
+	}
+}

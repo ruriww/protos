@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message DisplayNameSource {
+	enum Source {
+		option features.enum_type = CLOSED;
+
+		DISPLAY_NAME_SOURCE_UNSPECIFIED = 0;
+		LIMITED_PROFILE = 1;
+		LIMITED_PROFILE_FULL_NAME = 2;
+		LIMITED_PROFILE_SHORTENED_NAME = 3;
+	}
+
+	Source source = 1;
+}

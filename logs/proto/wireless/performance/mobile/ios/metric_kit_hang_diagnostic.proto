@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_diagnostic_metadata.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_call_stack_tree.proto";
+import "logs/proto/wireless/performance/mobile/ios/custom_process_context_metadata.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitHangDiagnostic {
+	MetricKitDiagnosticMetadata metadata = 1;
+	MetricKitCallStackTree call_stack_tree = 2;
+	int64 hang_duration_ms = 3;
+	CustomProcessContextMetadata custom_metadata = 4;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/post_creation_data_entity.proto";
+import "youtube/api/innertube/access_restriction_selection_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudiencePickerInputData {
+	string post_creation_data_entity_key = 1;
+	PostCreationDataEntity post_creation_data = 2;
+	string access_restriction_selection_entity_key = 3;
+	AccessRestrictionSelectionEntity access_restriction_selection = 4;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message Birthday {
+	int32 day = 1;
+	int32 month = 2;
+	int32 year = 3;
+}

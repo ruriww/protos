@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.integrator.common.instrument;
+
+import "unknown/youtube/postal_address.proto";
+
+option objc_class_prefix = "Orch";
+
+message CreditCardDetails {
+	int64 expiration_month = 2;
+	int64 expiration_year = 3;
+	unknown.youtube.PostalAddress billing_address = 4;
+	string card_description = 5;
+	string card_number_suffix = 8;
+	string cardholder_name = 10;
+	string phone_number = 11;
+	string bin_based_art_url = 12;
+	string sequence_number = 13;
+	string version = 14;
+	int32 integrator_specific_card_type = 15;
+	string bank_name = 16;
+}

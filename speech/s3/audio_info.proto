@@ -1,0 +1,28 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "greco/recognizer_session_params.proto";
+
+option objc_class_prefix = "S3";
+
+message AudioInfo {
+	extend Request {
+		AudioInfo audio_info = 293100;
+	}
+
+	extend Request {
+		AudioInfo preamble_audio_info = 65013010;
+	}
+
+	float sample_rate_hz = 2;
+	greco.RecognizerSessionParams.AudioType encoding = 3;
+	int32 channel_count = 4 [ default = 1 ];
+	fixed64 common_clock_timestamp_us = 5;
+	int64 common_clock_error_us = 6;
+	int64 expected_audio_duration_us = 7;
+	int32 preferred_channel = 8 [ default = -1 ];
+	int64 donated_audio_duration_ms = 9;
+	greco.RecognizerSessionParams.SideInfoChannelConfig side_info_channel_config = 10;
+}

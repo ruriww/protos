@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/highlight_logging_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HighlightVideoMetadata {
+	PrivacyStatus privacy_status = 1;
+	string title = 2;
+	string description = 3;
+	bool exclude_timestamps_in_default_title = 4;
+	HighlightLoggingParams highlight_logging_params = 7;
+}

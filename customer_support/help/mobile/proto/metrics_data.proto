@@ -1,0 +1,64 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/user_action_type.proto";
+import "customer_support/help/mobile/proto/sub_user_action_type.proto";
+import "customer_support/help/mobile/proto/contact_mode_type.proto";
+import "customer_support/help/mobile/proto/network_type.proto";
+import "customer_support/help/mobile/proto/content_unit_type.proto";
+import "customer_support/help/mobile/proto/client_type.proto";
+import "customer_support/help/mobile/proto/psd_entry.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/moltron_interaction.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MetricsData {
+	int32 id = 1;
+	string app_package_name = 2;
+	string user_account_id = 3;
+	string product_specific_context = 4;
+	string session_id = 5;
+	string user_action = 6;
+	string sub_user_action = 7;
+	string shown_content_list = 8;
+	string query = 9;
+	string url = 10;
+	int32 click_rank = 11 [ default = -1 ];
+	bool template_2g = 12 [ default = false ];
+	string contact_mode = 13;
+	int64 elapsed_millis = 14 [ default = -1 ];
+	string pip_owner = 15;
+	int32 pip_position = 16 [ default = -1 ];
+	int32 fragment_type = 17 [ default = -1 ];
+	string network_type = 18;
+	int64 timestamp_millis = 19 [ default = -1 ];
+	int64 occurring_to_now_millis = 20 [ default = -1 ];
+	int32 gcore_version = 21 [ default = -1 ];
+	string content_unit_type = 22;
+	int32 client_version = 23;
+	bool offline = 24;
+	UserActionType user_action_type = 25;
+	SubUserActionType sub_user_action_type = 26;
+	ContactModeType contact_mode_type = 27;
+	NetworkType network_type_enum = 28;
+	ContentUnitType content_unit_type_enum = 29;
+	int32 feedback_policy_set_version = 30 [ default = -1 ];
+	string experiment_token = 31;
+	string app_version = 32;
+	string flow = 33;
+	int32 feedback_psd_count = 34;
+	int32 feedback_psbd_count = 35;
+	bool feedback_screenshot_present = 36;
+	int64 ocarina_elapsed_millis = 37;
+	int32 ocarina_num_bytes = 38;
+	ClientType client_type = 39;
+	repeated PsdEntry psd = 41;
+	string device_locale = 42;
+	google.internal.support.intelligence.moltron.v1.logging.MoltronInteraction moltron_interaction = 43;
+	string internal_help_center_name = 44;
+	int32 product_id = 45;
+	string gse_chat_session_id = 46;
+	string js_error_message = 47;
+	int32 view_id = 48;
+}

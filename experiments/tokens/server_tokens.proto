@@ -1,0 +1,15 @@
+edition = "2023";
+
+package experiments.tokens;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "EXH";
+
+message ServerTokens {
+	extend proto2.bridge.MessageSet {
+		ServerTokens message_set_extension = 202964622;
+	}
+
+	repeated bytes server_tokens = 1;
+}

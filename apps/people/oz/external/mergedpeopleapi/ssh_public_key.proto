@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "POEM";
+
+message SshPublicKey {
+	PersonFieldMetadata metadata = 1;
+	string key = 3;
+	string fingerprint = 4;
+	google.protobuf.Timestamp expiration_time = 5;
+}

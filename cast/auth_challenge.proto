@@ -1,0 +1,14 @@
+edition = "2023";
+
+package cast;
+
+import "cast/signature_algorithm.proto";
+import "cast/hash_algorithm.proto";
+
+option objc_class_prefix = "GCKPB";
+
+message AuthChallenge {
+	SignatureAlgorithm signature_algorithm = 1 [ default = RSASSA_PKCS1_V15 ];
+	bytes sender_nonce = 2;
+	HashAlgorithm hash_algorithm = 3 [ default = SHA1 ];
+}

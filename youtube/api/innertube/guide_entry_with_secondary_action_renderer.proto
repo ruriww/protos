@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/guide_entry_supported_accessibility_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideEntryWithSecondaryActionRenderer {
+	Command navigation_endpoint = 1;
+	Command secondary_navigation_endpoint = 2;
+	Icon secondary_icon = 3;
+	Icon icon = 7;
+	bytes tracking_params = 9;
+	FormattedString formatted_title = 10;
+	GuideEntrySupportedAccessibilityDatas accessibility = 14;
+}
+
+extend Renderer {
+	GuideEntryWithSecondaryActionRenderer guide_entry_with_secondary_action_renderer = 62953251;
+}

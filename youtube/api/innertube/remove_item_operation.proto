@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/remove_by_target_id.proto";
+import "youtube/api/innertube/remove_by_group_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RemoveItemOperation {
+	oneof removal {
+		RemoveByTargetId remove_by_target_id = 1;
+		RemoveByGroupId remove_by_group_id = 3;
+	}
+
+	string section_target_id = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/caption_track_entry.proto";
+import "youtube/api/innertube/audio_track_data.proto";
+import "youtube/api/innertube/translation_target.proto";
+import "youtube/api/innertube/player_captions_metadata_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerCaptionsTrackListRenderer {
+	repeated CaptionTrackEntry caption_tracks = 1;
+	repeated AudioTrackData audio_tracks = 2;
+	repeated TranslationTarget translation_languages = 3;
+	int32 default_audio_track_index = 4;
+	PlayerCaptionsMetadataSupportedRenderers contribute = 5;
+	repeated int32 default_translation_source_track_indices = 6 [ features.repeated_field_encoding = EXPANDED ];
+	Command open_transcript_command = 7;
+	repeated int32 recommended_translation_target_indices = 8 [ features.repeated_field_encoding = EXPANDED ];
+	bool enable_touch_captions_nitrate = 9;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+import "photos_vision_barhopper/recognition_options.proto";
+
+option objc_class_prefix = "BAR";
+
+message BarhopperRequest {
+	bytes image = 1;
+	int32 debug_level = 2;
+	RecognitionOptions recognition_options = 3;
+}

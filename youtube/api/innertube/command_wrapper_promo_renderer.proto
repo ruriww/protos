@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/watch_page_modal_trigger_condition.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+import "youtube/api/innertube/command_wrapper_promo_type.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommandWrapperPromoRenderer {
+	Command promo_command = 1;
+	Command impression_command = 2;
+	bool is_visible = 3;
+	WatchPageModalTriggerCondition watch_page_trigger_condition = 4;
+	bytes tracking_params = 6;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 7;
+	CommandWrapperPromoType promo_type = 8;
+}
+
+extend Renderer {
+	CommandWrapperPromoRenderer command_wrapper_promo_renderer = 182224395;
+}

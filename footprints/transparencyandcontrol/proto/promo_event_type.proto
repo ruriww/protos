@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum PromoEventType {
+	option features.enum_type = CLOSED;
+
+	PROMO_EVENT_TYPE_UNSPECIFIED = 0;
+	PROMO_IMPRESSION = 1;
+	PROMO_DISMISSAL = 2;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedOnboardingLocationRenderer {
+	UnpluggedIcon icon_type = 1;
+	FormattedString primary_text = 2;
+	FormattedString secondary_text = 3;
+	string zip_code = 4;
+	FormattedString location_text = 5;
+	repeated Renderer steps = 7;
+	Command on_click_command = 8;
+	Renderer elements_content = 9;
+	ThumbnailDetails image = 10;
+	Renderer primary_button = 11;
+	FormattedString footer_text = 12;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SSOErrorCategory {
+	option features.enum_type = CLOSED;
+
+	SSO_ERROR_CATEGORY_UNKNOWN = 0;
+	SSO_ERROR_CATEGORY_AUTHORIZATION_ERRORS = 1;
+	SSO_ERROR_CATEGORY_NETWORK_SERVER_ERRORS = 2;
+	SSO_ERROR_CATEGORY_USER_CANCELLATION_ERRORS = 3;
+}

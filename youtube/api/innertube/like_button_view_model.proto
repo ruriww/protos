@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/like_status_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LikeButtonViewModel {
+	extend Renderer {
+		LikeButtonViewModel like_button_view_model = 484585818;
+	}
+
+	Renderer toggle_button_view_model = 1;
+	elements.Command reset_animation_command = 2;
+	string like_status_entity_key = 3;
+	string animation_entity_key = 4;
+	string player_controls_visibility_entity_key = 5;
+	LikeStatusEntity like_status_entity = 6;
+	bool enable_animation_url = 10;
+	string like_animation_light_url = 11;
+	string like_animation_dark_url = 12;
+}

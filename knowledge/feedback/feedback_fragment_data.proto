@@ -1,0 +1,18 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "knowledge/feedback/client_context.proto";
+
+option objc_class_prefix = "UFR";
+
+message FeedbackFragmentData {
+	oneof encodings {
+		string encrypted_feedback_fragment_data = 1;
+		string encoded_feedback_fragment_data = 4;
+		string encoded_message = 5;
+	}
+
+	ClientContext client_context = 2;
+	int32 merge_priority = 3;
+}

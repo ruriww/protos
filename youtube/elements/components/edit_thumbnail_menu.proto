@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message EditThumbnailMenu {
+	string dismiss_text = 1;
+
+	message ListOption {
+		string text = 1;
+		api.innertube.Command command = 2;
+	}
+
+	ListOption take_thumbnail = 2;
+	ListOption upload_thumbnail = 3;
+	ListOption edit_stream_metadata = 4;
+}

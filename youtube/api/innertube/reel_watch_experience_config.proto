@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reel_watch_experience_type.proto";
+import "youtube/api/innertube/reel_pivot_bar_config.proto";
+import "youtube/api/innertube/reel_orientation.proto";
+import "youtube/api/innertube/reel_watch_system_ui_config.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/reel_watch_education_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelWatchExperienceConfig {
+	ReelWatchExperienceType experience_type = 2;
+	ReelPivotBarConfig pivot_bar_config = 3;
+	ReelOrientation orientation = 4;
+	ReelWatchSystemUiConfig system_ui_config = 5;
+	Command on_feed_dismissed = 6;
+	ReelWatchEducationConfig education_config = 7;
+}

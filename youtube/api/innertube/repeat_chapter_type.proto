@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RepeatChapterType {
+	option features.enum_type = CLOSED;
+
+	REPEAT_CHAPTER_TYPE_UNKNOWN = 0;
+	REPEAT_CHAPTER_TYPE_ENABLE_REPEAT = 1;
+	REPEAT_CHAPTER_TYPE_DISABLE_REPEAT = 2;
+}

@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/preset_sticker_metadata.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/interactive_sticker_type.proto";
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/video_effects_context.proto";
+import "youtube/api/innertube/location_metadata.proto";
+import "youtube/api/innertube/key_value_pair.proto";
+import "youtube/api/innertube/upload_video_type.proto";
+import "youtube/api/innertube/upload_disclaimer_banner_extras.proto";
+import "youtube/api/innertube/remix_creation_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetUploadVideoFormRequest {
+	InnerTubeContext context = 1;
+	VideoEffectsContext effects_context = 2;
+	LocationMetadata location = 3;
+	repeated KeyValuePair client_extras = 4;
+	PrivacyStatus preset_privacy = 5;
+	UploadVideoType upload_video_type = 6;
+	bool effects_settings_only = 7;
+	bool force_shorts_mde = 9;
+	UploadDisclaimerBannerExtras upload_disclaimer_banner_extras = 10;
+	bool enable_zero_step_channel_creation = 11;
+
+	message PresetMetadata {
+		string preset_title = 2;
+		PrivacyStatus preset_aadc_privacy = 3;
+		string preset_place_data = 4;
+		bytes preset_shorts_creation_metadata_editor_payload = 5;
+		PresetStickerMetadata preset_sticker_metadata = 6;
+	}
+
+	PresetMetadata preset_metadata = 12;
+	bool include_apply_snapshot_command = 13;
+	bool upload_video_uses_sct = 14;
+	int32 video_length_sec = 15;
+
+	message VideoMetadata {
+		google.protobuf.Duration video_length = 1;
+		bool contains_prompt_sticker = 2;
+		bool contains_video_response_sticker = 3;
+		repeated InteractiveStickerType interactive_sticker_types = 4;
+	}
+
+	VideoMetadata video_metadata = 16;
+	RemixCreationMetadata remix_creation_metadata = 17;
+	bool is_avatar = 18;
+	string reuse_details_video_id = 19;
+}

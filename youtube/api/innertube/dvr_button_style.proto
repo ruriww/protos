@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DvrButtonStyle {
+	option features.enum_type = CLOSED;
+
+	DVR_BUTTON_STYLE_UNKNOWN = 0;
+	DVR_BUTTON_STYLE_PLUS_TO_STOP = 1;
+	DVR_BUTTON_STYLE_PLUS_TO_CHECK = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs.proto.growth.parade_ios;
+
+option objc_class_prefix = "PRD";
+
+message ErrorEvent {
+	enum ErrorCode {
+		ERROR_CODE_UNSPECIFIED = 0;
+		MAKE_WEBVIEW_FAILURE = 1;
+		DATA_EXTRACTION_FAILURE = 2;
+		EVENT_DATA_PROTO_INIT_FAILURE = 3;
+		NIL_URL_PASSED = 4;
+	}
+
+	ErrorCode error_code = 1;
+
+	enum Function {
+		FUNCTION_UNSPECIFIED = 0;
+		MAKE_WEBVIEW = 1;
+		PARSE_MESSAGE = 2;
+		START_PARADE = 3;
+	}
+
+	Function function = 2;
+}

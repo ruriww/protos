@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/rpc/error_details.proto";
+import "google/search/readaloud/v1/audio_doc_mode_supported_status.proto";
+
+option objc_class_prefix = "RAS";
+
+message CheckUrlResponse {
+	bool is_supported = 1;
+	bool timing_info_supported = 2;
+	rpc.PreconditionFailure unsupported_reason = 3;
+	repeated AudioDocModeSupportedStatus modes_supported_status = 4;
+}

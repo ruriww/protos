@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum YpcEventType {
+	option features.enum_type = CLOSED;
+
+	YPC_EVENT_TYPE_UNKNOWN = 0;
+	YPC_EVENT_TYPE_START = 1;
+	YPC_EVENT_TYPE_SUCCESS = 2;
+	YPC_EVENT_TYPE_CANCEL = 3;
+	YPC_EVENT_TYPE_FAILURE = 4;
+	YPC_EVENT_TYPE_SECONDARY_DEVICE_START = 5;
+	YPC_EVENT_TYPE_SECONDARY_DEVICE_SIGNED_OUT_START = 6;
+	YPC_EVENT_TYPE_SECONDARY_DEVICE_SUCCESS = 11;
+	YPC_EVENT_TYPE_GO_TO_PAYMENT_PROCESSOR = 7;
+	YPC_EVENT_TYPE_PAYMENT_DIALOG_SHOWN = 8;
+	YPC_EVENT_TYPE_PAYMENT_PLATFORM_PAYMENT_SUCCEEDED = 9;
+	YPC_EVENT_TYPE_PAYMENT_START = 10;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message AssistantFeature {
+	enum AssistantFeatureType {
+		option features.enum_type = CLOSED;
+
+		ASSISTANT_FEATURE_TYPE_UNKNOWN = 0;
+		ASSISTANT_TELL_MY_FAMILY = 1;
+	}
+
+	AssistantFeatureType type = 1;
+}

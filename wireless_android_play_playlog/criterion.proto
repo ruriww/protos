@@ -1,0 +1,10 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message Criterion {
+	string application_id = 1;
+	string cast_namespace = 2;
+}

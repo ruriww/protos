@@ -1,0 +1,13 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+enum MutateAction {
+	option features.enum_type = CLOSED;
+
+	MUTATE_ACTION_UNKNOWN = 0;
+	MUTATE_ADD = 1;
+	MUTATE_REMOVE = 2;
+}

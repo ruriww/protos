@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelListSubMenuContentSize {
+	enum ContentSize {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SMALL = 1;
+		LARGE = 2;
+		LARGE_WITH_TEXT = 3;
+	}
+
+	ContentSize value = 1;
+}

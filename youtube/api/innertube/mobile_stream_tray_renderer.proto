@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mobile_stream_tray_layout.proto";
+import "youtube/api/innertube/mobile_stream_tray_item_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamTrayRenderer {
+	MobileStreamTrayLayout layout = 1;
+	bool should_modernize_layout = 2;
+	repeated MobileStreamTrayItemSupportedRenderers items = 141933345;
+}

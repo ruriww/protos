@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientYouTubeDataMember {
+	message ChannelItem {
+		bytes external_id = 1;
+	}
+
+	message PlaylistItem {
+		bytes external_playlist_id = 5;
+	}
+
+	message ScoringEventInfo {
+		bytes scoring_tracking_params = 1;
+	}
+
+	message SearchResultData {
+		int64 alchemy_fusion_inserted_position = 15;
+	}
+}

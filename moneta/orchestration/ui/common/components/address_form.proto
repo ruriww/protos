@@ -1,0 +1,95 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/country.proto";
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/components/display_address.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message AddressForm {
+	repeated Country allowed_country = 3;
+	repeated string allowed_country_code = 4;
+	bool phone_number_form = 5;
+	string id = 6;
+	AddressFormValue initial_value = 7;
+	repeated string postal_code_only_country_code = 9;
+	string recipient_label = 10;
+	string hide_form_fields_toggle_label = 11;
+
+	enum RelativeReference {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_RELATIVE_REFERENCE = 0;
+		COUNTRY = 1;
+		RECIPIENT = 2;
+		ADDRESS_LINE_1 = 3;
+		ADDRESS_LINE_2 = 4;
+		LOCALITY = 5;
+		ADMIN_AREA = 6;
+		POSTAL_CODE = 7;
+		PHONE_NUMBER = 8;
+		SORTING_CODE = 9;
+		DEPENDENT_LOCALITY = 10;
+		ORGANIZATION = 11;
+		AVAILABLE_OPTION = 12;
+		UNSELECTED = 13;
+		NEW_ADDRESS_SELECTED = 14;
+		ORGANIZATION_TYPE = 15;
+		ADDITIONAL_FIELDS = 16;
+	}
+
+	repeated RelativeReference read_only_field = 12 [ features.repeated_field_encoding = EXPANDED ];
+	string title = 13;
+	repeated RelativeReference hidden_field = 14 [ features.repeated_field_encoding = EXPANDED ];
+	string initial_country_i18n_data_json = 15;
+	repeated string structured_address_country_code = 18;
+	bool is_read_only = 19;
+	repeated DisplayAddress available_option = 21;
+	string add_another_address_label = 22;
+	int64 ui_reference = 25;
+	bytes data_token = 26;
+	generic.Tooltip tooltip = 28;
+	FormHeader form_header = 29;
+	int64 organization_field_ui_reference = 31;
+	int32 initial_available_option_index = 32;
+	repeated RelativeReference optional_field = 33 [ features.repeated_field_encoding = EXPANDED ];
+	bool collapsible = 34;
+	string collapsed_hint = 35;
+
+	enum AddressFormDisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		FORM = 1;
+		SELECTOR = 2;
+	}
+
+	AddressFormDisplayType address_form_display_type = 36;
+	string readonly_label = 37;
+	int64 recipient_field_ui_reference = 38;
+	int64 unselected_ui_reference = 40;
+	int64 default_address_form_ui_reference = 41;
+	string disallowed_country_message = 42;
+	string no_option_selected_error_message = 43;
+	string country_label = 45;
+	int64 new_address_selected_ui_reference = 46;
+	int64 preselected_option_reference = 47;
+	string locale_override = 48;
+	int64 country_field_ui_reference = 49;
+	bool disable_adding_another_address = 51;
+	bool enable_clear_initial_address = 53;
+	bool hide_country_selector = 54;
+	repeated generic.UiField additional_fields = 55;
+	bytes address_validation_type_token = 56;
+	bool phone_number_field_for_min_address = 57;
+	bool organization_field_for_min_address = 58;
+	bool use_collapsing_form = 59 [ default = true ];
+	proto2.bridge.MessageSet private_extensions = 60;
+	string contextual_top_message = 61;
+}

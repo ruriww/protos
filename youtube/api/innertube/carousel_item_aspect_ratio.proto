@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CarouselItemAspectRatio {
+	float small_form_factor_portrait = 1;
+	float small_form_factor_landscape = 2;
+	float large_form_factor_portrait = 3;
+	float large_form_factor_landscape = 4;
+}

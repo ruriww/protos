@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/validate_creator_delegates_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ValidateCreatorDelegatesCommand {
+	extend elements.Command {
+		ValidateCreatorDelegatesCommand validate_creator_delegates_command = 468649401;
+	}
+
+	ValidateCreatorDelegatesRequest request = 1;
+	string creator_delegate_email_validation_result_entity_key = 2;
+}

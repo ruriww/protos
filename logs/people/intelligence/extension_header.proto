@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/client_type.proto";
+import "social/logs/social_affinity_extension.proto";
+
+option objc_class_prefix = "PIL";
+
+message ExtensionHeader {
+	ClientType client = 1;
+	string instance_id = 2;
+	social.logs.SocialAffinityExtension.SocialAffinityClientInterface client_interface = 3;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/shorts_audio_visual_remix_source.proto";
+import "youtube/api/innertube/shorts_remix_source_segment.proto";
+import "youtube/api/innertube/shorts_montage_request_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetShortsSourceVideoCommand {
+	extend Command {
+		GetShortsSourceVideoCommand get_shorts_source_video_command = 359870813;
+	}
+
+	string external_video_id = 1;
+	string opaque_params = 2;
+	ShortsAudioVisualRemixSource audio_visual_remix_source = 3;
+	repeated ShortsRemixSourceSegment remix_source_segments = 4;
+	string player_params = 5;
+	ShortsMontageRequestMetadata montage_request_metadata = 6;
+}

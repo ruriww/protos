@@ -1,0 +1,12 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+option objc_class_prefix = "LNSAE";
+
+message AssistantEyesRequestId {
+	fixed64 eyes_session_id = 1;
+	fixed64 interaction_id = 2;
+	fixed64 payload_id = 3;
+	fixed64 lenslet_session_id = 4;
+}

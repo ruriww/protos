@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/form_data.proto";
+import "youtube/api/innertube/orchestration_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MutationOrchestrationFormData {
+	extend FormData {
+		MutationOrchestrationFormData mutation_orchestration_form_data = 1025;
+	}
+
+	OrchestrationId orchestration_id = 1;
+	string sampled_assets_directory = 2;
+}

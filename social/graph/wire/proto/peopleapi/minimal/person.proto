@@ -1,0 +1,21 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/name.proto";
+import "social/graph/wire/proto/peopleapi/minimal/photo.proto";
+import "social/graph/wire/proto/peopleapi/minimal/email.proto";
+import "apps/people/oz/external/mergedpeopleapi/person_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/minimal/in_app_notification_target.proto";
+
+option objc_class_prefix = "SGWPPM";
+
+message Person {
+	string person_id = 1;
+	repeated Name name = 3;
+	repeated Photo photo = 4;
+	repeated Email email = 10;
+	string fingerprint = 26;
+	apps.people.oz.external.mergedpeopleapi.PersonExtendedData extended_data = 38;
+	repeated InAppNotificationTarget in_app_notification_target = 46;
+}

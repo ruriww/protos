@@ -1,0 +1,20 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message CensusTags {
+	extend Request {
+		CensusTags census_tags = 59573892;
+	}
+
+	message Tag {
+		string key = 1;
+		string value = 2;
+	}
+
+	repeated Tag tag = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/mde_qos_event.proto";
+
+option objc_class_prefix = "YTEE";
+
+message PlaybackIntervalMetricsArgs {
+	google.protobuf.Timestamp request_time = 1;
+	google.protobuf.Duration start_playback_position = 2;
+	google.protobuf.Duration end_playback_position = 3;
+	google.protobuf.Duration duration = 4;
+	repeated api.innertube.MdeQosEvent.PlaybackUnderrun underruns = 5;
+	int64 pipeline_reference_id = 6;
+}

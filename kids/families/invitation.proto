@@ -1,0 +1,38 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/invitee_identifier.proto";
+import "kids/families/family_role.proto";
+import "kids/families/family_member_profile.proto";
+import "kids/families/invite_method_holder.proto";
+import "apps/people/oz/external/mergedpeopleapi/person.proto";
+import "kids/families/subscription_type.proto";
+
+option objc_class_prefix = "FAM";
+
+message Invitation {
+	InviteeIdentifier invitee_identifier = 1;
+	int64 invited_timestamp_millis = 2;
+	int64 valid_until_timestamp_millis = 3;
+	FamilyRole invited_role = 4;
+	int64 invitation_id = 5;
+	FamilyMemberProfile invitee_profile = 6;
+	repeated FamilyRole possible_role = 7 [ features.repeated_field_encoding = EXPANDED ];
+	string requester_product_id = 8;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_STATE = 0;
+		NOT_SENT = 1;
+		SENT = 2;
+		FAILED = 3;
+		EXPIRED = 4;
+	}
+
+	State state = 9;
+	InviteMethodHolder.InviteMethod invite_method = 10;
+	apps.people.oz.external.mergedpeopleapi.Person person = 12;
+	SubscriptionType subscription_type = 14;
+}

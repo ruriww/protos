@@ -1,0 +1,9 @@
+edition = "2023";
+
+package geostore;
+
+option objc_class_prefix = "GS";
+
+message FieldIdOptions {
+	int32 next_available_field_id = 1;
+}

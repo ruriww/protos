@@ -1,0 +1,13 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/special_restriction.proto";
+import "abuseiam/user_restriction.proto";
+
+option objc_class_prefix = "AIA";
+
+message SpecialRestrictionDefinition {
+	SpecialRestriction.Type type = 1;
+	UserRestriction definition = 2;
+}

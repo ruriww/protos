@@ -1,0 +1,42 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.audio;
+
+option objc_class_prefix = "MSP";
+
+message TextToSpeech {
+	string localized_spoken_text = 1;
+
+	message StructuredTextToSpeech {
+		string language = 2;
+		string voice_name = 3;
+		string voice_engine = 4;
+
+		enum AudioEncoding {
+			option features.enum_type = CLOSED;
+
+			AUDIO_ENCODING_UNKNOWN = 0;
+			MP3 = 1;
+			OPUS_IN_OGG = 2;
+		}
+
+		AudioEncoding audio_encoding = 8;
+	}
+
+	StructuredTextToSpeech tts = 2;
+	int32 search_api_result_index = 3;
+	bool should_reopen_mic = 4;
+
+	enum DataSource {
+		option features.enum_type = CLOSED;
+
+		DATA_SOURCE_UNKNOWN = 0;
+		RESULT = 1;
+		NON_RESULT = 2;
+	}
+
+	DataSource data_source = 9;
+	string localized_display_text = 11;
+
+	extensions 342668233;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+option objc_class_prefix = "OGADS";
+
+message BadgeRequestInfo {
+	bool should_fetch_storage_badge = 3 [ default = false ];
+}

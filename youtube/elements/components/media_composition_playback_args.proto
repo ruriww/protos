@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MediaCompositionPlaybackArgs {
+	string player_instance_id = 1;
+	float playback_speed = 2;
+	bool is_looping = 3;
+	float volume = 4 [ default = 1 ];
+}

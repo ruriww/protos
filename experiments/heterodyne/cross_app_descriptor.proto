@@ -1,0 +1,24 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "experiments/heterodyne/scope.proto";
+
+option objc_class_prefix = "EXH";
+
+message CrossAppDescriptor {
+	Scope from_scope = 1;
+	bytes experiment_token = 2;
+
+	enum DiversionProvenance {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		GAIA = 1;
+		PSEUDONYMOUS = 2;
+		ALWAYS_CROSS = 3;
+		OTHER = 4;
+	}
+
+	DiversionProvenance provenance = 3;
+}

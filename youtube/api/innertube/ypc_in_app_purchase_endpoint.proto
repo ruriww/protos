@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ypc_in_app_purchase_async_activity_supported_renderers.proto";
+import "youtube/api/innertube/command_life_cycle_config.proto";
+import "youtube/api/innertube/commerce_action_config.proto";
+import "youtube/api/innertube/ypc_cuj_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCInAppPurchaseEndpoint {
+	extend Command {
+		YPCInAppPurchaseEndpoint ypc_in_app_purchase_endpoint = 95894278;
+	}
+
+	string iap_product_id = 1;
+	string offer_country = 2;
+	string offer_params = 3;
+	int64 offer_end_time_secs = 4;
+	YPCInAppPurchaseAsyncActivitySupportedRenderers async_activity = 5;
+	repeated string available_countries = 7;
+	bytes serialized_transaction_flow_logging_params = 8;
+	string transaction_params = 10;
+	string request_data = 11;
+	CommandLifeCycleConfig command_life_cycle_config = 12;
+	CommerceActionConfig handle_transaction_action_config = 13;
+	YpcCujContext ypc_cuj_context = 14;
+}

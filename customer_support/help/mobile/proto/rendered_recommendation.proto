@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/recommendation_lite.proto";
+import "customer_support/help/mobile/proto/support_content_page_lite.proto";
+
+option objc_class_prefix = "CSHM";
+
+message RenderedRecommendation {
+	RecommendationLite recommendation = 1;
+	SupportContentPageLite content = 2;
+}

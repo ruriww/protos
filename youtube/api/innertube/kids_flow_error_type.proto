@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsFlowErrorType {
+	option features.enum_type = CLOSED;
+
+	KIDS_FLOW_ERROR_TYPE_UNKNOWN = 0;
+	KIDS_FLOW_ERROR_TYPE_VIDEO_PLAYBACK_FAILURE = 1;
+	KIDS_FLOW_ERROR_TYPE_NETWORK_FAILURE = 2;
+	KIDS_FLOW_ERROR_TYPE_INVALID_RESPONSE = 3;
+	KIDS_FLOW_ERROR_TYPE_CREATE_PROFILE_FAILURE = 4;
+	KIDS_FLOW_ERROR_TYPE_UPDATE_PROFILE_FAILURE = 5;
+	KIDS_FLOW_ERROR_TYPE_UPDATE_SETTINGS_FAILURE = 6;
+	KIDS_FLOW_ERROR_TYPE_CURATION_BEGIN_FAILURE = 7;
+}

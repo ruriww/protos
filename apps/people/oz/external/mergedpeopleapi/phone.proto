@@ -1,0 +1,20 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/phone_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/field_emergency_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message Phone {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+	string type = 3;
+	string canonicalized_form = 4;
+	string formatted_type = 5;
+	PhoneExtendedData extended_data = 6;
+	string uri = 7;
+	FieldEmergencyInfo emergency_info = 8;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/components/compact_playlist_data.proto";
+import "youtube/elements/context.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CompactPlaylistModel {
+	extend Model {
+		CompactPlaylistModel compact_playlist_model = 202672916;
+	}
+
+	string updated_playlist_entity_key = 1;
+	bytes tracking_params = 6;
+	Theme theme = 8;
+	EnvironmentData environment = 15;
+	CompactPlaylistData compact_playlist_data = 16;
+	Context context = 18;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

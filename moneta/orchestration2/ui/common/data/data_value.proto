@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+import "moneta/orchestration2/ui/common/data/data_token.proto";
+import "moneta/orchestration2/ui/common/data/data_state.proto";
+import "moneta/orchestration2/ui/common/data/data_role.proto";
+import "moneta/orchestration2/ui/common/data/lazy_update_method.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DataValue {
+	int64 data_reference = 1;
+	DataToken data_token = 2;
+	DataState state = 3;
+	string error_text = 4;
+	int32 extension_field_number = 5;
+	bool extension_is_unsubmittable = 6;
+	repeated int32 active_validation_id = 7;
+	bytes lazy_data_token = 11;
+	DataRole data_role = 12;
+	LazyUpdateMethod lazy_update_method = 13;
+	int64 client_generated_dynamic_child_data_reference = 14;
+
+	extensions 1000 to 525000001;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package experiments.phenotype;
+
+import "experiments/phenotype/registration_info.proto";
+
+option objc_class_prefix = "PHENO";
+
+message RegistrationInfos {
+	repeated RegistrationInfo infos = 1;
+}

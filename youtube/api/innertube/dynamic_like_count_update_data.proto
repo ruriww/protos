@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicLikeCountUpdateData {
+	string update_status_key = 1;
+	string placeholder_like_count_values_key = 2;
+	string update_delay_loop_id = 3;
+	float update_delay_sec = 4;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/flag.proto";
+
+option objc_class_prefix = "INKPB";
+
+message FlagAssignment {
+	Flag flag = 1;
+	bool bool_value = 2;
+}

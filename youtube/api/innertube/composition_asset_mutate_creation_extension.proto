@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/composition_asset_extension_data.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/content_spec.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompositionAssetMutateCreationExtension {
+	extend CompositionAssetExtensionData {
+		CompositionAssetMutateCreationExtension composition_asset_mutate_creation_extension = 1000;
+	}
+
+	string downsampled_video_id = 1;
+	Command shorts_creation_integration_command = 2;
+	string player_params = 3;
+	ContentSpec ideal_content_spec = 4;
+	string photo_library_asset_id = 5;
+	google.protobuf.Duration duration = 6;
+	google.protobuf.Duration trim_start = 7;
+	google.protobuf.Duration trim_end = 8;
+	bool has_audio_track = 9;
+	string file_name = 10;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/page.proto";
+
+option objc_class_prefix = "GFM";
+
+message SetBirthdayResponse {
+	ApiResponseHeader api_header = 1;
+	bool update_accepted = 2;
+	bool account_disabled = 3;
+	string disabled_account_recovery_url = 4;
+	Page error_description = 5;
+}

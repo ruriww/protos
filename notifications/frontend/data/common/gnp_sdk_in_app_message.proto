@@ -1,0 +1,27 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/platform/common/proto/gnp_in_app_renderable_content.proto";
+
+option objc_class_prefix = "NFDC";
+
+message GnpSdkInAppMessage {
+	platform.common.proto.GnpInAppRenderableContent content = 1;
+
+	message FreshnessRequirements {
+		enum PreferredFreshness {
+			option features.enum_type = CLOSED;
+
+			PREFERRED_FRESHNESS_UNSPECIFIED = 0;
+			PREFERRED_FRESHNESS_NONE = 1;
+			PREFERRED_FRESHNESS_LOW = 2;
+			PREFERRED_FRESHNESS_MEDIUM = 3;
+			PREFERRED_FRESHNESS_HIGH = 4;
+		}
+
+		PreferredFreshness preferred_freshness = 1;
+	}
+
+	FreshnessRequirements freshness_requirements = 2;
+}

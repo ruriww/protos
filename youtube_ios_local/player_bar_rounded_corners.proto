@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/player_bar_rounded_corner_type.proto";
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarRoundedCorners {
+	repeated PlayerBarRoundedCornerType played_progress_rounded_corners = 1;
+	repeated PlayerBarRoundedCornerType unbuffered_progress_rounded_corners = 2;
+	repeated PlayerBarRoundedCornerType downloaded_progress_rounded_corners = 3;
+}

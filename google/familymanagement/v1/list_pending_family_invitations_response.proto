@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/invitee_invitation_info.proto";
+import "google/familymanagement/v1/invitation.proto";
+import "google/familymanagement/v1/api_response_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message ListPendingFamilyInvitationsResponse {
+	ApiResponseHeader api_header = 1;
+
+	message PendingInvitationInfo {
+		InviteeInvitationInfo invitation_info = 1;
+		Invitation.State state = 2;
+	}
+
+	repeated PendingInvitationInfo invitation = 2;
+}

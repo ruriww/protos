@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/client/creation/mutate_creation_progress_update_event.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MutationProgressResult {
+	client.creation.MutateCreationProgressUpdateEvent progress_update_event = 1;
+}

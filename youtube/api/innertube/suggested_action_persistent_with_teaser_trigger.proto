@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/suggested_action_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestedActionPersistentWithTeaserTrigger {
+	extend SuggestedActionTrigger {
+		SuggestedActionPersistentWithTeaserTrigger suggested_action_persistent_with_teaser_trigger = 322606150;
+	}
+
+	int32 teaser_duration_millis = 1;
+	bool disable_teaser = 2;
+}

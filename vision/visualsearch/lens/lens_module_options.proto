@@ -1,0 +1,11 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "vision/visualsearch/lens/lens_modules.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message LensModuleOptions {
+	LensModules modules_wanted = 1;
+}

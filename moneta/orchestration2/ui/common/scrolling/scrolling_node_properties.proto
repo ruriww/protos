@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingNodeProperties {
+	bool scrolling_direction_vertical = 1;
+	bool scrolling_direction_horizontal = 2;
+}

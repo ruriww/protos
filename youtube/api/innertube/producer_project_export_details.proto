@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProducerProjectExportDetails {
+	int32 count_of_export_for_project = 3;
+	uint64 last_export_for_project = 4;
+	uint64 last_successful_export_timestamp_ms = 5;
+	bool is_first_export_for_user = 6;
+	uint64 export_size_bytes = 7;
+	uint64 available_space_for_export_bytes = 8;
+	uint64 storage_used_bytes = 11;
+	double export_progress = 12;
+	bool is_app_in_background = 13;
+	int64 export_attempt_id = 14;
+	bool is_template_used_export = 15;
+	bool is_first_template_used_export_for_user = 16;
+
+	message ProducerExportCancelledDetails {
+		uint64 time_elapsed_ms = 1;
+		uint64 progress_percent = 2;
+	}
+
+	ProducerExportCancelledDetails export_cancelled_details = 17;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package ink.proto.text;
+
+import "ink/proto/text/font.proto";
+import "ink/proto/alignment.proto";
+import "ink/proto/text/drop_shadow.proto";
+import "ink/proto/text/layout.proto";
+import "ink/proto/int_packed_color.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Text {
+	string text = 1;
+	Font font = 3;
+	float font_size_fraction = 4;
+	uint32 rgba = 5 [ default = 255 ];
+	Alignment alignment = 6;
+	DropShadow shadow = 7;
+	Layout layout = 8;
+	IntPackedColor background_color = 9;
+	IntPackedColor border_color = 10;
+	float border_width_fraction = 11;
+	float padding_fraction = 12;
+}

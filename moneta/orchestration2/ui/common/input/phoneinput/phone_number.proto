@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneNumber {
+	string calling_code = 1;
+	string number = 2;
+
+	enum Source {
+		option features.enum_type = CLOSED;
+
+		SOURCE_UNKNOWN = 0;
+		SOURCE_DEVICE_AUTOFILL = 1;
+		SOURCE_USER_INPUT = 2;
+		SOURCE_SERVER_PROVIDED = 3;
+	}
+
+	Source source = 3;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/vast_xml_renderer.proto";
+import "youtube/api/innertube/vmap_renderer.proto";
+import "youtube/api/innertube/video_ad_renderer.proto";
+import "youtube/api/innertube/player_response.proto";
+import "youtube/api/innertube/ad_break_renderer.proto";
+import "youtube/api/innertube/forecasting_ad_renderer.proto";
+import "youtube/api/innertube/survey_ad_renderer.proto";
+import "youtube/api/innertube/ad_placement_renderer.proto";
+import "youtube/api/innertube/ad_message_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MidrollAdsSupportedRenderers {
+	oneof renderer {
+		VastXmlRenderer vast_xml_renderer = 31798815;
+		VmapRenderer vmap_renderer = 48841103;
+		VideoAdRenderer video_ad_renderer = 61554017;
+		PlayerInstreamAdRenderer player_instream_ad_renderer = 63112829;
+		AdBreakRenderer ad_break_renderer = 84813246;
+		ForecastingAdRenderer forecasting_ad_renderer = 84818269;
+		SurveyAdRenderer survey_ad_renderer = 85201052;
+		AdPlacementRenderer ad_placement_renderer = 136104733;
+		AdMessageRenderer ad_message_renderer = 201403539;
+	}
+}

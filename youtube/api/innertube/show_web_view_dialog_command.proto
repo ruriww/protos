@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/web_view_url_matcher.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowWebViewDialogCommand {
+	extend Command {
+		ShowWebViewDialogCommand show_web_view_dialog_command = 243963315;
+	}
+
+	string url = 1;
+	FormattedString title = 2;
+	Renderer information_button_renderer = 3;
+	bool authenticate_with_google_account = 4;
+	repeated Command on_dismiss_commands = 5;
+	bytes tracking_params = 7;
+	bool display_mini_player = 8;
+	bool disable_loading_spinner = 10;
+	Command on_start_command = 11;
+	Command on_failure_command = 12;
+	repeated WebViewUrlMatcher web_view_url_matchers = 13;
+}

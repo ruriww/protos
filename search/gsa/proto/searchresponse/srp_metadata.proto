@@ -1,0 +1,11 @@
+edition = "2023";
+
+package search.gsa.proto.searchresponse;
+
+option objc_class_prefix = "GSA";
+
+message SrpMetadata {
+	string event_id = 1;
+	string srp_root_ved = 2;
+	string rewritten_query = 6;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens.ondevice;
+
+import "lens/text/portable/inpainting/line_background.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ParagraphBackgrounds {
+	string paragraph_id = 1;
+	repeated text.portable.inpainting.LineBackground line_backgrounds = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/list_style.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ListGroup {
+	ListStyle.ListType list_type = 1;
+	repeated ListStyle list_items = 2;
+}

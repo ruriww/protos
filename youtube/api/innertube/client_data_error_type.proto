@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ClientDataErrorType {
+	option features.enum_type = CLOSED;
+
+	CLIENT_DATA_ERROR_TYPE_UNKNOWN = 0;
+	CLIENT_DATA_ERROR_TYPE_VALIDATION_CLASS_MISMATCH = 1;
+	CLIENT_DATA_ERROR_TYPE_VALIDATION_EXCLUSIVE_FIELD_CONTROL_FILLED = 2;
+	CLIENT_DATA_ERROR_TYPE_VALIDATION_EXCLUSIVE_FIELD_EXPERIMENT_FILLED = 3;
+	CLIENT_DATA_ERROR_TYPE_VALIDATION_REPEATED_FIELD_COUNT_MISMATCH = 4;
+	CLIENT_DATA_ERROR_TYPE_VALIDATION_PRIMITIVE_VALUE_MISMATCH = 5;
+	CLIENT_DATA_ERROR_TYPE_VALIDATION_NO_ERROR = 6;
+}

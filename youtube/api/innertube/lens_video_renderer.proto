@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LensVideoRenderer {
+	extend ContinuationSupportedRenderers {
+		LensVideoRenderer lens_video_renderer = 267256503;
+	}
+
+	EngagementPanelSupportedRenderers engagement_panel = 1;
+	Command hide_lens_box_command = 2;
+	string video_id = 3;
+	Command on_received = 4;
+}
+
+extend Renderer {
+	LensVideoRenderer lens_video_renderer = 267256503;
+}

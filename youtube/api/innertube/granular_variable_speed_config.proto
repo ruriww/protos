@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GranularVariableSpeedConfig {
+	int32 minimum_playback_rate = 1;
+	int32 maximum_playback_rate = 2;
+	int32 step_size = 3;
+
+	message PlaybackRateOption {
+		string label = 1;
+		int32 value = 2;
+		bool is_premium_upsell = 3;
+	}
+
+	repeated PlaybackRateOption default_playback_rate_options = 4;
+	bool show_skip_silence_setting = 5;
+}

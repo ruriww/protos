@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/topics_header_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TopicsHeaderRenderer {
+	repeated TopicsHeaderSupportedRenderers topics = 1;
+	bytes tracking_params = 3;
+	int32 selected_topic_index = 4;
+}
+
+extend Renderer {
+	TopicsHeaderRenderer topics_header_renderer = 102284451;
+}

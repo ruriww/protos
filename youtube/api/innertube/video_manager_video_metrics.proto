@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoManagerVideoMetrics {
+	uint64 view_count = 1;
+	uint64 comment_count = 2;
+	uint64 likes_count = 3;
+	uint64 dislikes_count = 4;
+	FormattedString view_count_string = 5;
+	FormattedString comment_count_string = 6;
+	FormattedString likes_count_string = 7;
+	FormattedString dislikes_count_string = 8;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+import "media/webrtc/server/chameleon/karma/push/streams_push.proto";
+import "media/webrtc/server/chameleon/karma/push/server_data_channel_message.proto";
+
+option objc_class_prefix = "WRTCSMR";
+
+message PushNotification {
+	repeated StreamsPush streams_push = 1;
+	repeated ServerDataChannelMessage server_data_channel_message = 4;
+}

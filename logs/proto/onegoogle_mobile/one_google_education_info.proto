@@ -1,0 +1,22 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+import "unknown/youtube/one_google_mobile_feature_education_id6978.proto";
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleEducationInfo {
+	enum FeatureEducationType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		UNKNOWN = 1;
+		APD_LONG_PRESS_HIGHLIGHT = 2;
+		MAVATAR_HIGHLIGHT = 3;
+		FAUXBAKE_HIGHLIGHT = 4;
+	}
+
+	FeatureEducationType feature_education_type = 1;
+	unknown.youtube.OneGoogleMobileFeatureEducationId6978.OneGoogleMobileFeatureEducationId feature_education_id = 2;
+}

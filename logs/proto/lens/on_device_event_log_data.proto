@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/lens_on_device_metadata.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message OnDeviceEventLogData {
+	enum OnDeviceEventContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ON_DEVICE_EVENT_CONTEXT = 0;
+		TRANSLATE_RESULTS_GENERATED = 11;
+	}
+
+	OnDeviceEventContext on_device_event_context = 1;
+	LensOnDeviceMetadata on_device_metadata = 2;
+}

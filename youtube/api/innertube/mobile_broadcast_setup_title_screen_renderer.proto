@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_title_input_text_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_title_input_select_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_title_input_boolean_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_next_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_advanced_settings_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_switch_camera_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_back_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileBroadcastSetupTitleScreenRenderer {
+	ThumbnailDetails avatar = 1;
+	MobileBroadcastSetupTitleInputTextSupportedRenderers title = 2;
+	MobileBroadcastSetupTitleInputSelectSupportedRenderers stream_privacy = 3;
+	MobileBroadcastSetupTitleInputBooleanSupportedRenderers enable_chat = 4;
+	MobileBroadcastSetupTitleInputBooleanSupportedRenderers enable_push_notifications = 5;
+	MobileBroadcastSetupNextButtonSupportedRenderers next_button = 6;
+	MobileBroadcastSetupAdvancedSettingsButtonSupportedRenderers advanced_settings_button = 7;
+	MobileBroadcastSetupSwitchCameraButtonSupportedRenderers switch_camera_button = 8;
+	MobileBroadcastSetupBackButtonSupportedRenderers back_button = 9;
+	Renderer more_options = 10;
+	Renderer show_schedule_button = 12;
+	Renderer promotion = 13;
+	Renderer place_editor = 14;
+	Renderer active_account = 15;
+	Renderer description = 16;
+	Renderer camera_mode_button = 17;
+	Renderer screencast_mode_button = 18;
+	bool is_screencast = 19;
+	Renderer game_title = 20;
+	Renderer targeted_audience_renderer = 21;
+	Renderer open_metadata_editor_button = 22;
+}
+
+extend Renderer {
+	MobileBroadcastSetupTitleScreenRenderer mobile_broadcast_setup_title_screen_renderer = 126006644;
+}

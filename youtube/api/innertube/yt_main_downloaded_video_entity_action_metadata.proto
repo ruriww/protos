@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/yt_main_video_entity.proto";
+import "youtube/api/innertube/yt_main_channel_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtMainDownloadedVideoEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		YtMainDownloadedVideoEntityActionMetadata yt_main_downloaded_video_entity_action_metadata = 299918355;
+	}
+
+	bytes click_tracking_params = 1;
+	OfflineabilityFormatType maximum_download_quality = 2;
+	bool user_accepted_content_check = 3;
+	YtMainVideoEntity video = 4;
+	YtMainChannelEntity channel_owner = 5;
+	string preferred_audio_track = 6;
+}

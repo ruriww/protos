@@ -1,0 +1,42 @@
+edition = "2023";
+
+package greco;
+
+import "greco/recognition_result.proto";
+import "greco/partial_result.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "GRC";
+
+message RecognitionEvent {
+	enum EventType {
+		option features.enum_type = CLOSED;
+
+		RECOGNITION_RESULT = 0;
+		RECOGNITION_COMPLETED = 1;
+		RECOGNITION_PRELIMINARY_RESULT = 2;
+		RECOGNITION_SUBMIT_RESULT = 3;
+	}
+
+	EventType event_type = 1;
+	RecognitionResult result = 3;
+	PartialResult partial_result = 4;
+	RecognitionResult combined_result = 5;
+	int64 generation_time_ms = 6;
+	RecognitionResult prefetch_result = 7;
+	int64 end_of_preamble_ms = 8;
+	int64 end_of_preamble_frame = 9;
+	int64 end_of_segment_flush_ms = 11;
+	int64 estimated_eos_time_msec = 12;
+	int64 eou_time_msec = 13;
+	float confidence_threshold = 14;
+	int64 start_of_user_perceived_time_ns = 16;
+	bool is_discard = 17;
+	bool connection_terminated_by_server = 18;
+	google.protobuf.Duration suggested_audio_per_connection = 19;
+	bool nonstreaming_optimizations_enabled = 23;
+	repeated string sentence_delimiters = 24;
+	bool nonstreaming_trim_word = 25;
+
+	extensions 385633400 to max;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/matrix_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PresetShortsCreationProductStickerMetadata {
+	MatrixData matrix = 1;
+
+	message Rectangle {
+		double width = 1;
+		double height = 2;
+	}
+
+	Rectangle unscaled_body_rectangle = 2;
+}

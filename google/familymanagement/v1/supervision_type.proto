@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum SupervisionType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_SUPERVISION_TYPE = 0;
+	GELLER = 1;
+	GRIFFIN = 2;
+}

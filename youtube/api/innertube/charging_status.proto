@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ChargingStatus {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CHARGING_STATUS = 0;
+	CHARGING_INACTIVE = 1;
+	CHARGING_USB = 2;
+	CHARGING_AC = 3;
+	CHARGING_WIRELESS = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package googlemac.iphone.shared.performance.primes.flightrecorder;
+
+import "google/protobuf/timestamp.proto";
+import "googlemac/iphone/shared/performance/primes/flightrecorder/ios_system_metadata.proto";
+import "googlemac/iphone/shared/performance/primes/flightrecorder/metadata.proto";
+
+option objc_class_prefix = "PFR";
+
+message FlightRecord {
+	int64 pid = 1;
+	google.protobuf.Timestamp start_time = 2;
+	IosSystemMetadata ios_metadata = 3;
+	repeated Metadata metadata = 4;
+
+	oneof user_id {
+		string gaia_id = 5;
+		string zwieback_id = 6;
+	}
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/player_response.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/share_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoplayVideoRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	FormattedString long_byline_text = 3;
+	FormattedString short_byline_text = 4;
+	ThumbnailDetails channel_thumbnail = 5;
+	Command navigation_endpoint = 6;
+	PlayerResponse player_response = 7;
+	FormattedString length_text = 8;
+	string video_id = 9;
+	bytes tracking_params = 11;
+	LikeButtonSupportedRenderers like_button = 12;
+	float navigation_confidence = 13;
+	MenuSupportedRenderers menu = 14;
+	Command channel_navigation_endpoint = 15;
+	ShareButtonSupportedRenderers share_button = 16;
+	string debug_html = 17;
+}
+
+extend Renderer {
+	AutoplayVideoRenderer autoplay_video_renderer = 65121821;
+}

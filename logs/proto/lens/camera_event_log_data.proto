@@ -1,0 +1,25 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message CameraEventLogData {
+	enum CameraEventContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CAMERA_EVENT_CONTEXT = 0;
+		CAMERA_START = 1;
+		CAMERA_STOP = 2;
+		CAMERA_PAUSE = 3;
+		CAMERA_UNPAUSE = 4;
+		CAMERA_BACKGROUND = 5;
+		CAMERA_RESUME = 6;
+		CAMERA_TERMINATE = 7;
+	}
+
+	CameraEventContext camera_event_context = 1;
+	int32 camera_subsession_index = 2;
+	int32 camera_pause_index = 3;
+	int32 session_length_ms = 4;
+}

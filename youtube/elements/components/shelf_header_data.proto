@@ -1,0 +1,76 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/avatar_view_model.proto";
+import "youtube/api/innertube/video_thumbnail_data.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/components/shelf_header_size.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ShelfHeaderData {
+	oneof image {
+		api.innertube.AvatarViewModel avatar = 1;
+		api.innertube.VideoThumbnailData thumbnail = 34;
+	}
+
+	Command on_tap = 4;
+	Button button = 5;
+	bytes tracking_params = 6;
+
+	oneof title_oneof {
+		string title = 20;
+		AttributedString attributed_title = 44;
+	}
+
+	oneof subtitle_oneof {
+		string subtitle = 21;
+		AttributedString attributed_subtitle = 39;
+	}
+
+	string eyebrow_headline = 22;
+	ShelfHeaderSize height = 24;
+	string a11y_label = 26;
+	bool use_divider = 28;
+	string title_superscript = 30;
+	uint32 background_color = 31;
+
+	oneof dark_theme_image {
+		api.innertube.AvatarViewModel dark_theme_avatar = 37;
+		api.innertube.VideoThumbnailData dark_theme_thumbnail = 38;
+	}
+
+	oneof additional_shelf_title_oneof {
+		string additional_shelf_title = 35;
+		AttributedString attributed_additional_shelf_title = 45;
+	}
+
+	uint32 dark_theme_background_color = 32;
+	bool is_square_thumbnail = 36;
+
+	oneof top_badge_oneof {
+		api.innertube.Renderer top_badge_view_model = 42;
+	}
+
+	oneof badge_oneof {
+		api.innertube.Renderer badge_view_model = 40;
+	}
+
+	api.innertube.Renderer trailing_actions = 43;
+
+	oneof additional_badge_oneof {
+		api.innertube.Renderer additional_badge_view_model = 47;
+	}
+
+	AttributedString title_truncation_text = 48;
+	uint32 headline_max_lines = 49;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

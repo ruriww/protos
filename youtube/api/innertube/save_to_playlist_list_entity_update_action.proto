@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SaveToPlaylistListEntityUpdateAction {
+	option features.enum_type = CLOSED;
+
+	SAVE_TO_PLAYLIST_LIST_ENTITY_UPDATE_ACTION_UNKNOWN = 0;
+	SAVE_TO_PLAYLIST_LIST_ENTITY_UPDATE_ACTION_ADD = 1;
+	SAVE_TO_PLAYLIST_LIST_ENTITY_UPDATE_ACTION_REMOVE = 2;
+}

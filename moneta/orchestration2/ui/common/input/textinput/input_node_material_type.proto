@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+option objc_class_prefix = "ORCH2";
+
+enum InputNodeMaterialType {
+	option features.enum_type = CLOSED;
+
+	INPUT_NODE_MATERIAL_TYPE_UNKNOWN = 0;
+	INPUT_NODE_MATERIAL_TYPE_FILLED = 1;
+	INPUT_NODE_MATERIAL_TYPE_OUTLINE = 2;
+	INPUT_NODE_MATERIAL_TYPE_BORDERLESS = 3;
+	INPUT_NODE_MATERIAL_TYPE_SEARCH_STYLE = 4;
+}

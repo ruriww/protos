@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+import "moneta/integrator/common/access_label_type_and_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message AccessLabels {
+	repeated AccessLabelTypeAndValue access_label_type_and_value = 1;
+}

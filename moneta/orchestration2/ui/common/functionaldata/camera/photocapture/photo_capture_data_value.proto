@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.photocapture;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhotoCaptureDataValue {
+	extend data.DataValue {
+		PhotoCaptureDataValue photo_capture_data_value_extension = 310954635;
+	}
+
+	string file_path = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricExtension {
+	extensions 2 to 11;
+	extensions 448379730;
+	extensions 463116665;
+	extensions 480665888;
+	extensions 502909396;
+	extensions 508713347;
+}

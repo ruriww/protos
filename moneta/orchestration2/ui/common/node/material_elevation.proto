@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum MaterialElevation {
+	option features.enum_type = CLOSED;
+
+	MATERIAL_ELEVATION_UNKNOWN = 0;
+	MATERIAL_ELEVATION_1 = 1;
+	MATERIAL_ELEVATION_2 = 2;
+	MATERIAL_ELEVATION_3 = 3;
+	MATERIAL_ELEVATION_4 = 4;
+	MATERIAL_ELEVATION_5 = 5;
+}

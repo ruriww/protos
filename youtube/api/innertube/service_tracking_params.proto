@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/key_value_pair.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ServiceTrackingParams {
+	enum Service {
+		option features.enum_type = CLOSED;
+
+		SERVICE_UNKNOWN = 0;
+		CSI = 1;
+		GFEEDBACK = 2;
+		BREAKPAD = 3;
+		GUIDED_HELP = 4;
+		GOOGLE_HELP = 5;
+		ECATCHER = 6;
+		SUGGEST = 7;
+		LISTNR = 8;
+	}
+
+	Service service = 1;
+	repeated KeyValuePair params = 2;
+}

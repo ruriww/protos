@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/promoted_native_text_content.proto";
+import "youtube/api/innertube/promoted15_click_text_content.proto";
+import "youtube/api/innertube/promoted15_click_pt_text_watch_supported_renderers.proto";
+import "youtube/api/innertube/active_view_display_measurement.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Promoted15ClickPtTextWatchRenderer {
+	PromotedNativeTextContent content = 1;
+	Promoted15ClickTextContent extra_content = 2;
+	Promoted15ClickPtTextWatchSupportedRenderers supported_renderers = 3;
+	bytes tracking_params = 5;
+	ActiveViewDisplayMeasurement active_view = 6;
+}
+
+extend Renderer {
+	Promoted15ClickPtTextWatchRenderer promoted15_click_pt_text_watch_renderer = 150805198;
+}

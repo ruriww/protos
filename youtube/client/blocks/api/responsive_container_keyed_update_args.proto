@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api;
+
+import "youtube/elements/components/container_layout_config.proto";
+import "youtube/api/innertube/spacing_configuration.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ResponsiveContainerKeyedUpdateArgs {
+	elements.components.ContainerLayoutConfig container_layout_configuration = 1;
+	int32 container_width = 2;
+	string target_id_key = 3;
+	youtube.api.innertube.SpacingConfiguration spacing_configuration = 4;
+	int32 screen_density = 5;
+}

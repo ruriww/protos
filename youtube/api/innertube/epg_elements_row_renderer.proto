@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/epg_elements_row_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgElementsRowRenderer {
+	EpgElementsRowSupportedRenderers element = 1;
+	string epg_row_state_entity_store_key = 2;
+	string tenx_id = 3;
+}

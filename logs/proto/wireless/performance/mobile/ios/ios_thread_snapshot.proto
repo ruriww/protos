@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/ios_stack_frame.proto";
+
+option objc_class_prefix = "PRM";
+
+message IosThreadSnapshot {
+	int64 thread_identifier = 1;
+	repeated IosStackFrame stack_frames = 2;
+	string thread_name = 3;
+}

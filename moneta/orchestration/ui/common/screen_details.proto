@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+import "moneta/orchestration/ui/common/form_field_reference.proto";
+
+option objc_class_prefix = "Orch";
+
+message ScreenDetails {
+	string screen_details_id = 1;
+	string title = 2;
+	string submit_button_text = 3;
+	string progress_dialog_text = 4;
+	repeated FormFieldReference refresh_trigger_field = 5;
+}

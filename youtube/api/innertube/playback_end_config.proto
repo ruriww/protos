@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_playback_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackEndConfig {
+	float end_seconds = 1;
+	float limited_playback_duration_in_seconds = 3;
+	VideoPlaybackPosition end_time_boundary = 4;
+}

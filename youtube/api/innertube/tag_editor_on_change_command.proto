@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/tag_editor_server_state_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TagEditorOnChangeCommand {
+	extend elements.Command {
+		TagEditorOnChangeCommand tag_editor_on_change_command = 228172556;
+	}
+
+	string text = 1;
+	string tag_editor_server_state_key = 2;
+	string tag_editor_client_state_key = 3;
+	TagEditorServerStateEntity tag_editor_initial_state = 4;
+	bool auto_chipify = 5;
+}

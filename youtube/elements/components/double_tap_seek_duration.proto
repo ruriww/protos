@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum DoubleTapSeekDuration {
+	option features.enum_type = CLOSED;
+
+	DOUBLE_TAP_SEEK_DURATION_UNKNOWN = 0;
+	DOUBLE_TAP_SEEK_DURATION_5S = 1;
+	DOUBLE_TAP_SEEK_DURATION_10S = 2;
+	DOUBLE_TAP_SEEK_DURATION_15S = 3;
+	DOUBLE_TAP_SEEK_DURATION_20S = 4;
+	DOUBLE_TAP_SEEK_DURATION_30S = 5;
+	DOUBLE_TAP_SEEK_DURATION_60S = 6;
+}

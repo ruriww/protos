@@ -1,0 +1,38 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/widget.proto";
+import "moneta/testing/demoserver/teststudio/proto/orchestration_api.proto";
+import "moneta/testing/demoserver/teststudio/proto/multi_step_scenario_context.proto";
+import "moneta/testing/demoserver/teststudio/proto/step_evaluation.proto";
+import "moneta/testing/demoserver/teststudio/proto/parameter_to_apply_from_context.proto";
+import "moneta/testing/demoserver/teststudio/proto/feature_type_value.proto";
+import "moneta/testing/demoserver/teststudio/proto/pre_process_config.proto";
+import "moneta/testing/demoserver/teststudio/proto/post_process_config.proto";
+
+option objc_class_prefix = "TSL";
+
+message TestScenarioType {
+	oneof scenario {
+		Widget widget = 1;
+		OrchestrationApi orchestration_api = 3;
+		MultiStepScenario multistep_scenario = 4;
+	}
+}
+
+message MultiStepScenario {
+	repeated ScenarioStep step = 1;
+	MultiStepScenarioContext scenario_context = 2;
+}
+
+message ScenarioStep {
+	int32 step_id = 1;
+	string name = 2;
+	TestScenarioType scenario_type = 3;
+	repeated StepEvaluation next_step = 6;
+	repeated ParameterToApplyFromContext parameter_to_apply_from_context = 7;
+	FeatureTypeValue feature_type = 8;
+	PreProcessConfig pre_process_config = 9;
+	PostProcessConfig post_process_config = 10;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RequestOrigin {
+	option features.enum_type = CLOSED;
+
+	REQUEST_ORIGIN_UNKNOWN = 0;
+	REQUEST_ORIGIN_APP_MIC = 1;
+	REQUEST_ORIGIN_DEVICE_ASSISTANT = 2;
+	REQUEST_ORIGIN_GOOGLE_ASSISTANT = 3;
+}

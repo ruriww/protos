@@ -1,0 +1,29 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+message LegacyMojoData {
+	enum MojoUserActionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_USER_ACTION = 0;
+		SHOWN_SEARCH_RESULTS = 1;
+		SEARCH_RESULTS_CLICKED = 2;
+		SHOWN_SUGGESTIONS = 3;
+		SUGGESTION_CLICKED = 4;
+		SHOWN_AUTOCOMPLETE = 5;
+		AUTOCOMPLETE_RESULTS_CLICKED = 6;
+		DISMISSED = 7;
+		BACK_BUTTON = 8;
+		DIFM_CLICKED = 9;
+		SEARCH_INTENT_CLICKED = 10;
+		SEARCH_RELATED_QUESTION_RESULT_EXPANDED = 11;
+		SEARCH_RELATED_QUESTION_RESULT_COLLAPSED = 12;
+		SEARCH_RELATED_QUESTION_RESULT_CLICKED = 13;
+	}
+
+	MojoUserActionType user_action_type = 1;
+	string session_id = 2;
+}

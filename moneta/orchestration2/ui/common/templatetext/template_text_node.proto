@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.templatetext;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/textinfo/text_category.proto";
+import "moneta/orchestration2/ui/common/text_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TemplateTextNode {
+	extend node.Node {
+		TemplateTextNode template_text_node_extension = 228971050;
+	}
+
+	textinfo.TextCategory text_category = 2;
+	TextProperties text_properties = 4;
+}

@@ -1,0 +1,87 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+import "scone/v1/survey/client_context.proto";
+import "scone/v1/survey/product_context.proto";
+import "scone/v1/survey/sensitive_client_context.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "UVSP";
+
+message Event {
+	google.protobuf.Duration time_since_trigger = 1;
+
+	message SurveyShown {
+		enum SurveyPromptType {
+			SURVEY_PROMPT_TYPE_UNKNOWN = 0;
+			SURVEY_PROMPT_TYPE_EMBEDDED = 1;
+			SURVEY_PROMPT_TYPE_MODAL = 2;
+			SURVEY_PROMPT_TYPE_NON_MODAL = 3;
+		}
+
+		SurveyPromptType survey_prompt_type = 1;
+	}
+
+	message SurveyAccepted {
+		ClientContext client_context = 1;
+		ProductContext product_context = 2;
+		SensitiveClientContext sensitive_client_context = 3;
+	}
+
+	message InvitationAnswered {
+		bool accepted = 1;
+	}
+
+	message QuestionAnswered {
+		message Selection {
+			enum AnswerType {
+				ANSWER_TYPE_UNSPECIFIED = 0;
+				ANSWER_TYPE_TEXT = 1;
+				ANSWER_TYPE_WRITE_IN = 2;
+				ANSWER_TYPE_NONE_OF_THE_ABOVE = 3;
+			}
+
+			AnswerType answer_type = 1;
+			uint32 answer_ordinal = 2;
+			string text = 3;
+			bool write_in = 4;
+		}
+
+		uint32 question_ordinal = 1;
+
+		message SingleSelectAnswer {
+			Selection answer = 1;
+		}
+
+		message MultipleSelectAnswer {
+			repeated Selection answer = 1;
+		}
+
+		message RatingAnswer {
+			Selection answer = 1;
+		}
+
+		message OpenTextAnswer {
+			string answer = 1;
+		}
+
+		oneof answer {
+			SingleSelectAnswer single_selection = 2;
+			MultipleSelectAnswer multiple_selection = 3;
+			RatingAnswer rating = 4;
+			OpenTextAnswer open_text = 5;
+		}
+	}
+
+	message SurveyClosed {
+	}
+
+	oneof event {
+		SurveyShown survey_shown = 2;
+		SurveyAccepted survey_accepted = 3;
+		InvitationAnswered invitation_answered = 4;
+		QuestionAnswered question_answered = 5;
+		SurveyClosed survey_closed = 6;
+	}
+}

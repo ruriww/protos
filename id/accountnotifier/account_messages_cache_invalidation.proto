@@ -1,0 +1,8 @@
+edition = "2023";
+
+package id.accountnotifier;
+
+option objc_class_prefix = "RCH";
+
+message AccountMessagesCacheInvalidation {
+}

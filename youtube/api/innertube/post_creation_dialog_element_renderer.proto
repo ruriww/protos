@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/post_creation_dialog_elements_compatibility.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostCreationDialogElementRenderer {
+	Renderer dialog_content_renderer = 1;
+	bytes serialized_creation_item_info = 2;
+	bytes tracking_params = 3;
+	string title = 5;
+	ThumbnailDetails author_thumbnail = 6;
+	FormattedString placeholder_text = 7;
+	PostCreationDialogElementsCompatibility compatibility = 8;
+	bool suggested_user_mentions_enabled = 9 [ default = false ];
+	LoggingDirectives logging_directives = 999;
+
+	extensions 204004686;
+	extensions 204011252;
+}
+
+extend Renderer {
+	PostCreationDialogElementRenderer post_creation_dialog_element_renderer = 203726253;
+}

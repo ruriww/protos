@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ShoppingAction {
+	option features.enum_type = CLOSED;
+
+	SHOPPING_ACTION_UNKNOWN = 0;
+	SHOPPING_ACTION_PRODUCT_DETAILS = 1;
+	SHOPPING_ACTION_CART = 2;
+	SHOPPING_ACTION_CHECKOUT = 3;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+option objc_class_prefix = "PIL";
+
+enum ClientType {
+	CLIENT_TYPE_UNSPECIFIED = 0;
+	GMAIL_WEB = 1;
+	PEOPLE_PLAYGROUND = 2;
+	PEOPLECARD_WEB = 3;
+	GOOGLE_VOICE_WEB = 4;
+	PEOPLESHEET_IOS = 5;
+	HUB_IOS = 6;
+	DOCOS_WEB = 7;
+	CONTACTS_WEB = 8;
+	PEOPLE_SHEET_ANDROID = 9;
+	HUB_ANDROID = 10;
+	SENDKIT_DEMO_IOS = 11;
+	PRIVACY_ONE_WEB = 12;
+	CONTACTS_ANDROID = 13;
+	CHAT_ANDROID = 14;
+	SENDKIT_DEMO_ANDROID = 15;
+	CHAT_IOS = 16;
+}

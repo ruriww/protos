@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenLensForFrame {
+	extend Command {
+		OpenLensForFrame open_lens_for_frame = 356868596;
+	}
+
+	bool enable_autoresume = 1;
+	int32 lens_intent_type = 2;
+	Command on_failure_command = 3;
+	repeated int32 external_experiment_ids = 4;
+	bool enable_auto_select = 5;
+}

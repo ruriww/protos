@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message SharedMemberKey {
+	int32 epoch = 1;
+	bytes wrapped_key = 2;
+	bytes member_proof = 3;
+}

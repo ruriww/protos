@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message HomeGraphAcl {
+	int64 token_owner_gaia_id = 1;
+	string structure_id = 2;
+	bytes zookie = 3;
+}

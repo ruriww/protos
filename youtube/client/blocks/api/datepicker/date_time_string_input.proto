@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.datepicker;
+
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/date.proto";
+
+option objc_class_prefix = "YTBA";
+
+message DateTimeStringInput {
+	oneof input_date {
+		google.protobuf.Timestamp timestamp = 1;
+		youtube.api.innertube.Date date = 2;
+	}
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/supported_native_action.proto";
+import "google/internal/identity/accountsettings/mobile/v1/supported_icon.proto";
+import "google/internal/identity/accountsettings/mobile/v1/supported_item_type.proto";
+import "google/internal/identity/accountsettings/mobile/v1/supported_alternative_type.proto";
+import "google/internal/identity/accountsettings/mobile/v1/supported_offline_screen.proto";
+import "google/internal/identity/accountsettings/mobile/v1/webview_capabilities.proto";
+import "google/internal/identity/accountsettings/mobile/v1/card_capabilities.proto";
+import "google/internal/identity/accountsettings/mobile/v1/android_intent_capabilities.proto";
+import "google/internal/identity/accountsettings/mobile/v1/native_capabilities.proto";
+import "google/internal/identity/accountsettings/mobile/v1/browser_capabilities.proto";
+
+option objc_class_prefix = "ASM";
+
+message ClientCapabilities {
+	repeated SupportedNativeAction supported_native_actions = 1;
+	repeated SupportedIcon supported_icons = 2;
+	repeated SupportedItemType supported_item_types = 3;
+	repeated SupportedAlternativeType supported_alternative_types = 4;
+	repeated SupportedOfflineScreen supported_offline_screens = 5;
+	WebviewCapabilities webview_capabilities = 7;
+	bool browser_authentication = 8 [ default = true ];
+	bool hats = 9;
+	CardCapabilities card_capabilities = 10;
+	bool uses_standard_chevron = 11;
+	AndroidIntentCapabilities android_intent_capabilities = 12;
+	NativeCapabilities native_capabilities = 13;
+	bool top_tab_icons = 14;
+	bool bottom_navigation = 15 [ default = true ];
+	bool footer = 16;
+	BrowserCapabilities browser_capabilities = 17;
+	bool support_link_delegation = 18;
+	bool left_navigation = 19;
+	bool seamless_dark_mode = 20;
+	bool simple_header = 21;
+	bool expressive_design = 22;
+}

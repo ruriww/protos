@@ -1,0 +1,20 @@
+edition = "2023";
+
+package chromecast.receiver;
+
+import "chromecast/receiver/wrapped_sender_key.proto";
+
+option objc_class_prefix = "GCRE";
+
+message WrapKeyResponse {
+	repeated WrappedSenderKey keys = 1;
+
+	enum ErrorCode {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		INVALID_INPUT = 1;
+	}
+
+	ErrorCode error = 2 [ default = NONE ];
+}

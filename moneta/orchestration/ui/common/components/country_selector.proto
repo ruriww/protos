@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/country.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+
+option objc_class_prefix = "Orch";
+
+message CountrySelector {
+	repeated Country allowed_country = 1;
+	repeated string allowed_country_code = 2;
+	string initial_country_code = 3;
+	FormHeader form_header = 7;
+	int32 initial_country_index = 8;
+	string caption = 9;
+	string label = 10;
+	bool enable_mobile_native_select_support = 11;
+}

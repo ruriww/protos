@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CollectionStyleItemSize {
+	option features.enum_type = CLOSED;
+
+	COLLECTION_STYLE_ITEM_SIZE_UNKNOWN = 0;
+	COLLECTION_STYLE_ITEM_SIZE_EXTRA_SMALL = 5;
+	COLLECTION_STYLE_ITEM_SIZE_SMALL = 1;
+	COLLECTION_STYLE_ITEM_SIZE_SMALL_STATIC = 4;
+	COLLECTION_STYLE_ITEM_SIZE_MEDIUM = 2;
+	COLLECTION_STYLE_ITEM_SIZE_LARGE = 3;
+}

@@ -1,0 +1,176 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "xeno/effect/event_list_proto.proto";
+import "drishti/calculator_options.proto";
+import "google/protobuf/any.proto";
+import "xeno/effect/runtime_options_proto.proto";
+import "xeno/effect/color_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message GraphInputConfigProto {
+	message AssetRegistryValue {
+		string asset_id = 1;
+	}
+
+	message DynamicInput {
+		message FrameSize {
+		}
+
+		message PreprocessingPacket {
+			string packet_name = 1;
+		}
+
+		message FrameSource {
+		}
+
+		oneof value {
+			FrameSize frame_size = 1;
+			PreprocessingPacket preprocessing_packet = 2;
+			FrameSource frame_source = 3;
+		}
+	}
+
+	message IMUValue {
+		message CurrentOrientationMatrix {
+		}
+
+		oneof value_type {
+			CurrentOrientationMatrix current_orientation_matrix = 1;
+		}
+	}
+
+	message UserInteractionValue {
+		message TouchInputProto {
+		}
+
+		message GestureInputProto {
+		}
+
+		oneof value_type {
+			TouchInputProto touches = 1;
+			GestureInputProto gestures = 2;
+		}
+	}
+
+	message EventsValue {
+		message Filter {
+			EventListProto filtered_event_type = 1;
+		}
+
+		Filter filter = 1;
+	}
+
+	message Input {
+		string name = 1;
+
+		oneof input {
+			int32 int_value = 2;
+			float float_value = 3;
+			bool bool_value = 4;
+			string string_value = 5;
+			drishti.CalculatorOptions options_value = 6;
+			AssetRegistryValue asset_registry_value = 7;
+			DynamicInput dynamic_input_value = 8;
+			IMUValue imu_value = 9;
+			UserInteractionValue user_interaction_value = 10;
+			int64 int64_value = 11;
+			double double_value = 12;
+			EventsValue events_value = 13;
+			google.protobuf.Any any_value = 14;
+		}
+	}
+
+	repeated Input input = 1;
+
+	message ControlInput {
+		string name = 1;
+
+		message IntSetting {
+			int32 default_value = 1;
+			int32 min_value = 2;
+			int32 max_value = 3;
+		}
+
+		message FloatSetting {
+			float default_value = 1;
+			float min_value = 2;
+			float max_value = 3;
+		}
+
+		message BoolSetting {
+			bool default_value = 1;
+		}
+
+		message StringSetting {
+			string default_value = 1;
+			repeated string possible_value = 2;
+		}
+
+		message ModeSetting {
+			string default_mode_name = 1;
+
+			message Mode {
+				string mode_name = 1;
+
+				message StreamNamePacketValuePair {
+					string stream_name = 1;
+
+					oneof value {
+						int32 int_value = 2;
+						float float_value = 3;
+						bool bool_value = 4;
+						string string_value = 5;
+						drishti.CalculatorOptions options_value = 6;
+						AssetRegistryValue asset_registry_value = 7;
+						RuntimeOptionsProto runtime_options_value = 8;
+						ColorProto color_value = 9;
+					}
+				}
+
+				repeated StreamNamePacketValuePair stream_name_to_value_map = 2;
+			}
+
+			repeated Mode mode = 2;
+		}
+
+		message RuntimeOptionsSetting {
+			RuntimeOptionsProto default_value = 1;
+		}
+
+		message GpuBufferSetting {
+			bool is_required = 1;
+		}
+
+		message ImageFrameSetting {
+			bool is_required = 1;
+		}
+
+		message ColorSetting {
+			ColorProto default_value = 1;
+		}
+
+		message DoubleSetting {
+			double default_value = 1;
+			double min_value = 2;
+			double max_value = 3;
+		}
+
+		oneof setting {
+			IntSetting int_setting = 2;
+			FloatSetting float_setting = 3;
+			BoolSetting bool_setting = 4;
+			StringSetting string_setting = 5;
+			ModeSetting mode_setting = 6;
+			RuntimeOptionsSetting runtime_options_setting = 7;
+			GpuBufferSetting gpu_buffer_setting = 8;
+			ImageFrameSetting image_frame_setting = 9;
+			ColorSetting color_setting = 10;
+			DoubleSetting double_setting = 11;
+		}
+	}
+
+	repeated ControlInput control_input = 2;
+}

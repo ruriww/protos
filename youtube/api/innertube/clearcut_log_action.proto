@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ClearcutLogAction {
+	option features.enum_type = CLOSED;
+
+	CLEARCUT_LOG_ACTION_UNKNOWN = 0;
+	CLEARCUT_LOG_ACTION_PASS_THROUGH = 1;
+	CLEARCUT_LOG_ACTION_BLOCK = 2;
+	CLEARCUT_LOG_ACTION_GEL = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/creator_channel_data.proto";
+import "youtube/api/innertube/update_status.proto";
+
+option objc_class_prefix = "YTBA";
+
+message UpdateCreatorChannelBlockResponse {
+	youtube.api.innertube.CreatorChannelData channel = 3;
+	youtube.api.innertube.UpdateStatus comments_settings_status = 4;
+	youtube.api.innertube.UpdateStatus studio_settings_status = 8;
+	youtube.api.innertube.UpdateStatus community_settings_status = 37;
+}

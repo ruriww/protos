@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_stream_protocol.proto";
+import "youtube/api/innertube/live_creation_orientation.proto";
+import "youtube/api/innertube/broadcast_conference_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationContext {
+	string encrypted_video_id = 1;
+	uint64 start_window_time_ms = 2;
+	uint64 end_window_time_ms = 3;
+	bool force_landscape_enabled = 4;
+	bool scheduled = 5;
+	bool quickstart_enabled = 6;
+	LiveCreationStreamProtocol protocol = 7;
+	int32 ingestion_width = 8;
+	int32 ingestion_height = 9;
+	LiveCreationOrientation stream_orientation = 10;
+	sfixed64 video_sid = 11;
+	bool is_screencast = 12;
+	BroadcastConferenceType broadcast_conference_type = 13;
+}

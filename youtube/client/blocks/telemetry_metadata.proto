@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/client/blocks/telemetry_config.proto";
+import "youtube/client/blocks/telemetry_span_metadata.proto";
+import "youtube/client/blocks/binding_error.proto";
+
+option objc_class_prefix = "YTB";
+
+message TelemetryMetadata {
+	extend TelemetryConfig {
+		TelemetryMetadata telemetry_metadata_config = 504396738;
+	}
+
+	extend TelemetrySpanMetadata {
+		TelemetryMetadata telemetry_metadata_span = 504396739;
+	}
+
+	extend BindingError {
+		TelemetryMetadata telemetry_metadata_error = 504396740;
+	}
+
+	uint32 container_id = 1;
+
+	extensions 1000 to max;
+}

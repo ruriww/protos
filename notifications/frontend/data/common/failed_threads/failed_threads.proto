@@ -1,0 +1,11 @@
+edition = "2023";
+
+package notifications.frontend.data.common.failed_threads;
+
+import "notifications/frontend/data/common/frontend_notification_thread.proto";
+
+option objc_class_prefix = "NFDCFT";
+
+message FailedThreads {
+	repeated FrontendNotificationThread failed_notification_thread = 1;
+}

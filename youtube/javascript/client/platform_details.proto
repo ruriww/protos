@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.javascript.client;
+
+option objc_class_prefix = "YTJS";
+
+message PlatformDetails {
+	string client_name = 1;
+	string client_version = 2;
+	string os_name = 3;
+	string os_version = 4;
+	string android_sdk_version = 5;
+}

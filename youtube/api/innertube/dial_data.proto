@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dial_app_status.proto";
+import "youtube/api/innertube/mdx_dial_device_cache_method.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DialData {
+	DialAppStatus dial_app_status = 1;
+	bool is_wake_on_lan = 2;
+	bool is_sleeping = 3;
+	string pairing_code = 4;
+	MdxDialDeviceCacheMethod cache_method = 5;
+	int32 polling_count = 6;
+	string theme = 7;
+	bool has_smooth_pairing_info = 8;
+}

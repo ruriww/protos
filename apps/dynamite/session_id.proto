@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/user_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message SessionId {
+	UserId user_id = 1;
+	string endpoint = 2;
+}

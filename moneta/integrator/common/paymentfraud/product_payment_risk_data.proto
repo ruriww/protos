@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.integrator.common.paymentfraud;
+
+import "moneta/integrator/common/paymentfraud/transaction.proto";
+import "paymentfraud/proto/risk_machine_id_result.proto";
+
+option objc_class_prefix = "OrchRisk";
+
+message ProductPaymentRiskData {
+	Transaction transaction = 1;
+	repeated int64 integrator_experiment_id = 11;
+	.paymentfraud.proto.RiskMachineIdResult risk_machine_id_result = 20;
+	string internal_seller_id = 21;
+	string cart_id = 23;
+}

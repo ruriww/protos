@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicShelfPromoRenderer {
+	FormattedString primary_text = 1;
+	FormattedString secondary_text = 2;
+	Renderer accept_button = 3;
+	Renderer dismiss_button = 4;
+	bytes tracking_params = 6;
+	Command impression_endpoint = 7;
+}
+
+extend Renderer {
+	MusicShelfPromoRenderer music_shelf_promo_renderer = 183715674;
+}

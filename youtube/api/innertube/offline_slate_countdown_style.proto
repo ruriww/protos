@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflineSlateCountdownStyle {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_SLATE_COUNTDOWN_STYLE_UNKNOWN = 0;
+	OFFLINE_SLATE_COUNTDOWN_STYLE_HH_MM_SS = 1;
+	OFFLINE_SLATE_COUNTDOWN_STYLE_LOCALIZED_WITH_MINUTE_GRANULARITY = 2;
+	OFFLINE_SLATE_COUNTDOWN_STYLE_LOCALIZED_WITH_SECOND_GRANULARITY = 3;
+}

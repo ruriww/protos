@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsCorpusPreference {
+	option features.enum_type = CLOSED;
+
+	KIDS_CORPUS_PREFERENCE_UNKNOWN = 0;
+	KIDS_CORPUS_PREFERENCE_YOUNGER = 1;
+	KIDS_CORPUS_PREFERENCE_TWEEN = 2;
+	KIDS_CORPUS_PREFERENCE_PAM_YOUNGER = 3;
+	KIDS_CORPUS_PREFERENCE_PAM_TWEEN = 4;
+	KIDS_CORPUS_PREFERENCE_PRESCHOOL = 5;
+	KIDS_CORPUS_PREFERENCE_SUPEX_MEDIUM = 6;
+	KIDS_CORPUS_PREFERENCE_SUPEX_LARGE = 7;
+	KIDS_CORPUS_PREFERENCE_SUPEX_SMALL = 8;
+}

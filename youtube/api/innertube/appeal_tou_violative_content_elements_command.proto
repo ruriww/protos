@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/appeal_creator_channel_tou_violative_content_request.proto";
+import "youtube/api/innertube/appeal_creator_channel_suspension_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppealTouViolativeContentElementsCommand {
+	extend elements.Command {
+		AppealTouViolativeContentElementsCommand appeal_tou_violative_content_elements_command = 355714826;
+	}
+
+	oneof appeal_request {
+		AppealCreatorChannelTouViolativeContentRequest request = 1;
+		AppealCreatorChannelSuspensionRequest channel_appeal_request = 2;
+	}
+}

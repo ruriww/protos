@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/sk_ad_network_yt_parameters.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppStoreEndpoint {
+	string app_id = 1;
+	string referrer = 2;
+	string android_deep_link = 3;
+	string android_caller_id = 4;
+	bool android_overlay = 5;
+	repeated Command cancelled_actions = 6;
+	string ios_app_url = 7;
+	repeated Command termination_commands = 8;
+	SkAdNetworkYTParameters sk_ad_parameters = 9;
+	string custom_product_page_id = 10;
+}
+
+extend Command {
+	AppStoreEndpoint app_store_endpoint = 62975126;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedCurrentLocationSettingItemRenderer {
+	FormattedString title = 1;
+	FormattedString display_location = 2;
+	ButtonSupportedRenderers action_button = 3;
+	Command action_command = 4;
+	FormattedString acquisition_loading_message = 5;
+	FormattedString undetected_device_error_message = 6;
+	FormattedString unresolved_location_error_message = 7;
+	FormattedString instruction_message = 8;
+	FormattedString get_help_message = 9;
+	ButtonSupportedRenderers primary_button = 10;
+	ButtonSupportedRenderers secondary_button = 11;
+	bytes tracking_params = 13;
+	FormattedString informational_message = 14;
+	FormattedString browser_instruction_message = 15;
+	FormattedString browser_action_button_label = 16;
+	FormattedString twofactor_instruction_message = 17;
+	FormattedString twofactor_start_polling_button_label = 18;
+	FormattedString twofactor_stop_polling_button_label = 19;
+	FormattedString back_button_label = 20;
+	string dma_id = 21;
+}
+
+extend Renderer {
+	UnpluggedCurrentLocationSettingItemRenderer unplugged_current_location_setting_item_renderer = 192807389;
+}

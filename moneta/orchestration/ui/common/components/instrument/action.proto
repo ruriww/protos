@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/action_type.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/generic/display_type_enum.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+
+option objc_class_prefix = "Orch";
+
+message Action {
+	string label = 1;
+	ActionType action_type = 2;
+	InstrumentForm instrument_form = 3;
+	bytes action_token = 4;
+	string url = 5;
+	ConfirmationDialog confirmation_dialog = 6;
+	generic.DisplayTypeEnum.DisplayType display_type = 8;
+	string integrator_provided_id = 9;
+	Link link = 10;
+	int64 ui_reference = 11;
+	bool disabled = 12 [ default = false ];
+}

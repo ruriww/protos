@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/product_picker_server_state_entity.proto";
+import "youtube/elements/components/product_picker_strings.proto";
+import "youtube/api/innertube/picker_merchant.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/edit_product_sticker_command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ProductPickerData {
+	string external_channel_id = 1;
+	api.innertube.ProductPickerServerStateEntity initial_server_state = 2;
+	ProductPickerStrings strings = 3;
+	int32 selection_limit = 4;
+	bool uses_redesigned_sheets = 7;
+	repeated api.innertube.PickerMerchant connected_stores = 10;
+	repeated api.innertube.PickerMerchant affiliate_sellers = 14;
+	bool update_product_selection_on_done = 16;
+	string external_video_id = 17;
+	bool show_1p_picker_education_message = 20;
+	bool show_warning_dialog_on_save_empty_selection = 21;
+	repeated api.innertube.PickerMerchant exclusive_offers_sellers = 29;
+	bool is_shown_in_engagement_panel = 38;
+	Command open_contract_signing_command = 39;
+	bool should_sign_contract_before_saving_affiliate_products = 40;
+	string contract_panel_signing_status_entity_key = 41;
+	bool show_selected_item_panel_on_first_open = 42 [ default = true ];
+	bool can_search_affiliate_products = 46;
+	Command on_contract_signed_command = 47;
+	string search_results_entity_key = 50;
+	bool has_saved_filter_chip = 52;
+	bool include_sticker_data_in_picker_items = 54;
+	Command close_product_picker_command = 55;
+	bool enable_sticker_state_management_on_done = 56;
+	bool enable_empty_search_requests = 58;
+	Command view_selected_items_command = 59;
+	api.innertube.EditProductStickerCommand.VideoStreamDetails video_stream_details = 62;
+	string product_details_panel_identifier = 63;
+	Command hide_product_details_command = 64;
+	string mde_snapshot_entity_key = 65;
+	bool has_commission_filter_chip = 68;
+	api.innertube.Renderer ghost_overlay_renderer = 69;
+	api.innertube.Renderer editing_guidelines = 70;
+	bool enable_search_query_suggestions = 71;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

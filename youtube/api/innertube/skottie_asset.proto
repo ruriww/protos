@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/type/color.proto";
+import "youtube/api/innertube/skottie_size.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SkottieAsset {
+	message ColorPalette {
+		repeated google.type.Color colors = 1;
+	}
+
+	repeated ColorPalette color_palettes = 1;
+	SkottieSize small_size = 2;
+	SkottieSize large_size = 3;
+	SkottieSize medium_size = 4;
+	int32 num_text_variables = 5;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsCuratedCollectionHeaderRenderer {
+	FormattedString page_title = 1;
+	FormattedString collection_title = 2;
+	FormattedString description = 3;
+	ThumbnailDetails icon = 4;
+	Datas color_palette = 5;
+	bytes tracking_params = 6;
+	string collection_id = 8;
+}
+
+extend Renderer {
+	KidsCuratedCollectionHeaderRenderer kids_curated_collection_header_renderer = 196904101;
+}

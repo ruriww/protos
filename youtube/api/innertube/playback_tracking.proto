@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/tracking_url.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/playback_logging_payload.proto";
+import "youtube/api/innertube/vss3_scheduling_config.proto";
+import "youtube/api/innertube/vss3_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackTracking {
+	TrackingUrl videostats_playback_url = 1;
+	TrackingUrl videostats_delayplay_url = 2;
+	TrackingUrl videostats_watchtime_url = 3;
+	TrackingUrl ptracking_url = 4;
+	TrackingUrl qoe_url = 5;
+	TrackingUrl remarketing_url = 6;
+	TrackingUrl set_awesome_url = 9;
+	bool add_video_to_history = 10;
+	TrackingUrl videostats_critical_watchtime_url = 11;
+	repeated TrackingUrl ad_tracking_urls = 12;
+	TrackingUrl atr_url = 13;
+	TrackingUrl ppv_remarketing_url = 14;
+	LoggingUrl engage_url = 15;
+	repeated int32 videostats_scheduled_flush_walltime_seconds = 16 [ features.repeated_field_encoding = EXPANDED ];
+	int32 videostats_default_flush_interval_seconds = 17;
+	TrackingUrl youtube_remarketing_url = 18;
+	TrackingUrl google_remarketing_url = 19;
+	repeated PlaybackLoggingPayload playback_payloads = 20;
+	VSS3SchedulingConfig vss3_scheduling_config = 22;
+	bytes serialized_watch_time_context_data = 23;
+	VSS3Config vss3_config = 25;
+	string composite_live_status_token = 26;
+	string composite_live_ingestion_offset_token = 27;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/video_interactions.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/video_interaction_pop_up_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerOverlayVideoInteractions {
+	message Interaction {
+		repeated VideoInteractions.Interaction.Region regions = 2;
+
+		message PopUpActionRenderers {
+			repeated Renderer actions = 1;
+		}
+
+		oneof next_action {
+			Renderer pop_up = 4;
+			PopUpActionRenderers pop_up_action_renderers = 9;
+			Command command = 10;
+		}
+
+		bytes tracking_params = 5;
+		string a11y_string = 7;
+		repeated Renderer pop_up_actions = 8;
+	}
+
+	repeated Interaction interactions = 1;
+	string tooltip = 11;
+	Renderer elements_interactions_layer = 12;
+}
+
+extend Renderer {
+	VideoInteractionPopUpRenderer video_interaction_pop_up_renderer = 232525688;
+}

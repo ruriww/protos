@@ -1,0 +1,9 @@
+edition = "2023";
+
+package frameworks.client.analytics.ve;
+
+option objc_class_prefix = "FCAV";
+
+message VEClientLoggingRules {
+	bool disable_all_ve_logging = 2;
+}

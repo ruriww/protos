@@ -1,0 +1,33 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message MapsProfile {
+	PersonFieldMetadata metadata = 1;
+	string tagline = 2;
+
+	message FieldRestriction {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			TYPE_UNSPECIFIED = 0;
+			HIDE_TAGLINE = 1;
+		}
+
+		Type type = 1;
+		bytes client_data = 2;
+	}
+
+	repeated FieldRestriction field_restriction = 3;
+
+	message UrlLink {
+		string url = 1;
+		string anchor_text = 2;
+	}
+
+	UrlLink website_link = 4;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.encryption;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message EcdhKeyCalculationSecureDataValue {
+	extend data.DataValue {
+		EcdhKeyCalculationSecureDataValue ecdh_key_calculation_secure_data_value_extension = 290848974;
+	}
+
+	string right_half_key = 1;
+}

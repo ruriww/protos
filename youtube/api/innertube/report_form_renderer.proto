@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/options_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/report_form_other_options_item_supported_renderers.proto";
+import "youtube/api/innertube/report_form_sub_view_supported_renderers.proto";
+import "youtube/api/innertube/boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/report_form_other_options_item_renderer.proto";
+import "youtube/api/innertube/report_form_details_sub_view_renderer.proto";
+import "youtube/api/innertube/report_form_extra_options_sub_view_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReportFormRenderer {
+	FormattedString title = 1;
+	OptionsSupportedRenderers abuse_report_options = 2;
+	ButtonSupportedRenderers submit_button = 3;
+	FormattedString other_options_title = 4;
+	repeated ReportFormOtherOptionsItemSupportedRenderers other_options = 5;
+	repeated ReportFormSubViewSupportedRenderers sub_views = 6;
+	ButtonSupportedRenderers cancel_button = 7;
+	BooleanFormFieldSupportedRenderers legal_report_checkbox = 8;
+}
+
+extend Renderer {
+	ReportFormRenderer report_form_renderer = 111078448;
+}
+
+extend Renderer {
+	ReportFormOtherOptionsItemRenderer report_form_other_options_item_renderer = 111070111;
+}
+
+extend Renderer {
+	ReportFormDetailsSubViewRenderer report_form_details_sub_view_renderer = 122099897;
+}
+
+extend Renderer {
+	ReportFormExtraOptionsSubViewRenderer report_form_extra_options_sub_view_renderer = 121722974;
+}

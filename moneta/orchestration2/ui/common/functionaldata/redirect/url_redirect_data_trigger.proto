@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UrlRedirectDataTrigger {
+	extend eventrules.trigger.Trigger {
+		UrlRedirectDataTrigger url_redirect_data_trigger_extension = 260579079;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_FINISHED_LOADING = 1;
+		TRIGGER_TYPE_STARTED_LOADING = 2;
+		TRIGGER_TYPE_STARTED_AUTHORIZATION = 3;
+		TRIGGER_TYPE_FAILED_AUTHORIZATION = 4;
+	}
+
+	TriggerType trigger_type = 1;
+}

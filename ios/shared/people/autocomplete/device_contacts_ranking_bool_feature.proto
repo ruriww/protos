@@ -1,0 +1,9 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message DeviceContactsRankingBoolFeature {
+	double coefficient = 1;
+}

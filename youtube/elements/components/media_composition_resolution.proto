@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum MediaCompositionResolution {
+	option features.enum_type = CLOSED;
+
+	MEDIA_COMPOSITION_EXPORT_RESOLUTION_UNSPECIFIED = 0;
+	MEDIA_COMPOSITION_EXPORT_RESOLUTION_720P = 1;
+	MEDIA_COMPOSITION_EXPORT_RESOLUTION_1080P = 2;
+	MEDIA_COMPOSITION_EXPORT_RESOLUTION_4K = 3;
+}

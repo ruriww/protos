@@ -1,0 +1,18 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/common/frontend_notification_thread.proto";
+import "notifications/frontend/data/common/failed_threads/failed_threads.proto";
+import "notifications/frontend/data/common/encrypted_frontend_notification_thread.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsFetchLatestThreadsResponse {
+	int64 paging_version = 4;
+	int64 sync_version = 5;
+	bool result_exhausted = 6;
+	repeated common.FrontendNotificationThread notification_thread = 7;
+	common.failed_threads.FailedThreads failed_threads = 8;
+	repeated common.EncryptedFrontendNotificationThread encrypted_notification_thread = 9;
+}

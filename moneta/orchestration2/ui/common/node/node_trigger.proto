@@ -1,0 +1,30 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NodeTrigger {
+	extend eventrules.trigger.Trigger {
+		NodeTrigger node_trigger_extension = 234156385;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_CLICKED = 1;
+		TRIGGER_TYPE_GAIN_FOCUS = 2;
+		TRIGGER_TYPE_LOSE_FOCUS = 3;
+		TRIGGER_TYPE_GAIN_FOCUS_WITHIN = 4;
+		TRIGGER_TYPE_LOSE_FOCUS_WITHIN = 5;
+		TRIGGER_TYPE_HOVER_OR_LONG_PRESS = 6;
+		TRIGGER_TYPE_LONG_PRESS = 7;
+		TRIGGER_TYPE_HOVER_OR_LONG_PRESS_END = 8;
+		TRIGGER_TYPE_LONG_PRESS_END = 9;
+	}
+
+	TriggerType trigger_type = 1;
+}

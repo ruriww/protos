@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/localized_consent_text.proto";
+import "google/internal/identity/accountlinking/v1/gen_x_consent_template.proto";
+
+option objc_class_prefix = "ALK";
+
+message CapabilityConsentText {
+	string capability_id = 1;
+
+	oneof consent_language {
+		LocalizedConsentText consent_text = 2;
+		GenXConsentTemplate assistant_genx_template = 4;
+	}
+}

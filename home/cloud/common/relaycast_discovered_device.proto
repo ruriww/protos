@@ -1,0 +1,21 @@
+edition = "2023";
+
+package home.cloud.common;
+
+import "home/cloud/proto/common/device_state.proto";
+import "home/cloud/common/device_capabilities.proto";
+
+option objc_class_prefix = "GHCC";
+
+message RelaycastDiscoveredDevice {
+	string cloud_device_id = 1;
+	string device_name = 2;
+	proto.common.DeviceState device_state = 3;
+	string structure_id = 4;
+	string structure_name = 5;
+	repeated string supported_app_ids = 6;
+	repeated string unsupported_app_ids = 7;
+	bool relaycast_disabled = 8;
+	bool allow_casting_from_different_network = 9;
+	DeviceCapabilities device_capabilities = 10;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/update_studio_settings.proto";
+
+option objc_class_prefix = "YTBA";
+
+message UpdateCreatorChannelBlockRequest {
+	string channel_id = 2;
+	youtube.api.innertube.UpdateStudioSettings studio_settings_request = 9;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/auto_offline_video_list_command_data.proto";
+import "youtube/api/innertube/auto_offline_playlist_command_data.proto";
+import "youtube/api/innertube/offline_candidate_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoOfflineCommandSupportedDatas {
+	AutoOfflineVideoListCommandData auto_offline_video_list_command_data = 113870795;
+	AutoOfflinePlaylistCommandData auto_offline_playlist_command_data = 179569628;
+	OfflineCandidateData offline_candidate_data = 183315411;
+}

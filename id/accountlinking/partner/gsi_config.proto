@@ -1,0 +1,10 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message GsiConfig {
+	string gsi_client_id = 2;
+	repeated int64 account_creation_scope_codes = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

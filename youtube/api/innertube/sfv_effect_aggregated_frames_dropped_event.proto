@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sfv_effect_histogram_bucket.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvEffectAggregatedFramesDroppedEvent {
+	int32 dropped_frame_count = 1;
+	repeated SfvEffectHistogramBucket dropped_frames_events_histogram = 2;
+	int64 monotonic_time_ms = 3;
+	SfvEffectPipelineData pipeline_data = 4;
+}

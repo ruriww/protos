@@ -1,0 +1,58 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+import "google/internal/identity/accountsettings/reach/v1/account_menu.proto";
+import "google/internal/identity/accountsettings/reach/v1/triggering_event.proto";
+import "google/internal/identity/accountsettings/reach/v1/account_particle_disc.proto";
+
+option objc_class_prefix = "RCH";
+
+message AccountMessagesRequest {
+	enum Surface {
+		option features.enum_type = CLOSED;
+
+		SURFACE_UNSPECIFIED = 0;
+		ACCOUNT_PARTICLE_DISC = 1;
+		ACCOUNT_MENU = 2;
+		BENTO_ACCOUNT_MENU = 3;
+		BENTO_ACCOUNT_PARTICLE_DISC = 4;
+	}
+
+	repeated Surface surfaces = 1;
+	TriggeringEvent triggering_event = 2;
+
+	message Context {
+		message AndroidClientVersion {
+			string android_os_version = 1;
+			string gmscore_version_name = 2;
+			int32 gmscore_version_code = 3;
+			string calling_android_app = 4;
+			int32 android_os_sdk = 5;
+		}
+
+		message IOSClientVersion {
+			string ios_build_changelist = 4;
+			string ios_app_bundle_id = 5;
+			string ios_app_version = 6;
+		}
+
+		message WebClientVersion {
+			string build_label = 1;
+			AccountMenu.AlertLevel cached_alert_level = 2;
+		}
+
+		oneof client_version {
+			AndroidClientVersion android_client_version = 1;
+			IOSClientVersion ios_client_version = 2;
+			WebClientVersion web_client_version = 3;
+		}
+
+		bool is_client_dark_launch = 4;
+		bool hide_entry_point_if_visited = 5;
+		bool hide_entry_point_if_viewed = 6;
+	}
+
+	Context context = 3;
+	AccountParticleDisc.Version account_particle_disc_version = 4;
+}

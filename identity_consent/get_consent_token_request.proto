@@ -1,0 +1,22 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_primitive_request.proto";
+import "footprints/transparencyandcontrol/proto/opaque_verification_token.proto";
+import "identity_consent/mobile_metadata.proto";
+import "identity_consent/privacy_primitive_config.proto";
+import "identity_consent/verification_token.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "IDC";
+
+message GetConsentTokenRequest {
+	ConsentPrimitiveRequest consent_primitive_request = 1;
+	footprints.transparencyandcontrol.proto.OpaqueVerificationToken opaque_verification_token = 2;
+	MobileMetadata mobile_metadata = 3;
+	PrivacyPrimitiveConfig privacy_primitive_config = 4;
+	VerificationToken verification_token = 5;
+	google.protobuf.Timestamp screen_visible_time = 6;
+	google.protobuf.Timestamp screen_triggered_time = 7;
+}

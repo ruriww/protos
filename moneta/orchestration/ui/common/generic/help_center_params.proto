@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+option objc_class_prefix = "Orch";
+
+message HelpCenterParams {
+	string help_center_product_id = 1;
+	string context = 2;
+	string country_code = 3;
+	map<string, string> product_specific_data = 4;
+
+	enum ProductType {
+		option features.enum_type = CLOSED;
+
+		PRODUCT_TYPE_UNKNOWN = 0;
+		PRODUCT_TYPE_INTEGRATOR = 1;
+		PRODUCT_TYPE_PAYMENTS = 2;
+	}
+
+	ProductType product_type = 5;
+	string help_center_path = 6;
+	string help_center_apk = 7;
+}

@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/posts_advanced_tier_features.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstageRepostCreationRenderer {
+	FormattedString title = 1;
+	Renderer repost_button = 2;
+	ThumbnailDetails author_thumbnail = 3;
+	FormattedString author_name = 4;
+	FormattedString placeholder_text = 5;
+	FormattedString privacy_text = 6;
+	int32 char_limit = 7;
+	Command mention_suggestions_endpoint = 9;
+	Command show_aadc_notice_command = 10;
+	string aadc_guidelines_state_key = 11;
+	PostsAdvancedTierFeatures advanced_tier_features = 12;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	BackstageRepostCreationRenderer backstage_repost_creation_renderer = 263380587;
+}

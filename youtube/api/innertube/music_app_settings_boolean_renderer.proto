@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicAppSettingsBooleanRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	bool checked = 3;
+	bool read_only = 4;
+	Command checked_service_endpoint = 5;
+	Command unchecked_service_endpoint = 6;
+	FormattedString subtitle_when_unchecked = 7;
+	bytes tracking_params = 9;
+	Icon icon = 10;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelWatchPresenterType {
+	option features.enum_type = CLOSED;
+
+	REEL_WATCH_PRESENTER_TYPE_UNKNOWN = 0;
+	REEL_WATCH_PRESENTER_TYPE_ELEMENTS = 1;
+	REEL_WATCH_PRESENTER_TYPE_SAMPLES = 2;
+	REEL_WATCH_PRESENTER_TYPE_LIVE_PREVIEW = 3;
+	REEL_WATCH_PRESENTER_TYPE_MINI_APP_AD = 4;
+	REEL_WATCH_PRESENTER_TYPE_POST = 5;
+	REEL_WATCH_PRESENTER_TYPE_SHORTS = 6;
+	REEL_WATCH_PRESENTER_TYPE_LIVE = 7;
+	REEL_WATCH_PRESENTER_TYPE_STACKED_CARDS = 8;
+}

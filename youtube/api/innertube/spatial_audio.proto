@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/capabilities.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SpatialAudio {
+	extend Capabilities {
+		SpatialAudio spatial_audio = 112099178;
+	}
+
+	enum SpatialAudioType {
+		option features.enum_type = CLOSED;
+
+		SPATIAL_AUDIO_TYPE_NONE = 0;
+		SPATIAL_AUDIO_TYPE_AMBISONICS_5_1 = 1;
+		SPATIAL_AUDIO_TYPE_AMBISONICS_QUAD = 2;
+		SPATIAL_AUDIO_TYPE_FOA_WITH_NON_DIEGETIC = 3;
+	}
+
+	SpatialAudioType type = 1;
+}

@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/download_format.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadOptionsPickerFooterData {
+	enum DownloadOptionsLayoutStyle {
+		option features.enum_type = CLOSED;
+
+		LAYOUT_STYLE_UNKNOWN = 0;
+		LAYOUT_STYLE_DIALOG = 1;
+		LAYOUT_STYLE_BOTTOM_SHEET = 2;
+	}
+
+	DownloadOptionsLayoutStyle layout_style = 1;
+	string cancel_button_title = 2;
+	string upsell_cta_button_title = 3;
+	string download_cta_button_title = 4;
+	Command dismiss_command = 5;
+
+	oneof video_or_playlist_id {
+		string video_id = 6;
+		string playlist_id = 7;
+	}
+
+	oneof offlineability_click_tracking {
+		bytes offlineability_click_tracking_params = 8;
+		int32 offlineability_ve_counter = 9;
+	}
+
+	repeated api.innertube.DownloadFormat formats = 10;
+	bool display_remember_settings_checkbox = 11;
+	string selected_values_id = 12;
+	Command upsell_command = 13;
+	Command offline_orchestration_action_command = 14;
+	bool bottom_sheet_thin_footer = 15;
+	string upsell_cancel_button_title = 16;
+	api.innertube.OfflineModeType offline_mode_type = 17;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

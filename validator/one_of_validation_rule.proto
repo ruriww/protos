@@ -1,0 +1,9 @@
+edition = "2023";
+
+package validator;
+
+option objc_class_prefix = "PBV";
+
+message OneOfValidationRule {
+	string is_required = 1;
+}

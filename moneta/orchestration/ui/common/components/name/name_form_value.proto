@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.name;
+
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message NameFormValue {
+	string id = 1;
+	repeated generic.UiFieldValue value = 2;
+	bytes data_token = 3;
+	int64 ui_reference = 4;
+}

@@ -1,0 +1,53 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/font_size_stats.proto";
+import "goodoc/bounding_box.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message SummaryStats {
+	int32 num_symbols = 1 [ default = 0 ];
+	repeated FontSizeStats font_size_histogram = 2;
+	int32 num_words = 4 [ default = 0 ];
+	int32 median_symbols_per_word = 5;
+	int32 mean_symbols_per_word = 6;
+	int32 num_lines = 7 [ default = 0 ];
+	int32 median_line_height = 8;
+	int32 median_symbols_per_line = 9;
+	int32 median_words_per_line = 10;
+	int32 mean_symbols_per_line = 11;
+	int32 mean_words_per_line = 12;
+	int32 num_line_spaces = 13 [ default = 0 ];
+	int32 median_line_span = 14;
+	int32 median_line_space = 15;
+	int32 num_paragraphs = 16 [ default = 0 ];
+	int32 median_paragraph_indent = 17;
+	int32 median_symbols_per_paragraph = 18;
+	int32 median_words_per_paragraph = 19;
+	int32 mean_symbols_per_paragraph = 20;
+	int32 mean_words_per_paragraph = 21;
+	int32 num_paragraph_spaces = 23 [ default = 0 ];
+	int32 median_paragraph_space = 24;
+	int32 num_blocks = 25 [ default = 0 ];
+	int32 num_non_graphic_blocks = 26 [ default = 0 ];
+	int32 median_symbols_per_block = 27;
+	int32 median_words_per_block = 28;
+	int32 mean_symbols_per_block = 29;
+	int32 mean_words_per_block = 30;
+	int32 num_block_spaces = 32 [ default = 0 ];
+	int32 median_block_space = 33;
+	int32 num_pages = 34 [ default = 0 ];
+	int32 median_width = 35;
+	int32 median_height = 36;
+	int32 median_horizontal_dpi = 37;
+	int32 median_vertical_dpi = 38;
+	BoundingBox median_printed_box = 39;
+	BoundingBox median_odd_printed_box = 40;
+	BoundingBox median_even_printed_box = 41;
+	BoundingBox median_full_printed_box = 42;
+	BoundingBox median_full_odd_printed_box = 43;
+	BoundingBox median_full_even_printed_box = 44;
+	bool estimated_font_sizes = 45 [ default = false ];
+}

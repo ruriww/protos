@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+import "chrome/dongle/opencast/session.proto";
+import "home/cloud/common/server_created_sender_certificate_details.proto";
+import "google/internal/home/cloud/castsdk/v1/relaycast_error.proto";
+
+option objc_class_prefix = "GCC";
+
+message CreateRelaycastSessionResponse {
+	chrome.dongle.opencast.Session session = 1;
+	.home.cloud.common.ServerCreatedSenderCertificateDetails cert_details = 2;
+	RelaycastError error = 3;
+}

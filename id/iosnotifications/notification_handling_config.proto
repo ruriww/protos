@@ -1,0 +1,32 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+import "google/protobuf/timestamp.proto";
+import "id/iosnotifications/notification_in_app_config.proto";
+
+option objc_class_prefix = "RCH";
+
+message NotificationHandlingConfig {
+	google.protobuf.Timestamp expiration_time = 1;
+	bool auto_prompt_on_app_foreground = 2;
+
+	message NotificationAction {
+		enum Target {
+			option features.enum_type = CLOSED;
+
+			TARGET_UNSPECIFIED = 0;
+			OCTARINE = 1;
+		}
+
+		Target target = 1;
+		string url = 2;
+	}
+
+	NotificationAction notification_action = 4;
+	bool should_store_in_cache = 5;
+	bool poll_after_webview_closure = 6 [ default = true ];
+	int32 priority = 9 [ default = 10 ];
+	NotificationInAppConfig in_app_config = 15;
+	google.protobuf.Timestamp triggering_time = 16;
+}

@@ -1,0 +1,46 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/instrument/fix_info_form.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form.proto";
+
+option objc_class_prefix = "Orch";
+
+message InstrumentOption {
+	string id = 1;
+	string label = 2;
+
+	oneof sublabel {
+		string warning_message = 3;
+		string status_message = 17;
+	}
+
+	string icon_uri = 4;
+	bool enabled = 5 [ default = true ];
+	generic.ImageWithCaption icon = 7;
+	FixInfoForm fix_info_form = 8;
+	int64 ui_reference = 9;
+
+	enum InstrumentState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NOT_USABLE = 1;
+		USABLE = 2;
+		REQUIRES_FIX = 3;
+		OPTIONALLY_UPDATABLE = 4;
+		HIDDEN = 5;
+	}
+
+	InstrumentState instrument_state = 11;
+	bytes instrument_token = 12;
+	SimpleForm detailed_description = 13;
+	generic.UiField instrument_rank = 14;
+	InstrumentForm instrument_form = 15;
+	repeated generic.ImageWithCaption expanded_mode_description_icon = 16;
+	repeated string additional_label = 19;
+}

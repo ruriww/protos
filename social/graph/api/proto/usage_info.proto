@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "SGAP";
+
+message UsageInfo {
+	uint64 times_contacted = 1;
+	google.protobuf.Timestamp last_time_contacted = 2;
+}

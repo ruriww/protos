@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+enum TextStyle {
+	option features.enum_type = CLOSED;
+
+	TEXT_STYLE_UNSPECIFIED = 0;
+	LABEL = 1;
+	TITLE = 2;
+	DESCRIPTION = 3;
+	STATUS = 4;
+	CAPTION = 5;
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/property_config.proto";
+import "image/tenor/creation/background_media.proto";
+import "image/tenor/creation/media_resource.proto";
+import "image/tenor/creation/displacement_map.proto";
+import "image/tenor/creation/position.proto";
+
+option objc_class_prefix = "TENOR";
+
+message EmbeddedAnimation {
+	AnimationConfig animation = 1;
+	string precomposed_layer_name = 2;
+}
+
+message AnimationConfig {
+	PropertyConfig property_config = 1;
+	repeated EmbeddedAnimation embedded_animations = 2;
+	string background_color = 3;
+	BackgroundMedia background_media = 4;
+
+	oneof animation_data {
+		bytes json = 5;
+		string blob_id = 6;
+		string json_file = 7;
+	}
+
+	repeated MediaResource media_resources = 8;
+	bool hide_layer = 9 [ default = false ];
+	DisplacementMap displacement_map = 10;
+	Position animation_position = 11;
+	repeated PropertyConfig property_configs = 12;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicColorSamplePalette {
+	uint32 section_1_color = 1;
+	uint32 section_2_color = 2;
+	uint32 section_3_color = 3;
+	uint32 section_4_color = 4;
+	uint32 primary_text_color = 5;
+	uint32 secondary_text_color = 6;
+	uint32 active_icon_color = 7;
+	uint32 inactive_icon_color = 8;
+	uint32 disabled_icon_color = 9;
+	uint32 surge_color = 10;
+}

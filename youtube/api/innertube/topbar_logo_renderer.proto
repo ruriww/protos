@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TopbarLogoRenderer {
+	oneof image {
+		Icon icon_image = 1;
+		ThumbnailDetails thumbnail_image = 2;
+	}
+
+	FormattedString tooltip_text = 3;
+	Command endpoint = 4;
+	bytes tracking_params = 6;
+	Renderer yoodle = 7;
+	string override_entity_key = 8;
+
+	oneof dark_theme_image {
+		Icon dark_theme_icon_image = 9;
+		ThumbnailDetails dark_theme_thumbnail_image = 10;
+	}
+
+	RendererContext renderer_context = 997;
+}

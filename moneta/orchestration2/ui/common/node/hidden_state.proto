@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum HiddenState {
+	option features.enum_type = CLOSED;
+
+	HIDDEN_STATE_UNKNOWN = 0;
+	HIDDEN_STATE_SELF = 1;
+	HIDDEN_STATE_SELF_AND_DESCENDANTS = 2;
+}

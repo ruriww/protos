@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/experiments_study_item_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExperimentsStudyRenderer {
+	FormattedString title = 1;
+	repeated FormattedString owners = 2;
+	FormattedString expires = 3;
+	FormattedString layer = 4;
+	FormattedString code = 5;
+	repeated ExperimentsStudyItemSupportedRenderers items = 6;
+	FormattedString link = 8;
+	bool is_expired = 9;
+	BadgeSupportedRenderers joined_experiment_badge = 10;
+	BadgeSupportedRenderers ineligible_badge = 11;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+import "google/internal/support/intelligence/moltron/v1/logging/user_type.proto";
+
+option objc_class_prefix = "SIML";
+
+message ShownContext {
+	UserType user_type = 1;
+}

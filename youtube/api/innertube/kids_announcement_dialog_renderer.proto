@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsAnnouncementDialogRenderer {
+	FormattedString title = 1;
+	FormattedString description = 2;
+	ThumbnailDetails background_image = 3;
+	Renderer dialog_renderer = 4;
+	bool can_dismiss = 5;
+	Datas color_palette = 6;
+	bytes tracking_params = 7;
+}
+
+extend Renderer {
+	KidsAnnouncementDialogRenderer kids_announcement_dialog_renderer = 271164047;
+}

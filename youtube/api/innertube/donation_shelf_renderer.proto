@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/suggested_amount.proto";
+import "youtube/api/innertube/donation_creator_message.proto";
+import "youtube/api/innertube/donation_shelf_type.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DonationShelfRenderer {
+	FormattedString campaign_title = 1;
+	FormattedString campaign_subtitle = 2;
+	ThumbnailDetails campaign_thumbnail = 3;
+	ButtonSupportedRenderers donate_button = 4;
+	float progress = 5;
+	FormattedString start_label = 6;
+	FormattedString end_label = 7;
+	ButtonSupportedRenderers expand_button = 8;
+	bytes tracking_params = 10;
+	FormattedString nonprofit_website = 12;
+	FormattedString campaign_description = 13;
+	FormattedString nonprofit_title = 14;
+	FormattedString nonprofit_subtitle = 15;
+	FormattedString nonprofit_description = 16;
+	FormattedString show_more_text = 19;
+	FormattedString show_less_text = 20;
+	repeated SuggestedAmount suggested_amounts = 21;
+	repeated DonationCreatorMessage creator_messages = 22;
+	FormattedString custom_amount_label = 23;
+	FormattedString currency_symbol = 24;
+	int64 min_amount_micros = 25;
+	int64 max_amount_micros = 26;
+	FormattedString amount_error = 27;
+	FormattedString parsing_error = 28;
+	FormattedString match_label = 29;
+	DonationShelfType shelf_type = 30;
+	FormattedString header_title = 31;
+	string header_background_url = 32;
+	string header_background_dark_url = 33;
+	FormattedString amount_raised_label = 34;
+	string video_id = 35;
+	FormattedString privacy_checkbox_text = 36;
+	bool privacy_checkbox_initial_state = 37;
+	uint32 light_theme_background_color = 38;
+	uint32 dark_theme_background_color = 39;
+}
+
+extend Renderer {
+	DonationShelfRenderer donation_shelf_renderer = 190379114;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_field_metadata.proto";
+import "ios/shared/people/autocomplete/person_name.proto";
+import "ios/shared/people/autocomplete/person_photo.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonPhone {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+	string canonicalized_form = 4;
+	string label = 5;
+	PersonName name = 6;
+	PersonPhoto photo = 7;
+	bytes people_stack_extended_data_internal = 8;
+	bytes reachability_state_internal = 9;
+	string disambiguation_label = 10;
+	string display_value = 11;
+	string original_value = 12;
+}

@@ -1,0 +1,73 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/image_source.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/button_style.proto";
+import "youtube/elements/components/button_type.proto";
+import "youtube/elements/components/button_state.proto";
+import "youtube/elements/image.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message Button {
+	bool enabled = 1;
+
+	oneof title_oneof {
+		string title = 3;
+		AttributedString title_formatted = 19;
+	}
+
+	oneof icon_oneof {
+		string icon_name = 2;
+		ImageSource icon_image = 35;
+		api.innertube.Renderer leading_asset = 44;
+	}
+
+	Command on_tap = 4;
+	string accessibility_text = 5;
+	ButtonStyle style = 7;
+	bytes tracking_params = 8;
+	string icon_bundle_id = 9;
+	bool is_full_width = 10;
+	ButtonType type = 11;
+	Command on_long_press = 12;
+	ButtonState state = 14;
+
+	oneof icon_position_oneof {
+		bool icon_trailing = 15;
+	}
+
+	bool touch_expansion_disabled = 16;
+	string accessibility_id = 17;
+	bool disable_a11y_blues = 20;
+	uint32 custom_background_color = 21;
+	uint32 custom_border_color = 22;
+	uint32 custom_font_color = 23;
+	bool disable_spec_motion_interaction = 24;
+	bool use_updated_cta_font_size = 25;
+	Command on_visible = 26;
+	bool text_android_include_font_padding = 27;
+	bool use_youtube_logging_directives = 28;
+	bool should_log_gestures = 29;
+	string target_id = 30;
+	uint32 custom_dark_theme_background_color = 31;
+	uint32 custom_dark_theme_border_color = 32;
+	uint32 custom_dark_theme_font_color = 33;
+	bool icon_image_flip_for_rtl = 34;
+	bool enable_full_width_margins = 36;
+	uint32 custom_max_lines = 37;
+	Command on_disabled_tap = 38;
+	string tooltip = 39;
+	bool enable_icon_button = 40;
+	Image secondary_icon_image = 42;
+	bool disable_a11y_container = 43;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

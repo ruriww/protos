@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.panentry;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PanEntryCondition {
+	extend eventrules.condition.Condition {
+		PanEntryCondition pan_entry_condition_extension = 243684601;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_RESOLVED_PAN_CATEGORY_DATA_REFERENCE_MATCH = 1;
+		CONDITION_TYPE_PAN_ENTRY_VALUE_EMPTY = 2;
+	}
+
+	ConditionType condition_type = 1;
+
+	oneof condition {
+		int64 resolved_pan_category_data_reference_match = 2;
+	}
+}

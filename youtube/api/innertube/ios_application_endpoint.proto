@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_application_endpoint_constant.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosApplicationEndpoint {
+	oneof target {
+		string external_app_url = 1;
+		IosApplicationEndpointConstant endpoint_constant = 3;
+	}
+
+	Command fallback_endpoint = 2;
+}
+
+extend Command {
+	IosApplicationEndpoint ios_application_endpoint = 65400554;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/media_composition_resolution.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MediaCompositionExportArgs {
+	string player_instance_id = 1;
+	MediaCompositionResolution resolution = 2;
+	float aspect_ratio = 3;
+	float frames_per_sec = 4;
+	string original_asset_uri = 5;
+	bool no_audio = 6 [ default = true ];
+}

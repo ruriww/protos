@@ -1,0 +1,52 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless_android_play_playlog/icing/icing_log_error.proto";
+import "wireless_android_play_playlog/icing/index_api_stats.proto";
+import "wireless_android_play_playlog/icing/icing_data_download_file_group_stats.proto";
+import "wireless_android_play_playlog/icing/mdd_api_call_stats.proto";
+import "wireless_android_play_playlog/icing/ios_client_info.proto";
+import "wireless_android_play_playlog/icing/mdd_storage_stats.proto";
+import "wireless_android_play_playlog/icing/mdd_file_expiration_log.proto";
+import "wireless_android_play_playlog/icing/mdd_duration_event.proto";
+import "wireless_android_play_playlog/icing/shared_cache_storage_stats.proto";
+import "wireless_android_play_playlog/icing/shared_cache_read_event.proto";
+import "wireless_android_play_playlog/icing/shared_cache_invalidate_event.proto";
+import "wireless_android_play_playlog/icing/shared_cache_update_event.proto";
+import "wireless_android_play_playlog/icing/shared_cache_wipeout_event.proto";
+import "wireless_android_play_playlog/icing/mdd_error_event.proto";
+import "wireless_android_play_playlog/icing/mdd_download_result_log.proto";
+import "wireless_android_play_playlog/icing/mdd_download_latency.proto";
+import "wireless_android_play_playlog/icing/mdd_lib_api_result_log.proto";
+import "wireless_android_play_playlog/icing/stable_sampling_info.proto";
+import "wireless_android_play_playlog/icing/mdd_group_network_stats.proto";
+import "wireless/android/icing/proto/log_origin.proto";
+
+option objc_class_prefix = "ICING";
+
+message IcingLogData {
+	IcingLogError log_error = 1;
+	IndexApiStats index_api_stats = 7;
+	int32 module_version = 9 [ default = -1 ];
+	IcingDataDownloadFileGroupStats data_download_file_group_stats = 10;
+	int64 sampling_interval = 21;
+	MddApiCallStats mdd_api_call_stats = 33;
+	IosClientInfo ios_client_info = 36;
+	MddStorageStats mdd_storage_stats = 46;
+	MddFileExpirationLog mdd_file_expiration_log = 48;
+	string host_package_name = 50;
+	MddDurationEvent mdd_duration_event = 55;
+	SharedCacheStorageStats shared_cache_storage_stats = 56;
+	SharedCacheReadEvent shared_cache_read_event = 57;
+	SharedCacheInvalidateEvent shared_cache_invalidate_event = 58;
+	SharedCacheUpdateEvent shared_cache_update_event = 59;
+	SharedCacheWipeoutEvent shared_cache_wipeout_event = 60;
+	MddErrorEvent mdd_error_event = 62;
+	MddDownloadResultLog mdd_download_result_log = 63;
+	MddDownloadLatency mdd_download_latency = 67;
+	MddLibApiResultLog mdd_lib_api_result_log = 71;
+	StableSamplingInfo stable_sampling_info = 72;
+	MddGroupNetworkStats mdd_group_network_stats = 73;
+	wireless.android.icing.proto.LogOrigin.Code log_origin = 79;
+}

@@ -1,0 +1,56 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/verified_badge_renderer.proto";
+import "youtube/api/innertube/live_badge_renderer.proto";
+import "youtube/api/innertube/text_badge_renderer.proto";
+import "youtube/api/innertube/upcoming_event_badge_renderer.proto";
+import "youtube/api/innertube/topic_badge_renderer.proto";
+import "youtube/api/innertube/music_pass_badge_renderer.proto";
+import "youtube/api/innertube/privacy_badge_renderer.proto";
+import "youtube/api/innertube/music_pivot_badge_renderer.proto";
+import "youtube/api/innertube/unlimited_badge_renderer.proto";
+import "youtube/api/innertube/channel_badge_renderer.proto";
+import "youtube/api/innertube/unplugged_text_badge_renderer.proto";
+import "youtube/api/innertube/metadata_badge_renderer.proto";
+import "youtube/api/innertube/unplugged_icon_badge_renderer.proto";
+import "youtube/api/innertube/unplugged_icon_thumbnail_overlay_renderer.proto";
+import "youtube/api/innertube/native_ad_badge_renderer.proto";
+import "youtube/api/innertube/caption_badge_renderer.proto";
+import "youtube/api/innertube/kids_new_badge_renderer.proto";
+import "youtube/api/innertube/kids_channel_avatar_new_badge_renderer.proto";
+import "youtube/api/innertube/music_inline_badge_renderer.proto";
+import "youtube/api/innertube/unified_verified_badge_renderer.proto";
+import "youtube/api/innertube/kids_downloaded_video_badge_renderer.proto";
+import "youtube/api/innertube/kids_shared_with_kids_badge_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BadgeSupportedRenderers {
+	VerifiedBadgeRenderer verified_badge = 50858890;
+	LiveBadgeRenderer live_badge = 50921414;
+	TextBadgeRenderer text_badge = 50922968;
+	UpcomingEventBadgeRenderer upcoming_event_badge = 50931187;
+	TopicBadgeRenderer topic_badge = 53636833;
+	MusicPassBadgeRenderer music_pass_badge = 60170570;
+	PrivacyBadgeRenderer privacy_badge_renderer = 63824300;
+	MusicPivotBadgeRenderer music_pivot_badge_renderer = 65013849;
+	UnlimitedBadgeRenderer unlimited_badge = 80846812;
+	ChannelBadgeRenderer uploader_badge = 89056293;
+	UnpluggedTextBadgeRenderer unplugged_text_badge_renderer = 96222944;
+	MetadataBadgeRenderer metadata_badge_renderer = 128361622;
+	UnpluggedIconBadgeRenderer unplugged_icon_badge_renderer = 129048258;
+	UnpluggedIconThumbnailOverlayRenderer unplugged_icon_thumbnail_overlay_renderer = 136498957;
+	NativeAdBadgeRenderer native_ad_badge_renderer = 138592202;
+	CaptionBadgeRenderer caption_badge_renderer = 156920528;
+	KidsNewBadgeRenderer kids_new_badge_renderer = 168736071;
+	KidsChannelAvatarNewBadgeRenderer kids_channel_avatar_new_badge_renderer = 170749591;
+	MusicInlineBadgeRenderer music_inline_badge_renderer = 180213378;
+	UnifiedVerifiedBadgeRenderer unified_verified_badge_renderer = 278471019;
+	KidsDownloadedVideoBadgeRenderer kids_downloaded_video_badge_renderer = 492015445;
+	KidsSharedWithKidsBadgeRenderer kids_shared_with_kids_badge_renderer = 493362462;
+}

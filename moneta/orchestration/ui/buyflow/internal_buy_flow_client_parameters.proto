@@ -1,0 +1,34 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/integrator/common/image/image_details.proto";
+import "moneta/integrator/common/cart/line_item.proto";
+import "moneta/integrator/common/tracking_parameters.proto";
+import "moneta/integrator/ui/buyflow/buy_flow_parameter_enums.proto";
+import "moneta/orchestration/ui/buyflow/instantbuy/instant_buy_parameters.proto";
+import "moneta/integrator/common/fundsguarantee/funds_guarantee_criteria.proto";
+import "moneta/integrator/ui/common/common_client_parameters.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message InternalBuyFlowClientParameters {
+	int32 billable_service_for_client_diversion = 1;
+	int32 region_code_for_client_diversion = 2;
+	string region_code = 3;
+	string currency_code = 9;
+	string timezone = 10;
+	integrator.common.image.ImageDetails hero_image = 12;
+	repeated integrator.common.cart.LineItem line_item = 14;
+	integrator.common.TrackingParameters tracking_parameters = 15;
+	integrator.ui.buyflow.BuyFlowParameterEnums.BuyFlowScenario buy_flow_scenario = 18;
+	bytes purchase_context = 25;
+	string line_items_signature = 26;
+	bytes integrator_session_data = 38;
+	instantbuy.InstantBuyParameters instant_buy_parameters = 50;
+	bool prefer_fingerprint_for_confirmation = 51;
+	integrator.common.fundsguarantee.FundsGuaranteeCriteria funds_guarantee_criteria = 70;
+	int32 billable_service = 94;
+	string business_name = 99;
+	integrator.ui.common.CommonClientParameters common_client_parameters = 115;
+}

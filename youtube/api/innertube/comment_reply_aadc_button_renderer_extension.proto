@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentReplyAadcButtonRendererExtension {
+	extend ButtonRenderer {
+		CommentReplyAadcButtonRendererExtension comment_reply_aadc_button_renderer_extension = 388817581;
+	}
+
+	Command show_aadc_guidelines_bottom_sheet_command = 1;
+	string aadc_guidelines_state_entity_key = 2;
+}

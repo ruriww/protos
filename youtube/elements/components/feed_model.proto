@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/context.proto";
+import "youtube/elements/components/feed_data.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/dimension_edges.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message FeedModel {
+	Context context = 1;
+	FeedData data = 4;
+	Command collection_on_scroll = 5;
+	Command collection_on_scroll_began_dragging = 6;
+	DimensionEdges content_inset = 7;
+}

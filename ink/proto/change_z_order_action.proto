@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ChangeZOrderAction {
+	repeated string uuid = 1;
+	repeated string from_below_uuid = 2;
+	repeated string to_below_uuid = 3;
+}

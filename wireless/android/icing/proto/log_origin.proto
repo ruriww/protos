@@ -1,0 +1,13 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message LogOrigin {
+	enum Code {
+		UNKNOWN = 0;
+		MDD = 1;
+		FGS = 2;
+	}
+}

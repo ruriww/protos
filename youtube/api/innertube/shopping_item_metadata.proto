@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/empty.proto";
+import "youtube/api/innertube/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/shopping_item_availability.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingItemMetadata {
+	message TaggedTimestamp {
+		google.protobuf.Duration start_duration = 3;
+		google.protobuf.Duration length = 5;
+	}
+
+	string related_product_cluster_mid = 1;
+	Timestamp product_disclosure = 2;
+	uint32 search_result_position = 5;
+	bytes offer_version_id = 6;
+	fixed64 offer_docid = 7;
+
+	message CreatorProductDisclosure {
+		oneof creator_drop {
+			google.protobuf.Empty held_by_creator = 2;
+			Timestamp creator_drop_date = 3;
+		}
+	}
+
+	CreatorProductDisclosure creator_product_disclosure = 8;
+
+	message TaggedTimestampMetadata {
+		TaggedTimestamp creator_tagged_timestamp = 1;
+	}
+
+	TaggedTimestampMetadata tagged_timestamp_metadata = 9;
+	bool should_enable_muppetless = 10;
+
+	oneof target {
+		string local_image_id = 11;
+	}
+
+	ShoppingItemAvailability availability = 15;
+	uint64 merchant_aggregator_id = 18;
+}

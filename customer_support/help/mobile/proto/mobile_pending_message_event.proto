@@ -1,0 +1,16 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_message_event.proto";
+import "google/protobuf/wrappers.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobilePendingMessageEvent {
+	MobileMessageEvent message_event = 1;
+	google.protobuf.UInt64Value client_time = 2;
+	bool is_sending = 3;
+	string smart_reply_prediction_id = 4;
+	string smart_reply_accepted_recommendation_id = 5;
+}

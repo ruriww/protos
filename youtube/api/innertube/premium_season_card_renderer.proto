@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PremiumSeasonCardRenderer {
+	ThumbnailDetails thumbnail = 1;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 2;
+	FormattedString title = 3;
+	FormattedString subtitle = 4;
+	repeated StandaloneBadgeSupportedRenderers bottom_standalone_badges = 5;
+	Command navigation_endpoint = 6;
+	MenuSupportedRenderers menu = 7;
+	bytes tracking_params = 8;
+	FormattedString thumbnail_bottom_panel_text = 10;
+	Renderer offer_button = 11;
+	FormattedString metadata_line = 12;
+}
+
+extend Renderer {
+	PremiumSeasonCardRenderer premium_season_card_renderer = 154306134;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package af.data;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "AFD";
+
+message ErrorMetadata {
+	extend proto2.bridge.MessageSet {
+		ErrorMetadata message_set_extension = 50242228;
+	}
+
+	int32 serial = 1;
+}

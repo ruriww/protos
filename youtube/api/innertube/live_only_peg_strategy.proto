@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveOnlyPegStrategy {
+	LIVE_ONLY_PEG_STRATEGY_UNKNOWN = 0;
+	LIVE_ONLY_PEG_STRATEGY_DO_NOT_PEG = 1;
+	LIVE_ONLY_PEG_STRATEGY_SEEK_ON_RESUME = 3;
+	LIVE_ONLY_PEG_STRATEGY_SEEK_ON_REBUFFER_ESTIMATE_DURATION = 6;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RadioRendererCardStyle {
+	option features.enum_type = CLOSED;
+
+	RADIO_RENDERER_CARD_STYLE_UNKNOWN = 0;
+	RADIO_RENDERER_CARD_STYLE_FIT_ONE_WITH_PEEK = 1;
+	RADIO_RENDERER_CARD_STYLE_FIT_TWO_WITH_PEEK = 2;
+	RADIO_RENDERER_CARD_STYLE_FIT_ONE_ONLY = 3;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/client_setting_item.proto";
+import "youtube/api/innertube/setting_confirm_dialog_supported_renderers.proto";
+import "youtube/api/innertube/setting_item_id.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/client_setting_enum_value_pair.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingBooleanRenderer {
+	FormattedString title = 2;
+	FormattedString summary = 3;
+	bool enabled = 4;
+	Command enable_service_endpoint = 5;
+	Command disable_service_endpoint = 6;
+	FormattedString message_when_disabled = 7;
+	repeated ClientSettingItem client_setting_dependencies = 8;
+	bool is_locked = 9;
+	FormattedString message_when_locked = 10;
+	SettingConfirmDialogSupportedRenderers confirm_disable_dialog = 11;
+	bytes tracking_params = 13;
+	SettingConfirmDialogSupportedRenderers confirm_enable_dialog = 14;
+	SettingItemId item_id = 15;
+	Icon icon = 16;
+	Icon icon_when_disabled = 17;
+	Renderer sub_settings_renderer = 18;
+	bool invert_clientside_usage = 19;
+	ThumbnailDetails thumbnail = 20;
+	AccessibilityData toggle_accessibility = 21;
+	bool hide_bottom_separator = 22;
+	FormattedString primary_text = 23;
+	repeated Renderer contents = 24;
+	FormattedString enabled_label = 25;
+	FormattedString disabled_label = 26;
+	string entity_key = 27;
+	repeated ClientSettingEnumValuePair client_settings_value_pair = 28;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/matrix_data.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProductStickerMetadata {
+	message CreatorStickerMetadata {
+		MatrixData matrix_data = 1;
+		uint32 original_image_width = 2;
+		uint32 original_image_height = 3;
+
+		message Rectangle {
+			double width = 1;
+			double height = 2;
+		}
+
+		Rectangle unscaled_body_rectangle = 4;
+	}
+
+	oneof sticker_metadata {
+		google.protobuf.Empty auto_sticker_metadata = 1;
+		CreatorStickerMetadata creator_sticker_metadata = 3;
+	}
+}

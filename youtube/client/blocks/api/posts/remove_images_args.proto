@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+option objc_class_prefix = "YTBA";
+
+message RemoveImagesArgs {
+	repeated string uri = 1;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/fit.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExtractionVideoOutput {
+	bool original_file = 1;
+	int32 width = 2;
+	int32 height = 3;
+	Fit fit = 4;
+	float framerate = 5;
+	bool mute_audio = 6;
+
+	message OutputVideoSettings {
+		int32 width = 1;
+		int32 height = 2;
+		Fit fit = 3;
+		float framerate = 4;
+		bool mute_audio = 5;
+		int64 bitrate = 6;
+		int32 image_input_output_duration_ms = 7;
+		string output_file_prefix = 8;
+	}
+
+	OutputVideoSettings output_video_settings = 7;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+option objc_class_prefix = "ASX";
+
+message ProductSpecificDataEntry {
+	string key = 1;
+	string value = 2;
+}

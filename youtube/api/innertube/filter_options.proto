@@ -1,0 +1,82 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FilterOptions {
+	enum UploadDateRestrictType {
+		option features.enum_type = CLOSED;
+
+		UPLOAD_DATE_ANY = 0;
+		UPLOAD_DATE_LAST_HOUR = 1;
+		UPLOAD_DATE_TODAY = 2;
+		UPLOAD_DATE_THIS_WEEK = 3;
+		UPLOAD_DATE_THIS_MONTH = 4;
+		UPLOAD_DATE_THIS_YEAR = 5;
+	}
+
+	UploadDateRestrictType restrict_upload_date = 1;
+
+	enum ResultTypeRestrictType {
+		option features.enum_type = CLOSED;
+
+		RESULT_TYPE_ANY = 0;
+		RESULT_TYPE_VIDEO = 1;
+		RESULT_TYPE_CHANNEL = 2;
+		RESULT_TYPE_PLAYLIST = 3;
+		RESULT_TYPE_MOVIE = 4;
+		RESULT_TYPE_SHOW = 5;
+		RESULT_TYPE_SCENE = 6;
+		RESULT_TYPE_GAME = 7;
+		RESULT_TYPE_EVENT = 8;
+	}
+
+	ResultTypeRestrictType restrict_result_type = 2;
+
+	enum DurationRestrictType {
+		option features.enum_type = CLOSED;
+
+		DURATION_ANY = 0;
+		DURATION_SHORT = 1;
+		DURATION_LONG = 2;
+		DURATION_MEDIUM = 3;
+	}
+
+	DurationRestrictType restrict_duration = 3;
+	bool restrict_high_definition = 4;
+	bool restrict_closed_caption = 5;
+	bool restrict_creative_commons = 6;
+	bool restrict_threed = 7;
+	bool restrict_live = 8;
+	bool restrict_purchased = 9;
+	repeated string restrict_usernames = 10;
+
+	enum SafeSearchRestrictType {
+		option features.enum_type = CLOSED;
+
+		NO_FILTERING = 1;
+		MODERATE_FILTERING = 2;
+		STRICT_FILTERING = 3;
+	}
+
+	SafeSearchRestrictType restrict_safe_search = 11;
+	bool restrict_edu = 12;
+	bool restrict_fourk = 14;
+	bool restrict_spherical = 15;
+	bool restrict_spacecast = 16;
+	bool restrict_paid_content = 20;
+	bool restrict_full_movie_page = 21;
+	string restrict_content_owner = 22;
+	bool restrict_location = 23;
+	string restrict_location_place_id = 24;
+	bool restrict_high_dynamic_range = 25;
+	bool restrict_partial_spherical = 26;
+	bool restrict_premium_tvfilm_movie_page = 28;
+	bool restrict_unwatched = 29;
+	bool restrict_paid_product_placement = 32;
+	bool restrict_eightk = 33;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsCategoryWheelSwipeData {
+	int32 swipe_duration_ms = 1;
+	int32 swipe_length_dpi = 2;
+	int32 category_index_start = 3;
+	int32 category_index_end = 4;
+	int32 total_categories = 5;
+	bool is_fling = 6;
+	bool is_assistive_tech_on = 7;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/shared_with_kids_content.proto";
+import "youtube/api/innertube/kids_allowlist_update_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateKidsAllowlistRequest {
+	InnerTubeContext context = 1;
+	string kid_gaia_id = 2;
+	repeated SharedWithKidsContent add_shared_with_kids_content = 3;
+	repeated SharedWithKidsContent remove_shared_with_kids_content = 4;
+	KidsAllowlistUpdateType update_type = 5;
+}

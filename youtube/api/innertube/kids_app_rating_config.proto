@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsAppRatingConfig {
+	int32 days_after_installation = 1;
+	int32 number_of_prompts_per_version = 2;
+	int32 days_between_prompts = 3;
+}

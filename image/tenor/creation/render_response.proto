@@ -1,0 +1,9 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message RenderResponse {
+	repeated bytes media_bytes = 1;
+}

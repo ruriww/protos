@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message Border {
+	string uri = 1;
+	float scale = 2 [ default = 1 ];
+}

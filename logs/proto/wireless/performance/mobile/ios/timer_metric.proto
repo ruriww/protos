@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message TimerMetric {
+	int64 duration_ms = 1;
+	bool is_long_term = 2;
+}

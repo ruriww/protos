@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoEffectInterface {
+	string effect_id = 1;
+	FormattedString label = 2;
+	repeated string new_asset_urls = 3;
+	string effect_base_name = 4;
+}

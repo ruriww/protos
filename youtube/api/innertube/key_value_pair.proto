@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KeyValuePair {
+	string key = 1;
+
+	oneof value_oneof {
+		string value = 2;
+		FormattedString formatted_string_value = 3;
+		int32 int_value = 4;
+		bool bool_value = 5;
+		double float_value = 6;
+	}
+}

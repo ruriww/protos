@@ -1,0 +1,10 @@
+edition = "2023";
+
+package clearcut.ios;
+
+option objc_class_prefix = "CCT";
+
+message BootCount {
+	string last_boot_session_uuid = 1;
+	int64 last_boot_count = 2;
+}

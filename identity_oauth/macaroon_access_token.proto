@@ -1,0 +1,25 @@
+edition = "2023";
+
+package identity_oauth;
+
+option objc_class_prefix = "SSO";
+
+message MacaroonAccessToken {
+	message Header {
+		enum Keyset {
+			option features.enum_type = CLOSED;
+
+			OLD = 0;
+			NEW = 1;
+		}
+
+		Keyset keyset = 1;
+	}
+
+	bytes opaque_data = 1;
+	repeated bytes caveats = 2;
+	bytes mac = 3;
+	bytes header = 4;
+	bytes credential_attributes = 5;
+	bool is_experimental_token = 6;
+}

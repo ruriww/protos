@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message AppUpgradeStatus {
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NOT_REQUIRED = 1;
+		REQUIRED = 2;
+	}
+
+	Status status = 1;
+}

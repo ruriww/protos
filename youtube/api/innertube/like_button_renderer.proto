@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/like_target.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer_context.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LikeButtonRenderer {
+	LikeTarget target = 1;
+	LikeStatus like_status = 2;
+	int32 like_count = 3;
+	FormattedString like_count_text = 4;
+	FormattedString like_count_with_like_text = 5;
+	FormattedString like_count_with_unlike_text = 6;
+	int32 dislike_count = 7;
+	FormattedString dislike_count_text = 8;
+	FormattedString dislike_count_with_dislike_text = 9;
+	FormattedString dislike_count_with_undislike_text = 10;
+	bytes tracking_params = 11;
+	bool likes_allowed = 13;
+	repeated Command service_endpoints = 15;
+	Command dislike_navigation_endpoint = 16;
+	Command like_command = 17;
+	string target_id = 18;
+	FormattedString like_count_tooltip_text = 19;
+	FormattedString dislike_count_tooltip_text = 20;
+	string like_status_entity_key = 22;
+	bool hide_dislike_button = 23;
+	bool always_log_likes = 25;
+	string like_button_animation_entity_key = 26;
+	RendererContext renderer_context = 997;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	LikeButtonRenderer like_button_renderer = 60091038;
+}

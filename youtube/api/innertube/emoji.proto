@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/string_run.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Emoji {
+	extend StringRun {
+		Emoji emoji = 152040444;
+	}
+
+	string emoji_id = 1;
+	repeated string shortcuts = 2;
+	repeated string search_terms = 3;
+	bool supports_skin_tone = 4;
+	ThumbnailDetails image = 5;
+	bool is_custom_emoji = 6;
+	bool is_locked = 7;
+	repeated string variant_ids = 8;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.htmldocument;
+
+option objc_class_prefix = "ORCH2";
+
+message LoadByReference {
+	int64 data_reference = 1;
+	int32 document_data_field_number = 2;
+	int32 mime_type_field_number = 3;
+}

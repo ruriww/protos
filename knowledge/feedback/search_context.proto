@@ -1,0 +1,27 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "knowledge/feedback/feedback_packet_metrics.proto";
+import "knowledge/feedback/browser_info.proto";
+
+option objc_class_prefix = "UFR";
+
+message SearchContext {
+	string search_url = 1;
+	string scrubbed_search_url = 2;
+	FeedbackPacketMetrics feedback_packet_metrics = 3;
+	string unified_feedback_event_id = 4;
+	string folsrch_event_id = 5;
+	bool is_dark_theme = 6;
+	BrowserInfo browser_info = 7;
+	string feature_id = 8;
+	string encoded_feature_id = 9;
+
+	message SherlogLink {
+		string sherlog_url = 1;
+		string sherlog_name = 2;
+	}
+
+	repeated SherlogLink sherlog_links = 10;
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_list_playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/music_list_playlist_offlineability_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicListPlaylistRenderer {
+	MusicListPlaylistThumbnailSupportedRenderers thumbnail_renderer = 1;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 2;
+	FormattedString title = 3;
+	FormattedString byline = 4;
+	Command navigation_endpoint = 5;
+	MenuSupportedRenderers menu = 6;
+	bytes tracking_params = 8;
+	MusicListPlaylistOfflineabilitySupportedRenderers offlineability = 9;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	MusicListPlaylistRenderer music_list_playlist_renderer = 111664726;
+}

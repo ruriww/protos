@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+enum AttestationCeremony {
+	ATTESTATION_CEREMONY_UNSPECIFIED = 0;
+	ATTESTATION_CEREMONY_REGISTRATION = 1;
+	ATTESTATION_CEREMONY_AUTHENTICATION = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CompositionEffectFadeDirection {
+	option features.enum_type = CLOSED;
+
+	COMPOSITION_EFFECT_FADE_DIRECTION_UNSPECIFIED = 0;
+	COMPOSITION_EFFECT_FADE_DIRECTION_IN = 1;
+	COMPOSITION_EFFECT_FADE_DIRECTION_OUT = 2;
+	COMPOSITION_EFFECT_FADE_DIRECTION_CROSS = 3;
+}

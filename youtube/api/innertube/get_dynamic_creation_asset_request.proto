@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/effect_asset.proto";
+import "youtube/api/innertube/dynamic_creation_asset_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetDynamicCreationAssetRequest {
+	InnerTubeContext context = 1;
+	EffectAsset source_effect_id = 2;
+	DynamicCreationAssetParams params = 3;
+	string continuation = 4;
+	string token = 5;
+	string channel_id = 7;
+}

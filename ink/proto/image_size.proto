@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ImageSize {
+	uint32 width_px = 1 [ default = 0 ];
+	uint32 height_px = 2 [ default = 0 ];
+}

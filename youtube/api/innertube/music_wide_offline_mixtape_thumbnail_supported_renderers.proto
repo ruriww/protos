@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/simple_video_thumbnail_renderer.proto";
+import "youtube/api/innertube/music_compound_thumbnail_renderer.proto";
+import "youtube/api/innertube/music_thumbnail_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicWideOfflineMixtapeThumbnailSupportedRenderers {
+	oneof renderer {
+		SimpleVideoThumbnailRenderer simple_video_thumbnail_renderer = 89164432;
+		MusicCompoundThumbnailRenderer music_compound_thumbnail_renderer = 144367993;
+		MusicThumbnailRenderer music_thumbnail_renderer = 164480666;
+	}
+}

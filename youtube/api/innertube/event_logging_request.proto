@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/client_event.proto";
+import "youtube/api/innertube/serialized_client_event_id.proto";
+import "youtube/api/innertube/delayed_event_tier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EventLoggingRequest {
+	InnerTubeContext context = 1;
+	int64 request_time_ms = 2;
+	repeated ClientEvent events = 3;
+	SerializedClientEventId serialized_client_event_id = 5;
+	DelayedEventTier tier = 7;
+	bool enforce_should_diff_value = 8;
+	bool enforce_should_call_distribute = 9;
+	bool unsplit_gel_payloads_in_logs = 10;
+	int32 retry_count = 11;
+}

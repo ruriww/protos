@@ -1,0 +1,12 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/notification_limit_behavior.proto";
+
+option objc_class_prefix = "NFDC";
+
+message NotificationSlot {
+	string slot_key = 1;
+	NotificationLimitBehavior slot_limit_behavior = 2;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.alert;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/alert/label.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/alert/alert_enums.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+
+option objc_class_prefix = "Orch";
+
+message AlertMessage {
+	string title = 1;
+	generic.InfoMessage description = 2;
+	Label action = 4;
+	Label dismiss = 5;
+	Label help = 6;
+	generic.ImageWithCaption icon = 7;
+	AlertEnums.DisplayMode display_mode = 8;
+	Link action_link = 9;
+	Button dismiss_button = 10;
+}

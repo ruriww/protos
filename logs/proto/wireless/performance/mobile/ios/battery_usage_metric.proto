@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message BatteryUsageMetric {
+	float drain_per_sec = 1;
+	int64 time_elapsed = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/comments_stream_reload_supported_continuations.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentsStreamReloadEndpoint {
+	extend Command {
+		CommentsStreamReloadEndpoint comments_stream_reload_endpoint = 137332281;
+	}
+
+	CommentsStreamReloadSupportedContinuations continuation = 1;
+	string section_identifier = 3;
+	int32 num_top_contents_to_keep = 4;
+	bool handle_in_engagement_panel = 5;
+}

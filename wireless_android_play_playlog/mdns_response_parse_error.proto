@@ -1,0 +1,13 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/mdns_response_error_code.proto";
+
+option objc_class_prefix = "CADP";
+
+message MdnsResponseParseError {
+	int32 sequence_number = 1;
+	cast.MdnsResponseErrorCode response_error_code = 2;
+	int32 origin_local_ip_fregment = 3;
+}

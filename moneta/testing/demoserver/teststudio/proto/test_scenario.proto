@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/test_scenario_type.proto";
+import "google/protobuf/timestamp.proto";
+import "moneta/testing/demoserver/teststudio/proto/billable_service.proto";
+import "moneta/testing/demoserver/teststudio/proto/feature_type_value.proto";
+
+option objc_class_prefix = "TSL";
+
+message TestScenario {
+	int64 scenario_id = 1;
+	string scenario_name = 2;
+	TestScenarioType scenario_type = 3;
+	google.protobuf.Timestamp last_modified_timestamp = 7;
+	bool private = 9;
+	BillableService billable_service = 12;
+	FeatureTypeValue feature_type = 13;
+	bytes scenario_type_in_wire = 14;
+}

@@ -1,0 +1,96 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/scotty_resource_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Edit {
+	message Position {
+		int32 offset_ms = 1;
+	}
+
+	message Span {
+		int32 start_ms = 1 [ default = 0 ];
+		int32 end_ms = 2;
+	}
+
+	message Effect {
+		enum EffectType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			SILVERSCREEN = 1;
+			GLAMOUR = 2;
+			SUPER8 = 3;
+			DOCUMENTARY = 4;
+			PUNK_RED = 5;
+			SEPIA = 6;
+			SKETCH = 7;
+			HALLOWEEN = 9;
+			BEAM = 10;
+			DAWN = 11;
+			DREAM = 12;
+			KAZOO = 13;
+			VOTEIRL = 14;
+			VOTEIRL_ANIMATED = 15;
+			VOTEIRL_RED = 16;
+			VOTEIRL_RED_ANIMATED = 17;
+			DANCE_PARTY = 18;
+			DANCE_PARTY_2 = 19;
+			VOLUME = 8;
+		}
+
+		EffectType type = 1;
+
+		message Parameters {
+			message Volume {
+				float level = 1;
+			}
+
+			message Kazoo {
+				string effect_id = 1;
+				bytes state_event = 2;
+			}
+
+			oneof parameters_union {
+				Volume volume = 1;
+				Kazoo kazoo = 2;
+			}
+		}
+
+		Parameters parameters = 2;
+	}
+
+	message Source {
+		oneof source_union {
+			string youtube_video = 1;
+			ScottyResourceId scotty_video = 2;
+			string audioswap = 3;
+		}
+	}
+
+	message Segment {
+		Source source = 1;
+
+		enum SegmentMode {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			AUDIOVISUAL = 1;
+			AUDIO = 2;
+			VISUAL = 3;
+		}
+
+		SegmentMode mode = 2 [ default = AUDIOVISUAL ];
+		Position position = 3;
+		Span span = 4;
+		repeated Effect effects = 5;
+	}
+
+	repeated Segment segments = 1;
+}

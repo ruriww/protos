@@ -1,0 +1,28 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.extension;
+
+import "social/discovery/external_entity_key.proto";
+
+option objc_class_prefix = "SGWPPE";
+
+message PeopleStackExtendedData {
+	enum HideType {
+		option features.enum_type = CLOSED;
+
+		HIDE_TYPE_UNSPECIFIED = 0;
+		HIDDEN = 1;
+	}
+
+	HideType hide_type = 1;
+
+	enum FamilyStatus {
+		option features.enum_type = CLOSED;
+
+		FAMILY_STATUS_UNSPECIFIED = 0;
+		FAMILY_MEMBER = 1;
+	}
+
+	FamilyStatus family_status = 2;
+	repeated discovery.ExternalEntityKey hidden_keys = 3;
+}

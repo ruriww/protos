@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message FileAs {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/custom_ui_types.proto";
+
+option objc_class_prefix = "NFDC";
+
+message SupportedFeatures {
+	bool encryption_supported = 2;
+	bool encryption_required = 3;
+	bool ios_communication_notifications_supported = 4;
+	bool ios_push_proto_supported = 5;
+	bool installed_apps_triggering_supported = 6;
+	bool tray_limit_supported = 7;
+	bool notification_slot_replacement_supported = 8;
+	bool android_raw_and_compressed_payload_supported = 9;
+	bool fetch_decryption_supported = 10;
+	repeated CustomUiTypes.CustomUiType supported_custom_ui_types = 11;
+	bool standalone_inbox_supported = 12;
+	bool authenticated_url_supported = 13;
+	bool triggering_by_any_app_not_installed_supported = 14;
+	bool action_ordering_supported = 15;
+	bool ihnr_v2_supported = 16;
+	bool gnp_in_app_hyperlinks_supported = 17;
+}

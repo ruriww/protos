@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/mdx_preview.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxWatchCommand {
+	extend Command {
+		MdxWatchCommand mdx_watch_command = 494020468;
+	}
+
+	string params = 2;
+	MdxPreview.MdxPreviewType mdx_preview_type = 3;
+}

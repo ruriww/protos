@@ -1,0 +1,20 @@
+edition = "2023";
+
+package id.boq.growth.onboard.common;
+
+import "id/boq/growth/onboard/common/app_install_data.proto";
+
+option objc_class_prefix = "PRD";
+
+message TargetingData {
+	int32 gms_core_version = 1;
+	int32 android_sdk_version = 2;
+	bool is_iphone = 3;
+	repeated AppInstallData app_installs_data = 4;
+	string locale = 5;
+	string client_timezone = 6;
+	bool is_android_go = 8;
+	string android_id = 9;
+	string ios_source_app_id = 15;
+	string device_model = 16;
+}

@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/metadata_row_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/metadata_row_renderer.proto";
+import "youtube/api/innertube/metadata_with_image_row_renderer.proto";
+import "youtube/api/innertube/metadata_row_header_renderer.proto";
+import "youtube/api/innertube/rich_metadata_row_renderer.proto";
+import "youtube/api/innertube/rich_metadata_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MetadataRowContainerRenderer {
+	repeated MetadataRowSupportedRenderers rows = 1;
+	int32 collapsed_item_count = 2;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	MetadataRowContainerRenderer metadata_row_container_renderer = 71271859;
+}
+
+extend Renderer {
+	MetadataRowRenderer metadata_row_renderer = 71300886;
+}
+
+extend Renderer {
+	MetadataWithImageRowRenderer metadata_with_image_row_renderer = 105253910;
+}
+
+extend Renderer {
+	MetadataRowHeaderRenderer metadata_row_header_renderer = 172034876;
+}
+
+extend Renderer {
+	RichMetadataRowRenderer rich_metadata_row_renderer = 206077025;
+}
+
+extend Renderer {
+	RichMetadataRenderer rich_metadata_renderer = 206077134;
+}

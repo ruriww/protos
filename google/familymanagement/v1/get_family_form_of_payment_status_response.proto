@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/family_product_correlation_id.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyFormOfPaymentStatusResponse {
+	enum FamilyFopStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CANNOT_SET_UP = 1;
+		NOT_SET_UP = 2;
+		SET_UP_FOR_REQUESTER_PRODUCT = 3;
+		SET_UP_VALID_FOR_OTHER_PRODUCTS = 4;
+		SET_UP_INVALID_FOR_OTHER_PRODUCTS = 5;
+	}
+
+	FamilyFopStatus family_fop_status = 1;
+	repeated FamilyProductCorrelationId.Type setup_family_product_correlation_ids = 2;
+}

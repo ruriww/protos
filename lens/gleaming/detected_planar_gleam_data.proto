@@ -1,0 +1,22 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/gleaming/video_gleam_data.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DetectedPlanarGleamData {
+	string intent = 1;
+
+	oneof content {
+		VideoGleamData video_data = 2;
+	}
+
+	string display_name = 3;
+	string icon_image_url = 4;
+	string source_url = 5;
+	string target_image_url = 6;
+	float target_width_in_meters = 8;
+	bool allow_tracking_using_pose = 9;
+}

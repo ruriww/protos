@@ -1,0 +1,9 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+option objc_class_prefix = "GNPC";
+
+message NativeAppRatingReview {
+	string ios_promotion_code = 1;
+}

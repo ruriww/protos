@@ -1,0 +1,14 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message LanguageCombination {
+	message Language {
+		string bcp47_tag = 1;
+		float weight = 2 [ default = 1 ];
+	}
+
+	repeated Language languages = 1;
+}

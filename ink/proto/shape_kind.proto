@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum ShapeKind {
+	option features.enum_type = CLOSED;
+
+	SHAPE_KIND_UNSPECIFIED = 0;
+	SHAPE_KIND_RECT = 1;
+	SHAPE_KIND_ELLIPSE = 2;
+	SHAPE_KIND_POLYLINE = 3;
+}

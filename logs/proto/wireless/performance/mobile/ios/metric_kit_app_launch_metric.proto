@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_histogram.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitAppLaunchMetric {
+	MetricKitHistogram histogrammed_time_to_first_draw_ms = 1;
+	MetricKitHistogram histogrammed_application_resume_time_ms = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReportFormAction {
+	option features.enum_type = CLOSED;
+
+	REPORT_FORM_ACTION_UNKNOWN = 0;
+	REPORT_FORM_ACTION_LEGAL_CHECKBOX_SHOW = 1;
+	REPORT_FORM_ACTION_LEGAL_CHECKBOX_HIDE = 2;
+	REPORT_FORM_ACTION_SUBMIT_BUTTON_SHOW = 3;
+	REPORT_FORM_ACTION_NEXT_BUTTON_SHOW = 4;
+	REPORT_FORM_ACTION_ADDITIONAL_DETAIL_CHECKBOX_SHOW = 5;
+	REPORT_FORM_ACTION_ADDITIONAL_DETAIL_CHECKBOX_HIDE = 6;
+	REPORT_FORM_ACTION_SHOW_ERROR_STATE = 7;
+	REPORT_FORM_ACTION_ENABLE_SUBMIT_BUTTON = 8;
+}

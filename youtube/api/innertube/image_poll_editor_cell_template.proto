@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImagePollEditorCellTemplate {
+	Command on_empty_cell_tap = 1;
+	Command on_selected_cell_tap = 2;
+	Renderer select_button = 3;
+	Renderer delete_button = 4;
+	Renderer edit_button = 5;
+	Renderer edit_hint = 6;
+}

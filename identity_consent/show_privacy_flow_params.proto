@@ -1,0 +1,12 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/latency_optimization_params.proto";
+
+option objc_class_prefix = "IDC";
+
+message ShowPrivacyFlowParams {
+	LatencyOptimizationParams latency_optimization_params = 1;
+	bool is_dark_launch = 2;
+}

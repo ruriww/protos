@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum LAppFlipErrorType {
+	APP_FLIP_ERROR_TYPE_UNSPECIFIED = 0;
+	APP_FLIP_RECOVERABLE_ERROR = 1;
+	APP_FLIP_UNRECOVERABLE_ERROR = 2;
+	APP_FLIP_INVALID_REQUEST_ERROR = 3;
+	APP_FLIP_BAD_3P_RESPONSE = 4;
+	APP_FLIP_INTERNAL_ERROR = 5;
+}

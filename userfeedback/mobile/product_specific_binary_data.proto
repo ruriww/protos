@@ -1,0 +1,11 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message ProductSpecificBinaryData {
+	string name = 1;
+	string mime_type = 2;
+	bytes data = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/response.proto";
+
+option objc_class_prefix = "S3";
+
+message ResponseBatch {
+	repeated Response responses = 2;
+}

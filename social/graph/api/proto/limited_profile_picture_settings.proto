@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message LimitedProfilePictureSettings {
+	enum ProfilePictureOption {
+		option features.enum_type = CLOSED;
+
+		PROFILE_PICTURE_OPTION_UNSPECIFIED = 0;
+		STANDARD_PROFILE_PICTURE = 1;
+		MONOGRAM = 2;
+	}
+
+	ProfilePictureOption profile_picture_option = 1;
+}

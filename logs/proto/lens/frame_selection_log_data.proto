@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/lens_ios_enums.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message FrameSelectionLogData {
+	enum FrameSelectionContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FRAME_SELECTION_CONTEXT = 0;
+		FRAME_SELECTED = 1;
+	}
+
+	FrameSelectionContext frame_selection_context = 1;
+	LensIosEnums.FrameSelectionReason frame_selection_reason = 2;
+	int32 previous_to_current_selection_time_ms = 3;
+}

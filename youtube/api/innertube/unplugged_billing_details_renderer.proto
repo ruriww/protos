@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_billing_details_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_billing_details_method_renderer.proto";
+import "youtube/api/innertube/unplugged_billing_details_line_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBillingDetailsRenderer {
+	FormattedString title = 1;
+	repeated UnpluggedBillingDetailsSupportedRenderers items = 2;
+	FormattedString tax_label = 3;
+	FormattedString tax_value = 4;
+	FormattedString total_label = 5;
+	FormattedString total_value = 6;
+	bytes tracking_params = 8;
+	FormattedString additional_info = 9;
+	repeated UnpluggedBillingDetailsSupportedRenderers tax_items = 10;
+	string bill_id = 11;
+}
+
+extend Renderer {
+	UnpluggedBillingDetailsRenderer unplugged_billing_details_renderer = 136270667;
+}
+
+extend Renderer {
+	UnpluggedBillingDetailsMethodRenderer unplugged_billing_details_method_renderer = 136270669;
+}
+
+extend Renderer {
+	UnpluggedBillingDetailsLineItemRenderer unplugged_billing_details_line_item_renderer = 136270670;
+}

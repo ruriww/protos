@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/confirm_dialog_renderer.proto";
+import "youtube/api/innertube/unplugged_cancel_feedback_dialog_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedPackageConfirmationSupportedRenderers {
+	oneof renderer {
+		ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+		UnpluggedCancelFeedbackDialogRenderer unplugged_cancel_feedback_dialog_renderer = 142349960;
+	}
+}

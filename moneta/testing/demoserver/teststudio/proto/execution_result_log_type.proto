@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/request.proto";
+import "moneta/testing/demoserver/teststudio/proto/response.proto";
+import "moneta/testing/demoserver/teststudio/proto/result_log_error.proto";
+import "moneta/testing/demoserver/teststudio/proto/encrypted_response.proto";
+
+option objc_class_prefix = "TSL";
+
+message ExecutionResultLogType {
+	oneof type {
+		Request request = 1;
+		Response response = 2;
+		string message = 3;
+		ResultLogError error_message = 4;
+		EncryptedResponse encrypted_response = 5;
+		string jspb_response = 6;
+	}
+}

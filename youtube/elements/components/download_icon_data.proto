@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/download_button_experiments.proto";
+import "youtube/api/innertube/download_state.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadIconData {
+	DownloadButtonExperiments experiments = 1;
+	bool use_spinner_for_pending_state = 2;
+	bool use_infinite_spinner = 3;
+	string download_status_entity_key = 4;
+	repeated api.innertube.DownloadState download_states_to_show = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

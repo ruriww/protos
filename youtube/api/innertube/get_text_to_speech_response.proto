@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetTextToSpeechResponse {
+	ResponseContext response_context = 1;
+
+	message TextToSpeechResult {
+		bytes audio = 1;
+		int32 sample_rate = 2;
+	}
+
+	TextToSpeechResult result = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GameDetailsRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails box_art = 2;
+	FormattedString box_art_overlay_text = 3;
+	uint32 accent_color = 4;
+	Command endpoint = 5;
+	FormattedString release_date = 6;
+	bytes tracking_params = 8;
+	FormattedString live_viewers_text = 9;
+	bool is_official_box_art = 10;
+	repeated FormattedString platforms = 11;
+	FormattedString auto_generated = 12;
+}

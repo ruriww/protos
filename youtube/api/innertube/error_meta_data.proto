@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/exception_category.proto";
+import "youtube/api/innertube/service_tracking_data.proto";
+import "youtube/api/innertube/exception_type.proto";
+import "youtube/api/innertube/blocks_method_execution_info.proto";
+import "youtube/api/innertube/media_engine_metadata.proto";
+import "youtube/api/innertube/camera_metadata.proto";
+import "youtube/api/innertube/google_hats_event.proto";
+import "youtube/api/innertube/reel_playback_error.proto";
+import "youtube/api/innertube/elements_log.proto";
+import "youtube/api/innertube/sfv_effect_error_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ErrorMetaData {
+	ExceptionCategory exception_category = 1;
+	ServiceTrackingData service_tracking_data = 2;
+	string page_url = 3;
+
+	message ExtraKeyValues {
+		string key = 1;
+		string value = 2;
+	}
+
+	repeated ExtraKeyValues kv_pairs = 4;
+	repeated int64 experiment_ids = 5 [ features.repeated_field_encoding = EXPANDED ];
+	ExceptionType exception_type = 7;
+	string client_screen_nonce = 8;
+	BlocksMethodExecutionInfo blocks_method_execution_info = 9;
+	MediaEngineMetadata media_engine_metadata = 10;
+	CameraMetadata camera_metadata = 11;
+	int32 app_version_code = 13;
+	GoogleHatsEvent hats_metadata = 14;
+	ReelPlaybackError reel_playback_error = 15;
+	ElementsLog elements_error_metadata = 17;
+	SfvEffectErrorMetadata effect_metadata = 18;
+}

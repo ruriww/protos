@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflineDownloadUserChoice {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CHOICE = 0;
+	DOWNLOAD_NOW = 1;
+	DOWNLOAD_DEFERRED = 2;
+	OFFLINE_SHARING = 3;
+	SIDELOAD = 4;
+	AUTO_OFFLINE = 5;
+	DOWNLOAD_RECOMMENDATIONS = 6;
+	EMERGENCY_BUFFER = 7;
+}

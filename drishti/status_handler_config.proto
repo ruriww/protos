@@ -1,0 +1,14 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/options.proto";
+
+option objc_class_prefix = "Drishti";
+
+message StatusHandlerConfig {
+	string status_handler = 1;
+	repeated string input_side_packet = 2;
+	Options options = 3;
+	repeated string external_input = 1002;
+}

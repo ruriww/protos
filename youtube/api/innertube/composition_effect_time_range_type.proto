@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CompositionEffectTimeRangeType {
+	option features.enum_type = CLOSED;
+
+	COMPOSITION_EFFECT_TIME_RANGE_TYPE_UNSPECIFIED = 0;
+	COMPOSITION_EFFECT_TIME_RANGE_TYPE_TRACK = 1;
+	COMPOSITION_EFFECT_TIME_RANGE_TYPE_SEGMENT_START = 2;
+	COMPOSITION_EFFECT_TIME_RANGE_TYPE_SEGMENT_END = 3;
+	COMPOSITION_EFFECT_TIME_RANGE_TYPE_CONTENT_ASSET = 4;
+}

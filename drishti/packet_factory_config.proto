@@ -1,0 +1,14 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/packet_factory_options.proto";
+
+option objc_class_prefix = "Drishti";
+
+message PacketFactoryConfig {
+	string packet_factory = 1;
+	string output_side_packet = 2;
+	PacketFactoryOptions options = 3;
+	string external_output = 1002;
+}

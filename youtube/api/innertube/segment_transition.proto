@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/composition_effect.proto";
+import "youtube/api/innertube/time.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SegmentTransition {
+	string id = 1;
+	string segment_id1 = 2;
+	string segment_id2 = 3;
+	CompositionEffect effect = 4;
+	Time start_offset = 5;
+	Time end_offset = 6;
+}

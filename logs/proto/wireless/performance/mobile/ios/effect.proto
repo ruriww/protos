@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "youtube/api/innertube/sfv_effect_identifier.proto";
+
+option objc_class_prefix = "PRM";
+
+message Effect {
+	repeated string asset_id = 1;
+	repeated youtube.api.innertube.SfvEffectIdentifier active_effect_ids = 2;
+}

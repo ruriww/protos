@@ -1,0 +1,54 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message FontStyle {
+	enum Weight {
+		option features.enum_type = CLOSED;
+
+		WEIGHT_UNSPECIFIED = 0;
+		WEIGHT_INVISIBLE = 1;
+		WEIGHT_THIN = 2;
+		WEIGHT_EXTRA_LIGHT = 3;
+		WEIGHT_LIGHT = 4;
+		WEIGHT_NORMAL = 5;
+		WEIGHT_MEDIUM = 6;
+		WEIGHT_SEMI_BOLD = 7;
+		WEIGHT_BOLD = 8;
+		WEIGHT_EXTRA_BOLD = 9;
+		WEIGHT_BLACK = 10;
+		WEIGHT_EXTRA_BLACK = 11;
+	}
+
+	Weight weight = 1;
+
+	enum Width {
+		option features.enum_type = CLOSED;
+
+		WIDTH_UNSPECIFIED = 0;
+		WIDTH_ULTRA_CONDENSED = 1;
+		WIDTH_EXTRA_CONDENSED = 2;
+		WIDTH_CONDENSED = 3;
+		WIDTH_SEMI_CONDENSED = 4;
+		WIDTH_NORMAL = 5;
+		WIDTH_SEMI_EXPANDED = 6;
+		WIDTH_EXPANDED = 7;
+		WIDTH_EXTRA_EXPANDED = 8;
+		WIDTH_ULTRA_EXPANDED = 9;
+	}
+
+	Width width = 2;
+
+	enum Slant {
+		option features.enum_type = CLOSED;
+
+		SLANT_UNSPECIFIED = 0;
+		SLANT_UPRIGHT = 1;
+		SLANT_ITALIC = 2;
+		SLANT_OBLIQUE = 3;
+	}
+
+	Slant slant = 3;
+}

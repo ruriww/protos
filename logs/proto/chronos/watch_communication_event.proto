@@ -1,0 +1,54 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message WatchCommunicationEvent {
+	enum MetricSource {
+		option features.enum_type = CLOSED;
+
+		METRIC_SOURCE_UNKNOWN = 0;
+		METRIC_SOURCE_IOS = 1;
+		METRIC_SOURCE_WATCHOS = 2;
+	}
+
+	MetricSource metric_source = 1;
+	bool watch_is_paired = 2;
+	bool companion_app_installed = 3;
+	bool complication_enabled = 4;
+	string watch_model = 5;
+	string watchos_version = 6;
+	bool audio_streaming_supported = 7;
+
+	enum WristLocation {
+		option features.enum_type = CLOSED;
+
+		WRIST_LOCATION_UNKNOWN = 0;
+		WRIST_LOCATION_LEFT = 1;
+		WRIST_LOCATION_RIGHT = 2;
+	}
+
+	WristLocation wrist_location = 8;
+
+	enum CrownOrientation {
+		option features.enum_type = CLOSED;
+
+		CROWN_ORIENTATION_UNKNOWN = 0;
+		CROWN_ORIENTATION_LEFT = 1;
+		CROWN_ORIENTATION_RIGHT = 2;
+	}
+
+	CrownOrientation crown_orientation = 9;
+
+	message MessagePerformanceInfo {
+		int32 initiating_message_size = 1;
+		int32 initiating_message_latency = 2;
+		int32 response_message_size = 3;
+		int32 response_message_latency = 4;
+		int32 client_latency = 5;
+	}
+
+	repeated MessagePerformanceInfo message_performance_info = 10;
+	int32 error_code = 11;
+}

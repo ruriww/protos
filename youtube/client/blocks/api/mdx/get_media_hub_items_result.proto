@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+import "youtube/api/innertube/media_hub_item.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetMediaHubItemsResult {
+	repeated youtube.api.innertube.MediaHubItem media_hub_items = 1;
+}

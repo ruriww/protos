@@ -1,0 +1,9 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message DeviceAccount {
+	int32 auth_token_index = 1;
+}

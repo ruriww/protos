@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/yoodle_single_logo.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YoodleLogoData {
+	YoodleSingleLogo default_light = 1;
+	YoodleSingleLogo default_dark = 2;
+	YoodleSingleLogo premium_light = 3;
+	YoodleSingleLogo premium_dark = 4;
+	YoodleSingleLogo default_light_webp = 5;
+	YoodleSingleLogo default_dark_webp = 6;
+	YoodleSingleLogo premium_light_webp = 7;
+	YoodleSingleLogo premium_dark_webp = 8;
+}

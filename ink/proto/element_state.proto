@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum ElementState {
+	option features.enum_type = CLOSED;
+
+	ALIVE = 1;
+	DEAD = 2;
+}

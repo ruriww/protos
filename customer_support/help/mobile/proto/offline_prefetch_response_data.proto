@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/response_app_data.proto";
+import "customer_support/help/mobile/proto/context_specific_recommendations.proto";
+
+option objc_class_prefix = "CSHM";
+
+message OfflinePrefetchResponseData {
+	ResponseAppData app_data = 1;
+	repeated ContextSpecificRecommendations context_specific_recommendations = 2;
+}

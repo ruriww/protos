@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_video_end_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/mini_player_state_skip_behavior.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/ad_layout_metadata.proto";
+import "youtube/api/innertube/app_promotion_video_end_renderer.proto";
+import "youtube/api/innertube/simple_video_end_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdVideoEndRenderer {
+	repeated AdVideoEndSupportedRenderers items = 1;
+	bytes tracking_params = 3;
+	float duration = 4;
+	Renderer content = 5;
+	MiniPlayerStateSkipBehavior mini_player_state_skip_behavior = 6;
+	bool pause_on_app_exit = 7;
+	AdLayoutLoggingData ad_layout_logging_data = 9;
+	AdLayoutMetadata ad_layout_metadata = 10;
+	string skip_ad_text = 11;
+	string associated_media_layout_id = 12;
+	bool should_disable_client_default_skip_ad_button = 13;
+}
+
+extend Renderer {
+	AdVideoEndRenderer ad_video_end_renderer = 89145698;
+}
+
+extend Renderer {
+	AppPromotionVideoEndRenderer app_promotion_video_end_renderer = 90451653;
+}
+
+extend Renderer {
+	SimpleVideoEndRenderer simple_video_end_renderer = 122556306;
+}

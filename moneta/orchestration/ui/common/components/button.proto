@@ -1,0 +1,63 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/style_enums.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message Button {
+	int64 ui_reference = 1;
+	bool enabled = 2;
+	string button_text_before_click = 3;
+	string button_text_during_refresh = 4;
+	string button_text_after_refresh = 5;
+	int32 resend_time_ms = 6;
+
+	enum ButtonType {
+		option features.enum_type = CLOSED;
+
+		STANDARD = 0;
+		PRIMARY_CREATE_COMMUNICATE_ACTION = 1;
+		PRIMARY_SUBMIT_ACTION = 2;
+		SECONDARY_SUBMIT_ACTION = 12;
+		SHARE_ACTION = 3;
+		NEXT_SECTION = 4;
+		PRINT_PAGE_ACTION = 5;
+		PRINT_STANDARD_ACTION = 8;
+		CHIP = 6;
+		LINK = 7;
+		RAISED = 11;
+		IRREVERSIBLE_ACTION = 13;
+		FULL_WIDTH = 14;
+		HAIRLINE = 15;
+	}
+
+	ButtonType button_type = 7;
+	ConfirmationDialog confirmation_dialog = 8;
+
+	oneof link {
+		string link_url = 9;
+		string link_url_not_logged = 19;
+	}
+
+	generic.ImageWithCaption icon = 10;
+	repeated int64 blacklist_ui_references = 11;
+	repeated int64 whitelist_ui_references = 12;
+	string accessibility_label = 15;
+
+	enum ButtonStickyType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_BUTTON_STICKY_TYPE = 0;
+		BOTTOM_BUTTON_STICKY_TYPE = 1;
+	}
+
+	ButtonStickyType button_sticky_type = 16;
+	generic.StyleEnums.Alignment alignment = 17;
+	proto2.bridge.MessageSet private_extensions = 18;
+	string chip_button_delete_accessibility_label = 20;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/opportunity_data.proto";
+import "youtube/api/innertube/slot_data.proto";
+import "youtube/api/innertube/layout_data.proto";
+import "youtube/api/innertube/trigger_data.proto";
+import "youtube/api/innertube/external_context.proto";
+import "youtube/api/innertube/ping_data.proto";
+import "youtube/api/innertube/rendering_event_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdClientDataEntry {
+	OpportunityData opportunity_data = 1;
+	SlotData slot_data = 2;
+	LayoutData layout_data = 3;
+	TriggerData trigger_data = 4;
+	ExternalContext external_context = 5;
+	PingData ping_data = 6;
+	RenderingEventData rendering_event_data = 7;
+}

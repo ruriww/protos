@@ -1,0 +1,30 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message Input {
+	enum InputType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MOUSE = 1;
+		TOUCH = 2;
+		PEN = 3;
+		ERASER = 4;
+	}
+
+	InputType type = 1;
+	uint32 id = 2;
+	uint32 flags = 3;
+	double time_s = 4;
+	float screen_pos_x = 5;
+	float screen_pos_y = 6;
+	float pressure = 7;
+	float deprecated_wheel_delta = 8 [ deprecated = true ];
+	float tilt = 9;
+	float orientation = 10;
+	float wheel_delta_x = 11;
+	float wheel_delta_y = 12;
+}

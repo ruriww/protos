@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineFeatureSettingState {
+	bool is_sd_enabled = 1;
+	bool is_dlrecs_enabled = 2;
+	int64 sd_maximum_storage_utilization_bytes = 3;
+	int64 smart_downloads_last_opt_out_timestamp_ms = 4;
+}

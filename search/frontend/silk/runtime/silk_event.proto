@@ -1,0 +1,19 @@
+edition = "2023";
+
+package search.frontend.silk.runtime;
+
+option objc_class_prefix = "SLKRTM";
+
+message SilkEvent {
+	enum SilkEventType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		SUBSCRIBE = 1;
+		UNSUBSCRIBE = 2;
+	}
+
+	SilkEventType type = 1;
+	string name = 2;
+	string subscribe_callback_string = 3;
+}

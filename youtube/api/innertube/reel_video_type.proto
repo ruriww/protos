@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelVideoType {
+	option features.enum_type = CLOSED;
+
+	REEL_VIDEO_TYPE_UNKNOWN = 0;
+	REEL_VIDEO_TYPE_STORY = 1;
+	REEL_VIDEO_TYPE_VIDEO = 2;
+	REEL_VIDEO_TYPE_AD = 3;
+	REEL_VIDEO_TYPE_LIVE = 4;
+	REEL_VIDEO_TYPE_VOD_VIDEO = 5;
+	REEL_VIDEO_TYPE_STACKED_CARDS_PROMO = 6;
+	REEL_VIDEO_TYPE_LIVE_PREVIEW = 7;
+	REEL_VIDEO_TYPE_MUSIC_SAMPLES = 8;
+	REEL_VIDEO_TYPE_MINI_APP_AD = 9;
+	REEL_VIDEO_TYPE_POST = 10;
+}

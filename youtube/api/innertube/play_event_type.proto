@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlayEventType {
+	option features.enum_type = CLOSED;
+
+	PLAY_EVENT_TYPE_UNSPECIFIED = 0;
+	PLAY_EVENT_TYPE_PLAY_INITIATED = 9;
+	PLAY_EVENT_TYPE_PLAY_START = 1;
+	PLAY_EVENT_TYPE_PLAY_READY = 2;
+	PLAY_EVENT_TYPE_PLAY_FIRST_USER_ACTION = 8;
+	PLAY_EVENT_TYPE_PLAY_CLICK = 5;
+	PLAY_EVENT_TYPE_PLAY_PAUSE = 6;
+	PLAY_EVENT_TYPE_PLAY_RESUME = 7;
+	PLAY_EVENT_TYPE_PLAY_PING = 3;
+	PLAY_EVENT_TYPE_PLAY_END = 4;
+}

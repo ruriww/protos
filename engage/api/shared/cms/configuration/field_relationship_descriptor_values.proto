@@ -1,0 +1,15 @@
+edition = "2023";
+
+package engage.api.shared.cms.configuration;
+
+import "engage/api/shared/cms/configuration/field_relationship_descriptor_value.proto";
+import "engage/api/shared/cms/configuration/cms_value_rule_graph_reference.proto";
+
+option objc_class_prefix = "EASC";
+
+message FieldRelationshipDescriptorValues {
+	repeated FieldRelationshipDescriptorValue frd_value = 1;
+	int64 value_rule_graph_id = 2;
+	string value_rule_graph_view_identifier = 3;
+	CmsValueRuleGraphReference value_rule_graph_reference = 4;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message TimeBucket {
+	int32 min_threshold_pct = 1;
+	int32 time_msec = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/client_context.proto";
+import "social/people/backend/service/intelligence/proto/create_contact_reminders_request.proto";
+
+option objc_class_prefix = "PIL";
+
+message CreateAssistiveFeaturesRequest {
+	ClientContext client_context = 1;
+
+	oneof request {
+		CreateContactRemindersRequest contact_reminders_request = 2;
+	}
+}

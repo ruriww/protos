@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HorizontalCardListNavIndicatorStyle {
+	option features.enum_type = CLOSED;
+
+	HORIZONTAL_CARD_LIST_NAV_INDICATOR_STYLE_UNKNOWN = 0;
+	HORIZONTAL_CARD_LIST_NAV_INDICATOR_STYLE_SWIPEY_DOTS = 1;
+	HORIZONTAL_CARD_LIST_NAV_INDICATOR_STYLE_PEEKABOO_CHIPS = 2;
+	HORIZONTAL_CARD_LIST_NAV_INDICATOR_STYLE_SWIPEY_DOTS_AND_PEEKABOO_CHIPS = 3;
+}

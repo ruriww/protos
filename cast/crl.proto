@@ -1,0 +1,11 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+message Crl {
+	bytes tbs_crl = 1;
+	bytes signer_cert = 2;
+	bytes signature = 3;
+}

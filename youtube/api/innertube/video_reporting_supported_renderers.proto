@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/confirm_dialog_renderer.proto";
+import "youtube/api/innertube/menu_renderer.proto";
+import "youtube/api/innertube/single_video_reporting_option_renderer.proto";
+import "youtube/api/innertube/options_renderer.proto";
+import "youtube/api/innertube/report_form_modal_renderer.proto";
+import "youtube/api/innertube/kids_reporting_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoReportingSupportedRenderers {
+	oneof renderer {
+		ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+		MenuRenderer menu_renderer = 66439850;
+		SingleVideoReportingOptionRenderer single_video_reporting_option_renderer = 77362223;
+		OptionsRenderer options_renderer = 77875886;
+		ReportFormModalRenderer report_form_modal_renderer = 113762946;
+		KidsReportingRenderer kids_reporting_renderer = 127738223;
+	}
+}

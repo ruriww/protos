@@ -1,0 +1,15 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/ui_parameters.proto";
+import "identity_consent/entry_point_info.proto";
+
+option objc_class_prefix = "IDC";
+
+message UiMetadata {
+	UiParameters.ColorTheme color_theme = 1;
+	UiParameters.Dismissibility dismissibility = 2;
+	UiParameters.InitialLoadingStrategy initial_loading_strategy = 3;
+	EntryPointInfo.IntegrationType integration_type = 4;
+}

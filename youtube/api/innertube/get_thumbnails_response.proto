@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/get_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/get_thumbnail_playlist_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetThumbnailsResponse {
+	ResponseContext response_context = 1;
+	GetThumbnailSupportedRenderers thumbnail = 3;
+	GetThumbnailPlaylistSupportedDatas playlist = 4;
+}

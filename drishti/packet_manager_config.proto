@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/packet_factory_config.proto";
+
+option objc_class_prefix = "Drishti";
+
+message PacketManagerConfig {
+	repeated PacketFactoryConfig packet = 1;
+}

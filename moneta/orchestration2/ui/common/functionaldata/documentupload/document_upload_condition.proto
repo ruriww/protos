@@ -1,0 +1,89 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.documentupload;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DocumentUploadCondition {
+	extend eventrules.condition.Condition {
+		DocumentUploadCondition document_upload_condition_extension = 321469412;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_UPLOADED_DOCUMENT_ATTRIBUTES_MATCH = 1;
+		CONDITION_TYPE_PREVIOUSLY_UPLOADED_DOCUMENTS_COUNT = 2;
+		CONDITION_TYPE_UPLOADED_DOCUMENT_MIME_TYPE_MATCH = 3;
+		CONDITION_TYPE_HAS_IMAGE_QUALITY_ISSUES = 4;
+		CONDITION_TYPE_IMAGE_QUALITY_SCORE_LESS_THAN = 5;
+		CONDITION_TYPE_GRANULAR_IMAGE_QUALITY_SCORE_LESS_THAN = 6;
+		CONDITION_TYPE_GRANULAR_IMAGE_QUALITY_PERCENTILE_PRECISION_COMPARE = 8;
+		CONDITION_TYPE_UPLOADED_DOCUMENT_FILE_NAME_MATCH = 9;
+		CONDITION_TYPE_UPLOADED_DOCUMENT_HAS_DISALLOWED_EXTRACTED_DOCTYPE = 11;
+	}
+
+	ConditionType condition_type = 1;
+
+	message UploadedDocumentAttributesMatchCondition {
+		map<string, string> uploaded_document_attributes = 1;
+	}
+
+	message PreviouslyUploadedDocumentsCountCondition {
+		int32 count = 1;
+	}
+
+	message UploadedDocumentMimeTypeMatchCondition {
+		repeated string types = 1;
+	}
+
+	message ImageQualityScoreLessThanCondition {
+		float threshold_score = 2;
+	}
+
+	message GranularImageQualityScoreLessThanCondition {
+		int32 image_quality_label = 1;
+		float threshold_score = 2;
+	}
+
+	message GranularImageQualityPercentilePrecisionCompareCondition {
+		message PercentilePrecisionComparator {
+			int32 image_quality_label = 1;
+			float threshold_percentile_precision = 2;
+
+			enum ComparisonType {
+				option features.enum_type = CLOSED;
+
+				COMPARISON_TYPE_UNKNOWN = 0;
+				COMPARISON_TYPE_LESS_THAN = 1;
+				COMPARISON_TYPE_GREATER_THAN_OR_EQUAL_TO = 2;
+			}
+
+			ComparisonType comparison_type = 3;
+		}
+
+		repeated PercentilePrecisionComparator comparator = 1;
+
+		enum ComparatorRequirementType {
+			option features.enum_type = CLOSED;
+
+			COMPARATOR_REQUIREMENT_TYPE_UNKNOWN = 0;
+			COMPARATOR_REQUIREMENT_TYPE_OR = 1;
+			COMPARATOR_REQUIREMENT_TYPE_AND = 2;
+		}
+
+		ComparatorRequirementType comparator_requirement_type = 2;
+	}
+
+	oneof condition {
+		UploadedDocumentAttributesMatchCondition uploaded_document_attributes_match_condition = 2;
+		PreviouslyUploadedDocumentsCountCondition previously_uploaded_documents_count_condition = 3;
+		UploadedDocumentMimeTypeMatchCondition uploaded_document_mime_type_match_condition = 4;
+		ImageQualityScoreLessThanCondition image_quality_score_less_than_condition = 5;
+		GranularImageQualityScoreLessThanCondition granular_image_quality_score_less_than_condition = 6;
+		GranularImageQualityPercentilePrecisionCompareCondition granular_image_quality_percentile_precision_compare_condition = 8;
+	}
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum SplitPreference {
+	option features.enum_type = CLOSED;
+
+	PREFERENCE_UNSPECIFIED = 0;
+	PREFER_MERGED = 1;
+	PREFER_SPLIT = 2;
+}

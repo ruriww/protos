@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/client/blocks/api/player/video_type.proto";
+import "youtube/client/blocks/api/player/forwarded_player_response_data.proto";
+import "youtube/client/blocks/api/player/forwarded_watch_endpoint_data.proto";
+
+option objc_class_prefix = "YTBA";
+
+message VideoData {
+	string cpn = 1;
+	VideoType video_type = 3;
+	ForwardedPlayerResponseData forwarded_player_response_data = 4;
+	ForwardedWatchEndpointData forwarded_watch_endpoint_data = 5;
+}

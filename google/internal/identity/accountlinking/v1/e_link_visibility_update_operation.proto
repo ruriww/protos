@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum ELinkVisibilityUpdateOperation {
+	LINK_VISIBILITY_UPDATE_OPERATION_UNSPECIFIED = 0;
+	LINK_VISIBILITY_UPDATE_OPERATION_ADD = 1;
+	LINK_VISIBILITY_UPDATE_OPERATION_REMOVE = 2;
+}

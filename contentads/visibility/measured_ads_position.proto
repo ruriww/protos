@@ -1,0 +1,12 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message MeasuredAdsPosition {
+	int32 top = 1;
+	int32 right = 2;
+	int32 bottom = 3;
+	int32 left = 4;
+}

@@ -1,0 +1,19 @@
+syntax = "proto2";
+
+package unknown.youtube;
+
+enum NBCCTChannelType {
+	option allow_alias = true;
+
+	CHANNEL_UNKNOWN = 0;
+	EMAIL = 1;
+	APPLE_PUSH = 2;
+	GCM_DEVICE_PUSH = 3;
+	SMS = 5;
+	CUSTOM_ENDPOINT = 6;
+	WEB_PUSH = 7;
+	VIRTUAL_INBOX = 10;
+	IN_APP_TRAY = 11;
+	INBOX = 11;
+	IN_WEB = 12;
+}

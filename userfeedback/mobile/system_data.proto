@@ -1,0 +1,13 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/telephony_data.proto";
+
+option objc_class_prefix = "UFM";
+
+message SystemData {
+	fixed64 timestamp = 1;
+	string system_log = 2;
+	TelephonyData telephony_data = 6;
+}

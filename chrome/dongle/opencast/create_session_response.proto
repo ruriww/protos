@@ -1,0 +1,13 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/session.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message CreateSessionResponse {
+	Session session = 1;
+	bytes sender_identity_pkcs12 = 2;
+	string sender_identity_pkcs12_password = 3;
+}

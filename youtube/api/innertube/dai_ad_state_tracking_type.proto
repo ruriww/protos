@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DAIAdStateTrackingType {
+	option features.enum_type = CLOSED;
+
+	DAI_AD_STATE_TRACKING_TYPE_UNSPECIFIED = 0;
+	DAI_AD_STATE_TRACKING_TYPE_AD_BREAK_TRACKED = 1;
+	DAI_AD_STATE_TRACKING_TYPE_AD_TRACKED = 2;
+	DAI_AD_STATE_TRACKING_TYPE_AD_PLAYED = 3;
+	DAI_AD_STATE_TRACKING_TYPE_AD_IMPRESSION_SENT = 4;
+	DAI_AD_STATE_TRACKING_TYPE_AD_DID_FAIL = 5;
+}

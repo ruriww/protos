@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_send_message_response.proto";
+import "customer_support/help/mobile/proto/mobile_join_conversation_response.proto";
+import "customer_support/help/mobile/proto/mobile_leave_conversation_response.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileUpdateConversationResponse {
+	oneof mobile_update_conversation_response_data {
+		MobileSendMessageResponse send_message_response = 1;
+		MobileJoinConversationResponse join_conversation_response = 2;
+		MobileLeaveConversationResponse leave_conversation_response = 3;
+	}
+}

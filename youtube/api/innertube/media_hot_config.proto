@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_media_hot_config.proto";
+import "youtube/api/innertube/media_quality_settings_hot_config.proto";
+import "youtube/api/innertube/plan_aware_streaming_config.proto";
+import "youtube/api/innertube/proof_of_origin_hot_config.proto";
+import "youtube/api/innertube/scripted_player_hot_config.proto";
+import "youtube/api/innertube/media_fetch_hot_config.proto";
+import "youtube/api/innertube/hamplayer_hot_config.proto";
+import "youtube/api/innertube/exo_cache_hot_config.proto";
+import "youtube/api/innertube/onesie_hot_config.proto";
+import "youtube/api/innertube/bandwidth_model_config.proto";
+import "youtube/api/innertube/ios_av_player_hot_config.proto";
+import "youtube/api/innertube/qoe_hot_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaHotConfig {
+	IosMediaHotConfig ios_media_hot_config = 1;
+	MediaQualitySettingsHotConfig media_quality_settings_hot_config = 3;
+	PlanAwareStreamingConfig plan_aware_streaming_config = 4;
+	ProofOfOriginHotConfig proof_of_origin_hot_config = 5;
+	ScriptedPlayerHotConfig scripted_player_hot_config = 7;
+	MediaFetchHotConfig media_fetch_hot_config = 8;
+	HamplayerHotConfig hamplayer_hot_config = 138562899;
+	ExoCacheHotConfig exo_cache_hot_config = 139360648;
+	OnesieHotConfig onesie_hot_config = 146311580;
+	BandwidthModelConfig bandwidth_model_config = 151068309;
+	IosAvPlayerHotConfig ios_av_player_hot_config = 151193525;
+	QoeHotConfig qoe_hot_config = 158048433;
+}

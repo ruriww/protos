@@ -1,0 +1,364 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message ExperienceKitMetricEvent {
+	enum IntentType {
+		option features.enum_type = CLOSED;
+
+		INTENT_TYPE_UNKNOWN = 0;
+		INTENT_TYPE_CALENDAR = 1;
+		INTENT_TYPE_MAPS = 2;
+		INTENT_TYPE_TRANSLATE = 3;
+		INTENT_TYPE_SEARCH = 4;
+	}
+
+	IntentType intent_type = 1;
+
+	message AppSwitching {
+		enum AppSwitchingEventCode {
+			option features.enum_type = CLOSED;
+
+			APP_SWITCHING_EVENT_UNKNOWN = 0;
+			APP_SWITCHING_EVENT_USER_VIEWED = 1;
+			APP_SWITCHING_EVENT_OPEN_EXTERNAL_APP = 2;
+			APP_SWITCHING_EVENT_APP_INSTALLED = 3;
+		}
+
+		AppSwitchingEventCode event_code = 1;
+
+		enum AppSwitchingScreen {
+			option features.enum_type = CLOSED;
+
+			APP_SWITCHING_SCREEN_UNKNOWN = 0;
+			APP_SWITCHING_SCREEN_PROMO = 1;
+			APP_SWITCHING_SCREEN_SKOVERLAY = 2;
+			APP_SWITCHING_SCREEN_APP_SWITCHER = 3;
+		}
+
+		AppSwitchingScreen screen = 2;
+
+		enum AppSwitchingTargetAppID {
+			option features.enum_type = CLOSED;
+
+			APP_SWITCHING_APP_ID_UNKNOWN = 0;
+			APP_SWITCHING_APP_ID_GOOGLE_CALENDAR = 1;
+			APP_SWITCHING_APP_ID_APPLE_CALENDAR = 2;
+			APP_SWITCHING_APP_ID_GOOGLE_MAPS = 3;
+			APP_SWITCHING_APP_ID_APPLE_MAPS = 4;
+			APP_SWITCHING_APP_ID_WAZE = 5;
+			APP_SWITCHING_APP_ID_GOOGLE_TRANSLATE = 6;
+		}
+
+		AppSwitchingTargetAppID target_app_id = 3;
+
+		enum AppSwitchingLinkType {
+			option features.enum_type = CLOSED;
+
+			APP_SWITCHING_LINK_TYPE_UNKNOWN = 0;
+			APP_SWITCHING_LINK_TYPE_DEEP_LINK = 1;
+			APP_SWITCHING_LINK_TYPE_UNIVERSAL_LINK = 3;
+		}
+
+		AppSwitchingLinkType link_type = 4;
+		string target_app_store_id = 5;
+	}
+
+	message CalendarAPI {
+		enum CalendarAPIEventCode {
+			option features.enum_type = CLOSED;
+
+			CALENDAR_API_EVENT_UNKNOWN = 0;
+			CALENDAR_API_EVENT_HANDLER_INSTALLED = 1;
+		}
+
+		CalendarAPIEventCode event_code = 1;
+		string name = 2;
+	}
+
+	message CreateGoogleCalendar {
+		enum CreateGoogleCalendarEventCode {
+			option features.enum_type = CLOSED;
+
+			CREATE_GOOGLE_CALENDAR_EVENT_UNKNOWN = 0;
+			CREATE_GOOGLE_CALENDAR_EVENT_USER_VIEWED = 1;
+			CREATE_GOOGLE_CALENDAR_EVENT_USER_TRIGGERED = 2;
+			CREATE_GOOGLE_CALENDAR_EVENT_OPEN_IN = 3;
+			CREATE_GOOGLE_CALENDAR_EVENT_EVENT_SAVED = 4;
+		}
+
+		CreateGoogleCalendarEventCode event_code = 1;
+
+		enum CreateGoogleCalendarScreen {
+			option features.enum_type = CLOSED;
+
+			CREATE_GOOGLE_CALENDAR_SCREEN_UNKNOWN = 0;
+			CREATE_GOOGLE_CALENDAR_SCREEN_CREATE_EVENT_VIEW = 1;
+			CREATE_GOOGLE_CALENDAR_SCREEN_CALENDAR_SELECTION_VIEW = 2;
+			CREATE_GOOGLE_CALENDAR_SCREEN_EVENT_RECURRENCE_VIEW = 3;
+		}
+
+		CreateGoogleCalendarScreen screen = 2;
+
+		enum CreateGoogleCalendarAction {
+			option features.enum_type = CLOSED;
+
+			CREATE_GOOGLE_CALENDAR_ACTION_UNKNOWN = 0;
+			CREATE_GOOGLE_CALENDAR_ACTION_CANCEL = 1;
+			CREATE_GOOGLE_CALENDAR_ACTION_SAVE = 2;
+		}
+
+		CreateGoogleCalendarAction action = 3;
+
+		enum CreateGoogleCalendarOpenInSource {
+			option features.enum_type = CLOSED;
+
+			CREATE_GOOGLE_CALENDAR_OPEN_IN_SOURCE_UNKNOWN = 0;
+			CREATE_GOOGLE_CALENDAR_OPEN_IN_SOURCE_PARTICIPANTS = 1;
+			CREATE_GOOGLE_CALENDAR_OPEN_IN_SOURCE_GENERAL = 2;
+		}
+
+		CreateGoogleCalendarOpenInSource open_in_source = 4;
+		bool primary_calendar = 5;
+		bool success = 6;
+		string trace_log = 7;
+	}
+
+	message CreateAppleCalendar {
+		enum CreateAppleCalendarEventCode {
+			option features.enum_type = CLOSED;
+
+			CREATE_APPLE_CALENDAR_EVENT_UNKNOWN = 0;
+			CREATE_APPLE_CALENDAR_EVENT_USER_VIEWED = 1;
+			CREATE_APPLE_CALENDAR_EVENT_USER_TRIGGERED = 2;
+		}
+
+		CreateAppleCalendarEventCode event_code = 1;
+
+		enum CreateAppleCalendarScreen {
+			option features.enum_type = CLOSED;
+
+			CREATE_APPLE_CALENDAR_SCREEN_UNKNOWN = 0;
+			CREATE_APPLE_CALENDAR_SCREEN_CREATE_EVENT_VIEW = 1;
+		}
+
+		CreateAppleCalendarScreen screen = 2;
+
+		enum CreateAppleCalendarAction {
+			option features.enum_type = CLOSED;
+
+			CREATE_APPLE_CALENDAR_ACTION_UNKNOWN = 0;
+			CREATE_APPLE_CALENDAR_ACTION_CANCEL = 1;
+			CREATE_APPLE_CALENDAR_ACTION_SAVE = 2;
+		}
+
+		CreateAppleCalendarAction action = 3;
+	}
+
+	message MapsEvent {
+		enum MapsEventCode {
+			option features.enum_type = CLOSED;
+
+			MAPS_EVENT_CODE_UNKNOWN = 0;
+			MAPS_EVENT_CODE_USER_VIEWED = 1;
+			MAPS_EVENT_CODE_USER_TRIGGERED = 2;
+			MAPS_EVENT_CODE_SERVER_ERROR = 3;
+		}
+
+		MapsEventCode event_code = 1;
+
+		enum MapsScreen {
+			option features.enum_type = CLOSED;
+
+			MAPS_SCREEN_UNKNOWN = 0;
+			MAPS_SCREEN_ADDRESS = 1;
+			MAPS_SCREEN_DISCLAIMER_POPOVER = 2;
+			MAPS_SCREEN_ADDRESS_NOT_FOUND_ERROR = 3;
+			MAPS_SCREEN_PLACE = 4;
+		}
+
+		MapsScreen screen = 2;
+
+		enum MapsInputType {
+			option features.enum_type = CLOSED;
+
+			MAPS_INPUT_TYPE_UNKNOWN = 0;
+			MAPS_INPUT_TYPE_ADDRESS_TEXT = 1;
+			MAPS_INPUT_TYPE_URL = 2;
+		}
+
+		MapsInputType input_type = 3;
+
+		enum MapsAction {
+			option features.enum_type = CLOSED;
+
+			MAPS_ACTION_UNKNOWN = 0;
+			MAPS_ACTION_GET_DIRECTIONS_BUTTON = 1;
+			MAPS_ACTION_OPEN_IN_GOOGLE_MAPS_BUTTON = 2;
+			MAPS_ACTION_COPIED_ADDRESS = 3;
+			MAPS_ACTION_OPENED_WEBSITE = 4;
+			MAPS_ACTION_CALLED_PLACE = 5;
+			MAPS_ACTION_TAPPED_OPEN_IN_APP_BUTTON_ON_MAP = 6;
+			MAPS_ACTION_TAPPED_DISCLAIMER_POPOVER_LINK = 7;
+			MAPS_ACTION_TAPPED_FOOTER_BUTTON = 8;
+			MAPS_ACTION_TAPPED_SEARCH_ON_GOOGLE_BUTTON = 9;
+			MAPS_ACTION_EXPANDED_OPENING_HOURS = 10;
+		}
+
+		MapsAction action = 4;
+
+		enum MapsServerAPI {
+			option features.enum_type = CLOSED;
+
+			MAPS_SERVER_API_UNKNOWN = 0;
+			MAPS_SERVER_API_MAPS_STATIC = 1;
+			MAPS_SERVER_API_PLACES = 2;
+		}
+
+		MapsServerAPI server_api = 5;
+		int32 http_status_code = 6;
+	}
+
+	message TranslateAPI {
+		enum TranslateAPIEventCode {
+			option features.enum_type = CLOSED;
+
+			TRANSLATE_API_EVENT_UNKNOWN = 0;
+			TRANSLATE_API_EVENT_HANDLER_INSTALLED = 1;
+		}
+
+		TranslateAPIEventCode event_code = 1;
+		string name = 2;
+	}
+
+	message Translate {
+		enum TranslateEventCode {
+			option features.enum_type = CLOSED;
+
+			TRANSLATE_EVENT_UNKNOWN = 0;
+			TRANSLATE_USER_TRANSLATE_ACTION = 1;
+			TRANSLATE_USER_VIEWED = 2;
+			TRANSLATE_PLAY_SPEECH_ACTION = 3;
+			TRANSLATE_CHANGED_LANGUAGE_ACTION = 4;
+			TRANSLATE_COPIED_TRANSLATION_ACTION = 5;
+			TRANSLATE_ERROR = 6;
+			TRANSLATE_INITIAL_PERFORMANCE = 7;
+		}
+
+		TranslateEventCode event_code = 1;
+
+		enum TranslateScreen {
+			option features.enum_type = CLOSED;
+
+			TRANSLATE_SCREEN_UNKNOWN = 0;
+			TRANSLATE_SCREEN_TRANSLATE = 1;
+		}
+
+		TranslateScreen screen = 2;
+		int32 text_size = 3;
+		string source_language_code = 4;
+		string target_language_code = 5;
+
+		enum TranslateSourceType {
+			option features.enum_type = CLOSED;
+
+			TRANSLATE_SOURCE_TYPE_UNKNOWN = 0;
+			TRANSLATE_SOURCE_TYPE_AUTO_DETECTED = 1;
+			TRANSLATE_SOURCE_TYPE_USER_SELECTED = 2;
+		}
+
+		TranslateSourceType source_type = 6;
+		string source_speech_variant_code = 7;
+		string target_speech_variant_code = 8;
+
+		enum TranslateLanguageType {
+			option features.enum_type = CLOSED;
+
+			TRANSLATE_LANGUAGE_TYPE_UNKNOWN = 0;
+			TRANSLATE_LANGUAGE_TYPE_UNDEFINED = 1;
+			TRANSLATE_LANGUAGE_TYPE_SOURCE_AUTO_DETECTED = 2;
+			TRANSLATE_LANGUAGE_TYPE_SOURCE_USER_SELECTED = 3;
+			TRANSLATE_LANGUAGE_TYPE_TARGET = 4;
+		}
+
+		TranslateLanguageType language_type = 9;
+		string language_code = 10;
+		string speech_variant_code = 11;
+		string message = 12;
+
+		enum TranslateInitialResult {
+			option features.enum_type = CLOSED;
+
+			TRANSLATE_INITIAL_RESULT_UNKNOWN = 0;
+			TRANSLATE_INITIAL_RESULT_FIRST_TRY = 1;
+			TRANSLATE_INITIAL_RESULT_SECOND_TRY = 2;
+			TRANSLATE_INITIAL_RESULT_MANUAL = 3;
+		}
+
+		TranslateInitialResult translate_initial_result = 13;
+		bool incognito_enabled = 14;
+	}
+
+	message Search {
+		enum SearchEventCode {
+			option features.enum_type = CLOSED;
+
+			SEARCH_EVENT_UNKNOWN = 0;
+			SEARCH_USER_OPENED_EXPERIENCE = 2;
+			SEARCH_USER_PERFORMED_SEARCH = 3;
+			SEARCH_USER_TAPPED_LINK = 4;
+			SEARCH_USER_TAPPED_OPEN_IN_BROWSER = 5;
+			SEARCH_USER_DISMISSED_EXPERIENCE = 6;
+			SEARCH_AUTOMATICALLY_DISMISSED_EXPERIENCE = 8;
+			SEARCH_ERROR = 7;
+			SEARCH_ERROR_COORDINATOR_WAS_NIL = 9;
+		}
+
+		SearchEventCode event_code = 1;
+		int64 webview_error_code = 2;
+		int64 app_switching_error_code = 3;
+	}
+
+	message EditMenu {
+		enum EditMenuEventCode {
+			option features.enum_type = CLOSED;
+
+			EDIT_MENU_EVENT_UNKNOWN = 0;
+			MENU_ADDED_TO_EDIT_MENU = 1;
+			EDIT_MENU_ERROR = 2;
+		}
+
+		EditMenuEventCode event_code = 1;
+
+		enum EditMenuError {
+			option features.enum_type = CLOSED;
+
+			EDIT_MENU_ERROR_UNKNOWN = 0;
+			EDIT_MENU_ERROR_SERVICE_IMPLEMENTATION_NOT_BOUND = 1;
+			EDIT_MENU_ERROR_TEXT_SELECTION_NOT_FOUND = 2;
+			EDIT_MENU_ERROR_MENU_ITEM_ALREADY_EXISTS = 3;
+			EDIT_MENU_ERROR_NO_MATCHING_EXPERIENCE_FOR_MENU_ITEM = 4;
+			EDIT_MENU_ERROR_NOT_CONTEXT_SYSTEM = 5;
+			EDIT_MENU_ERROR_SYSTEM_EQUIVALENT_MENU_NOT_FOUND = 6;
+			EDIT_MENU_ERROR_TEXT_SELECTION_EMPTY = 7;
+		}
+
+		EditMenuError error = 2;
+	}
+
+	oneof event {
+		AppSwitching app_switching = 2;
+		CalendarAPI calendar_api = 3;
+		CreateGoogleCalendar create_google_calendar = 4;
+		CreateAppleCalendar create_apple_calendar = 5;
+		MapsEvent maps_event = 6;
+		TranslateAPI translate_api = 7;
+		Translate translate = 8;
+		Search search = 9;
+		EditMenu edit_menu = 10;
+	}
+
+	int32 session_id = 11;
+}

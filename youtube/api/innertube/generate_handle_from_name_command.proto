@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GenerateHandleFromNameCommand {
+	extend elements.Command {
+		GenerateHandleFromNameCommand generate_handle_from_name_command = 421321174;
+	}
+
+	string name = 1;
+	string channel_creation_form_state_entity_key = 3;
+}

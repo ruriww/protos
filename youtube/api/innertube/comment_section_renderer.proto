@@ -1,0 +1,84 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/comment_item_supported_renderers.proto";
+import "youtube/api/innertube/comment_item_supported_continuations.proto";
+import "youtube/api/innertube/comment_sharebox_supported_renderers.proto";
+import "youtube/api/innertube/comment_section_header_supported_renderers.proto";
+import "youtube/api/innertube/comment_section_sub_menu_supported_renderers.proto";
+import "youtube/api/innertube/comment_section_alert_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/comment_section_header_renderer.proto";
+import "youtube/api/innertube/comments_header_renderer.proto";
+import "youtube/api/innertube/comment_group_header_renderer.proto";
+import "youtube/api/innertube/comment_detail_header_renderer.proto";
+import "youtube/api/innertube/comment_thread_renderer.proto";
+import "youtube/api/innertube/comment_replies_renderer.proto";
+import "youtube/api/innertube/backstage_subscribe_bar_renderer.proto";
+import "youtube/api/innertube/comment_thread_footer_renderer.proto";
+import "youtube/api/innertube/comment_moderation_panel_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentSectionRenderer {
+	extend ContinuationSupportedRenderers {
+		CommentSectionRenderer comment_section_continuation = 62241549;
+	}
+
+	repeated CommentItemSupportedRenderers items = 1;
+	repeated CommentItemSupportedContinuations continuations = 2;
+	CommentShareboxSupportedRenderers sharebox = 3;
+	CommentSectionHeaderSupportedRenderers header = 4;
+	CommentSectionSubMenuSupportedRenderers sort_menu = 5;
+	bytes tracking_params = 6;
+	repeated CommentSectionAlertSupportedRenderers alerts = 8;
+}
+
+extend Renderer {
+	CommentSectionRenderer comment_section_renderer = 62241549;
+}
+
+extend Renderer {
+	CommentSectionHeaderRenderer comment_section_header_renderer = 87566086;
+}
+
+extend Renderer {
+	CommentsHeaderRenderer comments_header_renderer = 105977417;
+}
+
+extend Renderer {
+	CommentGroupHeaderRenderer comment_group_header_renderer = 111153703;
+}
+
+extend Renderer {
+	CommentDetailHeaderRenderer comment_detail_header_renderer = 128774566;
+}
+
+extend Renderer {
+	CommentThreadRenderer comment_thread_renderer = 62285833;
+}
+
+extend Renderer {
+	CommentRepliesRenderer comment_replies_renderer = 65060753;
+}
+
+extend Renderer {
+	BackstageSubscribeBarRenderer backstage_subscribe_bar_renderer = 156330933;
+}
+
+extend Renderer {
+	CommentThreadFooterRenderer comment_thread_footer_renderer = 124376939;
+}
+
+extend Renderer {
+	CommentModerationPanelRenderer comment_moderation_panel_renderer = 145343537;
+}
+
+extend ContinuationSupportedRenderers {
+	CommentModerationPanelRenderer comment_moderation_panel_continuation = 145343537;
+}

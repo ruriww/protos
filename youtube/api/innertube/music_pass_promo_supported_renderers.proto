@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_pass_small_feature_info_renderer.proto";
+import "youtube/api/innertube/music_pass_feature_info_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPassPromoSupportedRenderers {
+	MusicPassSmallFeatureInfoRenderer music_pass_small_feature_info_renderer = 62539050;
+	MusicPassFeatureInfoRenderer music_pass_feature_info_renderer = 62971408;
+}

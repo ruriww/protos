@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+import "unknown/youtube/gerr_code10785.proto";
+import "moneta/integrator/common/api_error_reason.proto";
+
+option objc_class_prefix = "Orch";
+
+message ApiError {
+	unknown.youtube.GERRCode10785.GERRCode code = 1 [ default = UNKNOWN ];
+	string user_error_message = 2;
+	string internal_error_details = 3;
+	ApiErrorReason api_error_reason = 4 [ default = UNKNOWN ];
+}

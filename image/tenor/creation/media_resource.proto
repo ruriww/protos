@@ -1,0 +1,12 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/background_media.proto";
+
+option objc_class_prefix = "TENOR";
+
+message MediaResource {
+	string resource_id = 1;
+	BackgroundMedia media = 2;
+}

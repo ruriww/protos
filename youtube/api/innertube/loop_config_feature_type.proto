@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LoopConfigFeatureType {
+	option features.enum_type = CLOSED;
+
+	LOOP_CONFIG_FEATURE_TYPE_UNSPECIFIED = 0;
+	LOOP_CONFIG_FEATURE_TYPE_CLIPS = 1;
+	LOOP_CONFIG_FEATURE_TYPE_INLINE_SHORTS = 2;
+	LOOP_CONFIG_FEATURE_TYPE_SHORTS_GRID = 3;
+	LOOP_CONFIG_FEATURE_TYPE_INLINE_VIDEOS = 4;
+}

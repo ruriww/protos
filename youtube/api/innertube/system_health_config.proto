@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/heartbeat_policy.proto";
+import "youtube/api/innertube/primes_settings.proto";
+import "youtube/api/innertube/event_logging_settings.proto";
+import "youtube/api/innertube/dropped_frames_supported_configs.proto";
+import "youtube/api/innertube/delayed_event_metric_settings.proto";
+import "youtube/api/innertube/battery_capturer_settings.proto";
+import "youtube/api/innertube/cold_browse_installed_apps_settings.proto";
+import "youtube/api/innertube/stall_detector_settings.proto";
+import "youtube/api/innertube/stack_trace_profiler_settings.proto";
+import "youtube/api/innertube/cpu_profiling_settings.proto";
+import "youtube/api/innertube/unknown_app_termination_profiling_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SystemHealthConfig {
+	bool enable_monitoring = 1;
+	HeartbeatPolicy foreground_heartbeat_policy = 2;
+	PrimesSettings primes_settings = 3;
+	EventLoggingSettings event_logging_settings = 4;
+	HeartbeatPolicy background_idle_heartbeat_policy = 5;
+	HeartbeatPolicy background_active_heartbeat_policy = 6;
+	DroppedFramesSupportedConfigs dropped_frames_supported_configs = 7;
+	DelayedEventMetricSettings delayed_event_settings = 8;
+	BatteryCapturerSettings battery_capturer_settings = 9;
+	bool ios_use_worker_for_periodic_capture = 10;
+	ColdBrowseInstalledAppsSettings cold_browse_installed_apps_settings = 11;
+	StallDetectorSettings stall_detector_settings = 12;
+	float oom_logging_sampling_rate = 14;
+	bool ios_enable_precritical_system_health_monitoring = 15;
+	bool ios_enable_innertube_network_connectivity_measurement = 17;
+	float ios_innertube_network_connectivity_baseline_client_sampling_rate = 18;
+	int32 ios_innertube_network_connectivity_baseline_timeout_in_ms = 19;
+	string ios_innertube_network_connectivity_baseline_gen_204_url = 20;
+	bool ios_enable_breakpad_stall_report_suspend_thread = 21;
+	bool ios_enable_startup_font_storage_resume_downloads = 22;
+	StackTraceProfilerSettings stack_trace_profiler_settings = 23;
+	bool ios_enable_simplified_mdd_lock = 25;
+	CPUProfilingSettings cpu_profiling_settings = 26;
+	int32 android_startup_crash_loop_detector = 27;
+	UnknownAppTerminationProfilingSettings unknown_app_termination_profiling_settings = 29;
+	float ios_metric_kit_diagnostic_sampling_rate = 31;
+}

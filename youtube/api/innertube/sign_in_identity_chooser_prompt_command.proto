@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/tv_sign_in_feature_type.proto";
+import "youtube/api/innertube/tv_sign_in_protocol_type.proto";
+import "youtube/api/innertube/handoff_lr_device.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SignInIdentityChooserPromptCommand {
+	extend Command {
+		SignInIdentityChooserPromptCommand sign_in_identity_chooser_prompt_command = 1724;
+	}
+
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	TvSignInFeatureType sign_in_feature_type = 3;
+	TvSignInProtocolType sign_in_protocol_type = 4;
+	string sign_in_session_id = 5;
+	Command on_identity_selected = 7;
+	Command on_account_chooser_dismissed = 8;
+	HandoffLrDevice lr_device = 9;
+	google.protobuf.Duration quiet_period = 10;
+	google.protobuf.Duration dismiss_quiet_period = 11;
+}

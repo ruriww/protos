@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TvInfo {
+	string bedrock_trigger_state = 2;
+	bool is_mdx = 3;
+	string label = 4;
+	bool is_preloaded = 5;
+	bool startup_sound_played = 7;
+	bool app_reload = 9;
+}

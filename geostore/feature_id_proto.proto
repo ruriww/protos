@@ -1,0 +1,17 @@
+edition = "2023";
+
+package geostore;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "GS";
+
+message FeatureIdProto {
+	extend proto2.bridge.MessageSet {
+		FeatureIdProto message_set_extension = 13258261;
+	}
+
+	fixed64 cell_id = 1;
+	fixed64 fprint = 2;
+	proto2.bridge.MessageSet temporary_data = 3;
+}

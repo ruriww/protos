@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/s3_session_connection_type.proto";
+import "logs/proto/speech/ios/s3_session_http_connection_metadata.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message S3SessionEventMetadata {
+	string service_type = 1;
+	string application_category = 2;
+	string config_class_name = 3;
+	S3SessionConnectionType connection_type = 4;
+	bool uses_ephemeral_install_id = 5;
+	bool use_ssl = 6;
+	repeated string host_name = 7;
+	S3SessionHTTPConnectionMetadata http_connection_metadata = 8;
+}

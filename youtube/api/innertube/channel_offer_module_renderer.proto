@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelOfferModuleRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	repeated BadgeSupportedRenderers badges = 4;
+	Command navigation_endpoint = 5;
+	int32 additional_channel_count = 6;
+	bool has_free_trial = 7;
+	bool is_ads_free = 8;
+	ButtonSupportedRenderers offer_button = 9;
+	FormattedString help_text = 10;
+	FormattedString manage_purchases_text = 11;
+}

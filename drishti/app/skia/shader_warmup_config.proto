@@ -1,0 +1,10 @@
+edition = "2023";
+
+package drishti.app.skia;
+
+option objc_class_prefix = "DrishtiSkia";
+
+message ShaderWarmupConfig {
+	int32 warmup_framebuffer_width = 1;
+	int32 warmup_framebuffer_height = 2;
+}

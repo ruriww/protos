@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+enum ImageFetchStatus {
+	option features.enum_type = CLOSED;
+
+	STATUS_UNKNOWN = 0;
+	STATUS_LOCAL = 1;
+	STATUS_DOWNLOAD_SUCCEEDED = 2;
+	STATUS_DOWNLOAD_FAILED = 3;
+	STATUS_OTHER_FAILED = 4;
+}

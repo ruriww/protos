@@ -1,0 +1,11 @@
+edition = "2023";
+
+package id.consent.audit.common;
+
+import "id/consent/audit/common/session_id.proto";
+
+option objc_class_prefix = "ARI";
+
+message AuditToken {
+	SessionId session_id = 2;
+}

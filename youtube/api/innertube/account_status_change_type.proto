@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AccountStatusChangeType {
+	option features.enum_type = CLOSED;
+
+	ACCOUNT_STATUS_CHANGE_TYPE_UNKNOWN = 0;
+	ACCOUNT_STATUS_CHANGE_TYPE_LOG_IN = 1;
+	ACCOUNT_STATUS_CHANGE_TYPE_LOG_OUT = 2;
+	ACCOUNT_STATUS_CHANGE_TYPE_ACCOUNT_SWITCH = 4;
+	ACCOUNT_STATUS_CHANGE_TYPE_GOING_INCOGNTIO = 6;
+	ACCOUNT_STATUS_CHANGE_TYPE_FROM_INCOGNTIO = 7;
+	ACCOUNT_STATUS_CHANGE_TYPE_ACCOUNT_REMOVED = 8;
+	ACCOUNT_STATUS_CHANGE_TYPE_LOG_OUT_BY_POLICY = 9;
+	ACCOUNT_STATUS_CHANGE_TYPE_SAME_ACCOUNT_SWITCH = 10;
+}

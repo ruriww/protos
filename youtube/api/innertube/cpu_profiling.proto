@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_stack_traces_proto.proto";
+import "youtube/api/innertube/cpu_profiler_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CPUProfiling {
+	CompactStackTracesProto profiling_samples = 1;
+	CPUProfilerConfig config = 2;
+}

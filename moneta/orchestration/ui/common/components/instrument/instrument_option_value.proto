@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/fix_info_form_value.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message InstrumentOptionValue {
+	string instrument_id = 1;
+	FixInfoFormValue fix_info_form_value = 2;
+	bytes instrument_token = 3;
+	generic.UiFieldValue instrument_rank_value = 4;
+	InstrumentFormValue instrument_form_value = 5;
+}

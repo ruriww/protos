@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/iap_enabled_territories.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosCommerceLibHotConfig {
+	bool receipt_parsing = 1;
+	repeated string app_store_country_reporting_product_ids = 5;
+	bool tvod_double_purchase_fix = 7;
+	IapEnabledTerritories iap_enabled_territories = 9;
+	bool fixed_report_system_initiated_request = 11;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mobile_stream_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_stream_menu_supported_renderers.proto";
+import "youtube/api/innertube/mobile_stream_visibility_condition.proto";
+import "youtube/api/innertube/mobile_shared_toolbelt_item_enums.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamTrayItemRenderer {
+	MobileStreamButtonSupportedRenderers button = 1;
+	MobileStreamMenuSupportedRenderers menu = 2;
+	repeated MobileStreamVisibilityCondition visibility_conditions = 3;
+	MobileSharedToolbeltItemEnums toolbelt_item_type = 4;
+	bool is_togglable_item_type = 5;
+}

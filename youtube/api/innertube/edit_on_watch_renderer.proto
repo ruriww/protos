@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/privacy_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EditOnWatchRenderer {
+	bool edit_enabled = 1;
+	bool show_editor_processing_status = 2;
+	bool show_enhance_confirmation = 3;
+	repeated string enhance_suggestions = 4;
+	string editor_progress_feedback_key = 5;
+	string enhance_confirmation_project_id = 6;
+	string apiary_feedback_client_id = 7;
+
+	message ApiaryFeedbackUrl {
+		string url = 1;
+		float frequency = 2;
+	}
+
+	repeated ApiaryFeedbackUrl apiary_feedback_urls = 8;
+	bool allow_mark_unlisted = 9;
+	string enhance_confirmation_message = 10;
+	bool enhance_enabled = 11;
+	Command analytics_endpoint = 12;
+	bool video_is_processing = 13;
+	bool interactivity_enabled = 15;
+	PrivacyStatus privacy_status = 16;
+	bool audio_enhance_enabled = 17;
+	bool is_privacy_selector_disabled = 18;
+	bool creator_endscreen_enabled = 19;
+	bool video_is_live_premiere = 20;
+}

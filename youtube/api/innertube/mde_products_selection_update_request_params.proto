@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shopping_item_id.proto";
+import "youtube/api/innertube/product_sticker_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeProductsSelectionUpdateRequestParams {
+	repeated string item_ids = 1;
+	repeated ShoppingItemId shopping_item_ids = 2;
+	repeated ShoppingItemId youtube_automated_ids = 4;
+	ProductStickerMetadata product_sticker_metadata = 5;
+	bool enable_global_product_sticker_feature = 6;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message VisualElementEvent {
+	repeated int32 node_id_path = 1;
+
+	enum Action {
+		option features.enum_type = CLOSED;
+
+		ACTION_UNSPECIFIED = 0;
+		DISPLAYED = 1;
+		TAPPED = 2;
+		AUTOMATED = 3;
+	}
+
+	Action action = 2;
+}

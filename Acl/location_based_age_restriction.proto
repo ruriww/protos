@@ -1,0 +1,15 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+message LocationBasedAgeRestriction {
+	enum ContentType {
+		option features.enum_type = CLOSED;
+
+		ALCOHOL = 1;
+	}
+
+	ContentType content_type = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "peoplestack/flexorgs/proto/internal_external.proto";
+
+option objc_class_prefix = "POEM";
+
+message EmailExtendedData {
+	bool smtp_server_supports_tls = 1;
+	bool uses_confusing_characters = 2;
+	peoplestack.flexorgs.proto.InternalExternal internal_external = 3;
+	bool is_placeholder = 4;
+}

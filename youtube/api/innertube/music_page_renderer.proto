@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_browse_page_renderer.proto";
+import "youtube/api/innertube/album_shelf_renderer.proto";
+import "youtube/api/innertube/music_page_content_renderer.proto";
+import "youtube/api/innertube/music_collection_shelf_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	MusicBrowsePageRenderer music_browse_page_renderer = 149038309;
+}
+
+extend Renderer {
+	AlbumShelfRenderer album_shelf_renderer = 149038420;
+}
+
+extend Renderer {
+	MusicPageContentRenderer music_page_content_renderer = 152202437;
+}
+
+extend Renderer {
+	MusicCollectionShelfRenderer music_collection_shelf_renderer = 152196432;
+}

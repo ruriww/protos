@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+enum SecurityDomainMemberView {
+	SECURITY_DOMAIN_MEMBER_VIEW_UNSPECIFIED = 0;
+	SECURITY_DOMAIN_MEMBER_BASIC = 1;
+	SECURITY_DOMAIN_MEMBER_ALL_KEYS = 2;
+	SECURITY_DOMAIN_MEMBER_METADATA = 3;
+	SECURITY_DOMAIN_MEMBER_GAIA_PASSWORD_METADATA = 4;
+}

@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/poll_creation_supported_renderers.proto";
+import "youtube/api/innertube/backstage_video_link_supported_renderers.proto";
+import "youtube/api/innertube/backstage_image_creation_supported_renderers.proto";
+import "youtube/api/innertube/zero_step_channel_creation_supported_renderers.proto";
+import "youtube/api/innertube/simplebox_avatar_size_type.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentSimpleboxRenderer {
+	ButtonSupportedRenderers submit_button = 1;
+	ButtonSupportedRenderers cancel_button = 2;
+	ThumbnailDetails author_thumbnail = 3;
+	FormattedString placeholder_text = 4;
+	Command prepare_account_endpoint = 5;
+	bytes tracking_params = 6;
+	PollCreationSupportedRenderers poll_button = 8;
+	BackstageVideoLinkSupportedRenderers video_link_button = 9;
+	BackstageImageCreationSupportedRenderers image_button = 10;
+	ZeroStepChannelCreationSupportedRenderers zero_step = 11;
+	SimpleboxAvatarSizeType avatar_size = 12;
+	ButtonSupportedRenderers camera_button = 13;
+	Command navigation_endpoint = 14;
+	ButtonSupportedRenderers emoji_button = 16;
+	Renderer emoji_picker = 18;
+	string emoji_entity_key = 20;
+	Renderer timestamp_hint = 21;
+	Command show_aadc_guidelines_bottom_sheet_command = 22;
+	string aadc_guidelines_state_entity_key = 23;
+	Command open_aadc_dialog = 24;
+	Command subscribers_only_snackbar_command = 25;
+}

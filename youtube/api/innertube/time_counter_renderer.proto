@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TimeCounterRenderer {
+	int32 total_time_secs = 2;
+	int32 remaining_time_secs = 3;
+	Command timer_end_command = 4;
+	Icon icon = 5;
+	Renderer animation = 6;
+	FormattedString label = 7;
+	string usage_tracking_key = 8;
+	bytes tracking_params = 10;
+}
+
+extend Renderer {
+	TimeCounterRenderer time_counter_renderer = 521078292;
+}

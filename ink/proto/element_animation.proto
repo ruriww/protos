@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/color_animation.proto";
+import "ink/proto/scale_animation.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementAnimation {
+	string uuid = 1;
+	ColorAnimation color_animation = 2;
+	ScaleAnimation scale_animation = 3;
+	ElementAnimation next = 4;
+}

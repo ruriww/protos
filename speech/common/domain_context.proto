@@ -1,0 +1,21 @@
+edition = "2023";
+
+package speech.common;
+
+option objc_class_prefix = "SPC";
+
+message DomainContext {
+	enum Domain {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		FARFIELD = 1;
+		IME = 2;
+		TELEPHONY = 3;
+		CAPTION = 4;
+		VOICE_SEARCH = 7;
+		HOTQUERY = 10;
+	}
+
+	Domain domain_id = 1;
+}

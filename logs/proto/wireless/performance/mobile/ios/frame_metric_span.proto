@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/histogram_bucket.proto";
+
+option objc_class_prefix = "PRM";
+
+message FrameMetricSpan {
+	int32 slow_frame_count = 1;
+	int32 rendered_frame_count = 2;
+	int32 max_frame_render_time_ms = 3;
+	int32 recording_duration_ms = 4;
+	int32 slow_frame_duration_ms = 5;
+	int32 total_frame_duration_ms = 6;
+	repeated HistogramBucket frame_time_histogram = 7;
+	int32 device_refresh_rate = 8;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/share_client_params_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateShareClientParamsCommand {
+	extend Command {
+		UpdateShareClientParamsCommand update_share_client_params_command = 1396;
+	}
+
+	string client_param_identifier = 1;
+	repeated ShareClientParamsType requested_client_params_types = 2 [ features.repeated_field_encoding = EXPANDED ];
+	string entity_key = 3;
+}

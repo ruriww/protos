@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ChatOptions {
+	bool available_now = 1;
+	string chat_pool_id = 2;
+	string estimated_wait_time_id = 3;
+	string form_id = 4;
+}

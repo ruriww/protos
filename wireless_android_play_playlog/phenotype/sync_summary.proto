@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+option objc_class_prefix = "PHT";
+
+message SyncSummary {
+	int32 accounts_requested = 1;
+	int32 accounts_responded = 2;
+	int32 accounts_failed = 3;
+	int32 gaia_accounts_on_device = 4;
+	int32 gaia_accounts_on_device_with_valid_client_side_credentials = 5;
+	int32 gaia_accounts_for_sync = 6;
+	int32 gaia_accounts_requested = 7;
+	int32 gaia_accounts_requested_with_invalid_server_side_credentials = 8;
+}

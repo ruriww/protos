@@ -1,0 +1,15 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum ContactFlowType {
+	option features.enum_type = CLOSED;
+
+	GMR = 1;
+	CASES = 2;
+	DISABLED = 3;
+	USP = 4;
+	VALIDATE_ONLY = 5;
+}

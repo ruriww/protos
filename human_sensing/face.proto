@@ -1,0 +1,181 @@
+edition = "2023";
+
+package human_sensing;
+
+option objc_class_prefix = "MVHS";
+
+message Face {
+	message BoundingBox {
+		float x1 = 1;
+		float y1 = 2;
+		float x2 = 3;
+		float y2 = 4;
+	}
+
+	BoundingBox bounding_box = 1;
+
+	message Landmark {
+		float x = 1;
+		float y = 2;
+		float z = 3;
+
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			LEFT_EYE = 0;
+			RIGHT_EYE = 1;
+			LEFT_OF_LEFT_EYEBROW = 2;
+			RIGHT_OF_LEFT_EYEBROW = 3;
+			LEFT_OF_RIGHT_EYEBROW = 4;
+			RIGHT_OF_RIGHT_EYEBROW = 5;
+			MIDPOINT_BETWEEN_EYES = 6;
+			NOSE_TIP = 9;
+			UPPER_LIP = 10;
+			LOWER_LIP = 11;
+			MOUTH_LEFT = 12;
+			MOUTH_RIGHT = 13;
+			MOUTH_CENTER = 45;
+			NOSE_BOTTOM_RIGHT = 43;
+			NOSE_BOTTOM_LEFT = 44;
+			NOSE_BOTTOM_CENTER = 200;
+			LEFT_EYE_TOP_BOUNDARY = 220;
+			LEFT_EYE_RIGHT_CORNER = 221;
+			LEFT_EYE_BOTTOM_BOUNDARY = 222;
+			LEFT_EYE_LEFT_CORNER = 223;
+			RIGHT_EYE_TOP_BOUNDARY = 224;
+			RIGHT_EYE_RIGHT_CORNER = 225;
+			RIGHT_EYE_BOTTOM_BOUNDARY = 226;
+			RIGHT_EYE_LEFT_CORNER = 227;
+			LEFT_EYEBROW_UPPER_MIDPOINT = 300;
+			RIGHT_EYEBROW_UPPER_MIDPOINT = 302;
+			LEFT_EAR_TRAGION = 240;
+			RIGHT_EAR_TRAGION = 241;
+			LEFT_EYE_PUPIL = 304;
+			RIGHT_EYE_PUPIL = 305;
+			FOREHEAD_GLABELLA = 312;
+			CHIN_GNATHION = 314;
+			CHIN_LEFT_GONION = 315;
+			CHIN_RIGHT_GONION = 316;
+			LEFT_CHEEK_CENTER = 238;
+			RIGHT_CHEEK_CENTER = 239;
+			LEFT_EAR_TOP = 242;
+			RIGHT_EAR_TOP = 243;
+			LANDMARK_UNKNOWN = 15000;
+		}
+
+		Type type = 4 [ default = LANDMARK_UNKNOWN ];
+
+		enum Visibility {
+			option features.enum_type = CLOSED;
+
+			VISIBILITY_UNKNOWN = 0;
+			VISIBLE = 1;
+			OCCLUDED_SELF = 2;
+			OCCLUDED_OTHER = 3;
+			OCCLUDED_UNKNOWN = 4;
+		}
+
+		Visibility visibility = 5 [ default = VISIBILITY_UNKNOWN ];
+		float confidence = 6;
+	}
+
+	repeated Landmark landmark = 2;
+	float confidence = 3;
+	float roll_angle = 4;
+	float pan_angle = 5;
+	float tilt_angle = 6;
+
+	message Embedding {
+		int32 version = 1;
+		bytes value = 2;
+		string tag = 3;
+		float confidence = 4;
+	}
+
+	repeated Embedding embedding = 7;
+
+	message Attribute {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			TYPE_UNKNOWN = 0;
+			FREE_FORM = 1;
+			FEMALE = 2;
+			MALE = 3;
+			AGE = 5;
+			NON_HUMAN = 6;
+			GLASSES = 7;
+			DARK_GLASSES = 8;
+			HEADWEAR = 9;
+			EYES_VISIBLE = 10;
+			LEFT_EYELID_CLOSED = 16;
+			RIGHT_EYELID_CLOSED = 17;
+			MOUTH_OPEN = 11;
+			FACIAL_HAIR = 12;
+			LONG_HAIR = 13;
+			FRONTAL_GAZE = 14;
+			SMILING = 15;
+			UNDER_EXPOSED = 18;
+			BLURRED = 19;
+			LEFT_EYE_VISIBLE = 20;
+			RIGHT_EYE_VISIBLE = 21;
+			LEFT_EAR_VISIBLE = 22;
+			RIGHT_EAR_VISIBLE = 23;
+			NOSE_TIP_VISIBLE = 24;
+			MOUTH_CENTER_VISIBLE = 25;
+			LOWER_FACE_COVERED = 26;
+			AMUSEMENT = 27;
+			ANGER = 28;
+			CONCENTRATION = 29;
+			CONFUSION = 30;
+			CONTENTMENT = 31;
+			DESIRE = 32;
+			DISAPPOINTMENT = 33;
+			DISGUST = 34;
+			ELATION = 35;
+			EMBARRASSMENT = 36;
+			INTEREST = 37;
+			LOVE = 38;
+			PAIN = 39;
+			PRIDE = 40;
+			RELIEF = 41;
+			SADNESS = 42;
+			SURPRISE = 43;
+			CANDID = 44;
+			POSED = 45;
+			SKIN_TONE_MONK_SCALE_CLASS1 = 46;
+			SKIN_TONE_MONK_SCALE_CLASS2 = 47;
+			SKIN_TONE_MONK_SCALE_CLASS3 = 48;
+			SKIN_TONE_MONK_SCALE_CLASS4 = 49;
+			SKIN_TONE_MONK_SCALE_CLASS5 = 50;
+			SKIN_TONE_MONK_SCALE_CLASS6 = 51;
+			SKIN_TONE_MONK_SCALE_CLASS7 = 52;
+			SKIN_TONE_MONK_SCALE_CLASS8 = 53;
+			SKIN_TONE_MONK_SCALE_CLASS9 = 54;
+			SKIN_TONE_MONK_SCALE_CLASS10 = 55;
+		}
+
+		Type type = 1;
+		string name = 2;
+		float confidence = 3;
+		float value = 4;
+	}
+
+	repeated Attribute attribute = 8;
+	uint64 identity_id = 9;
+	float legacy_landmarking_confidence = 10;
+	uint64 timestamp = 11;
+	uint64 track_id = 12;
+	float eye_distance_pixels = 13;
+
+	message FaceCropV8 {
+		float center_x = 1;
+		float center_y = 2;
+		float scale = 3;
+		float rotation = 4;
+	}
+
+	FaceCropV8 face_crop_v8 = 14;
+
+	extensions 1000 to max;
+}

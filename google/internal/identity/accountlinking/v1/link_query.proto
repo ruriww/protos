@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_token_type.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "ALK";
+
+message LinkQuery {
+	string service_id = 1;
+	ETokenType token_type = 2;
+	repeated string scopes = 3;
+	protobuf.Duration min_expires_in = 4;
+	repeated string capabilities = 5;
+	string link_name = 6;
+	bool strict_scope_match = 7;
+}

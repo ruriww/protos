@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens;
+
+import "lens/vector3.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DeviceSensors {
+	Vector3 camera_gravity_direction = 1;
+}

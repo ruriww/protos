@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/dynamic_flow_command_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicFlowCommand {
+	extend Command {
+		DynamicFlowCommand dynamic_flow_command = 412156452;
+	}
+
+	string flow_state_entity_key = 1;
+	DynamicFlowCommandType type = 2;
+}

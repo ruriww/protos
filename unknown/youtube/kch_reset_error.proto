@@ -1,0 +1,9 @@
+edition = "2023";
+
+package unknown.youtube;
+
+enum KCHResetError {
+	RESET_ERROR_UNSPECIFIED = 0;
+	RESET_SDS_ERROR = 1;
+	RESET_CLEAR_LOCAL_DATA_ERROR = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerTrackedMetrics {
+	uint64 unique_frame_count = 1;
+	uint64 total_frame_count = 2;
+	uint32 stutter_count = 3;
+	uint32 average_stuttering_duration_ms = 4;
+	uint32 audio_stutter_count = 5;
+	uint32 average_audio_stuttering_duration_ms = 6;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/buyflow/common_params.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message FundsGuaranteeDetails {
+	enum CannedRequestType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		DIGITAL = 1;
+		SINGLE_PHYSICAL = 2;
+		PHYSICAL_ITEMS_WITH_DISCOUNT = 3;
+		DIGITAL_SUBSCRIPTION = 4;
+		CVN_CHALLENGE = 5;
+		DIGITAL_FOR_FAMILY = 6;
+		PRE_ORDER = 7;
+		MANY_ITEMS = 8;
+		ALWAYS_REAUTHENTICATE = 9;
+		AUTO_CANCEL = 10;
+		PHYSICAL_WITH_SINGLE_ELEMENT_SUBSCRIPTION_BUNDLE = 11;
+		PHYSICAL_WITH_MULTI_ELEMENTS_SUBSCRIPTION_BUNDLE = 12;
+		PHYSICAL_WITH_ADDON_SUBSCRIPTION_BUNDLE = 13;
+		GSTORE_WITH_PAYMENT_MANAGED_STANDALONE_SUBSCRIPTION = 14;
+		GSTORE_WITH_MULI_QUANTITY_STANDALONE_SUBSCRIPTIONS = 15;
+		DIGITAL_SUB_FREE_TRIAL_PRECOMPUTED_TAX_INFO = 16;
+		DIGITAL_SUB_FREE_TRIAL_PRODUCT_CODE = 17;
+		DIGITAL_SUB_PRECOMPUTED_TAX_AMOUNT = 18;
+		DIGITAL_SUBSCRIPTION_ZERO_LATENCY = 19;
+	}
+
+	CannedRequestType canned_request_type = 1;
+	CommonParams common_params = 2;
+}

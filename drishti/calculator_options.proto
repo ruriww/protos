@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message CalculatorOptions {
+	bool merge_fields = 1;
+
+	extensions 20000 to 529999999;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+option objc_class_prefix = "UVSLP";
+
+message Session {
+	string session_id = 1;
+	bytes session_token = 2;
+}

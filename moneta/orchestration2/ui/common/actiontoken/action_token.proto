@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.actiontoken;
+
+import "moneta/orchestration2/ui/common/rpcmessage/ui_response.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ActionToken {
+	rpcmessage.UiResponse initialize_ui_response = 1;
+	bytes encrypted_widget_parameters = 2;
+}

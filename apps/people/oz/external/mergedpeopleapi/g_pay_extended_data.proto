@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/product_profile_failure.proto";
+
+option objc_class_prefix = "POEM";
+
+message GPayExtendedData {
+	string masked_number = 1;
+	string international_number = 2;
+	ProductProfileFailure failure = 3;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum DividerStyle {
+	option allow_alias = true;
+	option features.enum_type = CLOSED;
+
+	DIVIDER_STYLE_UNKNOWN = 0;
+	DIVIDER_STYLE_FULL_BLEED_THIN = 1;
+	DIVIDER_FULL_BLEED_THIN = 1;
+	DIVIDER_STYLE_INSET_THIN = 2;
+	DIVIDER_STYLE_FULL_BLEED_4_PX = 6;
+	DIVIDER_STYLE_FULL_BLEED_THICK = 3;
+	DIVIDER_STYLE_FULL_BLEED_8_PX = 4;
+	DIVIDER_STYLE_FULL_BLEED_12_PX = 5;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CustomClickBehaviorType {
+	option features.enum_type = CLOSED;
+
+	CUSTOM_CLICK_BEHAVIOR_TYPE_UNSPECIFIED = 0;
+	CUSTOM_CLICK_BEHAVIOR_TYPE_DISABLED = 1;
+	CUSTOM_CLICK_BEHAVIOR_TYPE_EXECUTE_COMMAND = 2;
+}

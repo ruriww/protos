@@ -1,0 +1,16 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message BrandingInfo {
+	string display_name = 1;
+	string privacy_policy_url = 2;
+	string term_of_service_url = 3;
+	string logo_url = 4;
+	string learn_more_url = 5;
+	string link_management_url = 6;
+	string google_owned_company_display_name = 8;
+	string darkmode_logo_url = 9;
+}

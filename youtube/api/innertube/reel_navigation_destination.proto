@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelNavigationDestination {
+	option features.enum_type = CLOSED;
+
+	REEL_NAVIGATION_DESTINATION_UNKNOWN = 0;
+	REEL_NAVIGATION_DESTINATION_NEXT = 1;
+	REEL_NAVIGATION_DESTINATION_PREV = 2;
+	REEL_NAVIGATION_DESTINATION_TOP = 3;
+	REEL_NAVIGATION_DESTINATION_CLOSE = 4;
+}

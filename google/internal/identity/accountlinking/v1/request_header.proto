@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/third_party_app_caller.proto";
+import "google/internal/identity/accountlinking/v1/first_party_app_caller.proto";
+import "google/internal/identity/accountlinking/v1/e_account_linking_sdk.proto";
+
+option objc_class_prefix = "ALK";
+
+message RequestHeader {
+	string bucket = 1;
+	int32 session_id = 2;
+	ThirdPartyAppCaller third_party_app_caller = 3;
+	FirstPartyAppCaller first_party_app_caller = 4;
+	EAccountLinkingSdk account_linking_sdk = 5;
+	repeated string buckets = 6;
+	string version_enforcement_id = 7;
+	repeated string dynamic_url_parameters = 8;
+}

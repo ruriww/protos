@@ -1,0 +1,28 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message PlusPageInfo {
+	PersonFieldMetadata metadata = 1;
+
+	enum EntityType {
+		option features.enum_type = CLOSED;
+
+		ENTITY_TYPE_UNSPECIFIED = 0;
+		LOCAL = 1;
+		COMPANY = 2;
+		BRAND = 3;
+		CELEBRITY = 4;
+		CAUSE = 5;
+		ENTERTAINMENT = 6;
+		OTHER = 7;
+		OBSOLETE_PRIVATE = 8;
+	}
+
+	EntityType entity_type = 2;
+	int64 application_id = 5;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/playlist_edit_action.proto";
+import "youtube/api/innertube/mdx_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistEditActionRequest {
+	InnerTubeContext context = 1;
+	repeated PlaylistEditAction actions = 2;
+	string playlist_id = 3;
+
+	enum ReturnedHeaderRendererType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		PLAYLIST_HEADER_RENDERER = 1;
+	}
+
+	ReturnedHeaderRendererType returned_header_renderer_type = 4;
+	string params = 5;
+	MdxContext mdx_context = 7;
+	bytes queue_context_params = 8;
+}

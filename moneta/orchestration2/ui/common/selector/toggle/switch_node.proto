@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.toggle;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SwitchNode {
+	extend node.Node {
+		SwitchNode switch_node_extension = 62160225;
+	}
+
+	node.Node label = 1;
+}

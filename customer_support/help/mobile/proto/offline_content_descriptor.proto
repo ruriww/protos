@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message OfflineContentDescriptor {
+	string helpcenter_url = 1;
+	string base_file_name = 2;
+}

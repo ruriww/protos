@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.navigation;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NavigationCondition {
+	extend eventrules.condition.Condition {
+		NavigationCondition navigation_condition_extension = 264984587;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_BACK_OK = 1;
+		CONDITION_TYPE_FORWARD_OK = 2;
+		CONDITION_TYPE_BACK_INVALID = 3;
+		CONDITION_TYPE_FORWARD_INVALID = 4;
+	}
+
+	ConditionType condition_type = 1;
+}

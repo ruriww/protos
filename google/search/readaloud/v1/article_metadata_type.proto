@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum ArticleMetadataType {
+	ARTICLE_METADATA_TYPE_UNSPECIFIED = 0;
+	ARTICLE_METADATA_TITLE = 1;
+	ARTICLE_METADATA_AUTHOR = 2;
+	ARTICLE_METADATA_PUBLISHER = 3;
+}

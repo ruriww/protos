@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveCreationSignInType {
+	option features.enum_type = CLOSED;
+
+	LIVE_CREATION_SIGN_IN_TYPE_UNSPECIFIED = 0;
+	LIVE_CREATION_SIGN_IN_TYPE_NOT_LOGGED_IN = 1;
+	LIVE_CREATION_SIGN_IN_TYPE_ALWAYS = 2;
+}

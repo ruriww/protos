@@ -1,0 +1,13 @@
+edition = "2023";
+
+package af.data;
+
+import "af/data/batch_data_request_header.proto";
+import "af/data/mutate_operation.proto";
+
+option objc_class_prefix = "AFD";
+
+message BatchDataMutateRequest {
+	BatchDataRequestHeader header = 1;
+	MutateOperation mutate_operation = 2;
+}

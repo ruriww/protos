@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message MddDownloadFailureLevel {
+	enum Code {
+		UNSPECIFIED = 0;
+		MDD = 1;
+		ANDROID_DOWNLOADER_1 = 2;
+		ANDROID_DOWNLOADER_2 = 3;
+		CRONET = 4;
+		OKHTTP2 = 5;
+		OKHTTP3 = 6;
+		ASTREA = 7;
+	}
+}

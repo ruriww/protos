@@ -1,0 +1,66 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/desktop_client_info.proto";
+import "wireless_android_play_playlog/ios_client_info.proto";
+
+option objc_class_prefix = "CADP";
+
+message ClientInfo {
+	enum ClientType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		JS = 1;
+		DESKTOP = 2;
+		IOS = 3;
+		IOS_V2 = 10;
+		ANDROID = 4;
+		PLAY_CE = 5;
+		PYTHON = 6;
+		VR = 7;
+		PANCETTA = 8;
+		DRIVE_FS = 9;
+		YETI = 11;
+		MAC = 12;
+		GOOGLE_HOME = 13;
+		BIRDSONG = 14;
+		IOS_FIREBASE = 15;
+		GO = 16;
+		FUCHSIA = 17;
+		SPARKLIGHT = 18;
+		CPLUSPLUS = 19;
+		KAIOS = 20;
+		MUSK = 21;
+		COMPUTE_IMAGE_TOOLS = 22;
+		ANDROID_FIREBASE = 23;
+		LOONIX = 24;
+		C9 = 25;
+		BATTLESTAR = 26;
+		PORTABLE_PHENOTYPE_LIBRARY = 27;
+		WINDOWS = 28;
+		CLOUD_WORKSTATIONS_CONNECTOR = 29;
+		FITBIT_DARKHORSE = 30;
+		FITBIT_PYTHON = 31;
+		NEARBY = 32;
+		CHROMEOS_BUILD_PYTHON = 33;
+		DOVETAIL_LOGWRITER = 34;
+		NEARBY_CPP = 35;
+		CELLO = 36;
+		NESTCAM_PHOTON = 37;
+		DESKTOP_SERVICES = 38;
+		CHROME_ENTERPRISE_COMPANION = 39;
+		APPSHEET_CLIENT = 40;
+		STARGATE = 41;
+		WGA = 42;
+		VERTEX_DEV_EXPRESS = 43;
+	}
+
+	ClientType client_type = 1;
+	DesktopClientInfo desktop_client_info = 3;
+	IosClientInfo ios_client_info = 4;
+	string remote_host = 6;
+	string remote_host6 = 7;
+	int64 heterodyne_config_version = 12;
+}

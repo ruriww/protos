@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarItemData {
+	double start_time_sec = 1;
+	double end_time_sec = 2;
+	double start_mask_time_sec = 3;
+	double end_mask_time_sec = 4;
+	double start_active_time_sec = 5;
+	double end_active_time_sec = 6;
+}

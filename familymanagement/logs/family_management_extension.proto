@@ -1,0 +1,23 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/family_management_event.proto";
+import "familymanagement/logs/family_setup_event.proto";
+import "familymanagement/logs/family_event_service_log.proto";
+import "familymanagement/logs/client_info.proto";
+import "familymanagement/logs/error_event.proto";
+import "familymanagement/logs/families_service_log.proto";
+import "familymanagement/logs/family_change_log.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilyManagementExtension {
+	FamilyManagementEvent family_management_event = 1;
+	FamilySetupEvent family_setup_event = 2;
+	FamilyEventServiceLog family_event_service = 3;
+	ClientInfo client_info = 4;
+	ErrorEvent error_event = 5;
+	FamiliesServiceLog families_service_log = 6;
+	FamilyChangeLog family_change = 7;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package growth;
+
+import "growth/event_enums.proto";
+import "growth/presented_app.proto";
+import "growth/google_app_install_event.proto";
+
+option objc_class_prefix = "GRW";
+
+message GoogleActionsEvent {
+	string bundle_identifier = 1;
+	EventEnums.IntentType intent_type = 2;
+	EventEnums.LinkType link_type = 3;
+	repeated PresentedApp presented_apps = 4;
+	int32 session_id = 5;
+	GoogleAppInstallEvent.SourceType source_type = 6;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.rpc.context;
+
+option objc_class_prefix = "RPC";
+
+message ApiaryMigrationContext {
+	string apiary_method_name = 1;
+	string original_text_content = 2;
+	string oauth_access_token = 3;
+}

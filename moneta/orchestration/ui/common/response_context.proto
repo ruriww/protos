@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+import "moneta/orchestration/logging/client_log_enums.proto";
+
+option objc_class_prefix = "Orch";
+
+message ResponseContext {
+	int64 response_time_millis = 1 [ default = -1 ];
+	bytes session_data = 2;
+	repeated string outgoing_rpc_info_string = 4;
+	bytes log_token = 5;
+	string request_id = 6;
+	bytes analytics_token = 7;
+
+	enum ClientLogLevel {
+		option features.enum_type = CLOSED;
+
+		CLIENT_LOG_LEVEL_UNKNOWN = 0;
+		CLIENT_LOG_LEVEL_NONE = 1;
+		CLIENT_LOG_LEVEL_DEFAULT = 2;
+		CLIENT_LOG_LEVEL_ALL = 5;
+		CLIENT_LOG_LEVEL_SPECIFIED = 6;
+	}
+
+	ClientLogLevel client_log_level = 10;
+	ClientLogLevel client_log_level_for_integrators = 11;
+	repeated logging.ClientLogEnums.EventName client_log_events = 13;
+	repeated logging.ClientLogEnums.EventName client_log_events_for_integrators = 14;
+	bool client_log_include_identifiers = 15;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message MddApiCallStatsResult {
+	enum Code {
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		DISABLED = 2;
+		GROUP_NOT_PRESENT = 3;
+		ACCESS_DENIED = 4;
+		ACCOUNT_NOT_PRESENT = 5;
+		DOWNLOAD_PENDING = 6;
+		DOWNLOAD_FAILED = 7;
+		BLACKLISTED = 8;
+		INTERNAL_ERROR = 9;
+		DOWNLOAD_NOT_REQUIRED = 10;
+		ERROR_ACQUIRING_LOCK = 11;
+		TIMED_OUT = 12;
+		UNKNOWN_ERROR = 13;
+		REMOTE_ERROR = 14;
+	}
+}

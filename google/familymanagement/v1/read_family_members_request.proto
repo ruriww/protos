@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message ReadFamilyMembersRequest {
+	ApiRequestHeader api_header = 1;
+	string obfuscated_family_id = 2;
+	string token = 3;
+}

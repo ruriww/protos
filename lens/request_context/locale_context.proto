@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.request_context;
+
+option objc_class_prefix = "LNSRC";
+
+message LocaleContext {
+	string language = 1;
+	string region = 2;
+	string time_zone = 3;
+}

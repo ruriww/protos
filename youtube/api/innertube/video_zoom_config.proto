@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoZoomConfig {
+	bool enabled = 1;
+	float min_device_aspect_ratio = 4;
+	float min_video_aspect_ratio = 5;
+	bool enable_user_education = 7;
+	bool ignore_aspect_ratio_params = 8;
+	float max_snap_zoom_factor = 9;
+	float min_snap_zoom_factor = 10;
+	float max_video_crop_ratio = 12;
+}

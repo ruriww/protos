@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/live_chat_paid_message_input_field_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/live_chat_author_badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatMembershipItemRenderer {
+	string id = 1;
+	uint64 timestamp_usec = 2;
+	FormattedString timestamp_text = 3;
+	string author_external_channel_id = 4;
+	FormattedString header_primary_text = 5;
+	FormattedString header_subtext = 6;
+
+	oneof body {
+		bool empty = 7;
+		FormattedString message = 8;
+		LiveChatPaidMessageInputFieldSupportedRenderers input_field = 9;
+	}
+
+	FormattedString author_name = 10;
+	ThumbnailDetails author_photo = 11;
+	repeated LiveChatAuthorBadgeSupportedRenderers author_badges = 12;
+	FormattedString deleted_state_message = 13;
+	FormattedString show_original_content_message = 14;
+	Command context_menu_endpoint = 15;
+	AccessibilitySupportedDatas context_menu_accessibility = 16;
+	repeated Renderer inline_action_buttons = 17;
+	bytes tracking_params = 19;
+	Renderer footer_button = 20;
+	FormattedString hide_original_content_message = 21;
+}

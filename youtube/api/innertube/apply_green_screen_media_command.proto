@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/green_screen_media_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ApplyGreenScreenMediaCommand {
+	extend Command {
+		ApplyGreenScreenMediaCommand apply_green_screen_media_command = 1462;
+	}
+
+	string url = 1;
+	GreenScreenMediaType media_type = 2;
+}

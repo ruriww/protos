@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/tou_appeal_justification.proto";
+import "youtube/api/innertube/tou_violative_content_feedback.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppealCreatorChannelTouViolativeContentRequest {
+	InnerTubeContext context = 1;
+	repeated string content_ids = 3;
+
+	oneof user_input_type {
+		TouAppealJustification justification = 4;
+		TouViolativeContentFeedback feedback = 10;
+	}
+
+	string channel_id = 8;
+}

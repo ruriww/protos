@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaFetchColdConfig {
+	bool enable_prefetch_manager = 1;
+	repeated int64 minimum_buffered_media_time_ms_to_prefetch_upcoming_playback_list = 3;
+	bool enable_partial_segment_caching = 4;
+	bool use_prefetch_config_from_player_response = 5;
+	bool enable_ios_offline_immediate_prefetch_workaround = 6;
+	bool enable_platform_restart_prefetch_full_control = 7;
+	bool android_enable_multi_video_queuing = 8;
+	bool android_do_not_reuse_playback_controller = 9;
+}

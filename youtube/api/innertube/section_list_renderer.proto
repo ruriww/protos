@@ -1,0 +1,83 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/section_list_supported_renderers.proto";
+import "youtube/api/innertube/section_list_supported_continuations.proto";
+import "youtube/api/innertube/section_list_sub_menu_supported_renderers.proto";
+import "youtube/api/innertube/section_list_header_supported_renderers.proto";
+import "youtube/api/innertube/section_list_fab_supported_renderers.proto";
+import "youtube/api/innertube/section_list_drawer_supported_renderers.proto";
+import "youtube/api/innertube/floating_pill_renderers.proto";
+import "youtube/api/innertube/section_list_layout_order.proto";
+import "youtube/api/innertube/section_list_selected_item_align_position.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/section_list_style_padded_list.proto";
+import "youtube/api/innertube/screen_visual_element.proto";
+import "youtube/api/innertube/section_list_identifier.proto";
+import "youtube/api/innertube/default_prominence_configuration.proto";
+import "youtube/api/innertube/scroll_configuration.proto";
+import "youtube/api/innertube/section_list_content_alignment_type.proto";
+import "youtube/api/innertube/section_list_layout_configuration.proto";
+import "youtube/api/innertube/section_list_mutation_operations.proto";
+import "youtube/api/innertube/section_list_continuation_layout_mode.proto";
+import "youtube/api/innertube/section_list_drag_and_drop_config.proto";
+import "youtube/api/innertube/section_list_background_style.proto";
+import "youtube/api/innertube/footer_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListRenderer {
+	extend ContinuationSupportedRenderers {
+		SectionListRenderer section_list_continuation = 49399797;
+	}
+
+	repeated SectionListSupportedRenderers contents = 1;
+	repeated SectionListSupportedContinuations continuations = 2;
+	bytes tracking_params = 4;
+	SectionListSubMenuSupportedRenderers sub_menu = 5;
+	SectionListHeaderSupportedRenderers header = 6;
+	SectionListFabSupportedRenderers fab = 7;
+	SectionListDrawerSupportedRenderers drawer = 8;
+	bool can_have_drawer = 9;
+	bool enable_elements = 10;
+	bool hide_bottom_separator = 11;
+	bool disable_sub_menu_scroll = 12;
+	string target_id = 13;
+	bool hack = 14;
+	FloatingPillRenderers floating_pill_renderers = 15;
+	SectionListLayoutOrder layout_order = 16;
+	string sync_model_entity_key = 17;
+	SectionListSelectedItemAlignPosition selected_item_align_position = 18;
+	Renderer footer = 19;
+
+	oneof layout_style {
+		SectionListStylePaddedList list_style = 20;
+	}
+
+	ScreenVisualElement screen_visual_element = 21;
+	Renderer content_overlay = 22;
+	bool disable_pull_to_refresh = 23;
+	int32 selected_index = 24;
+	SectionListIdentifier section_list_identifier = 25;
+	int32 scroll_position_index = 26;
+	repeated DefaultProminenceConfiguration default_prominence_configuration = 28;
+	ScrollConfiguration scroll_configuration = 29;
+	SectionListContentAlignmentType content_alignment = 30;
+	SectionListLayoutConfiguration section_list_layout_configuration = 31;
+	SectionListMutationOperations mutation_operations = 32;
+	SectionListContinuationLayoutMode continuation_layout_mode = 33;
+	float selected_item_alignment_percent_offset = 34;
+	SectionListDragAndDropConfig drag_and_drop_config = 35;
+	SectionListBackgroundStyle background_style = 37;
+	double background_alpha_value = 38;
+	FooterPosition footer_position = 39;
+}
+
+extend Renderer {
+	SectionListRenderer section_list_renderer = 49399797;
+}

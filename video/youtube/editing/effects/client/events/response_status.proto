@@ -1,0 +1,11 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+option objc_class_prefix = "YTEE";
+
+enum ResponseStatus {
+	RESPONSE_STATUS_UNKNOWN = 0;
+	RESPONSE_STATUS_READY = 1;
+	RESPONSE_STATUS_FAILED = 2;
+}

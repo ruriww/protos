@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+option objc_class_prefix = "YTI";
+
+message SRSMetadata {
+	string identifier = 1;
+	string file_id = 2;
+
+	enum ResourceType {
+		option features.enum_type = CLOSED;
+
+		RESOURCE_TYPE_UNKNOWN = 0;
+		RESOURCE_TYPE_EML_TEMPLATE = 1;
+		RESOURCE_TYPE_JAVASCRIPT_MODULE = 2;
+		RESOURCE_TYPE_CERTIFICATE = 3;
+		RESOURCE_TYPE_BLOCKS_CONTAINER_MANIFEST = 4;
+	}
+
+	ResourceType resource_type = 3;
+	repeated string dependencies = 4;
+	int64 offset = 5;
+	int64 size = 6;
+}

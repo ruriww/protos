@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/survey_trigger_renderer.proto";
+import "youtube/api/innertube/command_wrapper_pop_up_survey_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseSurveyTriggerSupportedRenderers {
+	oneof renderer {
+		SurveyTriggerRenderer survey_trigger_renderer = 84469052;
+		CommandWrapperPopUpSurveyRenderer command_wrapper_pop_up_survey_renderer = 364669234;
+	}
+}

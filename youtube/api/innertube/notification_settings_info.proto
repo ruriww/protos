@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationSettingsInfo {
+	string source_channel_id = 1;
+	string channel_name = 2;
+	bool has_backstage = 3;
+}

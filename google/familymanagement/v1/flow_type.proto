@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum FlowType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_FLOW_TYPE = 0;
+	WEB_ONBOARDING = 1;
+	ANDROID_SINGLE_DEVICE_ONBOARDING = 2;
+	CHROME_OS_SINGLE_DEVICE_ONBOARDING = 3;
+	WEB_GRIFFIN_ONBOARDING = 4;
+	WEB_GRIFFIN_DISABLED_ONBOARDING = 5;
+	IOS_SINGLE_DEVICE_ONBOARDING = 6;
+	GOOGLE_TV = 7;
+	GOOGLE_ADMIN_ELIGIBILITY_CHECK_ONLY = 8;
+	LEGACY_ANDROID = 9;
+}

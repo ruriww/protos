@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message CodeFlow {
+	string auth_code = 1;
+	repeated string scopes = 2;
+}

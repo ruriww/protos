@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/audio_info.proto";
+import "google/search/readaloud/v1/text_info.proto";
+import "google/search/readaloud/v1/image_info.proto";
+import "google/search/readaloud/v1/audio_doc_metadata.proto";
+import "google/search/readaloud/v1/debug_info.proto";
+
+option objc_class_prefix = "RAS";
+
+message GenerateAudioDocResponse {
+	AudioInfo audio = 1;
+	repeated TextInfo text = 2;
+	repeated ImageInfo images = 3;
+	AudioDocMetadata metadata = 4;
+	DebugInfo debug = 5;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+enum TextDecorationType {
+	option features.enum_type = CLOSED;
+
+	TEXT_DECORATION_TYPE_UNSPECIFIED = 0;
+	TEXT_DECORATION_TYPE_NO_DECORATION = 1;
+	TEXT_DECORATION_TYPE_UNDERLINE = 2;
+	TEXT_DECORATION_TYPE_OVERLINE = 3;
+	TEXT_DECORATION_TYPE_LINE_THROUGH = 4;
+}

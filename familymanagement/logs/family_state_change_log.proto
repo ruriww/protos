@@ -1,0 +1,18 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+option objc_class_prefix = "FML";
+
+message FamilyStateChangeLog {
+	enum FamilyState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAMILY_STATE = 0;
+		ACTIVE = 1;
+		INACTIVE = 2;
+	}
+
+	FamilyState old_family_state = 8;
+	FamilyState new_family_state = 9;
+}

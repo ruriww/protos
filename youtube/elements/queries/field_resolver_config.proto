@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.elements.queries;
+
+option java_package = "com.google.protos.youtube.elements.queries";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMQY";
+
+message FieldResolverConfig {
+	extensions 1000 to max;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatSettings {
+	bool live_chat_enabled = 1;
+	bool sponsors_only_mode_enabled = 2;
+	bool auto_moderate_enabled = 3;
+	bool slow_mode_enabled = 4;
+	int64 slow_mode_timeout_duration_sec = 5;
+	bool invite_only_mode_enabled = 11;
+	bool live_chat_replay_enabled = 12;
+	google.protobuf.Duration subscribers_only_mode_minimum_duration = 14;
+	bool live_reactions_enabled = 15;
+	bool chat_summary_disabled = 17;
+	bool viewer_leaderboard_disabled = 18;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum GetBroadcastScheduleFilterType {
+	option features.enum_type = CLOSED;
+
+	GET_BROADCAST_SCHEDULE_FILTER_TYPE_UNSPECIFIED = 0;
+	GET_BROADCAST_SCHEDULE_FILTER_TYPE_SINGLE_USER = 1;
+	GET_BROADCAST_SCHEDULE_FILTER_TYPE_COSTREAM = 2;
+	GET_BROADCAST_SCHEDULE_FILTER_TYPE_ALL = 3;
+}

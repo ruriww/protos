@@ -1,0 +1,12 @@
+edition = "2023";
+
+package universalsearch;
+
+import "superroot/education/math_solver_query.proto";
+
+option objc_class_prefix = "USEARCH";
+
+message EducationInputExtension {
+	superroot.education.MathSolverQuery math_solver_query = 1;
+	bool is_lens_hw_mode = 2;
+}

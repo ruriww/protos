@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/charging_status.proto";
+import "youtube/api/innertube/srs_data_push_version.proto";
+import "youtube/api/innertube/player_data_push_version.proto";
+import "youtube/api/innertube/mini_app_context.proto";
+import "youtube/api/innertube/posts_creation_system_health_context.proto";
+import "youtube/api/innertube/composition_runtime_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicContext {
+	bool screen_on = 1;
+	int32 device_rotation = 2;
+	int32 network_type = 3;
+	int32 network_coarse_state = 4;
+	ChargingStatus charging_status = 5;
+	bool is_in_foreground = 6;
+	int32 viewport_height_pixels = 7;
+	int32 viewport_width_pixels = 8;
+	bool has_coarse_pointer = 9;
+	bool has_fine_pointer = 10;
+	bool has_hover_support = 11;
+	int64 device_free_storage_mbytes = 12;
+	int64 device_storage_quota_mbytes = 13;
+	int64 device_storage_usage_mbytes = 14;
+	int64 process_uptime_ms = 15;
+	bool has_app_shell = 16;
+	string gl_version = 17;
+	string gl_renderer = 18;
+	repeated SRSDataPushVersion srs_datapush_build_ids = 19;
+	repeated PlayerDataPushVersion player_datapush_build_ids = 20;
+	MiniAppContext mini_app_context = 23;
+	bool is_extended = 24;
+	PostsCreationSystemHealthContext posts_creation_system_health_context = 25;
+	CompositionRuntimeContext composition_runtime_context = 26;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum WatchBreakType {
+	option features.enum_type = CLOSED;
+
+	WATCH_BREAK_TYPE_UNSPECIFIED = 0;
+	WATCH_BREAK_TYPE_WATCH_BREAK = 1;
+	WATCH_BREAK_TYPE_BEDTIME_REMINDER = 2;
+	WATCH_BREAK_TYPE_DATA_REMINDER = 3;
+	WATCH_BREAK_TYPE_SHORTS_DAILY_TIMER = 4;
+}

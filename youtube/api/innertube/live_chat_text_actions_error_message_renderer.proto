@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/live_chat_rich_message_input.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTextActionsErrorMessageRenderer {
+	FormattedString error_text = 1;
+	FormattedString edit_message_text = 2;
+	FormattedString click_to_dismiss_text = 3;
+
+	oneof original {
+		string original_message = 4;
+		LiveChatRichMessageInput original_rich_message = 5;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/l_app_flip_result.proto";
+import "google/internal/identity/accountlinking/v1/l_app_flip_error_type.proto";
+
+option objc_class_prefix = "ALK";
+
+message AppFlipOutcome {
+	LAppFlipResult result = 1;
+	LAppFlipErrorType error_type = 2;
+	int32 error_code = 3;
+	string error_description = 4;
+	string third_party_response = 5;
+}

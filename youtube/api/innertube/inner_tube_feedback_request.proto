@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/feedback_request_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InnerTubeFeedbackRequest {
+	InnerTubeContext context = 1;
+	repeated string feedback_tokens = 2;
+	bool should_merge = 3;
+	FeedbackRequestContext feedback_context = 4;
+	bool is_feedback_token_unencrypted = 5 [ default = false ];
+}

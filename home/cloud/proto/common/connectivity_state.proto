@@ -1,0 +1,12 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+import "home/cloud/proto/common/device_ip_info.proto";
+
+option objc_class_prefix = "GHCC";
+
+message ConnectivityState {
+	bool is_online = 1;
+	DeviceIpInfo ip_info = 2;
+}

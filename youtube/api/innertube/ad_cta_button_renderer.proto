@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdCtaButtonRenderer {
+	FormattedString text = 1;
+	ThumbnailDetails image = 2;
+
+	oneof background {
+		uint32 background_color = 3;
+	}
+
+	uint32 border_radius = 4;
+	Command command = 5;
+	bytes tracking_params = 7;
+	uint32 border_color = 8;
+	uint32 border_size = 9;
+	repeated Command service_endpoints = 10;
+	Icon icon = 12;
+	uint32 dark_theme_background_color = 13;
+	uint32 dark_theme_border_color = 14;
+}
+
+extend Renderer {
+	AdCtaButtonRenderer ad_cta_button_renderer = 157534306;
+}

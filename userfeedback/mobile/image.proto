@@ -1,0 +1,13 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/dimensions.proto";
+
+option objc_class_prefix = "UFM";
+
+message Image {
+	string mime_type = 1;
+	bytes content = 2;
+	Dimensions image_dimension = 3;
+}

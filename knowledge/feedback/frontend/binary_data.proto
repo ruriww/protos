@@ -1,0 +1,12 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+import "knowledge/feedback/frontend/blob.proto";
+
+option objc_class_prefix = "UFR";
+
+message BinaryData {
+	Blob blob = 1;
+	string name = 2;
+}

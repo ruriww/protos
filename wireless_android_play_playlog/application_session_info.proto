@@ -1,0 +1,29 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/criterion.proto";
+import "cast/app_session_state_change_reason.proto";
+import "cast/app_session_error.proto";
+import "wireless_android_play_playlog/network_switch_info.proto";
+import "cast/device_connection_type.proto";
+
+option objc_class_prefix = "CADP";
+
+message ApplicationSessionInfo {
+	Criterion application = 1;
+	bool is_reconnect = 2;
+	fixed64 receiver_session_id = 3;
+	fixed32 request_id = 4;
+	cast.AppSessionStateChangeReason reason = 5;
+	cast.AppSessionError error = 6;
+	int32 reason_int = 7;
+	int32 error_int = 8;
+	NetworkSwitchInfo network_switch_info = 9;
+	cast.DeviceConnectionType device_connection_type = 10;
+	int32 device_capabilities = 11;
+	bool is_app_backgrounded = 12;
+	int32 session_transfer_type = 13;
+	int32 session_transfer_failed_reason = 14;
+	bool is_output_switcher_enabled = 15;
+}

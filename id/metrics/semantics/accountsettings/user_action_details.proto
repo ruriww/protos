@@ -1,0 +1,13 @@
+edition = "2023";
+
+package id.metrics.semantics.accountsettings;
+
+option objc_class_prefix = "IDME";
+
+message UserActionDetails {
+	message PromptCardDismissalDetails {
+		int32 resource_id = 1;
+	}
+
+	PromptCardDismissalDetails prompt_card_dismissal = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ScreenshareIssues {
+	bool version_issue = 1;
+	int32 version = 2;
+	bool rtc_issue = 3;
+	bool background_data_issue = 4;
+	bool battery_issue = 5;
+	int32 battery_level = 6;
+	bool signal_strength_issue = 7;
+	int32 signal_strength = 8;
+	bool network_metered_issue = 9;
+	bool accessibility_issue = 10;
+	int32 network_type = 11;
+	bool network_voice_and_data = 12;
+	bool network_volte_enabled = 13;
+}

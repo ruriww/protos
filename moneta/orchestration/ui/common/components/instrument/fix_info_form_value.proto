@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/credit_card_update_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message FixInfoFormValue {
+	AddressFormValue upgrade_billing_address_form_value = 1;
+	types.CreditCardUpdateFormValue update_expiration_date_form_value = 2;
+	InstrumentFormValue instrument_form_value = 3;
+}

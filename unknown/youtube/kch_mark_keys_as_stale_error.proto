@@ -1,0 +1,8 @@
+edition = "2023";
+
+package unknown.youtube;
+
+enum KCHMarkKeysAsStaleError {
+	MARK_KEYS_AS_STALE_ERROR_UNSPECIFIED = 0;
+	MARK_KEYS_AS_STALE_ERROR = 1;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shopping_item_search_query.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchShoppingProducts {
+	ShoppingItemSearchQuery search_query = 3;
+	string entity_key = 6;
+	bool include_sticker_data = 7;
+	string product_picker_server_state_entity_key = 8;
+}

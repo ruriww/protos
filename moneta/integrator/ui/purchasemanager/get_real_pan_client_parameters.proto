@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.integrator.ui.purchasemanager;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/ui/purchasemanager/purchase_manager_parameter_enums.proto";
+import "moneta/integrator/ui/common/securedata/secure_data_parameters.proto";
+
+option objc_class_prefix = "IPurMan";
+
+message GetRealPanClientParameters {
+	common.CommonParameters common_parameters = 3;
+	PurchaseManagerParameterEnums.PurchaseManagerScenario purchase_manager_scenario = 4;
+	string integrator_package_name = 11;
+	string credit_card_id = 12;
+	common.securedata.SecureDataParameters secure_data_parameters = 13;
+	string integrator_merchant_identifier = 14;
+	bool user_allows_fido_authentication = 16 [ default = true ];
+	bool virtual_card_requested = 20;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs;
+
+option objc_class_prefix = "LOG";
+
+enum CardinalDirection {
+	option features.enum_type = CLOSED;
+
+	UNASSIGNED_DIRECTIONAL_MOVEMENT_ID = 0;
+	LEFT = 1;
+	RIGHT = 2;
+	UP = 3;
+	DOWN = 4;
+}

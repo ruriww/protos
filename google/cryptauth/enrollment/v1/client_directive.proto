@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+import "google/cryptauth/enrollment/v1/policy_reference.proto";
+import "google/cryptauth/enrollment/v1/invoke_next.proto";
+
+option objc_class_prefix = "CRPT";
+
+message ClientDirective {
+	PolicyReference policy_reference = 1;
+	int64 checkin_delay_millis = 2;
+	int32 retry_attempts = 3;
+	int64 retry_period_millis = 4;
+	int64 create_time_millis = 5;
+	repeated InvokeNext invoke_next = 6;
+}

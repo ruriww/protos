@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/engagement_panel_title_header_hybrid_element_renderer.proto";
+import "youtube/api/innertube/playlist_panel_renderer.proto";
+import "youtube/api/innertube/engagement_panel_title_header_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/ads_engagement_panel_title_header_renderer.proto";
+import "youtube/api/innertube/ads_engagement_panel_elements_header_renderer.proto";
+import "youtube/api/innertube/page_header_view_model.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelSectionListHeaderSupportedRenderers {
+	oneof renderer {
+		EngagementPanelTitleHeaderHybridElementRenderer engagement_panel_title_header_hybrid_element_renderer = 1342;
+		PlaylistPanelRenderer playlist_panel_renderer = 50631000;
+		EngagementPanelTitleHeaderRenderer engagement_panel_title_header_renderer = 138681548;
+		ElementRenderer element_renderer = 153515154;
+		AdsEngagementPanelTitleHeaderRenderer ads_engagement_panel_title_header_renderer = 184740635;
+		AdsEngagementPanelElementsHeaderRenderer ads_engagement_panel_elements_header_renderer = 194605894;
+		PageHeaderViewModel page_header_view_model = 508686415;
+	}
+}

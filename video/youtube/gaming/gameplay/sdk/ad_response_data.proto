@@ -1,0 +1,22 @@
+edition = "2023";
+
+package video.youtube.gaming.gameplay.sdk;
+
+option objc_class_prefix = "YTG";
+
+message AdResponseData {
+	enum AdResult {
+		option features.enum_type = CLOSED;
+
+		AD_RESULT_UNSPECIFIED = 0;
+		AD_RESULT_REJECTED = 2;
+		AD_RESULT_INTERSTITIAL_SHOWED = 4;
+		AD_RESULT_REWARD_EARNED = 5;
+		AD_RESULT_REWARD_NOT_EARNED = 6;
+		AD_RESULT_RATE_LIMITED = 7;
+		AD_RESULT_SHOWED = 1;
+		AD_RESULT_DISMISSED = 3;
+	}
+
+	AdResult ad_result = 1;
+}

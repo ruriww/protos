@@ -1,0 +1,10 @@
+edition = "2023";
+
+package validator;
+
+option objc_class_prefix = "PBV";
+
+message OneOfGroup {
+	string name = 1;
+	string is_required = 2;
+}

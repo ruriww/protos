@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_source_display_metadata.proto";
+import "youtube/api/innertube/shorts_audio_visual_remix_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsAudioRemixSource {
+	ShortsSourceDisplayMetadata audio_remix_source_display_metadata = 1;
+	int64 full_audio_duration_secs = 2;
+	ShortsAudioVisualRemixSource.Clip source_clip_data = 3;
+	string audio_source_external_video_id = 4;
+}

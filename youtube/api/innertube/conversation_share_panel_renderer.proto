@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConversationSharePanelRenderer {
+	Command share_endpoint = 3;
+}
+
+extend Renderer {
+	ConversationSharePanelRenderer conversation_share_panel_renderer = 74418634;
+}

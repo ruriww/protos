@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_chip.proto";
+import "google/internal/identity/accountsettings/mobile/v1/one_google_progress_bar.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message OneGoogleCard {
+	int32 priority = 2;
+	string title = 3;
+	string subtitle = 4;
+	Image leading_image = 5;
+	Image trailing_image = 6;
+	ActionChip action_chip = 7;
+	OneGoogleProgressBar progress_bar = 8;
+	ResourceKey target = 9;
+	Link link = 10;
+}

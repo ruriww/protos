@@ -1,0 +1,9 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+option objc_class_prefix = "UFR";
+
+message SubmitFeedbackResponse {
+	string feedback_id = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package privacy.consent;
+
+option objc_class_prefix = "PCO";
+
+enum ConsentPurpose {
+	option features.enum_type = CLOSED;
+
+	CONSENT_PURPOSE_UNSPECIFIED = 0;
+	PURPOSE_REQUIRED_FOR_FEATURE = 1;
+	PURPOSE_BENEFICIAL_FOR_FEATURE = 2;
+	PURPOSE_GATHER_PRECONSENT_DECISION = 3;
+	PURPOSE_CONTROLS_UI = 4;
+	PURPOSE_ACTIVITY_CONTROLS_UI = 5;
+	PURPOSE_ACCOUNT_CREATION = 6;
+	PURPOSE_DMA_CONSENT_CAMPAIGN = 7;
+}

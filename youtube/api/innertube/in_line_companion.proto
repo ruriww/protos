@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InLineCompanion {
+	string iframe_resource = 3;
+	string companion_click_through = 7;
+	repeated string companion_click_trackings = 8;
+	string alt_text = 9;
+	string id = 11;
+	int32 width = 12;
+	int32 height = 13;
+	int32 asset_width = 14;
+	int32 asset_height = 15;
+	int32 expanded_width = 16;
+	int32 expanded_height = 17;
+	string api_framework = 18;
+	string ad_slot_id = 19;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "kids/families/subscription_type.proto";
+
+option objc_class_prefix = "FML";
+
+message SubscriptionChangeLog {
+	kids.families.SubscriptionType subscription_type = 1;
+	int64 user_id_added = 2;
+	int64 user_id_removed = 3;
+}

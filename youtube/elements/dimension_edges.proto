@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/dimension.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DimensionEdges {
+	Dimension top = 1;
+	Dimension left = 2;
+	Dimension bottom = 3;
+	Dimension right = 4;
+	Dimension start = 5;
+	Dimension end = 6;
+	Dimension horizontal = 7;
+	Dimension vertical = 8;
+	Dimension all = 9;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentVisual {
+	string image_url = 1;
+	uint32 width = 2;
+	uint32 height = 3;
+	string image_url_dark = 4;
+	webutil.html.types.SafeHtmlProto alt_text = 5;
+}

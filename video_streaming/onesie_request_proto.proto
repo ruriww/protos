@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package video_streaming;
+
+import "video_streaming/client_abr_state.proto";
+import "youtube/api/innertube/encrypted_innertube_request.proto";
+import "video_streaming/streamer_context.proto";
+import "youtube/api/innertube/onesie_request_target.proto";
+import "video_streaming/buffered_range.proto";
+import "unknown/youtube/unnamed10445.proto";
+
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message OnesieRequestProto {
+	optional ClientAbrState abr_state = 2;
+	optional .youtube.api.innertube.EncryptedInnertubeRequest innertube_request = 3;
+	optional bytes onesie_ustreamer_config = 4;
+	optional int32 max_vp9_height = 5;
+	optional int32 client_display_height = 6;
+	optional bytes unnamed_field_9 = 9;
+	optional StreamerContext streamer_context = 10;
+	optional .youtube.api.innertube.OnesieRequestTarget onesie_request_target = 13;
+	repeated BufferedRange buffered_ranges = 14;
+	optional unknown.youtube.Unnamed10445 unnamed_field_16 = 16;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/view_model_entity_id.proto";
+import "youtube/api/innertube/playlist_thumbnail_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadedVideoWithContrextPlaylistEntityThumbnailParams {
+	extend ViewModelEntityId {
+		DownloadedVideoWithContrextPlaylistEntityThumbnailParams downloaded_video_with_contrext_playlist_entity_thumbnail_params = 393415810;
+	}
+
+	PlaylistThumbnailStyle style = 1;
+}

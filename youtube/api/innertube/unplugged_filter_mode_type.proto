@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UnpluggedFilterModeType {
+	option features.enum_type = CLOSED;
+
+	UNPLUGGED_FILTER_MODE_TYPE_UNKNOWN = 0;
+	UNPLUGGED_FILTER_MODE_TYPE_NONE = 1;
+	UNPLUGGED_FILTER_MODE_TYPE_PG = 2;
+	UNPLUGGED_FILTER_MODE_TYPE_PG_THIRTEEN = 3;
+}

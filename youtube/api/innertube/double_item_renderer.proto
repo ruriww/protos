@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/double_item_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DoubleItemRenderer {
+	FormattedString title = 1;
+	DoubleItemSupportedRenderers first_item = 2;
+	DoubleItemSupportedRenderers second_item = 3;
+	bytes tracking_params = 4;
+	FormattedString first_item_title = 6;
+	FormattedString second_item_title = 7;
+}
+
+extend Renderer {
+	DoubleItemRenderer double_item_renderer = 123387213;
+}

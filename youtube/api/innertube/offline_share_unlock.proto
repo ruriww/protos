@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineShareUnlock {
+	string video_id = 1;
+	bool is_successful = 2;
+	bool total_duration_ms = 3;
+
+	message UnlockStep {
+		int64 duration_ms = 1;
+	}
+
+	UnlockStep player_response_fetch = 4;
+	UnlockStep content_verification = 5;
+	string offline_share_session_nonce = 6;
+	string share_nonce = 7;
+	bool using_cached_disco_key = 9;
+}

@@ -1,0 +1,291 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/dependent_variable.proto";
+import "moneta/orchestration/ui/common/generic/number_formatting_scheme.proto";
+import "moneta/orchestration/ui/common/generic/template_formatting_scheme.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+import "moneta/integrator/common/date.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/generic/view_mode.proto";
+import "moneta/orchestration/ui/common/generic/display_type_enum.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message UiField {
+	string name = 1;
+	bool is_secure = 2 [ default = false ];
+	bool is_optional = 3 [ default = false ];
+	string label = 4;
+
+	message TextField {
+		enum ChecksumType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_3 = 0;
+			IBAN_CHECKSUM = 1;
+			BRAZIL_CNPJ_CHECKSUM = 2;
+			BRAZIL_CPF_CHECKSUM = 3;
+			MA_RIB_CHECKSUM = 4;
+			BRAZIL_CNPJ_OR_CPF_CHECKSUM = 5;
+			ISO_7064_MOD_11_10_CHECKSUM = 6;
+			AUSTRIA_TAX_NUMBER_CHECKSUM = 9;
+			BELGIUM_TAX_NUMBER_CHECKSUM = 10;
+			CROATIA_TAX_NUMBER_CHECKSUM = 11;
+			DENMARK_TAX_NUMBER_CHECKSUM = 12;
+			FINLAND_TAX_NUMBER_CHECKSUM = 13;
+			GERMANY_TAX_NUMBER_CHECKSUM = 14;
+			GREECE_TAX_NUMBER_CHECKSUM = 15;
+			IRELAND_TAX_NUMBER_CHECKSUM = 16;
+			ITALY_VAT_IVA_CHECKSUM = 8;
+			LUXEMBOURG_TAX_NUMBER_CHECKSUM = 17;
+			NETHERLAND_TAX_NUMBER_CHECKSUM = 18;
+			PORTUGAL_TAX_NUMBER_CHECKSUM = 19;
+			SPAIN_VAT_NIF_CHECKSUM = 7;
+			SWEDEN_TAX_NUMBER_CHECKSUM = 20;
+			UNITED_KINGDOM_TAX_NUMBER_CHECKSUM = 21;
+			ARGENTINA_TAX_NUMBER_CHECKSUM = 23;
+			AUSTRALIA_ABN_CHECKSUM = 24;
+			INDIA_TAX_DEDUCTION_ACCOUNT_NUMBER_CHECKSUM = 25;
+			MEXICO_TAX_NUMBER_CHECKSUM = 26;
+			TAIWAN_TAX_NUMBER_CHECKSUM = 22;
+			TURKEY_VKN_CHECKSUM = 28;
+			LUHN_PAN_CHECKSUM = 27;
+		}
+
+		int32 min_length = 1;
+		int32 max_length = 2;
+		string field_description = 3;
+
+		enum KeyboardLayout {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			TEXT = 1;
+			NUMBER = 2;
+			EMAIL = 3;
+			PHONE = 4;
+		}
+
+		KeyboardLayout keyboard_layout = 4;
+
+		message Validation {
+			oneof condition {
+				string regex = 1;
+				ChecksumType checksum_type = 3;
+				double minimum_numeric_value = 4 [ default = 1.7976931348623157e308 ];
+				double maximum_numeric_value = 5 [ default = -1.7976931348623157e308 ];
+				int64 matching_text_field_ui_reference = 7;
+			}
+
+			string error_message = 2;
+			DependentVariable apply_rule = 6;
+		}
+
+		repeated Validation validation = 5;
+		string initial_value = 6;
+
+		enum RedactionScheme {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_2 = 0;
+			NO_REDACTION = 1;
+			LAST_ONE_FOURTH = 2;
+			LAST_FOUR = 3;
+		}
+
+		RedactionScheme redaction_scheme = 7;
+		bool is_masked = 8;
+		bool is_readonly = 9;
+		bool zero_padding_required = 12;
+
+		oneof formatting_scheme {
+			NumberFormattingScheme number_formatting_scheme = 13;
+			TemplateFormattingScheme template_formatting_scheme = 14;
+		}
+
+		enum KeyboardLayoutVariation {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_KEYBOARD_LAYOUT_VARIATION = 0;
+			VARIATION_NUMBER_DECIMAL = 1;
+			VARIATION_NUMBER_SIGNED = 2;
+			VARIATION_TEXT_CAP_CHARACTERS = 3;
+			VARIATION_TEXT_CAP_SENTENCES = 4;
+			VARIATION_TEXT_CAP_WORDS = 5;
+			VARIATION_TEXT_EMAIL_ADDRESS = 6;
+			VARIATION_TEXT_PERSON_NAME = 7;
+			VARIATION_TEXT_POSTAL_ADDRESS = 8;
+			VARIATION_TEXT_URI = 9;
+			VARIATION_TEXT_NO_SUGGESTIONS = 10;
+		}
+
+		repeated KeyboardLayoutVariation keyboard_layout_variation = 15;
+		string mask_characters = 16;
+		bool should_send_redacted_value_separately = 17;
+		bool remove_leading_zeros = 18;
+		bool zero_padding_to_min_length_required = 19;
+		bool use_formatted_input_as_value = 22;
+		ImageWithCaption icon = 23;
+		bool show_clear_button = 24;
+		string placeholder_text = 25;
+
+		enum DisplayType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_TEXT_FIELD_DISPLAY_TYPE = 0;
+			STANDARD = 1;
+			LARGE = 2;
+			SECONDARY = 3;
+			SECONDARY_WITH_BORDER = 4;
+		}
+
+		DisplayType display_type = 27;
+	}
+
+	message SelectField {
+		message Option {
+			oneof display {
+				string display_value = 1;
+				string sensitive_display_value = 16;
+			}
+
+			string value = 2;
+			InfoMessage extended_description_info = 4;
+			int64 ui_reference = 5;
+			ImageWithCaption icon = 6;
+			InfoMessage display_sub_value = 8;
+			bool is_disabled = 9 [ default = false ];
+			bytes value_data_token = 10;
+			repeated ImageWithCaption action_item = 12;
+			bool is_selected = 13;
+			string selected_and_collapsed_display_value = 14;
+			InfoMessage selected_and_collapsed_display_sub_value = 15;
+		}
+
+		repeated Option option = 1;
+		string initial_value = 2;
+		string unselected_display_value = 3;
+
+		enum DisplayType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_SELECT_FIELD_DISPLAY_TYPE = 0;
+			DROP_DOWN_MENU = 1;
+			INLINE = 2;
+			INLINE_DROPDOWN = 3;
+			INLINE_DROPDOWN_WITH_STRUCTURED_READ_ONLY = 5;
+			INLINE_DROPDOWN_WITH_ICONS = 10;
+			INLINE_MULTI_SELECT = 6;
+			INLINE_WITHOUT_SELECT_INDICATOR = 8;
+			TAB_BAR = 4;
+			RADIO_BUTTON = 7;
+			SEARCHABLE_MULTI_SELECT = 9;
+			SEARCHABLE_SINGLE_SELECT = 11;
+			DROP_DOWN_MENU_TABLE_PAGINATION = 12;
+		}
+
+		DisplayType display_type = 4;
+		int32 initial_selected_index = 5;
+		int64 unselected_ui_reference = 6;
+		int64 ui_reference = 7;
+		ImageWithCaption brand_icon = 13;
+	}
+
+	message Checkbox {
+		UiFieldValue.CheckboxState initial_value = 1;
+		string error_message = 2;
+
+		enum DisplayType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_CHECKBOX_DISPLAY_TYPE = 0;
+			CHECKBOX = 1;
+			TOGGLE_SWITCH = 2;
+		}
+
+		DisplayType display_type = 3;
+		InfoMessage extended_description_info = 4;
+		string label_html = 5;
+		InfoMessage label = 6;
+		bool always_show_extended_description_info = 7;
+	}
+
+	message FixedField {
+		string string_value = 1;
+		InfoMessage display_value = 2;
+		bool display_in_html = 3;
+	}
+
+	message DateField {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			YEAR_MONTH_DAY = 1;
+			YEAR_MONTH = 2;
+			YEAR_MONTH_DAY_WITH_LONG_SUMMARY = 3;
+		}
+
+		Type type = 1;
+		integrator.common.Date min_date = 2;
+		integrator.common.Date max_date = 3;
+		integrator.common.Date initial_value = 4;
+		bool show_datepicker = 5;
+		string format = 6;
+		string min_date_error_message = 7;
+		string max_date_error_message = 8;
+		string separator = 9;
+		int64 date_range_reference = 10;
+
+		enum DateRangeType {
+			option features.enum_type = CLOSED;
+
+			DEFAULT = 0;
+			DATE_RANGE_START = 1;
+			DATE_RANGE_END = 2;
+		}
+
+		DateRangeType date_range_type = 11;
+	}
+
+	oneof field {
+		TextField text_field = 6;
+		SelectField select_field = 7;
+		Checkbox checkbox = 10;
+		FixedField fixed_field = 13;
+		DateField date_field = 16;
+	}
+
+	repeated ImageWithCaption image_with_caption = 8;
+	Tooltip tooltip = 9;
+	bool is_disabled = 11 [ default = false ];
+	bytes data_token = 14;
+	int64 ui_reference = 15;
+	ViewMode view_mode = 17;
+	bool minimize_display_width = 20;
+	DisplayTypeEnum.DisplayType display_type = 21;
+	string field_description = 22;
+
+	enum ImageDisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_IMAGE_DISPLAY_TYPE = 0;
+		FORM_SPECIFIED = 1;
+		DISPLAY_INLINE_ON_FOCUS = 2;
+	}
+
+	ImageDisplayType image_display_type = 23 [ default = FORM_SPECIFIED ];
+	bool force_label_inline = 25 [ default = false ];
+	bool is_read_only = 26;
+	string custom_required_error_message = 27;
+	string aria_label = 28;
+	bool is_not_logged = 31 [ default = false ];
+	bool hide_tooltip_icon = 32;
+	proto2.bridge.MessageSet private_extensions = 33;
+	InfoMessage verification_badge = 35;
+}

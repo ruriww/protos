@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicLibraryConfig {
+	bool enable_library_inheritance_for_downloads = 1;
+	bool enable_library_inheritance_user_education = 2;
+	bool enable_library_inheritance_new_like_dialog = 3;
+	bool enable_sideloaded_playlist_export = 4;
+	string sideloaded_playlist_android11_platform_fix_min_version = 6;
+	bool should_use_shelf_padding_in_secondary_page = 7;
+	bool should_only_show_device_files = 8;
+}

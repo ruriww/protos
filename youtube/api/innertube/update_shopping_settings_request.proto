@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/update_shopping_config.proto";
+import "youtube/api/innertube/update_live_chat_shopping_config.proto";
+import "youtube/api/innertube/save_channel_product_selection.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateShoppingSettingsRequest {
+	InnerTubeContext context = 1;
+
+	oneof update_type {
+		UpdateShoppingConfig update_shopping_config_request = 9;
+		UpdateLiveChatShoppingConfig update_live_chat_shopping_config_request = 10;
+		SaveChannelProductSelection save_channel_product_selection_request = 13;
+	}
+}

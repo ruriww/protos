@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.integrator.api.creditcard;
+
+import "moneta/integrator/common/client_context.proto";
+
+option objc_class_prefix = "Orch";
+
+message GetMaskedCardAndCustomerDataRequest {
+	common.ClientContext context = 1;
+
+	message DataTokenParameters {
+		bytes client_token = 2;
+		string customer_legal_country_guess = 3;
+		string additional_upsert_bottom_message = 4;
+	}
+
+	DataTokenParameters data_token_parameters = 2;
+}

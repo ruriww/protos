@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/queue_item.proto";
+import "youtube/api/innertube/queue_insert_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message QueueAddEndpoint {
+	extend Command {
+		QueueAddEndpoint queue_add_endpoint = 163162354;
+	}
+
+	QueueItem queue_target = 1;
+	QueueInsertPosition queue_insert_position = 2;
+	repeated Command commands = 3;
+	repeated QueueItem queue_targets = 4;
+}

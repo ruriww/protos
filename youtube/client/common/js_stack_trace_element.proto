@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.common;
+
+option objc_class_prefix = "YTC";
+
+message JsStackTraceElement {
+	string function_name = 1;
+	string source = 2;
+	int32 line_number = 3;
+	int32 column_number = 4;
+}

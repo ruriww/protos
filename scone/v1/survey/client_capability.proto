@@ -1,0 +1,11 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+enum ClientCapability {
+	CLIENT_CAPABILITY_UNKNOWN = 0;
+	CLIENT_CAPABILITY_PII = 1;
+	CLIENT_CAPABILITY_RATING_SCALE_10_11 = 2;
+}

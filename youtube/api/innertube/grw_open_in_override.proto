@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum GRWOpenInOverride {
+	option features.enum_type = CLOSED;
+
+	GRW_OPEN_IN_OVERRIDE_UNKNOWN = 0;
+	GRW_OPEN_IN_OVERRIDE_USE_PREFERRED_BROWSER = 1;
+	GRW_OPEN_IN_OVERRIDE_USE_SAFARI_VIEW_CONTROLLER = 2;
+	GRW_OPEN_IN_OVERRIDE_GOOGLE_MAPS_URL_HANDLER = 3;
+	GRW_OPEN_IN_OVERRIDE_USE_PREFERRED_APP_NO_PROMPT = 4;
+	GRW_OPEN_IN_OVERRIDE_USE_SAFARI_INSTEAD_OF_SAFARI_VIEW_CONTROLLER = 5;
+	GRW_OPEN_IN_OVERRIDE_UNIVERSAL_LINKS_ONLY = 6;
+	GRW_OPEN_IN_OVERRIDE_APP_STORE_ONLY = 7;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.comment;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerEvent {
+	google.protobuf.Timestamp current_time = 1;
+}

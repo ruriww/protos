@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/upload_account_scoped_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StoreUploadAccountScopedSettingsCommand {
+	extend elements.Command {
+		StoreUploadAccountScopedSettingsCommand store_upload_account_scoped_settings_command = 525000074;
+	}
+
+	UploadAccountScopedSettings upload_account_scoped_setting = 1;
+}

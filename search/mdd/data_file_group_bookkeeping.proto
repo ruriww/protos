@@ -1,0 +1,22 @@
+edition = "2023";
+
+package search.mdd;
+
+option objc_class_prefix = "MDD";
+
+message DataFileGroupBookkeeping {
+	int64 group_new_files_received_timestamp_in_millis = 1;
+	int64 group_download_started_timestamp_in_millis = 2;
+	int64 previous_byte_size = 3;
+
+	enum NetworkInterface {
+		option features.enum_type = CLOSED;
+
+		UNDEFINED = 0;
+		WIFI = 1;
+		CELLULAR = 2;
+		OTHER = 3;
+	}
+
+	NetworkInterface network_interface = 4;
+}

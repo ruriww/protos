@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/primitive_consent_content.proto";
+import "footprints/texts/primitiveconsent/primitive_dialog_button.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message PrimitiveDialog {
+	PrimitiveConsentContent content = 1;
+	PrimitiveDialogButton close_button = 2;
+}

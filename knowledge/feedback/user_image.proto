@@ -1,0 +1,11 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message UserImage {
+	string image_uri = 1;
+	int32 height = 2;
+	int32 width = 3;
+}

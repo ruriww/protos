@@ -1,0 +1,100 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/share_panel_section_supported_renderers.proto";
+import "youtube/api/innertube/share_panel_header_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/confirm_multi_recipient_share_dialogue_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/message_input_supported_renderers.proto";
+import "youtube/api/innertube/share_panel_promo_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/share_panel_header_renderer.proto";
+import "youtube/api/innertube/share_panel_title_renderer.proto";
+import "youtube/api/innertube/share_panel_title_v15_renderer.proto";
+import "youtube/api/innertube/share_start_time_with_context_renderer.proto";
+import "youtube/api/innertube/message_input_section_renderer.proto";
+import "youtube/api/innertube/message_input_section_v15_renderer.proto";
+import "youtube/api/innertube/connection_section_renderer.proto";
+import "youtube/api/innertube/third_party_network_section_renderer.proto";
+import "youtube/api/innertube/third_party_share_target_section_renderer.proto";
+import "youtube/api/innertube/sender_id_section_renderer.proto";
+import "youtube/api/innertube/sender_id_selector_dialog_renderer.proto";
+import "youtube/api/innertube/share_panel_promo_renderer.proto";
+import "youtube/api/innertube/community_post_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnifiedSharePanelRenderer {
+	repeated SharePanelSectionSupportedRenderers contents = 2;
+	SharePanelHeaderSupportedRenderers header = 4;
+	bytes tracking_params = 6;
+	FormattedString remove_identity_prompt = 8;
+	ConfirmMultiRecipientShareDialogueSupportedRenderers confirm_multi_recipient_share_dialogue_renderer = 9;
+	repeated Command impression_endpoints = 10;
+	MessageInputSupportedRenderers message_input = 11;
+	SharePanelPromoSupportedRenderers share_panel_promo_supported_renderers = 12;
+	int32 share_panel_version = 13;
+	Renderer search = 14;
+	bool show_loading_spinner = 15;
+}
+
+extend Renderer {
+	UnifiedSharePanelRenderer unified_share_panel_renderer = 87759049;
+}
+
+extend Renderer {
+	SharePanelHeaderRenderer share_panel_header_renderer = 92759287;
+}
+
+extend Renderer {
+	SharePanelTitleRenderer share_panel_title_renderer = 92759253;
+}
+
+extend Renderer {
+	SharePanelTitleV15Renderer share_panel_title_v15_renderer = 133737618;
+}
+
+extend Renderer {
+	ShareStartTimeWithContextRenderer share_start_time_with_context_renderer = 346937069;
+}
+
+extend Renderer {
+	MessageInputSectionRenderer message_input_section_renderer = 87535215;
+}
+
+extend Renderer {
+	MessageInputSectionV15Renderer message_input_section_v15_renderer = 133836655;
+}
+
+extend Renderer {
+	ConnectionSectionRenderer connection_section_renderer = 87264807;
+}
+
+extend Renderer {
+	ThirdPartyNetworkSectionRenderer third_party_network_section_renderer = 87195780;
+}
+
+extend Renderer {
+	ThirdPartyShareTargetSectionRenderer third_party_share_target_section_renderer = 133971036;
+}
+
+extend Renderer {
+	SenderIdSectionRenderer sender_id_section_renderer = 133992053;
+}
+
+extend Renderer {
+	SenderIdSelectorDialogRenderer sender_id_selector_dialog_renderer = 133993466;
+}
+
+extend Renderer {
+	SharePanelPromoRenderer share_panel_promo_renderer = 134328954;
+}
+
+extend Renderer {
+	CommunityPostSectionRenderer community_post_section_renderer = 147053366;
+}

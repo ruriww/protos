@@ -1,0 +1,38 @@
+edition = "2023";
+
+package greco;
+
+option objc_class_prefix = "GRC";
+
+message EndpointerEvent {
+	enum EventType {
+		option features.enum_type = CLOSED;
+
+		START_OF_SPEECH = 0;
+		END_OF_SPEECH = 1;
+		END_OF_AUDIO = 2;
+		END_OF_UTTERANCE = 3;
+	}
+
+	EventType event_type = 1;
+	int64 time_usec = 2;
+	int64 detected_time_usec = 3;
+	int64 silence_threshold_msec = 5;
+	int32 decoder_latency_msec = 6;
+	bool quit_processing = 7;
+	float sentence_end_cost = 8;
+	bool is_speech_decoded = 9;
+	int64 observed_silence_duration_msec = 10;
+	int64 disabled_timestamp_msec = 11;
+	int64 reenabled_timestamp_msec = 12;
+	int64 decoder_eos_timestamp_msec = 13;
+	float sentence_end_cost_decision_threshold = 14;
+	float num_words_per_second = 15;
+	float rnnt_eos_prob = 16;
+	float rnnt_eos_prob_threshold = 17;
+	int64 rnnt_decoder_silence_duration_msec = 18;
+	int64 rnnt_decoder_silence_duration_threshold_msec = 19;
+	float rnnt_text_frame_ratio = 20;
+	float rnnt_hyp_confidence = 21;
+	float num_chars_per_second = 22;
+}

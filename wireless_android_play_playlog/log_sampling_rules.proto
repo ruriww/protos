@@ -1,0 +1,17 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message LogSamplingRules {
+	message Rule {
+		int32 event_code = 1;
+		string correlation_token = 2;
+		int64 keep_numerator = 3;
+		int64 keep_denominator = 4;
+		double applied_sampling_rate_override = 5;
+	}
+
+	repeated Rule rules = 1;
+}

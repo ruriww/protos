@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_chat_rich_message_input.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BuyBucketGetCartRequestData {
+	bytes params = 1;
+	uint64 purchase_price_micros = 2;
+
+	oneof input {
+		string chat_message_text = 3;
+		LiveChatRichMessageInput rich_chat_message = 4;
+		string sticker_params = 5;
+	}
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum StoryShareTarget {
+	option features.enum_type = CLOSED;
+
+	STORY_SHARE_TARGET_UNKNOWN = 0;
+	STORY_SHARE_TARGET_SNAPCHAT_CAMERA = 1;
+	STORY_SHARE_TARGET_SNAPCHAT_PREVIEW = 2;
+	STORY_SHARE_TARGET_INSTAGRAM = 3;
+	STORY_SHARE_TARGET_FACEBOOK = 4;
+}

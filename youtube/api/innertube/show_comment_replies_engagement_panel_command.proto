@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowCommentRepliesEngagementPanelCommand {
+	extend Command {
+		ShowCommentRepliesEngagementPanelCommand show_comment_replies_engagement_panel_command = 141942083;
+	}
+
+	string comment_feed_id = 1;
+	string params = 2;
+	FormattedString title = 3;
+	bool should_invalidate_cache = 4;
+	FormattedString contextual_info = 5;
+	int32 type_id = 6;
+	string source_panel_identifier = 7;
+	Command on_close_command = 8;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens.request_context;
+
+option objc_class_prefix = "LNSRC";
+
+message RoutingInfo {
+	string lbe_bns_address = 1;
+	string lbe_blade_target = 2;
+	string lbe_cell_address = 3;
+	string cell = 4;
+	int32 task = 5;
+	string user = 6;
+	string env = 7;
+	string sherlog_url = 9;
+}

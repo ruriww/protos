@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.integrator.common.instrument;
+
+option objc_class_prefix = "Orch";
+
+message NewInstrument {
+	string add_instrument_description = 2;
+	string instrument_logo = 3;
+
+	oneof create_widget_input {
+		bytes add_token = 4;
+		bytes identity_and_credit_encrypted_parameters = 5;
+		bytes auto_create_via_api_add_token = 7;
+	}
+
+	bytes auto_create_via_api_add_token_v2 = 8;
+	bool allowed_for_primary = 9;
+	bool allowed_for_backup = 10;
+	bool in_progress_creation_flow = 11;
+	string add_instrument_sub_description = 15;
+	int32 new_instrument_key = 17;
+	string instrument_type_name = 18;
+	int32 grouping_id = 20;
+}

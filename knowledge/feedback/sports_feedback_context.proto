@@ -1,0 +1,34 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message SportsFeedbackContext {
+	string transcript = 1;
+	string league_name = 2;
+	string league_id = 3;
+	string match_id = 4;
+	bool has_live_in_game_updates = 5;
+	int32 match_status = 6;
+	string language_selected = 7;
+	bool caption_enabled = 8;
+	string first_team_name = 9;
+	string second_team_name = 10;
+	int32 in_game_time_minutes = 11;
+	int32 in_game_time_seconds = 12;
+	string url_to_match_osrp = 13;
+	string localized_start_date_and_time = 14;
+	int32 first_team_score = 15;
+	int32 second_team_score = 16;
+	bool first_team_won = 17;
+	bool second_team_won = 18;
+	bool is_match_live = 19;
+	bool is_pre_match = 20;
+	bool is_post_match = 21;
+	string match_start_time = 22;
+	string match_end_time = 23;
+	string first_team_score_string = 24;
+	string second_team_score_string = 25;
+	string feedback_recorded_timestamp = 26;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/activity_controls_setting.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message SetFacsRequest {
+	ActivityControlsSetting setting = 1;
+	bool new_value = 2;
+	string ui_language = 3;
+	string ui_build_label = 4;
+	string ui_build_cl = 5;
+	string audit_render_data_token = 6;
+	string kansas_version_info = 8;
+}

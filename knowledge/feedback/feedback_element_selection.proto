@@ -1,0 +1,10 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message FeedbackElementSelection {
+	string attribute = 1;
+	string reported_value = 2;
+}

@@ -1,0 +1,55 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "geostore/data_source_provider.proto";
+import "geostore/feature_id_proto.proto";
+
+option objc_class_prefix = "UFR";
+
+message SuperNavFeedbackContext {
+	string place_mid = 1;
+	string query = 2;
+
+	message LlmPlaceAnswers {
+		string summary_text = 1;
+
+		message MagiSources {
+			string url = 2;
+			string title = 3;
+			string snippet = 4;
+			int32 unique_id = 5;
+			string review_id = 6;
+			string review_text = 7;
+		}
+
+		repeated MagiSources sources = 2;
+		repeated string image_urls = 3;
+		repeated string next_steps_chips = 4;
+	}
+
+	LlmPlaceAnswers llm_place_answers = 3;
+
+	enum EntryPoint {
+		option features.enum_type = CLOSED;
+
+		ENTRY_POINT_UNKNOWN = 0;
+		ENTRY_POINT_LLM_PLACE_ANSWERS_INPUT_BOX = 1;
+		ENTRY_POINT_LLM_PLACE_ANSWERS_NS_CHIP = 2;
+		ENTRY_POINT_LLM_PLACE_ANSWERS_THREE_DOT_MENU = 3;
+	}
+
+	EntryPoint entry_point = 7;
+
+	enum SuperNavComponent {
+		option features.enum_type = CLOSED;
+
+		SUPERNAV_UNKNOWN_COMPONENT = 0;
+		SUPERNAV_LLM_PLACE_ANSWERS = 1;
+	}
+
+	SuperNavComponent supernav_component = 8;
+	string feature_id = 10;
+	geostore.DataSourceProvider.Provider data_source_provider = 11;
+	geostore.FeatureIdProto associated_feature_id = 12;
+}

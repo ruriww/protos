@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/string_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/bool_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/char_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/byte_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/short_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/int_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/double_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/float_array.proto";
+import "google/internal/identity/accountsettings/mobile/v1/long_array.proto";
+
+option objc_class_prefix = "ASM";
+
+message Extra {
+	oneof extra_type {
+		string string_value = 1;
+		StringArray string_array_value = 2;
+		bool boolean_value = 3;
+		BoolArray boolean_array_value = 4;
+		int32 char_value = 5;
+		CharArray char_array_value = 6;
+		int32 byte_value = 7;
+		ByteArray byte_array_value = 8;
+		int32 short_value = 9;
+		ShortArray short_array_value = 10;
+		int32 int_value = 11;
+		IntArray int_array_value = 12;
+		double double_value = 13;
+		DoubleArray double_array_value = 14;
+		float float_value = 15;
+		FloatArray float_array_value = 16;
+		int64 long_value = 17;
+		LongArray long_array_value = 18;
+	}
+}

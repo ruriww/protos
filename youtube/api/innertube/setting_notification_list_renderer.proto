@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/setting_notification_list_supported_renderers.proto";
+import "youtube/api/innertube/client_setting_item.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingNotificationListRenderer {
+	FormattedString title = 2;
+	FormattedString tooltip = 3;
+	Command service_endpoint = 4;
+	FormattedString action_desc = 5;
+	FormattedString undo_action_desc = 6;
+	repeated SettingNotificationListSupportedRenderers items = 7;
+	Command undo_service_endpoint = 8;
+	FormattedString success_response_text = 9;
+	repeated ClientSettingItem client_setting_dependencies = 10;
+}

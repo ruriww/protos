@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+import "google/internal/identity/signedoutstate/v1/serialized_signed_out_state.proto";
+
+option objc_class_prefix = "SOS";
+
+message SignedOutStateRequest {
+	bool force_response = 2;
+	repeated string webview_hosts = 3;
+	SerializedSignedOutState serialized_signed_out_state = 4;
+	repeated string experiments = 5;
+}

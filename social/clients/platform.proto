@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.clients;
+
+option objc_class_prefix = "SC";
+
+enum Platform {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_PLATFORM = 0;
+	WEB = 1;
+	NATIVE = 2;
+	BROWSER_EXTENSION = 3;
+	COMPANION = 4;
+	IMAP = 5;
+	UNSET_PLATFORM = 10;
+	TOTAL_PLATFORM = 20;
+}

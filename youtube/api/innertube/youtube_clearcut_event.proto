@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YoutubeClearcutEvent {
+	bytes serialized_clearcut_extension = 1;
+	int32 log_source = 2;
+	string log_source_name = 3;
+	int32 event_code = 4;
+	bytes client_visual_elements = 5;
+}

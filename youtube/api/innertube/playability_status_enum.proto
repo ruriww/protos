@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayabilityStatusEnum {
+	enum CanPlayStatus {
+		option features.enum_type = CLOSED;
+
+		OK = 0;
+		ERROR = 1;
+		UNPLAYABLE = 2;
+		LOGIN_REQUIRED = 3;
+		CONTENT_CHECK_REQUIRED = 4;
+		AGE_CHECK_REQUIRED = 5;
+		LIVE_STREAM_OFFLINE = 6;
+		FULLSCREEN_ONLY = 7;
+		GL_PLAYBACK_REQUIRED = 8;
+		AGE_VERIFICATION_REQUIRED = 9;
+	}
+
+	CanPlayStatus can_play_status = 1;
+}

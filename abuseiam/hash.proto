@@ -1,0 +1,10 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message Hash {
+	string hash = 1;
+	string type = 2;
+}

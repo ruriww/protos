@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/ios_foreground_push_notification_display_style.proto";
+import "youtube/api/innertube/unplugged_notification_renderer_params.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosPushNotificationRenderer {
+	Command navigation_endpoint = 1;
+	Command click_tracking_endpoint = 2;
+
+	message IosNotificationAction {
+		string identifier = 1;
+		Command navigation_endpoint = 2;
+		Command background_endpoint = 3;
+		Command click_tracking_endpoint = 4;
+		LoggingDirectives logging_directives = 999;
+	}
+
+	repeated IosNotificationAction notification_actions = 4;
+
+	message ForegroundOptions {
+		IosForegroundPushNotificationDisplayStyle display_style = 1;
+		string title = 2;
+		string text = 3;
+		string thumbnail_url = 4;
+		Command foreground_command = 5;
+	}
+
+	ForegroundOptions foreground_options = 5;
+	UnpluggedNotificationRendererParams unplugged_params = 6;
+	Command on_received_command = 7;
+	Command dismissal_tracking_endpoint = 9;
+	string apns_collapse_id = 10;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	IosPushNotificationRenderer ios_push_notification_renderer = 77819060;
+}

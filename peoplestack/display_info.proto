@@ -1,0 +1,16 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/photo.proto";
+import "peoplestack/name.proto";
+import "peoplestack/affinity.proto";
+
+option objc_class_prefix = "PSK";
+
+message DisplayInfo {
+	Photo photo = 1;
+	Name name = 2;
+	Affinity affinity = 3;
+	bool primary = 4;
+}

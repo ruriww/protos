@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/audio_route_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message QoeClientLoggingContext {
+	string cpn = 1;
+	int32 sequence_number = 2;
+	string serialized_watch_endpoint_logging_context = 3;
+	repeated AudioRouteInfo audio_route_info = 5;
+	string player_response_cpn = 9;
+	string qoe_ping_url = 11;
+	int32 timestamp_offset_msecs = 12;
+	bytes serialized_house_brand_player_service_logging_context = 17;
+}

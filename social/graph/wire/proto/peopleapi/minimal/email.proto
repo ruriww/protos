@@ -1,0 +1,42 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/email_extended_data.proto";
+
+option objc_class_prefix = "SGWPPM";
+
+message Email {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+	string type = 3;
+	string formatted_type = 4;
+	string display_name = 6;
+
+	message Certificate {
+		PersonFieldMetadata metadata = 1;
+
+		message CertificateStatus {
+			int64 not_after_sec = 1;
+
+			enum StatusCode {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN = 0;
+				CERTIFICATE_VALID = 1;
+				CERTIFICATE_MISSING = 2;
+				CERTIFICATE_EXPIRED = 3;
+				CERTIFICATE_REVOKED = 4;
+			}
+
+			StatusCode status_code = 2;
+		}
+
+		CertificateStatus status = 2;
+		string configuration_name = 3;
+	}
+
+	repeated Certificate certificate = 7;
+	apps.people.oz.external.mergedpeopleapi.EmailExtendedData extended_data = 8;
+}

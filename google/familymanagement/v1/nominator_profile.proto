@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/family_member_profile.proto";
+
+option objc_class_prefix = "GFM";
+
+message NominatorProfile {
+	string gaia_id = 1;
+	string display_name = 2;
+	string given_name = 3;
+	string family_name = 4;
+	string email = 5;
+	FamilyMemberProfile.StandardGenderEnum gender = 6;
+}

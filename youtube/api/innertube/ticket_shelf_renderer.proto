@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ticket_event_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/ticket_event_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TicketShelfRenderer {
+	string title = 1;
+	repeated TicketEventSupportedRenderers events = 2;
+	string expand_text = 3;
+	Command expand_command = 4;
+	bytes tracking_params = 6;
+	string upcoming_title = 7;
+	string show_more = 8;
+	string show_less = 9;
+	Command information_text_action = 10;
+	string information_text = 11;
+	string show_text = 12;
+	string hide_text = 13;
+	bool use_calendar_avatar = 14;
+}
+
+extend Renderer {
+	TicketShelfRenderer ticket_shelf_renderer = 136708432;
+}
+
+extend Renderer {
+	TicketEventRenderer ticket_event_renderer = 136346452;
+}

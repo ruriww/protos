@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/creation_asset_authorization_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicAudioPreviewCommand {
+	extend Command {
+		DynamicAudioPreviewCommand dynamic_audio_preview_command = 1148;
+	}
+
+	string url = 1;
+
+	message DisplayData {
+		string now_playing_entity_value = 1;
+	}
+
+	DisplayData display_data = 2;
+	CreationAssetAuthorizationType authorization_type = 3;
+}

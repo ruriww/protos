@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvAudioItemPlaybackCommand {
+	extend Command {
+		SfvAudioItemPlaybackCommand sfv_audio_item_playback_command = 312722532;
+	}
+
+	string external_video_id = 1;
+	string player_params = 2;
+	Command get_shorts_source_video_command = 4;
+	string now_playing_entity_value = 5;
+	string audio_pivot_page_headers_identifier = 6;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "logs/proto/contacts/common/entry_type.proto";
+import "logs/proto/contacts/common/operation_entry.proto";
+import "logs/proto/contacts/common/count_entry.proto";
+import "logs/proto/contacts/common/error_entry.proto";
+import "logs/proto/contacts/common/operation_start_entry.proto";
+
+option objc_class_prefix = "CTC";
+
+message ContactsMetricEntry {
+	EntryType entry_type = 1;
+	OperationEntry operation_entry = 2;
+	CountEntry count_entry = 3;
+	ErrorEntry error_entry = 4;
+	OperationStartEntry operation_start = 5;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LoopButtonState {
+	option features.enum_type = CLOSED;
+
+	LOOP_BUTTON_STATE_UNKNOWN = 0;
+	LOOP_BUTTON_STATE_DISABLED = 1;
+	LOOP_BUTTON_STATE_REPEAT_ALL = 2;
+	LOOP_BUTTON_STATE_REPEAT_ONE = 3;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mobile_stream_menu_item_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/mobile_stream_menu_style_type.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamMenuRenderer {
+	repeated MobileStreamMenuItemSupportedRenderers items = 1;
+	FormattedString title = 2;
+	MobileStreamMenuStyleType style = 3;
+	AccessibilitySupportedDatas accessibility = 4;
+}
+
+extend Renderer {
+	MobileStreamMenuRenderer mobile_stream_menu_renderer = 142366317;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package mdi.download;
+
+option objc_class_prefix = "Icing";
+
+message ExtraHttpHeader {
+	string key = 1;
+	string value = 2;
+}

@@ -1,0 +1,44 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/layout_properties.proto";
+import "moneta/orchestration2/ui/common/node/style_properties.proto";
+import "moneta/orchestration2/ui/common/snackbar/snackbar_node_properties.proto";
+import "moneta/orchestration2/ui/common/image/animated/animated_image_node_properties.proto";
+import "moneta/orchestration2/ui/common/selector/selector_option_toggle_control_node_properties.proto";
+import "moneta/orchestration2/ui/common/selector/toggle/toggle_control_node_properties.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/photocapture/photo_capture_node_properties.proto";
+import "moneta/orchestration2/ui/common/input/textinput/segmented_input_node_properties.proto";
+import "moneta/orchestration2/ui/common/bottomsheet/bottom_sheet_node_properties.proto";
+import "moneta/orchestration2/ui/common/fullsheet/full_sheet_node_properties.proto";
+import "moneta/orchestration2/ui/common/dialog/dialog_node_properties.proto";
+import "moneta/orchestration2/ui/common/grouping/container_node_properties.proto";
+import "moneta/orchestration2/ui/common/anchored/anchored_node_properties.proto";
+import "moneta/orchestration2/ui/common/htmldocument/html_document_node_properties.proto";
+import "moneta/orchestration2/ui/common/scrolling/scrolling_node_properties.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/cardocr/card_ocr_node_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Properties {
+	LayoutProperties layout_properties = 1;
+	StyleProperties style_properties = 2;
+
+	oneof custom_properties {
+		snackbar.SnackbarNodeProperties snackbar_node_properties = 3;
+		image.animated.AnimatedImageNodeProperties animated_image_node_properties = 4;
+		selector.SelectorOptionToggleControlNodeProperties selector_option_toggle_control_node_properties = 5;
+		selector.toggle.ToggleControlNodeProperties toggle_control_node_properties = 6;
+		functionaldata.camera.photocapture.PhotoCaptureNodeProperties photo_capture_node_properties = 7;
+		input.textinput.SegmentedInputNodeProperties segmented_input_node_properties = 8;
+		bottomsheet.BottomSheetNodeProperties bottom_sheet_node_properties = 9;
+		fullsheet.FullSheetNodeProperties full_sheet_node_properties = 10;
+		dialog.DialogNodeProperties dialog_node_properties = 11;
+		grouping.ContainerNodeProperties container_node_properties = 12;
+		anchored.AnchoredNodeProperties anchored_node_properties = 13;
+		htmldocument.HtmlDocumentNodeProperties html_document_node_properties = 14;
+		scrolling.ScrollingNodeProperties scrolling_node_properties = 15;
+		functionaldata.camera.cardocr.CardOcrNodeProperties card_ocr_node_properties = 17;
+	}
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/multi_page_menu_notification_section_item_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MultiPageMenuNotificationSectionRenderer {
+	repeated MultiPageMenuNotificationSectionItemSupportedRenderers items = 1;
+	bytes tracking_params = 3;
+	Command continuation_update_endpoint = 5;
+	FormattedString notification_section_title = 6;
+}

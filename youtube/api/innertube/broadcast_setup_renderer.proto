@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BroadcastSetupRenderer {
+	Renderer basic_settings = 6;
+	Renderer advanced_settings = 7;
+	Renderer next_button = 8;
+	Renderer basic_expanded_settings = 9;
+	Command additional_next_button_endpoint = 10;
+	string container_id = 11;
+	bytes tracking_params = 13;
+}
+
+extend Renderer {
+	BroadcastSetupRenderer broadcast_setup_renderer = 144361002;
+}

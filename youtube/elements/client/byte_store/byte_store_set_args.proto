@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.elements.client.byte_store;
+
+option java_package = "com.google.protos.youtube.elements.client.byte_store";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMB";
+
+message ByteStoreSetArgs {
+	string key = 1;
+	bytes data = 2;
+}

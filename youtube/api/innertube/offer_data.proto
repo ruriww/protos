@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfferData {
+	FormattedString price = 1;
+	string offer_jwt = 2;
+	string offer_params = 3;
+	string iap_product_id = 4;
+	bytes encrypted_purchase_params = 6;
+}

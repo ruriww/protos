@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_route_data_route_type.proto";
+import "youtube/api/innertube/media_route_data_connect_state.proto";
+import "youtube/api/innertube/media_route_data_dismiss_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaRouteData {
+	MediaRouteDataRouteType route_type = 1;
+
+	message DialParameters {
+		bool supports_wake_up = 1;
+		bool is_wake_up_connect = 2;
+	}
+
+	DialParameters dial_parameters = 2;
+	MediaRouteDataConnectState connect_state = 3;
+	MediaRouteDataDismissReason dismiss_reason = 4;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ShortsDurationToggleState {
+	option features.enum_type = CLOSED;
+
+	SHORTS_DURATION_TOGGLE_STATE_UNKNOWN = 0;
+	SHORTS_DURATION_TOGGLE_STATE_15S = 1;
+	SHORTS_DURATION_TOGGLE_STATE_60S = 2;
+	SHORTS_DURATION_TOGGLE_STATE_AUTO_SWITCHED_60S = 3;
+	SHORTS_DURATION_TOGGLE_STATE_AUTO_SWITCHED_AUDIO_MAX_LENGTH = 4;
+	SHORTS_DURATION_TOGGLE_STATE_SEGMENT_OR_AUDIO_MAX_LENGTH = 5;
+}

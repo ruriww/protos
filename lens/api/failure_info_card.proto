@@ -1,0 +1,21 @@
+edition = "2023";
+
+package lens.api;
+
+import "lens/api/image.proto";
+import "quality_genie/eyes/filter_type.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message FailureInfoCard {
+	string body_header = 2;
+	string body_text = 3;
+	Image image = 4;
+	quality_genie.eyes.FilterType filter_type = 5;
+	bool is_partial_failure = 6;
+	string button_title = 7;
+	string button_action_url = 8;
+	string image_semantic_name = 10;
+	bool show_safe_search_banner = 13;
+	string body_action_text = 14;
+}

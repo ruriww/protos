@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message OnDeviceProductSearchProcessingTimestamps {
+	int64 entered_live_camera_pipeline = 1;
+	int64 tracker_image_prepared = 2;
+	int64 tracking_completed = 3;
+	int64 object_detector_in = 4;
+	int64 object_detector_out = 5;
+	int64 ocr_in = 6;
+	int64 ocr_out = 7;
+	int64 image_embedder_in = 8;
+	int64 image_embedder_out = 9;
+	int64 scam_query_in = 11;
+	int64 scam_query_out = 12;
+	int64 product_search_query_in = 13;
+	int64 product_search_query_out = 14;
+	int64 ocr_scam_joined = 15;
+	int64 product_detection_ranking_in = 16;
+	int64 product_detection_ranking_out = 17;
+	int64 visual_suggest_query_in = 20;
+	int64 visual_suggest_query_out = 21;
+}

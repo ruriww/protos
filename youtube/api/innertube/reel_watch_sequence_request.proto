@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/force_ad_parameters.proto";
+import "youtube/api/innertube/latest_container_item_events_info.proto";
+import "youtube/api/innertube/playback_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelWatchSequenceRequest {
+	InnerTubeContext context = 1;
+
+	oneof source {
+		string continuation = 3;
+		string sequence_params = 4;
+	}
+
+	ForceAdParameters force_ad_parameters = 5;
+	LatestContainerItemEventsInfo latest_container_item_events_info = 6;
+	bool is_mdx_playback = 7;
+	PlaybackContext playback_context = 8;
+	bool is_lens_eligible = 9;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package lens.api.command;
+
+import "lens/surface.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message TriggerAimCommand {
+	string vsrid = 1;
+	string gsession_id = 2;
+	Surface surface = 3;
+	string query = 4;
+
+	enum UiMode {
+		DEFAULT_AIM = 0;
+		VOICE = 1;
+	}
+
+	UiMode ui_mode = 6;
+	string mstk = 7;
+	string aio_response = 8;
+}

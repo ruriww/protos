@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+
+option objc_class_prefix = "GFM";
+
+message UpdateTandemPartnerResponse {
+	ApiResponseHeader api_header = 1;
+	repeated UnmetPrecondition unmet_preconditions = 2;
+}

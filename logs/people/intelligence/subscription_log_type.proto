@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+option objc_class_prefix = "PIL";
+
+enum SubscriptionLogType {
+	SUBSCRIPTION_UNSPECIFIED = 0;
+	SUBSCRIPTION_STARTED = 1;
+	SUBSCRIPTION_TRIGGERED = 2;
+	SUBSCRIPTION_UNREGISTERED = 3;
+}

@@ -1,0 +1,254 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+import "logs/chime_notifications/chime_frontend_context.proto";
+import "logs/chime_notifications/debug_event.proto";
+import "logs/proto/notifications_platform/gnp_campaign_info.proto";
+import "logs/chime_notifications/apple_permissions.proto";
+import "logs/chime_notifications/remove_reason.proto";
+
+option objc_class_prefix = "CHM";
+
+message ChimeFrontendEntry {
+	enum EventSource {
+		option features.enum_type = CLOSED;
+
+		EVENT_SOURCE_UNSPECIFIED = 0;
+		SYSTEM_TRAY = 1;
+		INBOX = 2;
+		IN_APP = 3;
+		LIVE_ACTIVITY = 4;
+	}
+
+	ChimeFrontendContext context = 1;
+
+	oneof frontend_event {
+		UserInteraction user_interaction = 2;
+		NotificationFailure notification_failure = 3;
+		DebugEvent debug_event = 6;
+	}
+
+	proto.notifications_platform.GnpCampaignInfo gnp_campaign_info = 5;
+}
+
+message UserInteraction {
+	message NotificationSlot {
+		string key = 1;
+		int32 limit = 2;
+	}
+
+	enum InteractionType {
+		option features.enum_type = CLOSED;
+
+		INTERACTION_TYPE_UNSPECIFIED = 0;
+		ACTION_CLICK = 1;
+		CLICKED = 2;
+		DISMISSED = 5;
+		DISMISSED_REMOTE = 30;
+		DISMISSED_BY_API = 35;
+		DISMISS_ALL = 6;
+		ADDED_TO_STORAGE = 34;
+		REPLACED_IN_STORAGE = 36;
+		SHOWN = 9;
+		SHOWN_REPLACED = 28;
+		SHOWN_FORCED = 29;
+		SHOWN_WITHOUT_IMAGE = 10;
+		CONTENT_EXPANDED = 51;
+		REMOVED_FROM_STORAGE = 37;
+		REMOVED = 41;
+		UNSHOWN = 19;
+		DELIVERED_FCM_PUSH = 33;
+		DELIVERED = 11;
+		DELIVERED_SYNC_INSTRUCTION = 12;
+		DELIVERED_FULL_SYNC_INSTRUCTION = 13;
+		DELIVERED_UPDATE_THREAD_INSTRUCTION = 23;
+		DELIVERED_REMOVE_STORAGE_INSTRUCTION = 43;
+		DELIVERED_REPLACED = 57;
+		DELIVERED_SILENT_NOTIFICATION = 45;
+		FETCHED_THREADS_BY_ID = 42;
+		FETCHED_LATEST_THREADS = 20;
+		FETCHED_UPDATED_THREADS = 21;
+		FETCHED_MULTI_USER_BADGE_COUNT = 38;
+		SUCCEED_TO_UPDATE_THREAD_STATE = 15;
+		SHOW_SKIPPED_DUE_TO_COUNTERFACTUAL = 16;
+		LOCAL_NOTIFICATION_CREATED = 17;
+		LOCAL_NOTIFICATION_UPDATED = 22;
+		EXPIRED = 18;
+		APP_BLOCK_STATE_CHANGED = 24;
+		NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED = 25;
+		NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED = 26;
+		PERIODIC_LOG = 27;
+		ACCOUNT_DATA_CLEANED = 31;
+		ACCOUNT_USERNAME_CHANGE = 54;
+		GMS_ACCOUNT_USERNAME_CHANGE = 55;
+		NOTIFICATION_DATA_CLEANED = 44;
+		TARGET_REGISTERED = 32;
+		LOCATION_TARGET_REGISTERED = 46;
+		VOIP_TARGET_REGISTERED = 47;
+		LIVE_ACTIVITY_TARGET_REGISTERED = 49;
+		LIVE_ACTIVITY_PTS_TARGET_REGISTERED = 50;
+		CONTROLS_TARGET_REGISTERED = 56;
+		LIVE_ACTIVITY_STARTED_LOCALLY = 52;
+		CLICK_DURATION_CLICK_OPENED_APP = 39;
+		CLICK_DURATION_CLICK_WHILE_OPEN = 40;
+		DSC_POSTPONED = 48;
+		DECRYPTED_SUCCESSFULLY = 53;
+	}
+
+	InteractionType interaction_type = 1;
+	string action_id = 2;
+	ApplePermissions apple_permissions = 7;
+	int64 click_duration_ms = 11;
+	RemoveReason remove_reason = 13;
+
+	enum ApplicationState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_APPLICATION_STATE = 0;
+		ACTIVE = 1;
+		BACKGROUND = 2;
+		INACTIVE = 3;
+	}
+
+	ApplicationState application_state = 16;
+	int64 expiration_timestamp_requested_seconds = 17;
+	int64 expiration_timestamp_actual_seconds = 18;
+
+	message ReachedLimit {
+		oneof reached_limit {
+			int32 total_tray_limit = 1;
+			NotificationSlot slot_limit = 2;
+		}
+	}
+
+	ReachedLimit reached_limit = 19;
+	ChimeFrontendEntry.EventSource event_source = 34;
+}
+
+message NotificationFailure {
+	enum FailureType {
+		option features.enum_type = CLOSED;
+
+		NOTIFICATION_FAILURE_UNSPECIFIED = 0;
+		BAD_CHANNEL = 1;
+		CHANNEL_NOT_FOUND = 34;
+		CHANNEL_BLOCKED = 35;
+		USER_BLOCKED = 6;
+		BAD_PAYLOAD = 2;
+		INSUFFICIENT_DATA_NO_TITLE = 7;
+		INSUFFICIENT_DATA_NO_TEXT = 8;
+		INSUFFICIENT_DATA_NO_CONVERSATION_MESSAGES = 70;
+		DROPPED_BY_VERSION = 41;
+		DROPPED_OLDER_THAN_FIRST_REGISTRATION = 51;
+		THREAD_ALREADY_DISMISSED = 53;
+		DROPPED_BY_STATE = 65;
+		DROPPED_EXPIRED = 66;
+		MAX_NOTIFICATION_COUNT_REACHED = 42;
+		DROPPED_BY_CLIENT = 3;
+		DROPPED_BY_OS = 69;
+		INVALID_USER = 4;
+		RECIPIENT_NOT_FOUND = 9;
+		RECIPIENT_NOT_REGISTERED = 10;
+		RECIPIENT_INVALID_CREDENTIALS = 25;
+		FAILED_TO_DOWNLOAD_IMAGE = 11;
+		FAILED_TO_FETCH_NOTIFICATIONS_BY_ID = 37;
+		FAILED_TO_FETCH_LATEST_NOTIFICATIONS = 12;
+		FAILED_TO_FETCH_UPDATED_NOTIFICATIONS = 13;
+		FAILED_TO_REGISTER = 14;
+		FAILED_TO_REGISTER_OTHER_ACCOUNT = 63;
+		FAILED_TO_UNREGISTER = 15;
+		FAILED_TO_UPDATE_THREAD_STATE = 16;
+		FAILED_TO_UPDATE_THREAD_STATE_BY_TOKEN = 17;
+		FAILED_TO_FETCH_SUBSCRIPTIONS = 38;
+		FAILED_TO_SUBSCRIBE_TO_TOPICS = 18;
+		FAILED_TO_UNSUBSCRIBE_FROM_TOPICS = 19;
+		FAILED_TO_FETCH_PREFS = 20;
+		FAILED_TO_UPDATE_PREFS = 21;
+		FAILED_TO_ACKNOWLEDGE = 22;
+		FAILED_TO_FETCH_MULTI_USER_BADGE_COUNT = 39;
+		FAILED_TO_REGISTER_LOCATION = 54;
+		FAILED_TO_REGISTER_PUSHKIT = 55;
+		FAILED_TO_REGISTER_LIVE_ACTIVITY = 62;
+		FAILED_TO_REGISTER_LIVE_ACTIVITY_PTS = 67;
+		FAILED_TO_REGISTER_CONTROLS = 68;
+		FAILED_TO_COUNT_THREADS = 56;
+		FAILED_TO_UPDATE_ALL_THREAD_STATES = 59;
+		FAILED_TO_POST_LOCAL_NOTIFICATION = 64;
+		FAILED_TO_GET_IID = 23;
+		INCONSISTENT_COUNT = 24;
+		UPSTREAM_TASK_TOO_BIG = 26;
+		UPSTREAM_UPDATE_THREAD_STATE_TASK_PARSE_ERROR = 27;
+		UPSTREAM_UNKNOWN_SEND_ERROR = 28;
+		UPSTREAM_INVALID_PARAMETERS = 29;
+		UPSTREAM_TOO_BIG = 30;
+		UPSTREAM_SENT_BUT_NOT_IN_TASK_TABLE = 31;
+		FAILED_ACCOUNT_DATA_CLEANUP = 36;
+		DATABASE_ERROR = 40;
+		FAILED_TO_APPLY_CUSTOMIZATION = 52;
+		UPSTREAM_ZOMBIE_FOUND = 32;
+		UPSTREAM_TOO_MANY_PENDING_MESSAGES = 33;
+		SDK_DOES_NOT_SUPPORT = 5;
+		FAILED_TO_DECRYPT_PAYLOAD_FALLBACK_TO_PLACEHOLDER = 57;
+		FAILED_TO_DECRYPT_PAYLOAD_NO_PLACEHOLDER = 58;
+		FAILED_TO_DECOMPRESS_FALLBACK_TO_PLACEHOLDER = 60;
+		FAILED_TO_DECOMPRESS = 61;
+	}
+
+	FailureType failure_type = 1;
+	string upstream_send_error = 2;
+
+	enum DropReason {
+		option features.enum_type = CLOSED;
+
+		DROP_REASON_UNKNOWN = 0;
+		INVALID_PAYLOAD = 1;
+		SILENT_NOTIFICATION = 2;
+		USER_SUPPRESSED = 3;
+		INVALID_TARGET_STATE = 4;
+		WORK_PROFILE = 5;
+		HANDLED_BY_APP = 6;
+		UNICORN_OR_GRIFFIN_ACCOUNT = 7;
+		CLIENT_COUNTERFACTUAL = 8;
+		OUT_OF_ORDER_UPDATE = 9;
+		SEARCH_DISCOVER_DISABLED = 1000;
+		SEARCH_DISABLEMENT_DISABLED = 1001;
+		SEARCH_OUTSIDE_CONTEXT_FENCE = 10001;
+		SEARCH_ACCOUNT_MISSING_OR_MISMATCH = 10002;
+	}
+
+	DropReason drop_reason = 3;
+	string exception_class_name = 5;
+	string ios_error_domain = 6;
+	int64 ios_error_code = 7;
+
+	enum RegistrationFailureReason {
+		option features.enum_type = CLOSED;
+
+		REGISTRATION_FAILURE_REASON_UNKNOWN = 0;
+		AUTHENTICATION_FAILURE = 1;
+		REGISTRATION_TOKEN_FAILURE = 2;
+		RPC_FAILURE = 3;
+		AUTHENTICATION_FAILURE_REGISTRATION_REMOVED = 4;
+		AUTHENTICATION_FAILURE_REGISTRATION_KEPT = 5;
+	}
+
+	RegistrationFailureReason registration_failure_reason = 8;
+	string logging_id = 9;
+
+	enum ImageType {
+		option features.enum_type = CLOSED;
+
+		IMAGE_TYPE_UNSPECIFIED = 0;
+		COLLAPSED_ICON = 1;
+		EXPANDED_ICON = 2;
+		BIG_PICTURE = 3;
+		ANDROID_MESSAGING_STYLE_AVATAR = 4;
+		ANDROID_MESSAGING_STYLE_IMAGES = 5;
+		IOS_COMMUNICATION_NOTIFICATION_AVATAR = 6;
+		ANDROID_MESSAGING_STYLE_SHORTCUT_ICON = 7;
+	}
+
+	repeated ImageType failed_images = 10;
+	ChimeFrontendEntry.EventSource event_source = 37;
+}

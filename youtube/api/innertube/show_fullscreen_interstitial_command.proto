@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/element.proto";
+import "youtube/api/innertube/element_logging_container.proto";
+import "youtube/api/innertube/modal_client_throttling_rules.proto";
+import "youtube/api/innertube/fullscreen_interstitial_transition_style.proto";
+import "youtube/api/innertube/panel_loading_strategy.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowFullscreenInterstitialCommand {
+	extend elements.Command {
+		ShowFullscreenInterstitialCommand show_fullscreen_interstitial_command = 221293762;
+	}
+
+	elements.Element element = 1;
+	ElementLoggingContainer element_logging_container = 2;
+	bool lock_orientation_to_portrait = 3 [ default = false ];
+	bool enable_client_impression_throttling = 4;
+	bool hide_status_bar = 5 [ default = false ];
+	ModalClientThrottlingRules modal_client_throttling_rules = 6;
+	elements.Command on_back_triggered = 7;
+	map<string, uint32> canvas_color_map = 8;
+	bool reserve_space_for_notch = 9 [ default = true ];
+	bytes click_tracking_params = 10;
+	FullscreenInterstitialTransitionStyle transition_style = 11;
+	PanelLoadingStrategy panel_loading_strategy = 12;
+	bool is_non_dismissible = 13;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 14;
+	bool enable_page_parenting_to_current_screen = 15;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+enum DriveItemContentRegion {
+	option features.enum_type = CLOSED;
+
+	UNSPECIFIED = 0;
+	BODY = 1;
+	TITLE = 2;
+	OPEN_COMMENT = 3;
+	RESOLVED_COMMENT = 4;
+	SUGGESTION = 5;
+	DRIVE_ENTERPRISE_METADATA = 6;
+	ENCRYPTION_STATE = 7;
+}

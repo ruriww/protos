@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/dropdown_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPlaylistEditHeaderRenderer {
+	FormattedString title = 1;
+	FormattedString edit_title = 2;
+	FormattedString description = 3;
+	FormattedString edit_description = 4;
+	PrivacyStatus privacy = 5;
+	bytes tracking_params = 7;
+	string playlist_id = 8;
+	bool collaboration_settings_disabled = 9;
+	Command collaboration_settings_command = 10;
+	DropdownSupportedRenderers privacy_dropdown = 11;
+	Renderer upload_thumbnail_button = 12;
+	bool metadata_fields_disabled = 13;
+	bool privacy_field_disabled = 14;
+	Renderer thumbnail = 15;
+	Renderer thumbnail_edit_button = 16;
+	string playlist_hashtag_suggest_params = 17;
+	DropdownSupportedRenderers vote_dropdown = 18;
+	string playlist_collaboration_entity_key = 19;
+	Command comments_settings_command = 20;
+	Renderer comments_dropdown = 21;
+}

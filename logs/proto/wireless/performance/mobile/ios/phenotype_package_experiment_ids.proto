@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message PhenotypePackageExperimentIds {
+	string package_name = 1;
+	string base64_encoded_experiment_ids_when_crash_occurred = 2;
+}

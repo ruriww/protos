@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/flow_change_button_renderer.proto";
+import "youtube/api/innertube/flow_change_radio_button_set_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowChangeControlSupportedRenderers {
+	oneof renderer {
+		FlowChangeButtonRenderer flow_change_button_renderer = 104302027;
+		FlowChangeRadioButtonSetRenderer flow_change_radio_button_set_renderer = 145846263;
+	}
+}

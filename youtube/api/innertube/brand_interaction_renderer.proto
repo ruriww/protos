@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/ad_text.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrandInteractionRenderer {
+	string element_id = 1;
+	Icon like_icon = 2;
+	Icon dislike_icon = 3;
+
+	oneof display_style {
+		bool separated_circles = 4;
+		bool rounded_rectangle = 5;
+		bool rectangle = 6;
+	}
+
+	AdText pre_message_text = 7;
+
+	oneof post_message {
+		AdText post_message_text = 8;
+		Renderer post_message_action = 20;
+	}
+
+	repeated Command on_click_commands = 9;
+	repeated Command impression_commands = 10;
+	repeated Command end_commands = 11;
+	Renderer like_button = 13;
+	Renderer dislike_button = 14;
+	bytes tracking_params = 16;
+	int32 pre_message_text_fade_out_sec = 17;
+	int32 post_message_text_fade_out_sec = 19;
+}
+
+extend Renderer {
+	BrandInteractionRenderer brand_interaction_renderer = 148775752;
+}

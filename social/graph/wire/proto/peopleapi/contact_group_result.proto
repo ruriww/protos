@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi;
+
+option objc_class_prefix = "SGWPP";
+
+message ContactGroupResult {
+	string group_id = 1;
+	string error = 2;
+	string fingerprint = 5;
+}

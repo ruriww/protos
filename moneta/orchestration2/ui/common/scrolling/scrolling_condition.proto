@@ -1,0 +1,45 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+import "moneta/orchestration2/ui/common/scrolling/scrolling_data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingCondition {
+	extend eventrules.condition.Condition {
+		ScrollingCondition scrolling_condition_extension = 232901549;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_VALUE_MATCH = 1;
+		CONDITION_TYPE_TARGET_POSITION = 2;
+		CONDITION_TYPE_LAST_SCROLLED_DIRECTION_MATCH = 3;
+	}
+
+	ConditionType condition_type = 1;
+
+	message TargetPosition {
+		enum TargetPositionType {
+			option features.enum_type = CLOSED;
+
+			TARGET_POSITION_TYPE_UNKNOWN = 0;
+			TARGET_POSITION_TYPE_START_BEFORE_SCROLL_START = 1;
+			TARGET_POSITION_TYPE_START_BEFORE_SCROLL_END = 2;
+			TARGET_POSITION_TYPE_END_BEFORE_SCROLL_START = 3;
+			TARGET_POSITION_TYPE_END_BEFORE_SCROLL_END = 4;
+		}
+
+		TargetPositionType target_position_type = 1;
+		int64 target_data_reference = 2;
+	}
+
+	oneof condition {
+		ScrollingDataValue.ScrollingState value_match = 2;
+		TargetPosition target_position = 3;
+	}
+}

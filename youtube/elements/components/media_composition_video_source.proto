@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MediaCompositionVideoSource {
+	google.protobuf.Duration duration = 1;
+
+	oneof source {
+		string remote_video_url = 2;
+	}
+}

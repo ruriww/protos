@@ -1,0 +1,13 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message InviteeIdentifier {
+	string email = 1;
+	int64 gaia_id = 2;
+	string invitation_token = 3;
+	string phone_number = 4;
+	string generic_identifier = 5;
+}

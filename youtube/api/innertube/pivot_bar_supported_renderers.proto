@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/pivot_bar_item_renderer.proto";
+import "youtube/api/innertube/pivot_bar_icon_only_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PivotBarSupportedRenderers {
+	oneof items {
+		PivotBarItemRenderer pivot_bar_item_renderer = 117501096;
+		PivotBarIconOnlyItemRenderer pivot_bar_icon_only_item_renderer = 318370163;
+	}
+}

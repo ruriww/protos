@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package google.android.gms.potokens;
+
+option java_package = "com.google.android.gms.potokens";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message ProofOfOriginTokenBinding {
+	optional uint32 seconds_since_creation = 1;
+	optional bytes content_binding = 2;
+	optional string caller_app_package_name = 3;
+	optional bytes caller_app_signature_hash = 4;
+	optional bytes integrity_token = 5;
+}

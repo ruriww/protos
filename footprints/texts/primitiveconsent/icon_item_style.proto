@@ -1,0 +1,9 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+option objc_class_prefix = "FOOTCP";
+
+message IconItemStyle {
+	uint32 size = 1;
+}

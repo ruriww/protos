@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "logs/proto/contacts/common/event.proto";
+import "logs/proto/contacts/common/operation_summary.proto";
+
+option objc_class_prefix = "CTC";
+
+message OperationEntry {
+	repeated Event event = 1;
+	OperationSummary summary = 2;
+}

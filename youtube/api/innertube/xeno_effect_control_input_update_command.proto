@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/xeno_effect_control_input_update_value.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectControlInputUpdateCommand {
+	extend elements.Command {
+		XenoEffectControlInputUpdateCommand xeno_effect_control_input_update_command = 368511792;
+	}
+
+	string control_input_name = 1;
+	string effect_id = 2;
+
+	oneof value {
+		float float_value = 3;
+		string string_value = 4;
+		bool bool_value = 5;
+		int32 int_value = 6;
+	}
+
+	XenoEffectControlInputUpdateValue control_input_update_value = 7;
+	string serialized_entity_key = 8;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless/android/icing/proto/index_api_call_stats_call_type.proto";
+import "wireless/android/icing/proto/index_api_call_stats_error.proto";
+import "wireless/android/icing/proto/thing_type.proto";
+
+option objc_class_prefix = "ICING";
+
+message IndexApiCallStats {
+	string package_name = 1;
+	wireless.android.icing.proto.IndexApiCallStatsCallType.Code call_type = 2;
+	wireless.android.icing.proto.IndexApiCallStatsError.Code error = 3 [ default = NO_ERROR ];
+	int32 app_version = 4;
+	int32 num_items = 5;
+	int32 gmscore_sdk_version = 6;
+	repeated wireless.android.icing.proto.ThingType.Code thing_types = 7 [ features.repeated_field_encoding = EXPANDED ];
+	int32 total_latency_ms = 8;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message NativeCapabilities {
+	bool post_gplus_api_sunset_profile_picture_flow = 1;
+	bool fauxbake_image_cropping = 2;
+}

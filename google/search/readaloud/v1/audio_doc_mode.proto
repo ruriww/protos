@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum AudioDocMode {
+	AUDIO_DOC_MODE_UNSPECIFIED = 0;
+	AUDIO_DOC_MODE_CLASSIC = 1;
+	AUDIO_DOC_MODE_OVERVIEW = 2;
+}

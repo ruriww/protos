@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DeviceAccountMetricsEvent {
+	int32 number_of_primary_accounts = 1;
+	int32 number_of_secondary_accounts = 2;
+	int32 number_of_non_onboarded_accounts = 3;
+	bool is_fallback = 4;
+}

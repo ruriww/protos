@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message LogCommentsEntryPointSizeCommand {
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/player_bar_mode.proto";
+import "youtube/api/innertube/player_layout_state.proto";
+import "youtube_ios_local/player_bar_overlay_mode.proto";
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarPlayingState {
+	double download_time_sec = 1;
+	double last_layout_downloaded_time_sec = 2;
+	double minimum_seekable_time_sec = 3;
+	double maximum_seekable_time_sec = 4;
+	double total_time_sec = 5;
+	bool did_update_total_time = 6;
+	bool is_linear_live = 7;
+	double linear_live_airing_start_time_sec = 8;
+	double linear_live_airing_total_playable_time_sec = 9;
+	bool storyboard_enabled = 10;
+	bool user_is_scrubbing = 11;
+	double max_time_change_for_layout_sec = 12;
+	double media_time_sec = 13;
+	double last_layout_media_time_sec = 14;
+	PlayerBarMode mode = 15;
+	int32 highlighted_chapter_index = 16;
+	youtube.api.innertube.PlayerLayoutState layout = 17;
+	double scrubber_time_sec = 18;
+	double previous_scrubber_time_sec = 19;
+	double snap_time_sec = 20;
+	double last_snap_change_time_sec = 21;
+	bool enable_snap_to_chapter = 22;
+	bool skip_timestamp_marker_animation_after_scrub = 23;
+	bool timestamp_markers_animating_to_show = 24;
+	bool marker_snaptic_enabled = 25;
+	string active_selection_feedback_collection = 26;
+	PlayerBarOverlayMode overlay_mode = 27;
+	double min_dvr_media_time_sec = 28;
+	double player_bar_current_progress_x = 29;
+	bool is_chapter_repeat_on = 30;
+}

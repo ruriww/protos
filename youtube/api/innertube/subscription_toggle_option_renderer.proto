@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionToggleOptionRenderer {
+	bytes tracking_params = 2;
+	FormattedString label = 3;
+	ButtonSupportedRenderers button = 4;
+	int64 initial_value = 5;
+	string params = 6;
+}

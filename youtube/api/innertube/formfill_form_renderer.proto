@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillFormRenderer {
+	ThumbnailDetails title_image = 1;
+	FormattedString title = 2;
+	repeated Renderer input_fields = 3;
+	FormattedString disclaimer = 4;
+	Renderer submit_button = 5;
+	bytes tracking_params = 7;
+	FormattedString description = 8;
+	FormattedString intro_text = 9;
+	FormattedString instructions = 10;
+	Renderer close_button = 11;
+	Command invalid_submit_command = 12;
+	FormattedString prefill_communication = 13;
+	bool show_prefill_communication_icon = 14;
+	string formfill_fields_entity_key = 15;
+	Renderer pre_submit_button = 16;
+	Renderer primary_cta_button = 17;
+	Command prefill_communication_command = 19;
+	FormattedString intro_headline = 20;
+	FormattedString scroll_to_view_form_text = 21;
+	FormattedString step_counter = 22;
+	ThumbnailDetails banner_image = 23;
+}
+
+extend Renderer {
+	FormfillFormRenderer formfill_form_renderer = 182124579;
+}

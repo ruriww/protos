@@ -1,0 +1,31 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+import "logs/chime_notifications/render_context_log.proto";
+import "logs/chime_notifications/target_metadata_log.proto";
+
+option objc_class_prefix = "CHM";
+
+message ChimeFrontendContext {
+	message ThreadContext {
+		string identifier = 1;
+		int64 version = 2;
+		string group_id = 4;
+		string channel_id = 5;
+		int64 creation_id = 6;
+		bytes opaque_backend_data = 9;
+	}
+
+	repeated ThreadContext thread_context = 1;
+	string client_id = 2;
+	RenderContextLog render_context = 4;
+	TargetMetadataLog target_metadata = 5;
+	string obfuscated_gaia_id = 6;
+	string upstream_id = 8;
+	int64 logged_timestamp_usec = 9;
+	int64 delivered_timestamp_usec = 10;
+	string obfuscated_madison_gaia_id = 12;
+	int64 fitbit_id = 14;
+	int64 clearcut_event_time_correction_millis = 15;
+}

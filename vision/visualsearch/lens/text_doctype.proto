@@ -1,0 +1,31 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum TextDoctype {
+	option features.enum_type = CLOSED;
+
+	TEXT_DOCTYPE_UNSPECIFIED = 0;
+	BOOK_PAGE = 1;
+	COMPUTER_SCREEN = 16;
+	EDU_TEXTBOOK_HOMEWORK = 2;
+	FUNCTIONAL = 3;
+	HANDWRITTEN = 18;
+	INFORMATIONAL = 4;
+	INSTRUCTIONS = 20;
+	LIST = 19;
+	MEDIA_COVER = 5;
+	MENU = 6;
+	NEWSPAPER = 7;
+	NO_DOCTYPE_DETECTED = 8;
+	POSTER = 9;
+	PRODUCT_LABEL = 10;
+	RECEIPT = 11;
+	SCREENSHOT_CHAT = 17;
+	SCREENSHOT_PRODUCT_PAGE = 12;
+	SCREENSHOT_WEBSITE_SOCIAL = 13;
+	STOREFRONT = 14;
+	TIMETABLE = 15;
+}

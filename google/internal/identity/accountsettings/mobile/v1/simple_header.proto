@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/action_item.proto";
+
+option objc_class_prefix = "ASM";
+
+message SimpleHeader {
+	string title = 1;
+	repeated ActionItem action_items = 2;
+}

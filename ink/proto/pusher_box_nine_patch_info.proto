@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message PusherBoxNinePatchInfo {
+	string nine_patch_texture_uri = 1;
+	float button_screen_radius = 2;
+	float button_screen_offset_x = 3;
+	float button_screen_offset_y = 4;
+	bool debug_show_box_button_outline = 5 [ default = false ];
+	float box_persist_duration_seconds = 6 [ default = 0.5 ];
+}

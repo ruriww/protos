@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/creator_channel_data.proto";
+import "youtube/api/innertube/update_status.proto";
+import "youtube/api/innertube/handle_update_status.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateChannelPageSettingsResponse {
+	ResponseContext response_context = 1;
+	CreatorChannelData updated_channel_entity = 4;
+	UpdateStatus trailer_video_update_status = 5;
+	UpdateStatus featured_video_update_status = 6;
+	UpdateStatus shelf_list_update_status = 7;
+	UpdateStatus channel_links_update_status = 8;
+	UpdateStatus business_email_update_status = 9;
+	UpdateStatus avatar_image_update_status = 10;
+	UpdateStatus description_update_status = 11;
+	UpdateStatus banner_image_update_status = 12;
+	UpdateStatus watermark_image_update_status = 13;
+	UpdateStatus vanity_url_claim_status = 15;
+	bool successful_update = 18;
+	UpdateStatus for_you_shelf_update_status = 19;
+	HandleUpdateStatus new_handle_update_status = 20;
+	UpdateStatus pronouns_update_status = 21;
+	UpdateStatus home_tab_update_status = 22;
+	UpdateStatus shopping_module_mobile_update_status = 23;
+	FrameworkUpdateTransport framework_updates = 777;
+}

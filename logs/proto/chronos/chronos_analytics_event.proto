@@ -1,0 +1,52 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+import "logs/proto/chronos/siri_shortcut_event.proto";
+import "logs/proto/chronos/payment_event.proto";
+import "logs/proto/chronos/handoff_event.proto";
+import "logs/proto/chronos/intent_detector_event.proto";
+import "logs/proto/chronos/privacy_screen_event.proto";
+import "logs/proto/chronos/watch_communication_event.proto";
+import "logs/proto/chronos/widget_event.proto";
+import "logs/proto/chronos/spotlight_event.proto";
+import "logs/proto/chronos/menu_event.proto";
+import "logs/proto/chronos/experience_kit_metric_event.proto";
+import "logs/proto/chronos/app_clip_event.proto";
+
+option objc_class_prefix = "CHR";
+
+message ChronosAnalyticsEvent {
+	enum AnalyticsEventFeature {
+		option features.enum_type = CLOSED;
+
+		INTERNAL = 0;
+		HANDOFF = 1;
+		SIRI_SHORTCUTS = 2;
+		APPLE_PAY = 3;
+		BIOMETRICS = 4;
+		APP_EVENT = 5;
+		INTENT_DETECTORS = 6;
+		WATCH_COMMUNICATION = 7;
+		WIDGETS = 8;
+		SPOTLIGHT = 9;
+		KEYBOARD_MENU = 10;
+		EXPERIENCEKIT = 11;
+		APP_CLIP = 12;
+	}
+
+	AnalyticsEventFeature event_feature = 1;
+	string app_name = 2;
+	SiriShortcutEvent siri_event = 3;
+	PaymentEvent payment_event = 4;
+	HandoffEvent handoff_event = 5;
+	bool is_foreground = 6;
+	IntentDetectorEvent intent_detector_event = 7;
+	PrivacyScreenEvent privacy_screen_event = 8;
+	WatchCommunicationEvent watch_communication_event = 9;
+	WidgetEvent widget_event = 10;
+	SpotlightEvent spotlight_event = 11;
+	MenuEvent menu_event = 12;
+	ExperienceKitMetricEvent experiencekit_event = 13;
+	AppClipEvent app_clip_event = 14;
+}

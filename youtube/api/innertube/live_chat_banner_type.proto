@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveChatBannerType {
+	option features.enum_type = CLOSED;
+
+	LIVE_CHAT_BANNER_TYPE_UNSPECIFIED = 0;
+	LIVE_CHAT_BANNER_TYPE_PINNED_MESSAGE = 1;
+	LIVE_CHAT_BANNER_TYPE_ACTIVE_POLL = 2;
+	LIVE_CHAT_BANNER_TYPE_QNA_START = 3;
+	LIVE_CHAT_BANNER_TYPE_QNA_QUESTION = 4;
+	LIVE_CHAT_BANNER_TYPE_MERCH_UPSELL = 5;
+	LIVE_CHAT_BANNER_TYPE_DONATION_PROGRESS = 6;
+	LIVE_CHAT_BANNER_TYPE_CROSS_CHANNEL_REDIRECT = 7;
+	LIVE_CHAT_BANNER_TYPE_GIFT_REDEMPTION = 8;
+	LIVE_CHAT_BANNER_TYPE_IAP = 9;
+	LIVE_CHAT_BANNER_TYPE_CHAT_SUMMARY = 10;
+}

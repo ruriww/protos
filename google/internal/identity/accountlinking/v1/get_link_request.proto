@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/internal/identity/accountlinking/v1/link_query.proto";
+import "google/internal/identity/accountlinking/v1/read_options.proto";
+import "google/internal/identity/accountlinking/v1/home_graph_acl.proto";
+import "google/internal/identity/accountlinking/v1/provider_error_handling.proto";
+
+option objc_class_prefix = "ALK";
+
+message GetLinkRequest {
+	RequestHeader header = 1;
+	LinkQuery query = 2;
+	ReadOptions read_options = 3;
+	HomeGraphAcl home_graph_acl = 4;
+	ProviderErrorHandling provider_error_handling = 5;
+	bool is_client_credential = 6;
+}

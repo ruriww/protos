@@ -1,0 +1,33 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+import "google/internal/support/intelligence/moltron/v1/logging/interaction_location.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/viewed_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/content_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/sentiment_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/approved_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/dismissed_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/input_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/shown_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/hats_survey_context.proto";
+
+option objc_class_prefix = "SIML";
+
+message InteractionContext {
+	InteractionLocation interaction_location = 1;
+
+	oneof type_specific_context {
+		ViewedContext view_duration_context = 2;
+		ContentContext content_context = 3;
+		SentimentContext sentiment_context = 4;
+		ApprovedContext approved_context = 5;
+		DismissedContext dismissed_context = 6;
+		InputContext input_context = 7;
+		ShownContext shown_context = 8;
+		HatsSurveyContext hats_survey_context = 9;
+	}
+
+	bool auto_applied = 10;
+	bool edited = 11;
+}

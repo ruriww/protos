@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/layout_strategy.proto";
+
+option objc_class_prefix = "INKPB";
+
+message LayoutSpec {
+	LayoutStrategy strategy = 1 [ default = LAYOUT_VERTICAL ];
+	float spacing_world = 2;
+}

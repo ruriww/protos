@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/survey_supported_renderers.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SurveyTriggerRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	Icon icon = 3;
+	Command dismissal_endpoint = 4;
+	SurveySupportedRenderers survey = 5;
+	bytes tracking_params = 7;
+	FormattedString follow_up_text = 8;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 9;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package identity_keychain;
+
+import "google/internal/identity/securitydomain/v1/security_domain_member.proto";
+
+option objc_class_prefix = "IKC";
+
+message Member {
+	bytes public_key = 1;
+	google.internal.identity.securitydomain.v1.SecurityDomainMember.MemberType member_type = 2;
+	repeated string security_domain_name = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VmapRenderer {
+	string vmap_xml = 1;
+	bytes tracking_params = 3;
+	bool show_play_brand_icon = 4;
+	bool enable_inline_install = 5;
+}
+
+extend Renderer {
+	VmapRenderer vmap_renderer = 48841103;
+}

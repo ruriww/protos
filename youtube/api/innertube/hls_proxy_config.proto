@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HlsProxyConfig {
+	bool enable_proxy = 1;
+
+	enum StreamSelectionStrategy {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		DEVICE_AND_NETWORK = 1;
+		BITRATE_DEFAULT = 2;
+		BITRATE_ESTIMATE = 3;
+	}
+
+	StreamSelectionStrategy initial_stream_selection_strategy = 5;
+	int32 default_initial_bitrate = 6;
+	int32 max_initial_bitrate = 7;
+	bool enable_media_playlist_proxy = 8;
+	string hls_chunk_host = 9;
+	float bitrate_estimate_scale = 10;
+	int32 playlist_fetch_max_retries = 11;
+	bool indepdendent_segments = 12;
+	bool use_average_bandwidth = 13;
+	int32 playlist_fetch_timeout_ms = 14;
+	float live_playlist_max_length_seconds = 16;
+	bool enable_playlist_error_blacklist = 18;
+	bool do_not_cache = 21;
+	string condensed_url_prefix = 22;
+	bool ignore_live_playlist_fetch_errors = 23;
+	int32 deterministic_output_version = 24;
+	bool use_new_playlist_cache = 25;
+	int32 forced_manifest_refresh_interval_ms = 26;
+	bool use_hls_live_playback_start = 27;
+	bool use_error_tolerant_parser = 28;
+	bool filter_formats = 29;
+}

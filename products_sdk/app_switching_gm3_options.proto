@@ -1,0 +1,17 @@
+edition = "2023";
+
+package products_sdk;
+
+option objc_class_prefix = "ASW";
+
+message AppSwitchingGm3Options {
+	enum IconSize {
+		option features.enum_type = CLOSED;
+
+		ICON_SIZE_UNSPECIFIED = 0;
+		ICON_SIZE_PX36 = 1;
+		ICON_SIZE_PX42 = 2;
+	}
+
+	IconSize icon_size = 1;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LivestreamContentSource {
+	option features.enum_type = CLOSED;
+
+	LIVESTREAM_CONTENT_SOURCE_UNSPECIFIED = 0;
+	LIVESTREAM_CONTENT_SOURCE_MONITORING = 1;
+	LIVESTREAM_CONTENT_SOURCE_BROADCAST = 2;
+}

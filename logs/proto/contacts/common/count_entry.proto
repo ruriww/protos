@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_count_type.proto";
+
+option objc_class_prefix = "CTC";
+
+message CountEntry {
+	customer_support.content.guidance.chat.v1.ACountType type = 1;
+	int64 value = 2 [ default = 1 ];
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+option objc_class_prefix = "ORCH2";
+
+message TriggerData {
+	int32 trigger_id = 1;
+}

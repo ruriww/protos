@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/page_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LogBackToAppEventCommand {
+	extend Command {
+		LogBackToAppEventCommand log_back_to_app_event_command = 300210387;
+	}
+
+	PageType page_type = 1 [ default = PAGE_TYPE_UNKNOWN ];
+}

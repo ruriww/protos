@@ -1,0 +1,14 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/recipient_info.proto";
+import "notifications/frontend/data/common/frontend_notification_thread.proto";
+
+option objc_class_prefix = "NFDC";
+
+message AppleLiveActivityPayload {
+	RecipientInfo recipient_info = 1;
+	FrontendNotificationThread notification_thread = 5;
+	string live_activity_id = 6;
+}

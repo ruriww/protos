@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AttentionLogging {
+	option features.enum_type = CLOSED;
+
+	ATTENTION_LOGGING_UNSPECIFIED = 0;
+	ATTENTION_LOGGING_BASIC = 1;
+	ATTENTION_LOGGING_SCROLL = 2;
+}

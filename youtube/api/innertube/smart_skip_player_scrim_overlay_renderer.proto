@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SmartSkipPlayerScrimOverlayRenderer {
+	extend Renderer {
+		SmartSkipPlayerScrimOverlayRenderer smart_skip_player_scrim_overlay_renderer = 1197;
+	}
+
+	FormattedString text = 1;
+	Icon icon = 2;
+	bool is_chapter_seek = 3;
+	int64 chapter_start_offset_ms = 4;
+	int64 chapter_end_offset_ms = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package onegoogle.logging.mobile;
+
+import "onegoogle/logging/mobile/one_google_mobile_event.proto";
+import "onegoogle/logging/mobile/one_google_mobile_consent_events.proto";
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleMobileExtension {
+	OneGoogleMobileEvent mobile_event = 1;
+	OneGoogleMobileConsentEvents consent_events = 2;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/api/innertube/downloads_page_playlist_entity.proto";
+import "youtube/api/innertube/download_status_entity.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/api/innertube/client_ve_spec.proto";
+import "youtube/elements/context.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPagePlaylistModel {
+	extend Model {
+		DownloadsPagePlaylistModel downloads_page_playlist_model = 314573701;
+	}
+
+	Theme theme = 1;
+	string playlist_entity_key = 2;
+	api.innertube.DownloadsPagePlaylistEntity playlist_entity = 3;
+	api.innertube.DownloadStatusEntity download_status_entity = 4;
+	EnvironmentData environment_data = 5;
+	api.innertube.ClientVeSpec client_ve_spec = 6;
+	Context context = 7;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.internal.component.address;
+
+option objc_class_prefix = "ORCH2";
+
+message SubregionsRequestParameterConfiguration {
+	bool use_latinized_names = 1;
+	string locale = 2;
+	string country_code = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_id.proto";
+import "youtube/api/innertube/delegate_role.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddDelegateOperation {
+	string user_email = 1;
+	EntityId entity_id = 2;
+	repeated DelegateRole roles = 3;
+}

@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AndroidPartialChunkStrategy {
+	ANDROID_PARTIAL_CHUNK_STRATEGY_UNKNOWN = 0;
+	ANDROID_PARTIAL_CHUNK_STRATEGY_RETRY_RANGE = 1;
+	ANDROID_PARTIAL_CHUNK_STRATEGY_RETRY_RANGE_CHECK_LMT = 2;
+	ANDROID_PARTIAL_CHUNK_STRATEGY_RETRY_ENTIRE_CHUNK = 3;
+}

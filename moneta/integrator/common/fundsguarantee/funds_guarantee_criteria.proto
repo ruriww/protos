@@ -1,0 +1,45 @@
+edition = "2023";
+
+package moneta.integrator.common.fundsguarantee;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+import "moneta/integrator/common/amount.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "OrchFundsGuarantee";
+
+message FundsGuaranteeCriteria {
+	bool skip_initial_authorization = 1;
+	bool may_update_funds_guarantee_amount = 2;
+	bool may_clone_funds_guarantee = 3;
+	int64 retry_until_timestamp_millis = 4;
+	repeated int64 product_code = 5;
+	bool disable_monetize_carrier_billing_revshare = 6;
+	ProductCorrelationId seller_product_correlation_id = 8;
+	string user_facing_transaction_id = 9;
+
+	oneof verification_mechanism {
+		Amount verification_amount = 10;
+		bool validate_instrument = 15;
+		Amount charge_amount = 19;
+	}
+
+	bool skip_initial_authorization_if_not_reversible = 11;
+	bool allow_waiting_for_pending_vendor = 12;
+	int64 need_guarantee_at_millis = 14;
+	string subscription_version = 16;
+	int64 expected_refund_window_millis = 17;
+	webutil.html.types.SafeHtmlProto verification_details_html = 20;
+	bool require_in_session_funds_guarantee_approval = 21;
+	bool disallow_user_interaction_required_for_recurring_payments = 22;
+	Amount cart_total_amount = 24;
+	string push_provisioning_partner_id = 25;
+	bool automated_charging_setup_not_required = 26;
+	bool allow_risk_wait = 28;
+	bool update_approved_funds_guarantee = 29;
+	bool reactivate_pcid_if_cancelled = 31;
+	int64 preferred_reservation_expiration_time_millis = 32;
+	int64 grace_period_until_timestamp_millis = 33;
+
+	extensions 10000 to max;
+}

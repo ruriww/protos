@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/common/frontend_notification_thread.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsFetchUpdatedThreadsResponse {
+	int64 oldest_notification_version = 3;
+	int64 sync_version = 4;
+	repeated common.FrontendNotificationThread notification_thread = 5;
+}

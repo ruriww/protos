@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/player_overlay_visibility.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message PlayerOverlayVisibilityState {
+	string overlay_identifier = 1;
+	PlayerOverlayVisibility player_overlay_visibility = 2;
+}

@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/subscription_button.proto";
+import "youtube/api/innertube/channel_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelRenderer {
+	string channel_id = 1;
+	FormattedString title = 2;
+	Command navigation_endpoint = 3;
+	ThumbnailDetails thumbnail = 4;
+	FormattedString description_snippet = 5;
+	FormattedString short_byline_text = 6;
+	FormattedString video_count_text = 7;
+	FormattedString activity_text = 8;
+	repeated BadgeSupportedRenderers badges = 9;
+	SubscriptionButton subscription_button = 10;
+	repeated BadgeSupportedRenderers owner_badges = 11;
+	FormattedString subscriber_count_text = 12;
+	FormattedString additional_channel_count_text = 14;
+	string debug_html = 15;
+	ChannelSubscribeButtonSupportedRenderers subscribe_button = 17;
+	bytes tracking_params = 18;
+	FormattedString long_byline_text = 19;
+	StandaloneBadgeSupportedRenderers standalone_badge = 21;
+	MainAppCompactRendererStyle main_app_style = 24;
+	FormattedString short_subscriber_count_text = 25;
+	FormattedString short_video_count_text = 26;
+	uint32 background_color = 27;
+	Icon navigation_icon = 28;
+	uint32 background_color_dark_theme = 29;
+	FormattedString channel_user_state_description = 30;
+	Command service_endpoint = 32;
+	Renderer purchase_button = 33;
+	Renderer channel_memberships_button = 35;
+}
+
+extend Renderer {
+	ChannelRenderer channel_renderer = 50590275;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package drishti.app.skia;
+
+option objc_class_prefix = "DrishtiSkia";
+
+message ResourceTransform {
+	string resource_id = 1;
+}

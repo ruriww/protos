@@ -1,0 +1,23 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "logs/ancestry_visual_element_proto.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitVisualElementEntry {
+	.logs.AncestryVisualElementProto ancestry_visual_element = 1;
+	string intent_class_name = 2;
+	bool first_in_flow = 3;
+
+	enum UserInterfaceStyle {
+		option features.enum_type = CLOSED;
+
+		STYLE_UNKNOWN = 0;
+		STYLE_LIGHT = 1;
+		STYLE_DARK = 2;
+	}
+
+	UserInterfaceStyle user_interface_style = 4 [ default = STYLE_UNKNOWN ];
+}

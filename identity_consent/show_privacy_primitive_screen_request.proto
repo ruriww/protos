@@ -1,0 +1,15 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/privacy_primitive_config.proto";
+import "identity_consent/show_privacy_flow_params.proto";
+import "identity_consent/mobile_metadata.proto";
+
+option objc_class_prefix = "IDC";
+
+message ShowPrivacyPrimitiveScreenRequest {
+	PrivacyPrimitiveConfig privacy_primitive_config = 1;
+	ShowPrivacyFlowParams show_privacy_flow_params = 2;
+	MobileMetadata mobile_metadata = 3;
+}

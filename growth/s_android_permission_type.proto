@@ -1,0 +1,12 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+enum SAndroidPermissionType {
+	ANDROID_PERMISSION_TYPE_UNSPECIFIED = 0;
+	ANDROID_POST_NOTIFICATIONS = 1;
+	ANDROID_CAMERA = 2;
+	ANDROID_ACCESS_FINE_LOCATION = 3;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "moneta/orchestration2/ui/common/image/animated/media_url_content.proto";
+import "moneta/orchestration2/ui/common/image/animated/lottie_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AnimatedImageContent {
+	string alt_text = 1;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNKNOWN = 0;
+		TYPE_PROGRESS_INDICATOR = 1;
+		TYPE_MEDIA_URL = 2;
+		TYPE_LOTTIE = 3;
+		TYPE_EMBEDDED = 4;
+	}
+
+	Type type = 2;
+
+	oneof content {
+		MediaUrlContent media_url_content = 3;
+		LottieContent lottie_content = 4;
+	}
+}

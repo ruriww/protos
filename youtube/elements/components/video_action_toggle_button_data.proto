@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/button.proto";
+import "youtube/elements/components/video_action_button_style.proto";
+import "youtube/elements/components/video_action_button_type.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message VideoActionToggleButtonData {
+	Button default_button = 1;
+	Button toggled_button = 2;
+	bool is_toggled = 3;
+	VideoActionButtonStyle button_style = 4;
+	VideoActionButtonType button_type = 6;
+	float icon_size = 7;
+	float action_button_size = 9;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetWatchNextQueueAddCommand {
+	extend Command {
+		GetWatchNextQueueAddCommand get_watch_next_queue_add_command = 465666947;
+	}
+
+	string params = 1;
+	Command on_tap_action = 2;
+}

@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ProofOfOriginSessionTokenContentBindingType {
+	PROOF_OF_ORIGIN_SESSION_TOKEN_CONTENT_BINDING_TYPE_UNSPECIFIED = 0;
+	PROOF_OF_ORIGIN_SESSION_TOKEN_CONTENT_BINDING_TYPE_VISITOR_DATA = 1;
+	PROOF_OF_ORIGIN_SESSION_TOKEN_CONTENT_BINDING_TYPE_USER_SIGNED_IN = 2;
+}

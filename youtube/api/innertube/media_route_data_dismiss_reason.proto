@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MediaRouteDataDismissReason {
+	option features.enum_type = CLOSED;
+
+	MEDIA_ROUTE_DATA_DISMISS_REASON_UNKNOWN = 0;
+	MEDIA_ROUTE_DATA_DISMISS_REASON_EXPLICIT_DISMISS = 1;
+	MEDIA_ROUTE_DATA_DISMISS_REASON_IMPLICIT_DISMISS = 2;
+}

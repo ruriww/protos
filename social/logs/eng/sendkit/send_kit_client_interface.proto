@@ -1,0 +1,21 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/frontend/sendkit/data/client_id.proto";
+import "social/clients/social_client.proto";
+import "social/frontend/sendkit/data/entry_point.proto";
+import "social/logs/eng/sendkit/send_kit_android_client_info.proto";
+import "social/frontend/sendkit/data/send_kit_component_flow.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitClientInterface {
+	frontend.sendkit.data.ClientId client_id = 1;
+	clients.SocialClient social_client = 2;
+	string version_name = 3;
+	int64 baseline_cl = 4;
+	frontend.sendkit.data.EntryPoint entry_point = 5;
+	SendKitAndroidClientInfo android_client_info = 6;
+	frontend.sendkit.data.SendKitComponentFlow component_flow = 7;
+}

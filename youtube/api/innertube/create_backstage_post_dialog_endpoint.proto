@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/backstage_post_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateBackstagePostDialogEndpoint {
+	extend Command {
+		CreateBackstagePostDialogEndpoint create_backstage_post_dialog_endpoint = 117834934;
+	}
+
+	BackstagePostDialogSupportedRenderers dialog = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/buyflow/internal_buy_flow_parameters.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message GetBuyFlowParametersResponse {
+	bytes encrypted_buy_flow_parameters = 1;
+	common.UiError error = 2;
+	common.ResponseContext context = 3;
+	InternalBuyFlowParameters unencrypted_buy_flow_parameters = 4;
+	string encrypted_buy_flow_parameters_base64 = 5;
+	bytes client_parameters = 6;
+	bytes purchase_context = 7;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package gaia_frontend;
+
+import "google/internal/identity/securitydomain/v1/security_domain_member.proto";
+
+option objc_class_prefix = "GFE";
+
+message ClientDecryptableKeyDataInputs {
+	enum Operation {
+		option features.enum_type = CLOSED;
+
+		OPERATION_UNSPECIFIED = 0;
+		RETRIEVAL = 1;
+		DEGRADED_RECOVERABILITY_FIX = 2;
+		WEB_RETRIEVAL = 3;
+		INITIAL_ENROLLMENT = 4;
+	}
+
+	Operation operation = 1;
+
+	message RetrievalInputs {
+		string security_domain_name = 1;
+		bool offer_reset_when_irretrievable = 2;
+	}
+
+	message DegradedRecoverabilityFixInputs {
+		string security_domain_name = 1;
+		bool local_key_availability = 2;
+	}
+
+	message InitialEnrollmentInputs {
+		google.internal.identity.securitydomain.v1.SecurityDomainMember.MemberType security_domain_member_type = 1;
+		string security_domain_name = 2;
+	}
+
+	oneof inputs {
+		RetrievalInputs retrieval_inputs = 2;
+		DegradedRecoverabilityFixInputs degraded_recoverability_fix_inputs = 3;
+		InitialEnrollmentInputs initial_enrollment_inputs = 5;
+	}
+
+	string client_session_id = 6;
+	bytes wrapping_key = 7;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/working_elsewhere_context.proto";
+import "google/internal/apps/waldo/v1alpha/upcoming_ooo_context.proto";
+import "google/internal/apps/waldo/v1alpha/local_time_context.proto";
+import "google/internal/apps/waldo/v1alpha/upcoming_commitment_context.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message UserContext {
+	WorkingElsewhereContext working_elsewhere = 1;
+	UpcomingOooContext upcoming_ooo = 2;
+	LocalTimeContext local_time = 3;
+	UpcomingCommitmentContext upcoming_commitment_context = 4;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+enum SIosPermissionState {
+	INVALID_PERMISSION_STATE = 0;
+	NOT_DETERMINED = 1;
+	AUTHORIZED = 2;
+	DENIED = 3;
+	RESTRICTED = 4;
+	PROVISIONAL = 5;
+	WRITE_ONLY = 6;
+}

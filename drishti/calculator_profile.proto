@@ -1,0 +1,18 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/time_histogram.proto";
+import "drishti/stream_profile.proto";
+
+option objc_class_prefix = "Drishti";
+
+message CalculatorProfile {
+	string name = 1;
+	int64 open_runtime = 2 [ default = 0 ];
+	int64 close_runtime = 3 [ default = 0 ];
+	TimeHistogram process_runtime = 4;
+	TimeHistogram process_input_latency = 5;
+	TimeHistogram process_output_latency = 6;
+	repeated StreamProfile input_stream_profiles = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AssetError {
+	option features.enum_type = CLOSED;
+
+	ASSET_ERROR_UNKNOWN = 0;
+	ASSET_ERROR_INVALID_ASSET_ID = 1;
+	ASSET_ERROR_NOT_FOUND = 2;
+	ASSET_ERROR_SERVER_FAILURE = 3;
+	ASSET_ERROR_INVALID_SOURCE_ID = 4;
+	ASSET_ERROR_INVALID_ARGUMENT = 5;
+}

@@ -1,0 +1,56 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message InnerTubeRequestInfo {
+	int64 parsing_time_ms = 1;
+	repeated string service_annotation = 2;
+	int64 response_received_time_ms = 3;
+	int64 response_proto_size_compressed_bytes = 4;
+	string page_visual_element_at_response_time = 5;
+
+	enum ErrorCode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ERROR_CODE = 0;
+		BAD_REQUEST = 400;
+		FORBIDDEN = 403;
+		NOT_FOUND = 404;
+		CONFLICT = 409;
+		GONE = 410;
+		PRECONDITION_FAILED = 412;
+		INTERNAL_ERROR = 500;
+		SERVICE_UNAVAILABLE = 503;
+	}
+
+	ErrorCode response_global_error_code = 7;
+
+	enum SamplingSource {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SAMPLING_SOURCE = 0;
+		LOW_SAMPLING_RATE_ALL = 1;
+		HIGH_SAMPLING_RATE_ERRORS = 2;
+	}
+
+	SamplingSource sampling_source = 8;
+	int32 rpc_status_code = 9;
+	string rpc_type_url = 10;
+	int32 overall_processing_time_ms = 11;
+	int32 framework_update_transport_processing_time_ms = 12;
+	int32 response_context_processing_time_ms = 13;
+	bool has_nested_response = 14;
+	int32 framework_update_transport_parsing_time_ms = 15;
+	int32 framework_update_transport_elements_processing_time_ms = 16;
+	int32 framework_update_transport_entities_processing_time_ms = 17;
+	int32 framework_update_transport_size = 18;
+	int32 framework_update_transport_elements_size = 19;
+	int32 framework_update_transport_entities_size = 20;
+	int32 framework_update_transport_elements_count = 21;
+	int32 framework_update_transport_entities_count = 22;
+	int32 framework_update_transport_entity_mutation_processing_time_ms = 23;
+	int32 framework_update_transport_entity_mutation_persistent_edits_commit_time_ms = 24;
+	int32 framework_update_transport_entity_mutation_in_memory_edits_commit_time_ms = 25;
+}

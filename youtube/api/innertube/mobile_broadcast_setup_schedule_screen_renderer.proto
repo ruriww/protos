@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileBroadcastSetupScheduleScreenRenderer {
+	Renderer close_button = 1;
+	FormattedString title = 2;
+	repeated Renderer event_buttons = 3;
+	int32 total_broadcast_count = 4;
+}
+
+extend Renderer {
+	MobileBroadcastSetupScheduleScreenRenderer mobile_broadcast_schedule_screen_renderer = 146983145;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/invitee_info.proto";
+import "apps/dynamite/roster_id.proto";
+import "apps/dynamite/shared_invitation_mode.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message InviteeMemberInfo {
+	oneof id {
+		InviteeInfo invitee_info = 1;
+		RosterId roster_id = 2;
+	}
+
+	enum RosterMemberSyncMode {
+		option features.enum_type = CLOSED;
+
+		SYNC_MODE_UNSPECIFIED = 0;
+		SYNC_MODE_NONE = 1;
+		SYNC_MODE_ONE_TIME = 2;
+		SYNC_MODE_CONTINUOUS_DIRECT_ADD = 3;
+	}
+
+	RosterMemberSyncMode roster_member_sync_mode = 3 [ default = SYNC_MODE_NONE ];
+
+	enum InvitationMode {
+		option features.enum_type = CLOSED;
+
+		INVITATION_MODE_UNSPECIFIED = 0;
+		GAIA_ID = 1;
+		EMAIL_ONLY = 2;
+		EMAIL_OR_GUESTPASS = 3;
+	}
+
+	InvitationMode invitation_mode = 4 [ default = GAIA_ID ];
+	SharedInvitationMode shared_invitation_mode = 5 [ default = GAIA_ID ];
+}

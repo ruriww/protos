@@ -1,0 +1,62 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/active_view_tracking_pings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoAdTracking {
+	repeated Ping impression_pings = 1;
+	repeated Ping error_pings = 2;
+	repeated Ping mute_pings = 3;
+	repeated Ping unmute_pings = 4;
+	repeated Ping pause_pings = 5;
+	repeated Ping rewind_pings = 6;
+	repeated Ping resume_pings = 7;
+	repeated Ping skip_pings = 8;
+	repeated Ping close_pings = 9;
+	repeated Ping progress_pings = 10;
+	repeated Ping clickthrough_pings = 11;
+	repeated Ping fullscreen_pings = 12;
+	repeated Ping active_view_viewable_pings = 13;
+	repeated Ping end_fullscreen_pings = 14;
+	repeated Ping channel_clickthrough_pings = 15;
+	repeated Ping active_view_measurable_pings = 16;
+	repeated Ping abandon_pings = 17;
+	repeated Ping active_view_fully_viewable_audible_half_duration_pings = 18;
+	repeated Ping start_pings = 19;
+	repeated Ping first_quartile_pings = 20;
+	repeated Ping second_quartile_pings = 21;
+	repeated Ping third_quartile_pings = 22;
+	repeated Ping complete_pings = 23;
+	repeated Ping instream_ad_complete_pings = 24;
+	repeated Ping enters_player_state_normal_pings = 25;
+	repeated Ping enters_player_state_mini_pings = 26;
+	repeated Ping survey_video_dismiss_pings = 27;
+	repeated Ping swipe_pings = 28;
+	repeated Ping unmuted_impression_pings = 29;
+	repeated Ping unmuted_error_pings = 30;
+	repeated Ping unmuted_mute_pings = 31;
+	repeated Ping unmuted_unmute_pings = 32;
+	repeated Ping unmuted_pause_pings = 33;
+	repeated Ping unmuted_rewind_pings = 34;
+	repeated Ping unmuted_resume_pings = 35;
+	repeated Ping unmuted_close_pings = 36;
+	repeated Ping unmuted_progress_pings = 37;
+	repeated Ping unmuted_clickthrough_pings = 38;
+	repeated Ping unmuted_fullscreen_pings = 39;
+	repeated Ping unmuted_end_fullscreen_pings = 43;
+	repeated Ping unmuted_abandon_pings = 44;
+	repeated Ping unmuted_start_pings = 45;
+	repeated Ping unmuted_first_quartile_pings = 46;
+	repeated Ping unmuted_second_quartile_pings = 47;
+	repeated Ping unmuted_third_quartile_pings = 48;
+	repeated Ping unmuted_complete_pings = 49;
+	ActiveViewTrackingPings active_view_tracking = 50;
+	repeated Ping unmuted_skip_pings = 51;
+}

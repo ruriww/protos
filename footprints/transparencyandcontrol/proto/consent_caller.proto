@@ -1,0 +1,21 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "privacy/consent/consent_purpose.proto";
+import "footprints/transparencyandcontrol/proto/caller_id.proto";
+import "footprints/transparencyandcontrol/proto/delegation_info.proto";
+import "footprints/transparencyandcontrol/proto/caller_info.proto";
+import "privacy/consent/feature_id.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentCaller {
+	int32 product_id = 1;
+	privacy.consent.ConsentPurpose consent_purpose = 2;
+	CallerId caller_id = 3;
+	DelegationInfo delegation_info = 4;
+	CallerInfo.KnownCaller known_caller = 5;
+	privacy.consent.FeatureId feature_id = 6;
+	string entrypoint_id = 7;
+}

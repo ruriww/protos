@@ -1,0 +1,39 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.condition;
+
+import "moneta/orchestration2/ui/common/data/data_state.proto";
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DataStateCondition {
+	extend Condition {
+		DataStateCondition data_state_condition_extension = 232946268;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_FUNCTIONAL_DATA_EXECUTION_STATE_VALUE_MATCH = 1;
+		CONDITION_TYPE_FUNCTIONAL_ERROR_CODE_MATCH = 2;
+		CONDITION_TYPE_FUNCTIONAL_CANCEL_CODE_MATCH = 3;
+		CONDITION_TYPE_VALIDITY_MATCH = 4;
+		CONDITION_TYPE_ENABLEMENT_MATCH = 5;
+		CONDITION_TYPE_CLIENT_STATE_MATCH = 6;
+	}
+
+	ConditionType condition_type = 1;
+
+	message ValidityMatchCondition {
+		repeated data.DataState.Validity validity = 1 [ features.repeated_field_encoding = EXPANDED ];
+	}
+
+	oneof condition {
+		data.DataState.FunctionalDataExecutionState value_match = 2;
+		int32 error_code_match = 3;
+		int32 cancel_code_match = 4;
+		ValidityMatchCondition validity_match_condition = 5;
+	}
+}

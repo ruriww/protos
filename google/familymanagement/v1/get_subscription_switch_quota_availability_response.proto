@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetSubscriptionSwitchQuotaAvailabilityResponse {
+	bool has_quota = 1;
+	protobuf.Timestamp next_refill_time = 2;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package google.identity.reauth.v2;
+
+import "google/identity/reauth/v2/challenge.proto";
+
+option objc_class_prefix = "GIDRA";
+
+message StartOrContinueSessionResponse {
+	enum AuthenticationStatus {
+		AUTHENTICATION_STATUS_UNSPECIFIED = 0;
+		AUTHENTICATED = 1;
+		CHALLENGE_REQUIRED = 2;
+		CHALLENGE_PENDING = 3;
+		NO_AVAILABLE_CHALLENGES = 4;
+		WEB_FALLBACK = 5;
+	}
+
+	AuthenticationStatus status = 1;
+	string session_id = 2;
+	string encoded_proof_of_reauth_token = 3;
+	repeated Challenge challenges = 4;
+	string web_fallback_url = 6;
+	string packaged_lookup_token = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package imp.xeno.arcade;
+
+import "drishti/calculator_options.proto";
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "IXA";
+
+message ImpressCalculatorOptions {
+	extend drishti.CalculatorOptions {
+		ImpressCalculatorOptions ext = 436262535;
+	}
+
+	string identifier = 1;
+	repeated string input_texture_names = 2;
+	string user_string = 3;
+	google.protobuf.Any user_data = 4;
+}

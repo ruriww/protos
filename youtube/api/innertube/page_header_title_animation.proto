@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PageHeaderTitleAnimation {
+	float fade_offset_start_percent = 1;
+	float fade_offset_end_percent = 2;
+}

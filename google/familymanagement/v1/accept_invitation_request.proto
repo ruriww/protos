@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message AcceptInvitationRequest {
+	ApiRequestHeader api_header = 1;
+
+	oneof invitation_identifier {
+		string invitation_secret = 2;
+		string invitation_token = 5;
+	}
+
+	bool force_master_consistency = 3;
+	bool allow_parent_as_member = 4;
+	bool allow_empty_family_switch = 6;
+}

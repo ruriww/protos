@@ -1,0 +1,121 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/affinity.proto";
+import "apps/people/oz/external/mergedpeopleapi/user_visible_stats.proto";
+import "apps/people/oz/external/mergedpeopleapi/profile_owner_stats.proto";
+import "apps/people/oz/external/mergedpeopleapi/identity_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/best_display_name.proto";
+import "apps/people/oz/external/mergedpeopleapi/device_contact_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message PersonMetadata {
+	bool deleted = 1;
+	repeated int64 deprecated_membership_circle_id = 2 [ features.repeated_field_encoding = EXPANDED, deprecated = true ];
+	repeated int64 deprecated_membership_contact_group_id = 3 [ features.repeated_field_encoding = EXPANDED, deprecated = true ];
+	string owner_id = 4;
+
+	enum ObjectType {
+		option features.enum_type = CLOSED;
+
+		OBJECT_TYPE_UNKNOWN = 2;
+		PERSON = 0;
+		PAGE = 1;
+	}
+
+	ObjectType object_type = 5 [ default = PERSON ];
+	repeated int64 contact_id = 6 [ features.repeated_field_encoding = EXPANDED ];
+	bool deprecated_blocked = 7 [ deprecated = true, default = false ];
+	repeated string circle_id = 8;
+	repeated string contact_group_id = 9;
+
+	enum BlockType {
+		option features.enum_type = CLOSED;
+
+		BLOCK_TYPE_UNKNOWN = 0;
+		CIRCLE = 2;
+		LEGACY = 3;
+	}
+
+	repeated BlockType block_type = 10 [ features.repeated_field_encoding = EXPANDED ];
+	repeated BlockType incoming_block_type = 11 [ features.repeated_field_encoding = EXPANDED ];
+	bool in_viewer_domain = 12;
+
+	enum OwnerUserType {
+		option features.enum_type = CLOSED;
+
+		OWNER_USER_TYPE_UNKNOWN = 0;
+		GOOGLE_USER = 1;
+		GPLUS_USER = 2;
+		GPLUS_DISABLED_BY_ADMIN = 3;
+		GOOGLE_APPS_USER = 4;
+		GOOGLE_APPS_SELF_MANAGED_USER = 5;
+		GOOGLE_FAMILY_USER = 6;
+		GOOGLE_FAMILY_CHILD_USER = 7;
+		GOOGLE_APPS_ADMIN_DISABLED = 9;
+		GOOGLE_ONE_USER = 10;
+		GOOGLE_FAMILY_CONVERTED_CHILD_USER = 11;
+	}
+
+	repeated OwnerUserType owner_user_type = 13 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum PlusPageType {
+		option features.enum_type = CLOSED;
+
+		PLUS_PAGE_TYPE_UNKNOWN = 0;
+		LOCAL = 1;
+		COMPANY = 2;
+		BRAND = 3;
+		CELEBRITY = 4;
+		CAUSE = 5;
+		ENTERTAINMENT = 6;
+		OTHER = 7;
+		OBSOLETE_PRIVATE = 8;
+	}
+
+	PlusPageType plus_page_type = 14;
+	repeated string attribution = 15;
+	int64 last_update_time_micros = 16;
+	repeated Affinity affinity = 17;
+	repeated string previous_person_id = 19;
+	UserVisibleStats user_visible_stats = 20;
+	ProfileOwnerStats profile_owner_stats = 21;
+	IdentityInfo identity_info = 22;
+
+	enum CustomResponseMaskingType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NONE = 1;
+		MENAGERIE = 2;
+	}
+
+	CustomResponseMaskingType custom_response_masking_type = 23 [ default = NONE ];
+	BestDisplayName best_display_name = 24;
+
+	enum PersonModel {
+		option features.enum_type = CLOSED;
+
+		PERSON_MODEL_UNKNOWN = 0;
+		PROFILE_CENTRIC = 1;
+		CONTACT_CENTRIC = 2;
+	}
+
+	PersonModel model = 25 [ default = PROFILE_CENTRIC ];
+	repeated DeviceContactInfo device_contact_info = 28;
+
+	message ScoringInfo {
+		double raw_match_quality_score = 1;
+
+		message StExpressionResult {
+			string name = 1;
+			string value = 2;
+		}
+
+		repeated StExpressionResult st_expression_results = 2;
+	}
+
+	ScoringInfo scoring_info = 29;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+enum MusicPlayerInstance {
+	option features.enum_type = CLOSED;
+
+	MUSIC_PLAYER_INSTANCE_UNSPECIFIED = 0;
+	MUSIC_PLAYER_INSTANCE_WATCH = 1;
+	MUSIC_PLAYER_INSTANCE_SAMPLES = 2;
+}

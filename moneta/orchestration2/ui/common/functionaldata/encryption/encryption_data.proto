@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.encryption;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message EncryptionData {
+	extend data.Data {
+		EncryptionData encryption_data_extension = 290848975;
+	}
+
+	string key_id = 1;
+	string initialization_vector = 2;
+
+	oneof payload_to_encrypt {
+		string payload = 3;
+		int64 payload_data_reference = 4;
+	}
+
+	int64 encryption_key_data_reference = 5;
+}

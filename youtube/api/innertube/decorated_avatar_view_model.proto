@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DecoratedAvatarViewModel {
+	extend Renderer {
+		DecoratedAvatarViewModel decorated_avatar_view_model = 1105;
+	}
+
+	Renderer avatar = 1;
+	string a11y_label = 6;
+	Renderer sub_avatar = 17;
+	RendererContext renderer_context = 997;
+}

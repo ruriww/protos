@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message CodedNumericRun {
+	repeated sint32 deltas = 1;
+	float scale = 2 [ default = 1 ];
+	float offset = 3;
+}

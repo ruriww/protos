@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum Alignment {
+	option features.enum_type = CLOSED;
+
+	ALIGNMENT_UNKNOWN = 0;
+	ALIGNMENT_AUTO = 1;
+	ALIGNMENT_START = 2;
+	ALIGNMENT_END = 3;
+	ALIGNMENT_CENTER = 4;
+	ALIGNMENT_BASELINE_FIRST = 5;
+	ALIGNMENT_BASELINE_LAST = 6;
+	ALIGNMENT_STRETCH = 7;
+}

@@ -1,0 +1,17 @@
+syntax = "proto2";
+
+package unknown.youtube;
+
+message CALSAPProductID15192 {
+	enum CALSAPProductID {
+		UNKNOWN = 0;
+		FAKE_APP = 1;
+		AGSA_STARTUP = 2;
+		DISCOVER = 3;
+		TEST = 4;
+		ASSISTANT_LITE = 5;
+		XBLEND = 6;
+		SEARCHBOX = 7;
+		AGSA_RUBIDIUM = 8;
+	}
+}

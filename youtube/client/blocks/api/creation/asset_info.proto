@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/api/innertube/creation_image_asset.proto";
+import "youtube/api/innertube/generative_effects_asset.proto";
+import "youtube/api/innertube/youtube_video_asset.proto";
+
+option objc_class_prefix = "YTBA";
+
+message AssetInfo {
+	oneof asset_type {
+		youtube.api.innertube.CreationImageAsset creation_image_asset = 1;
+		youtube.api.innertube.GenerativeEffectsAsset generative_effects_asset = 2;
+		youtube.api.innertube.YoutubeVideoAsset youtube_video_asset = 3;
+	}
+}

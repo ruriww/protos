@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offlineability_availability_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineabilityFormat {
+	FormattedString name = 1;
+	FormattedString approximate_size = 2;
+	OfflineabilityFormatType format_type = 3;
+	OfflineabilityAvailabilityType availability_type = 4;
+	bool saved_setting_should_expire = 5;
+}

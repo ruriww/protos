@@ -1,0 +1,20 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/content_unit_type.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ContentUnitLite {
+	ContentUnitType type = 1;
+	string title = 2;
+	string url = 3;
+	string snippet = 4;
+	fixed64 doc_id = 5;
+	string helpcenter_node_id = 8;
+	string external_helpcenter_path = 9;
+	string helpcenter_domain = 10;
+	string helpcenter_language = 11;
+	string revision_number = 14;
+}

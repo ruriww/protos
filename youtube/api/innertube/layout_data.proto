@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/trigger_data.proto";
+import "youtube/api/innertube/layout_type.proto";
+import "youtube/api/innertube/control_flow_manager_layer.proto";
+import "youtube/api/innertube/trigger_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LayoutData {
+	LayoutType type = 2;
+
+	message DebugData {
+		string layout_id = 1;
+		repeated TriggerData exit_normal_trigger_data = 2;
+		repeated TriggerData exit_skip_trigger_data = 3;
+		repeated TriggerData exit_mute_trigger_data = 4;
+		repeated TriggerData exit_user_input_submitted_trigger_data = 5;
+		repeated TriggerData exit_user_cancelled_trigger_data = 6;
+	}
+
+	DebugData debug_data = 3;
+	ControlFlowManagerLayer control_flow_manager_layer = 4;
+	repeated TriggerType ping_trigger_types = 5;
+}

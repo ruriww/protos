@@ -1,0 +1,9 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+option objc_class_prefix = "INKPB";
+
+message EmptyStateUpdated {
+	bool is_empty = 1;
+}

@@ -1,0 +1,64 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dismissable_dialog_renderer.proto";
+import "youtube/api/innertube/confirm_dialog_renderer.proto";
+import "youtube/api/innertube/upsell_dialog_renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/format_options_data.proto";
+import "youtube/api/innertube/offline_stream_selection_config.proto";
+import "youtube/api/innertube/unlock_premium_config.proto";
+import "youtube/api/innertube/offlineability_format.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/offlineability_options_selection_type.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineabilityRenderer {
+	bool offlineable = 1;
+
+	message OfflineabilityInfoSupportedRenderers {
+		DismissableDialogRenderer dismissable_dialog_renderer = 53345347;
+		ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+		UpsellDialogRenderer upsell_dialog_renderer = 88122887;
+	}
+
+	OfflineabilityInfoSupportedRenderers info_renderer = 2;
+	repeated OfflineabilityFormat formats = 3;
+	bytes click_tracking_params = 4;
+
+	message OfflineFormatSupportedDatas {
+		FormatOptionsData format_options_data = 91259014;
+	}
+
+	OfflineFormatSupportedDatas format_data = 5;
+	bool is_offline_sharing_allowed = 7;
+	repeated Command impression_endpoints = 9;
+
+	message OfflineabilityRendererSupportedConfigs {
+		OfflineStreamSelectionConfig offline_stream_selection_config = 131908394;
+		UnlockPremiumConfig unlock_premium_config = 410654875;
+	}
+
+	OfflineabilityRendererSupportedConfigs offlineability_renderer_supported_configs = 10;
+
+	message AudioTrack {
+		string id = 1;
+		FormattedString name = 2;
+		FormattedString audio_content_type = 3;
+	}
+
+	repeated AudioTrack audio_tracks = 11;
+	OfflineabilityOptionsSelectionType options_selection_type = 12;
+	OfflineModeType offline_mode_type = 13;
+}
+
+extend Renderer {
+	OfflineabilityRenderer offlineability_renderer = 60572968;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "notifications/platform/common/proto/feature_education.proto";
+
+option objc_class_prefix = "GNPC";
+
+message Tooltip {
+	FeatureEducation feature_education = 1;
+
+	enum Placement {
+		option features.enum_type = CLOSED;
+
+		PLACEMENT_UNSPECIFIED = 0;
+		ABOVE = 1;
+		BELOW = 2;
+	}
+
+	Placement placement = 2;
+	bool is_html_body_text = 3;
+}

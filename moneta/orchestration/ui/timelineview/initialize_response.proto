@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.timelineview;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/timelineview/page.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+
+option objc_class_prefix = "TimelineView";
+
+message InitializeResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	Page page = 3;
+	common.SecureDataHeader secure_header = 4;
+	repeated Page additional_page = 5;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+option objc_class_prefix = "YTBA";
+
+enum MediaHubUiType {
+	MEDIA_HUB_UI_TYPE_UNKNOWN = 0;
+	MEDIA_HUB_UI_TYPE_AIRPLAY = 1;
+	MEDIA_HUB_UI_TYPE_LINK_WITH_TV = 2;
+	MEDIA_HUB_UI_TYPE_VOICE_CONTROL = 3;
+	MEDIA_HUB_UI_TYPE_REMOTE_CONTROLLER = 4;
+	MEDIA_HUB_UI_TYPE_TV_QUEUE = 5;
+	MEDIA_HUB_UI_TYPE_SEND_FEEDBACK = 6;
+	MEDIA_HUB_UI_TYPE_LEARN_MORE = 7;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_details.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message InstrumentDetailsSection {
+	string title = 1;
+	repeated common.components.instrument.InstrumentDetails instrument_details = 2;
+	common.components.SimpleForm title_form = 3;
+	common.components.SimpleForm add_instrument_form = 4;
+}

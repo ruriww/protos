@@ -1,0 +1,15 @@
+edition = "2023";
+
+package identity_consent;
+
+import "footprints/transparencyandcontrol/proto/record_consent_decision_response.proto";
+import "identity_consent/consent_primitive_response.proto";
+import "identity_consent/privacy_flow_result.proto";
+
+option objc_class_prefix = "IDC";
+
+message RecordDecisionResponse {
+	footprints.transparencyandcontrol.proto.RecordConsentDecisionResponse ftc_record_consent_decision_response = 1;
+	ConsentPrimitiveResponse client_response = 2;
+	PrivacyFlowResult privacy_flow_result = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+option objc_class_prefix = "UFR";
+
+message ListnrContext {
+	int32 product_id = 1;
+	string bucket = 2;
+}

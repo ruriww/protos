@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.integrator.api.alert;
+
+import "moneta/integrator/common/api_error.proto";
+import "moneta/integrator/common/alert/alert.proto";
+
+option objc_class_prefix = "AlertService";
+
+message GetAlertResponse {
+	common.ApiError error = 1;
+	repeated common.alert.Alert alert = 2;
+}

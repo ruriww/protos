@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/xeno_effect_float_slider_component.proto";
+import "youtube/api/innertube/xeno_effect_visual_media_picker_component.proto";
+import "youtube/api/innertube/xeno_effect_option_picker_component.proto";
+import "youtube/api/innertube/xeno_effect_presentation_only_component.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectControlInputUiComponent {
+	oneof component {
+		XenoEffectFloatSliderComponent float_slider = 1;
+		XenoEffectVisualMediaPickerComponent visual_media_picker = 2;
+		XenoEffectOptionPickerComponent option_picker = 3;
+		XenoEffectPresentationOnlyComponent presentation_only = 4;
+	}
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/ypc_offers_overlay_coupon_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YpcOffersOverlayRenderer {
+	FormattedString title = 1;
+	FormattedString metadata = 2;
+	repeated BadgeSupportedRenderers badges = 3;
+	ThumbnailDetails thumbnail = 4;
+	ThumbnailOverlaySupportedRenderers thumbnail_overlays = 5;
+	ButtonSupportedRenderers dismiss_button = 7;
+	ButtonSupportedRenderers help_button = 9;
+	YpcOffersOverlayCouponSupportedRenderers coupon = 10;
+	FormattedString additional_info = 11;
+	bytes tracking_params = 13;
+	bool show_loading_spinner = 14;
+	bool is_show = 15;
+}
+
+extend Renderer {
+	YpcOffersOverlayRenderer ypc_offers_overlay_renderer = 154146115;
+}

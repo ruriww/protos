@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+enum AndroidIntentCheck {
+	option features.enum_type = CLOSED;
+
+	CHECK_UNSPECIFIED = 0;
+	FIRST_PARTY_CHECK = 1;
+	SYSTEM_CHECK = 2;
+	THIRD_PARTY_CHECK = 3;
+}

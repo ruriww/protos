@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MediaGenerationImageToVideoType {
+	option features.enum_type = CLOSED;
+
+	MEDIA_GENERATION_IMAGE_TO_VIDEO_TYPE_UNSPECIFIED = 0;
+	MEDIA_GENERATION_IMAGE_TO_VIDEO_TYPE_T2I2V = 1;
+	MEDIA_GENERATION_IMAGE_TO_VIDEO_TYPE_VIDEO_EFFECT = 2;
+	MEDIA_GENERATION_IMAGE_TO_VIDEO_TYPE_GALLERY_I2V = 3;
+}

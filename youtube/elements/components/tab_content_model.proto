@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/components/feed_data.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/client_data.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message TabContentModel {
+	extend Model {
+		TabContentModel tab_content_model = 493015182;
+	}
+
+	Theme theme = 1;
+	FeedData feed = 3;
+	Context context = 6;
+	string tab_target_id = 7;
+	ClientData client_data = 8;
+}

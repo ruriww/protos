@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.fixinstrument;
+
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/fixinstrument/page.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+
+option objc_class_prefix = "FixInstrument";
+
+message SubmitResponse {
+	common.ResponseContext context = 1;
+	common.UiError error = 2;
+	bool flow_complete = 3;
+	Page next_page = 4;
+	common.generic.FlowInstruction flow_instruction = 5;
+	common.SecureDataHeader secure_header = 6;
+	common.widgetreference.WidgetReference next_widget = 7;
+	common.IntegratorCallbackData integrator_callback_data = 8;
+}

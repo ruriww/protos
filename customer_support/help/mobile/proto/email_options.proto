@@ -1,0 +1,16 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/contact_form.proto";
+
+option objc_class_prefix = "CSHM";
+
+message EmailOptions {
+	bool available_now = 1;
+	string problem_category_id = 2;
+	ContactForm form_proto = 3;
+	string helpcenter_internal_name = 4;
+	string email_form_id = 5;
+	string estimated_wait_time_id = 6;
+}

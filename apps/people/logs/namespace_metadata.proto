@@ -1,0 +1,9 @@
+edition = "2023";
+
+package apps.people.logs;
+
+option objc_class_prefix = "PL";
+
+message NamespaceMetadata {
+	string name = 1;
+}

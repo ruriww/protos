@@ -1,0 +1,21 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+option objc_class_prefix = "ORCH2";
+
+message PageInteractableData {
+	int32 number_of_views_created = 1;
+	int32 view_hierarchy_depth = 2;
+	int32 number_of_nodes_created = 3;
+	int32 number_of_layout_applications = 4;
+	int32 number_of_style_applications = 5;
+	int32 number_of_flex_nodes_created = 6;
+
+	message AndroidLatencyInfo {
+		string event = 1;
+		int64 duration_nanos = 2;
+	}
+
+	repeated AndroidLatencyInfo android_latency_info = 7;
+}

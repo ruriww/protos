@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MiniAppAdTriggerType {
+	option features.enum_type = CLOSED;
+
+	MINI_APP_AD_TRIGGER_TYPE_UNSPECIFIED = 0;
+	MINI_APP_AD_TRIGGER_TYPE_BEFORE = 1;
+	MINI_APP_AD_TRIGGER_TYPE_WITHIN = 2;
+	MINI_APP_AD_TRIGGER_TYPE_REWARD = 3;
+}

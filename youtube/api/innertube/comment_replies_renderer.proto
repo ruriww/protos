@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/comment_renderer.proto";
+import "youtube/api/innertube/comment_supported_continuations.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/comment_replies_sub_menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentRepliesRenderer {
+	extend ContinuationSupportedRenderers {
+		CommentRepliesRenderer comment_replies_continuation = 65060753;
+	}
+
+	repeated CommentSupportedRenderers contents = 1;
+	repeated CommentSupportedContinuations continuations = 2;
+	FormattedString more_text = 3;
+	bytes tracking_params = 4;
+	Command replies_endpoint = 6;
+	FormattedString less_text = 7;
+	ButtonSupportedRenderers detail_view_button = 8;
+	FormattedString sort_order_text = 10;
+	CommentRepliesSubMenuSupportedRenderers sort_menu = 12;
+	repeated CommentSupportedRenderers teaser_contents = 13;
+	bool show_detail_view_button_above_teaser_replies = 14;
+	bool pulse_highlight = 15;
+	Renderer view_replies = 16;
+	Renderer hide_replies = 17;
+	string uuid = 18;
+	CommentSupportedContinuations fake_continuation = 19;
+	bool should_force_show_comment_teasers = 20;
+	string target_id = 21;
+	ThumbnailDetails view_replies_creator_thumbnail = 22;
+	Command view_replies_creator_endpoint = 23;
+	Renderer view_replies_icon = 24;
+	Renderer hide_replies_icon = 25;
+	repeated Renderer sub_threads = 26;
+}

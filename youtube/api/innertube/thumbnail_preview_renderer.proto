@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThumbnailPreviewRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	ThumbnailDetails default_thumbnail = 3;
+	ButtonSupportedRenderers play_button = 5;
+
+	oneof control_bg_oneof {
+		uint32 control_bg_argb = 6;
+		string control_bg_html = 10;
+	}
+
+	Renderer video_details = 7;
+	Renderer share_button = 8;
+	Renderer add_to_watch_later_button = 11;
+	int64 video_duration_seconds = 12;
+	Renderer playlist = 19;
+	Renderer info_panel = 22;
+	Renderer search_button = 23;
+	repeated Renderer action_bar_buttons = 24;
+	Renderer quick_actions_bar = 25;
+}

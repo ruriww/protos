@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_segment_type.proto";
+import "youtube/api/innertube/media_engine_effect_identifier.proto";
+import "youtube/api/innertube/mde_video_info.proto";
+import "youtube/api/innertube/mde_audio_info.proto";
+import "youtube/api/innertube/mde_image_info.proto";
+import "youtube/api/innertube/mde_media_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeSegment {
+	MediaEngineSegmentType type = 1;
+	repeated MediaEngineEffectIdentifier effects = 2;
+	MdeVideoInfo video_info = 3;
+	MdeAudioInfo audio_info = 4;
+	int64 start_time_ms = 5;
+	uint64 duration_ms = 6;
+	float playback_rate = 7;
+	bool enabled = 8;
+	MdeImageInfo image_info = 9;
+	MdeMediaInfo media_info = 10;
+}

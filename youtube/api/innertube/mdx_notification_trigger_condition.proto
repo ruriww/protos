@@ -1,0 +1,83 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_notification_type.proto";
+import "youtube/api/innertube/day_of_week.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxNotificationTriggerCondition {
+	enum TimePeriod {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PERIOD = 0;
+		DAY = 1;
+		WEEK = 2;
+		MONTH = 3;
+	}
+
+	message RangeByPeriodCondition {
+		TimePeriod time_period = 1;
+		Range range = 2;
+	}
+
+	repeated RangeByPeriodCondition mdx_connection_counts = 1;
+	repeated RangeByPeriodCondition cast_available_session_counts = 2;
+
+	enum PageType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PAGE = 0;
+		BROWSE = 1;
+		WATCH = 2;
+	}
+
+	PageType required_page = 3 [ default = UNKNOWN_PAGE ];
+
+	message Range {
+		int32 min = 1 [ default = -2147483648 ];
+		int32 max = 2 [ default = 2147483647 ];
+	}
+
+	Range current_video_duration = 4;
+	bool require_full_screen = 5;
+	bool require_hd = 6;
+	bool require_playlist_playback = 7;
+	Range uncasted_video_count = 8;
+
+	message QuietPeriodByNotificationCondition {
+		MdxNotificationType notification_type = 1;
+		int32 quiet_period_seconds = 2;
+	}
+
+	QuietPeriodByNotificationCondition quiet_period_by_notification = 9;
+	bool require_sd = 10;
+
+	message TimeRange {
+		int64 start_time_milliseconds = 1;
+		int64 end_time_milliseconds = 2;
+	}
+
+	repeated TimeRange time_conditions = 11;
+
+	message TimeOfWeek {
+		repeated DayOfWeek days = 1 [ features.repeated_field_encoding = EXPANDED ];
+		repeated Range time_of_day_milliseconds = 2;
+	}
+
+	repeated TimeOfWeek time_of_week_conditions = 12;
+	repeated string video_ids = 13;
+	repeated string playlist_ids = 14;
+
+	message DependentNotificationCondition {
+		MdxNotificationType notification_type = 1;
+		Range shown_count = 2;
+		int32 quiet_period_seconds = 3;
+	}
+
+	repeated DependentNotificationCondition dependent_notifications = 15;
+}

@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_creation_media_attribution.proto";
+import "youtube/api/innertube/asset_parallel_data.proto";
+import "youtube/api/innertube/live_creation_media_attribution.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unpublished_effect_asset_item.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetItemSelectCommand {
+	extend Command {
+		AssetItemSelectCommand asset_item_select_command = 437088376;
+	}
+
+	repeated string asset_ids = 1;
+
+	message AssetItem {
+		string asset_id = 1;
+		string asset_logging_id = 2;
+		int32 asset_item_type = 3;
+		string asset_name = 4;
+		int32 asset_source = 5;
+		ShortsCreationMediaAttribution media_attribution = 6;
+		repeated AssetParallelData asset_parallel_data = 7;
+		string swazzle_effect_id_to_restore = 8;
+		LiveCreationMediaAttribution live_media_attribution = 9;
+	}
+
+	repeated AssetItem asset_items = 2;
+	string serialized_entity_key = 3;
+	repeated UnpublishedEffectAssetItem unpublished_asset_items = 5;
+}

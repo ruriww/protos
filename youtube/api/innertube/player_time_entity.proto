@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerTimeEntity {
+	extend EntityMutationPayload {
+		PlayerTimeEntity player_time_entity = 326;
+	}
+
+	string key = 1;
+	bool live_video = 2;
+	int64 minimum_seekable_time_in_ms = 3;
+	int64 maximum_seekable_time_in_ms = 4;
+	int64 current_video_time_in_ms = 5;
+}

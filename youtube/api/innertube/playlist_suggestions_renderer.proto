@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/playlist_dedupe_suggestions_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/playlist_dedupe_suggestions_renderer.proto";
+import "youtube/api/innertube/playlist_dedupe_suggestions_video_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistSuggestionsRenderer {
+	FormattedString title = 1;
+	PlaylistDedupeSuggestionsSupportedRenderers dedupe_suggestions = 3;
+}
+
+extend Renderer {
+	PlaylistSuggestionsRenderer playlist_suggestions_renderer = 63491129;
+}
+
+extend Renderer {
+	PlaylistDedupeSuggestionsRenderer playlist_dedupe_suggestions_renderer = 64236482;
+}
+
+extend Renderer {
+	PlaylistDedupeSuggestionsVideoRenderer playlist_dedupe_suggestions_video_renderer = 64241547;
+}

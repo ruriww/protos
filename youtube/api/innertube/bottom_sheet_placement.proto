@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum BottomSheetPlacement {
+	option features.enum_type = CLOSED;
+
+	BOTTOM_SHEET_PLACEMENT_UNKNOWN = 0;
+	BOTTOM_SHEET_PLACEMENT_CENTER = 1;
+	BOTTOM_SHEET_PLACEMENT_LEFT = 2;
+	BOTTOM_SHEET_PLACEMENT_RIGHT = 3;
+}

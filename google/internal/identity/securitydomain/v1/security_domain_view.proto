@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+enum SecurityDomainView {
+	SECURITY_DOMAIN_VIEW_UNSPECIFIED = 0;
+	SECURITY_DOMAIN_BASIC = 1;
+	SECURITY_DOMAIN_PRODUCT_DETAILS = 2;
+}

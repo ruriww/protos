@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless/android/icing/proto/mdd_duration_event_type.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddDurationEvent {
+	wireless.android.icing.proto.MddDurationEventType.Code type = 1;
+	int64 duration_us = 2;
+}

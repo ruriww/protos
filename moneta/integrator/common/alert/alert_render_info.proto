@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.integrator.common.alert;
+
+import "moneta/integrator/common/alert/localized_render_details.proto";
+
+option objc_class_prefix = "AlertService";
+
+message AlertRenderInfo {
+	oneof render {
+		LocalizedRenderDetails localized_render_details = 1;
+		bytes render_token = 2;
+	}
+}

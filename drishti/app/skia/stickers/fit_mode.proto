@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+enum FitMode {
+	option features.enum_type = CLOSED;
+
+	FIT_MODE_UNSPECIFIED = 0;
+	FIT_MODE_CONTAIN = 1;
+	FIT_MODE_COVER = 2;
+}

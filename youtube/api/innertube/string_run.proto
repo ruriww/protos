@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/font_face_enum.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StringRun {
+	string text = 1;
+	bool bold = 2 [ default = false ];
+	bool italics = 3 [ default = false ];
+	bool strikethrough = 4 [ default = false ];
+	Command navigation_endpoint = 5;
+	bool deemphasize = 6 [ default = false ];
+	uint32 text_color = 8;
+	FontFaceEnum.FontFace font_face = 9;
+	bool underline = 10;
+	uint32 dark_mode_text_color = 11;
+	bool bracket = 12;
+	bool error_underline = 13;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}

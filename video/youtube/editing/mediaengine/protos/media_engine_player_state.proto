@@ -1,0 +1,16 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+enum MediaEnginePlayerState {
+	option features.enum_type = CLOSED;
+
+	MEDIA_ENGINE_PLAYER_STATE_UNKNOWN = 0;
+	MEDIA_ENGINE_PLAYER_STATE_IDLE = 1;
+	MEDIA_ENGINE_PLAYER_STATE_READY = 2;
+	MEDIA_ENGINE_PLAYER_STATE_BUFFERING = 3;
+	MEDIA_ENGINE_PLAYER_STATE_ENDED = 4;
+	MEDIA_ENGINE_PLAYER_STATE_ASLEEP = 5;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message Invitation {
+	bool show_invitation = 1;
+	string invitation_message = 2;
+}

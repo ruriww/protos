@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+option objc_class_prefix = "GIDLOGAS";
+
+enum LoadSource {
+	option features.enum_type = CLOSED;
+
+	CACHE = 1;
+	CACHE_STALE = 2;
+	BACKEND = 3;
+	ALREADY_LOADED = 4;
+	HARD_CODED = 5;
+}

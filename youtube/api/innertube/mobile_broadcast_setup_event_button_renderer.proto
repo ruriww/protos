@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileBroadcastSetupEventButtonRenderer {
+	FormattedString title = 1;
+	FormattedString schedule_info = 2;
+	Icon schedule_icon = 3;
+	ThumbnailDetails thumbnail = 4;
+	Command service_endpoint = 5;
+	Renderer delete_button = 6;
+	AccessibilitySupportedDatas accessibility = 7;
+	uint64 scheduled_start_time_sec = 8;
+}
+
+extend Renderer {
+	MobileBroadcastSetupEventButtonRenderer mobile_broadcast_setup_event_button_renderer = 146983445;
+}

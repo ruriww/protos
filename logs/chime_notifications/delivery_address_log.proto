@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+import "logs/chime_notifications/apple_push_address_log.proto";
+
+option objc_class_prefix = "CHM";
+
+message DeliveryAddressLog {
+	oneof address {
+		ApplePushAddressLog apple_address = 4;
+	}
+}

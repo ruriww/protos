@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/exploratory_results_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExploratoryResultsRenderer {
+	FormattedString title = 1;
+	repeated ExploratoryResultsSupportedRenderers contents = 2;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	ExploratoryResultsRenderer exploratory_results_renderer = 50302113;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow.instantbuy;
+
+import "moneta/integrator/common/amount.proto";
+import "moneta/orchestration/ui/buyflow/instantbuy/initialize_intent_enums.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message InstantBuyParameters {
+	string google_transaction_id = 1;
+	integrator.common.Amount estimated_purchase_price = 2;
+	string payee_name = 3;
+	bool shown_ui = 6;
+	int32 number_of_accounts = 7;
+	InitializeIntentEnums.InitializeIntent initialize_intent = 8;
+	bool contact_number_required = 9;
+	bool shipping_required = 10;
+	string facilitation_payment_data_request = 13;
+}

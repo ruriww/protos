@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SocialSuggestionsType {
+	option features.enum_type = CLOSED;
+
+	SOCIAL_SUGGESTIONS_TYPE_UNKNOWN = 0;
+	SOCIAL_SUGGESTIONS_TYPE_HASHTAG = 1;
+	SOCIAL_SUGGESTIONS_TYPE_MENTION = 2;
+}

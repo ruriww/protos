@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillInputRenderer {
+	Renderer input = 1;
+	string backend_input_field_key = 2;
+	bool is_optional = 3;
+	Command submit_with_edit_command = 5;
+	Command invalid_input_command = 6;
+	Command edit_command = 7;
+}
+
+extend Renderer {
+	FormfillInputRenderer formfill_input_renderer = 182217985;
+}

@@ -1,0 +1,249 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/align_horizontal.proto";
+import "youtube/api/innertube/font_family.proto";
+import "youtube/api/innertube/text_background_style.proto";
+import "youtube/api/innertube/text_content_source.proto";
+import "youtube/api/innertube/comment_source.proto";
+import "youtube/api/innertube/color_value.proto";
+import "youtube/api/innertube/sticker_theme.proto";
+import "youtube/api/innertube/upload_image_sticker_shape.proto";
+import "youtube/api/innertube/layout.proto";
+import "youtube/api/innertube/span.proto";
+import "youtube/api/innertube/shorts_effects_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Editing {
+	message StateEvent {
+		message KeyframeDouble {
+			int64 time_usec = 1;
+			double value = 2;
+		}
+
+		message PositionableLayerEvent {
+			message Rectangle {
+				double width = 1;
+				double height = 2;
+			}
+
+			message PositionableLayerContent {
+				message TextContent {
+					string text = 1;
+
+					message Rgba {
+						double r = 1;
+						double g = 2;
+						double b = 3;
+						double a = 4;
+					}
+
+					Rgba color = 2;
+					Rgba background_color = 3;
+					AlignHorizontal font_align_horizontal = 4;
+					FontFamily font_family = 5;
+					TextBackgroundStyle text_background_style = 8;
+					string dominant_language = 9;
+					TextContentSource text_content_source = 10;
+					string aas_font_family = 11;
+					double background_radius = 12;
+					float normalized_font_size = 18;
+				}
+
+				message ImageStickerContent {
+					string asset_id = 1;
+				}
+
+				message LocationStickerContent {
+					string place_id = 1;
+					string place_name = 2;
+				}
+
+				message ChannelMentionStickerContent {
+					string sticker_text = 2;
+				}
+
+				message UnicodeEmojiStickerContent {
+					string asset_id = 1;
+					string emoji_string = 2;
+				}
+
+				message VideoStickerContent {
+				}
+
+				message CommentStickerContent {
+					CommentSource comment_source = 2;
+					string source_comment_id = 3;
+					string derived_comment_id = 4;
+
+					message PdgData {
+						string super_vod_item_id = 1;
+					}
+
+					PdgData pdg_data = 5;
+					bool is_created_with_linkage = 6;
+					bool created_by_source_video_owner = 7;
+				}
+
+				message PromptStickerContent {
+					string text = 1;
+
+					message PromptStickerTheme {
+						ColorValue.Rgba text_color = 1;
+						ColorValue.Rgba background_color = 2;
+						ColorValue.Rgba button_text_color = 3;
+						ColorValue.Rgba button_background_color = 4;
+					}
+
+					PromptStickerTheme theme = 2;
+				}
+
+				message VideoResponseStickerContent {
+					string seed_external_video_id = 1;
+					string text = 3;
+
+					message RenderingData {
+						StickerTheme theme = 1;
+						MatrixData unscaled_body_rect = 2;
+						Rectangle unscaled_body_rectangle = 3;
+					}
+
+					RenderingData rendering_data = 4;
+				}
+
+				message PollStickerContent {
+					string question_text = 1;
+
+					message PollOption {
+						string text = 1;
+					}
+
+					repeated PollOption poll_options = 2;
+
+					message PollStickerRenderingData {
+						StickerTheme theme = 1;
+						Rectangle unscaled_body_rectangle = 2;
+					}
+
+					PollStickerRenderingData rendering_data = 4;
+				}
+
+				message QuizStickerContent {
+					string question_text = 1;
+
+					message QuizOption {
+						string text = 1;
+						bool is_correct = 2;
+					}
+
+					repeated QuizOption quiz_options = 2;
+
+					message QuizStickerRenderingData {
+						StickerTheme theme = 1;
+						Rectangle unscaled_body_rectangle = 2;
+					}
+
+					QuizStickerRenderingData rendering_data = 4;
+				}
+
+				message GenAiStickerContent {
+					bytes serialized_generated_media_image = 1;
+					bytes serialized_generative_media_params = 2;
+				}
+
+				message ProductStickerContent {
+					bool is_interactive_sticker = 1;
+
+					message ProductStickerRenderingData {
+						Rectangle unscaled_body_rectangle = 1;
+					}
+
+					ProductStickerRenderingData rendering_data = 2;
+				}
+
+				message UploadImageStickerContent {
+					UploadImageStickerShape shape = 1;
+					StickerTheme theme = 2;
+				}
+
+				oneof positionable_layer_content {
+					TextContent text_content = 1;
+					ImageStickerContent image_sticker_content = 2;
+					LocationStickerContent location_sticker_content = 3;
+					ChannelMentionStickerContent channel_mention_sticker_content = 4;
+					UnicodeEmojiStickerContent unicode_emoji_sticker_content = 5;
+					VideoStickerContent video_sticker_content = 6;
+					CommentStickerContent comment_sticker_content = 7;
+					PromptStickerContent prompt_sticker_content = 8;
+					VideoResponseStickerContent video_response_sticker_content = 9;
+					PollStickerContent poll_sticker_content = 10;
+					QuizStickerContent quiz_sticker_content = 11;
+					GenAiStickerContent gen_ai_sticker_content = 12;
+					ProductStickerContent product_sticker_content = 13;
+					UploadImageStickerContent upload_image_sticker_content = 15;
+				}
+			}
+
+			PositionableLayerContent pos_layer_content = 1;
+
+			message MatrixData {
+				int32 rows = 1;
+				int32 cols = 2;
+				repeated float packed_data = 3 [ features.repeated_field_encoding = EXPANDED ];
+				Layout layout = 4;
+			}
+
+			MatrixData matrix = 2;
+			int32 z_index = 3;
+			repeated KeyframeDouble alpha_value_keyframes = 4;
+
+			message Interaction {
+				repeated MatrixData regions = 2;
+
+				message ChannelMentionContent {
+					string external_channel_id = 1;
+				}
+
+				message PromptStickerContent {
+					string text = 1;
+				}
+
+				oneof interaction_content {
+					ChannelMentionContent channel_mention = 3;
+					PromptStickerContent prompt_sticker = 5;
+				}
+			}
+
+			repeated Interaction interactions = 5;
+			string id = 6;
+			float opacity = 7;
+		}
+
+		repeated PositionableLayerEvent pos_layer_event = 1;
+	}
+
+	StateEvent state = 1;
+	ShortsEffectsData effects = 2;
+
+	message VoiceoverSegment {
+		Span range_in_video = 1;
+	}
+
+	repeated VoiceoverSegment voiceover_segments = 3;
+	float voiceover_volume = 4;
+
+	message TextToSpeechSegment {
+		Span range_in_video = 1;
+		string voice = 2;
+		string text = 3;
+	}
+
+	repeated TextToSpeechSegment text_to_speech_segments = 5;
+	float text_to_speech_volume = 6;
+	float visual_remix_volume = 7;
+}

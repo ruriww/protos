@@ -1,0 +1,254 @@
+edition = "2023";
+
+package social.logs;
+
+import "unknown/youtube/gerr_code10785.proto";
+import "social/discovery/saes.proto";
+import "social/clients/social_client.proto";
+import "social/frontend/sendkit/data/entry_point.proto";
+import "social/logs/eng/sharekit/entry_point_enum.proto";
+
+option objc_class_prefix = "SLOG";
+
+message SocialAffinityExtension {
+	enum SocialAffinityEntityType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ENTITY_TYPE = 0;
+		EMAIL = 1;
+		PHONE = 2;
+		USER = 3;
+		CONTACT = 4;
+		PHONE_BASED_NOTIFICATION_TARGET = 5;
+		PROFILE_BASED_NOTIFICATION_TARGET = 6;
+		EMAIL_BASED_NOTIFICATION_TARGET = 7;
+		GROUP = 8;
+		CONTACT_LABEL = 9;
+	}
+
+	message SocialAffinityEntityId {
+		string email = 1;
+		string phone = 2;
+		string obfuscated_gaia_id = 3;
+		int64 contact_id = 4;
+		SocialAffinityEntityType type = 5;
+		string group_id = 6;
+	}
+
+	enum SocialAffinityEntityProvenance {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PROVENANCE = 0;
+		DEVICE = 1;
+		CLOUD = 2;
+		USER_ENTERED = 3;
+		PAPI_AUTOCOMPLETE = 4;
+		PAPI_TOPN = 5;
+		PAPI_LIST_PEOPLE_BY_KNOWN_ID = 6;
+		MENAGERIE = 7;
+		DIRECTORY = 8;
+		DAS_TOP_AFFINITIES = 9;
+		PREPOPULATED = 10;
+		SMART_ADDRESS_EXPANSION = 11;
+		SMART_ADDRESS_REPLACEMENT = 12;
+		CUSTOM_RESULT_PROVIDER = 13;
+		PASTE = 14;
+		EXTERNAL_INTERACTION = 15;
+	}
+
+	message SocialAffinityEntityMetadata {
+		SocialAffinityEntityPosition position = 1;
+		SocialAffinityEntityProfile profile = 2;
+		repeated SocialAffinityEntityProvenance provenance = 3 [ features.repeated_field_encoding = EXPANDED ];
+		repeated SocialAffinityEntityPosition additional_position = 4;
+		bool has_avatar = 5;
+		bool is_boosted = 6;
+		bool is_placeholder = 7;
+		SmartAddressEntityMetadata smart_address_entity_metadata = 8;
+
+		enum SocialAffinityEntityUISurface {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_UI_TYPE = 0;
+			A_TO_Z_LIST = 1;
+		}
+
+		SocialAffinityEntityUISurface ui_surface = 9;
+		bool is_self = 11;
+		bool is_out_of_domain = 12;
+
+		enum SocialAffinityEntityRankType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_RANK_TYPE = 0;
+			FIELD = 1;
+			PERSON = 2;
+		}
+
+		SocialAffinityEntityRankType rank_type = 13;
+		int32 rank = 14;
+		int64 query_id = 15;
+		int64 selection_id = 16;
+		bool is_app_reachable = 17;
+		bool has_disambiguation_label = 18;
+	}
+
+	enum SocialAffinityEntityPositionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_POSITION_TYPE = 0;
+		GLOBAL = 1;
+		WITHIN_SECTION = 2;
+		PERSON = 3;
+		WITHIN_PERSON = 4;
+	}
+
+	message SocialAffinityEntityPosition {
+		int32 row = 1;
+		int32 column = 2;
+		SocialAffinityEntityPositionType type = 3;
+	}
+
+	message SocialAffinityEntityProfile {
+		string name = 1;
+	}
+
+	message AutocompleteMetadata {
+		int32 query_length = 1;
+		string query = 2;
+		AutocompleteSessions sessions = 3;
+	}
+
+	message ShowMetadata {
+		int32 latency_usec = 1;
+		int32 data_latency_usec = 2;
+	}
+
+	message QueryErrorMetadata {
+		unknown.youtube.GERRCode10785.GERRCode canonical_code = 1;
+	}
+
+	message AutocompleteClientMetadata {
+		bool had_valid_cache = 1;
+		int64 time_since_cache_refresh_usec = 2;
+		int64 cache_refresh_usec = 3;
+		bool had_device_contact_permissions = 4;
+		bool verb_interaction_fetching_enabled = 5;
+		bool had_verb_interactions = 6;
+	}
+
+	message AutocompleteSessions {
+		int64 query_id = 1;
+		int64 selection_id = 2;
+		int64 submission_id = 3;
+		string instance_id = 4;
+		int32 affinity_version = 5;
+	}
+
+	message ReactrMetadata {
+		bool attributed_sharing_enabled = 1;
+		string share_panel_version = 2;
+	}
+
+	message ApdlMetadata {
+		string application_package_name = 1;
+		string widget_name = 2;
+	}
+
+	message SmartAddressEntityMetadata {
+		int32 existing_selections_count = 1;
+		SocialAffinityEntityPosition position = 2;
+		string replacement_origin_email_address = 3;
+		string replacement_destination_email_address = 4;
+	}
+
+	message PhoneRegionHints {
+		string mobile_network_country = 1;
+		string sim_country = 2;
+		string locale_country = 3;
+	}
+
+	enum ClientAgent {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_DATA_LAYER = 0;
+		POPULOUS_V1 = 1;
+		POPULOUS_V2 = 2;
+		CONTACT_STORE = 3;
+		POPULOUS = 4;
+	}
+
+	enum SocialAffinityEventType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		QUERY = 13;
+		SHOW = 1;
+		COUNTERFACTUAL_SHOW = 16;
+		QUERY_ERROR = 14;
+		CLICK = 2;
+		DESELECT = 17;
+		ACCEPT = 3;
+		REJECT = 5;
+		SECONDARY_ACTION = 19;
+		SEND = 8;
+		SAVE_DRAFT = 9;
+		DISMISS = 7;
+		PROCEED = 10;
+		ACCEPT_INVITATION = 11;
+		REJECT_INVITATION = 12;
+		EXTERNAL_SELECTION = 15;
+		EXTERNAL_DESELECTION = 18;
+		HIDE = 20;
+		UNHIDE = 21;
+		CONTACT_VIEW = 22;
+		QUERY_BACKTRACK = 23;
+	}
+
+	SocialAffinityEventType event_type = 1;
+
+	message SocialAffinityEntity {
+		string logging_id = 1;
+		SocialAffinityEntityMetadata metadata = 3;
+		SocialAffinityEntityId entity_id = 4;
+	}
+
+	repeated SocialAffinityEntity entity = 2;
+
+	message SocialAffinityScoringInfo {
+		int64 score_version = 1;
+		fixed64 session_id = 2;
+	}
+
+	SocialAffinityScoringInfo scoring_info = 3;
+
+	message SocialAffinityMetadata {
+		AutocompleteMetadata autocomplete_metadata = 1;
+		int32 affinity_version = 2;
+		AutocompleteClientMetadata autocomplete_client_metadata = 3;
+		ReactrMetadata reactr_metadata = 4;
+		ApdlMetadata apdl_metadata = 5;
+		ShowMetadata show_metadata = 6;
+		QueryErrorMetadata query_error_metadata = 7;
+		PhoneRegionHints phone_region_hints = 8;
+	}
+
+	SocialAffinityMetadata metadata = 4;
+
+	message SocialAffinityClientInterface {
+		discovery.Saes.SocialAffinityEventSource event_source = 2;
+		clients.SocialClient social_client = 3;
+		string version_name = 5;
+		repeated string enabled_experiments_flags = 6;
+		int64 baseline_cl = 7;
+		int32 sendkit_entry_point = 8;
+		ClientAgent client_agent = 9;
+		string application_identifies = 10;
+		frontend.sendkit.data.EntryPoint peoplekit_entry_point = 11;
+		eng.sharekit.EntryPointEnum.EntryPoint sharekit_entry_point = 14;
+		int32 event_source_id = 15;
+	}
+
+	SocialAffinityClientInterface client_interface = 5;
+	int64 event_timestamp_usec = 6;
+}

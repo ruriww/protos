@@ -1,0 +1,14 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/heartbeat_config.proto";
+import "synckit/update_handling_config.proto";
+
+option objc_class_prefix = "GSYP";
+
+message ClientConfig {
+	HeartbeatConfig heartbeat_config = 1;
+	UpdateHandlingConfig update_handling_config = 2;
+	bytes cipher = 3;
+}

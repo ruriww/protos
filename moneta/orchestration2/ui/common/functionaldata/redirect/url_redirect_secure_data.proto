@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UrlRedirectSecureData {
+	extend data.Data {
+		UrlRedirectSecureData url_redirect_secure_data_extension = 247679520;
+	}
+
+	string request_url = 1;
+}

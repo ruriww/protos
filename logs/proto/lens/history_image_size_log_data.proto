@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message HistoryImageSizeLogData {
+	int64 image_size = 1;
+	float image_quality = 2;
+}

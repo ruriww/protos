@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.logging;
+
+import "payments/logging/orchestration/client/client_log_enums.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AndroidFrameRenderConfiguration {
+	payments.logging.orchestration.client.ClientLogEnums.FrameRenderEventType frame_render_event = 1;
+	int32 max_frame_count = 2;
+	int32 time_duration_millis = 3;
+
+	enum ReportingMode {
+		option features.enum_type = CLOSED;
+
+		RECORDING_MODE_UNKNOWN = 0;
+		RECORDING_MODE_FRAMES = 1;
+		RECORDING_MODE_HISTOGRAM = 2;
+	}
+
+	ReportingMode reporting_mode = 4;
+}

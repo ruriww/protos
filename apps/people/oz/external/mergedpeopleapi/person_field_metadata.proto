@@ -1,0 +1,79 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/affinity.proto";
+import "apps/people/oz/external/mergedpeopleapi/field_acl.proto";
+import "apps/people/oz/external/mergedpeopleapi/edge_key_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/match_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/container_type.proto";
+import "apps/people/oz/external/mergedpeopleapi/additional_container_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/deduped_container_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/product_metadata.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "POEM";
+
+message PersonFieldMetadata {
+	bool writeable = 1 [ default = false ];
+
+	enum Container {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 3;
+		PROFILE = 0;
+		CONTACT = 1;
+		CIRCLE = 2;
+		PLACE = 4;
+		ACCOUNT = 5;
+		EXTERNAL_ACCOUNT = 6;
+		DOMAIN_PROFILE = 7;
+		DOMAIN_CONTACT = 8;
+		DEVICE_CONTACT = 9;
+		GOOGLE_GROUP = 10;
+		AFFINITY = 11;
+		RAW_DEVICE_CONTACT = 13;
+		CONTACT_ANNOTATION = 14;
+		DELEGATED_CONTACT = 15;
+	}
+
+	Container container = 2 [ default = UNKNOWN ];
+	bool primary = 3;
+	bool edge_key = 4;
+	int64 deprecated_contact_container_id = 5 [ deprecated = true ];
+
+	enum Visibility {
+		option features.enum_type = CLOSED;
+
+		VISIBILITY_UNKNOWN = 2;
+		PUBLIC = 0;
+		USER = 1;
+	}
+
+	Visibility visibility = 6 [ default = USER ];
+	bool verified = 7 [ default = false ];
+	int64 container_id = 8;
+	string encoded_container_id = 9;
+	repeated Affinity affinity = 10;
+	FieldAcl field_acl = 11;
+	bool container_primary = 12;
+	repeated EdgeKeyInfo edge_key_info = 13;
+	repeated MatchInfo matching_info = 14;
+	ContainerType container_type = 15;
+	AdditionalContainerInfo additional_container_info = 19;
+	repeated DedupedContainerInfo other_deduped_containers = 20;
+	bool cross_device_allowed = 21 [ default = false ];
+	repeated ProductMetadata product_metadata = 24;
+
+	enum ContactVisibilityEnum {
+		option features.enum_type = CLOSED;
+
+		CONTACT_VISIBILITY_UNSPECIFIED = 0;
+		VISIBLE_TO_GUEST = 1;
+	}
+
+	repeated ContactVisibilityEnum contact_visibility = 27 [ features.repeated_field_encoding = EXPANDED ];
+	google.protobuf.Timestamp last_update_time = 28;
+	repeated FieldAcl acl_choices = 30;
+	FieldAcl default_acl_choice = 32;
+}

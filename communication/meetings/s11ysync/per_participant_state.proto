@@ -1,0 +1,9 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+option objc_class_prefix = "GHM";
+
+message PerParticipantState {
+	bytes state = 1;
+}

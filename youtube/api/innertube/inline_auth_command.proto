@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InlineAuthCommand {
+	extend Command {
+		InlineAuthCommand inline_auth_command = 196607391;
+	}
+
+	Command post_auth_success_command = 1;
+	Command post_auth_failure_command = 2;
+	Command on_auth_started_command = 3;
+	Command on_auth_cancelled_command = 4;
+	Renderer fallback_password_auth_renderer = 5;
+	repeated Renderer preferred_auth_renderers = 6;
+	Command checkbox_set_succeed_command = 7;
+}

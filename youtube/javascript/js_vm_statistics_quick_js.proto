@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.javascript;
+
+option objc_class_prefix = "YTJS";
+
+message JsVmStatisticsQuickJs {
+	uint64 malloc_size = 1;
+	uint64 malloc_limit = 2;
+	uint64 memory_used_size = 3;
+	uint64 malloc_count = 4;
+	uint64 memory_used_count = 5;
+}

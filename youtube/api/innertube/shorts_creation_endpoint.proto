@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/shorts_creation_surface.proto";
+import "youtube/api/innertube/shorts_creation_page.proto";
+import "youtube/api/innertube/shorts_creation_deep_link_params.proto";
+import "youtube/api/innertube/shorts_creation_remix_type.proto";
+import "youtube/api/innertube/shorts_creation_entry_context.proto";
+import "youtube/api/innertube/video_template_container.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationEndpoint {
+	extend Command {
+		ShortsCreationEndpoint shorts_creation_endpoint = 307460408;
+	}
+
+	bool hack = 1;
+	repeated Renderer pivot_renderer = 2;
+	ShortsCreationSurface surface = 3;
+	ShortsCreationPage page = 4;
+	Command navigation_command = 5;
+	repeated Renderer overlay_renderer = 6;
+	string frontend_id_namespace = 7;
+	string currently_playing_video_id = 8;
+	ShortsCreationDeepLinkParams deep_link_params = 9;
+	ShortsCreationRemixType remix_type = 10;
+	ShortsCreationEntryContext entry_context = 11;
+	VideoTemplateContainer video_template_container = 12;
+	bytes preset_metadata_editor_payload = 14;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/livestream_id.proto";
+import "youtube/api/innertube/highlight_video_metadata.proto";
+import "youtube/api/innertube/time_range.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateLivestreamHighlightClipRequest {
+	InnerTubeContext context = 1;
+	string external_video_id = 7;
+	string frontend_upload_id = 8;
+	LivestreamId livestream_id = 9;
+	HighlightVideoMetadata highlight_video_metadata = 10;
+	repeated TimeRange clip_ranges = 11;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/request_context/request_id.proto";
+import "lens/request_context/client_context.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message LensFrontendRequestContext {
+	bytes analytics_id = 1;
+	.lens.request_context.RequestId request_id = 3;
+	.lens.request_context.ClientContext client_context = 4;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/element.proto";
+import "youtube/api/innertube/hint_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowComposerCommand {
+	elements.Element element = 1;
+	HintRenderer hint_renderer = 2;
+	string hint_anchor_view_label = 3;
+}

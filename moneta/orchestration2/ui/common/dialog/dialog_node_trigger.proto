@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dialog;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DialogNodeTrigger {
+	extend eventrules.trigger.Trigger {
+		DialogNodeTrigger dialog_node_trigger_extension = 315544913;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_DISMISS = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

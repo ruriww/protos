@@ -1,0 +1,23 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message SocialConnection {
+	PersonFieldMetadata metadata = 1;
+
+	enum SocialConnectionType {
+		option features.enum_type = CLOSED;
+
+		SOCIAL_CONNECTION_UNKNOWN = 0;
+		NO_CONNECTION = 1;
+		GPLUS_SECOND_HOP = 2;
+		DIRECT_CONNECTION = 3;
+		SELF = 4;
+	}
+
+	repeated SocialConnectionType type = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+import "photos_vision_barhopper/barcode.proto";
+import "photos_vision_barhopper/status.proto";
+
+option objc_class_prefix = "BAR";
+
+message BarhopperResponse {
+	repeated Barcode barcode = 1;
+	Status status = 2;
+	string error_message = 3;
+	bytes debug_info = 4;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message MutationId {
+	int32 id = 1;
+}

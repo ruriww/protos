@@ -1,0 +1,16 @@
+edition = "2023";
+
+package privacy.consent;
+
+import "unknown/youtube/event_id_message.proto";
+import "logs/privacy/consent/uuid.proto";
+
+option objc_class_prefix = "PCO";
+
+message ConsentSessionId {
+	oneof id {
+		unknown.youtube.EventIdMessage event_id = 1;
+		logs.privacy.consent.UUID uuid = 2;
+		string uuid_string = 3;
+	}
+}

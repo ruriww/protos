@@ -1,0 +1,18 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message FontSizeStats {
+	int32 font_id = 1;
+	int32 font_size = 2;
+	int32 num_symbols = 3 [ default = 0 ];
+	int32 median_height = 4;
+	int32 median_width = 5;
+	int32 num_lines = 7 [ default = 0 ];
+	int32 median_line_height = 8;
+	int32 num_line_spaces = 9 [ default = 0 ];
+	int32 median_line_span = 10;
+	int32 median_line_space = 11;
+}

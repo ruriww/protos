@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_meta_data.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitDiagnosticMetadata {
+	string application_version = 1;
+	MetricKitMetaData metadata = 7;
+}

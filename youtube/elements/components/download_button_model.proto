@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/download_button.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/download_status_entity.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/api/innertube/main_offline_generation_status_entity.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/download_button_experiments.proto";
+import "youtube/api/innertube/offlineability_entity.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadButtonModel {
+	oneof data_model {
+		DownloadButton download_button = 1;
+		api.innertube.Renderer view_model = 10;
+	}
+
+	api.innertube.DownloadStatusEntity download_status = 2;
+	Theme theme = 3;
+	api.innertube.MainOfflineGenerationStatusEntity generation_status = 4;
+	Context context = 6;
+	DownloadButtonExperiments experiments = 7;
+	api.innertube.OfflineabilityEntity offlineability_entity = 8;
+}

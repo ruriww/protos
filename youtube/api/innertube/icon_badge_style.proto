@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IconBadgeStyle {
+	option features.enum_type = CLOSED;
+
+	ICON_BADGE_STYLE_UNKNOWN = 0;
+	ICON_BADGE_STYLE_RED = 1;
+	ICON_BADGE_STYLE_BLUE = 2;
+}

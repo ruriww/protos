@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ads_client_error_type.proto";
+import "youtube/api/innertube/ads_client_error_message.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsClientErrorInfo {
+	AdsClientErrorType error_type = 1;
+	AdsClientErrorMessage error_message = 2;
+}

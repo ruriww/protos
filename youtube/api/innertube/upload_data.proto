@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadData {
+	string frontend_upload_id = 1;
+	uint64 sent_bytes = 2;
+	string filename = 3;
+
+	message EditData {
+		bool trim_enabled = 1;
+		bool audioswap_enabled = 2;
+		int64 trim_start_time_us = 3;
+		int64 trim_end_time_us = 4;
+		string audioswap_source_uri = 5;
+		float audioswap_volume = 6;
+		int64 audioswap_offset_us = 7;
+		string selected_filter = 8;
+		bool audioswap_repeat = 9;
+		bool source_slow_motion = 10;
+		bool only_upload_over_wifi = 11;
+		bool text_pos_layers_used = 12;
+		bool sticker_pos_layers_used = 13;
+		string capture_selected_filter = 14;
+		int32 source_video_width = 15;
+		int32 source_video_height = 16;
+	}
+
+	EditData edit_data = 4;
+}

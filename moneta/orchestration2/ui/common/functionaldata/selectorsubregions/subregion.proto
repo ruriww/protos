@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.selectorsubregions;
+
+import "moneta/orchestration2/ui/common/dynamiccontainer/dynamic_container_key_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Subregion {
+	int32 parent_option_tag_key = 1;
+	repeated dynamiccontainer.DynamicContainerKeyValue subregion_data_fields = 2;
+}

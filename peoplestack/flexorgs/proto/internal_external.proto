@@ -1,0 +1,20 @@
+edition = "2023";
+
+package peoplestack.flexorgs.proto;
+
+import "peoplestack/flexorgs/proto/internal_external_context_type.proto";
+import "peoplestack/flexorgs/proto/internal_external_state.proto";
+import "social/clients/application.proto";
+
+option objc_class_prefix = "PSKFO";
+
+message InternalExternal {
+	social.clients.Application application = 1 [ default = UNKNOWN_APPLICATION ];
+
+	message StateStatus {
+		InternalExternalContextType context_type = 1;
+		InternalExternalState state = 2;
+	}
+
+	repeated StateStatus state_status = 2;
+}

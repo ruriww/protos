@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+import "google/internal/identity/accountsettings/mobile/v1/stack.proto";
+
+option objc_class_prefix = "ASM";
+
+message CollectionCard {
+	string title = 1;
+	string description = 2;
+	string hyperlink_text = 3;
+	Link hyperlink = 4;
+	repeated Stack stacks = 5;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/text_decoration_type.proto";
+import "drishti/app/skia/stickers/text_decoration_style.proto";
+import "drishti/app/skia/stickers/text_decoration_mode.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message TextStyleDecoration {
+	TextDecorationType type = 1;
+	TextDecorationStyle style = 2;
+	TextDecorationMode mode = 3;
+	float thickness_multiplier = 4;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+option objc_class_prefix = "CLI";
+
+message ClientRelease {
+	enum ClientReleaseType {
+		option features.enum_type = CLOSED;
+
+		RELEASE_TYPE_UNSPECIFIED = 0;
+		DEV = 1;
+		DOGFOOD = 2;
+		PROD = 3;
+	}
+
+	ClientReleaseType release = 6;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/detection_result.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message DetectionResultSet {
+	repeated DetectionResult detection_results = 1;
+}

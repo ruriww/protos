@@ -1,0 +1,12 @@
+edition = "2023";
+
+package java.com.google.moneta.orchestration2.ui.core.testing.compatibility;
+
+import "java/com/google/moneta/orchestration2/ui/core/testing/compatibility/recording_metadata.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Recording {
+	RecordingMetadata metadata = 1;
+	bytes content = 2;
+}

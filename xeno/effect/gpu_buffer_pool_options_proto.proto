@@ -1,0 +1,13 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message GpuBufferPoolOptionsProto {
+	int32 keep_count = 1;
+	int32 max_pool_count = 2;
+	float max_inactive_buffer_age = 3;
+	int32 min_requests_before_pool = 4;
+	int32 request_count_scrub_interval = 5;
+}

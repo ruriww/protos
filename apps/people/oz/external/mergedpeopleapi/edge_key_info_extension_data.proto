@@ -1,0 +1,9 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message EdgeKeyInfoExtensionData {
+	string gdata_compatibility_extension_id = 1;
+}

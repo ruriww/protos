@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/effect_subpackage_id.proto";
+import "youtube/api/innertube/effect_intensity.proto";
+import "youtube/api/innertube/effect_surface.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Effect {
+	EffectSubpackageId effect_subpackage = 1;
+	string effect_id = 2;
+	EffectIntensity effect_intensity = 3;
+	bool is_auto_applied = 4;
+	bool is_rendered_on_client = 5;
+	EffectSurface effect_surface = 6;
+}

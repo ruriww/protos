@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+import "apps/dynamite/shared/member_type.proto";
+import "apps/dynamite/shared/membership_state.proto";
+
+option objc_class_prefix = "DYNProto";
+
+message SegmentedMembershipCount {
+	int32 membership_count = 1;
+	MemberType member_type = 2;
+	MembershipState membership_state = 3;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package human_sensing;
+
+option objc_class_prefix = "MVHS";
+
+message FaceDetectionOptions {
+	uint32 min_eye_distance_pixels = 1 [ default = 25 ];
+	uint32 max_eye_distance_pixels = 2 [ default = 1000 ];
+	float max_roll_angle = 3 [ default = 45 ];
+	float landmarking_confidence_threshold = 4 [ default = 0.1 ];
+	float quality = 5 [ default = 0.5 ];
+	float smoothness = 6 [ default = 0.1 ];
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package speech.s3;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "S3";
+
+message StubbyErrorMessage {
+	extend proto2.bridge.MessageSet {
+		StubbyErrorMessage message_set_extension = 76705506;
+	}
+
+	int32 error_code = 1;
+	string error_description = 2;
+}

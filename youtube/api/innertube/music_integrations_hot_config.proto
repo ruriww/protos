@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicIntegrationsHotConfig {
+	bool enable_sideloaded_in_media_browse_tree = 1;
+	bool mbs_should_show_offline_tree_immediately = 2;
+	bool music_disable_full_media_browser_integrations = 3;
+	bool enable_android_mbs_bluetooth_browse = 4;
+	bool enable_waze_android_integration = 5;
+	bool enable_waze_ios_integration = 6;
+	bool enable_waze_banner_when_connected_to_car = 7;
+	bool call_entity_browser_on_play_from_search = 8;
+	bool enable_mbs_grid_style = 9;
+	bool enable_android_mbs_assistant_browse = 10;
+	bool enable_ios_siri_media_types = 11;
+	bool enable_ios_sdk = 12;
+	bool enable_android_integrations_downloads_tree_updates = 13;
+	bool enable_music_android_voz_assistant_click_tracking_params = 14;
+	bool enable_music_android_voz_assistant_inject_dummy_screen = 15;
+	bool enable_apple_watch_sdk_in_memory_cache_reload = 16;
+	int32 apple_watch_sdk_in_memory_cache_check_min_interval_seconds = 17;
+	bool enable_android_mbs_async = 19;
+}

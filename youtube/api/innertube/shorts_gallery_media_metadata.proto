@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/content_spec.proto";
+import "youtube/api/innertube/shorts_gallery_dimensions_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsGalleryMediaMetadata {
+	string local_uri = 1;
+	google.protobuf.Duration duration = 2;
+	ContentSpec content_spec = 3;
+	ShortsGalleryDimensionsMetadata dimensions = 4;
+	string photo_library_id = 5;
+	bool is_external_media = 6;
+	string file_name = 7;
+}

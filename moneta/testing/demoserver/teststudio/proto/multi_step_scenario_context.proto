@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/user_defined_input.proto";
+import "moneta/testing/demoserver/teststudio/proto/conditional_parameter_customization.proto";
+
+option objc_class_prefix = "TSL";
+
+message MultiStepScenarioContext {
+	repeated UserDefinedInput user_defined_input = 1;
+	repeated ConditionalParameterCustomization conditional_parameter_customization = 2;
+}

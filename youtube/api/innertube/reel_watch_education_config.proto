@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelWatchEducationConfig {
+	int32 daily_impression_threshold = 1;
+	int32 permanent_disable_daily_swipe_count_threshold = 2;
+	string storage_key_prefix = 3;
+}

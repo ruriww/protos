@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/timed_continuation_data.proto";
+import "youtube/api/innertube/item_section_supported_renderers.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetAnswerResponse {
+	ResponseContext response_context = 1;
+	Command on_response_received_command = 2;
+	bytes tracking_params = 4;
+	TimedContinuationData timed_continuation_data = 5;
+	ItemSectionSupportedRenderers content = 6;
+	FrameworkUpdateTransport framework_updates = 777;
+	LoggingDirectives logging_directives = 999;
+}

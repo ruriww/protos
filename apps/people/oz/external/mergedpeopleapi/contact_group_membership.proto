@@ -1,0 +1,32 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "social/graph/api/proto/product_contact_group.proto";
+import "apps/people/oz/external/mergedpeopleapi/delegated_group_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message ContactGroupMembership {
+	PersonFieldMetadata metadata = 1;
+	string contact_group_id = 2;
+
+	enum SystemContactGroup {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MY_CONTACTS = 1;
+		STARRED = 2;
+		FRIENDS = 3;
+		FAMILY = 4;
+		COWORKERS = 5;
+	}
+
+	oneof non_user_group {
+		SystemContactGroup system_contact_group_id = 3;
+		social.graph.api.proto.ProductContactGroup product_contact_group_id = 5;
+	}
+
+	DelegatedGroupInfo delegated_group_info = 4;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/request_context/request_id.proto";
+import "lens/image_data.proto";
+import "lens/request_context/locale_context.proto";
+import "lens/image_crop.proto";
+import "google/internal/lens/frontend/api/v1/lens_frontend_request_context.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message ProcessImageRequest {
+	.lens.request_context.RequestId request_id = 1;
+	.lens.ImageData image_data = 2;
+	.lens.request_context.LocaleContext locale_context = 3;
+	.lens.ImageCrop image_crop = 5;
+	LensFrontendRequestContext request_context = 6;
+	bool enable_return_interaction_data = 7;
+}

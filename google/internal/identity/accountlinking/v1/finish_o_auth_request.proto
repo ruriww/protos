@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "ALK";
+
+message FinishOAuthRequest {
+	RequestHeader header = 1;
+	string service_id = 2;
+	string session_id = 3;
+	string redirect_state = 4;
+	string consent_language_keys = 5;
+	protobuf.Timestamp partner_config_min_read_timestamp = 6;
+}

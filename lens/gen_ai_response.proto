@@ -1,0 +1,22 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message GenAiResponse {
+	string gen_ai_answer = 1;
+	string rewritten_search_query = 2;
+	string internal_thinking = 3;
+	string raw_response = 4;
+
+	enum Instruction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INSTRUCTION = 0;
+		SHOW_ANSWER = 1;
+		TRIGGER_SEARCH = 2;
+	}
+
+	Instruction instruction = 5;
+}

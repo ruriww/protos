@@ -1,0 +1,62 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_take_thumbnail_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_go_live_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_edit_thumbnail_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileBroadcastSetupGoLiveScreenRenderer {
+	FormattedString taking_thumbnail_text = 1;
+
+	message Orientation {
+		FormattedString label = 1;
+		Icon icon = 2;
+		Renderer back_button = 3;
+	}
+
+	Orientation portrait = 2;
+	Orientation landscape = 3;
+	MobileBroadcastSetupTakeThumbnailButtonSupportedRenderers take_thumbnail_button = 4;
+	MobileBroadcastSetupGoLiveButtonSupportedRenderers go_live_button = 5;
+	MobileBroadcastSetupEditThumbnailButtonSupportedRenderers edit_thumbnail_button = 6;
+	Renderer done_scheduling_button = 7;
+	Renderer switch_camera_button = 8;
+	ThumbnailDetails thumbnail = 9;
+	Renderer edit_menu_button = 10;
+	Renderer edit_menu = 11;
+	Renderer share_button = 12;
+	FormattedString video_title = 13;
+	FormattedString channel_name = 14;
+	Renderer back_button = 16;
+	FormattedString title_text = 17;
+	FormattedString schedule_info = 18;
+	Icon schedule_icon = 19;
+	uint64 scheduled_start_time_sec = 20;
+	bool is_screencast = 21;
+	FormattedString game_title_label = 23;
+	string game_title_placeholder = 24;
+	bool enable_portrait_speedbump = 25;
+	Renderer orientation_help_button = 26;
+	string edit_broadcast_setup_params = 27;
+	Renderer plan_ahead_items = 28;
+	FormattedString plan_ahead_title_text = 29;
+	string channel_avatar_url = 30;
+	Orientation orientation_nudge = 31;
+	bool enable_orientation_nudge = 32;
+	Renderer orientation_nudge_renderer = 33;
+	bool show_orientation_nudge_for_advanced_settings = 34;
+}
+
+extend Renderer {
+	MobileBroadcastSetupGoLiveScreenRenderer mobile_broadcast_setup_go_live_screen_renderer = 126007832;
+}

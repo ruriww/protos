@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.templates.proto;
+
+import "google/protobuf/any.proto";
+import "youtube/elements/templates/proto/elements_resource_status.proto";
+
+option java_package = "com.google.protos.youtube.elements.templates.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message EMLTemplateData {
+	string identifier = 1;
+	google.protobuf.Any template_config = 2;
+	repeated string direct_dependencies = 3;
+	int64 resource_tag = 4;
+	ElementsResourceStatus resource_status = 5;
+}

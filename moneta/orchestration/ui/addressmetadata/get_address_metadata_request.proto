@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addressmetadata;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+
+option objc_class_prefix = "AddressMetadata";
+
+message GetAddressMetadataRequest {
+	common.RequestContext context = 1;
+	string region_code = 2;
+	bytes address_validation_type_token = 3;
+	string override_language_code = 4;
+}

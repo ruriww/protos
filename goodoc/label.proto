@@ -1,0 +1,19 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/char_label.proto";
+import "goodoc/language_label.proto";
+import "goodoc/break_label.proto";
+import "goodoc/semantic_label.proto";
+import "goodoc/anchor_label.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message Label {
+	CharLabel CharLabel = 1;
+	repeated LanguageLabel LanguageLabel = 2;
+	BreakLabel BreakLabel = 3;
+	SemanticLabel SemanticLabel = 4;
+	repeated AnchorLabel AnchorLabel = 5;
+}

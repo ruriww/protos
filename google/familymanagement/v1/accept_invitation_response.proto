@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+import "google/familymanagement/v1/family_join_error_type.proto";
+
+option objc_class_prefix = "GFM";
+
+message AcceptInvitationResponse {
+	ApiResponseHeader api_header = 1;
+	repeated UnmetPrecondition parent_unmet_precondition = 2;
+	FamilyJoinErrorType error = 3;
+	int64 family_creation_timestamp_millis = 4;
+}

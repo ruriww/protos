@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.button;
+
+option objc_class_prefix = "ORCH2";
+
+message ButtonNewValue {
+	oneof change_value {
+		string new_value = 1;
+	}
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+message IsAnnotatedOverlaysEnabledResult {
+	bool is_annotated_overlays_enabled = 1;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/music_multiselect_form_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicMultiselectFormRenderer {
+	FormattedString header = 1;
+	FormattedString subheader = 2;
+	repeated Renderer items = 3;
+	Renderer proceed_button = 4;
+	Renderer dismiss_button = 5;
+	int32 min_num_required_selections = 6;
+	bytes tracking_params = 8;
+	Command impression_command = 9;
+}
+
+extend Renderer {
+	MusicMultiselectFormRenderer music_multiselect_form_renderer = 209621365;
+}
+
+extend Renderer {
+	MusicMultiselectFormItemRenderer music_multiselect_form_item_renderer = 206965052;
+}

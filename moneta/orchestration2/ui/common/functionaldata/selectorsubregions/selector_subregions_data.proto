@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.selectorsubregions;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorSubregionsData {
+	extend data.Data {
+		SelectorSubregionsData selector_subregions_data_extension = 1005;
+	}
+
+	oneof initial_value {
+		int32 option_tag = 2;
+		string value = 3;
+	}
+
+	bytes opaque_token = 5;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelBarHeaderViewModel {
+	extend Renderer {
+		ChannelBarHeaderViewModel channel_bar_header_view_model = 477514866;
+	}
+
+	oneof title_oneof {
+		string title = 1;
+		elements.AttributedString attributed_title = 10;
+	}
+
+	string subtitle = 2;
+	Renderer avatar = 3;
+	elements.Command on_tap = 4;
+	bool show_subtitle = 6;
+	elements.AttributedString title_truncation_text = 11;
+	string title_accessibility_text = 12;
+}

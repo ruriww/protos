@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ToggleButtonViewModel {
+	extend Renderer {
+		ToggleButtonViewModel toggle_button_view_model = 479644279;
+	}
+
+	Renderer default_button_view_model = 1;
+	Renderer toggled_button_view_model = 2;
+	bool is_toggled = 3;
+	string identifier = 4;
+	bytes tracking_params = 5;
+	bool is_toggling_disabled = 7;
+	string entity_key = 8;
+	bool toggled_is_toggling_disabled = 10;
+	RendererContext renderer_context = 997;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneInputCondition {
+	extend eventrules.condition.Condition {
+		PhoneInputCondition phone_input_condition_extension = 232060283;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_REGION_CODE_MATCH = 1;
+	}
+
+	ConditionType condition_type = 1;
+
+	oneof condition {
+		string region_code_match = 2;
+	}
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/text_sticker_font_style.proto";
+import "youtube/api/innertube/text_sticker_font_name.proto";
+import "youtube/api/innertube/mention_sticker.proto";
+import "youtube/api/innertube/text_background_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextSticker {
+	bool is_auto_text_style = 1;
+	int32 foreground_color = 2;
+	int32 background_color = 3;
+	TextStickerFontStyle font_style = 4;
+	TextStickerFontName font_name = 5;
+	repeated MentionSticker mention_sticker = 6;
+	TextBackgroundStyle text_background_style = 7;
+	string dominant_language = 8;
+}

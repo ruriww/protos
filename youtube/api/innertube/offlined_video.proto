@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlined_video_ad_break.proto";
+import "video_streaming/format_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinedVideo {
+	string video_id = 1;
+	uint32 time_since_offlined_seconds = 2;
+	uint32 time_since_last_offline_playback_seconds = 3;
+	repeated OfflinedVideoAdBreak ad_breaks = 4;
+	uint32 time_since_last_metadata_refresh_seconds = 5;
+	uint32 time_since_last_stream_refresh_seconds = 6;
+	uint32 time_since_last_storyboard_refresh_seconds = 7;
+	bool missing_media = 8;
+	repeated video_streaming.FormatId format_ids = 9;
+}

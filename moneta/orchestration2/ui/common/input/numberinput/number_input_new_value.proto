@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+option objc_class_prefix = "ORCH2";
+
+message NumberInputNewValue {
+	string integer_digits = 1;
+	string fractional_digits = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message SimulatedInput {
+	repeated float xs = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated float ys = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated double ts_secs = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

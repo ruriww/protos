@@ -1,0 +1,70 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_transfer_entity_differing_field.proto";
+import "youtube/api/innertube/offline_video_state.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+import "youtube/api/innertube/offline_video_pending_state.proto";
+import "youtube/api/innertube/offline_suspended_state.proto";
+import "youtube/api/innertube/additional_video_client_state.proto";
+import "youtube/api/innertube/offline_playback_disabled_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineStateVideo {
+	string id = 1;
+	OfflineVideoState video_state = 2;
+	uint32 pending_state_flags = 3;
+	int64 downloaded_bytes = 4;
+	OfflineabilityFormatType selected_video_quality = 5;
+	OfflineModeType selected_offline_mode = 6;
+	int64 player_response_saved_time_ms = 7;
+	int64 offline_state_update_time_ms = 8;
+	int64 offline_state_expires_in_s = 9;
+	int64 duration_in_s = 10;
+	bool is_in_playlist = 11;
+	DetailedNetworkType added_network_type = 12;
+	DetailedNetworkType download_completed_network_type = 13;
+
+	message OfflineStateCaption {
+		int32 format = 1;
+		bool is_downloaded = 2;
+	}
+
+	repeated OfflineStateCaption captions = 14;
+	OfflineVideoPendingState unused_offline_video_pending_state = 15;
+	int64 last_playback_timestamp_ms = 16;
+	repeated OfflineSuspendedState offline_suspended_states = 17;
+	bool stream_in_local_storage = 18;
+	bool stream_in_internal_storage = 19;
+	int64 total_bytes = 21;
+	string cotn = 22;
+	AdditionalVideoClientState additional_video_client_state = 23;
+
+	message OfflineVideoEntityMigrationState {
+		bool is_in_offline_store = 1;
+		bool is_playback_data_entity_present = 2;
+		bool was_playback_data_entity_used_to_fill_video_state = 3;
+		bool is_transfer_entity_present = 4;
+		bool was_transfer_entity_used_to_fill_video_state = 5;
+		int32 offline_store_caption_track_count = 6;
+		int32 entity_store_caption_track_count = 7;
+		bool is_metadata_entity_present = 8;
+		repeated OfflineTransferEntityDifferingField transfer_diff_fields = 9;
+		bool is_playback_data_present_in_legacy_store = 10;
+		bool is_transfer_data_present_in_legacy_store = 11;
+	}
+
+	OfflineVideoEntityMigrationState offline_video_entity_migration_state = 24;
+	int64 last_progress_time_ms = 25;
+	int64 initial_progress_time_ms = 26;
+	OfflinePlaybackDisabledReason offline_playback_disabled_reason = 27;
+	bytes video_download_context_entity_data = 28;
+	bool is_drm = 29;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactListItemStyle {
+	enum CompactListItemStyleType {
+		option features.enum_type = CLOSED;
+
+		COMPACT_LIST_ITEM_STYLE_TYPE_UNKNOWN = 0;
+		COMPACT_LIST_ITEM_STYLE_TYPE_NORMAL = 1;
+		COMPACT_LIST_ITEM_STYLE_TYPE_UNAVAILABLE = 2;
+		COMPACT_LIST_ITEM_STYLE_TYPE_BUTTON = 3;
+	}
+
+	CompactListItemStyleType value = 1;
+}

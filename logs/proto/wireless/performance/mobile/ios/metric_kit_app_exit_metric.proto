@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_foreground_exit_data.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_background_exit_data.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitAppExitMetric {
+	MetricKitForegroundExitData foreground_exit_data = 1;
+	MetricKitBackgroundExitData background_exit_data = 2;
+}

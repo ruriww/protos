@@ -1,0 +1,45 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/latency_metric_stats.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message OnDeviceModelQueryLatencyMetrics {
+	LatencyMetricStats dense_text_classifier_latency = 1;
+	LatencyMetricStats dense_text_classifier_inference_latency = 2;
+	LatencyMetricStats mobile_ssd_latency = 3;
+	LatencyMetricStats mobile_ssd_inference_latency = 4;
+	LatencyMetricStats box_classifier_latency = 5;
+	LatencyMetricStats box_classifier_inference_latency = 6;
+	LatencyMetricStats sensitivity_filter_latency = 7;
+	LatencyMetricStats quad_detector_latency = 8;
+	LatencyMetricStats quad_detector_inference_latency = 9;
+	LatencyMetricStats image_embedder_latency = 10;
+	LatencyMetricStats image_embedder_inference_latency = 11;
+	LatencyMetricStats ocr_recognizer_latency = 12;
+	LatencyMetricStats text_sensitivity_classifier_latency = 13;
+	LatencyMetricStats two_stage_mobile_raid_latency = 14;
+	LatencyMetricStats two_stage_mobile_raid_inference_latency = 15;
+	LatencyMetricStats one_stage_mobile_raid_latency = 16;
+	LatencyMetricStats one_stage_mobile_raid_inference_latency = 17;
+	LatencyMetricStats barcode_detector_latency = 18;
+	LatencyMetricStats sensitivity_classifier = 19;
+	LatencyMetricStats shopping_intent_classifier = 20;
+	LatencyMetricStats migrolino_latency = 21;
+	LatencyMetricStats migrolino_inference_latency = 22;
+	LatencyMetricStats inpainter_latency = 23;
+	LatencyMetricStats inpainter_inference_latency = 24;
+	LatencyMetricStats sproducts_latency = 25;
+	LatencyMetricStats sproducts_inference_latency = 26;
+	LatencyMetricStats scam_embedding_query_latency = 27;
+	LatencyMetricStats product_search_query_latency = 28;
+	LatencyMetricStats raid_v19_latency = 29;
+	LatencyMetricStats raid_v19_inference_latency = 30;
+	LatencyMetricStats raid_saliency_silo_latency = 31;
+	LatencyMetricStats raid_saliency_silo_inference_latency = 32;
+	LatencyMetricStats saliency_silo_latency = 33;
+	LatencyMetricStats ocr_embedder_latency = 34;
+	LatencyMetricStats ocr_embedder_inference_latency = 35;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+option objc_class_prefix = "Buyflow";
+
+message CommonParams {
+	string country_name_code_in_address_hint = 1;
+	string cart_currency = 2;
+}

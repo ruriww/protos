@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+enum BarcodeType {
+	option features.enum_type = CLOSED;
+
+	BARCODE_UNKNOWN = 0;
+	BARCODE_QR = 1;
+	BARCODE_1D = 2;
+}

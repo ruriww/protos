@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/animated_teaser_supported_data.proto";
+import "youtube/api/innertube/animated_top_teasers_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnimatedTeaserEntity {
+	string key = 1;
+	AnimatedTeaserSupportedData teaser_to_hide = 2;
+	AnimatedTeaserSupportedData teaser_to_show = 3;
+	bool animation_switch_triggered = 4;
+	AnimatedTopTeasersData animated_top_teasers_data = 5;
+	bool is_clicked = 7;
+	string clicked_teaser_key = 9;
+}

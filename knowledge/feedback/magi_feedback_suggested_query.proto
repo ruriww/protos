@@ -1,0 +1,12 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "knowledge/feedback/taxonomy.proto";
+
+option objc_class_prefix = "UFR";
+
+message MagiFeedbackSuggestedQuery {
+	string text = 1;
+	Taxonomy.IssueType feedback_issue_type = 2;
+}

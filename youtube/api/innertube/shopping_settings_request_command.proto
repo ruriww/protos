@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/get_shopping_settings_request.proto";
+import "youtube/api/innertube/update_shopping_settings_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingSettingsRequestCommand {
+	extend elements.Command {
+		ShoppingSettingsRequestCommand shopping_settings_request_command = 510387603;
+	}
+
+	oneof request {
+		GetShoppingSettingsRequest get_shopping_settings = 1;
+		UpdateShoppingSettingsRequest update_shopping_settings = 2;
+	}
+
+	string response_storage_entity_key = 3;
+}

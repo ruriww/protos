@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/latency_metric_stats.proto";
+import "logs/proto/lens/fps_metric_stats.proto";
+import "logs/proto/lens/frame_processing_node_latency_metric_stats.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message PerformanceMetrics {
+	LatencyMetricStats tracking_latency_stats = 1;
+	LatencyMetricStats tracking_inner_latency_stats = 2;
+	LatencyMetricStats merge_latency_stats = 3;
+	FpsMetricStats rendering_fps_stats = 4;
+	LatencyMetricStats image_preparation_latency_stats = 5;
+	LatencyMetricStats image_preparation_to_render_latency_stats = 6;
+	LatencyMetricStats tracking_completion_to_render_latency_stats = 7;
+	repeated FrameProcessingNodeLatencyMetricStats frame_processing_node_latency_stats = 8;
+}

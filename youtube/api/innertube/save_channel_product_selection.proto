@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shopping_item_id.proto";
+import "google/protobuf/empty.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SaveChannelProductSelection {
+	string external_channel_id = 1;
+
+	message ExplicitIds {
+		repeated ShoppingItemId ids = 1;
+	}
+
+	oneof selection {
+		ExplicitIds explicit_selection = 2;
+		google.protobuf.Empty use_automatic_selection = 3;
+	}
+}

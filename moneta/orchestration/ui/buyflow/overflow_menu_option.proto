@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/buyflow/page.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message OverflowMenuOption {
+	string label = 1;
+	Page alternate_page = 2;
+}

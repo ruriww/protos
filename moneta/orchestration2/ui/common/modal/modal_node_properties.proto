@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.modal;
+
+option objc_class_prefix = "ORCH2";
+
+message ModalNodeProperties {
+	enum DeviceOrientation {
+		option features.enum_type = CLOSED;
+
+		DEVICE_ORIENTATION_UNKNOWN = 0;
+		DEVICE_ORIENTATION_SYSTEM = 1;
+		DEVICE_ORIENTATION_PORTRAIT = 2;
+		DEVICE_ORIENTATION_LANDSCAPE = 3;
+		DEVICE_ORIENTATION_BEHIND = 4;
+	}
+
+	DeviceOrientation device_orientation = 1;
+
+	enum StatusBarState {
+		option features.enum_type = CLOSED;
+
+		STATUS_BAR_STATE_UNKNOWN = 0;
+		STATUS_BAR_STATE_SYSTEM = 1;
+		STATUS_BAR_STATE_VISIBLE = 2;
+		STATUS_BAR_STATE_HIDDEN = 3;
+	}
+
+	StatusBarState status_bar_state = 2;
+	uint32 navigation_bar_color_argb = 3;
+	bool enable_edge_to_edge = 4;
+}

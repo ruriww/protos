@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message BankAccountFormValue {
+	string id = 1;
+	bytes data_token = 2;
+	repeated generic.UiFieldValue bank_account_field_value = 3;
+	AddressFormValue bank_address_value = 4;
+	AddressFormValue billing_address_value = 5;
+	repeated string legal_message_data = 6;
+}

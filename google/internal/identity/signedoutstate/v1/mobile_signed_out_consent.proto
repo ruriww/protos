@@ -1,0 +1,46 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/internal/identity/signedoutstate/v1/debug_overrides.proto";
+
+option objc_class_prefix = "SOS";
+
+message MobileSignedOutConsent {
+	enum ConsentChoice {
+		CONSENT_CHOICE_UNSPECIFIED = 0;
+		CONSENT_CHOICE_ESSENTIAL_ONLY = 1;
+		CONSENT_CHOICE_ACCEPT_NON_ESSENTIAL = 2;
+	}
+
+	ConsentChoice consent_choice = 1;
+	protobuf.Timestamp day_of_creation = 2;
+
+	enum Treatment {
+		TREATMENT_UNSPECIFIED = 0;
+		TREATMENT_ESSENTIAL_ONLY = 1;
+		TREATMENT_NON_ESSENTIAL_PERMITTED = 2;
+	}
+
+	Treatment essential_only_mode_treatment = 3;
+
+	enum Ui {
+		UI_UNSPECIFIED = 0;
+		UI_CONSENT_BUMP = 1;
+		UI_CONSENT_REBUMP = 2;
+	}
+
+	Ui ui_to_display = 4;
+	DebugOverrides debug_overrides = 5;
+
+	enum EssentialUseConsentState {
+		ESSENTIAL_USE_CONSENT_STATE_UNSPECIFIED = 0;
+		ESSENTIAL_USE_CONSENT_STATE_REGION_OUT_OF_SCOPE = 1;
+		ESSENTIAL_USE_CONSENT_STATE_APPLICATION_OUT_OF_SCOPE = 4;
+		ESSENTIAL_USE_CONSENT_STATE_UNRESTRICTED = 2;
+		ESSENTIAL_USE_CONSENT_STATE_ESSENTIAL_ONLY = 3;
+	}
+
+	EssentialUseConsentState essential_use_consent_state = 6;
+}

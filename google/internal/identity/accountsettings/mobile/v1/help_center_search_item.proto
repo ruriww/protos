@@ -1,0 +1,29 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/themed_url.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message HelpCenterSearchItem {
+	Image image = 1;
+
+	message Title {
+		string text_with_query_placeholder = 1;
+		string query_placeholder = 2;
+	}
+
+	Title title = 2;
+	Image icon = 3;
+
+	message Target {
+		string url_with_query_placeholder = 1;
+		string query_placeholder = 2;
+		int32 resource_id = 3;
+		ThemedUrl themed_url_with_query_placeholder = 4;
+	}
+
+	Target target = 4;
+}

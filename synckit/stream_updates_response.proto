@@ -1,0 +1,16 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/co_activity_update.proto";
+import "synckit/co_activity_snapshot.proto";
+import "synckit/recording_state.proto";
+
+option objc_class_prefix = "GSYP";
+
+message StreamUpdatesResponse {
+	CoActivityUpdate remote_update = 1;
+	CoActivitySnapshot co_activity_snapshot = 2;
+	RecordingState recording_state = 3;
+	bytes cipher = 4;
+}

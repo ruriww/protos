@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "proto2/bridge/message_set.proto";
+import "google/familymanagement/v1/client_info.proto";
+
+option objc_class_prefix = "GFM";
+
+message ApiRequestHeader {
+	extend proto2.bridge.MessageSet {
+		ApiRequestHeader message_set_extension = 223426722;
+	}
+
+	string experiment_override = 1;
+	string selected_experiments = 2;
+	ClientInfo client_info = 3;
+	repeated string consistency_token_jars = 4;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/bounding_box.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message ClientTextSelection {
+	repeated BoundingBox bounding_box = 1;
+	string selected_text_debug = 2;
+	string selected_text_copy_text = 3;
+	repeated string selected_text_read_aloud = 4;
+}

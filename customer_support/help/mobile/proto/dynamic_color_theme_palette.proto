@@ -1,0 +1,32 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "google/type/color.proto";
+
+option objc_class_prefix = "CSHM";
+
+message DynamicColorThemePalette {
+	google.type.Color primary = 1;
+	google.type.Color primary_container = 2;
+	google.type.Color on_primary = 3;
+	google.type.Color on_primary_container = 4;
+	google.type.Color inverse_primary = 5;
+	google.type.Color secondary = 6;
+	google.type.Color secondary_container = 7;
+	google.type.Color on_secondary = 8;
+	google.type.Color on_secondary_container = 9;
+	google.type.Color tertiary = 10;
+	google.type.Color tertiary_container = 11;
+	google.type.Color on_tertiary = 12;
+	google.type.Color on_tertiary_container = 13;
+	google.type.Color surface = 14;
+	google.type.Color surface_variant = 15;
+	google.type.Color on_surface = 16;
+	google.type.Color on_surface_variant = 17;
+	google.type.Color inverse_surface = 18;
+	google.type.Color inverse_on_surface = 19;
+	google.type.Color background = 20;
+	google.type.Color on_background = 21;
+	google.type.Color outline = 22;
+}

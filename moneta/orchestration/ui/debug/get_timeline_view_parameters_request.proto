@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/timelineview/internal_timeline_view_parameters.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetTimelineViewParametersRequest {
+	common.RequestContext context = 1;
+	timelineview.InternalTimelineViewParameters parameters = 2;
+}

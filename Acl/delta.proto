@@ -1,0 +1,57 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/scope.proto";
+import "Acl/invite.proto";
+import "Acl/scope_info.proto";
+import "Acl/keystore_wrapped_key.proto";
+import "Acl/entry_metadata.proto";
+import "Acl/dlp_info.proto";
+
+option objc_class_prefix = "ACL";
+
+message Delta {
+	enum OPERATION {
+		option features.enum_type = CLOSED;
+
+		SET_ROLE = 1;
+		REMOVE_ALL_ROLES = 2;
+		ADD_RECIPIENT_EMAILS = 3;
+		SET_REQUIRED_SCOPE = 21;
+		REMOVE_ALL_REQUIRED_SCOPES = 22;
+		SET_WRITERS_CAN_EDIT_ACL = 4;
+		SET_READERS_CAN_EDIT_ACL = 5;
+		SET_NO_ANONYMOUS_ACCESS = 6;
+		NORMALIZE_EMAILS = 8;
+		EXERCISE_INVITE = 16;
+		SET_INVITE_EXPIRATION = 17;
+		ADD_PERSISTENT_KEY_FOR_USER = 18;
+		REMOVE_PERSISTENT_KEY_FOR_USER = 19;
+		ADD_REVOKED_KEY = 23;
+		REMOVE_REVOKED_KEY = 24;
+		SET_SCOPE_INFO = 25;
+		REMOVE_SCOPE_INFO = 26;
+		SET_TICKETED_WRAPPED_KEYS = 27;
+		SET_ENTRY_METADATA = 28;
+		SET_DLP_INFO = 29;
+		CLEAR_WRITERS_CAN_EDIT_ACL = 30;
+		CLEAR_READERS_CAN_EDIT_ACL = 31;
+	}
+
+	message Change {
+		OPERATION Op = 2;
+		Scope Scope = 3;
+		int32 Role = 4;
+		Invite Invite = 6;
+		bool FlagValue = 7;
+		bytes OBSOLETE_8 = 8;
+		ScopeInfo ScopeInfo = 9;
+		uint64 KeyValue = 20;
+		repeated KeystoreWrappedKey WrappedKey = 21;
+		EntryMetadata metadata = 22;
+		DlpInfo dlp_info = 23;
+	}
+
+	repeated Change change = 1 [ features.message_encoding = DELIMITED ];
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/common/frontend_notification_thread.proto";
+import "notifications/frontend/data/common/encrypted_frontend_notification_thread.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsFetchThreadsByIdResponse {
+	repeated common.FrontendNotificationThread notification_thread = 2;
+	repeated common.EncryptedFrontendNotificationThread encrypted_notification_thread = 3;
+}

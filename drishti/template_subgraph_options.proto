@@ -1,0 +1,16 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/calculator_options.proto";
+import "drishti/template_argument.proto";
+
+option objc_class_prefix = "Drishti";
+
+message TemplateSubgraphOptions {
+	extend CalculatorOptions {
+		TemplateSubgraphOptions ext = 172998261;
+	}
+
+	TemplateDict dict = 1;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message UpdateGoogleOneFamilySharingRequest {
+	ApiRequestHeader api_header = 1;
+	bool sharing_enabled = 2;
+	string audit_render_data_token = 3;
+}

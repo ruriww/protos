@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlayerRotationType {
+	option features.enum_type = CLOSED;
+
+	PLAYER_ROTATION_TYPE_UNKNOWN = 0;
+	PLAYER_ROTATION_TYPE_FULLSCREEN_TO_PORTRAIT = 1;
+	PLAYER_ROTATION_TYPE_PORTRAIT_TO_FULLSCREEN = 2;
+}

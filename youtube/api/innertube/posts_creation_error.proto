@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PostsCreationError {
+	option features.enum_type = CLOSED;
+
+	POSTS_CREATION_ERROR_UNKNOWN = 0;
+	POSTS_CREATION_ERROR_NETWORK_ISSUE = 1;
+	POSTS_CREATION_ERROR_AUTH_ISSUE = 2;
+	POSTS_CREATION_ERROR_AUTH_ISSUE_SIGNED_OUT = 8;
+	POSTS_CREATION_ERROR_AUTH_ISSUE_NO_ACCOUNT_IDENTITY = 9;
+	POSTS_CREATION_ERROR_AUTH_ISSUE_NO_AUTH_TOKEN = 10;
+	POSTS_CREATION_ERROR_TIMEOUT = 3;
+	POSTS_CREATION_ERROR_BAD_REQUEST = 4;
+	POSTS_CREATION_ERROR_INVALID_STATE = 5;
+	POSTS_CREATION_ERROR_DOWNLOAD_FAILED = 6;
+	POSTS_CREATION_ERROR_FILE_NOT_FOUND = 7;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message AppUniqueInfo {
+	string app_unique_id = 1;
+	string label = 2;
+	string mimetype = 3;
+	string display_app_unique_id = 4;
+
+	enum ContactInfoSource {
+		option features.enum_type = CLOSED;
+
+		SOURCE_UNKNOWN = 0;
+		APP_SEARCH = 1;
+	}
+
+	ContactInfoSource contact_info_source = 5;
+}

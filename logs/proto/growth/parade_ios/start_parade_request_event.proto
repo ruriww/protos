@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.growth.parade_ios;
+
+option objc_class_prefix = "PRD";
+
+message StartParadeRequestEvent {
+	enum Status {
+		STATUS_UNSPECIFIED = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		TIMEOUT = 3;
+	}
+
+	Status status = 1;
+}

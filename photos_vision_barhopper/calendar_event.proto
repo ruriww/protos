@@ -1,0 +1,17 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+import "photos_vision_barhopper/calendar_date_time.proto";
+
+option objc_class_prefix = "BAR";
+
+message CalendarEvent {
+	string summary = 1;
+	string description = 2;
+	string location = 3;
+	string organizer = 4;
+	string status = 5;
+	CalendarDateTime start = 6;
+	CalendarDateTime end = 7;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message LaunchTimeMetric {
+	int64 cold_start_app_launch = 1;
+	int64 time_elapsed_since_main_ms = 2;
+	int64 time_elapsed_since_app_will_finish_launching_ms = 3;
+	bool is_active_prewarm = 4;
+}

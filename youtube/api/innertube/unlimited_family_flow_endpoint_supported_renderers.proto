@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/confirm_dialog_renderer.proto";
+import "youtube/api/innertube/interstitial_promo_renderer.proto";
+import "youtube/api/innertube/unlimited_family_profile_interstitial_renderer.proto";
+import "youtube/api/innertube/unlimited_family_message_interstitial_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnlimitedFamilyFlowEndpointSupportedRenderers {
+	oneof oneof_renderer {
+		ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+		InterstitialPromoRenderer interstitial_promo_renderer = 86135402;
+		UnlimitedFamilyProfileInterstitialRenderer unlimited_family_profile_interstitial_renderer = 127046814;
+		UnlimitedFamilyMessageInterstitialRenderer unlimited_family_message_interstitial_renderer = 127387931;
+	}
+}

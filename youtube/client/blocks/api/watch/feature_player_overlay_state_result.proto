@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+message FeaturePlayerOverlayStateResult {
+	bool is_endscreen_overlay_visible = 1;
+	bool is_related_videos_carousel_visible = 2;
+	bool is_autonav_overlay_visible = 3;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_data.proto";
+import "youtube/api/innertube/reload_continuation_prefetch_supported_configs.proto";
+import "youtube/api/innertube/reload_continuation_spinner_overlay_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReloadContinuationData {
+	extend ContinuationData {
+		ReloadContinuationData reload_continuation_data = 60487319;
+	}
+
+	string continuation = 1;
+	bytes click_tracking_params = 2;
+	ReloadContinuationPrefetchSupportedConfigs prefetch_config = 3;
+	bool show_spinner_overlay = 4;
+	bool disable_scroll_to_reveal_action_bar = 7;
+	ReloadContinuationSpinnerOverlayPosition spinner_overlay_position = 8;
+	bool disable_continuation_click_logging = 10;
+	bool keep_header = 11;
+}

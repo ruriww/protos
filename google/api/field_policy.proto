@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.api;
+
+import "google/api/org_policy.proto";
+import "google/api/metadata_policy.proto";
+
+option objc_class_prefix = "GAPI";
+
+/* protogen: source file = google/api/policy.proto */
+message FieldPolicy {
+	string selector = 1;
+	string resource_permission = 2;
+	string resource_type = 3;
+	string auditing = 4;
+	repeated OrgPolicy org_policies = 5;
+	bool is_service_consumer = 6;
+	string location_selector = 7;
+	string monitored_resource_type = 8;
+	string monitored_resource_label_extractor = 9;
+	string child_resource_type = 10;
+	string child_resource_name_extractor = 11;
+	string resource_access_type = 12;
+	repeated MetadataPolicy metadata_policies = 13;
+	string resource_location_selector = 14;
+	string cmek_key_selector = 15;
+
+	/* protogen: source file = google/api/policy.proto */
+	enum CustomOrgPolicyAccessibility {
+		CUSTOM_ORG_POLICY_ACCESSIBILITY_UNSPECIFIED = 0;
+		PUBLIC = 1;
+	}
+
+	CustomOrgPolicyAccessibility custom_org_policy_accessibility = 16;
+	string custom_org_policy = 17;
+	string condition = 18;
+	string resource_decorator = 19;
+}

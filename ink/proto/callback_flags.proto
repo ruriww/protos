@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message CallbackFlags {
+	bool compressed_mesh_data = 1;
+	bool uncompressed_outline = 2;
+	bool compressed_input_points = 3;
+}

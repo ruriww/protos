@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/camera_api_client.proto";
+import "youtube/api/innertube/camera_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CameraMetadata {
+	string upload_frontend_id = 1;
+	CameraApiClient camera_api_client = 2;
+	repeated CameraConfigs camera_configs = 3;
+	bool can_find_camera = 4;
+}

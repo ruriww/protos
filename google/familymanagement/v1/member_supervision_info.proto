@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message MemberSupervisionInfo {
+	bool is_supervised_member = 1;
+	bool is_guardian_linked_account = 2;
+
+	message GlaState {
+		bool is_guardian_linked_account = 1;
+		bool is_effective_guardian_linked_account = 2;
+	}
+
+	GlaState gla_state = 3;
+}

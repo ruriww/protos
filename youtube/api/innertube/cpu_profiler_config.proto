@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cpu_sampling_timer_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CPUProfilerConfig {
+	float profiling_interval_sec = 1;
+	float profiling_duration_sec = 2;
+	CPUSamplingTimerType timer_type = 3;
+	float profiling_start_time_sec = 4;
+	float fraction_of_runs_to_sample = 5;
+}

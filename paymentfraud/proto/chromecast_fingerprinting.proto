@@ -1,0 +1,9 @@
+edition = "2023";
+
+package paymentfraud.proto;
+
+option objc_class_prefix = "PF";
+
+message ChromecastFingerprinting {
+	string cast_machine_id = 1;
+}

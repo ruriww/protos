@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ResolutionStrategy {
+	option features.enum_type = CLOSED;
+
+	RESOLUTION_STRATEGY_UNKNOWN = 0;
+	RESOLUTION_STRATEGY_MUTATION_STRATEGY_SERVER_ONLY = 1;
+	RESOLUTION_STRATEGY_MUTATION_STRATEGY_CLIENT_ONLY = 2;
+}

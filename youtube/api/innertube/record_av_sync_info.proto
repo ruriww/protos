@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_segment_av_sync_timestamps_info.proto";
+import "youtube/api/innertube/shorts_audio_device_info.proto";
+import "youtube/api/innertube/av_sync_fix_info.proto";
+import "youtube/api/innertube/av_sync_system_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RecordAVSyncInfo {
+	VideoSegmentAVSyncTimestampsInfo a_v_sync_timestamps_info = 1;
+	repeated ShortsAudioDeviceInfo audio_device_info = 2;
+	AVSyncFixInfo a_v_sync_fix_info = 3;
+	AVSyncSystemInfo a_v_sync_system_info = 4;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/xeno_effect_float_setting.proto";
+import "youtube/api/innertube/xeno_effect_bool_setting.proto";
+import "youtube/api/innertube/xeno_effect_string_setting.proto";
+import "youtube/api/innertube/xeno_effect_runtime_options_setting.proto";
+import "youtube/api/innertube/xeno_effect_gpu_buffer_setting.proto";
+import "youtube/api/innertube/xeno_effect_int_setting.proto";
+import "youtube/api/innertube/xeno_effect_mode_setting.proto";
+import "youtube/api/innertube/xeno_effect_color_setting.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectControlInput {
+	string name = 1;
+
+	oneof setting {
+		XenoEffectFloatSetting float_setting = 2;
+		XenoEffectBoolSetting bool_setting = 3;
+		XenoEffectStringSetting string_setting = 4;
+		XenoEffectRuntimeOptionsSetting runtime_options_setting = 5;
+		XenoEffectGpuBufferSetting gpu_buffer_setting = 6;
+		XenoEffectIntSetting int_setting = 7;
+		XenoEffectModeSetting mode_setting = 8;
+		XenoEffectColorSetting color_setting = 9;
+	}
+}

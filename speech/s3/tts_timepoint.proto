@@ -1,0 +1,36 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message TtsTimepoint {
+	message Position {
+		int32 sentence_index = 1;
+		int32 say_index = 2;
+		int32 unicode_char_index = 3;
+		string name = 4;
+		int32 sound_index = 5;
+		int32 content_index = 6;
+		int32 piece_index = 7;
+	}
+
+	Position position = 2;
+
+	enum TimepointType {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNDEFINED = 0;
+		TOKEN_START = 1;
+		TOKEN_END = 2;
+		SOUND_START = 3;
+		SOUND_END = 4;
+		VISEME_START = 5;
+		VISEME_END = 6;
+		MARK = 7;
+	}
+
+	TimepointType type = 3;
+	double time_seconds = 4;
+	string viseme = 5;
+}

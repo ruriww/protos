@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+enum ProductSource {
+	option features.enum_type = CLOSED;
+
+	PRODUCT_SOURCE_UNKNOWN = 0;
+	PRODUCT_SOURCE_DEFAULT = 1;
+	PRODUCT_SOURCE_ASSISTANT = 2;
+	PRODUCT_SOURCE_JANATA = 3;
+	PRODUCT_SOURCE_SPEED_DIAL = 4;
+}

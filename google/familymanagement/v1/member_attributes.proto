@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message MemberAttributes {
+	bool is_child_over_thirteen_in_eu = 1;
+	bool has_griffin_policy = 2;
+	bool remove_from_family_after_opt_out_supervision = 3;
+	bool show_parental_password_reset = 4;
+	bool can_upgrade_to_unicorn = 5;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message SurveyMetadata {
+	string survey_id = 1;
+	string trigger_id = 2;
+	string session_id = 3;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_result.proto";
+import "youtube/api/innertube/orchestration_action.proto";
+import "youtube/api/innertube/offline_orchestration_action_type.proto";
+import "youtube/api/innertube/offline_orchestration_failure_reason.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/offline_orchestration_action_constraint.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineOrchestrationContext {
+	int32 entity_type = 1;
+	OfflineOrchestrationActionResult offline_orchestration_action_result = 2;
+	bool is_retryable = 3;
+	OrchestrationAction orchestration_action = 4;
+	repeated OrchestrationAction additional_orchestration_actions = 5;
+	OfflineOrchestrationActionType offline_orchestration_action_type = 6;
+	string entity_id = 7;
+	int64 interval_since_enqueued_ms = 8;
+	int64 execution_interval_ms = 9;
+	OfflineOrchestrationFailureReason offline_orchestration_failure_reason = 10;
+	bool is_restored = 11;
+	OfflineModeType offline_mode_type = 12;
+	repeated OfflineOrchestrationActionConstraint action_constraints = 13 [ features.repeated_field_encoding = EXPANDED ];
+	int32 action_priority = 14;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/page_definition.proto";
+import "ink/proto/vector_element.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ExportedDocument {
+	repeated PageDefinition page = 1;
+	repeated VectorElement element = 2;
+}

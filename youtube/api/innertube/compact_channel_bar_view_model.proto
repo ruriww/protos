@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactChannelBarViewModel {
+	extend Renderer {
+		CompactChannelBarViewModel compact_channel_bar_view_model = 1107;
+	}
+
+	bytes tracking_params = 12;
+	float height = 22;
+	Renderer sponsor_button = 23;
+	Renderer subscribe_button = 24;
+	Renderer purchase_button = 25;
+	Renderer channel_bar_header = 27;
+	bool enable_compact_channel_bar_inner_refactor = 29;
+	bool disable_purchase_button_layout_hack = 31;
+	LoggingDirectives logging_directives = 999;
+}

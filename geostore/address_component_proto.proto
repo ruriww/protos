@@ -1,0 +1,37 @@
+edition = "2023";
+
+package geostore;
+
+import "geostore/name_proto.proto";
+import "geostore/feature_id_proto.proto";
+import "geostore/address_range_proto.proto";
+import "geostore/text_affix_proto.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "GS";
+
+message AddressComponentProto {
+	enum TypeCategory {
+		option features.enum_type = CLOSED;
+
+		TYPE_FEATURE = 17;
+		TYPE_POSTAL_CODE_SUFFIX = 18;
+		TYPE_POST_BOX = 21;
+		TYPE_STREET_NUMBER = 22;
+		TYPE_FLOOR = 23;
+		TYPE_ROOM = 24;
+		TYPE_HOUSE_ID = 25;
+		TYPE_DISTANCE_MARKER = 26;
+		TYPE_LANDMARK = 27;
+		TYPE_PLUS_CODE = 28;
+	}
+
+	TypeCategory type = 1;
+	repeated NameProto parsed_name = 3;
+	int32 feature_type = 4;
+	FeatureIdProto feature_id = 5;
+	AddressRangeProto range = 6;
+	int32 index = 7;
+	repeated TextAffixProto text_affix = 8;
+	proto2.bridge.MessageSet temporary_data = 15;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.integrator.ui.common;
+
+option objc_class_prefix = "Orch";
+
+message CommonClientParameters {
+	int32 billable_service_for_client_diversion = 1;
+	int32 region_code_for_client_diversion = 2;
+	repeated int64 integrator_experiment_id = 3;
+	string domain_shard = 4;
+}

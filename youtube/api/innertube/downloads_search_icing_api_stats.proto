@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icing_api.proto";
+import "youtube/api/innertube/icing_api_result_code.proto";
+import "youtube/api/innertube/icing_api_stats.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsSearchIcingApiStats {
+	IcingApi api = 1;
+	IcingApiResultCode result_code = 2;
+	IcingApiStats stats = 3;
+}

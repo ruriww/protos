@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/user_id.proto";
+import "apps/dynamite/shared_invitation_mode.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message InviteeInfo {
+	UserId user_id = 1;
+	string email = 2;
+	SharedInvitationMode invitation_mode = 3 [ default = GAIA_ID ];
+}

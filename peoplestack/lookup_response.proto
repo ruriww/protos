@@ -1,0 +1,29 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/lookup_id.proto";
+import "peoplestack/autocompletion.proto";
+
+option objc_class_prefix = "PSK";
+
+message LookupResponse {
+	message Match {
+		LookupId id = 1;
+
+		enum FailureType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			PERMANENT = 1;
+			TEMPORARY = 2;
+		}
+
+		oneof result {
+			Autocompletion autocompletion = 2;
+			FailureType failure_type = 3;
+		}
+	}
+
+	repeated Match matches = 1;
+}

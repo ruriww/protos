@@ -1,0 +1,9 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MediaEngineEffectIdentifier {
+	string effect_base_name = 1;
+}

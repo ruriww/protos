@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum ButtonType {
+	option features.enum_type = CLOSED;
+
+	BUTTON_TYPE_UNKNOWN = 0;
+	BUTTON_TYPE_FILLED = 1;
+	BUTTON_TYPE_OUTLINE = 2;
+	BUTTON_TYPE_TEXT = 3;
+	BUTTON_TYPE_TONAL = 5;
+}

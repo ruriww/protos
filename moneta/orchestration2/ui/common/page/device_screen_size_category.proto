@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.page;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DeviceScreenSizeCategory {
+	node.UnitSize min_width = 1;
+	node.UnitSize max_width = 2;
+	node.UnitSize min_height = 3;
+	node.UnitSize max_height = 4;
+}

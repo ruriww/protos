@@ -1,0 +1,18 @@
+edition = "2023";
+
+package superroot.education;
+
+option objc_class_prefix = "GPVEDU";
+
+message MathSolverQuery {
+	string equation = 1;
+	repeated string problem_types = 2;
+	string math_input_equation = 3;
+	bool is_async = 5;
+	string original_intent_name = 6;
+	string solution_method = 7;
+	repeated string method_types = 8;
+	string solve_for = 9;
+	bool is_keyboard_requery = 13;
+	bool is_regex_classifier_synthetic_intent = 14;
+}

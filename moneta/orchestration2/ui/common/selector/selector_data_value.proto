@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorDataValue {
+	extend data.DataValue {
+		SelectorDataValue selector_data_value_extension = 228982938;
+	}
+
+	repeated int64 selected_option_data_reference = 1 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum ExpandedState {
+		option features.enum_type = CLOSED;
+
+		EXPANDED_STATE_UNKNOWN = 0;
+		EXPANDED_STATE_EXPANDED = 1;
+		EXPANDED_STATE_COLLAPSED = 2;
+	}
+
+	ExpandedState expanded_state = 2;
+	repeated int32 active_group_id = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/chip_cloud_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/api/innertube/chip_cloud_selection_behavior.proto";
+import "youtube/api/innertube/chip_cloud_style.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/chip_cloud_chip_renderer.proto";
+import "youtube/api/innertube/chip_divider_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChipCloudRenderer {
+	repeated ChipCloudSupportedRenderers chips = 1;
+	int32 collapsed_row_count = 2 [ default = 3 ];
+	bytes tracking_params = 4;
+	bool horizontal_scrollable = 5;
+	FormattedString title = 6;
+	bool hide_bottom_separator = 7;
+	Renderer next_button = 8;
+	Renderer previous_button = 9;
+	ActiveStateDescriptor active_state_descriptor = 11;
+	int32 selected_index = 12;
+	ChipCloudSelectionBehavior selection_behavior = 13;
+	ChipCloudStyle style = 14;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	ChipCloudRenderer chip_cloud_renderer = 90823135;
+}
+
+extend Renderer {
+	ChipCloudChipRenderer chip_cloud_chip_renderer = 91394224;
+}
+
+extend Renderer {
+	ChipDividerRenderer chip_divider_renderer = 325920579;
+}

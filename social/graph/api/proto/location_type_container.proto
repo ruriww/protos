@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message LocationTypeContainer {
+	enum LocationType {
+		option features.enum_type = CLOSED;
+
+		LOCATION_TYPE_UNKNOWN = 0;
+		HOMETOWN = 1;
+		CURRENT = 2;
+		PAST = 3;
+	}
+}

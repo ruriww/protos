@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.integrator.common.alert;
+
+import "moneta/integrator/common/alert/alert_render_info.proto";
+import "moneta/integrator/common/alert/fix_action.proto";
+
+option objc_class_prefix = "AlertService";
+
+message Alert {
+	AlertRenderInfo alert_render_info = 2;
+	bytes action_token = 3;
+	bytes help_token = 4;
+	bytes dismissal_token = 5;
+	FixAction fix_action = 9;
+	string alert_key = 11;
+	string dismissal_key = 12;
+	string alert_label = 13;
+	bytes encrypted_alert_token = 14;
+	bytes encrypted_reauth_requirement_token = 15;
+}

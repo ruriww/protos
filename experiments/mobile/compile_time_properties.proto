@@ -1,0 +1,19 @@
+edition = "2023";
+
+package experiments.mobile;
+
+import "experiments/mobile/application_properties.proto";
+
+option objc_class_prefix = "PHT";
+
+message CompileTimeProperties {
+	string subpackage = 1;
+
+	oneof version {
+		int32 package_version = 2;
+		int64 ios_package_version = 5;
+	}
+
+	ApplicationProperties app_properties = 3;
+	bool delete_runtime_properties = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "util/status_proto.proto";
+
+option objc_class_prefix = "LFE";
+
+message ErrorResponse {
+	enum ErrorType {
+		UNSPECIFIED = 0;
+		DISABLED = 1;
+		MARS_FAILURE = 2;
+		S3_ASR_FAILURE = 3;
+		S3_TTS_FAILURE = 4;
+	}
+
+	ErrorType error_type = 1;
+	bool close_connection = 2;
+	util.StatusProto status = 3;
+}

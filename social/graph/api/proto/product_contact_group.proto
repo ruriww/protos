@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+enum ProductContactGroup {
+	UNKNOWN_PRODUCT_GROUP = 0;
+	PRODUCT_HIDE_ON_MAPS = 1;
+	PRODUCT_BESTIES = 2;
+}

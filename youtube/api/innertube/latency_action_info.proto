@@ -1,0 +1,257 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_segment_input_media_type.proto";
+import "youtube/api/innertube/content_spec.proto";
+import "youtube/api/innertube/creation_orchestration_feature_type.proto";
+import "youtube/api/innertube/search_page_type.proto";
+import "youtube/api/innertube/latency_action_type.proto";
+import "youtube/api/innertube/latency_network_type.proto";
+import "youtube/api/innertube/latency_player_type.proto";
+import "youtube/api/innertube/spinner_info.proto";
+import "youtube/api/innertube/latency_ad_break_type.proto";
+import "youtube/api/innertube/latency_action_player_info.proto";
+import "youtube/api/innertube/comment_info.proto";
+import "youtube/api/innertube/mdx_info.proto";
+import "youtube/api/innertube/client_connection_type.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+import "youtube/api/innertube/watch_info.proto";
+import "youtube/api/innertube/web_info.proto";
+import "youtube/api/innertube/thumbnail_load_info.proto";
+import "youtube/api/innertube/creator_info.proto";
+import "youtube/api/innertube/unplugged_info.proto";
+import "youtube/api/innertube/tv_info.proto";
+import "youtube/api/innertube/kabuki_info.proto";
+import "youtube/api/innertube/video_stream_type.proto";
+import "youtube/api/innertube/reel_info.proto";
+import "youtube/api/innertube/media_browser_action_info.proto";
+import "youtube/api/innertube/mweb_info.proto";
+import "youtube/api/innertube/music_info.proto";
+import "youtube/api/innertube/music_load_action_info.proto";
+import "youtube/api/innertube/latency_action_error.proto";
+import "youtube/api/innertube/subscriptions_feed_info.proto";
+import "youtube/api/innertube/yt_idb_transaction_type.proto";
+import "youtube/api/innertube/shopping_info.proto";
+import "youtube/api/innertube/resource_info.proto";
+import "youtube/api/innertube/prefetch_info.proto";
+import "youtube/api/innertube/ml_acceleration_session.proto";
+import "youtube/api/innertube/visual_element.proto";
+import "youtube/api/innertube/web_view_info.proto";
+import "youtube/api/innertube/commerce_info.proto";
+import "youtube/api/innertube/player_rotation_type.proto";
+import "youtube/api/innertube/inline_to_watch_info.proto";
+import "youtube/api/innertube/creation_modes_context.proto";
+import "youtube/api/innertube/media_engine_metadata.proto";
+import "youtube/api/innertube/camera_metadata.proto";
+import "youtube/api/innertube/mini_app_info.proto";
+import "youtube/api/innertube/dynamic_asset_fetch_info.proto";
+import "youtube/api/innertube/preload_thumbnail_info.proto";
+import "youtube/api/innertube/image_load_info.proto";
+import "youtube/api/innertube/startup_edge_case_info.proto";
+import "youtube/api/innertube/startup_info.proto";
+import "youtube/api/innertube/browse_early_requested.proto";
+import "youtube/api/innertube/page_load_info.proto";
+import "youtube/api/innertube/next_continuation_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LatencyActionInfo {
+	message CreationAssetInputInfo {
+		ContentSpec content_spec = 1;
+		int32 duration_ms = 2;
+	}
+
+	LatencyActionType action_type = 1;
+	string client_action_nonce = 2;
+	string load_type = 3;
+	string client_screen_nonce = 4;
+	LatencyNetworkType network_type = 5;
+	bool is_visible = 6;
+	LatencyPlayerType player_type = 7;
+	string client_playback_nonce = 8;
+	bool is_monetized = 9;
+	bool allowed_preroll = 10;
+	bool shown_preroll = 11;
+	string ad_type = 12;
+	LatencyActionType previous_action = 13;
+	bool is_red_subscriber = 14;
+	int32 server_time_ms = 15;
+	bool is_preroll_allowed = 16;
+	bool is_preroll_shown = 17;
+	SpinnerInfo spinner_info = 18;
+	string video_id = 19;
+	string ad_video_id = 20;
+	LatencyAdBreakType ad_break_type = 21;
+	LatencyActionPlayerInfo player_info = 22;
+	CommentInfo comment_info = 23;
+	MdxInfo mdx_info = 24;
+	bool is_navigation = 25;
+	ClientConnectionType connection_type = 26;
+	DetailedNetworkType detailed_connection_type = 27;
+	string ad_client_playback_nonce = 28;
+	int32 viewport_height = 29;
+	int32 viewport_width = 30;
+	string browse_id = 31;
+	bool is_cache_hit = 32;
+	string http_protocol = 33;
+	string transport_protocol = 34;
+	WatchInfo watch_info = 35;
+	string ad_types_allowed = 36;
+	string ad_networks = 37;
+	WebInfo web_info = 38;
+	int32 ad_prebuffered_time_secs = 39;
+	ThumbnailLoadInfo thumbnail_load_info = 40;
+	string search_query = 41;
+	bool is_continuation = 42;
+	int32 available_processors = 43;
+	string sdk = 44;
+	bool is_local_stream = 45;
+	CreatorInfo creator_info = 46;
+	bool is_livestream = 47;
+	string ad_cpn2 = 48;
+	int64 ad_dai_drift_millis = 49;
+	UnpluggedInfo unplugged_info = 50;
+	TvInfo tv_info = 51;
+	KabukiInfo kabuki_info = 52;
+	VideoStreamType video_stream_type = 53;
+	ReelInfo reel_info = 54;
+	bool is_first_install = 55;
+	bool playback_requires_tap = 56;
+	string get_home_request_id = 57;
+	MediaBrowserActionInfo media_browser_action_info = 58;
+	MwebInfo mweb_info = 59;
+	string get_search_request_id = 60;
+	string get_player_request_id = 61;
+	string get_watch_next_request_id = 62;
+	string get_browse_request_id = 63;
+	bool navigation_requested_same_url = 64;
+	MusicInfo music_info = 65;
+	string get_library_request_id = 66;
+	bool performance_navigation_timing = 67;
+
+	message RequestId {
+		string endpoint = 1;
+		string id = 2;
+	}
+
+	repeated RequestId request_ids = 68;
+	MusicLoadActionInfo music_load_action_info = 69;
+	int32 shell_startup_duration_ms = 70;
+	LatencyActionError latency_action_error = 71;
+	SubscriptionsFeedInfo subscriptions_feed_info = 72;
+	int32 app_install_data_age_ms = 73;
+	YtIdbTransactionType transaction_type = 74;
+	ShoppingInfo shopping_info = 75;
+	string target_cpn = 76;
+	string previous_cpn = 77;
+	string target_video_id = 78;
+	int32 action_step = 79;
+	int64 js_heap_size_limit = 80;
+	int64 total_js_heap_size = 81;
+	int64 used_js_heap_size = 82;
+	repeated ResourceInfo resource_info = 83;
+	int32 screen_height = 84;
+	int32 screen_width = 85;
+	PrefetchInfo prefetch_info = 86;
+	MLAccelerationSession acceleration_session = 87;
+	VisualElement action_visual_element = 88;
+	int64 source_video_duration_ms = 90;
+	bool is_prewarmed_launch = 92;
+	int64 video_output_frames = 93;
+	WebViewInfo web_view_info = 95;
+	CommerceInfo commerce_info = 96;
+	PlayerRotationType player_rotation_type = 101;
+	bool is_resume = 104;
+	bool debug_ticks_excluded = 105;
+	bool is_transformer_enabled_for_feature = 106;
+
+	message TranscodingContext {
+		int32 output_video_width = 1;
+		int32 output_video_height = 2;
+		int32 source_video_width = 3;
+		int32 source_video_height = 4;
+		uint64 memory_usage_in_bytes = 5;
+		int32 number_of_segments = 6;
+		int32 bitrate = 7;
+		int64 source_video_frame_count = 8;
+		int64 source_video_duration_ms = 9;
+		string upload_frontend_id = 10;
+		int64 source_video_rotation_degrees = 11;
+		int64 output_video_duration_ms = 12;
+		VideoSegmentInputMediaType input_media_type = 13;
+		int64 num_multi_select_video_segments = 15;
+		int64 num_multi_select_photo_segments = 16;
+		string codec = 17;
+	}
+
+	TranscodingContext transcoding_context = 107;
+	InlineToWatchInfo inline_to_watch_info = 108;
+	int64 source_video_frame_count = 109;
+	CreationModesContext creation_modes_context = 110;
+	MediaEngineMetadata media_engine_metadata = 111;
+
+	message CacheAttempt {
+		bool hit = 1;
+	}
+
+	repeated CacheAttempt cache_attempts = 112;
+	bool abandoned_ping = 113;
+	CameraMetadata camera_metadata = 114;
+	MiniAppInfo mini_app_info = 116;
+	DynamicAssetFetchInfo dynamic_asset_fetch_info = 117;
+	repeated PreloadThumbnailInfo preload_thumbnail_info = 118;
+	ImageLoadInfo image_load_info = 119;
+	StartupEdgeCaseInfo startup_edge_case_info = 122;
+	int32 retries = 123;
+	StartupInfo startup_info = 124;
+	bool is_ssdai = 125;
+
+	message VideoMetadataParsingContext {
+		int32 video_source_count = 2;
+		int32 photo_source_count = 3;
+	}
+
+	VideoMetadataParsingContext video_metadata_parsing_context = 126;
+
+	message RenderCounters {
+		int32 signal_sets = 1;
+		int32 signal_reads = 2;
+		int32 signal_creates = 3;
+		int32 signal_computed_creates = 4;
+		int32 signal_computed_reads = 5;
+		int32 signal_reaction_creates = 6;
+		int32 signal_reaction_runs = 7;
+	}
+
+	RenderCounters render_counters = 127;
+	BrowseEarlyRequested browse_early_requested = 128;
+
+	message GalleryContext {
+		int32 video_item_count = 1;
+		int32 photo_item_count = 2;
+		int32 total_item_count = 3;
+	}
+
+	GalleryContext gallery_context = 129;
+	PageLoadInfo page_load_info = 130;
+
+	message SearchUiContext {
+		SearchPageType search_page_type = 1;
+	}
+
+	SearchUiContext search_ui_context = 131;
+	string panel_id = 133;
+	NextContinuationInfo next_continuation_info = 135;
+	bytes media_generation_serialized_entry_context = 136;
+
+	message CreationOrchestrationInfo {
+		CreationOrchestrationFeatureType feature_type = 1;
+		repeated CreationAssetInputInfo asset_input_info = 2;
+	}
+
+	CreationOrchestrationInfo creation_orchestration_info = 137;
+}

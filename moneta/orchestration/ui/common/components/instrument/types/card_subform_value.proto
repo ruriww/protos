@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/instrument/types/card_field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message CardSubformValue {
+	string id = 1;
+	bytes token = 2;
+	repeated CardFieldValue card_field_value = 3;
+	string legal_doc_data = 4;
+}

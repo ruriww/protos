@@ -1,0 +1,20 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+option objc_class_prefix = "LNSINP";
+
+message InpaintingConfig {
+	int32 batch_size = 1;
+	float height_relative_vertical_padding = 2;
+	float height_relative_horizontal_padding = 3;
+	int32 min_line_height = 4;
+	int32 max_line_height = 5;
+	int32 line_height_divisible_by = 6;
+	int32 target_image_height = 7;
+	float chunk_width_to_height_ratio = 8;
+	float chunk_unpadded_to_total_width_ratio = 9;
+	int32 max_allowed_chunk_count = 10;
+	float mask_threshold = 11;
+	bool enable_fixed_size_batching = 12;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/response.proto";
+import "greco/recognition_event.proto";
+import "greco/endpointer_event.proto";
+
+option objc_class_prefix = "S3";
+
+message RecognizerEvent {
+	extend Response {
+		RecognizerEvent recognizer_event = 1253625;
+	}
+
+	oneof payload {
+		greco.RecognitionEvent recognition_event = 1;
+		greco.EndpointerEvent endpointer_event = 2;
+	}
+
+	string language = 3;
+	string spoken_language = 4;
+	string cross_session_id = 17;
+
+	extensions 128 to max;
+}

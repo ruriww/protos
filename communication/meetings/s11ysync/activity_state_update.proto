@@ -1,0 +1,27 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/co_doing_state_update.proto";
+import "communication/meetings/s11ysync/co_watching_state_update.proto";
+import "communication/meetings/s11ysync/per_participant_state_update.proto";
+
+option objc_class_prefix = "GHM";
+
+message ActivityStateUpdate {
+	int64 lamport_counter = 1;
+	string participant_id = 2;
+	string activity_name = 3;
+
+	oneof state {
+		CoDoingStateUpdate co_doing_state_update = 4;
+		CoWatchingStateUpdate co_watching_state_update = 5;
+		PerParticipantStateUpdate per_participant_state_update = 12;
+	}
+
+	bool is_heartbeat = 6;
+	bool is_override = 7;
+	string activity_title = 8;
+	string originator_participant_id = 9;
+	uint64 cloud_project_number = 10;
+}

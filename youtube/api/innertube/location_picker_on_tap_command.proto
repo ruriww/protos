@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LocationPickerOnTapCommand {
+	extend elements.Command {
+		LocationPickerOnTapCommand location_picker_on_tap_command = 260591906;
+	}
+
+	string location_picker_server_state_key = 1;
+	string location_picker_client_state_key = 2;
+	string initial_location_id = 3;
+}

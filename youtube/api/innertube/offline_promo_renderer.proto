@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/offlineability_format.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinePromoRenderer {
+	ThumbnailDetails header = 1;
+	FormattedString title = 2;
+
+	oneof bottom_content {
+		FormattedString description = 3;
+		Renderer bottom_renderer = 13;
+	}
+
+	ButtonSupportedRenderers dismiss_button = 4;
+	ButtonSupportedRenderers action_button = 5;
+	bytes tracking_params = 9;
+	ThumbnailDetails header_overlay = 10;
+
+	oneof headers_image {
+		ThumbnailSupportedRenderers headers = 12;
+		Icon headers_icon = 15;
+	}
+
+	repeated OfflineabilityFormat formats = 11;
+	FormattedString subtitle = 14;
+}
+
+extend Renderer {
+	OfflinePromoRenderer offline_promo_renderer = 131899791;
+}

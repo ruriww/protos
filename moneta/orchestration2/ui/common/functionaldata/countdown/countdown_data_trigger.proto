@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.countdown;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CountdownDataTrigger {
+	extend eventrules.trigger.Trigger {
+		CountdownDataTrigger countdown_data_trigger_extension = 232057536;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_ON_TICK = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/search_profile_social_link.proto";
+import "social/graph/api/proto/search_profile_entity.proto";
+import "social/graph/api/proto/search_profile_workplace.proto";
+import "social/graph/api/proto/search_profile_education.proto";
+import "social/graph/api/proto/search_profile_location.proto";
+import "social/graph/api/proto/search_profile_metadata.proto";
+import "social/graph/api/proto/search_creator_profile_photo.proto";
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileData {
+	string description = 3;
+	repeated string website = 4;
+	repeated SearchProfileSocialLink social_link = 5;
+	repeated SearchProfileEntity occupation = 6;
+	repeated SearchProfileWorkplace workplace = 7;
+	repeated SearchProfileEducation education = 8;
+	repeated SearchProfileLocation location = 9;
+	repeated SearchProfileEntity interest = 10;
+	repeated string public_phone_number = 11;
+	repeated string public_email = 12;
+	string language = 13;
+	SearchProfileMetadata metadata = 14;
+	SearchCreatorProfilePhoto search_creator_profile_photo = 15;
+}

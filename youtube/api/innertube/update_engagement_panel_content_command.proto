@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+import "youtube/api/innertube/global_panel_configuration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateEngagementPanelContentCommand {
+	extend Command {
+		UpdateEngagementPanelContentCommand update_engagement_panel_content_command = 22556;
+	}
+
+	EngagementPanelIdentifier target_panel_identifier = 1;
+	EngagementPanelIdentifier content_source_panel_identifier = 2;
+	GlobalPanelConfiguration global_configuration = 3;
+	bool force_refresh_content_source_panel = 5;
+}

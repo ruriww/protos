@@ -1,0 +1,14 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum Framing {
+	option features.enum_type = CLOSED;
+
+	FRAMING_UNKNOWN = 0;
+	FRAMING_OUTER = 1;
+	FRAMING_VIEWPORT = 2;
+	FRAMING_ACCURATE = 3;
+}

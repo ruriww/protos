@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/registered_gaia_services.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountStateToken {
+	bool has_channel = 1;
+	bool is_merged = 2;
+	Command channel_creation_form_endpoint_for_comment = 3;
+	string obfuscated_gaia_id = 4;
+	repeated RegisteredGaiaServices registered_gaia_services = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

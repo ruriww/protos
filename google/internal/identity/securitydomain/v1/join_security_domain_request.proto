@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+import "google/internal/identity/securitydomain/v1/security_domain.proto";
+import "google/internal/identity/securitydomain/v1/security_domain_member.proto";
+import "google/internal/identity/securitydomain/v1/shared_member_key.proto";
+
+option objc_class_prefix = "SDS";
+
+message JoinSecurityDomainRequest {
+	SecurityDomain security_domain = 1;
+	SecurityDomainMember security_domain_member = 2;
+	repeated SharedMemberKey shared_member_keys = 3;
+	int32 member_type_hint = 4;
+	bytes current_public_key_to_replace = 5;
+	string client_session_id = 6;
+}

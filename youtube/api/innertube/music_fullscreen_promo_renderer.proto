@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dismissable_cling_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicFullscreenPromoRenderer {
+	extend ButtonRenderer {
+		string button_analytics_tag = 132354974;
+	}
+
+	ThumbnailDetails background_image = 1;
+	FormattedString title = 2;
+	FormattedString body_text = 3;
+	ButtonSupportedRenderers accept_button_renderer = 4;
+	ButtonSupportedRenderers dismiss_button_renderer = 5;
+	bytes tracking_params = 7;
+	ThumbnailDetails header_image = 8;
+	bool is_visible = 9;
+	repeated Command impression_endpoints = 10;
+
+	message MusicFullscreenPromoClingSupportedRenderers {
+		DismissableClingRenderer dismissable_cling_renderer = 102365781;
+	}
+
+	MusicFullscreenPromoClingSupportedRenderers free_tier_cling_renderer = 11;
+	ThumbnailSupportedRenderers background_portrait_landscape_thumbail = 12;
+	string analytics_tag = 13;
+}
+
+extend Renderer {
+	MusicFullscreenPromoRenderer music_fullscreen_promo_renderer = 94312586;
+}

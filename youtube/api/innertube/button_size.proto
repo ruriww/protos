@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ButtonSize {
+	enum ButtonSizeType {
+		option features.enum_type = CLOSED;
+
+		SIZE_UNKNOWN = 0;
+		SIZE_DEFAULT = 1;
+		SIZE_SMALL = 2;
+		SIZE_LARGE = 3;
+		SIZE_XLARGE = 4;
+		SIZE_XSMALL = 5;
+		SIZE_XXLARGE = 6;
+	}
+
+	ButtonSizeType size_type = 1;
+}

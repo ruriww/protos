@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoNavToggleRenderer {
+	FormattedString title = 1;
+	Renderer autonav_toggle = 2;
+	Icon icon = 3;
+	Command on_enabled_command = 5;
+	Command on_disabled_command = 6;
+	bool enabled = 7;
+}
+
+extend Renderer {
+	AutoNavToggleRenderer auto_nav_toggle_renderer = 189191301;
+}

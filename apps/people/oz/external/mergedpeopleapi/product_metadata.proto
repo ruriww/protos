@@ -1,0 +1,11 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/product_source.proto";
+
+option objc_class_prefix = "POEM";
+
+message ProductMetadata {
+	ProductSource product_source = 1;
+}

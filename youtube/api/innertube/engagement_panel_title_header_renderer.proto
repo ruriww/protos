@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/engagement_panel_title_menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/engagement_panel_title_header_icon_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelTitleHeaderRenderer {
+	FormattedString title = 1;
+	FormattedString contextual_info = 2;
+	EngagementPanelTitleMenuSupportedRenderers menu = 3;
+	Renderer information_button = 4;
+	FormattedString subtitle = 5;
+	Renderer action_button = 6;
+	bool show_count_badge = 7;
+	Renderer visibility_button = 8;
+	Renderer subtitle_complex = 10;
+	bytes tracking_params = 12;
+	ThumbnailDetails icon = 13;
+	bool hide_bottom_shadow = 14;
+	Renderer banner = 15;
+	Command on_click_command = 16;
+	Command navigation_endpoint = 17;
+	uint32 background_color = 18;
+	Renderer subheader = 19;
+	EngagementPanelTitleHeaderIconStyle icon_style = 20;
+	Command icon_click_command = 21;
+	Renderer title_badge = 22;
+	Renderer navigation_button = 23;
+	string engagement_panel_title_header_entity_key = 24;
+	repeated Renderer action_buttons = 25;
+	Renderer element_action_button = 26;
+}
+
+extend Renderer {
+	EngagementPanelTitleHeaderRenderer engagement_panel_title_renderer = 138681548;
+}

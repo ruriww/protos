@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicIntegrationsColdConfig {
+	bool ios_enable_watchos_app = 1;
+	bool music_ios_carplay_enable_sdk_logic = 3;
+	bool ios_enable_downloads_fallback = 4;
+	bool android_enable_android_auto_tab_ui = 5;
+	bool enable_wear_streaming_playback_items = 6;
+}

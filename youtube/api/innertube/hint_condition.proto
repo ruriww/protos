@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HintCondition {
+	enum HintConditionType {
+		option features.enum_type = CLOSED;
+
+		HINT_CONDITION_TYPE_UNKNOWN = 0;
+		HINT_CONDITION_TYPE_POOR_CONNECTIVITY = 1;
+		HINT_CONDITION_TYPE_HIDE_UNTIL_REQUESTED = 2;
+		HINT_CONDITION_TYPE_ADD_TO_LONG_PRESS = 3;
+	}
+
+	HintConditionType type = 1;
+}

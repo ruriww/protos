@@ -1,0 +1,22 @@
+edition = "2023";
+
+package chromecast.receiver;
+
+import "chromecast/receiver/wrapped_sender_key.proto";
+
+option objc_class_prefix = "GCRE";
+
+message EncryptedBroadcastMessage {
+	WrappedSenderKey wrapped_sender_key = 1;
+	bytes nonce = 2;
+
+	enum MessageType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		APPLICATION = 1;
+	}
+
+	MessageType type = 3 [ default = NONE ];
+	bytes ciphertext_payload = 4;
+}

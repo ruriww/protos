@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.video_as_thumbnail_details;
+
+option objc_class_prefix = "YTVATD";
+
+message CacheObject {
+	string url = 1;
+	string key = 2;
+	int32 width = 3;
+	int32 height = 4;
+	int64 expiration_date = 5;
+	int64 time_to_live = 6;
+}

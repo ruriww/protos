@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.encryption;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message EncryptionSecureDataValue {
+	extend data.DataValue {
+		EncryptionSecureDataValue encryption_secure_data_value_extension = 290848975;
+	}
+
+	string encrypted_value = 1;
+}

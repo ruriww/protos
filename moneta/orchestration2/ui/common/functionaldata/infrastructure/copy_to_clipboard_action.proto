@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+option objc_class_prefix = "ORCH2";
+
+message CopyToClipboardAction {
+	string data = 1;
+	bytes annotated_data = 2;
+}

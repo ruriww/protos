@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_stack_traces_proto.proto";
+import "youtube/api/innertube/client_error.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CrashData {
+	string stack_trace = 1;
+	int32 screen_ve_type = 2;
+	CompactStackTracesProto compact_stack_trace = 3;
+	int64 crash_time_ms = 4;
+	ClientError client_error = 5;
+}

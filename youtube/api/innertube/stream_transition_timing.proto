@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum StreamTransitionTiming {
+	option features.enum_type = CLOSED;
+
+	STREAM_TRANSITION_TIMING_UNSPECIFIED = 0;
+	STREAM_TRANSITION_TIMING_AT_HEAD = 1;
+	STREAM_TRANSITION_TIMING_IMMEDIATELY = 2;
+	STREAM_TRANSITION_TIMING_AT_STREAM_END = 3;
+}

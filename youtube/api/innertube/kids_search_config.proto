@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsSearchConfig {
+	bool enable_search_ui_wave_experience = 1;
+	bool enable_voice_search_tts = 2;
+	bool enable_voice_search_ui_v2 = 3;
+	bool enable_voice_search_voice_over_v2 = 4;
+	int32 voice_search_voice_over_announcement_delay_secs = 5;
+	bool enable_voz_experience = 7;
+	string s3_experiment_str = 8;
+	bool enable_voz_tts = 9;
+}

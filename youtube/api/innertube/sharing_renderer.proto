@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/share_target_renderer.proto";
+import "youtube/api/innertube/share_target_service_update_renderer.proto";
+import "youtube/api/innertube/share_copy_url_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	ShareTargetRenderer share_target_renderer = 75570254;
+}
+
+extend Renderer {
+	ShareTargetServiceUpdateRenderer share_target_service_update_renderer = 87881257;
+}
+
+extend Renderer {
+	ShareCopyUrlButtonRenderer share_copy_url_button_renderer = 83795447;
+}

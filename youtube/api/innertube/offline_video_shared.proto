@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineVideoShared {
+	string video_id = 2;
+	int32 itag = 3;
+	int32 share_depth = 4;
+	string share_nonce = 5;
+	int64 total_transferred_bytes = 6;
+	int64 transfer_duration_ms = 7;
+	string offline_share_session_nonce = 9;
+	int32 saved_video_count = 10;
+	int32 offline_shareable_video_count = 11;
+}

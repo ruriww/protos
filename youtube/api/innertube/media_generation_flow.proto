@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MediaGenerationFlow {
+	option features.enum_type = CLOSED;
+
+	MEDIA_GENERATION_FLOW_UNSPECIFIED = 0;
+	MEDIA_GENERATION_FLOW_TEXT_TO_IMAGE = 1;
+	MEDIA_GENERATION_FLOW_TEXT_TO_VIDEO = 2;
+	MEDIA_GENERATION_FLOW_TEXT_TO_MUSIC = 3;
+	MEDIA_GENERATION_FLOW_IMAGE_TO_VIDEO = 4;
+	MEDIA_GENERATION_FLOW_TEXT_TO_SOUNDTRACK = 5;
+	MEDIA_GENERATION_FLOW_IMAGE_TO_IMAGE = 6;
+	MEDIA_GENERATION_FLOW_MUSIC_TO_MUSIC = 7;
+	MEDIA_GENERATION_FLOW_TEXT_TO_IMAGE_TO_VIDEO = 8;
+	MEDIA_GENERATION_FLOW_TEXT_TO_TEXT = 9;
+	MEDIA_GENERATION_FLOW_IMAGE_TO_TEXT = 10;
+	MEDIA_GENERATION_FLOW_VIDEO_TO_VIDEO = 11;
+	MEDIA_GENERATION_FLOW_VIDEO_TO_TEXT = 12;
+}

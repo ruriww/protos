@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosAvPlayerHotConfig {
+	message Error {
+		sint64 error_code = 1;
+		string error_domain = 2;
+		Error underlying_error = 3;
+	}
+
+	repeated Error ignore_failed_to_play_errors = 1;
+	int32 pool_max_size = 2;
+	int32 unpause_after_airplay_ms = 3;
+	bool allow_external_playback_for_inactive_player = 4;
+	bool seek_after_ad_on_airplay = 6;
+	bool reload_player_response_after_airplay = 7;
+}

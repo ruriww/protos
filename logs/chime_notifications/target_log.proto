@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+import "unknown/youtube/nbcct_channel_type.proto";
+import "logs/chime_notifications/delivery_address_log.proto";
+import "logs/chime_notifications/render_context_log.proto";
+
+option objc_class_prefix = "CHM";
+
+message TargetLog {
+	unknown.youtube.NBCCTChannelType channel = 1;
+	DeliveryAddressLog delivery_address = 2;
+	string target_id = 3;
+	RenderContextLog render_context = 4;
+	string representative_target_id = 5;
+	string internal_target_id_in_request = 6;
+	string representative_target_id_in_request = 7;
+	int64 last_target_registration_days = 9;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+option objc_class_prefix = "NFD";
+
+message EncryptionKey {
+	bytes public_key = 1;
+
+	enum KeyType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		TINK_HYBRID = 1;
+	}
+
+	KeyType key_type = 2;
+}

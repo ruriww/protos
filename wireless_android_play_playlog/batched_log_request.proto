@@ -1,0 +1,14 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/log_request.proto";
+
+option objc_class_prefix = "CADP";
+
+message BatchedLogRequest {
+	repeated LogRequest log_request = 1;
+	bool enable_per_request_status = 3;
+	bool in_direct_boot_mode = 4;
+	int64 last_zwieback_reset_wall_time_ms = 5;
+}

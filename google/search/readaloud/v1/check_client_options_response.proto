@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/supported_language.proto";
+
+option objc_class_prefix = "RAS";
+
+message CheckClientOptionsResponse {
+	bool is_opus_supported = 1;
+	repeated string url_blacklist = 2;
+	repeated SupportedLanguage supported_languages = 3;
+}

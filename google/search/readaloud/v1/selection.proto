@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum Selection {
+	SELECTION_UNSPECIFIED = 0;
+	SELECTION_ALL = 1;
+	SELECTION_NONE = 2;
+	SELECTION_SPECIFIC = 3;
+}

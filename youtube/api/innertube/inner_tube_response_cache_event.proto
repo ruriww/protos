@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cache_event_type.proto";
+import "youtube/api/innertube/cache_fetch_result.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InnerTubeResponseCacheEvent {
+	CacheEventType event_type = 1;
+	int32 cache_object_size_bytes = 2;
+	int32 cache_memory_footprint_size_bytes = 3;
+	CacheFetchResult cache_fetch_result = 4;
+	int32 monitoring_key = 5;
+}

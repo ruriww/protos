@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/handoff_lr_device.proto";
+import "youtube/api/innertube/mdx_connection_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxConnectCommand {
+	extend Command {
+		MdxConnectCommand mdx_connect_command = 492234561;
+	}
+
+	HandoffLrDevice lr_device = 1;
+	MdxConnectionTrigger connection_trigger = 2;
+	bool require_mdx_local_connection = 3;
+	Command on_connection_success = 4;
+	Command on_connection_failure = 5;
+	string default_cloud_screen_name = 6;
+	bool include_initial_playback_descriptor = 7;
+}

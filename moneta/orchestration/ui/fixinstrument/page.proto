@@ -1,0 +1,46 @@
+edition = "2023";
+
+package moneta.orchestration.ui.fixinstrument;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/partial_update_data.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/generic/dependent_variable.proto";
+import "moneta/orchestration/ui/common/components/table/table.proto";
+import "moneta/orchestration/ui/common/components/encryption_form.proto";
+
+option objc_class_prefix = "FixInstrument";
+
+message Page {
+	string title = 1;
+	common.components.instrument.InstrumentSelector instrument_selector = 4;
+	common.components.instrument.InstrumentActivationForm instrument_activation_form = 5;
+	common.components.Button submit_button = 6;
+	common.components.Button cancel_button = 7;
+	repeated common.generic.InfoMessage page_description = 8;
+	repeated common.generic.ComponentGroup component_group = 9;
+	common.generic.DependencyGraph dependency_graph = 10;
+	repeated common.components.legal.LegalMessage legal_message = 11;
+	int64 ui_reference = 12;
+	repeated common.components.Button button = 13;
+	repeated common.PartialUpdateData partial_update_data = 14;
+	repeated common.components.tax.TaxInfoForm tax_info_form = 15;
+	common.components.webview.WebViewComponent web_view_component = 16;
+	repeated common.components.SimpleForm simple_form = 17;
+	repeated common.components.ConfirmationDialog confirmation_dialog = 18;
+	repeated common.generic.DependentVariable show_confirmation_dialog = 19;
+	repeated common.components.table.Table table = 20;
+	common.components.EncryptionForm encryption_form = 21;
+	common.components.SimpleForm contextual_header = 22;
+	common.generic.InfoMessage permissions_information = 23;
+	common.components.SimpleForm split_tender_form = 24;
+}

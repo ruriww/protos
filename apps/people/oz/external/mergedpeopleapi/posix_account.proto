@@ -1,0 +1,55 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message PosixAccount {
+	PersonFieldMetadata metadata = 1;
+	string username = 2;
+	uint64 uid = 3;
+	uint64 gid = 4;
+	string home_directory = 5;
+	string shell = 6;
+	string gecos = 7;
+	string system_id = 8;
+	int64 customer_key = 9;
+
+	enum AccountType {
+		option features.enum_type = CLOSED;
+
+		LINUX_USER_ACCOUNT = 0;
+		LINUX_SERVICE_ACCOUNT = 1;
+		LINUX_EXTERNAL_USER = 2;
+		WINDOWS_USER_ACCOUNT = 3;
+		WINDOWS_SERVICE_ACCOUNT = 4;
+		WINDOWS_EXTERNAL_USER = 5;
+	}
+
+	AccountType account_type = 10;
+
+	enum AccountNamespace {
+		option features.enum_type = CLOSED;
+
+		LINUX_GSUITE = 0;
+		LINUX_CONSUMER = 1;
+		WINDOWS_GSUITE = 2;
+		WINDOWS_CONSUMER = 3;
+	}
+
+	AccountNamespace account_namespace = 11;
+	string account_id = 12;
+
+	enum OperatingSystemType {
+		option features.enum_type = CLOSED;
+
+		OPERATING_SYSTEM_TYPE_UNSPECIFIED = 0;
+		LINUX = 1;
+		WINDOWS = 2;
+	}
+
+	OperatingSystemType operating_system_type = 13;
+	string fingerprint = 14;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.widgetreference;
+
+import "moneta/orchestration/ui/common/widgetreference/widget_type_enum.proto";
+import "moneta/orchestration/ui/common/widgetreference/place_name_enum.proto";
+
+option objc_class_prefix = "Orch";
+
+message WidgetReference {
+	WidgetTypeEnum.WidgetType widget_type = 1;
+	bytes encrypted_parameters = 2;
+	bytes initialize_response_token = 4;
+	PlaceNameEnum.PlaceName place_name = 5;
+}

@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DrmProduct {
+	DRM_PRODUCT_UNKNOWN = 0;
+	DRM_PRODUCT_UGC = 1;
+	DRM_PRODUCT_TVOD = 2;
+	DRM_PRODUCT_AVOD = 3;
+	DRM_PRODUCT_YOUTUBE_TV = 4;
+	DRM_PRODUCT_PREMIUM_LIVE = 5;
+	DRM_PRODUCT_ALC = 6;
+}

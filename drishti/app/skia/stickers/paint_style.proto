@@ -1,0 +1,14 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+enum PaintStyle {
+	option features.enum_type = CLOSED;
+
+	PAINT_STYLE_UNSPECIFIED = 0;
+	PAINT_STYLE_FILL = 1;
+	PAINT_STYLE_STROKE = 2;
+	PAINT_STYLE_STROKE_FILL = 3;
+}

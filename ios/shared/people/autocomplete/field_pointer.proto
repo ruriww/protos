@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_contact_field_type.proto";
+
+option objc_class_prefix = "PDL";
+
+message FieldPointer {
+	PersonContactFieldType type = 1;
+	int32 index = 2;
+}

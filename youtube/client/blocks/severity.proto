@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+option objc_class_prefix = "YTB";
+
+enum Severity {
+	option features.enum_type = CLOSED;
+
+	SEVERITY_UNKNOWN = 0;
+	SEVERITY_INFO = 1;
+	SEVERITY_WARNING = 2;
+	SEVERITY_ERROR = 3;
+}

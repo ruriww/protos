@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/alignment_spec.proto";
+import "moneta/orchestration2/ui/common/node/grid_alignment.proto";
+import "moneta/orchestration2/ui/common/node/grid_justification.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GridSpec {
+	message GridCellSpec {
+		int32 start_index = 1;
+		int32 size = 2 [ default = 1 ];
+	}
+
+	GridCellSpec row_spec = 1;
+	GridCellSpec column_spec = 2;
+	AlignmentSpec alignment_self = 3;
+	GridAlignment align_self = 4;
+	GridJustification justify_self = 5;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/universal_watch_card_list_item_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VerticalWatchCardListRenderer {
+	FormattedString title = 1;
+	repeated UniversalWatchCardListItemSupportedRenderers items = 2;
+	Command view_all_endpoint = 3;
+	FormattedString view_all_text = 4;
+	bytes tracking_params = 6;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "youtube/api/innertube/sfv_effect_pipeline_started_event.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_ended_event.proto";
+import "youtube/api/innertube/sfv_effect_chosen_event.proto";
+import "youtube/api/innertube/sfv_effect_loaded_event.proto";
+import "youtube/api/innertube/sfv_effect_first_frame_processed_latency_event.proto";
+import "youtube/api/innertube/sfv_effect_aggregated_frames_processed_latency_event.proto";
+import "youtube/api/innertube/sfv_effect_aggregated_frames_dropped_event.proto";
+import "youtube/api/innertube/sfv_effect_graph_frozen_event.proto";
+import "youtube/api/innertube/sfv_effect_gl_thread_blocked_event.proto";
+import "youtube/api/innertube/sfv_effect_gl_error_event.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_paused_event.proto";
+import "youtube/api/innertube/mde_video_changed_event.proto";
+import "youtube/api/innertube/mde_error_event.proto";
+import "youtube/api/innertube/sfv_effect_user_interaction_event.proto";
+import "youtube/api/innertube/client_error.proto";
+import "youtube/api/innertube/mde_qos_event.proto";
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option objc_class_prefix = "YTEE";
+
+message LogEventRequest {
+	oneof event {
+		api.innertube.SfvEffectPipelineStartedEvent pipeline_started_event = 1;
+		api.innertube.SfvEffectPipelineEndedEvent pipeline_ended_event = 2;
+		api.innertube.SfvEffectChosenEvent effect_chosen_event = 3;
+		api.innertube.SfvEffectLoadedEvent effect_loaded_event = 4;
+		api.innertube.SfvEffectFirstFrameProcessedLatencyEvent first_frame_processed_latency_event = 5;
+		api.innertube.SfvEffectAggregatedFramesProcessedLatencyEvent aggregated_frames_processed_latency_event = 6;
+		api.innertube.SfvEffectAggregatedFramesDroppedEvent aggregated_frames_dropped_event = 7;
+		api.innertube.SfvEffectGraphFrozenEvent graph_frozen_event = 8;
+		api.innertube.SfvEffectGlThreadBlockedEvent gl_thread_blocked_event = 9;
+		api.innertube.SfvEffectGlErrorEvent gl_error_event = 10;
+		api.innertube.SfvEffectPipelinePausedEvent pipeline_paused_event = 11;
+		api.innertube.MdeVideoChangedEvent video_changed_event = 12;
+		api.innertube.MdeErrorEvent mde_error_event = 13;
+		api.innertube.SfvEffectUserInteractionEvent effect_user_interaction_event = 15;
+		api.innertube.ClientError client_error = 18;
+		api.innertube.MdeQosEvent qos_event = 19;
+	}
+
+	google.protobuf.Timestamp request_time = 14;
+	api.innertube.SfvEffectPipelineData pipeline_data = 17;
+}

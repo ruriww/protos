@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/promoted_sparkles_text_ctd_content.proto";
+import "youtube/api/innertube/promoted_sparkles_click_location_target.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/active_view_display_measurement.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedSparklesTextCtdWatchWideFormRenderer {
+	PromotedSparklesTextCtdContent content = 1;
+	repeated PromotedSparklesClickLocationTarget click_location_targets = 2;
+	Renderer muted_ad_state_renderer = 3;
+	bytes tracking_params = 5;
+	bool render_as_grid_form_inside_single_column = 6;
+	ActiveViewDisplayMeasurement active_view = 7;
+	Renderer close_button = 8;
+	string identifier = 9;
+}
+
+extend Renderer {
+	PromotedSparklesTextCtdWatchWideFormRenderer promoted_sparkles_text_ctd_watch_wide_form_renderer = 157152280;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InfrastructureData {
+	extend data.Data {
+		InfrastructureData infrastructure_data_extension = 233780159;
+	}
+
+	repeated eventrules.resultingaction.ResultingAction initial_resulting_action = 1;
+}

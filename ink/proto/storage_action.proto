@@ -1,0 +1,37 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/add_action.proto";
+import "ink/proto/remove_action.proto";
+import "ink/proto/clear_action.proto";
+import "ink/proto/set_transform_action.proto";
+import "ink/proto/set_page_bounds_action.proto";
+import "ink/proto/add_multiple_action.proto";
+import "ink/proto/set_visibility_action.proto";
+import "ink/proto/set_opacity_action.proto";
+import "ink/proto/change_z_order_action.proto";
+import "ink/proto/replace_action.proto";
+import "ink/proto/set_background_color_action.proto";
+import "ink/proto/update_text_action.proto";
+import "ink/proto/set_parents_action.proto";
+import "ink/proto/set_color_action.proto";
+
+option objc_class_prefix = "INKPB";
+
+message StorageAction {
+	AddAction add_action = 1;
+	RemoveAction remove_action = 2;
+	ClearAction clear_action = 3;
+	SetTransformAction set_transform_action = 5;
+	SetPageBoundsAction set_page_bounds_action = 6;
+	AddMultipleAction add_multiple_action = 7;
+	SetVisibilityAction set_visibility_action = 8;
+	SetOpacityAction set_opacity_action = 9;
+	ChangeZOrderAction change_z_order_action = 10;
+	ReplaceAction replace_action = 12;
+	SetBackgroundColorAction set_background_color_action = 13;
+	UpdateTextAction update_text_action = 14;
+	SetParentsAction set_parents_action = 15;
+	SetColorAction set_color_action = 16;
+}

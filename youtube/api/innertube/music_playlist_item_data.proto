@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPlaylistItemData {
+	string playlist_set_video_id = 1;
+	string video_id = 2;
+	int32 vote_count = 3;
+	int32 vote_sort_value = 4;
+	int64 vote_sort_tiebreaker = 5;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		ScrollingResultingAction scrolling_resulting_action_extension = 232901549;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SCROLL_TO_TOP = 1;
+		RESULTING_ACTION_TYPE_SCROLL_TO_BOTTOM = 2;
+		RESULTING_ACTION_TYPE_SCROLL_UP_BY_SCREEN = 3;
+		RESULTING_ACTION_TYPE_SCROLL_DOWN_BY_SCREEN = 4;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+}

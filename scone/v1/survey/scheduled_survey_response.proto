@@ -1,0 +1,15 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message ScheduledSurveyResponse {
+	enum ScheduleStatus {
+		SURVEY_SCHEDULED_UNSPECIFIED = 0;
+		SURVEY_SCHEDULED_SUCCESS = 1;
+		SURVEY_NOT_SCHEDULED = 2;
+	}
+
+	ScheduleStatus status = 1;
+}

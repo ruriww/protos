@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/feed_filter_chip_bar_visibility_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeedFilterChipBarRenderer {
+	repeated Renderer contents = 1;
+	Command on_filters_cleared = 2;
+	bytes tracking_params = 4;
+	bool disable_caching_unfiltered_feed = 6;
+	Renderer next_button = 7;
+	Renderer previous_button = 8;
+	string element_id = 9;
+	Renderer overlay = 11;
+	Command on_bar_shown = 12;
+	FeedFilterChipBarVisibilityType unfiltered_visibility_type = 13;
+	int32 dwell_time_to_hide_ms = 14;
+}
+
+extend Renderer {
+	FeedFilterChipBarRenderer feed_filter_chip_bar_renderer = 213380311;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleCoordinatesInfo {
+	float view_x = 1;
+	float view_y = 2;
+	float window_x = 3;
+	float window_y = 4;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/playability_error_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdatePlayerErrorMessageCommand {
+	extend Command {
+		UpdatePlayerErrorMessageCommand update_player_error_message_command = 395993086;
+	}
+
+	PlayabilityErrorSupportedRenderers new_player_error_message_renderer = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/state_entry_eviction_policy_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PersistentStateControllerColdConfig {
+	bool use_persistent_state_controller_instead_of_nano = 1;
+	int32 max_stored_data_entries = 2;
+	StateEntryEvictionPolicyType eviction_policy = 3;
+	bool evict_for_broken_weak_ref = 4;
+	bool track_reused_identifiers_after_eviction = 5;
+	string experiment_streamz_tag = 6;
+}

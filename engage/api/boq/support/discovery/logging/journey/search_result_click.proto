@@ -1,0 +1,13 @@
+edition = "2023";
+
+package engage.api.boq.support.discovery.logging.journey;
+
+import "engage/api/boq/support/discovery/logging/journey/search_result.proto";
+import "engage/api/boq/support/discovery/logging/journey/moltron_response_context.proto";
+
+option objc_class_prefix = "SDL";
+
+message SearchResultClick {
+	SearchResult search_result = 1;
+	MoltronResponseContext moltron_response_context = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/image_source_format.proto";
+import "footprints/transparencyandcontrol/proto/image_source_density.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ImagePreferences {
+	ImageSourceFormat format = 1;
+	ImageSourceDensity density = 2;
+}

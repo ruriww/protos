@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosMediaHotConfig {
+	bool avoid_gip_audio = 1;
+	bool async_audio_session = 2;
+	bool cache_audio_state = 3;
+	bool reset_audio_state_on_activation = 4;
+	bool movie_playback_mode = 5;
+	bool stop_audio_engine_on_recording = 6;
+	bool no_default_audio_session_category = 7;
+	bool enable_picture_in_picture = 8;
+	bool use_long_form_route = 9;
+	bool no_global_viewport_size_provider = 10;
+	bool deactivate_audio_session_on_background = 11;
+	bool fix_audio_session_airplay_state = 12;
+	bool squelch_rapid_viewport_size_changes = 13;
+	int32 sticky_ceiling_duration_ms = 14;
+	bool update_audio_route_background_thread = 15;
+	bool enable_data_plan_api = 16;
+	bool enable_pas_sans_ytfe_services = 17;
+	bool pas_persist_timeout_failure_state = 18;
+	bool disable_dynamic_download_scheduler = 19;
+	int32 refresh_cpid_n_days_before_expiration = 20;
+	bool refresh_cpid_on_reboot = 21;
+	bool refresh_cpid_on_sim_swap = 22;
+	bool client_abr_state_use_network_properties_api = 23;
+	bool gate_by_data_plan_api = 24;
+	bool data_load_task_notify_network_request_tracker = 25;
+	bool monitor_avplayer_offline_assets = 26;
+	bool user_features_keep_last_manual_selection = 27;
+	bool enable_pip_for_non_backgroundable_content = 28;
+	bool enable_pip_interaction_logging = 29;
+	bool enable_pip_for_non_premium_users = 30;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi;
+
+import "social/graph/wire/proto/peopleapi/extension/people_stack_tags.proto";
+
+option objc_class_prefix = "SGWPP";
+
+message AffinityMetadata {
+	message CloudDeviceDataInfo {
+		bool is_device_data_known = 1;
+		double device_score = 2;
+	}
+
+	CloudDeviceDataInfo cloud_device_data_info = 1;
+
+	message ClientInteractionInfo {
+		bool is_direct_client_interaction = 1;
+	}
+
+	ClientInteractionInfo client_interaction_info = 2;
+	double cloud_score = 3;
+	extension.PeopleStackTags.SuggestionConfidence suggestion_confidence = 4;
+
+	message PreferredSearchTerm {
+		string term = 1;
+	}
+
+	repeated PreferredSearchTerm preferred_search_terms = 5;
+}

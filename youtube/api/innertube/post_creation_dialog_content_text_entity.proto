@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostCreationDialogContentTextEntity {
+	string key = 1;
+	string editable_text = 2;
+	string placeholder_text = 3;
+	string trimmed_editable_text = 4;
+	float cursor_position_y = 5;
+	float scrollable_container_height = 6;
+	float scrollable_content_offset_y = 7;
+	int32 composed_character_count = 9;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "lens/mixed_query.proto";
+
+option objc_class_prefix = "LFE";
+
+message EducationHeaderMetadata {
+	.lens.MixedQuery mixed_query = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package gaia_frontend;
+
+import "gaia_frontend/security_domain_keys.proto";
+
+option objc_class_prefix = "GFE";
+
+message AllSecurityDomainKeys {
+	repeated SecurityDomainKeys security_domain_keys = 1;
+}

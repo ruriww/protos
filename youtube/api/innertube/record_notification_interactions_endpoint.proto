@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RecordNotificationInteractionsEndpoint {
+	extend Command {
+		RecordNotificationInteractionsEndpoint record_notification_interactions_endpoint = 78414307;
+	}
+
+	bytes serialized_interactions_request = 1;
+	repeated Command actions = 2;
+	bytes serialized_creator_interactions_request = 3;
+}

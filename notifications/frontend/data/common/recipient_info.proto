@@ -1,0 +1,17 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message RecipientInfo {
+	bool skip_recipient_auth_validation = 1;
+	string representative_target_id = 2;
+
+	oneof recipient_id {
+		string recipient_oid = 3;
+		string encoded_fitbit_id = 4;
+		bool is_zwieback_user = 5;
+		bool is_youtube_visitor_user = 6;
+	}
+}

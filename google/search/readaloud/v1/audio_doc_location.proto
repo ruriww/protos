@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/text_location.proto";
+import "google/search/readaloud/v1/time_location.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioDocLocation {
+	TextLocation text_location = 1;
+	TimeLocation time_location = 2;
+	TextLocation paragraph_text_location = 3;
+	TextLocation original_paragraph_text_location = 4;
+}

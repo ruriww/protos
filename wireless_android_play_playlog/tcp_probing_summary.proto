@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/tcp_probing_summary_result_code.proto";
+import "cast/device_connection_error_code.proto";
+import "cast/tcp_prober_ip_source.proto";
+import "cast/cloud_device_probing_status_code.proto";
+
+option objc_class_prefix = "CADP";
+
+message TcpProbingSummary {
+	cast.TcpProbingSummaryResultCode result_code = 1;
+	cast.DeviceConnectionErrorCode connection_error_code = 2;
+	repeated cast.TcpProberIpSource matched_ip_sources = 3 [ features.repeated_field_encoding = EXPANDED ];
+	cast.CloudDeviceProbingStatusCode cloud_device_probing_status_code = 5;
+	int64 first_successful_tcp_probe_latency_ms = 7;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/resolution_strategy.proto";
+import "youtube/api/innertube/fake_mutation_operation.proto";
+import "youtube/api/innertube/remote_mutate_composition_operation.proto";
+import "youtube/api/innertube/transcode_transfer_only_operation.proto";
+import "youtube/api/innertube/replace_composition_asset_by_group_operation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MutationOperation {
+	ResolutionStrategy resolution_strategy = 1;
+
+	oneof operation {
+		FakeMutationOperation fake_mutation_operation = 2;
+		RemoteMutateCompositionOperation remote_mutate_composition_operation = 3;
+		TranscodeTransferOnlyOperation transcode_transfer_only_operation = 4;
+		ReplaceCompositionAssetByGroupOperation replace_composition_asset_by_group_operation = 6;
+	}
+}

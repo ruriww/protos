@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/texts/footprints_revoke_flow_texts.proto";
+import "footprints/texts/text_extra_information.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetRevokeFlowTextsResponse {
+	texts.FootprintsRevokeFlowTexts texts = 1;
+	texts.TextExtraInformation text_extra_information = 2;
+}

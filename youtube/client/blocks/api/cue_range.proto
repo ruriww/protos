@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api;
+
+import "youtube/client/blocks/api/cue_range_metadata.proto";
+
+option objc_class_prefix = "YTBA";
+
+message CueRange {
+	int64 start_time_milliseconds = 1;
+	int64 end_time_milliseconds = 2;
+	CueRangeMetadata metadata = 3;
+}

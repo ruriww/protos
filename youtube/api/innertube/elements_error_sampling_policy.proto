@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/client_log.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ElementsErrorSamplingPolicy {
+	string error_regex = 1;
+	elements.ClientLog.ErrorType error_type = 2;
+	int32 sampling_weight = 3;
+	int64 ttl_seconds = 4;
+}

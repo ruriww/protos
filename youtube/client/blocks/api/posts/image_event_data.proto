@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+import "youtube/api/innertube/image_uploading_state.proto";
+import "youtube/api/innertube/crop_details.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ImageEventData {
+	enum EventType {
+		option features.enum_type = CLOSED;
+
+		EVENT_TYPE_UNKNOWN = 0;
+		EVENT_TYPE_ADDED = 1;
+		EVENT_TYPE_UPDATED = 2;
+		EVENT_TYPE_REPOSITIONED = 3;
+	}
+
+	EventType event_type = 1;
+	string uri = 2;
+	youtube.api.innertube.ImageUploadingState image_uploading_state = 3;
+	youtube.api.innertube.CropDetails crop_details = 4;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message CrashLogEvent {
+	int32 level = 1;
+	string message_format = 2;
+	string source_method_name = 3;
+	int32 line_number = 4;
+	string thread_name = 5;
+	string file_name = 6;
+	int64 timestamp_ms = 7;
+}

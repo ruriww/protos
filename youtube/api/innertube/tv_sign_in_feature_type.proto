@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TvSignInFeatureType {
+	option features.enum_type = CLOSED;
+
+	TV_SIGN_IN_FEATURE_TYPE_UNKNOWN = 0;
+	TV_SIGN_IN_FEATURE_TYPE_SEAMLESS = 1;
+	TV_SIGN_IN_FEATURE_TYPE_ASSISTED = 2;
+	TV_SIGN_IN_FEATURE_TYPE_PASSIVE = 3;
+	TV_SIGN_IN_FEATURE_TYPE_RAPID_QR = 4;
+}

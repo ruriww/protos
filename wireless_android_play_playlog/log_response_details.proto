@@ -1,0 +1,19 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message LogResponseDetails {
+	int32 log_request_index = 1;
+
+	enum ResponseAction {
+		option features.enum_type = CLOSED;
+
+		RESPONSE_ACTION_UNKNOWN = 0;
+		RETRY_REQUEST_LATER = 1;
+		DELETE_REQUEST = 2;
+	}
+
+	ResponseAction response_action = 2;
+}

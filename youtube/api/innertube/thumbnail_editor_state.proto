@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThumbnailEditorState {
+	repeated ThumbnailDetails stills = 1;
+	int32 still_id = 2;
+	string download_url = 3;
+	bool auto_enhance = 4;
+	ThumbnailDetails custom_thumbnail = 5;
+	ThumbnailDetails custom_thumbnail_enhanced = 6;
+	bool default_still = 8;
+}

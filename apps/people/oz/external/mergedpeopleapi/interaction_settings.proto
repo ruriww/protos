@@ -1,0 +1,23 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message InteractionSettings {
+	PersonFieldMetadata metadata = 1;
+
+	enum InteractionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		INCOMING_CIRCLE_MEMBERSHIP = 1;
+		INCOMING_SOCIAL_EDGE = 2;
+		INVITE_TO_EMAIL = 3;
+	}
+
+	InteractionType interaction = 4;
+	bool allowed = 5 [ default = true ];
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_per_ecosystem_zone_color_palette_data.proto";
+import "youtube/api/innertube/button_color_supported_datas.proto";
+import "youtube/api/innertube/kids_lottie_color_override.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsColorOverridesData {
+	KidsPerEcosystemZoneColorPaletteData sky_color_overrides = 1;
+	KidsPerEcosystemZoneColorPaletteData ocean_color_overrides = 2;
+	KidsPerEcosystemZoneColorPaletteData deep_ocean_color_overrides = 3;
+	ButtonColorSupportedDatas active_button_color_overrides = 4;
+	ButtonColorSupportedDatas inactive_button_color_overrides = 5;
+	ButtonColorSupportedDatas disabled_button_color_overrides = 6;
+	repeated KidsLottieColorOverride lottie_color_overrides = 7;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+option objc_class_prefix = "CRPT";
+
+enum KeyType {
+	KEY_TYPE_UNSPECIFIED = 0;
+	RAW128 = 1;
+	RAW256 = 2;
+	CURVE25519 = 3;
+	P256 = 4;
+	CUSTOM = 127;
+}

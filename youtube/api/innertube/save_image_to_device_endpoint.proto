@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/save_image_format.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/image_destination.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SaveImageToDeviceEndpoint {
+	oneof image_source {
+		string image_url = 1;
+		bytes image_bytes = 8;
+		string image_file_name = 9;
+	}
+
+	string image_title = 2;
+	string image_description = 3;
+	SaveImageFormat image_format = 4;
+	int32 image_quality = 5;
+	Command success_command = 6;
+	Command error_command = 7;
+	ImageDestination image_destination = 10;
+	string destination_image_file_name = 11;
+}
+
+extend Command {
+	SaveImageToDeviceEndpoint save_image_to_device_endpoint = 254834803;
+}

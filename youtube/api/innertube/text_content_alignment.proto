@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TextContentAlignment {
+	option features.enum_type = CLOSED;
+
+	TEXT_CONTENT_ALIGNMENT_UNSPECIFIED = 0;
+	TEXT_CONTENT_ALIGNMENT_LEFT = 1;
+	TEXT_CONTENT_ALIGNMENT_RIGHT = 2;
+	TEXT_CONTENT_ALIGNMENT_CENTER = 3;
+}

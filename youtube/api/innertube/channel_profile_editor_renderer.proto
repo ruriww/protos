@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_profile_image_picker_supported_renderers.proto";
+import "youtube/api/innertube/channel_profile_text_preview_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/channel_profile_editor_boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_profile_image_picker_renderer.proto";
+import "youtube/api/innertube/channel_profile_text_preview_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelProfileEditorRenderer {
+	ChannelProfileImagePickerSupportedRenderers profile_image = 1;
+	ChannelProfileTextPreviewSupportedRenderers name_preview = 14;
+	ChannelProfileTextPreviewSupportedRenderers description_preview = 15;
+	FormattedString privacy_settings_title = 16;
+	repeated ChannelProfileEditorBooleanFormFieldSupportedRenderers privacy_settings = 17;
+	FormattedString disclaimer_text = 18;
+	ChannelProfileImagePickerSupportedRenderers banner_image = 19;
+	string header_title = 20;
+	ChannelProfileTextPreviewSupportedRenderers handle_preview = 21;
+}
+
+extend Renderer {
+	ChannelProfileEditorRenderer channel_profile_editor_renderer = 91338160;
+}
+
+extend Renderer {
+	ChannelProfileImagePickerRenderer channel_profile_image_picker_renderer = 109219466;
+}
+
+extend Renderer {
+	ChannelProfileTextPreviewRenderer channel_profile_text_preview_renderer = 105917786;
+}

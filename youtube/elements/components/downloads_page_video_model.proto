@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/api/innertube/downloads_page_video_entity.proto";
+import "youtube/api/innertube/download_status_entity.proto";
+import "youtube/elements/components/downloads_page_video_experiments.proto";
+import "youtube/api/innertube/client_ve_spec.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageVideoModel {
+	extend Model {
+		DownloadsPageVideoModel downloads_page_video_model = 297019532;
+	}
+
+	Theme theme = 1;
+	string video_entity_key = 2;
+	api.innertube.DownloadsPageVideoEntity video_entity = 3;
+	api.innertube.DownloadStatusEntity download_status_entity = 4;
+	DownloadsPageVideoExperiments experiments = 6;
+	api.innertube.ClientVeSpec client_ve_spec = 7;
+	Context context = 8;
+	int32 position_index = 9;
+	string accessibility_id = 10;
+	bool is_smart_downloads = 11;
+	Command overflow_button_on_tap = 12;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+enum PlayerBarDecorationShape {
+	option features.enum_type = CLOSED;
+
+	PLAYER_BAR_DECORATION_SHAPE_UNKNOWN = 0;
+	PLAYER_BAR_DECORATION_SHAPE_CUSTOMIZED = 1;
+	PLAYER_BAR_DECORATION_SHAPE_RECTANGLE = 2;
+	PLAYER_BAR_DECORATION_SHAPE_CIRCLE = 3;
+}

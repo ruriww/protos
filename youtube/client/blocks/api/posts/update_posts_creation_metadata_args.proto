@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+import "youtube/client/forms/posts_creation_metadata_form.proto";
+
+option objc_class_prefix = "YTBA";
+
+message UpdatePostsCreationMetadataArgs {
+	forms.PostsCreationMetadataForm form = 1;
+}

@@ -1,0 +1,38 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/assistive_feature_metadata.proto";
+import "social/people/backend/service/intelligence/proto/lookup_id.proto";
+import "google/type/date.proto";
+
+option objc_class_prefix = "PIL";
+
+message BirthdayReminderAssistiveFeature {
+	AssistiveFeatureMetadata feature_metadata = 1;
+	LookupId lookup_id = 2;
+
+	enum BirthdayStatus {
+		BIRTHDAY_UNKNOWN = 0;
+		BIRTHDAY_NOT_PRESENT = 1;
+		BIRTHDAY_OUT_OF_WINDOW = 2;
+		BIRTHDAY_CONFLICT = 3;
+	}
+
+	oneof birthday {
+		BirthdayStatus status = 3;
+		google.type.Date calendar_day = 4;
+	}
+
+	int32 year_of_current_birthday_occurrence = 5;
+
+	enum BirthdaySource {
+		UNSPECIFIED_SOURCE = 0;
+		BIRTHDAY_FROM_CONTACT = 1;
+		BIRTHDAY_FROM_PROFILE = 2;
+	}
+
+	BirthdaySource source = 6;
+	bool is_self = 7;
+	string source_person_id = 8;
+}

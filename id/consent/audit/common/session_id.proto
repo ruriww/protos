@@ -1,0 +1,11 @@
+edition = "2023";
+
+package id.consent.audit.common;
+
+import "id/consent/audit/common/uuid.proto";
+
+option objc_class_prefix = "ARI";
+
+message SessionId {
+	UUID uuid = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.identity.mobile.identitykit;
+
+option objc_class_prefix = "GIKEXT";
+
+enum FlowType {
+	FLOW_TYPE_UNSPECIFIED = 0;
+	FETCH_CAPABILITIES_FLOW = 1;
+	EMBEDDED_RE_AUTH_FLOW = 2;
+	SIGN_IN_STATE_FLOW = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "payments/logging/orchestration/client/event.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PaymentsOrchestrationClientExtension {
+	Event event = 1;
+}

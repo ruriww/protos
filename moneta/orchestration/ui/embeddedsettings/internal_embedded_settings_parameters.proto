@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedsettings;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+
+option objc_class_prefix = "EmbeddedSettings";
+
+message InternalEmbeddedSettingsParameters {
+	integrator.ui.common.CommonParameters common_parameters = 1;
+
+	enum Scenario {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CUSTOMER = 1;
+		BILLING_ACCOUNT = 2;
+		BILLING_ACCOUNT_AND_CUSTOMER = 3;
+		SEND_REQUEST_MONEY_DEFAULT_CUSTOMER_SWITCH = 4;
+		CREATE_PROFILE = 5;
+	}
+
+	Scenario embedded_settings_scenario = 5 [ default = BILLING_ACCOUNT_AND_CUSTOMER ];
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum KeyExchangeResult {
+	option features.enum_type = CLOSED;
+
+	KEY_EXCHANGE_UNKNOWN = 0;
+	KEY_EXCHANGE_SUCCEEDED = 1;
+	KEY_EXCHANGE_FAILED = 2;
+}

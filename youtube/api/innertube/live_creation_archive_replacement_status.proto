@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveCreationArchiveReplacementStatus {
+	option features.enum_type = CLOSED;
+
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_UNKNOWN = 0;
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_UPLOADING = 1;
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_OUT_OF_LOCAL_STORAGE = 2;
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_INVALID_DURATION = 3;
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_CANNOT_ENCODE = 4;
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_EXCEEDS_MAX_DURATION = 5;
+	LIVE_CREATION_ARCHIVE_REPLACEMENT_STATUS_BELOW_MIN_QUALITY_INCREASE = 6;
+}

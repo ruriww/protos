@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message WebRequestContext {
+	string referer_url = 1;
+	string frontline_info_context = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/raw_device_contact_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message AdditionalContainerInfo {
+	repeated RawDeviceContactInfo raw_device_contact_info = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package geostore;
+
+option objc_class_prefix = "GS";
+
+message AddressLinesProto {
+	repeated string line = 1;
+	string language = 2;
+}

@@ -1,0 +1,79 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_preview.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/watch_endpoint_main_app_config.proto";
+import "youtube/api/innertube/watch_endpoint_unplugged_config.proto";
+import "youtube/api/innertube/watch_endpoint_clip_config.proto";
+import "youtube/api/innertube/offline_player_request_behavior.proto";
+import "youtube/api/innertube/watch_endpoint_logging_context.proto";
+import "youtube/api/innertube/co_watchability.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/watch_endpoint_composite_config.proto";
+import "youtube/api/innertube/watch_endpoint_supported_authorization_token_config.proto";
+import "youtube/api/innertube/watch_endpoint_supported_prefetch_config.proto";
+import "youtube/api/innertube/watch_endpoint_supported_onesie_config.proto";
+import "youtube/api/innertube/watch_endpoint_remote_playback_supported_configs.proto";
+import "youtube/api/innertube/watch_endpoint_watch_next_inline_supported_configs.proto";
+import "youtube/api/innertube/watch_endpoint_music_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchEndpoint {
+	string video_id = 1;
+	string playlist_id = 2;
+	uint32 index = 3;
+	string params = 5;
+	bool continue_playback = 6;
+	float start_time_seconds = 7;
+	float end_time_seconds = 8;
+	string player_params = 9;
+	float navigation_confidence = 10;
+	MdxPreview.MdxPreviewType mdx_preview_type = 12;
+	string playlist_set_video_id = 13;
+	repeated Command playback_actions = 14;
+	string navigation_list_entry_id = 15;
+	WatchEndpointMainAppConfig watch_endpoint_main_app_config = 16;
+	bool nofollow = 17;
+	map<string, string> player_extra_url_params = 18;
+	WatchEndpointUnpluggedConfig watch_endpoint_unplugged_config = 19;
+	bool eligible_for_offline_fallback = 20;
+	WatchEndpointClipConfig watch_endpoint_clip_config = 21;
+	OfflinePlayerRequestBehavior offline_player_request_behavior = 22;
+	bool allow_reload = 23;
+	bool racy_check_ok = 24;
+	bool replay_if_same_video = 25;
+	WatchEndpointLoggingContext logging_context = 26;
+	bool keep_shorts_url = 27;
+	bytes ustreamer_config = 28;
+	bool disable_onesie = 30;
+	string queue_playlist_id = 31;
+	string deferred_player_identifier = 32;
+	string prefetch_task_id = 33;
+	CoWatchability cowatchability = 34;
+	ThumbnailDetails thumbnail = 35;
+	string video_title = 36;
+	string owner_display_name = 37;
+	int64 live_utc_start_time_seconds = 38;
+	string player_response_cache_token = 39;
+	bool content_check_ok = 40;
+	string default_active_source_video_id = 41;
+	WatchEndpointCompositeConfig watch_endpoint_composite_config = 42;
+	int32 offline_playback_data_fallback_trigger_duration_msecs_override = 43;
+	int64 video_length_seconds = 44;
+	WatchEndpointSupportedAuthorizationTokenConfig watch_endpoint_supported_authorization_token_config = 65627574;
+	WatchEndpointSupportedPrefetchConfig watch_endpoint_supported_prefetch_config = 68146959;
+	WatchEndpointSupportedOnesieConfig watch_endpoint_supported_onesie_config = 79857908;
+	WatchEndpointRemotePlaybackSupportedConfigs watch_endpoint_remote_playback_supported_configs = 96593618;
+	WatchEndpointWatchNextInlineSupportedConfigs watch_endpoint_watch_next_inline_supported_configs = 128119224;
+	WatchEndpointMusicSupportedConfigs watch_endpoint_music_supported_configs = 136656028;
+}
+
+extend Command {
+	WatchEndpoint watch_endpoint = 48687757;
+}

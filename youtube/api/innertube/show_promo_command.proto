@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowPromoCommand {
+	extend Command {
+		ShowPromoCommand show_promo_command = 332330970;
+	}
+
+	oneof promo {
+		Command promo_command = 1;
+		Renderer promo_renderer = 2;
+	}
+
+	Command on_client_suppressed_command = 3;
+}

@@ -1,0 +1,59 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/reel_item_style.proto";
+import "youtube/api/innertube/reel_avatar_status.proto";
+import "youtube/api/innertube/reel_video_type.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelItemRenderer {
+	extend Renderer {
+		ReelItemRenderer reel_item_renderer = 158884182;
+	}
+
+	string video_id = 1;
+	FormattedString headline = 2;
+	FormattedString short_byline_text = 3;
+	ThumbnailDetails thumbnail = 4;
+	ThumbnailDetails channel_thumbnail = 5;
+	FormattedString view_count_text = 6;
+	FormattedString published_time_text = 7;
+	Command navigation_endpoint = 8;
+	MenuSupportedRenderers menu = 9;
+	string debug_html = 10;
+	bytes tracking_params = 12;
+	AccessibilitySupportedDatas accessibility = 13;
+	ReelItemStyle style = 14;
+	FormattedString video_count_text = 15;
+	ReelAvatarStatus status = 16;
+	int32 total_items = 17;
+	FormattedString card_title = 18;
+
+	message DismissalInfo {
+		string feedback_token = 1;
+	}
+
+	DismissalInfo dismissal_info = 19;
+	FormattedString duration_text = 20;
+	FormattedString video_type_tag = 21;
+	ReelVideoType video_type = 22;
+	Command on_first_visible_command = 23;
+	Command inline_playback_endpoint = 24;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 25;
+	Renderer badge = 26;
+	string set_video_id = 27;
+	LoggingDirectives logging_directives = 999;
+}

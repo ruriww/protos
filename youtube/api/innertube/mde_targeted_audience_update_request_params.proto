@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_targeted_audience_update_operation.proto";
+import "youtube/api/innertube/mde_targeted_audience_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeTargetedAudienceUpdateRequestParams {
+	MdeTargetedAudienceUpdateOperation operation = 1;
+	MdeTargetedAudienceType new_targeted_audience = 2;
+}

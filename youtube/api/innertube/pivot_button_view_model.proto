@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/image.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/theme_attribute.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PivotButtonViewModel {
+	extend Renderer {
+		PivotButtonViewModel pivot_button_view_model = 462463609;
+	}
+
+	elements.Image thumbnail = 1;
+	elements.Command on_click_command = 2;
+	bytes tracking_params = 3;
+	string content_description = 5;
+	ThemeAttribute background_color = 6;
+
+	oneof foreground {
+		Icon icon = 7;
+		string animation_url = 8;
+		elements.Image foreground_mini_image = 16;
+	}
+
+	string target_id = 9;
+	elements.AttributedString sound_attribution_title = 10;
+	elements.Command on_visible_command = 11;
+	string dark_theme_animation_url = 12;
+
+	message Experiments {
+		bool disable_waveform_animation = 1;
+		bool disable_waveform_animation_looping = 2;
+		bool disable_waveform_animation_playing = 3;
+		bool enable_static_waveform_icon = 4;
+		bool enable_foreground_small_icon = 5;
+	}
+
+	Experiments experiments = 15;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package experiments.mobile.ssoauth_ios;
+
+import "experiments/mobile/application_properties.proto";
+
+option objc_class_prefix = "SSO";
+
+message ApplicationProperties {
+	extend mobile.ApplicationProperties {
+		ApplicationProperties app_properties = 427513414;
+	}
+
+	string client_id = 1;
+}

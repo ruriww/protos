@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum WebViewPredefinedValue {
+	option features.enum_type = CLOSED;
+
+	WEB_VIEW_PREDEFINED_VALUE_UNKNOWN = 0;
+	WEB_VIEW_PREDEFINED_VALUE_YT_WEBVIEW_NAVIGATION_URL = 1;
+	WEB_VIEW_PREDEFINED_VALUE_YT_WEBVIEW_TOTAL_GESTURES = 2;
+	WEB_VIEW_PREDEFINED_VALUE_YT_WEBVIEW_TOTAL_TAP_GESTURES = 3;
+	WEB_VIEW_PREDEFINED_VALUE_YT_WEBVIEW_TOTAL_SWIPE_GESTURES = 4;
+	WEB_VIEW_PREDEFINED_VALUE_NAVIGATION_URL = 5;
+	WEB_VIEW_PREDEFINED_VALUE_GESTURE_COUNT = 6;
+}

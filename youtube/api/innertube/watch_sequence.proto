@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/watch_sequence_entry.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchSequence {
+	repeated WatchSequenceEntry entries = 2;
+
+	oneof continuation_oneof {
+		string continuation = 3;
+	}
+
+	oneof refresh_continuation_oneof {
+		string refresh_continuation = 11;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.encryption;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message EcdhKeyCalculationData {
+	extend data.Data {
+		EcdhKeyCalculationData ecdh_key_calculation_data_extension = 290848974;
+	}
+
+	string public_key = 1;
+	string agreement_party_v_info = 2;
+	int64 private_key_data_reference = 3;
+}

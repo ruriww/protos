@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+option objc_class_prefix = "DYNProto";
+
+enum AppType {
+	option features.enum_type = CLOSED;
+
+	APP_TYPE_UNSPECIFIED = 0;
+	APP = 1;
+	GSUITE_APP = 2;
+	INCOMING_WEBHOOK = 3;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/creator_channel_data.proto";
+import "youtube/api/innertube/update_status.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateCreatorChannelResponse {
+	ResponseContext response_context = 1;
+	CreatorChannelData channel = 3;
+	UpdateStatus comments_settings_status = 4;
+	UpdateStatus crowdsourcing_settings_status = 5;
+	UpdateStatus copyright_settings_status = 7;
+	UpdateStatus studio_settings_status = 8;
+	UpdateStatus content_owner_relationship_status = 10;
+	UpdateStatus upload_defaults_status = 12;
+	UpdateStatus core_settings_status = 13;
+	UpdateStatus branding_settings_status = 14;
+	UpdateStatus permissions_settings_status = 15;
+	UpdateStatus partner_program_status = 17;
+	UpdateStatus trust_state_status = 18;
+	UpdateStatus contract_status = 19;
+	UpdateStatus channel_redirect_settings_status = 20;
+	UpdateStatus asr_filtering_status = 22;
+	UpdateStatus live_settings_status = 23;
+	UpdateStatus ui_customization_status = 25;
+	UpdateStatus interstitials_status = 26;
+	UpdateStatus demographics_settings_status = 27;
+	UpdateStatus ad_blocking_settings_status = 28;
+	UpdateStatus pdg_features_status = 29;
+	UpdateStatus sponsorships_data_status = 30;
+	UpdateStatus upgrade_ypp_tier_status = 31;
+	UpdateStatus avatar_status = 32;
+	UpdateStatus shopping_settings_status = 33;
+	UpdateStatus trainability_settings_status = 34;
+	UpdateStatus payments_experience_settings_status = 35;
+	UpdateStatus midroll_revamp_settings_status = 36;
+	UpdateStatus community_settings_status = 37;
+	UpdateStatus live_overlay_settings_status = 38;
+	UpdateStatus data_sharing_for_ads_and_brands_settings_status = 39;
+	UpdateStatus adsense_idv_data_status = 40;
+	FrameworkUpdateTransport framework_updates = 777;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_post_bulletin_renderer.proto";
+import "youtube/api/innertube/chip_cloud_renderer.proto";
+import "youtube/api/innertube/comments_header_renderer.proto";
+import "youtube/api/innertube/feed_channel_filter_header_renderer.proto";
+import "youtube/api/innertube/alert_with_actions_renderer.proto";
+import "youtube/api/innertube/rich_list_header_renderer.proto";
+import "youtube/api/innertube/search_box_renderer.proto";
+import "youtube/api/innertube/browsy_section_header_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/episodes_section_header_renderer.proto";
+import "youtube/api/innertube/sort_filter_header_renderer.proto";
+import "youtube/api/innertube/feed_filter_chip_bar_renderer.proto";
+import "youtube/api/innertube/music_side_aligned_item_renderer.proto";
+import "youtube/api/innertube/get_suggested_playlist_videos_header_renderer.proto";
+import "youtube/api/innertube/unplugged_banner_renderer.proto";
+import "youtube/api/innertube/my_subs_filter_header_renderer.proto";
+import "youtube/api/innertube/filter_chip_bar_element_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListHeaderSupportedRenderers {
+	oneof renderer {
+		ChannelPostBulletinRenderer channel_post_bulletin_renderer = 89991643;
+		ChipCloudRenderer chip_cloud_renderer = 90823135;
+		CommentsHeaderRenderer comments_header_renderer = 105977417;
+		FeedChannelFilterHeaderRenderer feed_channel_filter_header_renderer = 107984702;
+		AlertWithActionsRenderer alert_with_actions_renderer = 117586727;
+		RichListHeaderRenderer rich_list_header_renderer = 120280839;
+		SearchBoxRenderer search_box_renderer = 132114608;
+		BrowsySectionHeaderRenderer browsy_section_header_renderer = 141910182;
+		ElementRenderer element_renderer = 153515154;
+		EpisodesSectionHeaderRenderer episodes_section_header_renderer = 171606645;
+		SortFilterHeaderRenderer sort_filter_header_renderer = 207130962;
+		FeedFilterChipBarRenderer feed_filter_chip_bar_renderer = 213380311;
+		MusicSideAlignedItemRenderer music_side_aligned_item_renderer = 217934217;
+		GetSuggestedPlaylistVideosHeaderRenderer get_suggested_playlist_videos_header_renderer = 222895468;
+		UnpluggedBannerRenderer unplugged_banner_renderer = 224687714;
+		MySubsFilterHeaderRenderer my_subs_filter_header_renderer = 256220752;
+		FilterChipBarElementRenderer filter_chip_bar_element_renderer = 420115721;
+	}
+}

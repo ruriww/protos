@@ -1,0 +1,52 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/gnp_campaign_info.proto";
+import "notifications/frontend/data/common/rs_read_state.proto";
+import "notifications/frontend/data/common/ds_deletion_status.proto";
+import "notifications/frontend/data/common/ios_sdk_message.proto";
+import "notifications/frontend/data/common/inbox_message.proto";
+import "notifications/frontend/data/common/gnp_sdk_in_app_message.proto";
+import "google/protobuf/any.proto";
+import "notifications/frontend/data/common/thread_state.proto";
+import "notifications/frontend/data/common/triggering.proto";
+import "google/protobuf/duration.proto";
+import "notifications/frontend/data/common/quality_options.proto";
+
+option objc_class_prefix = "NFDC";
+
+message FrontendNotificationThread {
+	string client_id = 1;
+	string type_id = 2;
+	string thread_id = 3;
+	RSReadState read_state = 4;
+	DSDeletionStatus deletion_status = 7;
+	int64 last_updated_version = 8;
+	int64 last_notification_version = 9;
+	string identifier = 10;
+
+	oneof rendered_message {
+		IosSdkMessage ios_sdk_message = 13;
+		InboxMessage inbox_message = 18;
+		GnpSdkInAppMessage gnp_sdk_in_app_message = 25;
+	}
+
+	google.protobuf.Any payload = 14;
+	ThreadState thread_state = 15;
+	string update_thread_state_token = 16;
+	int64 expiration_timestamp_usec = 20;
+	string payload_type = 22;
+	int64 creation_id = 23;
+	Triggering triggering = 26;
+
+	message GnpAnalyticsInfo {
+		GnpCampaignInfo gnp_campaign_info = 1;
+	}
+
+	GnpAnalyticsInfo analytics_info = 27;
+	google.protobuf.Duration expiration_duration_after_display = 28;
+	bytes opaque_backend_data = 29;
+	repeated int32 experiment_ids = 32;
+	QualityOptions quality_options = 33;
+}

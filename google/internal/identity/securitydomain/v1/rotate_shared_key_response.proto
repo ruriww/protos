@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message RotateSharedKeyResponse {
+	int32 new_epoch = 1;
+}

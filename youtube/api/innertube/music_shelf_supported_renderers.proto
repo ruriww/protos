@@ -1,0 +1,62 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_list_item_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/search_suggestion_renderer.proto";
+import "youtube/api/innertube/music_wide_video_renderer.proto";
+import "youtube/api/innertube/music_narrow_video_renderer.proto";
+import "youtube/api/innertube/music_list_video_renderer.proto";
+import "youtube/api/innertube/music_list_radio_renderer.proto";
+import "youtube/api/innertube/music_wide_radio_renderer.proto";
+import "youtube/api/innertube/music_narrow_radio_renderer.proto";
+import "youtube/api/innertube/music_wide_playlist_renderer.proto";
+import "youtube/api/innertube/music_narrow_playlist_renderer.proto";
+import "youtube/api/innertube/music_list_playlist_renderer.proto";
+import "youtube/api/innertube/music_narrow_album_renderer.proto";
+import "youtube/api/innertube/music_wide_album_renderer.proto";
+import "youtube/api/innertube/music_narrow_artist_radio_renderer.proto";
+import "youtube/api/innertube/music_wide_artist_radio_renderer.proto";
+import "youtube/api/innertube/music_list_album_renderer.proto";
+import "youtube/api/innertube/history_suggestion_renderer.proto";
+import "youtube/api/innertube/music_shelf_divider_renderer.proto";
+import "youtube/api/innertube/music_wide_offline_mixtape_renderer.proto";
+import "youtube/api/innertube/music_list_item_renderer.proto";
+import "youtube/api/innertube/music_list_metadata_info_renderer.proto";
+import "youtube/api/innertube/music_two_column_item_renderer.proto";
+import "youtube/api/innertube/music_responsive_list_item_renderer.proto";
+import "youtube/api/innertube/music_side_aligned_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicShelfSupportedRenderers {
+	CompactListItemRenderer compact_list_item_renderer = 48602820;
+	MessageRenderer message_renderer = 58508690;
+	SearchSuggestionRenderer search_suggestion_renderer = 87116080;
+	MusicWideVideoRenderer music_wide_video_renderer = 89161916;
+	MusicNarrowVideoRenderer music_narrow_video_renderer = 89165411;
+	MusicListVideoRenderer music_list_video_renderer = 89166951;
+	MusicListRadioRenderer music_list_radio_renderer = 90217689;
+	MusicWideRadioRenderer music_wide_radio_renderer = 90218040;
+	MusicNarrowRadioRenderer music_narrow_radio_renderer = 90219769;
+	MusicWidePlaylistRenderer music_wide_playlist_renderer = 99317278;
+	MusicNarrowPlaylistRenderer music_narrow_playlist_renderer = 99528783;
+	MusicListPlaylistRenderer music_list_playlist_renderer = 111664726;
+	MusicNarrowAlbumRenderer music_narrow_album_renderer = 111740543;
+	MusicWideAlbumRenderer music_wide_album_renderer = 112429840;
+	MusicNarrowArtistRadioRenderer music_narrow_artist_radio_renderer = 114373478;
+	MusicWideArtistRadioRenderer music_wide_artist_radio_renderer = 114376755;
+	MusicListAlbumRenderer music_list_album_renderer = 122847250;
+	HistorySuggestionRenderer history_suggestion_renderer = 128521690;
+	MusicShelfDividerRenderer music_shelf_divider_renderer = 132810515;
+	MusicWideOfflineMixtapeRenderer music_wide_offline_mixtape_renderer = 137443827;
+	MusicListItemRenderer music_list_item_renderer = 149038372;
+	MusicListMetadataInfoRenderer music_list_metadata_info_renderer = 151178482;
+	MusicTwoColumnItemRenderer music_two_column_item_renderer = 161429595;
+	MusicResponsiveListItemRenderer music_responsive_list_item_renderer = 182604430;
+	MusicSideAlignedItemRenderer music_side_aligned_item_renderer = 217934217;
+}

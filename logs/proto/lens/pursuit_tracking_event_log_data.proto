@@ -1,0 +1,45 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/lens_ios_enums.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message PursuitTrackingEventLogData {
+	enum PursuitTrackingEventContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PURSUIT_TRACKING_EVENT_CONTEXT = 0;
+		PERFORMANCE_METRICS = 1;
+		TRACKING_ERROR = 2;
+	}
+
+	PursuitTrackingEventContext pursuit_tracking_event_context = 1;
+
+	message PursuitTrackingLatency {
+		int32 tracking_latency_time_ms = 1;
+		int32 max_tracking_latency_time_ms = 2;
+		int32 tracking_latency_samples = 3;
+		int32 latency_report_index = 4;
+	}
+
+	PursuitTrackingLatency tracking_latency = 2;
+
+	message PursuitScalingLatency {
+		int32 scaling_latency_time_us = 1;
+	}
+
+	PursuitScalingLatency scaling_latency = 3;
+
+	message PursuitTrackingError {
+		LensIosEnums.PursuitTrackingErrorType error_type = 1;
+		int32 error_param_0 = 2;
+		int32 error_param_1 = 3;
+		int32 error_param_2 = 4;
+		int32 error_param_3 = 5;
+	}
+
+	PursuitTrackingError tracking_error = 4;
+	repeated int32 tracking_metric = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

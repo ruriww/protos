@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/text_font_weight.proto";
+import "youtube/api/innertube/text_font_width.proto";
+import "youtube/api/innertube/text_font_slant.proto";
+import "youtube/api/innertube/text_font_edging.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextFont {
+	string family_name = 1;
+	float size = 2;
+
+	message Style {
+		TextFontWeight weight = 3 [ default = TEXT_FONT_WEIGHT_NORMAL ];
+		TextFontWidth width = 4 [ default = TEXT_FONT_WIDTH_NORMAL ];
+		TextFontSlant slant = 5 [ default = TEXT_FONT_SLANT_UPRIGHT ];
+	}
+
+	Style style = 3;
+	TextFontEdging edging = 4 [ default = TEXT_FONT_EDGING_ANTI_ALIASED ];
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message InteractionLogging {
+	int32 last_grafted_page_ve = 1;
+	int32 last_interaction_ve = 2;
+	repeated int32 grafted_page_ve_history = 3;
+	repeated int32 interaction_ve_history = 4;
+}

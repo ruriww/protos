@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/client_info.proto";
+import "google/search/readaloud/v1/audio_doc_processing_options.proto";
+import "google/search/readaloud/v1/authorization_info.proto";
+
+option objc_class_prefix = "RAS";
+
+message CheckUrlRequest {
+	ClientInfo client_info = 1;
+	AudioDocProcessingOptions advanced_options = 2;
+	AuthorizationInfo authorization_info = 3;
+	bool allow_speculation = 4;
+	string url = 6;
+}

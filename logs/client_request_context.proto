@@ -1,0 +1,30 @@
+edition = "2023";
+
+package logs;
+
+import "logs/visual_element_lite_proto.proto";
+import "logs/client_interaction_metadata.proto";
+import "logs/click_tracking_cgi.proto";
+
+option objc_class_prefix = "LOG";
+
+message ClientRequestContext {
+	int32 ui_type = 1 [ default = -1 ];
+	int32 ve_index = 2 [ default = -1 ];
+	int32 primary_user_action = 3;
+	int32 cardinal_direction = 4;
+	int32 toggle_state = 5;
+	int32 interaction_context = 6 [ default = -1 ];
+	int32 result_index = 7 [ default = -1 ];
+	int32 element_index = 8 [ default = -1 ];
+	string image_url = 9;
+	string image_referrer_url = 10;
+	string ved = 11;
+	string thumbnail_id = 12;
+	string referrer_id = 13;
+	repeated VisualElementLiteProto ancestry = 14;
+	ClientInteractionMetadata client_interaction_metadata = 15;
+	ClickTrackingCGI click_tracking_cgi = 16;
+
+	extensions 10000 to max;
+}

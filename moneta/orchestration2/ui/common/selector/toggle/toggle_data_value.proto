@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.toggle;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/selector/toggle/toggle_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ToggleDataValue {
+	extend data.DataValue {
+		ToggleDataValue toggle_data_value_extension = 228982937;
+	}
+
+	ToggleValue value = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dynamiccontainer.child;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DynamicChildResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		DynamicChildResultingAction dynamic_child_resulting_action_extension = 1000;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_DELETE_SELF = 1;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum Justification {
+	option features.enum_type = CLOSED;
+
+	JUSTIFICATION_UNKNOWN = 0;
+	JUSTIFICATION_START = 1;
+	JUSTIFICATION_END = 2;
+	JUSTIFICATION_CENTER = 3;
+	JUSTIFICATION_SPACE_AROUND = 4;
+	JUSTIFICATION_SPACE_BETWEEN = 5;
+}

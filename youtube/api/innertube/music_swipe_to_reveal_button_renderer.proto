@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicSwipeToRevealButtonRenderer {
+	repeated Renderer buttons = 1;
+	bytes tracking_params = 3;
+}
+
+extend Renderer {
+	MusicSwipeToRevealButtonRenderer music_swipe_to_reveal_button_renderer = 178002453;
+}

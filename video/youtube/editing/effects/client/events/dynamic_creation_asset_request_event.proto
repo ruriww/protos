@@ -1,0 +1,11 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+import "video/youtube/editing/effects/client/events/dynamic_asset_params.proto";
+
+option objc_class_prefix = "YTEE";
+
+message DynamicCreationAssetRequestEvent {
+	repeated DynamicAssetParams params = 1;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/flow_event_namespace.proto";
+import "youtube/api/innertube/flow_type.proto";
+import "youtube/api/innertube/flow_event_metadata.proto";
+import "youtube/api/innertube/flow_logging_event_classification.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LogFlowLoggingEventCommand {
+	extend Command {
+		LogFlowLoggingEventCommand log_flow_logging_event_command = 346644970;
+	}
+
+	int32 flow_event_type = 1;
+	FlowEventNamespace flow_event_namespace = 2;
+	FlowType flow_type = 3;
+	FlowEventMetadata flow_event_metadata = 4;
+	string flow_nonce = 5;
+	int64 timestamp = 6;
+	FlowLoggingEventClassification event_type = 7;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatLegacyPaidMessageRenderer {
+	string id = 1;
+	uint64 timestamp_usec = 2;
+	FormattedString event_text = 3;
+	FormattedString detail_text = 4;
+	FormattedString author_name = 5;
+	ThumbnailDetails author_photo = 6;
+	string author_external_channel_id = 7;
+	Command context_menu_endpoint = 8;
+	AccessibilitySupportedDatas context_menu_accessibility = 9;
+	FormattedString deleted_state_message = 10;
+	FormattedString show_original_content_message = 11;
+	repeated Renderer inline_action_buttons = 12;
+	FormattedString timestamp_text = 13;
+	FormattedString hide_original_content_message = 14;
+}

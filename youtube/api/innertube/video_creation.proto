@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/span.proto";
+import "youtube/api/innertube/video_source.proto";
+import "youtube/api/innertube/camera_features.proto";
+import "youtube/api/innertube/trim_features.proto";
+import "youtube/api/innertube/shorts_effects_data.proto";
+import "youtube/api/innertube/clip_edit_features.proto";
+import "youtube/api/innertube/visual_remix_signals.proto";
+import "youtube/api/innertube/recomposition_features.proto";
+import "youtube/api/innertube/video_segment_input_media_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoCreation {
+	message VideoSegment {
+		Span range_in_video = 1;
+		VideoSource video_source = 2;
+
+		oneof import_features {
+			CameraFeatures camera_features = 3;
+			TrimFeatures trim_features = 4;
+		}
+
+		ShortsEffectsData effects = 5;
+		ClipEditFeatures clip_edit_features = 6;
+		VisualRemixSignals visual_remix_signals = 7;
+		RecompositionFeatures recomposition_features = 8;
+		bytes serialized_generative_media_params = 10;
+		VideoSegmentInputMediaType asset_type = 11;
+		string id = 12;
+		float segment_volume = 13;
+	}
+
+	repeated VideoSegment video_segments = 1;
+	float volume = 2;
+}

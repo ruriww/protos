@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message InMeeting {
+	string event_summary = 1;
+	protobuf.Timestamp in_meetings_until = 2;
+	protobuf.Timestamp occupied_until = 3;
+	protobuf.Timestamp next_available = 4;
+	protobuf.Timestamp committed_until = 5;
+}

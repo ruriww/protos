@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/epg_row_station_supported_renderers.proto";
+import "youtube/api/innertube/epg_row_airing_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgRowRenderer {
+	EpgRowStationSupportedRenderers station = 1;
+	repeated EpgRowAiringSupportedRenderers airings = 2;
+	bytes tracking_params = 3;
+	Command navigation_endpoint = 5;
+	string station_id = 6;
+	Renderer tenx_renderer = 7;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/browse_endpoint_main_color_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseEndpointContextMainConfig {
+	BrowseEndpointMainColorSupportedDatas main_config_color_palette = 1;
+
+	enum BrowseTheme {
+		option features.enum_type = CLOSED;
+
+		BROWSE_THEME_UNKNOWN = 0;
+		BROWSE_THEME_DEFAULT = 1;
+		BROWSE_THEME_YTO = 2;
+		BROWSE_THEME_DARK = 3;
+	}
+
+	BrowseTheme theme = 2;
+	bool skip_confirmation = 3;
+}

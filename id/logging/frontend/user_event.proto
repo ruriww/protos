@@ -1,0 +1,27 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "id/metrics/semantics/accountsettings/identity_event_category.proto";
+import "id/metrics/semantics/accountsettings/identity_event_action.proto";
+import "id/logging/frontend/mobile/mobile_rpc.proto";
+import "id/logging/frontend/mobile/accountsettings/asm_client_info.proto";
+import "id/logging/frontend/mobile/accountsettings/asm_screen_displayed.proto";
+import "id/logging/frontend/mobile/accountsettings/asm_my_google_event.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message UserEvent {
+	metrics.semantics.accountsettings.IdentityEventCategory category = 1;
+	metrics.semantics.accountsettings.IdentityEventAction action = 2;
+	string label = 3;
+	int32 value = 4;
+	bool non_interaction = 5;
+	mobile.MobileRpc mobile_rpc = 6;
+	mobile.accountsettings.AsmClientInfo asm_client_info = 7;
+	mobile.accountsettings.AsmScreenDisplayed asm_screen_displayed = 8;
+	mobile.accountsettings.AsmMyGoogleEvent asm_mygoogle_event = 12;
+	string id = 13;
+
+	extensions 1000000 to 1000002;
+}

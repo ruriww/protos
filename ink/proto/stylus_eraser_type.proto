@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum StylusEraserType {
+	option features.enum_type = CLOSED;
+
+	STYLUS_ERASER_DEFAULT = 0;
+	STYLUS_ERASER_NO_ERASER = 1;
+	STYLUS_ERASER_MAGIC_ERASER = 2;
+	STYLUS_ERASER_STROKE_EDITING_ERASER = 3;
+	STYLUS_ERASER_ERASER_BRUSH = 4;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/link_message.proto";
+import "footprints/transparencyandcontrol/proto/image_item.proto";
+import "footprints/transparencyandcontrol/proto/video_item.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ActivityItem {
+	LinkMessage formatted_title = 1;
+	string formatted_activity_date = 2;
+	string formatted_activity_time = 3;
+	ImageItem image = 4;
+	VideoItem video = 5;
+}

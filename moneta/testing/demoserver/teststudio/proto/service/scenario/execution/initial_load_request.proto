@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+option objc_class_prefix = "TSLSSE";
+
+message InitialLoadRequest {
+	int64 scenario_id = 1;
+	string encoded_scenario_type = 2;
+	string substitution_parameters = 3;
+	bool ignore_invalid_input = 4;
+	string fields_to_clear = 5;
+}

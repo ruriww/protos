@@ -1,0 +1,13 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/validity_challenge.proto";
+
+option objc_class_prefix = "GSYP";
+
+message SessionContext {
+	string bundle_id = 1;
+	ValidityChallenge challenge = 2;
+	int64 cloud_project_number = 3;
+}

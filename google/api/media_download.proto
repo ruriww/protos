@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+message MediaDownload {
+	bool enabled = 1;
+	string download_service = 2;
+	string dropzone = 3;
+	bool complete_notification = 4;
+	bool use_direct_download = 5;
+	int64 max_direct_download_size = 6;
+	bool serve_partial_content_on_full_range_request = 7;
+}

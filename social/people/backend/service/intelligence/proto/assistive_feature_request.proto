@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/lookup_id.proto";
+import "logs/people/intelligence/assistive_feature_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message AssistiveFeatureRequest {
+	repeated LookupId lookup_ids = 1;
+	repeated logs.people.intelligence.AssistiveFeatureType assistive_feature_types = 2;
+}

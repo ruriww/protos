@@ -1,0 +1,11 @@
+edition = "2023";
+
+package tflite.task.processor;
+
+import "tflite/task/processor/embedding.proto";
+
+option objc_class_prefix = "TaskLib";
+
+message EmbeddingResult {
+	repeated Embedding embeddings = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+option objc_class_prefix = "CLI";
+
+message ClientInfo {
+	string application_name = 4;
+	string application_version_name = 5;
+}

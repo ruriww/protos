@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum ParentalConsentType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_PARENTAL_CONSENT_TYPE = 0;
+	CREDIT_CARD_TRANSACTION = 1;
+	FAKE_PARENTAL_CONSENT_FOR_TESTING = 2;
+	DIRECT_CUSTOMER_INTERACTION = 3;
+	PARENT_PHONE_SMS_VERIFICATION = 4;
+	TRUSTED_ACCOUNT_VERIFICATION = 5;
+	UNUSED_DEPRECATED_CONSENT = 6;
+	TRANSFER_CHILD_CONSENT = 7;
+	NO_VERIFICATION_CONSENT = 8;
+}

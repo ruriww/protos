@@ -1,0 +1,24 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/affine_transform_data.proto";
+import "drishti/app/skia/stickers/drawable_config.proto";
+import "drishti/vector2_data.proto";
+import "drishti/app/skia/stickers/rectangle.proto";
+import "drishti/app/skia/stickers/fit_mode.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message LayerConfig {
+	int32 id = 1;
+	AffineTransformData transform = 2;
+	DrawableConfig drawable_config = 3;
+	bool ignore = 4;
+	int64 start_time_microseconds = 5;
+	Vector2Data transform_anchor_point = 6;
+	float transparency = 7;
+	Rectangle crop_rect = 8;
+	bool use_normalized_coordinates = 9;
+	FitMode fit_mode = 10;
+}

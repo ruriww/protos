@@ -1,0 +1,28 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+import "id/iosnotifications/app_authorization_option.proto";
+import "id/iosnotifications/app_background_refresh_status.proto";
+import "id/iosnotifications/app_authorization_status.proto";
+import "id/iosnotifications/app_time_sensitive_setting.proto";
+
+option objc_class_prefix = "RCH";
+
+message IreachApplicationConfigPayload {
+	repeated AppAuthorizationOption app_authorization_option = 1 [ features.repeated_field_encoding = EXPANDED ];
+	AppBackgroundRefreshStatus app_background_refresh_status = 2;
+	AppAuthorizationStatus app_authorization_status = 3;
+
+	enum RequestSource {
+		option features.enum_type = CLOSED;
+
+		REQUEST_SOURCE_UNSPECIFIED = 0;
+		APPLICATION = 1;
+		NOTIFICATION_SERVICE_EXTENSION = 2;
+	}
+
+	RequestSource source = 4;
+	string application_id = 5;
+	AppTimeSensitiveSetting app_time_sensitive_setting = 6;
+}

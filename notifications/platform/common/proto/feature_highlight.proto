@@ -1,0 +1,27 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "notifications/platform/common/proto/feature_education.proto";
+import "notifications/platform/common/proto/color_scheme.proto";
+
+option objc_class_prefix = "GNPC";
+
+message FeatureHighlight {
+	FeatureEducation feature_education = 1;
+	ColorScheme highlighted_element_light_theme = 2;
+	ColorScheme highlighted_element_dark_theme = 3;
+
+	enum PulseAnimationType {
+		option features.enum_type = CLOSED;
+
+		PULSE_ANIMATION_TYPE_UNSPECIFIED = 0;
+		PULSE_WITH_INNER_CIRCLE = 1;
+		PULSE = 2;
+	}
+
+	PulseAnimationType pulse_animation_type = 4;
+	bool disable_ios_pulsing_animation = 5;
+	float element_scale = 6 [ default = 1 ];
+	bool recolor_highlighted_element = 7;
+}

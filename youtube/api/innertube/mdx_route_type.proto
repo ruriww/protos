@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdxRouteType {
+	option features.enum_type = CLOSED;
+
+	MDX_ROUTE_TYPE_UNKNOWN = 0;
+	MDX_ROUTE_TYPE_CAST = 1;
+	MDX_ROUTE_TYPE_DIAL = 2;
+	MDX_ROUTE_TYPE_CLOUD = 3;
+	MDX_ROUTE_TYPE_AUDIO_CAST = 4;
+	MDX_ROUTE_TYPE_DIAL_WAKE_ON_LAN = 5;
+	MDX_ROUTE_TYPE_OTHER = 6;
+	MDX_ROUTE_TYPE_REMOTE = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "social/graph/api/proto/usage_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message DeviceContactExtraMetadata {
+	enum Attribute {
+		option features.enum_type = CLOSED;
+
+		ATTRIBUTE_UNKNOWN = 0;
+		STARRED = 1;
+	}
+
+	repeated Attribute attributes = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated social.graph.api.proto.UsageInfo usage_info = 2;
+}

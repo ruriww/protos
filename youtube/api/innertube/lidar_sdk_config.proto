@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LidarSDKConfig {
+	bool enable_active_view_reporter = 1;
+	bool use_media_time = 2;
+	bool send_tos_metrics = 3;
+	bool use_player_state = 4;
+	bool enable_ios_app_state_check = 5;
+	bool use_occlusion_algorithm_android = 6;
+	bool use_hierarchy_traversal_ios = 8;
+	bool enable_improved_size_reporting_ios = 9;
+	bool enable_improved_size_reporting_android = 10;
+	bool enable_use_adblock_view_android = 11;
+	bool enable_is_android_video_always_measurable = 12;
+	bool enable_optimize_traversal_ios = 13;
+	bool enable_active_view_android_window_focus_check = 14;
+	bool enable_active_view_android_embedded_player = 15;
+	bool use_media_time_for_embedded_player = 16;
+	bool detect_backgrounding_for_media_ads = 17;
+	bool enable_active_view_reels_video = 19;
+	bool enable_active_view_audio_measurement_android = 21;
+	bool enable_active_view_audio_measurement_ios = 22;
+	bool enable_active_view_audio_measurement_web = 23;
+	bool enable_active_view_ios_shorts = 24;
+	bool android_embeds_fire_measurable_on_start = 25;
+	bool android_provide_null_av_data_after_terminal_event = 26;
+	bool android_set_cpn_using_reel_ad_metadata = 27;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/promoted_sparkles_background_color.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedSparkles15ClickContent {
+	Icon overlay_icon = 1;
+	FormattedString overlay_text = 2;
+	FormattedString secondary_overlay_text = 3;
+	repeated Command expand_tap_endpoints = 4;
+	repeated Command collapse_tap_endpoints = 5;
+	Renderer cta_button = 6;
+	PromotedSparklesBackgroundColor background_color = 8;
+}

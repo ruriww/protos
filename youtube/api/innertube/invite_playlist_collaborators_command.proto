@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InvitePlaylistCollaboratorsCommand {
+	extend Command {
+		InvitePlaylistCollaboratorsCommand invite_playlist_collaborators_command = 1262;
+	}
+
+	string playlist_id = 1;
+	Command fetch_collaboration_invite_link_command = 2;
+	Command share_playlist_command = 3;
+}

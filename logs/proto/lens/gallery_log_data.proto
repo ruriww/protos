@@ -1,0 +1,24 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/item_count_bucket.proto";
+import "logs/proto/lens/image_age_count_entry.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message GalleryLogData {
+	enum AuthorizationStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_AUTHORIZATION_STATUS = 0;
+		UNAUTHORIZED = 1;
+		FULL_ACCESS = 2;
+		LIMITED_ACCESS = 3;
+	}
+
+	AuthorizationStatus authorization_status = 1;
+	ItemCountBucket image_count = 2;
+	ItemCountBucket screenshot_count = 3;
+	repeated ImageAgeCountEntry image_age_count_entries = 4;
+}

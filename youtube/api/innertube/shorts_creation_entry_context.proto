@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_creation_remix_type.proto";
+import "youtube/api/innertube/shorts_creation_surface.proto";
+import "youtube/api/innertube/deep_link_creation_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsCreationEntryContext {
+	ShortsCreationRemixType entry_remix_type = 1;
+	ShortsCreationSurface entry_surface = 2;
+	DeepLinkCreationSource entry_creation_source = 3;
+}

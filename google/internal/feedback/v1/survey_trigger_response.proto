@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+import "google/internal/feedback/v1/session.proto";
+import "google/internal/feedback/v1/payload.proto";
+import "google/internal/feedback/v1/scheduled_survey_response.proto";
+
+option objc_class_prefix = "PUDUI";
+
+message SurveyTriggerResponse {
+	Session session = 1;
+	Payload survey_payload = 2;
+	string no_available_survey_reason = 3;
+	repeated string error = 4;
+	string survey_id = 5;
+	ScheduledSurveyResponse scheduled_survey_response = 6;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/special_char_range.proto";
+
+option objc_class_prefix = "PDL";
+
+message StringToken {
+	int32 start_index = 1;
+	string value = 2;
+	repeated SpecialCharRange special_char_range = 3;
+}

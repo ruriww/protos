@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_text.proto";
+import "youtube/api/innertube/fade_in_transition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SkipButtonRenderer {
+	AdText message = 2;
+	bytes tracking_params = 6;
+	FadeInTransition fade_in_transition = 8;
+	bool enable_ad_can_now_be_skipped_a11y_text = 10;
+	bool disable_custom_styling = 11 [ default = false ];
+}

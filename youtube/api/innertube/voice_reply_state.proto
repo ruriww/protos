@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum VoiceReplyState {
+	option features.enum_type = CLOSED;
+
+	VOICE_REPLY_STATE_UNKNOWN = 0;
+	VOICE_REPLY_STATE_READY = 1;
+	VOICE_REPLY_STATE_RECORDING = 2;
+	VOICE_REPLY_STATE_PLAYABLE = 3;
+	VOICE_REPLY_STATE_PLAYING = 4;
+	VOICE_REPLY_STATE_PAUSED = 5;
+	VOICE_REPLY_STATE_CANCELLED = 6;
+	VOICE_REPLY_STATE_UPLOADING = 7;
+	VOICE_REPLY_STATE_ERROR = 8;
+	VOICE_REPLY_STATE_PERMISSION_GRANTED = 9;
+	VOICE_REPLY_STATE_PERMISSION_DENIED = 10;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/input/phoneinput/calling_code_info.proto";
+import "moneta/orchestration2/ui/common/input/input_data_auto_advance.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneInputData {
+	extend data.Data {
+		PhoneInputData phone_input_data_extension = 232060280;
+	}
+
+	oneof hint {
+		string label = 1;
+		string placeholder_text = 3;
+	}
+
+	string helper_text = 2;
+	string fallback_region_code = 5;
+	repeated CallingCodeInfo available_calling_code_info = 6;
+	bool prefill_with_device_number = 7;
+	InputDataAutoAdvance auto_advance = 8;
+	string unsupported_region_validation_error_text = 10;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/playlist_entry_metrics.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/playlist_list_entry_supported_accessibility_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistListEntryRenderer {
+	string playlist_id = 1;
+	Command playlist_details_endpoint = 2;
+	FormattedString title = 3;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 4;
+	PlaylistEntryMetrics metrics = 5;
+	repeated BadgeSupportedRenderers badges = 6;
+	bytes tracking_params = 8;
+	PlaylistListEntrySupportedAccessibilityDatas metrics_accessibility = 9;
+	bool use_refreshed_layout = 10;
+	repeated Renderer central_column_attributes = 11;
+	repeated Renderer last_column_attributes = 12;
+	Command menu_on_tap = 13;
+	string menu_a11y_label = 14;
+}
+
+extend Renderer {
+	PlaylistListEntryRenderer playlist_list_entry_renderer = 92683517;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message ParagraphSeekOptions {
+	int32 from_paragraph = 1;
+	int32 count = 2;
+}

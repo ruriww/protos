@@ -1,0 +1,24 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/user_restriction.proto";
+
+option objc_class_prefix = "AIA";
+
+message VerdictRestriction {
+	message Context {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			DESTINATION_STREAM = 1;
+		}
+
+		Type type = 1 [ default = UNKNOWN ];
+		string id = 2;
+	}
+
+	repeated Context context = 1;
+	UserRestriction user_restriction = 2;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/submit_id.proto";
+import "youtube/api/innertube/form_data.proto";
+import "youtube/api/innertube/submit_behavior.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubmitFormRequest {
+	InnerTubeContext context = 1;
+	SubmitId submit_id = 2;
+	string params = 3;
+	FormData form_data = 5;
+	SubmitBehavior submit_behavior = 6;
+}

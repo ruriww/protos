@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/ui/genericselector/generic_selector_enums.proto";
+import "moneta/orchestration/ui/genericselector/address_selector_parameters.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message Parameters {
+	integrator.ui.common.CommonParameters common_parameters = 1;
+	integrator.ui.genericselector.GenericSelectorEnums.Scenario scenario = 2;
+
+	oneof scenario_parameters {
+		AddressSelectorParameters address_selector_parameters = 5;
+	}
+
+	string cancel_button_text = 13;
+}

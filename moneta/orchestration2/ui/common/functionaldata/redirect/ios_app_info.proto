@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+option objc_class_prefix = "ORCH2";
+
+message IosAppInfo {
+	string launch_url = 1;
+	string app_not_installed_path = 2;
+	string authenticate_result_path = 3;
+}

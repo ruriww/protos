@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/extension_header.proto";
+import "logs/people/intelligence/response_metadata.proto";
+import "logs/people/intelligence/request_metadata.proto";
+import "logs/people/intelligence/people_intelligence_error.proto";
+import "logs/people/intelligence/rpc_metadata.proto";
+import "logs/people/intelligence/rpc_feature_response_metadata.proto";
+import "logs/people/intelligence/subscription_metadata.proto";
+
+option objc_class_prefix = "PIL";
+
+message PeopleIntelligenceExtension {
+	ExtensionHeader header = 1;
+	ResponseMetadata response_metadata = 2;
+	RequestMetadata request_metadata = 3;
+	PeopleIntelligenceError people_intelligence_error = 4;
+	RpcMetadata rpc_metadata = 5;
+	RpcFeatureResponseMetadata rpc_feature_response_metadata = 6;
+	SubscriptionMetadata subscription_metadata = 7;
+}

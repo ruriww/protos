@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/detailed_network_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosBatterySample {
+	int32 battery_level_micros = 1;
+	DetailedNetworkType network_type = 2;
+	float screen_brightness = 3;
+	bool is_low_power_mode = 4;
+	bool is_background = 5;
+	bool is_state_transition = 6;
+	bool observed_background_fetch_method_callback = 7;
+	bool observed_background_task_did_expire = 8;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DismissalReasonTextRenderer {
+	bytes tracking_params = 2;
+	FormattedString text = 3;
+
+	oneof feedback_data {
+		Command feedback = 4;
+		string feedback_token = 5;
+	}
+}

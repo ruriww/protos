@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InterstitialReplayPolicy {
+	option features.enum_type = CLOSED;
+
+	INTERSTITIAL_REPLAY_POLICY_UNKNOWN = 0;
+	INTERSTITIAL_REPLAY_POLICY_SHOW_ON_REPLAY = 1;
+	INTERSTITIAL_REPLAY_POLICY_SHOW_ONCE_PER_PLAYBACK = 2;
+}

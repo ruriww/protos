@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PostAttachmentTypeEnum {
+	option features.enum_type = CLOSED;
+
+	POST_ATTACHMENT_TYPE_ENUM_UNKNOWN = 0;
+	POST_ATTACHMENT_TYPE_ENUM_NONE = 1;
+	POST_ATTACHMENT_TYPE_ENUM_IMAGE = 2;
+	POST_ATTACHMENT_TYPE_ENUM_VIDEO_LINK = 3;
+	POST_ATTACHMENT_TYPE_ENUM_POLL = 4;
+	POST_ATTACHMENT_TYPE_ENUM_PLAYLIST_LINK = 5;
+	POST_ATTACHMENT_TYPE_ENUM_POST_LINK = 6;
+	POST_ATTACHMENT_TYPE_ENUM_CLIP = 7;
+	POST_ATTACHMENT_TYPE_ENUM_QUIZ = 8;
+	POST_ATTACHMENT_TYPE_ENUM_UPLOADED_VIDEOS = 9;
+}

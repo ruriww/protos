@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.common;
+
+import "lens/common/salient_text_instance.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message SalientText {
+	repeated SalientTextInstance instances = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+option objc_class_prefix = "APPSWALDO";
+
+message OfficeLocation {
+	string experimental_building_id = 1;
+	string experimental_desk_id = 2;
+	string experimental_floor_id = 3;
+	string label = 4;
+}

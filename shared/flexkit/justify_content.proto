@@ -1,0 +1,15 @@
+edition = "2023";
+
+package shared.flexkit;
+
+option objc_class_prefix = "FLX";
+
+enum JustifyContent {
+	option features.enum_type = CLOSED;
+
+	JC_FLEX_START = 0;
+	JC_FLEX_END = 1;
+	JC_CENTER = 2;
+	JC_SPACE_BETWEEN = 3;
+	JC_SPACE_AROUND = 4;
+}

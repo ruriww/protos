@@ -1,0 +1,14 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "google/protobuf/wrappers.proto";
+import "customer_support/help/mobile/proto/smart_reply_request_data.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileListConversationEventsRequest {
+	string conversation_id = 1;
+	google.protobuf.UInt64Value min_event_id = 2;
+	SmartReplyRequestData smart_reply_request_data = 3;
+}

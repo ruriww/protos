@@ -1,0 +1,9 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message TwoWayLinkingConfig {
+	bool two_way_linking_supported = 1;
+}

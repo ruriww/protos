@@ -1,0 +1,63 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_thumbnail_details.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_spoiler_mode_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedVideoRenderer {
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	Command navigation_endpoint = 11;
+	bytes tracking_params = 14;
+	string tenx_id = 28;
+	FormattedString episode_title = 29;
+	FormattedString episode_number = 30;
+	FormattedString content_rating = 31;
+	FormattedString duration = 34;
+	ThumbnailDetails network_icon = 35;
+	uint64 start_time_seconds = 36;
+	uint64 end_time_seconds = 37;
+	BadgeSupportedRenderers badge = 38;
+	FormattedString primary_text = 39;
+	FormattedString secondary_text = 40;
+	FormattedString tertiary_text = 41;
+	FormattedString description = 42;
+	int32 watched_percentage_for_display = 43;
+	FormattedString status = 44;
+	FormattedString time_slot_text = 45;
+	Command entity_page_navigation_endpoint = 46;
+	UnpluggedThumbnailDetails unplugged_thumbnail = 47;
+	UnpluggedThumbnailDetails unplugged_network_icon = 48;
+	MenuSupportedRenderers menu = 49;
+	Renderer video_version_list = 50;
+	repeated UnpluggedSpoilerModeEntity spoiler_mode_entities = 52;
+	BadgeSupportedRenderers spoiler_mode_badge = 53;
+	BadgeSupportedRenderers secondary_badge = 54;
+
+	message ClientStateSyncData {
+		string watch_state_entity_key = 1;
+	}
+
+	ClientStateSyncData client_state_sync_data = 55;
+	Renderer hint = 56;
+	BadgeSupportedRenderers ultra_high_definition_badge = 57;
+	repeated Renderer tertiary_container = 58;
+	Command on_record_press = 59;
+	Command on_multiview_press = 60;
+}
+
+extend Renderer {
+	UnpluggedVideoRenderer unplugged_video_renderer = 85732145;
+}

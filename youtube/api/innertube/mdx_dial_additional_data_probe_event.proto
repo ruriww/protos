@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_receiver_device.proto";
+import "youtube/api/innertube/mdx_dial_additional_data_probe_data_type.proto";
+import "youtube/api/innertube/mdx_dial_additional_data_support_level.proto";
+import "youtube/api/innertube/mdx_dial_server_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxDialAdditionalDataProbeEvent {
+	MdxReceiverDevice mdx_receiver_device = 1;
+	MdxDialAdditionalDataProbeDataType mdx_dial_additional_data_probe_data_type = 2;
+	bool probe_data_obtained = 3;
+	int32 retry_times = 4;
+	int32 dial_additional_data_update_status_code = 5;
+	MdxDialAdditionalDataSupportLevel mdx_dial_additional_data_support_level = 6;
+	MdxDialServerType mdx_dial_server_type = 7;
+}

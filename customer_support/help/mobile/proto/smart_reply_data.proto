@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/smart_reply_recommendation.proto";
+
+option objc_class_prefix = "CSHM";
+
+message SmartReplyData {
+	string prediction_id = 1;
+	repeated SmartReplyRecommendation recommendation = 2;
+}

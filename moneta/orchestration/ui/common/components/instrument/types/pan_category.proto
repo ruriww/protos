@@ -1,0 +1,33 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/instrument/types/pan_prefix_set.proto";
+import "moneta/orchestration/ui/common/generic/template_formatting_scheme.proto";
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/generic/message_template.proto";
+
+option objc_class_prefix = "Orch";
+
+message PanCategory {
+	repeated PanPrefixSet prefix_set = 1;
+	bytes pan_category_token = 2;
+	generic.TemplateFormattingScheme format = 3;
+	int32 logo_index = 4;
+	repeated int32 card_subform_index = 5;
+
+	enum PanChecksumType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NONE = 1;
+		LUHN = 2;
+	}
+
+	PanChecksumType pan_checksum_type = 6;
+	int32 concealed_visible_digits_count = 7;
+	int32 min_length = 8 [ default = -1 ];
+	repeated generic.ComponentGroup component_group = 9;
+	string label = 11;
+	generic.MessageTemplate card_summary_template = 12;
+}

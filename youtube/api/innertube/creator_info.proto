@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/measurement_version.proto";
+import "youtube/api/innertube/canary_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorInfo {
+	string external_channel_id = 1;
+	MeasurementVersion measurement_version = 3;
+	CanaryState creator_canary_state = 4;
+	string external_content_owner_id = 6;
+}

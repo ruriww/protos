@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/vector2_data.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message TextStyleShadow {
+	uint32 color = 1;
+	Vector2Data offset = 2;
+	float blur_sigma = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/get_promotion_traffic_estimates_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetPromotionTrafficEstimatesResult {
+	youtube.api.innertube.GetPromotionTrafficEstimatesResponse response = 1;
+}

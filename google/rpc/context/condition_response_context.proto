@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.rpc.context;
+
+option objc_class_prefix = "RPC";
+
+message ConditionResponseContext {
+	string entity_tag = 1;
+}

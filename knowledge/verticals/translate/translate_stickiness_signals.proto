@@ -1,0 +1,15 @@
+edition = "2023";
+
+package knowledge.verticals.translate;
+
+import "knowledge_answers/intent_query/function_call.proto";
+
+option objc_class_prefix = "KVT";
+
+message TranslateStickinessSignals {
+	extend knowledge_answers.intent_query.FunctionCallSignals {
+		TranslateStickinessSignals translate_stickiness_signals = 311378150;
+	}
+
+	bool translate_suppress_echo_for_sticky = 1;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message PinholeDebugInfo {
+	string pinhole_server_override = 1;
+}

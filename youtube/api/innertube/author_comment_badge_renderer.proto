@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/comment_badge_color_supported_datas.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AuthorCommentBadgeRenderer {
+	Icon icon = 1;
+	CommentBadgeColorSupportedDatas color = 2;
+	FormattedString author_text = 3;
+	Command author_endpoint = 4;
+	string icon_tooltip = 5;
+	bool author_unified_verified = 6;
+	bool author_creator = 7;
+}

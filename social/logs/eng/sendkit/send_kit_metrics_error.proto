@@ -1,0 +1,10 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsError {
+	string label = 1;
+	string cause = 2;
+}

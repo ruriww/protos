@@ -1,0 +1,26 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+import "google/internal/onegoogle/asyncdata/v1/callout_source.proto";
+import "google/internal/onegoogle/asyncdata/v1/badge_request_info.proto";
+
+option objc_class_prefix = "OGADS";
+
+message AsyncDataRequest {
+	string host_page_url = 2;
+	string language = 4;
+	string domain = 5;
+	bool signed_in_on_host_product = 6;
+	int32 bucket_id = 7;
+	bool should_trigger_test_cookie_callout = 8;
+	bool should_trigger_test_no_dismiss_callout = 9;
+	string promo_dismissal_cookie = 10;
+	string promo_impression_count_cookie = 11;
+	CalloutSource callout_source = 12 [ default = IN_WEB ];
+	bool matched_ps_callout = 13 [ default = false ];
+	int32 ps_matched_pid = 14;
+	int32 dma_product_id = 15;
+	BadgeRequestInfo badge_info = 16;
+	bool is_eom_user = 18;
+}

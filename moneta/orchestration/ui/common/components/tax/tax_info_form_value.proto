@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.tax;
+
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/components/document/document_upload_form_value.proto";
+import "moneta/orchestration/ui/common/components/phone_form_value.proto";
+import "moneta/orchestration/ui/common/components/name/name_form_value.proto";
+import "moneta/orchestration/ui/common/components/country_selector_value.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/dynamic_list_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message TaxInfoFormValue {
+	string tax_info_form_id = 1;
+	repeated generic.UiFieldValue tax_info_value = 3;
+	bytes form_token = 4;
+	int64 ui_reference = 6;
+	AddressFormValue tax_address_form_value = 8;
+	repeated document.DocumentUploadFormValue tax_document_upload_form_value = 9;
+	PhoneFormValue tax_phone_form_value = 10;
+	name.NameFormValue tax_name_form_value = 11;
+	repeated CountrySelectorValue country_selector_value = 12;
+	AddressFormValue tax_mailing_address_form_value = 13;
+	repeated dynamiclist.DynamicListValue dynamic_list_value = 14;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/upload_resource_id.proto";
+import "youtube/api/innertube/client_vsi.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProcessVideoRequest {
+	InnerTubeContext context = 1;
+	string frontend_upload_id = 2;
+	string video_id = 3;
+	UploadResourceId resource_id = 4;
+	bool is_low_res = 5;
+	ClientVSI client_vsi = 6;
+}

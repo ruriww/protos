@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/api/innertube/participant_join_state_entity.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message JoinFlowManagerModel {
+	extend Model {
+		JoinFlowManagerModel join_flow_manager_model = 363458402;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	Button join_button = 4;
+	Button ok_button = 7;
+	string join_server_state_key = 8;
+	api.innertube.ParticipantJoinStateEntity join_server_state = 9;
+	string add_broadcast_participant_params = 10;
+	string leave_broadcast_participant_params = 11;
+}

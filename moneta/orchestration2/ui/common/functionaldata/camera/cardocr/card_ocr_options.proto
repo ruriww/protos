@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.cardocr;
+
+option objc_class_prefix = "ORCH2";
+
+message CardOcrOptions {
+	bool aggregate_multi_frame_results = 1;
+}

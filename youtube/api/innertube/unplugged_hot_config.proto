@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedHotConfig {
+	string unplugged_nielsen_audit_url = 1;
+	bool enable_picture_in_picture_mode = 2;
+	bool enable_new_mini_player_for_android = 3;
+	bool unplugged_enable_locked_mode_mobile = 4;
+	bool should_use_current_production_time_for_lenses = 5;
+}

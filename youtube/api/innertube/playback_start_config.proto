@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_playback_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackStartConfig {
+	float start_seconds = 1;
+	bool start_paused = 2;
+	int64 live_utc_start_seconds = 3;
+	int64 start_time_tolerance_before_ms = 4;
+	int64 start_time_tolerance_after_ms = 5;
+	VideoPlaybackPosition start_position = 6;
+	VideoPlaybackPosition progress_bar_start_position = 7;
+	VideoPlaybackPosition progress_bar_end_position = 8;
+	VideoPlaybackPosition start_time_boundary = 9;
+}

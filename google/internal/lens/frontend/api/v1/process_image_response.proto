@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "google/rpc/status.proto";
+import "lens/common/detected_object.proto";
+import "lens/common/detected_text.proto";
+import "lens/gleaming/deep_gleam_data.proto";
+import "google/protobuf/any.proto";
+import "google/internal/lens/frontend/api/v1/interaction_data.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message ProcessImageResponse {
+	rpc.Status status = 1;
+	repeated .lens.common.DetectedObject detected_object = 2;
+	.lens.common.DetectedText detected_text = 3;
+	string encoded_multimodal_suggest_image_signals = 4;
+	repeated .lens.gleaming.DeepGleamData deep_gleams = 5;
+	protobuf.Any debug_metadata = 6;
+	InteractionData interaction_data = 7;
+}

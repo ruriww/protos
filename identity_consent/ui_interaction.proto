@@ -1,0 +1,19 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+enum UiInteraction {
+	option features.enum_type = CLOSED;
+
+	UI_INTERACTION_UNSPECIFIED = 0;
+	ACCEPT_ALL = 1;
+	REJECT_ALL = 2;
+	CUSTOMIZE = 3;
+	GO_BACK = 4;
+	ASK_LATER = 6;
+	ASK_LATER_ONE_WEEK = 7;
+	ASK_LATER_TWO_WEEKS = 8;
+	CLOSED_UI = 9;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package lens;
+
+import "photos_vision_barhopper/barhopper_response.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ClientSignals {
+	message Signal {
+		SignalType signal_type = 1;
+
+		oneof type {
+			photos_vision_barhopper.BarhopperResponse barcode_content = 2;
+		}
+	}
+
+	repeated Signal signals = 1;
+
+	enum SignalType {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		BARCODE = 1;
+		SCREENSHOT = 2;
+		IMAGE_CROPS = 3;
+		TEXT_ONLY_IMAGE = 4;
+		SENSITIVITY = 5;
+	}
+
+	repeated SignalType pending_signal_types = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

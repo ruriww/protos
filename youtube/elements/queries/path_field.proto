@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.elements.queries;
+
+option java_package = "com.google.protos.youtube.elements.queries";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMQY";
+
+message PathField {
+	int32 number = 1;
+	string name = 2;
+}

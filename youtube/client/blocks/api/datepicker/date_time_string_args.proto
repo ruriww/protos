@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.datepicker;
+
+import "youtube/client/blocks/api/datepicker/date_time_string_input.proto";
+import "youtube/api/innertube/picker_format_style.proto";
+
+option objc_class_prefix = "YTBA";
+
+message DateTimeStringArgs {
+	DateTimeStringInput input = 1;
+	youtube.api.innertube.PickerFormatStyle date_style = 2;
+	youtube.api.innertube.PickerFormatStyle time_style = 3;
+}

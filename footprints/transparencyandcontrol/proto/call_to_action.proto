@@ -1,0 +1,10 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message CallToAction {
+	string formatted_cta_label = 1;
+	string cta_url = 2;
+}

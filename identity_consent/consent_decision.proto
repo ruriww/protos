@@ -1,0 +1,18 @@
+edition = "2023";
+
+package identity_consent;
+
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "unknown/youtube/ccs_core_platform_service.proto";
+import "identity_consent/decision.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentDecision {
+	oneof setting_id {
+		footprints.transparencyandcontrol.proto.ConsentSetting.ConsentSettingId ftc_consent_setting_id = 1;
+		unknown.youtube.CCSCorePlatformService cps_setting_id = 3;
+	}
+
+	Decision decision = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/session.proto";
+import "uservoice/surveys/client/logging/payload.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message SurveyTriggerResponse {
+	Session session = 1;
+	Payload payload = 2;
+	string no_available_survey_reason = 3;
+
+	enum TriggerError {
+		UNKNOWN = 0;
+		BACKEND_TIMEOUT = 1;
+		FAILED_TO_FETCH_SURVEY = 2;
+		NO_AVAILABLE_SURVEY = 3;
+		TRIGGER_ID_NOT_SET = 4;
+		UNSUPPORTED_CRONET_ENGINE = 5;
+	}
+
+	repeated TriggerError trigger_error = 4;
+	string survey_id = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/invitation.proto";
+
+option objc_class_prefix = "FAM";
+
+message NewInvitationInfo {
+	Invitation invitation = 1;
+	string invitation_text = 2;
+	string client_correlation_id = 3;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationTopbarButtonRenderer {
+	Icon icon = 1;
+	Command menu_request = 2;
+	bytes tracking_params = 5;
+	AccessibilitySupportedDatas accessibility = 6;
+	string tooltip = 7;
+	Command update_unseen_count_endpoint = 8;
+	int32 notification_count = 9;
+	Command get_high_priority_notification_endpoint = 11;
+}
+
+extend Renderer {
+	NotificationTopbarButtonRenderer notification_topbar_button_renderer = 144118698;
+}

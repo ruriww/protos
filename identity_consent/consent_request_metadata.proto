@@ -1,0 +1,24 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_flow_id.proto";
+import "privacy/consent/product_surface.proto";
+import "identity_consent/ui_metadata.proto";
+import "privacy/consent/feature_id.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentRequestMetadata {
+	ConsentFlowId consent_flow_id = 1;
+	privacy.consent.ProductSurface product_surface = 2;
+	int32 product_id = 3;
+	bytes serialized_consent_session_id = 4;
+	string entrypoint_id = 5;
+	UiMetadata ui_metadata = 6;
+	bool consent_texts_only = 7;
+	bool has_non_final_consent_decision = 8;
+	privacy.consent.FeatureId feature_id = 9;
+	privacy.consent.SharedConsentSessionId shared_consent_session_id = 10;
+}

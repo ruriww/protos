@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExternalMediaFile {
+	int32 height = 1;
+	int32 width = 2;
+	string mime_type = 3;
+	string uri = 4;
+
+	enum Delivery {
+		option features.enum_type = CLOSED;
+
+		STREAMING = 1;
+		PROGRESSIVE = 2;
+	}
+
+	Delivery delivery = 5;
+	int32 min_bitrate = 6;
+	int32 max_bitrate = 7;
+}

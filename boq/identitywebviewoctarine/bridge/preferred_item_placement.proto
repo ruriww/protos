@@ -1,0 +1,13 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+option objc_class_prefix = "OCT";
+
+enum PreferredItemPlacement {
+	option features.enum_type = CLOSED;
+
+	PREFERRED_ITEM_PLACEMENT_UNSPECIFIED = 0;
+	HEADER = 1;
+	OVERFLOW = 2;
+}

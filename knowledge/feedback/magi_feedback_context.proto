@@ -1,0 +1,109 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "knowledge/feedback/taxonomy.proto";
+import "knowledge/feedback/magi_feedback_alternative_draft.proto";
+import "knowledge/feedback/magi_feedback_suggested_query.proto";
+import "knowledge/feedback/user_image.proto";
+
+option objc_class_prefix = "UFR";
+
+message MagiFeedbackContext {
+	enum MagiSourceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SOURCE = 0;
+		LINKED_SOURCE = 1;
+		SHOPPING_LICENSED_SOURCE = 2;
+		GOOGLE_GENERATED_SOURCE = 3;
+		GOOGLE_USER_REVIEW_SOURCE = 4;
+		GOOGLE_KG_GENERATED_SOURCE = 6;
+		SHOPPING_GENERATED_SOURCE = 7;
+		SHOPPING_GRAPH_DATA_SOURCE = 8;
+		UGC_STRUCTURED_QUESTIONS_SOURCE = 9;
+	}
+
+	message MagiShoppingProduct {
+		string catalog_id = 1;
+		string description = 2;
+		repeated string badges = 3;
+		string title = 4;
+
+		message Image {
+			string url = 1;
+		}
+
+		repeated Image images = 5;
+	}
+
+	message MagiShoppingOffer {
+		string url = 1;
+	}
+
+	message MagiShoppingApparelSection {
+		string type = 1;
+		repeated MagiShoppingProduct products = 2;
+	}
+
+	string magi_state_token = 1;
+	repeated Taxonomy.IssueType feedback_issue_types = 2;
+	string query_interpretation = 3;
+	repeated Taxonomy.IssueType query_interpretation_issue_types = 4;
+	repeated Taxonomy.IssueType suggested_query_issue_types = 5;
+	repeated MagiFeedbackAlternativeDraft magi_feedback_alternative_drafts = 6;
+	int32 magi_feedback_chat_index = 7;
+	repeated MagiFeedbackSuggestedQuery magi_feedback_suggested_queries = 10;
+	string model_name = 11;
+	repeated string image_doc_ids = 14;
+	Taxonomy.IssueType image_issue_type = 15;
+	repeated string image_urls = 17;
+
+	enum Vertical {
+		option features.enum_type = CLOSED;
+
+		VERTICAL_NOT_APPLICABLE = 0;
+		LOCAL = 1;
+		SHOPPING = 2;
+		TRAVEL = 3;
+		WEEKEND_IDEAS = 4;
+		WEEKEND_IDEAS_V2 = 5;
+	}
+
+	Vertical vertical = 18;
+	bool is_sensitive = 19;
+	repeated string place_mids = 20;
+	repeated string review_ids = 21;
+
+	message MagiShopping {
+		repeated MagiShoppingProduct products = 1;
+		MagiShoppingProduct single_product = 2;
+		repeated MagiShoppingOffer offers = 3;
+		repeated MagiShoppingApparelSection apparel_sections = 4;
+		repeated MagiShoppingProduct comparison_products = 5;
+	}
+
+	MagiShopping magi_shopping = 22;
+	string folsrch_event_id = 23;
+
+	message MagiSource {
+		MagiSourceType source_type = 2;
+		string url = 3;
+		string title = 4;
+		string snippet = 5;
+		int32 ui_index = 6;
+		int32 unique_id = 7;
+	}
+
+	repeated MagiSource sources = 24;
+	repeated string video_urls = 25;
+	bytes image_content = 27;
+	int32 fast_onebox_ons_type = 28;
+	UserImage user_image = 29;
+	bool is_labs_enabled = 30;
+	bool is_srp_le_request = 31;
+	int32 magi_response_state = 32;
+	string model_response = 33;
+	string ai_mode_turn_event_id = 37;
+	bool lens_video_frames_capture_consent = 38;
+}

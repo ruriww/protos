@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_video_supported_datas.proto";
+import "youtube/api/innertube/offline_candidate_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineCandidateData {
+	repeated OfflineVideoSupportedDatas videos = 1;
+	OfflineCandidateType candidate_type = 2;
+}

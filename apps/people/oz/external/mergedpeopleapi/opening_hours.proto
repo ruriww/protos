@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/opening_hours_period.proto";
+
+option objc_class_prefix = "POEM";
+
+message OpeningHours {
+	bool open_now = 1;
+	repeated OpeningHoursPeriod periods = 2;
+	repeated string weekday_texts = 3;
+}

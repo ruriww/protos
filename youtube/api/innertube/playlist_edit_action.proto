@@ -1,0 +1,137 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/playlist_image.proto";
+import "youtube/api/innertube/playlist_image_key.proto";
+import "youtube/api/innertube/engagement_permission.proto";
+import "youtube/api/innertube/comment_permission.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistEditAction {
+	string added_video_id = 2;
+	string set_video_id = 3;
+	string moved_set_video_id_successor = 5;
+
+	enum PlaylistActionType {
+		option features.enum_type = CLOSED;
+
+		ACTION_UNKNOWN = 0;
+		ACTION_ADD_PLAYLIST = 38;
+		ACTION_ADD_VIDEO = 1;
+		ACTION_REMOVE_VIDEO = 2;
+		ACTION_MOVE_VIDEO_BEFORE = 3;
+		ACTION_MOVE_VIDEO_AFTER = 35;
+		ACTION_SET_ANNOTATION = 5;
+		ACTION_SET_PLAYLIST_NAME = 6;
+		ACTION_SET_PLAYLIST_DESCRIPTION = 7;
+		ACTION_SET_PLAYLIST_THUMBNAIL = 8;
+		ACTION_SET_PLAYLIST_PRIVACY = 9;
+		ACTION_SET_PLAYLIST_VIDEO_ORDER = 10;
+		ACTION_COPY_FROM_PLAYLIST = 11;
+		ACTION_UNCOPY_FROM_PLAYLIST = 19;
+		ACTION_MOVE_VIDEO_TO_BEGINNING = 12;
+		ACTION_MOVE_VIDEO_TO_END = 13;
+		ACTION_REMOVE_WATCHED_VIDEOS = 14;
+		ACTION_SET_CUSTOM_THUMBNAIL = 15;
+		ACTION_REMOVE_CUSTOM_THUMBNAIL = 16;
+		ACTION_SET_MULTIPLE_CUSTOM_ARTWORK = 58;
+		ACTION_REMOVE_MULTIPLE_CUSTOM_ARTWORK = 59;
+		ACTION_REMOVE_CLEARED_OF_DELETED_VIDEOS = 17;
+		ACTION_REMOVE_VIDEO_BY_VIDEO_ID = 18;
+		ACTION_SET_ADD_TO_TOP = 20;
+		ACTION_SET_ALLOW_EMBED = 21;
+		ACTION_SET_IS_SERIES = 22;
+		ACTION_SET_IS_COURSE = 39;
+		ACTION_SET_TRANSLATION = 25;
+		ACTION_DELETE_TRANSLATION = 26;
+		ACTION_SET_ORIGINAL_LANGUAGE = 27;
+		ACTION_JOIN_COLLABORATION = 28;
+		ACTION_REVOKE_COLLABORATION_TOKENS = 29;
+		ACTION_SET_CLOSED_TO_CONTRIBUTIONS = 31;
+		ACTION_LEAVE_COLLABORATIVE_PLAYLIST = 54;
+		ACTION_REMOVE_PARTICIPANT_COLLABORATIVE_PLAYLIST = 55;
+		ACTION_CREATE_COLLABORATION_INVITE_LINK = 32;
+		ACTION_VIEW_PLAYLIST_LIST = 33;
+		ACTION_VIEW_PLAYLIST_DETAIL = 34;
+		ACTION_SET_DISPLAY_SEGMENTED = 36;
+		ACTION_SET_SEGMENT_START = 37;
+		ACTION_SET_MUSIC_INTENTS = 40;
+		ACTION_SEVER_LISTENING_REVIEW_PLAYLIST_FROM_WATCH_HISTORY = 41;
+		ACTION_SET_PODCAST_METADATA = 42;
+		ACTION_SET_COURSE_METADATA = 43;
+		ACTION_SET_SHOW_METADATA = 56;
+		ACTION_SET_EPISODIC_METADATA = 57;
+		ACTION_DISMISS_NOTIFICATION = 44;
+		ACTION_SET_RADIO_METADATA = 45;
+		ACTION_SET_ALLOW_ITEM_VOTE = 46;
+		ACTION_SET_ALLOW_COMMENT = 65;
+		ACTION_CLEAR_EPHEMERAL_STATUS = 47;
+		ACTION_CREATE_TASTE_MATCH_PLAYLIST_INVITATION_LINK = 48;
+		ACTION_REVOKE_TASTE_MATCH_PLAYLIST_INVITATION_TOKENS = 49;
+		ACTION_JOIN_TASTE_MATCH_PLAYLIST = 50;
+		ACTION_LEAVE_TASTE_MATCH_PLAYLIST = 51;
+		ACTION_REMOVE_PARTICIPANT_TASTE_MATCH_PLAYLIST = 52;
+		ACTION_SET_EPHEMERAL_STATUS = 53;
+		ACTION_INSERT_VIDEO_TO_SEGMENT = 60;
+		ACTION_INSERT_VIDEO_TO_NEW_SEGMENT = 61;
+		ACTION_ADD_PLAYLIST_AS_SEGMENT = 62;
+		ACTION_MOVE_VIDEO_TO_SEGMENT = 63;
+		ACTION_MOVE_VIDEO_TO_NEW_SEGMENT = 64;
+	}
+
+	PlaylistActionType action = 6;
+	string annotation = 9;
+	string playlist_name = 10;
+	string playlist_description = 11;
+	string thumbnail_video_id = 12;
+	PrivacyStatus playlist_privacy = 13;
+	uint32 playlist_video_order = 14;
+	string source_playlist_id = 15;
+	bytes custom_thumbnail_bytes = 16;
+	string removed_video_id = 17;
+	bool add_to_top = 19;
+	bool allow_embed = 20;
+	bool is_series = 21;
+	string language_id = 25;
+
+	message Translation {
+		string field_key = 1;
+		string value = 2;
+	}
+
+	repeated Translation translations = 26;
+	string join_collaboration_token = 27;
+	bool closed_to_contributions = 29;
+	string moved_set_video_id_predecessor = 30;
+	bool display_segmented = 32;
+	bool is_segment_start = 33;
+	string added_full_list_id = 34;
+	bool is_course = 35;
+	sint32 added_video_position = 37;
+	repeated uint32 music_intents = 39 [ features.repeated_field_encoding = EXPANDED ];
+	PlaylistImage added_custom_thumbnail = 41;
+	PlaylistImageKey deleted_custom_thumbnail = 42;
+	string notification_id = 44;
+	EngagementPermission item_vote_permission = 47;
+	string join_taste_match_playlist_token = 48;
+	bool is_ephemeral = 49;
+	string taste_match_participant_channel_id_to_remove = 50;
+	sint32 added_video_position_if_manual_sort = 51;
+
+	oneof playlist_image_generation_provenance_oneof {
+		string encoded_playlist_image_generation_provenance = 52;
+	}
+
+	string participant_channel_id_to_remove = 53;
+	bool revoke_participation_tokens = 55;
+	bool is_channel_just_created = 57;
+	repeated PlaylistImage added_custom_artwork = 58;
+	repeated PlaylistImageKey deleted_custom_artwork = 59;
+	CommentPermission comment_permission = 66;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/instrumentmanager/instrument_manager_parameters.proto";
+import "moneta/orchestration/ui/instrumentmanager/initialize_response.proto";
+
+option objc_class_prefix = "IManager";
+
+message ActionToken {
+	InstrumentManagerParameters parameters = 1;
+	InitializeResponse initialize_response = 2;
+	bytes o2_action_token = 4;
+	string initialize_response_token = 5;
+}

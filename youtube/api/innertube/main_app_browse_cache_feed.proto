@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MainAppBrowseCacheFeed {
+	option features.enum_type = CLOSED;
+
+	MAIN_APP_BROWSE_CACHE_FEED_UNKNOWN = 0;
+	MAIN_APP_BROWSE_CACHE_FEED_WHAT_TO_WATCH = 1;
+	MAIN_APP_BROWSE_CACHE_FEED_TRENDING = 2;
+	MAIN_APP_BROWSE_CACHE_FEED_MY_SUBS = 3;
+	MAIN_APP_BROWSE_CACHE_FEED_LIBRARY = 4;
+	MAIN_APP_BROWSE_CACHE_FEED_EXPLORE = 5;
+}

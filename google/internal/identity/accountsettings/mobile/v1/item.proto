@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/simple_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/promo_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/profile_picture_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/profile_picture_promo_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/main_screen_item.proto";
+
+option objc_class_prefix = "ASM";
+
+message Item {
+	int32 item_id = 1;
+	SimpleItem simple_item = 2;
+	PromoItem promo_item = 3;
+	ProfilePictureItem profile_picture_item = 4;
+	ProfilePicturePromoItem profile_picture_promo_item = 5;
+	MainScreenItem main_screen_item = 6;
+}

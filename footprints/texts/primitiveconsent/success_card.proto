@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/rich_text.proto";
+import "footprints/texts/primitiveconsent/image.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message SuccessCard {
+	RichText text = 1;
+	Image leading_icon = 2;
+	Image trailing_icon = 3;
+}

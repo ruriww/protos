@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.common;
+
+import "proto2/bridge/message_set.proto";
+import "youtube/client/common/language_stack_trace.proto";
+
+option objc_class_prefix = "YTC";
+
+message MultiLanguageStackTrace {
+	extend proto2.bridge.MessageSet {
+		MultiLanguageStackTrace message_set_extension = 520452313;
+	}
+
+	repeated LanguageStackTrace language_stacktrace = 1;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OrganicPlaybackContext {
+	string content_cpn = 1;
+	bool is_live_playback = 2;
+	bool is_offline_playback = 3;
+	bool is_mdx_playback = 4;
+	bool is_dai_content = 5;
+	bool is_prefetched_playback = 6;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visibility_logging_directives.proto";
+import "youtube/api/innertube/gesture_logging_directives.proto";
+import "youtube/api/innertube/client_ve_spec.proto";
+import "youtube/utils/visibility/focus_visibility_logging_config.proto";
+import "youtube/api/innertube/logging_expectations.proto";
+import "youtube/api/innertube/attention_logging.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoggingDirectives {
+	bytes tracking_params = 1;
+	VisibilityLoggingDirectives visibility = 4;
+	GestureLoggingDirectives gestures = 5;
+	ClientVeSpec client_ve_spec = 7;
+	bool disable_element_creation = 8;
+	utils.visibility.FocusVisibilityLoggingConfig focus_visibility_config = 9;
+	bool disable_tracking_params_filling = 10;
+	bool enable_displaylogger_experiment = 11;
+	LoggingExpectations logging_expectations = 12;
+	bool enable_in_gated_elements_macros = 13;
+	AttentionLogging attention_logging = 14;
+
+	extensions 2 to 3;
+}

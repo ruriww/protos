@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IcingApi {
+	option features.enum_type = CLOSED;
+
+	ICING_API_UNKNOWN = 0;
+	ICING_API_INITIALIZE = 1;
+	ICING_API_SET_SCHEMA = 2;
+	ICING_API_GET = 3;
+	ICING_API_PUT = 4;
+	ICING_API_QUERY = 5;
+	ICING_API_DELETE = 6;
+	ICING_API_OPTIMIZE = 8;
+	ICING_API_FLUSH = 9;
+}

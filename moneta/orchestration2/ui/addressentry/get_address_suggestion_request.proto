@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.addressentry;
+
+import "moneta/orchestration2/ui/common/request_context.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GetAddressSuggestionRequest {
+	common.RequestContext context = 1;
+	string query = 2;
+	string country_code = 3;
+	int32 max_result = 4;
+	int32 current_field_id = 5;
+}

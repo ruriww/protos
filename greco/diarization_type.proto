@@ -1,0 +1,14 @@
+edition = "2023";
+
+package greco;
+
+option objc_class_prefix = "GRC";
+
+enum DiarizationType {
+	option features.enum_type = CLOSED;
+
+	UNSPECIFIED_DIARIZATION_TYPE = 0;
+	LEGACY_DIARIZATION = 1;
+	TURN_BASED_DIARIZATION = 2;
+	USM_TURN_TO_DIARIZE = 3;
+}

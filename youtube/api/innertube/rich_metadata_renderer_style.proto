@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RichMetadataRendererStyle {
+	option features.enum_type = CLOSED;
+
+	RICH_METADATA_RENDERER_STYLE_UNSPECIFIED = 0;
+	RICH_METADATA_RENDERER_STYLE_TOPIC = 1;
+	RICH_METADATA_RENDERER_STYLE_BOX_ART = 2;
+	RICH_METADATA_RENDERER_STYLE_THUMBNAIL = 3;
+	RICH_METADATA_RENDERER_STYLE_SQUARE = 4;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/event_type.proto";
+import "logs/proto/speech/ios/s3_session_event.proto";
+import "logs/proto/speech/ios/speech_recognizer_event.proto";
+import "logs/proto/speech/ios/voice_search_event.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message IosSpeechExtension {
+	EventType event_type = 1;
+
+	oneof event {
+		S3SessionEvent s3_session_event = 2;
+		SpeechRecognizerEvent speech_recognizer_event = 3;
+		VoiceSearchEvent voice_search_event = 4;
+	}
+}

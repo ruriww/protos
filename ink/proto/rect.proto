@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message Rect {
+	float xlow = 1;
+	float xhigh = 2;
+	float ylow = 3;
+	float yhigh = 4;
+}

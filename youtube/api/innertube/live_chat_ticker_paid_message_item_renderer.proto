@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/live_chat_item_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/currency_image.proto";
+import "youtube/api/innertube/live_chat_ticker_dynamic_state_data.proto";
+import "youtube/api/innertube/animation_origin.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTickerPaidMessageItemRenderer {
+	string id = 1;
+	FormattedString amount = 3;
+	LiveChatItemSupportedRenderers purchased_message = 4;
+	uint32 author_name_text_color = 5;
+	uint32 amount_text_color = 6;
+	uint32 start_background_color = 7;
+	uint32 end_background_color = 8;
+	ThumbnailDetails author_photo = 9;
+	uint32 duration_sec = 10;
+	Command show_item_endpoint = 11;
+	string author_external_channel_id = 12;
+	uint32 full_duration_sec = 13;
+	bytes tracking_params = 15;
+	CurrencyImage currency_image = 16;
+	FormattedString author_username = 17;
+	LiveChatTickerDynamicStateData dynamic_state_data = 18;
+	AnimationOrigin animation_origin = 19;
+	Command open_engagement_panel_command = 20;
+	Command on_visible_command = 21;
+}

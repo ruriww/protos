@@ -1,0 +1,19 @@
+edition = "2023";
+
+package apps.people.logs;
+
+option objc_class_prefix = "PL";
+
+message DashboardOptions {
+	enum DisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SHOWN = 1;
+		HIDDEN = 2;
+	}
+
+	DisplayType display_type = 1;
+	string title = 2;
+	string description = 3;
+}

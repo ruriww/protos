@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message Vector3Double {
+	double x = 1;
+	double y = 2;
+	double z = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.logging;
+
+import "youtube/api/innertube/client_event.proto";
+
+option objc_class_prefix = "YTBA";
+
+message LogClientEventArgs {
+	youtube.api.innertube.ClientEvent event = 1;
+}

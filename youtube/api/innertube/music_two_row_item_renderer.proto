@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_two_row_item_thumbnail_aspect_ratio.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/music_offline_item_data.proto";
+import "youtube/api/innertube/music_item_renderer_display_policy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicTwoRowItemRenderer {
+	Renderer thumbnail_renderer = 1;
+	MusicTwoRowItemThumbnailAspectRatio aspect_ratio = 2;
+	FormattedString title = 3;
+	FormattedString subtitle = 4;
+	Command navigation_endpoint = 5;
+	bytes tracking_params = 7;
+	Renderer offlineability = 8;
+	AccessibilitySupportedDatas accessibility_data = 9;
+	FormattedString third_title = 10;
+	Renderer menu = 11;
+	Command double_tap_navigation_endpoint = 16;
+	Renderer thumbnail_overlay = 17;
+	repeated Renderer subtitle_badges = 18;
+	repeated Renderer potential_thumbnail_overlays = 19;
+	Renderer hint = 20;
+	MusicOfflineItemData music_offline_item_data = 21;
+	Renderer footer_button = 22;
+	Renderer custom_index_column = 23;
+	Renderer thumbnail_corner_overlay = 24;
+	MusicItemRendererDisplayPolicy music_item_renderer_display_policy = 25;
+}
+
+extend Renderer {
+	MusicTwoRowItemRenderer music_two_row_item_renderer = 161205744;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MainAppLibraryLoadingState {
+	bool attempts_to_load_cached_online_response = 1;
+	bool is_online_response_loaded_from_cache = 2;
+	bool user_has_offline_content = 3;
+}

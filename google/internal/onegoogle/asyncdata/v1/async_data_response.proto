@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+import "unknown/youtube/gerr_code10785.proto";
+import "google/internal/onegoogle/asyncdata/v1/callout_identifier.proto";
+import "google/internal/onegoogle/asyncdata/v1/callout_origin.proto";
+import "google/internal/onegoogle/asyncdata/v1/badge_color.proto";
+import "google/internal/onegoogle/asyncdata/v1/badge_source.proto";
+
+option objc_class_prefix = "OGADS";
+
+message AsyncDataResponse {
+	unknown.youtube.GERRCode10785.GERRCode status_code = 1;
+	CalloutIdentifier callout = 2;
+	bool invisible = 3;
+	CalloutOrigin origin = 7;
+	BadgeColor badge_color = 9;
+	BadgeSource badge_source = 10;
+	bool warm_start_ads_calls_killswitch = 11;
+	bool should_update_cookies_for_inweb_callout = 12;
+	int32 cookie_ttl_seconds = 13;
+}

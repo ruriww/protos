@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/account_creation_entry_point.proto";
+import "google/familymanagement/v1/flow_type.proto";
+
+option objc_class_prefix = "GFM";
+
+message CreateUnicornLiteProfileRequest {
+	ApiRequestHeader api_header = 1;
+	string first_name = 2;
+	int32 age_in_years = 3;
+	int32 birth_month = 4;
+	bytes botguard = 6;
+	string ari_session_id = 7;
+	string consent_id = 8;
+	AccountCreationEntryPoint account_creation_entry_point = 9;
+	FlowType account_creation_surface_type = 10;
+	string avatar_name = 11;
+}

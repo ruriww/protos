@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShareImageCommand {
+	extend Command {
+		ShareImageCommand share_image_command = 401875543;
+	}
+
+	bytes image_bytes = 1;
+	string share_text = 2;
+	string image_file_name = 5;
+	string serialized_share_entity = 6;
+	Command success_command = 7;
+	Command error_command = 8;
+}

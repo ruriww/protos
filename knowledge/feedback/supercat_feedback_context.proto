@@ -1,0 +1,41 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "knowledge/feedback/supercat_summary_type.proto";
+
+option objc_class_prefix = "UFR";
+
+message SupercatFeedbackContext {
+	string topic_query = 1;
+	string topic_title = 2;
+
+	message JustificationSummary {
+		string place_mid = 1;
+		int32 summary_id = 2;
+		string summary_text = 3;
+		SupercatSummaryType summary_type = 4;
+
+		message Citations {
+			message ReviewCitation {
+				string review_id = 1;
+				int32 citation_number = 2;
+				string review_text = 3;
+			}
+
+			repeated ReviewCitation review_citations = 1;
+
+			message WebCitation {
+				string display_text = 1;
+				string url = 2;
+				int32 citation_number = 3;
+			}
+
+			repeated WebCitation web_citations = 2;
+		}
+
+		Citations citations = 5;
+	}
+
+	JustificationSummary justification_summary = 3;
+}

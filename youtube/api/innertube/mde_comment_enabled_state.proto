@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdeCommentEnabledState {
+	option features.enum_type = CLOSED;
+
+	MDE_COMMENT_ENABLED_STATE_UNKNOWN = 0;
+	MDE_COMMENT_ENABLED_STATE_OFF = 1;
+	MDE_COMMENT_ENABLED_STATE_ON = 2;
+	MDE_COMMENT_ENABLED_STATE_PAUSED = 3;
+}

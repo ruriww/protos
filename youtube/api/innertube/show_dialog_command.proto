@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/panel_loading_strategy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowDialogCommand {
+	extend Command {
+		ShowDialogCommand show_dialog_command = 1025;
+	}
+
+	PanelLoadingStrategy panel_loading_strategy = 1;
+	bool remove_default_padding = 2;
+	bool dismiss_on_background_tap = 3;
+}

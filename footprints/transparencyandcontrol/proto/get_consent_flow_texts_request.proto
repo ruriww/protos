@@ -1,0 +1,23 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_caller.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "footprints/transparencyandcontrol/proto/consent_texts_selector.proto";
+import "footprints/transparencyandcontrol/proto/split_preference.proto";
+import "privacy/consent/consent_session_id.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+import "footprints/transparencyandcontrol/proto/consistency_options.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetConsentFlowTextsRequest {
+	ConsentCaller caller = 7;
+	repeated ConsentSetting consent_settings = 8;
+	ConsentTextsSelector consent_texts_selector = 9;
+	SplitPreference split_preference = 10;
+	privacy.consent.ConsentSessionId session_id = 11;
+	privacy.consent.SharedConsentSessionId shared_session_id = 12;
+	ConsistencyOptions consistency_options = 14;
+}

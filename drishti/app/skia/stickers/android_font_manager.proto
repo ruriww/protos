@@ -1,0 +1,10 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+message AndroidFontManager {
+	string fonts_xml = 1;
+	string fonts_dir = 2;
+}

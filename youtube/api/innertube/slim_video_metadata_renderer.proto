@@ -1,0 +1,68 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/slim_metadata_button_supported_renderers.proto";
+import "youtube/api/innertube/slim_owner_supported_renderers.proto";
+import "youtube/api/innertube/video_metadata_row_container_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/slim_metadata_offline_button_tooltip_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/slim_metadata_button_renderer.proto";
+import "youtube/api/innertube/slim_metadata_toggle_button_renderer.proto";
+import "youtube/api/innertube/slim_metadata_add_to_button_renderer.proto";
+import "youtube/api/innertube/slim_owner_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SlimVideoMetadataRenderer {
+	FormattedString title = 3;
+	FormattedString collapsed_subtitle = 4;
+	FormattedString expanded_subtitle = 5;
+	repeated SlimMetadataButtonSupportedRenderers buttons = 6;
+	SlimOwnerSupportedRenderers owner = 8;
+	FormattedString description = 9;
+	VideoMetadataRowContainerSupportedRenderers metadata_row_container = 10;
+	repeated BadgeSupportedRenderers badges = 11;
+	StandaloneBadgeSupportedRenderers under_title_standalone_badge = 12;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 13;
+	string video_id = 14;
+	FormattedString date_text = 15;
+	bytes tracking_params = 17;
+	Command updated_metadata_endpoint = 18;
+	bool collapsed_use_single_line_title = 19;
+	SlimMetadataOfflineButtonTooltipSupportedRenderers offline_button_tooltip = 20;
+	SlimMetadataOfflineButtonTooltipSupportedRenderers offline_button_poor_connectivity_tooltip = 21;
+	Renderer channel_credit = 22;
+	FormattedString overflow_menu_text = 24;
+	AccessibilityData overflow_accessibility_data = 25;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	SlimVideoMetadataRenderer slim_video_metadata_renderer = 119167901;
+}
+
+extend Renderer {
+	SlimMetadataButtonRenderer slim_metadata_button_renderer = 124608017;
+}
+
+extend Renderer {
+	SlimMetadataToggleButtonRenderer slim_metadata_toggle_button_renderer = 124608045;
+}
+
+extend Renderer {
+	SlimMetadataAddToButtonRenderer slim_metadata_add_to_button_renderer = 186676672;
+}
+
+extend Renderer {
+	SlimOwnerRenderer slim_owner_renderer = 119170535;
+}

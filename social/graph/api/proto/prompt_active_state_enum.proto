@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message PromptActiveStateEnum {
+	enum ActiveState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ACTIVE_STATE = 0;
+		ACTIVE = 1;
+		DISABLED = 2;
+	}
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_connection_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OnesieConnectionPrewarmConfig {
+	int32 ping_interval_seconds = 1;
+	string redirector_url = 2;
+	int32 randomize_redirector_url_seconds = 3;
+	int32 hostname_ttl_seconds = 4;
+	int32 connection_keepalive_seconds = 5;
+	int32 start_delay_ms = 6;
+	bool remap_on_network_change = 7;
+	repeated string mapping_params_to_copy = 9;
+	repeated ClientConnectionType prewarm_only_when_network_active_connection_types = 10;
+	string onesie_host_selection_token = 11;
+	repeated string redirector_urls = 12;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package identity_oauth;
+
+option objc_class_prefix = "SSO";
+
+enum CaveatType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN = 0;
+	LOCAL_ATTENUATION = 1;
+}

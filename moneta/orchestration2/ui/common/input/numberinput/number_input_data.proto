@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/input/input_data_auto_advance.proto";
+import "moneta/orchestration2/ui/common/input/numberinput/number_input_transform.proto";
+import "moneta/orchestration2/ui/common/validation/validation.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NumberInputData {
+	extend data.Data {
+		NumberInputData number_input_data_extension = 346113746;
+	}
+
+	oneof hint {
+		string label = 1;
+		string placeholder_text = 2;
+	}
+
+	string helper_text = 3;
+	InputDataAutoAdvance auto_advance = 4;
+	NumberInputTransform transform = 5;
+	repeated validation.Validation validations = 7;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/kids_client_image.proto";
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/kids_card_palette_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsSearchPromoTileRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	Renderer button = 3;
+	KidsClientImage image = 4;
+	Datas color_palette = 5;
+	bytes tracking_params = 7;
+	KidsCardPaletteData card_palette = 8;
+}
+
+extend Renderer {
+	KidsSearchPromoTileRenderer kids_search_promo_tile_renderer = 242936693;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.transition;
+
+option objc_class_prefix = "ORCH2";
+
+message OpacityEffect {
+	int32 start_opacity = 1;
+	int32 end_opacity = 2;
+}

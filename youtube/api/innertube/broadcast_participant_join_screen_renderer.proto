@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BroadcastParticipantJoinScreenRenderer {
+	Renderer entry_renderer = 1;
+	Renderer close_button = 3;
+	Renderer switch_camera_button = 4;
+}
+
+extend Renderer {
+	BroadcastParticipantJoinScreenRenderer broadcast_participant_join_screen_renderer = 362416826;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/qos_tiers_override.proto";
+import "wireless_android_play_playlog/log_response_details.proto";
+
+option objc_class_prefix = "CADP";
+
+message LogResponse {
+	int64 next_request_wait_millis = 1 [ default = -1 ];
+	QosTiersOverride qos_tier = 3;
+	repeated LogResponseDetails log_response_details = 5;
+
+	extensions 1000 to max;
+}

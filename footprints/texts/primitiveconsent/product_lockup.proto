@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/image_source.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ProductLockup {
+	string product_name = 1;
+	ImageSource product_logo = 2;
+}

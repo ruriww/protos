@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DismissableClingType {
+	enum ClingType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CLING = 0;
+		HAMBURGER_MENU_CLING = 1;
+		SEARCH_BUTTON_CLING = 2;
+		NAV_BAR_AUDIO_BUTTON_CLING = 3;
+		EXPLORE_TAB_CLING = 4;
+	}
+
+	ClingType type = 1;
+}

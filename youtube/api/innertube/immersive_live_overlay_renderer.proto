@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/video_reporting_supported_renderers.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImmersiveLiveOverlayRenderer {
+	Renderer live_chat_renderer = 1;
+	Command on_long_press = 2;
+	Renderer header = 3;
+	Renderer live_endscreen_renderer = 4;
+	FormattedString stream_title = 5;
+	Renderer stream_swipe_education_renderer = 6;
+	Renderer skip_to_live_suggested_action_renderer = 7;
+	Renderer top_banner_renderer = 8;
+	VideoReportingSupportedRenderers video_reporting = 9;
+	Command updated_metadata_command = 10;
+	LikeButtonSupportedRenderers double_tap_like_button = 11;
+}
+
+extend Renderer {
+	ImmersiveLiveOverlayRenderer immersive_live_overlay_renderer = 423410527;
+}

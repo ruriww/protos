@@ -1,0 +1,11 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message WatchInfo {
+	bool is_paired = 1;
+	bool is_app_installed = 2;
+	bool is_complication_enabled = 3;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_screen.proto";
+import "youtube/api/innertube/mdx_encouragement_info.proto";
+import "youtube/api/innertube/mdx_device.proto";
+import "youtube/api/innertube/mdx_encouragement_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxContext {
+	repeated MdxScreen detected_screens = 1;
+	MdxScreen connected_screen = 2;
+	uint32 time_since_last_mdx_initiation_seconds = 3;
+	uint32 num_mdx_initations = 4;
+	repeated MdxEncouragementInfo past_mdx_encouragements = 5;
+	string lounge_token = 6;
+	MdxDevice current_device = 7;
+	string mdx_queue_id = 8;
+	repeated MdxEncouragementEvent past_mdx_encouragement_events = 9;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/tou_appeal_justification.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppealCreatorChannelSuspensionRequest {
+	InnerTubeContext context = 1;
+	TouAppealJustification justification = 2;
+	string alternate_email = 3;
+	string external_channel_id = 6;
+}

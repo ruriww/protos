@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MenuVisibilityCondition {
+	enum MenuVisibilityConditionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_VISIBILITY_CONDITION = 0;
+		MDX_CONNECTED = 1;
+		MDX_DISCONNECTED = 2;
+		MDX_DISCONNECTED_HAS_AVAILABLE_DEVICES = 3;
+		ONLINE = 4;
+		ACCOUNT_LINKING_CONNECTED = 5;
+		QUEUEABLE_PLAY_LAST = 6;
+		IS_PLAYING_PLAYLIST_WITH_MORE_THAN_ONE_VIDEO = 7;
+	}
+
+	MenuVisibilityConditionType type = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/snackbar_animation_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowSnackbarCommand {
+	extend Command {
+		ShowSnackbarCommand show_snackbar_command = 1666;
+	}
+
+	Renderer content = 1;
+	SnackbarAnimationStyle animation_style = 2;
+	double duration_seconds = 3;
+}

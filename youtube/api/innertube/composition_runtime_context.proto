@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_service_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompositionRuntimeContext {
+	message ServiceInfo {
+		MediaEngineServiceType type = 1;
+		bytes id = 2;
+	}
+
+	repeated ServiceInfo active_services = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.signedoutstate.v1;
+
+option objc_class_prefix = "SOS";
+
+message DebugOverrides {
+	enum DebugRegion {
+		DEBUG_REGION_UNSPECIFIED = 0;
+		DEBUG_REGION_DE = 1;
+		DEBUG_REGION_US = 2;
+	}
+
+	DebugRegion debug_region = 1;
+}

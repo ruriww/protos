@@ -1,0 +1,108 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+import "unknown/youtube/postal_address.proto";
+import "moneta/integrator/common/image/image_details.proto";
+import "moneta/integrator/common/cart/line_item.proto";
+import "moneta/integrator/common/tracking_parameters.proto";
+import "moneta/integrator/ui/buyflow/buy_flow_parameter_enums.proto";
+import "moneta/orchestration/ui/buyflow/internal_purchase_context.proto";
+import "moneta/integrator/common/buyflow/purchase_description.proto";
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/orchestration/ui/buyflow/instantbuy/instant_buy_parameters.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "moneta/integrator/common/cart/cart.proto";
+import "moneta/integrator/common/funds_guarantee_id.proto";
+import "moneta/integrator/common/paymentfraud/product_payment_risk_data.proto";
+import "moneta/integrator/common/fundsguarantee/funds_guarantee_criteria.proto";
+import "moneta/orchestration/ui/common/widgetreference/load_target.proto";
+import "moneta/integrator/common/purchase_order_id.proto";
+import "moneta/integrator/common/buyflow/promo_code_parameters.proto";
+import "moneta/integrator/ui/common/common_client_parameters.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message InternalBuyFlowParameters {
+	int32 billable_service_for_client_diversion = 1;
+	int32 region_code_for_client_diversion = 2;
+	string region_code = 3 [ default = "US" ];
+	integrator.common.ProductCorrelationId product_correlation_id = 6;
+	string currency_code = 9;
+	string timezone = 10;
+	unknown.youtube.PostalAddress customer_address_hint = 11;
+
+	oneof hero {
+		integrator.common.image.ImageDetails hero_image = 12;
+		bool display_line_item_as_hero_item = 54;
+	}
+
+	string funds_guarantee_request_id = 13;
+	repeated integrator.common.cart.LineItem line_item = 14;
+	integrator.common.TrackingParameters tracking_parameters = 15;
+	string billing_account_id = 17;
+	integrator.ui.buyflow.BuyFlowParameterEnums.BuyFlowScenario buy_flow_scenario = 18;
+	string contact_phone_number_hint = 19;
+	string communication_language_hint = 21;
+	InternalPurchaseContext purchase_context = 25;
+	string line_items_signature = 26;
+	bool guest_checkout = 27;
+	string localized_info_message = 28;
+	string hero_item_price_override = 29;
+	string contact_email_hint = 30;
+	string external_product_account_id = 31;
+	integrator.common.ProductCorrelationId anchor_product_correlation_id = 32;
+	integrator.common.buyflow.PurchaseDescription primary_description = 33;
+	repeated integrator.common.buyflow.PurchaseDescription additional_description = 34;
+	bool fix_overdue_balance = 35;
+	bool render_cart = 36 [ default = true ];
+	integrator.ui.common.CommonParameters common_parameters = 37;
+	bytes integrator_session_data = 38;
+	bool return_result_message_to_integrator = 48;
+	bool is_template_checkout_cart = 49;
+	instantbuy.InstantBuyParameters instant_buy_parameters = 50;
+	string external_product_id = 51;
+	string internal_product_id = 52;
+	string product_description = 53;
+	webutil.html.types.SafeHtmlProto localized_info_message_html = 55;
+	integrator.common.cart.Cart cart = 57;
+	integrator.common.FundsGuaranteeId funds_guarantee_id = 59;
+	integrator.common.paymentfraud.ProductPaymentRiskData product_payment_risk_data = 60;
+	bool clone_billing_account = 61;
+	bool prefer_headless_buy_flow = 62;
+	string soft_descriptor_merchant_name = 64;
+	bool funds_guaranteee_wait_for_risk_allowed = 67 [ default = false ];
+	int64 parameters_expiration_time_millis = 69;
+	integrator.common.fundsguarantee.FundsGuaranteeCriteria funds_guarantee_criteria = 70;
+	bytes mcc_product_auth_token = 71;
+	int64 f1_billing_account_id = 73;
+	bool non_billable = 74;
+	integrator.common.ProductCorrelationId previous_product_correlation_id = 75;
+	bool filter_non_terms_customers = 76 [ default = false ];
+	bool require_storefront = 77 [ default = true ];
+	bool is_google = 78 [ default = false ];
+	int64 change_request_id = 79;
+	common.widgetreference.LoadTarget return_to_target = 83;
+	string invoice_name_hint = 90;
+	integrator.common.PurchaseOrderId purchase_order_id = 92;
+	int32 billable_service = 94;
+	string external_purchase_order_id = 96;
+	bytes initial_integrator_session_data = 97;
+	bool disable_recaptcha_for_guest_checkout = 98;
+	string business_name = 99;
+
+	oneof resume_key {
+		integrator.common.PurchaseOrderId purchase_order_resume_id = 105;
+		integrator.common.FundsGuaranteeId funds_guarantee_resume_id = 106;
+	}
+
+	webutil.html.types.SafeHtmlProto resume_buy_flow_location_description = 107;
+	bool ask_user_for_resume_code = 108;
+	bool disable_cardholder_name_prefill = 110;
+	integrator.common.buyflow.PromoCodeParameters promo_code_params = 114;
+	integrator.ui.common.CommonClientParameters common_client_parameters = 115;
+	bool skip_inline_verification = 123;
+
+	extensions 10000 to max;
+}

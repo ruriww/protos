@@ -1,0 +1,23 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+import "google/protobuf/timestamp.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/bootstrap_id.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/interaction_type.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/interaction_context.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/footprints_data.proto";
+import "google/internal/support/intelligence/moltron/v1/logging/legacy_mojo_data.proto";
+
+option objc_class_prefix = "SIML";
+
+message MoltronInteraction {
+	string prediction_id = 1;
+	protobuf.Timestamp timestamp = 2;
+	string reporting_id = 3;
+	BootstrapId bootstrap_id = 4;
+	InteractionType interaction_type = 5;
+	InteractionContext interaction_context = 6;
+	FootprintsData footprints_data = 7;
+	LegacyMojoData legacy_mojo_data = 8;
+}

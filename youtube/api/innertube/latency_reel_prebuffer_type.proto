@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LatencyReelPrebufferType {
+	option features.enum_type = CLOSED;
+
+	LATENCY_REEL_PREBUFFER_TYPE_UNKNOWN = 0;
+	LATENCY_REEL_PREBUFFER_TYPE_NONE = 1;
+	LATENCY_REEL_PREBUFFER_TYPE_REQUESTED = 2;
+}

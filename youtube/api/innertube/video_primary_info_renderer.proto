@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/video_primary_info_view_count_supported_renderers.proto";
+import "youtube/api/innertube/video_primary_info_video_actions_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoPrimaryInfoRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	VideoPrimaryInfoViewCountSupportedRenderers view_count = 3;
+	VideoPrimaryInfoVideoActionsSupportedRenderers video_actions = 4;
+	bytes tracking_params = 7;
+	Command updated_metadata_endpoint = 8;
+	Renderer sentiment_bar = 9;
+
+	oneof super_title {
+		Renderer top_standalone_badge = 10;
+		FormattedString super_title_link = 12;
+	}
+
+	repeated BadgeSupportedRenderers badges = 11;
+	Icon super_title_icon = 13;
+	FormattedString date_text = 14;
+	FormattedString station_name = 15;
+	FormattedString rating = 16;
+	int64 start_time_utc_millis = 17;
+	int64 end_time_utc_millis = 18;
+	FormattedString up_next_program_text = 19;
+	FormattedString start_end_time_template = 20;
+	FormattedString relative_date_text = 21;
+	FormattedString sponsors_only_first_time_short_text = 22;
+	FormattedString sponsors_only_first_time_long_text = 23;
+}
+
+extend Renderer {
+	VideoPrimaryInfoRenderer video_primary_info_renderer = 100048340;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingDrawerEndpoint {
+	extend Command {
+		ShoppingDrawerEndpoint shopping_drawer_endpoint = 154446441;
+	}
+
+	enum ShoppingDrawerAction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OPEN_SHOPPING_DRAWER = 1;
+		OPEN_PLA_DRAWER = 2;
+		CLOSE_SHOPPING_DRAWER = 3;
+		CLOSE_PLA_DRAWER = 4;
+	}
+
+	ShoppingDrawerAction action = 1;
+	int32 open_card_index = 2;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicArtistDetailEntity {
+	extend EntityMutationPayload {
+		MusicArtistDetailEntity music_artist_detail = 21;
+	}
+
+	string id = 1;
+	string description = 2;
+	string parent_artist = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/comment_renderer.proto";
+import "youtube/api/innertube/comment_supported_continuations.proto";
+import "youtube/api/innertube/comment_moderation_panel_expander_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentModerationPanelRenderer {
+	repeated CommentSupportedRenderers contents = 1;
+	repeated CommentSupportedContinuations continuations = 2;
+	CommentModerationPanelExpanderSupportedRenderers expander = 3;
+	repeated CommentSupportedRenderers likely_spam_contents = 4;
+	FormattedString spam_header_text = 5;
+}

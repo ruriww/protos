@@ -1,0 +1,12 @@
+edition = "2023";
+
+package xeno.catalog;
+
+import "xeno/catalog/effect_entry_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message EffectCategoryProto {
+	string name = 1;
+	repeated EffectEntryProto entry = 2;
+}

@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_creation_segment_import_gallery_renderer.proto";
+import "youtube/api/innertube/shorts_creation_segment_import_album_selection_renderer.proto";
+import "youtube/api/innertube/section_list_renderer.proto";
+import "youtube/api/innertube/item_section_renderer.proto";
+import "youtube/api/innertube/horizontal_card_list_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_collaboration_section_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/transcript_renderer.proto";
+import "youtube/api/innertube/tabbed_engagement_panel_content_renderer.proto";
+import "youtube/api/innertube/flow_root_renderer.proto";
+import "youtube/api/innertube/shorts_creation_engagement_panel_content_renderer.proto";
+import "youtube/api/innertube/web_view_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelSectionListContentSupportedRenderers {
+	oneof renderer {
+		ShortsCreationSegmentImportGalleryRenderer shorts_creation_segment_import_gallery_renderer = 1123;
+		ShortsCreationSegmentImportAlbumSelectionRenderer shorts_creation_segment_import_album_selection_renderer = 1124;
+		SectionListRenderer section_list_renderer = 49399797;
+		ItemSectionRenderer item_section_renderer = 50195462;
+		HorizontalCardListRenderer horizontal_card_list_renderer = 88962895;
+		PlaylistSettingsEditorCollaborationSectionRenderer playlist_settings_editor_collaboration_section_renderer = 91613400;
+		ElementRenderer element_renderer = 153515154;
+		TranscriptRenderer transcript_renderer = 154115041;
+		TabbedEngagementPanelContentRenderer tabbed_engagement_panel_content_renderer = 290136234;
+		FlowRootRenderer flow_root_renderer = 371777145;
+		ShortsCreationEngagementPanelContentRenderer shorts_creation_engagement_panel_content_renderer = 440180983;
+		WebViewRenderer web_view_renderer = 449330433;
+	}
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "xeno/effect/effect_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message EffectPackageProto {
+	map<string, EffectProto> effects = 1;
+
+	extensions 1000 to max;
+}

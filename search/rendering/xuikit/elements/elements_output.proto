@@ -1,0 +1,27 @@
+edition = "2023";
+
+package search.rendering.xuikit.elements;
+
+import "proto2/bridge/message_set.proto";
+import "google/protobuf/any.proto";
+import "youtube/elements/templates/proto/eml_parcel.proto";
+import "search/rendering/xuikit/elements/data_store_batch_update.proto";
+import "search/rendering/xuikit/elements/js_module_set_update.proto";
+
+option objc_class_prefix = "XUI";
+
+message ElementsOutput {
+	extend proto2.bridge.MessageSet {
+		ElementsOutput message_set_extension = 472231960;
+	}
+
+	google.protobuf.Any element_tree = 2;
+	youtube.elements.templates.proto.EMLParcel template_parcel = 3;
+	DataStoreBatchUpdate data_store_batch_update = 4;
+	int32 ve_id = 6;
+	JsModuleSetUpdate js_module_set_update = 8;
+
+	extensions 5;
+	extensions 7;
+	extensions 9;
+}

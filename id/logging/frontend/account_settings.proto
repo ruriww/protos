@@ -1,0 +1,30 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "id/logging/frontend/navigate_event.proto";
+import "id/logging/frontend/view_event.proto";
+import "id/logging/frontend/account_settings_user_action_event.proto";
+import "id/logging/frontend/account_settings_ping.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message AccountSettings {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		WEB_MY_ACCOUNT = 1;
+		WEB_MY_GOOGLE = 2;
+		ANDROID_NATIVE_MY_GOOGLE = 3;
+		IOS_NATIVE_MY_GOOGLE = 4;
+		WEBVIEW_MY_ACCOUNT = 5;
+		WEBVIEW_MY_GOOGLE = 6;
+	}
+
+	Type type = 1;
+	NavigateEvent navigate_event = 2;
+	ViewEvent view_event = 3;
+	AccountSettingsUserActionEvent user_action_event = 4;
+	AccountSettingsPing ping = 5;
+}

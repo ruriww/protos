@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/integrator_server_callback_data.proto";
+import "moneta/orchestration2/ui/common/integrator_client_callback_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FinishAction {
+	enum ResultCode {
+		option features.enum_type = CLOSED;
+
+		RESULT_CODE_UNKNOWN = 0;
+		RESULT_CODE_SUCCESS = 1;
+		RESULT_CODE_CANCEL = 2;
+		RESULT_CODE_ERROR = 3;
+	}
+
+	ResultCode result_code = 1;
+	IntegratorServerCallbackData integrator_server_callback_data = 2;
+	IntegratorClientCallbackData integrator_client_callback_data = 3;
+}

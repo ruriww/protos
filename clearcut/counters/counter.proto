@@ -1,0 +1,17 @@
+edition = "2023";
+
+package clearcut.counters;
+
+import "clearcut/counters/bucket.proto";
+
+option objc_class_prefix = "CLCC";
+
+message Counter {
+	oneof counter_id {
+		fixed64 hashed_name = 1;
+		int64 ephemeral_hashed_name = 4;
+	}
+
+	string name = 2;
+	repeated Bucket bucket = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.htmldocument;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message HtmlDocumentNode {
+	extend node.Node {
+		HtmlDocumentNode html_document_node_extension = 346198508;
+	}
+
+	bool is_preview = 1;
+}

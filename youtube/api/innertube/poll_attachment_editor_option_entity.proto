@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollAttachmentEditorOptionEntity {
+	string key = 1;
+	string option_text = 2;
+	bool is_dismissed = 3;
+	bool is_focused = 4;
+	int32 index = 5;
+	string trimmed_option_text = 6;
+}

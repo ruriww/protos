@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/proto/contacts/common/entry_type.proto";
+import "logs/proto/contacts/common/operation_entry.proto";
+import "logs/proto/contacts/common/count_entry.proto";
+import "logs/proto/contacts/common/error_entry.proto";
+import "logs/proto/contacts/common/operation_start_entry.proto";
+import "logs/proto/contacts/common/contacts_metric_entry.proto";
+
+option objc_class_prefix = "CST";
+
+message ProfilePrimitivesMetricEntry {
+	common.EntryType entry_type = 1;
+	common.OperationEntry operation_entry = 2;
+	common.CountEntry count_entry = 3;
+	common.ErrorEntry error_entry = 4;
+	common.OperationStartEntry operation_start = 5;
+	common.ContactsMetricEntry common_entry = 6;
+}

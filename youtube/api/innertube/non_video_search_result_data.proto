@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NonVideoSearchResultData {
+	message BackToAppData {
+		int64 back_to_app_ms = 1;
+	}
+
+	repeated BackToAppData back_to_app_data = 1;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/account_option.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message AccountSelector {
+	FormHeader form_header = 1;
+	generic.ImageWithCaption icon = 2;
+	repeated AccountOption account_option = 3;
+	bool display_for_single_account = 4;
+	bool hide_when_collapsed = 5;
+	generic.ImageWithCaption brand_icon = 6;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/emoji_picker_category_supported_renderers.proto";
+import "youtube/api/innertube/emoji_picker_category_button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/emoji_picker_category_renderer.proto";
+import "youtube/api/innertube/emoji_picker_category_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmojiPickerRenderer {
+	string id = 1;
+	repeated EmojiPickerCategorySupportedRenderers categories = 2;
+	repeated EmojiPickerCategoryButtonSupportedRenderers category_buttons = 3;
+	FormattedString search_placeholder_text = 4;
+	FormattedString search_no_results_text = 5;
+	FormattedString pick_skin_tone_text = 6;
+	bytes tracking_params = 9;
+	string clear_search_label = 10;
+	string skin_tone_generic_label = 11;
+	string skin_tone_light_label = 12;
+	string skin_tone_medium_light_label = 13;
+	string skin_tone_medium_label = 14;
+	string skin_tone_medium_dark_label = 15;
+	string skin_tone_dark_label = 16;
+	bool hide_skin_tone_picker = 17;
+}
+
+extend Renderer {
+	EmojiPickerRenderer emoji_picker_renderer = 126326492;
+}
+
+extend Renderer {
+	EmojiPickerCategoryRenderer emoji_picker_category_renderer = 126326585;
+}
+
+extend Renderer {
+	EmojiPickerCategoryButtonRenderer emoji_picker_category_button_renderer = 126841683;
+}

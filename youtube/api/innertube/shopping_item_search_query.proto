@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/first_party_query_config.proto";
+import "youtube/api/innertube/third_party_query_config.proto";
+import "youtube/api/innertube/exclusive_offers_query_config.proto";
+import "youtube/api/innertube/shopping_item_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingItemSearchQuery {
+	string raw_query = 1;
+	FirstPartyQueryConfig first_party_query_config = 2;
+	ThirdPartyQueryConfig third_party_query_config = 3;
+	int32 max_results = 4;
+	ExclusiveOffersQueryConfig exclusive_offers_query_config = 5;
+	repeated ShoppingItemId suggested_item_ids = 7;
+}

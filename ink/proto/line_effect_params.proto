@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/tool_size.proto";
+
+option objc_class_prefix = "INKPB";
+
+message LineEffectParams {
+	string texture_uri = 1;
+	ToolSize winding_texture_period = 2;
+	float u_animation_duration_seconds = 3 [ default = 0e0 ];
+	float tiled_texture_scale = 4 [ default = 100 ];
+}

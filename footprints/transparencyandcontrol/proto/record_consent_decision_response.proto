@@ -1,0 +1,18 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_screen.proto";
+import "privacy/consent/consent_session_id.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+import "footprints/transparencyandcontrol/proto/consent_decision.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message RecordConsentDecisionResponse {
+	ConsentScreen next_screen = 1;
+	privacy.consent.ConsentSessionId session_id = 2;
+	ConsentScreen next_screen_legacy = 3;
+	privacy.consent.SharedConsentSessionId shared_session_id = 4;
+	repeated ConsentDecision committed_decisions = 5;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+option objc_class_prefix = "UVSLP";
+
+message UserEvent {
+	enum EventTrigger {
+		CLICK = 0;
+		KEYPRESS = 1;
+	}
+
+	EventTrigger event_trigger = 1;
+
+	enum EventType {
+		SURVEY_DISMISSED = 0;
+		SURVEY_INVITATION_DECLINED = 1;
+		PRIVACY_LINK_CLICKED = 2;
+		TERMS_LINK_CLICKED = 3;
+		ACCOUNT_AND_SYSTEM_INFO_LINK_CLICKED = 4;
+		NEXT_BUTTON_CLICKED = 5;
+		CLOSE_BUTTON_CLICKED = 6;
+	}
+
+	EventType event_type = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package com.google.video.youtube.editing.mobile;
+
+import "com/google/video/youtube/editing/mobile/translation.proto";
+import "com/google/video/youtube/editing/mobile/scale.proto";
+import "google/protobuf/duration.proto";
+import "com/google/video/youtube/editing/mobile/resolution.proto";
+import "com/google/video/youtube/editing/mobile/creation_feature_mixin.proto";
+import "com/google/video/youtube/editing/mobile/creation_effect.proto";
+
+option objc_class_prefix = "YTEM";
+
+message CreationGraphicalSegment {
+	int64 id = 1;
+	string label = 2;
+	int32 z_index = 3;
+	Translation translation = 6;
+	Scale scale = 7;
+	double rotation_degrees = 8;
+	.google.protobuf.Duration start_time = 9;
+	.google.protobuf.Duration duration = 10;
+	Resolution scale_basis = 13;
+	repeated CreationFeatureMixin mixins = 15;
+	repeated CreationEffect creation_effects = 16;
+}

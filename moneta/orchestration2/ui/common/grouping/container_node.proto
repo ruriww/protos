@@ -1,0 +1,31 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.grouping;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ContainerNode {
+	extend node.Node {
+		ContainerNode container_node_extension = 214299793;
+	}
+
+	repeated node.Node child = 1;
+
+	enum LayoutMode {
+		option features.enum_type = CLOSED;
+
+		LAYOUT_MODE_UNKNOWN = 0;
+		LAYOUT_MODE_RELATIVE = 1;
+		LAYOUT_MODE_FLEX = 2;
+		LAYOUT_MODE_FLEX_DEPRECATED = 5;
+		LAYOUT_MODE_GRID = 3;
+		LAYOUT_MODE_FLOAT = 4;
+		LAYOUT_MODE_GLIF_ICON_CONTAINER = 6;
+		LAYOUT_MODE_GLIF_HEADER_CONTAINER = 7;
+	}
+
+	LayoutMode layout_mode = 2;
+	node.Node label = 3;
+}

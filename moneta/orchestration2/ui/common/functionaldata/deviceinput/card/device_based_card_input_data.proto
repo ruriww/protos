@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.deviceinput.card;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/functionaldata/deviceinput/device_based_input_screen_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DeviceBasedCardInputData {
+	extend data.Data {
+		DeviceBasedCardInputData device_based_card_input_data_extension = 275110909;
+	}
+
+	repeated DeviceBasedInputScreenContent screen_content = 2;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/accounts_dialog_header_supported_renderers.proto";
+import "youtube/api/innertube/accounts_list_response_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/accounts_list_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/accounts_response_error_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/separator_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountsListResponse {
+	ResponseContext response_context = 1;
+	AccountsDialogHeaderSupportedRenderers dialog_header = 2;
+	repeated AccountsListResponseSupportedRenderers contents = 3;
+	FormattedString select_text = 4;
+	repeated AccountsListSupportedContinuations continuations = 7;
+	Command default_service_endpoint = 8;
+	ContinuationSupportedRenderers continuation_contents = 10;
+	Command home_navigation_endpoint = 11;
+	bytes tracking_params = 12;
+	AccountsResponseErrorSupportedRenderers account_error = 13;
+	repeated Command actions = 15;
+	Renderer required_sign_in_renderer = 16;
+	SeparatorDetails separator_details = 17;
+	Renderer whos_watching_page_renderer = 18;
+}

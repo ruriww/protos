@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/drm_license_info.proto";
+import "youtube/api/innertube/drm_error_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DrmLicenseEntity {
+	extend EntityMutationPayload {
+		DrmLicenseEntity drm_license = 146;
+	}
+
+	string key = 1;
+	repeated DrmLicenseInfo licenses = 2;
+	int64 playback_start_seconds = 3;
+	int64 license_expiry_seconds = 4;
+	string refresh = 5;
+	DrmErrorInfo error = 6;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+import "google/internal/onegoogle/asyncdata/v1/badge_info.proto";
+import "google/internal/onegoogle/asyncdata/v1/card_info.proto";
+
+option objc_class_prefix = "OGADS";
+
+message MobileDataResponse {
+	BadgeInfo badge_info = 1;
+	repeated CardInfo cards = 2;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/special_description.proto";
+import "google/type/color.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/styled_text_entry.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message CarouselItem {
+	Image image = 1;
+	string label = 2;
+	repeated string titles = 3;
+	repeated string descriptions = 4;
+	SpecialDescription special_description = 5;
+	type.Color description_color = 6;
+	bool elevate = 7;
+	ResourceKey target = 8;
+	repeated StyledTextEntry text_entries = 9;
+	Link link = 10;
+}

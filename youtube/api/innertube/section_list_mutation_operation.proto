@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/insert_item_section_content_operation.proto";
+import "youtube/api/innertube/remove_item_operation.proto";
+import "youtube/api/innertube/replace_section_operation.proto";
+import "youtube/api/innertube/remove_section_operation.proto";
+import "youtube/api/innertube/undo_operation.proto";
+import "youtube/api/innertube/insert_section_operation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListMutationOperation {
+	oneof operation {
+		InsertItemSectionContentOperation insert_item_section_content = 1;
+		RemoveItemOperation remove_item = 2;
+		ReplaceSectionOperation replace_section = 3;
+		RemoveSectionOperation remove_section = 4;
+		UndoOperation undo = 5;
+		InsertSectionOperation insert_section = 6;
+	}
+}

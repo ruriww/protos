@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+enum ImageAge {
+	option features.enum_type = CLOSED;
+
+	IMAGE_AGE_UNKNOWN = 0;
+	IMAGE_AGE_LAST_HOUR = 1;
+	IMAGE_AGE_LAST_DAY = 2;
+	IMAGE_AGE_LAST_WEEK = 3;
+	IMAGE_AGE_LAST_4_WEEKS = 4;
+}

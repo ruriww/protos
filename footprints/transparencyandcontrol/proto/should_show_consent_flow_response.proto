@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/should_show_result.proto";
+import "footprints/transparencyandcontrol/proto/should_show_flow_result.proto";
+import "privacy/consent/consent_session_id.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ShouldShowConsentFlowResponse {
+	repeated ShouldShowResult should_show_result = 1;
+	ShouldShowFlowResult should_show_flow_result = 2;
+	privacy.consent.ConsentSessionId session_id = 3;
+	privacy.consent.SharedConsentSessionId shared_session_id = 4;
+}

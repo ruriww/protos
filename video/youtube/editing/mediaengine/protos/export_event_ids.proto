@@ -1,0 +1,10 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message ExportEventIds {
+	int64 media_composition_id = 1;
+	int64 export_attempt_id = 2;
+}

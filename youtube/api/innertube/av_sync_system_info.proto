@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AVSyncSystemInfo {
+	uint32 camera_timebase_source = 1;
+	bool is_camera_timestamp_include_deep_sleep_time = 2;
+	uint64 deep_sleep_time_ms = 3;
+	uint64 audio_input_latency_ms = 4;
+	uint64 audio_output_latency_ms = 5;
+}

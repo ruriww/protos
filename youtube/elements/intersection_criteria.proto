@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/utils/visibility/visibility_conditions.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message IntersectionCriteria {
+	extend utils.visibility.VisibilityConditions {
+		IntersectionCriteria intersection_criteria = 3;
+	}
+
+	float ratio = 1;
+
+	enum IntersectionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		INCREASE = 1;
+		DECREASE = 2;
+	}
+
+	IntersectionType intersection_type = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package identity_consent;
+
+import "privacy/consent/product_surface.proto";
+
+option objc_class_prefix = "IDC";
+
+message ProductEntryPoint {
+	int32 product_id = 1;
+	privacy.consent.ProductSurface product_surface = 2;
+	string entrypoint_opaque_id = 3;
+}

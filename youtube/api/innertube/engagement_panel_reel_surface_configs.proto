@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelReelSurfaceConfigs {
+	bool should_shrink_player_with_panel_open = 1 [ default = true ];
+	bool enable_swipe_navigation_with_panel_open = 2;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message CalendarBusy {
+	string event_summary = 1;
+	protobuf.Timestamp occupied_until = 2;
+	protobuf.Timestamp next_available = 3;
+	protobuf.Timestamp committed_until = 4;
+}

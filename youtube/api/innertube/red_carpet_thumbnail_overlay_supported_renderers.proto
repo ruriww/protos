@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/menu_renderer.proto";
+import "youtube/api/innertube/standalone_red_badge_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_resume_playback_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_bottom_gradient_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_time_status_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_center_badge_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_scrim_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCarpetThumbnailOverlaySupportedRenderers {
+	oneof renderer {
+		MenuRenderer menu_renderer = 66439850;
+		StandaloneRedBadgeRenderer standalone_red_badge_renderer = 104364901;
+		ThumbnailOverlayResumePlaybackRenderer thumbnail_overlay_resume_playback_renderer = 110282477;
+		ThumbnailOverlayBottomGradientRenderer thumbnail_overlay_bottom_gradient_renderer = 115279480;
+		ThumbnailOverlayTimeStatusRenderer thumbnail_overlay_time_status_renderer = 121720768;
+		ThumbnailOverlayCenterBadgeRenderer thumbnail_overlay_center_badge_renderer = 175067354;
+		ThumbnailOverlayScrimRenderer thumbnail_overlay_scrim_renderer = 175465188;
+	}
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/replace_live_chat_renderer_action.proto";
+import "youtube/api/innertube/show_live_chat_survey_command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Command {
+	ReplaceLiveChatRendererAction replace_live_chat_renderer_action = 167912809;
+}
+
+extend Command {
+	ShowLiveChatSurveyCommand show_live_chat_survey_command = 181233165;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingNodeTrigger {
+	extend eventrules.trigger.Trigger {
+		ScrollingNodeTrigger scrolling_node_trigger_extension = 357806499;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_CONTENT_OFFSET_CHANGED = 1;
+		TRIGGER_TYPE_CONTENT_SIZE_CHANGED = 2;
+		TRIGGER_TYPE_SCROLLING_DIRECTION_CHANGED = 3;
+	}
+
+	TriggerType trigger_type = 1;
+}

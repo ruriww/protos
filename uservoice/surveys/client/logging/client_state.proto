@@ -1,0 +1,12 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/survey_positioning.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message ClientState {
+	string library_instance_id = 1;
+	SurveyPositioning survey_positioning = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InterstitialPlaybackPlacement {
+	option features.enum_type = CLOSED;
+
+	INTERSTITIAL_PLAYBACK_PLACEMENT_UNKNOWN = 0;
+	INTERSTITIAL_PLAYBACK_PLACEMENT_PRE = 1;
+	INTERSTITIAL_PLAYBACK_PLACEMENT_POST = 2;
+	INTERSTITIAL_PLAYBACK_PLACEMENT_INSERT_AT_VIDEO_TIME = 3;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+import "google/internal/identity/securitydomain/v1/security_domain_view.proto";
+
+option objc_class_prefix = "SDS";
+
+message GetSecurityDomainRequest {
+	string name = 1;
+	SecurityDomainView view = 2;
+	string client_session_id = 3;
+}

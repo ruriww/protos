@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.integrator.api.tapandpay;
+
+import "moneta/integrator/common/api_error.proto";
+import "moneta/integrator/api/tapandpay/card.proto";
+
+option objc_class_prefix = "ITapAndPay";
+
+message GetCardResponse {
+	common.ApiError error = 1;
+	bytes add_card_token = 2;
+	repeated Card card = 3;
+	int64 customer_id = 5;
+}

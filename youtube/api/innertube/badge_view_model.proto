@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/badge_style.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/renderer_context.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BadgeViewModel {
+	extend Renderer {
+		BadgeViewModel badge_view_model = 1147;
+	}
+
+	string badge_text = 1;
+	string label_text = 2;
+	BadgeStyle badge_style = 3;
+	bytes tracking_params = 4;
+	int32 ui_type = 5;
+
+	oneof icon {
+		string icon_name = 7;
+		string icon_source_url = 13;
+	}
+
+	bool shrink_label_not_badge = 9;
+	bool min_badge_height = 10;
+	bool margin_to_spec = 11;
+	string accessibility_label = 12;
+	elements.Command on_tap_command = 14;
+	bool disable_end_margin = 15;
+	bool center_aligned = 16;
+	bool modernize_metadata_badge = 17;
+	RendererContext renderer_context = 997;
+	LoggingDirectives logging_directives = 999;
+}

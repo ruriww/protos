@@ -1,0 +1,15 @@
+edition = "2023";
+
+package slo;
+
+option objc_class_prefix = "SLO";
+
+message LifecycleStage {
+	enum LifecycleStageEnum {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CURRENT = 1;
+		LEGACY = 2;
+	}
+}

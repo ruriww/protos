@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsPerEcosystemZoneColorPaletteData {
+	uint32 background_color = 1;
+	uint32 secondary_background_color = 2;
+	uint32 tertiary_background_color = 3;
+	uint32 primary_text_color = 4;
+	uint32 secondary_text_color = 5;
+	uint32 disabled_text_color = 6;
+	uint32 illustration_color = 7;
+	uint32 quaternary_background_color = 8;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/pusher_position_update.proto";
+import "ink/proto/element_query_data.proto";
+import "ink/proto/selection_state.proto";
+import "ink/proto/start_editing_text.proto";
+import "ink/proto/update_edited_text.proto";
+import "ink/proto/stop_editing_text.proto";
+import "ink/proto/text_search_result.proto";
+import "ink/proto/cancel_editing_text.proto";
+import "ink/proto/text_selection_state.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ToolEvent {
+	PusherPositionUpdate pusher_position_update = 1;
+	ElementQueryData element_query_data = 2;
+	SelectionState selection_state = 3;
+	StartEditingText start_editing_text = 4;
+	UpdateEditedText update_edited_text = 5;
+	StopEditingText stop_editing_text = 6;
+	bool pen_detected = 7;
+	TextSearchResult text_search_result = 8;
+	CancelEditingText cancel_editing_text = 9;
+	TextSelectionState text_selection_state = 10;
+}

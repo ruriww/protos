@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/shopping_companion_product_info.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/companion_completion_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingCompanionAdRenderer {
+	FormattedString title = 1;
+	FormattedString action_text = 2;
+	MenuSupportedRenderers menu = 5;
+	repeated ShoppingCompanionProductInfo products = 7;
+	bytes tracking_params = 10;
+	Command click_endpoint = 11;
+	int32 ui_type_flag = 12;
+	FormattedString sponsored_text = 13;
+	Command ad_choices_dialog_endpoint = 14;
+	bool hide_companion_on_video_completion = 15;
+	bool is_sponsored = 16;
+	repeated Command impression_commands = 17;
+	Renderer companion_extension = 18;
+	CompanionCompletionAction completion_action = 19;
+	Renderer secondary_button = 21;
+	Command ad_complete_command = 22;
+}
+
+extend Renderer {
+	ShoppingCompanionAdRenderer shopping_companion_ad_renderer = 114449537;
+}

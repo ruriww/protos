@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_service_type.proto";
+import "youtube/api/innertube/sfv_effect_client.proto";
+import "youtube/api/innertube/sfv_effect_surface.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvEffectPipelineStartedEvent {
+	message ProcessingPipelineConfig {
+	}
+
+	message MdeServiceConfig {
+		MediaEngineServiceType service_type = 1;
+	}
+
+	string gl_version = 1;
+	string gl_renderer = 2;
+	SfvEffectClient client = 3;
+	SfvEffectSurface surface = 4;
+	int64 monotonic_time_ms = 5;
+	SfvEffectPipelineData pipeline_data = 6;
+
+	message PipelineTypeConfig {
+		oneof config {
+			ProcessingPipelineConfig processing_pipeline = 1;
+			MdeServiceConfig media_engine_service = 2;
+		}
+	}
+
+	PipelineTypeConfig pipeline_type_config = 7;
+}

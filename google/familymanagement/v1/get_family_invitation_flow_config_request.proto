@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/family_role.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyInvitationFlowConfigRequest {
+	ApiRequestHeader api_header = 1;
+	FamilyRole invitee_role = 2;
+	bool is_direct_add = 3;
+}

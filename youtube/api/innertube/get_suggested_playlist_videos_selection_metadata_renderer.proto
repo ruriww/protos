@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetSuggestedPlaylistVideosSelectionMetadataRenderer {
+	FormattedString suggested_videos_source_title = 1;
+	string suggested_videos_selection_session_entity_key = 2;
+}
+
+extend Renderer {
+	GetSuggestedPlaylistVideosSelectionMetadataRenderer get_suggested_playlist_videos_selection_metadata_renderer = 225613316;
+}

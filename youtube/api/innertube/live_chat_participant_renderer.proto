@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/live_chat_author_badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatParticipantRenderer {
+	FormattedString author_name = 1;
+	ThumbnailDetails author_photo = 2;
+	repeated LiveChatAuthorBadgeSupportedRenderers author_badges = 3;
+}

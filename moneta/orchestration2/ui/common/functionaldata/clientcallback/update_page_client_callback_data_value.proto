@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.clientcallback;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/clientcallback/cart_item.proto";
+import "moneta/orchestration2/ui/common/integrator_client_callback_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UpdatePageClientCallbackDataValue {
+	extend data.DataValue {
+		UpdatePageClientCallbackDataValue update_page_client_callback_data_value_extension = 525000001;
+	}
+
+	string default_selected_shipping_option_name = 5;
+	repeated CartItem updated_cart_items = 6;
+	string cart_total_price = 7;
+	IntegratorClientCallbackData payment_data = 9;
+	string cart_total_price_label = 11;
+}

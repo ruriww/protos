@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StickerPageRenderer {
+	extend ContinuationSupportedRenderers {
+		StickerPageRenderer sticker_page_continuation = 163938212;
+	}
+
+	repeated Renderer stickers = 1;
+	int32 num_columns = 3;
+}
+
+extend Renderer {
+	StickerPageRenderer sticker_page_renderer = 163938212;
+}

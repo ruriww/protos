@@ -1,0 +1,175 @@
+syntax = "proto2";
+
+package video.storage;
+
+option objc_class_prefix = "VSTRG";
+
+message FormatDescription {
+	message Audio {
+		enum Codec {
+			UNKNOWN_CODEC = 0;
+			AAC = 1;
+			VORBIS = 2;
+			OPUS = 3;
+			DTSHD = 4;
+			EAC3 = 5;
+			PCM = 6;
+			AC3 = 7;
+			SPEEX = 8;
+			MP3 = 9;
+			MP2 = 10;
+			AMR = 11;
+			IAMF = 13;
+			XHEAAC = 14;
+		}
+
+		optional Codec codec = 1;
+
+		enum Quality {
+			UNKNOWN_QUALITY = 0;
+			ULTRALOW = 5;
+			LOW = 10;
+			MED = 20;
+			HIGH = 30;
+		}
+
+		optional Quality quality = 2;
+
+		enum Channels {
+			UNKNOWN_CHANNELS = 0;
+			STEREO = 2;
+			FIVE_ONE = 20;
+			SEVEN_ONE = 40;
+			AMBISONICS = 100;
+		}
+
+		optional Channels channels = 3;
+	}
+
+	optional Audio audio = 2;
+
+	message Video {
+		enum Codec {
+			UNKNOWN_CODEC = 0;
+			H263 = 1;
+			H264 = 2;
+			VP8 = 3;
+			VP9 = 4;
+			H262 = 5;
+			VP6 = 6;
+			MPEG4 = 7;
+			AV1 = 8;
+			H265 = 9;
+			FLV1 = 10;
+		}
+
+		optional Codec codec = 1;
+
+		enum Resolution {
+			UNKNOWN_RESOLUTION = 0;
+			R72P = 72;
+			R144P = 144;
+			R240P = 240;
+			R360P = 360;
+			R384P = 384;
+			R480P = 480;
+			R512P = 512;
+			R540P = 540;
+			R576P = 576;
+			R608P = 608;
+			R720P = 720;
+			R896P = 896;
+			R1024P = 1024;
+			R1080P = 1080;
+			R2K = 1440;
+			R1536P = 1536;
+			R2048P = 2048;
+			R4K = 2160;
+			R8K = 4320;
+			HIGHRES = 999999;
+		}
+
+		optional Resolution resolution = 2;
+
+		enum Quality {
+			UNKNOWN_QUALITY = 0;
+			LOWEST = 1;
+			ULTRALOW = 2;
+			LOW = 3;
+			MED = 4;
+			HIGH = 5;
+			HIGHER = 6;
+			ULTRA_HIGH = 7;
+			MULTI = 8;
+			ULTRALOW_LQ = 9;
+		}
+
+		optional Quality quality = 3;
+
+		enum FrameRate {
+			UNKNOWN_FRAME_RATE = 0;
+			SFR = 1;
+			HFR = 2;
+			UHFR = 3;
+		}
+
+		optional FrameRate framerate = 4;
+
+		enum LuminanceRange {
+			option allow_alias = true;
+
+			UNKNOWN_LUMINANCE_RANGE = 0;
+			STANDARD_LUMINANCE_RANGE = 0;
+			HDR = 1;
+			HDR_DOLBY_VISION = 2;
+		}
+
+		optional LuminanceRange luminance = 5;
+	}
+
+	optional Video video = 3;
+
+	enum Encryption {
+		option allow_alias = true;
+
+		UNKNOWN_ENCRYPTION = 0;
+		CLEAR = 0;
+		CENC = 1;
+		FAIRPLAY = 2;
+		FLASHACCESS = 3;
+		WIDEVINE = 4;
+	}
+
+	optional Encryption encryption = 4;
+
+	enum StreamingProtocol {
+		UNKNOWN_STREAMING_PROTOCOL = 0;
+		DASH = 1;
+		HLS = 2;
+	}
+
+	repeated StreamingProtocol protocols = 5;
+
+	message Captions {
+		enum Codec {
+			UNKNOWN_CODEC = 0;
+			SRV3 = 1;
+			WEBVTT = 2;
+			CEA_608 = 3;
+		}
+
+		optional Codec codec = 1;
+	}
+
+	optional Captions captions = 6;
+
+	enum Scheme {
+		SCHEME_UNKNOWN = 0;
+		SCHEME_CENC = 1;
+		SCHEME_CBC1 = 2;
+		SCHEME_CENS = 3;
+		SCHEME_CBCS = 4;
+	}
+
+	optional Scheme scheme = 7;
+}

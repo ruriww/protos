@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/editing.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadImageStickerRenderer {
+	extend Renderer {
+		UploadImageStickerRenderer upload_image_sticker_renderer = 1980;
+	}
+
+	message StickerDisplayData {
+		int32 border_width = 1;
+		map<int32, Editing.StateEvent.PositionableLayerEvent.Rectangle> sticker_sizes = 2;
+	}
+
+	StickerDisplayData sticker_display_data = 1;
+}

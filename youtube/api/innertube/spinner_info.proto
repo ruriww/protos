@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/latency_spinner_design.proto";
+import "youtube/api/innertube/latency_spinner_trigger.proto";
+import "youtube/api/innertube/latency_spinner_exit_condition.proto";
+import "youtube/api/innertube/latency_spinner_tag.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SpinnerInfo {
+	LatencySpinnerDesign design = 1;
+	LatencySpinnerTrigger trigger = 2;
+	LatencySpinnerExitCondition exit_condition = 3;
+	int32 tag = 4;
+	LatencySpinnerTag unused_spinner_tag = 5;
+}

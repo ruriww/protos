@@ -1,0 +1,32 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/contact_form_element.proto";
+import "customer_support/help/mobile/proto/contact_flow_type.proto";
+import "customer_support/help/mobile/proto/c2c_configuration.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ContactForm {
+	string id = 1;
+	repeated string email_addresses = 2;
+	repeated ContactFormElement fields = 3;
+	string subject_line_field_id = 4;
+	string body_text_field_id = 5;
+	string confirmation_message = 6 [ default = "lang.form_submitted" ];
+	string submit_button_text = 9 [ default = "cf.submit" ];
+	string title = 10;
+	string intro = 11;
+	string validation_info = 12;
+	bool return_case_id = 13 [ default = true ];
+	bool is_searchable = 14 [ default = false ];
+	bool has_multiple_pages = 15;
+	repeated string language = 16;
+	int32 total_pages = 17;
+	ContactFlowType connector_type = 18;
+	repeated string supported_language_override = 20;
+	repeated string prevalidation_error = 21;
+	C2CConfiguration c2c_configuration = 22;
+	string internal_description = 100;
+}

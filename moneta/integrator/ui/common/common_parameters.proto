@@ -1,0 +1,52 @@
+edition = "2023";
+
+package moneta.integrator.ui.common;
+
+import "moneta/integrator/common/customer_context.proto";
+import "moneta/integrator/common/product_context.proto";
+import "moneta/integrator/common/rollup_context.proto";
+import "moneta/integrator/common/user_context.proto";
+import "moneta/integrator/common/tracking_parameters.proto";
+import "moneta/integrator/common/navigation/integrator_place_enums.proto";
+
+option objc_class_prefix = "Orch";
+
+message CommonParameters {
+	oneof context {
+		integrator.common.CustomerContext customer_context = 1;
+		integrator.common.ProductContext product_context = 3;
+		integrator.common.RollupContext rollup_context = 18;
+	}
+
+	int32 billable_service = 4;
+	int64 broker_id = 5;
+	repeated int64 integrator_experiment_ids = 6;
+	integrator.common.UserContext user_context = 7;
+	int64 created_time_millis = 8;
+	bool encrypt_integrator_callback_data = 9;
+	bytes product_payment_risk_data = 10;
+	bytes internal_tracking_token = 11;
+	integrator.common.TrackingParameters tracking_parameters = 12;
+
+	enum IntegratorCallbackDataServerSerialization {
+		option features.enum_type = CLOSED;
+
+		INTEGRATOR_CALLBACK_DATA_SERVER_SERIALIZATION_SERIALIZED_ENCTYPED = 1;
+		INTEGRATOR_CALLBACK_DATA_SERVER_SERIALIZATION_SERIALIZED = 2;
+	}
+
+	IntegratorCallbackDataServerSerialization integrator_calback_data_server_serialization = 13;
+
+	enum IntegratorCallbackDataClientSerialization {
+		option features.enum_type = CLOSED;
+
+		INTEGRATOR_CALLBACK_DATA_CLIENT_SERIALIZATION_SERIALIZED = 1;
+		INTEGRATOR_CALLBACK_DATA_CLIENT_SERIALIZATION_JSPB = 2;
+	}
+
+	IntegratorCallbackDataClientSerialization integrator_calback_data_client_serialization = 14;
+	repeated integrator.common.navigation.IntegratorPlaceEnums.IntegratorPlaceName supported_integrator_places = 15;
+	repeated int64 precalculated_test_codes = 17;
+
+	extensions 10000 to max;
+}

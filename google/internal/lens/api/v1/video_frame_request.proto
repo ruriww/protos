@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "LFE";
+
+message VideoFrameRequest {
+	bytes image_bytes = 1;
+	protobuf.Timestamp timestamp = 2;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/metadata_editor_snapshot.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsHandleSaveDraftMDECommand {
+	extend Command {
+		ShortsHandleSaveDraftMDECommand shorts_handle_save_draft_mde_command = 448353930;
+	}
+
+	MetadataEditorSnapshot mde_snapshot = 1;
+}

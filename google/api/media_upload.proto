@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+message MediaUpload {
+	bool enabled = 3;
+	string upload_service = 4;
+	string dropzone = 5;
+	repeated string mime_types = 6;
+	int64 max_size = 7;
+	bool start_notification = 8;
+	bool progress_notification = 9;
+	bool complete_notification = 10;
+	bool support_resumable = 11;
+	bool set_session_crd = 12;
+}

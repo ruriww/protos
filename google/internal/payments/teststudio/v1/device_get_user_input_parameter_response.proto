@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.payments.teststudio.v1;
+
+option objc_class_prefix = "PTS";
+
+message DeviceGetUserInputParameterResponse {
+	bytes serialized_get_user_input_parameter_response = 1;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playback_context_type.proto";
+import "youtube/api/innertube/captions_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContextualPlaybackConfig {
+	PlaybackContextType context_type = 1;
+	bool audio_muted = 2;
+	bool backgroundable = 3;
+	CaptionsSupportedRenderers captions = 4;
+	bool should_heartbeat = 5;
+	bool should_fetch_player_response = 6;
+	bool playable_in_pip = 7;
+}

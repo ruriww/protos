@@ -1,0 +1,13 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/family_role.proto";
+
+option objc_class_prefix = "FAM";
+
+message BasicFormerFamilyMember {
+	int64 gaia_id = 1;
+	int64 leave_time_millis = 2;
+	FamilyRole former_role = 3;
+}

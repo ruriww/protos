@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/user_location.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message WorkingElsewhereContext {
+	UserLocation location = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_pass_badge_info_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPassBadgeRenderer {
+	bool purchased = 1;
+	string tooltip = 2;
+	MusicPassBadgeInfoSupportedRenderers info_renderer = 3;
+	FormattedString label = 4;
+	bytes tracking_params = 6;
+	Command endpoint = 7;
+	Command tutorial_endpoint = 8;
+}

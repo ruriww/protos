@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstagePollContentChoice {
+	string text = 1;
+	float progress_bar_width_if_selected = 2;
+	float progress_bar_width_not_selected = 3;
+	string vote_percentage_if_selected = 4;
+	string vote_percentage_if_not_selected = 5;
+	int32 poll_option_id = 6;
+	string accessibility_label_if_selected = 7;
+	string accessibility_label_if_not_selected = 8;
+	string accessibility_label_if_unvoted = 9;
+	bytes selected_poll_state = 10;
+	string select_comment_action = 11;
+	string deselect_comment_action = 12;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/latency_reel_transition_type.proto";
+import "youtube/api/innertube/latency_reel_prefetch_type.proto";
+import "youtube/api/innertube/latency_reel_prebuffer_type.proto";
+import "youtube/api/innertube/reel_video_type.proto";
+import "youtube/api/innertube/reel_watch_input_type.proto";
+import "youtube/api/innertube/reel_watch_endpoint_source.proto";
+import "youtube/api/innertube/reel_to_reel_baseline.proto";
+import "youtube/api/innertube/reel_watch_experience_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelInfo {
+	LatencyReelTransitionType transition_type = 1;
+	LatencyReelPrefetchType prefetch_type = 2;
+	LatencyReelPrebufferType prebuffer_type = 3;
+	ReelVideoType video_type = 4;
+	ReelWatchInputType input_type = 5;
+	ReelWatchEndpointSource watch_endpoint_source = 6;
+	bool resume_to_shorts_eligible = 7;
+	ReelToReelBaseline reel_to_reel_baseline = 8;
+	bool start_to_shorts_eligible = 9;
+	bool shorts_first_snoozed = 10;
+	bool in_reel_pip_state = 11 [ default = false ];
+	ReelWatchExperienceType experience_type = 12;
+}

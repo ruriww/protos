@@ -1,0 +1,23 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "util/status_proto.proto";
+import "notifications/frontend/data/target.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsMultiLoginUpdateResponse {
+	message RegistrationResult {
+		util.StatusProto status = 1;
+		Target target = 2;
+		string obfuscated_gaia_id = 4;
+		string obfuscated_actual_user_gaia_id = 5;
+		string user_registration_id = 6;
+		bool is_stored = 7 [ default = true ];
+	}
+
+	repeated RegistrationResult registration_results = 1;
+	string internal_target_id = 2;
+	int64 timestamp_usec = 7;
+}

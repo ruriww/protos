@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScheduleMetadataMask {
+	bool set_scheduled_start_time_sec = 1;
+	bool set_scheduled_end_time_sec = 2;
+	bool set_scheduled_start_time_delta_sec = 3;
+	bool set_scheduled_duration_sec = 4;
+}

@@ -1,0 +1,21 @@
+syntax = "proto2";
+
+package video_streaming;
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message LiveMetadata {
+	optional string broadcast_id = 1;
+	optional int64 head_seq_num = 3;
+	optional int64 head_time_msec = 4;
+	optional int64 wall_time_msec = 5;
+	optional string video_id = 6;
+	optional bool post_live_dvr = 8;
+	optional int64 min_seekable_time_ticks = 12;
+	optional int32 min_seekable_timescale = 13;
+	optional int64 max_seekable_time_ticks = 14;
+	optional int32 max_seekable_timescale = 15;
+}

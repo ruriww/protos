@@ -1,0 +1,12 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message Rectangle {
+	float left = 1;
+	float top = 2;
+	float width = 3;
+	float height = 4;
+}

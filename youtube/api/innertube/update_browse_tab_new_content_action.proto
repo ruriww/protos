@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/tab_renderer_presentation_style.proto";
+import "youtube/api/innertube/pivot_bar_item_presentation_style.proto";
+import "youtube/api/innertube/update_browse_tab_new_content_hint_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateBrowseTabNewContentAction {
+	extend Command {
+		UpdateBrowseTabNewContentAction update_browse_tab_new_content_action = 102200546;
+	}
+
+	string tab_identifier = 1;
+	TabRendererPresentationStyle presentation_style = 2;
+	PivotBarItemPresentationStyle pivot_style = 3;
+	int64 unseen_item_count = 4;
+	int32 delivery_timestamp_sec = 5;
+	UpdateBrowseTabNewContentHintSupportedRenderers hint = 6;
+	bool refresh_tab = 7 [ default = true ];
+	bool allow_update_when_notifications_disabled = 8;
+}

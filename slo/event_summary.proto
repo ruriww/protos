@@ -1,0 +1,51 @@
+edition = "2023";
+
+package slo;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "unknown/youtube/gerr_code10785.proto";
+import "slo/event.proto";
+
+option objc_class_prefix = "SLO";
+
+message EventSummary {
+	string id = 1;
+	Event.Producer producer = 2;
+	Event.Task task = 3;
+
+	message Results {
+		message TimeRange {
+			google.protobuf.Timestamp start = 1;
+			google.protobuf.Duration duration = 2;
+		}
+
+		TimeRange time = 1;
+		int64 results = 2;
+
+		message CodeSet {
+			repeated unknown.youtube.GERRCode10785.GERRCode code = 1 [ features.repeated_field_encoding = EXPANDED ];
+		}
+
+		CodeSet code = 3;
+
+		message NumericRange {
+			double lower = 1;
+			double upper = 2;
+		}
+
+		NumericRange latency = 4;
+		NumericRange quality = 5;
+		NumericRange age = 6;
+		Event.Result.Status status = 7;
+	}
+
+	Results results = 4;
+
+	message Significance {
+		double total_score = 1;
+		double total_weight = 2;
+	}
+
+	Significance significance = 5;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+option objc_class_prefix = "NFD";
+
+message NotificationsCountThreadsResponse {
+	int64 count = 1;
+	int64 latest_version = 2;
+}

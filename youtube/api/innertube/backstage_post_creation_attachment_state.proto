@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/backstage_post_creation_image_state.proto";
+import "youtube/api/innertube/backstage_post_creation_poll_state.proto";
+import "youtube/api/innertube/backstage_post_creation_video_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackstagePostCreationAttachmentState {
+	BackstagePostCreationImageState image_state = 1;
+	BackstagePostCreationPollState poll_state = 2;
+	BackstagePostCreationVideoState video_state = 3;
+}

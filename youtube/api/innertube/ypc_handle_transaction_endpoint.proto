@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/transaction_product_data.proto";
+import "youtube/api/innertube/command_life_cycle_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCHandleTransactionEndpoint {
+	extend Command {
+		YPCHandleTransactionEndpoint ypc_handle_transaction_endpoint = 165047913;
+	}
+
+	string transaction_params = 1;
+	string client_location_context = 2;
+	bytes serialized_transaction_flow_logging_params = 3;
+	TransactionProductData transaction_product_data = 5;
+	repeated string entity_keys = 6;
+	bool skip_loading_spinner = 7;
+	CommandLifeCycleConfig command_life_cycle_config = 8;
+}

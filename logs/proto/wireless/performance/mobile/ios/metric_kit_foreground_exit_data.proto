@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitForegroundExitData {
+	int64 cumulative_normal_app_exit_count = 1;
+	int64 cumulative_abnormal_exit_count = 2;
+	int64 cumulative_app_watchdog_exit_count = 3;
+	int64 cumulative_memory_resource_limit_exit_count = 4;
+	int64 cumulative_bad_access_exit_count = 5;
+	int64 cumulative_illegal_instruction_exit_count = 6;
+}

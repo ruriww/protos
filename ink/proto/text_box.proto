@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/rect.proto";
+import "ink/proto/text/text.proto";
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message TextBox {
+	Rect deprecated_bounds = 1 [ deprecated = true ];
+	string uri = 2;
+	text.Text text = 3;
+	Transform object_to_group = 4;
+}

@@ -1,0 +1,52 @@
+edition = "2023";
+
+package Acl;
+
+import "proto2/bridge/message_set.proto";
+import "Acl/entry.proto";
+import "Acl/invite.proto";
+import "Acl/acl_scopes.proto";
+import "Acl/scope_info.proto";
+import "Acl/policy_data.proto";
+import "Acl/keystore_wrapped_key.proto";
+
+option objc_class_prefix = "ACL";
+
+message Proto {
+	extend proto2.bridge.MessageSet {
+		Proto message_set_extension = 10837399;
+	}
+
+	repeated Entry Entries = 2;
+	repeated Invite Invites = 3;
+	bool WritersCanEditAcl = 4;
+	bool NoAnonymousAccess = 5;
+	bool ReadersCanEditAcl = 6;
+	repeated uint64 RevokedKeyValues = 7 [ features.repeated_field_encoding = EXPANDED ];
+
+	message PersistentAccessSet {
+		uint64 KeyValue = 9;
+
+		message GaiaId {
+			uint64 id = 11;
+		}
+
+		repeated GaiaId gaia_id = 10 [ features.message_encoding = DELIMITED ];
+	}
+
+	repeated PersistentAccessSet persistent_access_set = 8 [ features.message_encoding = DELIMITED ];
+
+	message AcceptedEmailInvite {
+		uint64 GaiaId = 13;
+		string Email = 14;
+	}
+
+	repeated AcceptedEmailInvite accepted_email_invite = 12 [ features.message_encoding = DELIMITED ];
+	AclScopes RequiredScopes = 15;
+	bytes OBSOLETE_16 = 16;
+	repeated ScopeInfo ScopeInfo = 17;
+	PolicyData PolicyData = 18;
+	bytes zookie = 19;
+	repeated KeystoreWrappedKey TicketedWrappedKey = 20;
+	repeated KeystoreWrappedKey ZanzibarWrappedKey = 22;
+}

@@ -1,0 +1,82 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/section_list_renderer.proto";
+import "youtube/api/innertube/minimal_video_metadata_renderer.proto";
+import "youtube/api/innertube/watch_next_tabbed_results_renderer.proto";
+import "youtube/api/innertube/playlist_panel_renderer.proto";
+import "youtube/api/innertube/autoplay_renderer.proto";
+import "youtube/api/innertube/lock_screen_renderer.proto";
+import "youtube/api/innertube/watch_next_end_screen_renderer.proto";
+import "youtube/api/innertube/horizontal_list_renderer.proto";
+import "youtube/api/innertube/conversation_bar_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SingleColumnWatchNextResultsRenderer {
+	message SingleColumnWatchNextResultsSupportedRenderers {
+		oneof renderer {
+			SectionListRenderer results = 49399797;
+			MinimalVideoMetadataRenderer minimal_video_metadata_renderer = 69950105;
+			WatchNextTabbedResultsRenderer watch_next_tabbed_results_renderer = 91700600;
+		}
+	}
+
+	SingleColumnWatchNextResultsSupportedRenderers results = 1;
+
+	message SingleColumnWatchNextPlaylistSupportedRenderers {
+		oneof renderer {
+			PlaylistPanelRenderer playlist = 50631000;
+		}
+	}
+
+	SingleColumnWatchNextPlaylistSupportedRenderers playlist = 2;
+
+	message SingleColumnWatchNextAutoplaySupportedRenderers {
+		oneof renderer {
+			AutoplayRenderer autoplay = 46659098;
+		}
+	}
+
+	SingleColumnWatchNextAutoplaySupportedRenderers autoplay = 3;
+
+	message SingleColumnWatchNextLockScreenSupportedRenderers {
+		oneof renderer {
+			LockScreenRenderer lock_screen = 61479009;
+		}
+	}
+
+	SingleColumnWatchNextLockScreenSupportedRenderers lock_screen = 4;
+
+	message SingleColumnWatchNextPostTipScreenSupportedRenderers {
+	}
+
+	SingleColumnWatchNextPostTipScreenSupportedRenderers post_tip_screen = 5;
+	ConversationBarSupportedRenderers conversation_bar = 6;
+
+	message SingleColumnWatchNextEndScreenSupportedRenderers {
+		oneof renderer {
+			WatchNextEndScreenRenderer end_screen = 57158578;
+		}
+	}
+
+	SingleColumnWatchNextEndScreenSupportedRenderers end_screen = 7;
+
+	message SingleColumnWatchNextPivotSupportedRenderers {
+		oneof renderer {
+			SectionListRenderer section_list_renderer = 49399797;
+			HorizontalListRenderer horizontal_list_renderer = 92565330;
+		}
+	}
+
+	SingleColumnWatchNextPivotSupportedRenderers pivot = 8;
+
+	message SingleColumnWatchNextAutomixPlaylistPanelSupportedRenderers {
+	}
+
+	SingleColumnWatchNextAutomixPlaylistPanelSupportedRenderers automix = 9;
+}

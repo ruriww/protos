@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/link.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ConsentFooter {
+	message LinksFooter {
+		repeated Link links = 1;
+	}
+
+	oneof variant {
+		LinksFooter links = 1;
+	}
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/horizontal_card_list_nav_indicator_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalCardListNavIndicatorsConfig {
+	float max_number_of_visible_dots = 1;
+	float max_animation_repeat_count = 2;
+	HorizontalCardListNavIndicatorStyle nav_indicators_style = 3;
+}
+
+extend Renderer {
+	HorizontalCardListNavIndicatorsConfig horizontal_card_list_nav_indicators_config = 457101640;
+}

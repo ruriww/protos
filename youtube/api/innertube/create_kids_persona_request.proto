@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/birthday.proto";
+import "youtube/api/innertube/approximate_age.proto";
+import "youtube/api/innertube/avatar.proto";
+import "youtube/api/innertube/kids_persona_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateKidsPersonaRequest {
+	InnerTubeContext context = 1;
+	string given_name = 2;
+
+	oneof birthday_data {
+		Birthday birthday = 3;
+		ApproximateAge approximate_age = 6;
+	}
+
+	Avatar avatar = 4;
+	KidsPersonaSettings kids_settings = 5;
+}

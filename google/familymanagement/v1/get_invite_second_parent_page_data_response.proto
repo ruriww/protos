@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message GetInviteSecondParentPageDataResponse {
+	bool has_member_eligible_for_parent_role = 1;
+	bool can_add_parent = 2;
+	bool has_too_many_members = 3;
+	bool has_too_many_parents = 4;
+}

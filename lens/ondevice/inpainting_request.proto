@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens.ondevice;
+
+import "lens/text/portable/inpainting/paragraph_boxes.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message InpaintingRequest {
+	repeated text.portable.inpainting.ParagraphBoxes paragraph_boxes = 1;
+	int32 min_allowed_line_height = 5;
+}

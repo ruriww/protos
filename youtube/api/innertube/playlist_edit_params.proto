@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/post_playlist_edit_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistEditParams {
+	enum ReturnedHeaderRendererType {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		PLAYLIST_HEADER_RENDERER = 1;
+	}
+
+	ReturnedHeaderRendererType returned_header_renderer_type = 1;
+
+	enum ReturnedActionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		UPDATE_PLAYLIST_HEADER_ACTION = 1;
+		UPDATE_PLAYLIST_TOAST_ACTION = 2;
+	}
+
+	repeated ReturnedActionType returned_action_types = 2 [ features.repeated_field_encoding = EXPANDED ];
+	bool suppress_success_toast = 4;
+	bool channel_created = 7;
+	bool hide_unavailable_videos = 8;
+	string backing_queue_external_playlist_id = 9;
+	string shuffle_token = 10;
+	string queue_seed_video_id = 11;
+	bool disable_sticky_playlist_saving_for_video_add = 12;
+	repeated PostPlaylistEditAction post_playlist_edit_actions = 13;
+	int32 min_watched_percentage_for_removal = 14;
+	string voting_entity_key = 15;
+	string playlist_view_token = 16;
+}

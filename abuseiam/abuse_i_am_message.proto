@@ -1,0 +1,25 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/client.proto";
+import "abuseiam/metadata.proto";
+import "abuseiam/feature.proto";
+import "abuseiam/chunk.proto";
+
+option objc_class_prefix = "AIA";
+
+message AbuseIAmMessage {
+	string id = 1;
+	string url = 2;
+	Client client = 3;
+	string language_preference = 5;
+	Metadata metadata = 6;
+	repeated Feature feature = 7;
+	repeated Chunk chunk = 8;
+	bytes client_data = 9;
+	bool delta_only = 10;
+	int64 creation_timestamp_micros = 11;
+	string review_url = 13;
+	string debug_string = 15;
+}

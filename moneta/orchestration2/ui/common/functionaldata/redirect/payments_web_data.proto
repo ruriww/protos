@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "webutil/html/types/trusted_resource_url_proto.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/request_method_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PaymentsWebData {
+	extend data.Data {
+		PaymentsWebData payments_web_data_extension = 358920565;
+	}
+
+	webutil.html.types.TrustedResourceUrlProto initial_url = 1;
+	string post_body = 2;
+	RequestMethodType request_type = 3;
+	string required_auth_scope = 4;
+	string intercept_url_regex = 5;
+}

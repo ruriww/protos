@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+import "google/cryptauth/enrollment/v1/certificate.proto";
+
+option objc_class_prefix = "CRPT";
+
+message EnrollKeysResponse {
+	message EnrollSingleKeyResponse {
+		repeated Certificate certificate = 1;
+	}
+
+	repeated EnrollSingleKeyResponse enroll_single_key_responses = 1;
+}

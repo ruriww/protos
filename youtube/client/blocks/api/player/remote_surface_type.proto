@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+enum RemoteSurfaceType {
+	option features.enum_type = CLOSED;
+
+	REMOTE_SURFACE_TYPE_UNSPECIFIED = 0;
+	REMOTE_SURFACE_TYPE_MDX = 1;
+	REMOTE_SURFACE_TYPE_AIRPLAY = 2;
+}

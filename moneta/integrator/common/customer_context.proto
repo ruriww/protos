@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+import "moneta/integrator/common/product_correlation_id.proto";
+
+option objc_class_prefix = "Orch";
+
+message CustomerContext {
+	oneof customer {
+		int64 customer_id = 1;
+		ProductCorrelationId product_correlation_id = 2;
+		int64 cdp_profile_id = 3;
+		int64 external_customer_id = 4;
+	}
+
+	bytes product_auth_token = 10;
+}

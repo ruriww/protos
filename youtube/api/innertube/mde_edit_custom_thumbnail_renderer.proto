@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeEditCustomThumbnailRenderer {
+	string title = 1;
+	FormattedString post_button_label = 2;
+	FormattedString new_custom_thumbnail_label = 3;
+	FormattedString change_custom_thumbnail_label = 4;
+	FormattedString confirm_discard_title = 5;
+	FormattedString confirm_discard_body = 6;
+	FormattedString confirm_discard_discard_button = 7;
+	FormattedString confirm_discard_cancel_button = 8;
+	ThumbnailDetails current_thumbnail = 9;
+	repeated ThumbnailDetails autogen_thumbnails = 10;
+	int32 selected_thumbnail = 11;
+	FormattedString edit_thumbnail_label = 12;
+	ThumbnailDetails custom_thumbnail = 13;
+	bool custom_thumbs_disabled = 14;
+	FormattedString custom_thumbnails_disabled_info = 15;
+	Command custom_thumbnails_disabled_help_endpoint = 16;
+	FormattedString custom_thumbnails_disabled_help_label = 17;
+	Renderer download_thumbnail_renderer = 18;
+	Command phone_verification_endpoint = 19;
+	FormattedString custom_thumbnails_disabled_info_title = 20;
+	string thumbnail_state_key = 21;
+	bool thumbnail_editor_disabled = 22;
+}
+
+extend Renderer {
+	MdeEditCustomThumbnailRenderer mde_edit_custom_thumbnail_renderer = 113780970;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_chat_author_badge_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/live_chat_text_message_renderer_interaction_logging_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTextMessageRenderer {
+	FormattedString message = 1;
+	FormattedString author_name = 2;
+	ThumbnailDetails author_photo = 3;
+	Command context_menu_endpoint = 4;
+	string id = 5;
+	uint64 timestamp_usec = 6;
+	repeated LiveChatAuthorBadgeSupportedRenderers author_badges = 7;
+	string author_external_channel_id = 8;
+	FormattedString deleted_state_message = 9;
+	FormattedString show_original_content_message = 10;
+	AccessibilitySupportedDatas context_menu_accessibility = 11;
+	repeated Renderer inline_action_buttons = 12;
+	FormattedString timestamp_text = 13;
+	bytes tracking_params = 15;
+	LiveChatTextMessageRendererInteractionLoggingMode interaction_logging_mode = 16;
+	FormattedString hide_original_content_message = 17;
+	uint32 author_seed_color_argb = 18;
+	uint32 author_username_color_light = 19;
+	uint32 author_username_color_dark = 20;
+	ThumbnailDetails creator_heart = 21;
+	bool is_reaction_message = 22;
+	repeated Renderer before_content_buttons = 23;
+}

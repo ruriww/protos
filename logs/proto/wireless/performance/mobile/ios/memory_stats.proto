@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MemoryStats {
+	int32 total_memory_mb = 1;
+	int32 physical_footprint_kb = 2;
+}

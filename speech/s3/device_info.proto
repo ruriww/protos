@@ -1,0 +1,20 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message DeviceInfo {
+	extend Request {
+		DeviceInfo device_info = 82185720;
+	}
+
+	bool screen_on = 2;
+	string identifier_string = 3;
+	bool alarm_on = 4;
+	bool timer_on = 5;
+	bool music_on = 6;
+	string device_brand = 7;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "proto2/bridge/message_set.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/mutate_creation_error_cause.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MutateCreationError {
+	extend proto2.bridge.MessageSet {
+		MutateCreationError mutate_creation_error = 2147476048;
+	}
+
+	Command on_error_command = 1;
+	MutateCreationErrorCause error_cause = 2;
+}

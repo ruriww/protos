@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.integrator.common.instrument;
+
+option objc_class_prefix = "Orch";
+
+message InstrumentStatus {
+	string status_description = 2;
+	bytes edit_token = 3;
+	bytes delete_token = 4;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MFKDialogModel {
+	extend Model {
+		MFKDialogModel mfk_dialog_model = 182765492;
+	}
+
+	Theme theme = 1;
+	Context context = 3;
+	string audience_server_state_key = 5;
+	string audience_client_state_key = 6;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StreamProgress {
+	uint64 num_bytes_downloaded = 1;
+	uint64 num_total_bytes = 2;
+	bytes format_stream_bytes = 5;
+	uint32 itag = 6;
+}

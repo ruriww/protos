@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.mothership.searchcard.v1.styles;
+
+option objc_class_prefix = "MSP";
+
+message StyleDeclaration {
+	extensions 20000 to max;
+}

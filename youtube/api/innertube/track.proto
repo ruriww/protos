@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_channel.proto";
+import "youtube/api/innertube/segment.proto";
+import "youtube/api/innertube/segment_transition.proto";
+import "youtube/api/innertube/composition_effect.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Track {
+	string id = 1;
+	string timeline_id = 2;
+	repeated Track tracks = 3;
+	repeated VideoChannel video_channels = 5;
+	repeated Segment segments = 7;
+	repeated SegmentTransition transitions = 8;
+	repeated CompositionEffect effects = 9;
+}

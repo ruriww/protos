@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/item_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ItemSectionRendererCommentExtensionData {
+	extend ItemSectionRenderer {
+		ItemSectionRendererCommentExtensionData item_section_renderer_comment_extension_data = 287123187;
+	}
+
+	bool should_observe_comment_response_notifications = 1;
+	bool should_listen_to_global_section_reload = 2;
+	string upload_progress_observer_id = 3;
+}

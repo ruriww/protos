@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EffectSubpackageId {
+	option features.enum_type = CLOSED;
+
+	EFFECT_SUBPACKAGE_ID_UNSPECIFIED = 0;
+	EFFECT_SUBPACKAGE_ID_EXPRESSIVE = 1;
+	EFFECT_SUBPACKAGE_ID_PRESET = 2;
+}

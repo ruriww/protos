@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/interaction_logging_error_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InteractionLoggingDebugModeError {
+	int32 ve_type = 1;
+	int32 page_ve_type = 2;
+	InteractionLoggingErrorType error_type = 3;
+}

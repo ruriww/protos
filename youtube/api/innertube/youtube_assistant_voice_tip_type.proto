@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum YoutubeAssistantVoiceTipType {
+	option features.enum_type = CLOSED;
+
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_UNKNOWN = 0;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_CURATED = 1;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_P13N_PROFILE_TOPIC_ENTITY = 2;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_P13N_PROFILE_MUSIC_ENTITY = 3;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_P13N_PROFILE_GENERAL_ENTITY = 4;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_QUERY_SUGGESTION = 5;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_ZERO_PREFIX_QUERY_SUGGESTION = 6;
+	YOUTUBE_ASSISTANT_VOICE_TIP_TYPE_ZERO_PREFIX_AND_MUSIC_ENTITY = 7;
+}

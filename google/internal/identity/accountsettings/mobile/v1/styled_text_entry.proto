@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/type/color.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/text_style.proto";
+import "google/internal/identity/accountsettings/mobile/v1/text_truncation.proto";
+import "google/internal/identity/accountsettings/mobile/v1/themed_color.proto";
+
+option objc_class_prefix = "ASM";
+
+message StyledTextEntry {
+	string text = 1;
+	type.Color color = 2;
+	Image icon = 3;
+	TextStyle style = 4;
+	TextTruncation truncation = 5;
+	ThemedColor themed_color = 6;
+}

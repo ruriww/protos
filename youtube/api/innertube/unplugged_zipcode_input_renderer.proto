@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_edit_text_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedZipcodeInputRenderer {
+	FormattedString body_text = 1;
+	UnpluggedEditTextSupportedRenderers unplugged_edit_text = 2;
+	bytes tracking_params = 3;
+	ButtonSupportedRenderers submit_button = 5;
+	FormattedString title = 7;
+	ThumbnailDetails primary_image = 8;
+	UnpluggedAnimationDetails animation = 10;
+}
+
+extend Renderer {
+	UnpluggedZipcodeInputRenderer unplugged_zipcode_input_renderer = 118391782;
+}

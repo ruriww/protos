@@ -1,0 +1,13 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message ViewabilityBuckets {
+	int32 view_time_msec_pct100 = 1;
+	int32 view_time_msec_pct75 = 2;
+	int32 view_time_msec_pct50 = 3;
+	int32 view_time_msec_pct30 = 4;
+	int32 view_time_msec_pct0 = 5;
+}

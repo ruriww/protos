@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/trend_indicator.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SnapshotMetricRowRenderer {
+	extend Renderer {
+		SnapshotMetricRowRenderer snapshot_metric_row_renderer = 248317178;
+	}
+
+	FormattedString metric_title = 1;
+	FormattedString metric_value = 2;
+	FormattedString comparison_subtitle = 3;
+	FormattedString comparison_value = 4;
+	TrendIndicator.TrendType trend_type = 5;
+	FormattedString performance_analysis = 7;
+	bytes tracking_params = 9;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddToPlaylistEndpoint {
+	extend Command {
+		AddToPlaylistEndpoint add_to_playlist_endpoint = 69487224;
+	}
+
+	string video_id = 1;
+	bool hack = 2;
+	string playlist_id = 3;
+	repeated string video_ids = 4;
+	bytes params = 5;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "youtube/api/innertube/mde_error_event.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTEE";
+
+message MdeErrorRequest {
+	api.innertube.MdeErrorEvent mde_error_event = 1;
+	google.protobuf.Timestamp request_time = 2;
+	int64 pipeline_reference_id = 3;
+}

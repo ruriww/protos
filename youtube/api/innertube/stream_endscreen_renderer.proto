@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/stream_statistic_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StreamEndscreenRenderer {
+	FormattedString page_title = 1;
+	FormattedString stream_title = 2;
+	FormattedString stream_info = 3;
+	ThumbnailDetails stream_thumbnail = 4;
+	repeated ButtonSupportedRenderers navigation_buttons = 5;
+	repeated StreamStatisticSupportedRenderers stream_stats = 6;
+	Renderer header = 7;
+	FormattedString page_info = 9;
+	FormattedString privacy_setting_notice = 10;
+}
+
+extend Renderer {
+	StreamEndscreenRenderer stream_endscreen_renderer = 146831900;
+}

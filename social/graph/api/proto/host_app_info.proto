@@ -1,0 +1,9 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message HostAppInfo {
+	string host_app_name = 1;
+}

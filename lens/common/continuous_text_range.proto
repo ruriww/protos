@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens.common;
+
+import "lens/common/text_entity_identifier.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ContinuousTextRange {
+	TextEntityIdentifier first_word = 1;
+	TextEntityIdentifier last_word = 2;
+}

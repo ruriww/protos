@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/supported_message_renderer_icons.proto";
+import "youtube/api/innertube/message_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/message_subtext_supported_renderers.proto";
+import "youtube/api/innertube/message_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/message_thumbnail_renderer.proto";
+import "youtube/api/innertube/message_subtext_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MessageRenderer {
+	FormattedString text = 1;
+
+	oneof image {
+		SupportedMessageRendererIcons icon = 2;
+		MessageThumbnailSupportedRenderers thumbnail = 7;
+	}
+
+	bytes tracking_params = 4;
+	ButtonSupportedRenderers button = 5;
+	MessageSubtextSupportedRenderers subtext = 6;
+	MessageStyle style = 8;
+	ButtonSupportedRenderers secondary_button = 9;
+	repeated Renderer tabs = 10;
+	FormattedString terms_text = 12;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	MessageThumbnailRenderer message_thumbnail_renderer = 123268268;
+}
+
+extend Renderer {
+	MessageRenderer message_renderer = 58508690;
+}
+
+extend Renderer {
+	MessageSubtextRenderer message_subtext_renderer = 101425885;
+}

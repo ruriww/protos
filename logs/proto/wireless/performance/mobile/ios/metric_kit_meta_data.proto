@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitMetaData {
+	string application_build_version = 1;
+	string os_version = 2;
+	string region_format = 3;
+	string bundle_identifier = 4;
+	bool low_power_mode_enabled = 5;
+	bool is_test_flight_app = 6;
+	int32 process_id = 7;
+}

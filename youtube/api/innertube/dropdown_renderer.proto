@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dropdown_entry_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/dropdown_item_renderer.proto";
+import "youtube/api/innertube/dropdown_item_group_renderer.proto";
+import "youtube/api/innertube/privacy_dropdown_item_renderer.proto";
+import "youtube/api/innertube/navigation_dropdown_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DropdownRenderer {
+	repeated DropdownEntrySupportedRenderers entries = 1;
+	string label = 2;
+	AccessibilityData accessibility = 3;
+	Icon icon = 5;
+	string target_id = 6;
+	bool disabled = 7;
+	Renderer unplugged_info_panel = 8;
+}
+
+extend Renderer {
+	DropdownRenderer dropdown_renderer = 71102045;
+}
+
+extend Renderer {
+	DropdownItemRenderer dropdown_item_renderer = 77773484;
+}
+
+extend Renderer {
+	DropdownItemGroupRenderer dropdown_item_group_renderer = 71109057;
+}
+
+extend Renderer {
+	PrivacyDropdownItemRenderer privacy_dropdown_item_renderer = 98785181;
+}
+
+extend Renderer {
+	NavigationDropdownItemRenderer navigation_dropdown_item_renderer = 121883829;
+}

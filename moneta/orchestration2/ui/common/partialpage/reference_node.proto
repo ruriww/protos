@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.partialpage;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ReferenceNode {
+	extend node.Node {
+		ReferenceNode reference_node_extension = 236049775;
+	}
+}

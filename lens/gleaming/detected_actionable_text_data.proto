@@ -1,0 +1,38 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "lens/gleaming/email_address.proto";
+import "lens/gleaming/link.proto";
+import "lens/gleaming/phone_number.proto";
+import "lens/gleaming/address.proto";
+import "lens/gleaming/shipment_tracking.proto";
+import "lens/gleaming/payment.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DetectedActionableTextData {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		EMAIL = 1;
+		PHONE_NUMBER = 2;
+		URL = 3;
+		ADDRESS = 4;
+		SHIPMENT_TRACKING = 5;
+		DATE = 6;
+		PAYMENT = 7;
+	}
+
+	Type type = 1;
+
+	oneof data {
+		EmailAddress email_address = 2;
+		Link link = 3;
+		PhoneNumber phone_number = 4;
+		Address address = 5;
+		ShipmentTracking shipment_tracking = 6;
+		Payment payment = 7;
+	}
+}

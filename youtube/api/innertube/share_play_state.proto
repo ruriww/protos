@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SharePlayState {
+	SHARE_PLAY_STATE_UNKNOWN = 0;
+	SHARE_PLAY_STATE_INELIGIBLE = 1;
+	SHARE_PLAY_STATE_ELIGIBLE_INACTIVE = 2;
+	SHARE_PLAY_STATE_ACTIVE = 3;
+}

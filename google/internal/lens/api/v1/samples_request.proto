@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message SamplesRequest {
+	bool personalize_samples = 1;
+	repeated int64 petacat_ids = 2;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.text;
+
+import "gws/mothership/api/v1/common/text/font_weight.proto";
+import "google/type/color.proto";
+import "gws/mothership/api/v1/common/text/baseline_offset.proto";
+import "gws/mothership/api/v1/common/text/directionality.proto";
+import "gws/mothership/api/v1/common/text/font_size.proto";
+import "gws/mothership/api/v1/common/text/font_style.proto";
+
+option objc_class_prefix = "MSP";
+
+message TextStyle {
+	FontWeight font_weight = 1;
+	google.type.Color color = 2;
+	BaselineOffset baseline_offset = 3;
+	Directionality directionality = 4;
+	FontSize font_size = 5;
+	FontStyle font_style = 6;
+	bool emphasis = 7 [ default = false ];
+	bool underline = 8 [ default = false ];
+	bool strike_through = 9 [ default = false ];
+	string background_color = 11;
+
+	extensions 10;
+}

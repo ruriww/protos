@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextMessageEndpoint {
+	extend Command {
+		TextMessageEndpoint text_message_endpoint = 90566164;
+	}
+
+	string title = 1;
+	string body_text = 2;
+	repeated string recipient_phone_numbers = 3;
+	bool disable_user_attachments = 4;
+	repeated Command success_actions = 5;
+	repeated Command failure_actions = 6;
+	string attachment_file_name = 7;
+}

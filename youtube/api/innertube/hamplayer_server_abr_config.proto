@@ -1,0 +1,59 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerServerABRConfig {
+	bool enable_server_abr_player_item = 1;
+	bool fallback_on_error = 2;
+	int32 fallback_disable_server_abr_duration_seconds = 3;
+	bool enable_onesie_for_sabr = 4;
+	bool observe_network_active_controller = 5;
+	bool cancel_request_when_seeking_out_of_range = 6;
+	bool enable_load_retry_policy = 7;
+	bool send_request_after_manual_format_selection = 8;
+	bool send_request_after_viewport_size_increase = 9;
+	bool enable_onesie_media_promise = 10;
+	bool use_segment_number_for_continuous_buffered_range = 11;
+	bool enable_primary_host_probing = 12;
+	bool manual_format_selection_evicts_low_quality = 13;
+	bool manual_format_selection_cancels_request = 14;
+	bool enable_local_streams = 15;
+	bool send_millisecond_times = 16;
+	bool send_exact_times = 17;
+	bool read_only_exact_times = 18;
+	bool log_partial_chunk_eviction = 19;
+	int32 max_fallback_attempts = 20;
+	bool use_active_track_renderers_for_done_buffering = 21;
+	bool seek_through_medialib_when_receiving_partial_chunk = 22;
+	bool skip_request_when_done_buffering = 23;
+	bool check_media_promise_when_all_headers_loaded = 24;
+	bool only_observe_network_active_for_min_readahead = 25;
+	bool only_handle_network_active_for_min_readahead = 26;
+	int32 continue_loading_timer_interval_ms = 27;
+	int32 continue_loading_timer_leeway_ms = 28;
+	bool cover_chunk_discontinuity = 29;
+	bool disable_client_side_live_seekble_time_adjustment = 30;
+	bool skip_filling_initialized_format_id_for_live = 31;
+	bool keep_stall_for_live_when_close_to_seekable_end = 32;
+	bool allow_multiple_server_seek = 33;
+	bool mark_last_known_segment_as_last_segment = 34;
+	bool use_reload_context_for_fallback = 35;
+	bool skip_filter_preferred_audio_formats = 36;
+	bool skip_filter_preferred_video_formats = 37;
+	bool skip_filter_preferred_text_formats = 38;
+	bool allow_empty_selected_format_ids = 39;
+	bool enable_partial_segments = 40;
+	bool use_new_chunk_trim_logic = 41;
+	bool partial_segment_update_current_time_on_trim = 42;
+	bool use_xplat_parser = 43;
+	bool evict_partial_segments_on_format_mismatch = 44;
+	bool use_xplat_mfc = 45;
+	bool evict_partial_segments_on_init_metadata_mismatch = 46;
+	bool trim_video_on_manual_selection = 47;
+	string platypus_client_cpn_regex = 48;
+}

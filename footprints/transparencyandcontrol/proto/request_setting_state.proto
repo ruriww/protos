@@ -1,0 +1,31 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/setting_spec.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message RequestSettingState {
+	enum SettingUi {
+		option features.enum_type = CLOSED;
+
+		SETTING_UI_UNSPECIFIED = 0;
+		SETTING_STATE_ONLY = 1;
+		SETTING_STATE_AND_RETENTION_INFO = 2;
+	}
+
+	SettingUi setting_ui = 2;
+
+	enum PreferredTextLength {
+		option features.enum_type = CLOSED;
+
+		PREFERRED_TEXT_LENGTH_UNSPECIFIED = 0;
+		SHORT = 1;
+		MEDIUM = 2;
+		LONG = 3;
+	}
+
+	PreferredTextLength preferred_text_length = 3;
+	SettingSpec setting_spec = 4;
+}

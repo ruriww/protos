@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/search_response.proto";
+import "youtube/api/innertube/browse_response.proto";
+import "youtube/api/innertube/watch_next_response.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/error_message.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YoutubeAssistantResponse {
+	ResponseContext response_context = 1;
+	bytes tracking_params = 4;
+	string tts_string = 5;
+	bytes opaque_conversation_token = 9;
+	bool reload_non_player_page_elements_post_endpoint_execution = 10;
+	bytes serialized_internal_assistant_server_response_params = 11;
+	string debug_tts_string = 12;
+	SearchResponse prefetched_search_response = 13;
+	BrowseResponse prefetched_browse_response = 14;
+	WatchNextResponse prefetched_watch_next_response = 15;
+	Command navigation_action = 16;
+	repeated Command service_actions = 17;
+	ErrorMessage error_message = 18;
+	string voice_action_string = 19;
+	repeated string voice_tips = 20;
+
+	oneof deeplink_metadata {
+		bytes serialized_generic_search_response = 22;
+		bytes serialized_youtube_doc_metadata = 23;
+		bytes serialized_youtube_dialog_response = 34;
+	}
+
+	bytes serialized_upsell_response_data = 26;
+	bytes s3_output = 27;
+	bytes sal_output_metadata = 28;
+	string search_history_feedback_token = 36;
+	bool user_has_opted_in_to_vaa = 42;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/account_state_token.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateChannelResponse {
+	ResponseContext response_context = 1;
+	Command navigation_endpoint = 2;
+	AccountStateToken account_state_token = 4;
+
+	message CreateChannelError {
+		enum ErrorType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			INVALID_NAME = 1;
+			CHANNEL_UPDATE_IMAGE_FAILED = 2;
+			COMPLIANCE_ERROR = 3;
+			FREEBIE_QUOTA_EXCEEDED = 4;
+			DASHER_USER_NOT_ALLOWED = 5;
+			DASHER_USER_RATE_LIMITED = 6;
+			DASHER_USER_COMPLETELY_BLOCKED = 7;
+		}
+
+		ErrorType error_type = 1;
+		FormattedString error_message = 2;
+	}
+
+	CreateChannelError create_channel_error = 5;
+	repeated Command actions = 6;
+	FrameworkUpdateTransport framework_updates = 777;
+}

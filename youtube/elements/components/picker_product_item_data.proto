@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/picker_item_data.proto";
+import "youtube/api/innertube/shopping_item.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message PickerProductItemData {
+	enum Availability {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		AVAILABLE = 1;
+		EXPIRED = 2;
+		UPCOMING = 3;
+	}
+
+	extend api.innertube.PickerItemData {
+		PickerProductItemData picker_product_item_data = 1000;
+	}
+
+	api.innertube.ShoppingItem shopping_item = 1;
+	string formatted_price = 2;
+	string formatted_affiliate_commission = 3;
+	string formatted_original_price = 4;
+
+	message Promotion {
+		oneof price_reduction {
+			string formatted_percentage_discount = 1;
+			string formatted_amount_discount = 2;
+		}
+
+		Availability availability = 3;
+		string formatted_start_date = 7;
+		string formatted_start_time = 8;
+		string formatted_end_date = 9;
+		string formatted_end_time = 10;
+	}
+
+	Promotion promotion = 5;
+	string formatted_future_disclosure_date = 6;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/rect.proto";
+
+option objc_class_prefix = "INKPB";
+
+message BackgroundImageInfo {
+	string uri = 1;
+	Rect bounds = 3;
+}

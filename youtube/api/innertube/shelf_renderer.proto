@@ -1,0 +1,124 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/shelf_supported_renderers.proto";
+import "youtube/api/innertube/subscribe_button_renderer.proto";
+import "youtube/api/innertube/shelf_contextual_items_supported_renderers.proto";
+import "youtube/api/innertube/shelf_menu_supported_renderers.proto";
+import "youtube/api/innertube/feedback_elicitation_single_question_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/shelf_privacy_supported_renderers.proto";
+import "youtube/api/innertube/associated_game_supported_renderers.proto";
+import "youtube/api/innertube/shelf_badge_supported_renderers.proto";
+import "youtube/api/innertube/shelf_header_style.proto";
+import "youtube/api/innertube/shelf_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/shelf_auto_nav_toggle_supported_renderers.proto";
+import "youtube/api/innertube/shelf_play_all_button_supported_renderers.proto";
+import "youtube/api/innertube/screen_based_visibility_condition.proto";
+import "youtube/api/innertube/unplugged_shelf_renderer_type.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_thumbnail_style.proto";
+import "youtube/api/innertube/separator_details.proto";
+import "youtube/api/innertube/shelf_padding_style.proto";
+import "youtube/api/innertube/shelf_window_size_column_config.proto";
+import "youtube/api/innertube/layout_configuration.proto";
+import "youtube/api/innertube/targeting_context.proto";
+import "youtube/api/innertube/editor_info.proto";
+import "youtube/api/innertube/shelf_editor_dropdown_supported_renderers.proto";
+import "youtube/api/innertube/expanded_shelf_contents_renderer.proto";
+import "youtube/api/innertube/shelf_featured_text_badge_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShelfRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	Command endpoint = 3;
+	Command play_endpoint = 4;
+	ShelfSupportedRenderers content = 5;
+	SubscribeButtonRenderer subscribe_button_renderer = 6;
+	string dismissal = 7;
+	ShelfContextualItemsSupportedRenderers contextual_items = 8;
+	FormattedString subtitle = 9;
+	FormattedString title_annotation = 12;
+	string debug_html = 13;
+	FormattedString action_annotation = 14;
+	bytes tracking_params = 15;
+	repeated Command service_endpoints = 16;
+	Command shelf_feedback_endpoint = 17;
+	ShelfMenuSupportedRenderers menu = 19;
+	FeedbackElicitationSingleQuestionSupportedRenderers dismissal_follow_up_question = 21;
+	Icon icon = 22;
+	bool hide_header = 23;
+	ShelfPrivacySupportedRenderers privacy_setting = 24;
+	AssociatedGameSupportedRenderers associated_game = 25;
+	repeated ShelfBadgeSupportedRenderers badges = 26;
+	ShelfHeaderStyle header_style = 27;
+	repeated Command impression_endpoints = 28;
+	ShelfSubscribeButtonSupportedRenderers subscribe_button = 29;
+	ShelfAutoNavToggleSupportedRenderers autonav_toggle = 30;
+	ShelfPlayAllButtonSupportedRenderers play_all_button = 31;
+	string p13n_debug_data = 32;
+	ScreenBasedVisibilityCondition screen_based_visibility_condition = 34;
+	UnpluggedShelfRendererType unplugged_shelf_renderer_type = 35;
+	Renderer header_renderer = 36;
+	ThumbnailDetails thumbnail_secondary = 38;
+	Renderer sort_filter = 39;
+	ChannelThumbnailStyle thumbnail_style = 40;
+	SeparatorDetails separator = 41;
+	ShelfPaddingStyle shelf_padding_style = 43;
+
+	oneof column_config {
+		uint32 column_count = 45;
+		uint32 min_column_count = 46;
+		ShelfWindowSizeColumnConfig window_size_column_config = 48;
+		LayoutConfiguration layout_configuration = 54;
+	}
+
+	bool focus_content = 47;
+	string target_id = 49;
+	Renderer footer_renderer = 50;
+	TargetingContext targeting_context = 52;
+	int32 relative_feed_position = 53;
+	FormattedString expand_button_text = 55;
+	bool use_wide_screen_expand_button = 56;
+
+	extensions 1000 to max;
+}
+
+message ShelfViewSupportedRenderers {
+	ShelfRenderer shelf_renderer = 51845067;
+}
+
+message ShelfEditorRenderer {
+	EditorInfo editor_info = 1;
+	ShelfViewSupportedRenderers shelf = 2;
+	repeated Command service_endpoints = 3;
+	ShelfEditorDropdownSupportedRenderers shelf_type_dropdown = 4;
+	ShelfEditorDropdownSupportedRenderers shelf_style_dropdown = 5;
+	Command channel_picker_dialog_endpoint = 6;
+	Command playlist_picker_dialog_endpoint = 7;
+}
+
+extend Renderer {
+	ShelfRenderer shelf_renderer = 51845067;
+}
+
+extend Renderer {
+	ShelfEditorRenderer shelf_editor_renderer = 68396630;
+}
+
+extend Renderer {
+	ExpandedShelfContentsRenderer expanded_shelf_contents_renderer = 55636665;
+}
+
+extend Renderer {
+	ShelfFeaturedTextBadgeRenderer shelf_featured_text_badge_renderer = 90380189;
+}

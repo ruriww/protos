@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsHandleSplicedVideoCommand {
+	extend Command {
+		ShortsHandleSplicedVideoCommand shorts_handle_spliced_video_command = 411698153;
+	}
+
+	google.protobuf.Duration duration = 1;
+	string external_video_id = 2;
+	string url = 3;
+}

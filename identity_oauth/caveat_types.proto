@@ -1,0 +1,17 @@
+edition = "2023";
+
+package identity_oauth;
+
+option objc_class_prefix = "SSO";
+
+message CaveatTypes {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SCOPE = 1;
+		EXPIRATION = 2;
+	}
+
+	repeated Type types = 1;
+}

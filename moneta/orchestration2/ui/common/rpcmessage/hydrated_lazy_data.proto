@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.rpcmessage;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message HydratedLazyData {
+	bytes lazy_data_token = 1;
+	data.Data data = 2;
+}

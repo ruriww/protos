@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StoryboardFlags {
+	bool prefetch_lower_resolution_mosaics = 1;
+	bool delay_fetching_higher_resolution_mosaics = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RemixSourceType {
+	option features.enum_type = CLOSED;
+
+	REMIX_SOURCE_TYPE_UNKNOWN = 0;
+	REMIX_SOURCE_TYPE_APPLIED = 1;
+	REMIX_SOURCE_TYPE_ALTERNATIVE = 2;
+}

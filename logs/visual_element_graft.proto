@@ -1,0 +1,30 @@
+edition = "2023";
+
+package logs;
+
+import "logs/visual_element_tree_ref.proto";
+
+option objc_class_prefix = "LOG";
+
+message VisualElementGraft {
+	VisualElementTreeRef target = 1;
+
+	enum GraftType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SHOW = 1;
+		HIDE = 2;
+		INSERT = 3;
+		CLONE = 4;
+		COPY = 5;
+	}
+
+	GraftType type = 2 [ default = UNKNOWN ];
+	VisualElementTreeRef clone_tree = 3;
+	int64 graft_time_usec = 4;
+	VisualElementTreeRef source_tree = 5;
+	bool dedupe = 6 [ default = false ];
+
+	extensions 100;
+}

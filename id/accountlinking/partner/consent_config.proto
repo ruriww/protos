@@ -1,0 +1,12 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "id/accountlinking/partner/repeated_scopes.proto";
+
+option objc_class_prefix = "ALKP";
+
+message ConsentConfig {
+	repeated string default_capability_ids = 1;
+	map<string, RepeatedScopes> capability_scopes_map = 2;
+}

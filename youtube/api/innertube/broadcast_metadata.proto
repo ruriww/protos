@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/schedule_metadata.proto";
+import "youtube/api/innertube/chat_metadata.proto";
+import "youtube/api/innertube/broadcast_conference_type.proto";
+import "youtube/api/innertube/orientation_option.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BroadcastMetadata {
+	uint32 broadcast_delay_ms = 1;
+
+	enum LatencyMode {
+		option features.enum_type = CLOSED;
+
+		LATENCY_UNKNOWN = 0;
+		LATENCY_NORMAL = 1;
+		LATENCY_LOW = 2;
+		LATENCY_ULTRA_LOW = 3;
+	}
+
+	LatencyMode latency_mode = 2;
+
+	enum PrivacyOnComplete {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ON_COMPLETE = 0;
+		EXISTING_PRIVACY_ON_COMPLETE = 1;
+		UNLISTED_ON_COMPLETE = 2;
+	}
+
+	PrivacyOnComplete privacy_after_complete = 3;
+	bool enable_monitor_stream = 4;
+	ScheduleMetadata schedule_metadata = 5;
+	ChatMetadata chat_metadata = 6;
+	bool is_spherical = 7;
+	BroadcastConferenceType broadcast_conference_type = 8;
+	OrientationOption orientation_option = 9;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_thread_state.proto";
+import "youtube/api/innertube/ios_thread_flag.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosThreadInfoProto {
+	IosThreadState state = 1;
+	IosThreadFlag flag = 2;
+	int32 current_priority = 3;
+	int32 priority = 4;
+	int32 max_priority = 5;
+	bool is_crashed_thread = 6;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_onboarding_form_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBrowseFormData {
+	string zip_code_input = 1;
+	string dma_input = 2;
+	bool cannot_get_geo_permission = 3;
+	string coupon_code = 4;
+	string affiliate_code = 6;
+	bool is_living_room_onboarding = 7;
+	UnpluggedOnboardingFormData onboarding_form_data = 10;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+option objc_class_prefix = "UFR";
+
+message Blob {
+	oneof content {
+		string blob_id = 1;
+		bytes data = 2;
+		string uri = 3;
+	}
+
+	string mime_type = 4;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/video_data.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/video_card_experiment.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message VideoCardData {
+	VideoData video_data = 1;
+	string accessibility_text = 2;
+	bytes tracking_params = 3;
+	api.innertube.LoggingDirectives logging_directives = 5;
+	Command on_tap = 6;
+	Command menu_on_tap = 7;
+	string menu_a11y_label = 8;
+	bool use_large_thumbnail = 9;
+	float width = 10;
+	float min_height = 11;
+	bool enable_animation = 12;
+	bool use_responsive_width = 13;
+	float responsive_number_visible_elements = 14;
+	VideoCardExperiment experiments = 15;
+	bool disable_bold_title = 16;
+	string download_status_entity_key = 17;
+	bool should_override_on_tap_command = 18;
+	bool use_reduced_badge_spacing = 19;
+	bool show_metadata_preview_before_metadata = 21;
+	bool hide_metadata = 22;
+	bool disable_rounded_thumbs = 24;
+	bool show_top_overlay_scrim = 25;
+	string top_overlay_title = 26;
+	string top_overlay_byline = 27;
+	float max_inline_playback_length_sec = 28;
+	float width_fraction_of_container_width = 29;
+	Command on_hidden = 30;
+	api.innertube.Renderer bottom_call_to_action_button = 34;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.extension;
+
+import "google/internal/apps/waldo/v1alpha/user_availabilities.proto";
+
+option objc_class_prefix = "SGWPPE";
+
+message AppsWaldoExtendedData {
+	google.internal.apps.waldo.v1alpha.UserAvailabilities availabilities = 1;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PhoneNumberData {
+	extend Datas {
+		PhoneNumberData phone_number_data = 126862554;
+	}
+
+	string phone_number = 1;
+	int32 ordinal = 2;
+	string invite_token = 4;
+	string cancel_invite_token = 5;
+}

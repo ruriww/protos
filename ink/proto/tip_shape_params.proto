@@ -1,0 +1,24 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message TipShapeParams {
+	float size_ratio = 1 [ default = 1 ];
+
+	enum RadiusBehavior {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		FIXED = 1;
+		SPEED = 2;
+		PRESSURE = 3;
+		TILT = 4;
+	}
+
+	RadiusBehavior radius_behavior = 2 [ default = FIXED ];
+	float max_radius_speed_cm_per_sec = 3 [ default = 200 ];
+	float min_radius_speed_cm_per_sec = 4 [ default = 0e0 ];
+	float size_drag_factor = 5 [ default = 0.85 ];
+}

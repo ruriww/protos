@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package video_streaming;
+
+import "video_streaming/format_id.proto";
+import "video_streaming/unnamed661.proto";
+
+option java_package = "com.google.android.apps.youtube.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message FormatInitializationMetadata {
+	optional string video_id = 1;
+	optional FormatId format_id = 2;
+	optional int64 end_segment_num = 4;
+	optional string mime_type = 5;
+	optional Unnamed661 unnamed_field_6 = 6;
+	optional Unnamed661 unnamed_field_7 = 7;
+	optional int64 unnamed_field_9 = 9;
+	optional int32 unnamed_field_10 = 10;
+}

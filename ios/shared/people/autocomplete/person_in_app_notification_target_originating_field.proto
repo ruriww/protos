@@ -1,0 +1,20 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message PersonInAppNotificationTargetOriginatingField {
+	enum FieldType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FIELD_TYPE = 0;
+		PHONE = 1;
+		EMAIL = 2;
+		MEMBERSHIP = 3;
+	}
+
+	FieldType field_type = 1;
+	int32 field_index = 2;
+	string value = 3;
+}

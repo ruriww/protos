@@ -1,0 +1,55 @@
+edition = "2023";
+
+package knowledge_answers.intent_query;
+
+import "knowledge_answers/intent_query/simple_value.proto";
+
+option objc_class_prefix = "KAIQ";
+
+message FunctionCall {
+	string name = 1;
+	repeated Argument argument = 2;
+	FunctionCallSignals signals = 4;
+	int64 catalog_version = 16;
+
+	extensions 14 to 15;
+	extensions 19;
+}
+
+message FunctionCallSignals {
+	string refx_summary_node_id = 1;
+	bool high_confidence = 2;
+	repeated FunctionCall deduped_funcalls = 7;
+	bool is_close_interpretation = 8 [ default = false ];
+	repeated string intent_relevant_mid = 10;
+	string concept_entity_mid = 11;
+	string argument_composing_mid = 12;
+	string intent_composing_mid = 13;
+	string osrp_journey_tag = 16;
+	bool is_disambiguation_intent = 21;
+	bool is_ui_composition_intent = 25;
+	float prefulfillment_ranking_score = 26;
+	repeated string parsed_due_to_experiment = 29;
+	bool is_disambiguation_card_intent = 30;
+	bool selected_by_prefulfillment_ranking = 32;
+	bool is_neural_categorical_interpretation = 34 [ default = false ];
+	bool uses_prefulfillment_ranker = 36;
+	bool inject_in_feature_fetch = 39;
+	bool is_implicit_weekend_fun_intent = 40;
+
+	extensions 9986 to max;
+}
+
+message Argument {
+	string name = 1;
+	ArgumentValue value = 2;
+
+	extensions 8;
+}
+
+message ArgumentValue {
+	oneof value {
+		FunctionCall funcall = 2;
+		SimpleValue simple_value = 3;
+	}
+}

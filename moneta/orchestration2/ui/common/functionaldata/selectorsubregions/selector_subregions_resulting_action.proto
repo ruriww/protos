@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.selectorsubregions;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorSubregionsResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		SelectorSubregionsResultingAction selector_subregions_resulting_action_extension = 1002;
+	}
+
+	enum ResultingActionType {
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SET_PARENT_SELECTED_OPTION_TAG = 1;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	message SetParentSelectedOptionTagAction {
+		int64 parent_selector_data_reference = 1;
+	}
+
+	oneof resulting_action {
+		SetParentSelectedOptionTagAction set_parent_selected_option_tag_action = 2;
+	}
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveIngestionSettingsRenderer {
+	string primary_server_url = 1;
+	string secondary_server_url = 2;
+	string stream_name = 3;
+	repeated ButtonSupportedRenderers primary_stream_buttons = 4;
+	bool has_completed = 5;
+	string primary_server_url_label = 6;
+	AccessibilityData primary_server_url_accessibility = 7;
+	string secondary_server_url_label = 8;
+	AccessibilityData secondary_server_url_accessibility = 9;
+	string stream_name_label = 10;
+	AccessibilityData stream_name_accessibility = 11;
+	int32 height_px = 12;
+	int32 width_px = 13;
+}
+
+extend Renderer {
+	LiveIngestionSettingsRenderer live_ingestion_settings_renderer = 85479539;
+}

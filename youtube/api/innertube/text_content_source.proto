@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TextContentSource {
+	option features.enum_type = CLOSED;
+
+	TEXT_CONTENT_SOURCE_UNSPECIFIED = 0;
+	TEXT_CONTENT_SOURCE_TEXT_STICKER_EDITOR = 1;
+	TEXT_CONTENT_SOURCE_CAPTION = 2;
+	TEXT_CONTENT_SOURCE_TEMPLATE_INHERITED_TEXT_STICKER = 3;
+}

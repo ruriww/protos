@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PickerItemData {
+	string id = 1;
+	Renderer creator_product = 2;
+	Renderer creator_product_details = 3;
+	Renderer creator_product_sticker = 4;
+	string group_id = 6;
+	Renderer variant_selection_item = 8;
+
+	extensions 1000 to 1001;
+}

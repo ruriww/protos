@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/notification_activation_mode.proto";
+import "youtube/api/innertube/notification_behavior_type.proto";
+import "youtube/api/innertube/notification_type.proto";
+import "youtube/api/innertube/badge_count_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosNotificationRegistrationConfig {
+	message Category {
+		string identifier = 1;
+
+		message Action {
+			string identifier = 1;
+			FormattedString title = 2;
+			bool authentication_required = 3;
+			bool destructive = 4;
+			NotificationActivationMode activation_mode = 5;
+			NotificationBehaviorType behavior_type = 6;
+		}
+
+		repeated Action actions = 2;
+	}
+
+	repeated Category categories = 1;
+	repeated NotificationType notification_types = 2;
+	BadgeCountSupportedConfigs badge_count_config = 3;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+
+option objc_class_prefix = "Orch";
+
+message VerificationOptionForm {
+	FormHeader form_header = 1;
+
+	message VerificationOption {
+		string title = 1;
+		string detailed_message = 2;
+		bytes verification_option_token = 3;
+		generic.Tooltip tooltip = 4;
+		bool is_disabled = 5;
+		generic.InfoMessage description = 6;
+		generic.InfoMessage description_details = 7;
+		int64 ui_reference = 8;
+	}
+
+	repeated VerificationOption verification_option = 2;
+	int32 initial_option_index = 3;
+}

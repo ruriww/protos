@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message SessionFallbackInfo {
+	bool is_fallback_playback = 1;
+	string original_playback_session_id = 3;
+	bool has_fallback_playback = 4;
+}

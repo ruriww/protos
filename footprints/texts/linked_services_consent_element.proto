@@ -1,0 +1,38 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+import "footprints/texts/consent_visual.proto";
+import "footprints/texts/list.proto";
+import "footprints/texts/separator.proto";
+import "footprints/texts/checkbox_list.proto";
+import "footprints/texts/semantic_tag.proto";
+import "footprints/texts/linked_services_zippy_id.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message LinkedServicesConsentElement {
+	oneof consent_element {
+		webutil.html.types.SafeHtmlProto heading = 1;
+		webutil.html.types.SafeHtmlProto text = 2;
+		ConsentVisual visual = 3;
+		List list = 4;
+		Separator separator = 5;
+		CheckboxList checkbox_list = 6;
+		LinkedServicesContainer container = 8;
+		LinkedServicesZippy zippy = 9;
+	}
+
+	SemanticTag semantic_tag = 7;
+}
+
+message LinkedServicesContainer {
+	repeated LinkedServicesConsentElement elements = 1;
+}
+
+message LinkedServicesZippy {
+	webutil.html.types.SafeHtmlProto button_text = 1;
+	repeated LinkedServicesConsentElement elements = 2;
+	LinkedServicesZippyId zippy_id = 3;
+}

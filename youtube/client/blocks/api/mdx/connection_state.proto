@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+option objc_class_prefix = "YTBA";
+
+enum ConnectionState {
+	option features.enum_type = CLOSED;
+
+	CONNECTION_STATE_UNKNOWN = 0;
+	CONNECTION_STATE_DISCONNECTED = 1;
+	CONNECTION_STATE_CONNECTING = 2;
+	CONNECTION_STATE_CONNECTED = 3;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+import "ads/conversion_tracking/on_device_attribution/status.proto";
+
+option objc_class_prefix = "ADCO";
+
+message ReportAttributedSignalResponse {
+	int32 api_version = 1;
+	Status status = 2;
+}

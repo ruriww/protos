@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InfrastructureDataTrigger {
+	extend eventrules.trigger.Trigger {
+		InfrastructureDataTrigger infrastructure_data_trigger_extension = 235102461;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_BACK_NAVIGATION = 1;
+		TRIGGER_TYPE_SUBMIT_REQUEST_STARTED = 2;
+		TRIGGER_TYPE_SUBMIT_REQUEST_FINISHED = 3;
+		TRIGGER_TYPE_CLIENT_RESUMED_APP = 4;
+		TRIGGER_TYPE_FORWARD_NAVIGATION = 5;
+	}
+
+	TriggerType trigger_type = 1;
+}

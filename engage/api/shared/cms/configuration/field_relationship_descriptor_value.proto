@@ -1,0 +1,64 @@
+edition = "2023";
+
+package engage.api.shared.cms.configuration;
+
+import "engage/api/shared/cms/configuration/field_relationship_descriptor_context.proto";
+import "engage/enums/cms/configuration/cms_configuration_field_relationship_descriptor_enums.proto";
+
+option objc_class_prefix = "EASC";
+
+message FieldRelationshipDescriptorValue {
+	FieldRelationshipDescriptorContext frd_context = 1;
+
+	message ValueList {
+		message NamedExternalKey {
+			string external_key = 1;
+			string external_key_display_name = 2;
+		}
+
+		message IntList {
+			repeated int64 value = 1 [ features.repeated_field_encoding = EXPANDED ];
+		}
+
+		message StringList {
+			repeated string value = 1;
+		}
+
+		message DateTimeList {
+			repeated int64 value_time_millis = 1 [ features.repeated_field_encoding = EXPANDED ];
+		}
+
+		message BytesList {
+			repeated bytes value = 1;
+		}
+
+		message IntLists {
+			repeated IntList list = 1;
+		}
+
+		oneof values {
+			IntList int_values = 2;
+			StringList string_values = 3;
+			DateTimeList date_time_values = 4;
+			BytesList bytes_values = 5;
+			IntLists int_list_values = 6;
+			bool bool_value = 7;
+			StringList enum_value_identifiers = 8;
+		}
+	}
+
+	ValueList selected_value_list = 2;
+
+	enum ValueRelationshipType {
+		option features.enum_type = CLOSED;
+
+		VALUE_RELATIONSHIP_TYPE_UNSPECIFIED = 0;
+		VALUE_RELATIONSHIP_ALL = 1;
+		VALUE_RELATIONSHIP_ANY = 2;
+	}
+
+	ValueRelationshipType selected_value_list_relationship_type = 3;
+	string field_name = 4;
+	enums.cms.configuration.CmsConfigurationFieldRelationshipDescriptorEnums.Identifier frd_identifier = 5;
+	ValueList selected_test_value_list = 6;
+}

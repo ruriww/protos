@@ -1,0 +1,24 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message DeviceStateInfo {
+	int64 total_device_storage_bytes = 1;
+	int64 available_device_storage_bytes = 2;
+	int64 number_of_photos_available = 3;
+	int64 number_of_videos_available = 4;
+
+	enum LastExitStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CRASH = 1;
+		EXPECTED = 2;
+		APP_UPGRADED = 3;
+		IOS_UPGRADED = 4;
+	}
+
+	LastExitStatus last_exit_status = 5;
+}

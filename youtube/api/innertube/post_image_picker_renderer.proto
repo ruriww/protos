@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/post_image_picker_type.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostImagePickerRenderer {
+	int32 max_num_of_images = 1;
+	FormattedString title = 2;
+	FormattedString select_action_text = 3;
+	PostImagePickerType type = 4;
+	Command next_button_command = 5;
+	repeated Command post_creation_button_commands = 6;
+	Command creator_survey_command = 7;
+	Renderer gallery_media_gen_entry_point = 9;
+}
+
+extend Renderer {
+	PostImagePickerRenderer post_image_picker_renderer = 319255493;
+}

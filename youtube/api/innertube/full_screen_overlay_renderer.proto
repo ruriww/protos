@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/full_screen_overlay_renderer_alignment.proto";
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/full_screen_overlay_renderer_status_bar_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FullScreenOverlayRenderer {
+	Renderer item = 1;
+
+	oneof dismissal {
+		Command dismissal_endpoint = 2;
+		Command dismissal_command = 13;
+		Renderer dismiss_button = 14;
+	}
+
+	float max_content_width = 3;
+	ThumbnailSupportedRenderers background_thumbnail = 4;
+	bool enable_landscape = 5;
+	FullScreenOverlayRendererAlignment vertical_alignment = 7;
+	Datas color_data = 8;
+	repeated Command impression_endpoints = 9;
+	bytes tracking_params = 11;
+	FullScreenOverlayRendererStatusBarStyle status_bar_style = 12;
+}
+
+extend Renderer {
+	FullScreenOverlayRenderer full_screen_overlay_renderer = 162801955;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+option objc_class_prefix = "CTC";
+
+enum ContactsUIType {
+	option features.enum_type = CLOSED;
+
+	CONTACTS_UI_TYPE_UNSPECIFIED = 0;
+	CONTACTS = 1;
+	CONTACTSHEET = 2;
+	HOVERCARD = 3;
+	COMPANION = 4;
+	OBAKE = 5;
+	LIMITED_PROFILES = 6;
+	ALTERNATE_PROFILES = 7;
+}

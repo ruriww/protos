@@ -1,0 +1,23 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileStateTypeContainer {
+	enum SearchProfileStateType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PROFILE_STATE = 0;
+		STATE_DRAFT = 1;
+		STATE_FAILED_PHONE_VERIFICATION = 2;
+		STATE_FAILED_ID_VERIFICATION = 3;
+		STATE_FAILED_CONTENT_VERIFICATION = 4;
+		STATE_NEEDS_MANUAL_REVIEW = 5;
+		STATE_PUBLIC = 6;
+		STATE_DELETED = 7;
+		STATE_CONTENT_VERIFICATION_REQUIRED = 8;
+		STATE_REJECTED_FOR_IMPERSONATION = 9;
+		STATE_REQUIRES_ID_VERIFICATION = 10;
+	}
+}

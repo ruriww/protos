@@ -1,0 +1,14 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/header_type.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "IDC";
+
+message WebBasedRenderingParams {
+	bool is_prewarm = 1;
+	HeaderType header_type = 2;
+	google.protobuf.Timestamp user_triggered_show_primitives_time = 3;
+}

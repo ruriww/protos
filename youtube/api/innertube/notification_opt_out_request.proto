@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationOptOutRequest {
+	InnerTubeContext context = 1;
+	uint32 notification_type = 2;
+	bool undo = 3;
+	bytes serialized_opt_out = 4;
+	bytes serialized_record_interactions_request = 5;
+	bool show_success_toast = 6;
+	bool is_opt_down = 7;
+}

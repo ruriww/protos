@@ -1,0 +1,16 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/packet_generator_options.proto";
+
+option objc_class_prefix = "Drishti";
+
+message PacketGeneratorConfig {
+	string packet_generator = 1;
+	repeated string input_side_packet = 2;
+	repeated string output_side_packet = 3;
+	PacketGeneratorOptions options = 4;
+	repeated string external_input = 1002;
+	repeated string external_output = 1003;
+}

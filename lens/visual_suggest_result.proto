@@ -1,0 +1,19 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message VisualSuggestResult {
+	enum ActionType {
+		ACTION_TYPE_UNSPECIFIED = 0;
+		ACTION_TYPE_SEARCH = 1;
+		ACTION_TYPE_COPY_TEXT = 2;
+		ACTION_TYPE_SOLVE = 3;
+		ACTION_TYPE_SUMMARIZE = 4;
+		ACTION_TYPE_TRANSLATE = 5;
+	}
+
+	ActionType type = 1;
+	string renderable_text = 2;
+}

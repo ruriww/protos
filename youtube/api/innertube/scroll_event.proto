@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/scroll_orientation.proto";
+import "youtube/api/innertube/scroll_direction.proto";
+import "youtube/api/innertube/dropped_frames_summary.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScrollEvent {
+	string client_screen_nonce = 1;
+	int32 duration_ms = 2;
+	int32 net_displacement_points = 3;
+	ScrollOrientation orientation = 4;
+	ScrollDirection direction = 5;
+	float max_scroll_velocity_on_touch_release = 6;
+	bool auto_scroll = 7;
+	int32 start_content_offset_points = 8;
+	DroppedFramesSummary dropped_frames_summary = 9;
+	int32 screen_ve_type = 10;
+	int32 start_content_vertical_offset_points = 11;
+	int32 start_content_horizontal_offset_points = 12;
+	int32 scroll_index = 13;
+	bool jank_measurement_enabled = 14;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/music_pass_subscribed_info_renderer.proto";
+import "youtube/api/innertube/music_pass_small_feature_info_renderer.proto";
+import "youtube/api/innertube/music_pass_feature_info_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	MusicPassSubscribedInfoRenderer music_pass_subscribed_info_renderer = 62971085;
+}
+
+extend Renderer {
+	MusicPassSmallFeatureInfoRenderer music_pass_small_feature_info_renderer = 62539050;
+}
+
+extend Renderer {
+	MusicPassFeatureInfoRenderer music_pass_feature_info_renderer = 62971408;
+}

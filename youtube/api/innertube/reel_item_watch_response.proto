@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/reel_player_overlay_supported_renderers.proto";
+import "youtube/api/innertube/player_response.proto";
+import "youtube/api/innertube/reel_item_watch_status.proto";
+import "youtube/api/innertube/reel_loop_behavior.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/reel_player_scrubber.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelItemWatchResponse {
+	ResponseContext response_context = 1;
+	ReelPlayerOverlaySupportedRenderers overlay = 3;
+	PlayerResponse player_response = 4;
+	ReelItemWatchStatus status = 7;
+	string debug_info = 8;
+	bytes tracking_params = 10;
+	ReelLoopBehavior loop_behavior = 12;
+	Command replacement_endpoint = 13;
+	string sequence_continuation = 14;
+	Renderer desktop_topbar = 15;
+	Renderer tooltip = 16;
+	repeated EngagementPanelSupportedRenderers engagement_panels = 17;
+	Renderer watch_status = 18;
+	Renderer topbar = 19;
+	Command on_response_received_command = 21;
+	Renderer background = 22;
+	google.protobuf.Timestamp response_timestamp = 23;
+	string updatable_video_invalidation_signal_entity_key = 24;
+	Renderer endscreen_renderer = 25;
+	ReelPlayerScrubber scrubber = 26;
+	Renderer microformat = 27;
+	repeated Renderer ad_slots = 28;
+	Command on_page_entered_command = 29;
+	Renderer bottom_action_bar = 30;
+	Renderer persistent_education = 31;
+	Renderer on_horizontal_swipe_container = 32;
+	FrameworkUpdateTransport framework_updates = 777;
+}

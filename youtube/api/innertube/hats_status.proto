@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HatsStatus {
+	option features.enum_type = CLOSED;
+
+	HATS_STATUS_UNSPECIFIED = 0;
+	HATS_STATUS_REQUESTED = 1;
+	HATS_STATUS_NO_ELIGIBLE_SURVEY = 2;
+	HATS_STATUS_REQUEST_FAILED = 3;
+	HATS_STATUS_PRESENTED = 4;
+	HATS_STATUS_PRESENT_FAILED = 5;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_state.proto";
+import "youtube/api/innertube/offlined_video_update.proto";
+import "youtube/api/innertube/offline_logging_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinedVideoSetUpdate {
+	OfflineState offline_state = 1;
+	repeated OfflinedVideoUpdate videos = 2;
+	OfflineLoggingData offline_logging_data = 3;
+}

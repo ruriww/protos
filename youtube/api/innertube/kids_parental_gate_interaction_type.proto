@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsParentalGateInteractionType {
+	option features.enum_type = CLOSED;
+
+	KIDS_PARENTAL_GATE_INTERACTION_TYPE_UNKNOWN = 0;
+	KIDS_PARENTAL_GATE_INTERACTION_TYPE_PASS = 1;
+	KIDS_PARENTAL_GATE_INTERACTION_TYPE_WRONG_ANSWER = 2;
+	KIDS_PARENTAL_GATE_INTERACTION_TYPE_GIVE_UP = 3;
+}

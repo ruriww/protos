@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowMessageInputPromptCommand {
+	Renderer live_chat_message_input_renderer = 1;
+}
+
+extend Command {
+	ShowMessageInputPromptCommand show_message_input_prompt_command = 398472935;
+}

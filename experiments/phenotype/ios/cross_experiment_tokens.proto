@@ -1,0 +1,14 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+import "experiments/phenotype/ios/cross_experiment_token.proto";
+
+option objc_class_prefix = "EPI";
+
+message CrossExperimentTokens {
+	string from_config_package = 1;
+	string from_obfuscated_gaia_id = 2;
+	string to_config_package = 3;
+	repeated CrossExperimentToken token = 4;
+}

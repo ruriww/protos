@@ -1,0 +1,40 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "notifications/platform/common/proto/custom_prompt.proto";
+import "notifications/platform/common/proto/feature_highlight.proto";
+import "notifications/platform/common/proto/tooltip.proto";
+import "notifications/platform/common/proto/permission_prompt.proto";
+import "notifications/platform/common/proto/native_app_rating_review.proto";
+import "notifications/platform/common/proto/custom_ui.proto";
+import "notifications/platform/common/proto/placement.proto";
+
+option objc_class_prefix = "GNPC";
+
+message GnpInAppRenderableContent {
+	oneof format {
+		CustomPrompt custom_prompt_format = 1;
+		FeatureHighlight feature_highlight_format = 2;
+		Tooltip tooltip_format = 3;
+		PermissionPrompt permission_prompt_format = 4;
+		NativeAppRatingReview native_rating_review_format = 5;
+		CustomUi custom_ui_format = 13;
+		Placement placement_format = 14;
+	}
+
+	bool is_counterfactual = 7;
+
+	enum UiTheme {
+		option features.enum_type = CLOSED;
+
+		UI_THEME_UNSPECIFIED = 0;
+		UI_THEME_GOOGLE_MATERIAL = 1;
+		UI_THEME_GOOGLE_MATERIAL_NEXT = 2;
+	}
+
+	UiTheme ui_theme = 8;
+	bool use_dynamic_colors = 9;
+	repeated int32 westeros_mendel_id = 11 [ features.repeated_field_encoding = EXPANDED ];
+	bool westeros_log_experiment_to_device_logs = 12;
+}

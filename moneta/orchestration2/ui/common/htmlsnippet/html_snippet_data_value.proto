@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.htmlsnippet;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message HtmlSnippetDataValue {
+	extend data.DataValue {
+		HtmlSnippetDataValue html_snippet_data_value_extension = 301214406;
+	}
+
+	string html_snippet_value = 1;
+}

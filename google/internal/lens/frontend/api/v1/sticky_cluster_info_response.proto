@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/request_context/routing_info.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message StickyClusterInfoResponse {
+	string session_id = 1;
+	string gws_session_id = 2;
+	.lens.request_context.RoutingInfo routing_info = 3;
+}

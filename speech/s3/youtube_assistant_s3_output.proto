@@ -1,0 +1,23 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/response.proto";
+
+option objc_class_prefix = "S3";
+
+message YoutubeAssistantS3Output {
+	extend Response {
+		YoutubeAssistantS3Output youtube_assistant_s3_output = 194146072;
+	}
+
+	oneof response {
+		bytes youtube_assistant_response = 1;
+		string youtube_assistant_response_json = 2;
+	}
+
+	oneof soundsearch_response {
+		bytes sound_search_service_event = 3;
+		string sound_search_service_event_json = 4;
+	}
+}

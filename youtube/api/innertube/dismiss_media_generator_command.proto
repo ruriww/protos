@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DismissMediaGeneratorCommand {
+	extend Command {
+		DismissMediaGeneratorCommand dismiss_media_generator_command = 1366;
+	}
+
+	bool hack = 1;
+
+	oneof page_stack_action {
+		bool add_to_back_stack = 2;
+		bool pop_back_stack = 3;
+	}
+}

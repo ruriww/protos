@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/buyflow/instantbuy/purchase_context.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message InternalClientPurchaseContext {
+	instantbuy.PurchaseContext instant_buy_purchase_context = 7;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.templatetext;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/data/data_value_field_reference.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TemplateTextData {
+	extend data.Data {
+		TemplateTextData template_text_data_extension = 228971049;
+	}
+
+	repeated int64 child_data_reference = 1 [ features.repeated_field_encoding = EXPANDED ];
+	string template = 2;
+	repeated data.DataValueFieldReference child_data_field_reference = 3;
+}

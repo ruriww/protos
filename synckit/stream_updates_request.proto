@@ -1,0 +1,20 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/session_id.proto";
+import "synckit/co_activity_update.proto";
+import "synckit/stream_updates_request_type.proto";
+import "synckit/recording_state.proto";
+import "synckit/recording_severity_level.proto";
+
+option objc_class_prefix = "GSYP";
+
+message StreamUpdatesRequest {
+	SessionId session_id = 1;
+	CoActivityUpdate local_update = 2;
+	StreamUpdatesRequestType request_type = 3;
+	RecordingState recording_state = 4;
+	RecordingSeverityLevel recording_severity_level = 5;
+	bytes cipher = 6;
+}

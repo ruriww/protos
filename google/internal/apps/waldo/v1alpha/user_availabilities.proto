@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/user_availability.proto";
+import "google/protobuf/timestamp.proto";
+import "google/internal/apps/waldo/v1alpha/working_hours.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message UserAvailabilities {
+	repeated UserAvailability availabilities = 1;
+	protobuf.Timestamp next_poll_time = 2;
+	WorkingHours working_hours = 3;
+}

@@ -1,0 +1,99 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/video_jump_to_scene_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/video_rich_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/video_style.proto";
+import "youtube/api/innertube/video_engagement_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString description_snippet = 4;
+	FormattedString long_byline_text = 5;
+	FormattedString published_time_text = 6;
+	FormattedString length_text = 7;
+	FormattedString view_count_text = 8;
+	Command navigation_endpoint = 9;
+	repeated BadgeSupportedRenderers badges = 10;
+	repeated BadgeSupportedRenderers owner_badges = 11;
+	repeated FormattedString additional_metadatas = 12;
+	string debug_html = 14;
+	FormattedString owner_text = 15;
+	UpcomingEventData upcoming_event_data = 17;
+	FormattedString short_byline_text = 18;
+
+	oneof channel_thumbnail_or_channel_thumbnail_supported_renderers {
+		ThumbnailDetails channel_thumbnail = 19;
+		ChannelThumbnailSupportedRenderers channel_thumbnail_supported_renderers = 33;
+	}
+
+	message VideoOfflineabilitySupportedRenderers {
+		OfflineabilityRenderer offlineability_renderer = 60572968;
+	}
+
+	VideoOfflineabilitySupportedRenderers offlineability = 20;
+	bytes tracking_params = 21;
+	repeated ThumbnailBadgeSupportedRenderers thumbnail_badges = 23;
+	repeated Command service_endpoints = 24;
+	bool show_action_menu = 25;
+	FormattedString short_view_count_text = 26;
+	bool is_watched = 27;
+	MenuSupportedRenderers menu = 28;
+	VideoJumpToSceneSupportedRenderers jump_to_scene = 29;
+	bool show_longer_description = 30;
+	StandaloneBadgeSupportedRenderers standalone_badge = 32;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 34;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 35;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 36;
+	VideoRichThumbnailSupportedRenderers rich_thumbnail = 37;
+	VideoStyle style = 38;
+	VideoEngagementButtonSupportedRenderers like_button = 39;
+	VideoEngagementButtonSupportedRenderers dislike_button = 40;
+	VideoEngagementButtonSupportedRenderers post_comment_button = 41;
+	VideoEngagementButtonSupportedRenderers live_chat_button = 42;
+	repeated Renderer buttons = 44;
+	VideoClientBindingData video_client_binding_data = 45;
+	Command service_endpoint = 46;
+	Icon inline_title_icon = 47;
+	Command inline_playback_endpoint = 50;
+	Renderer thumbnail_underlay = 51;
+	Renderer expandable_metadata = 52;
+	FormattedString untranslated_title = 53;
+	Command untranslated_navigation_endpoint = 54;
+	string search_video_result_entity_key = 55;
+	FormattedString untranslated_description_snippet = 56;
+	Renderer attached_survey = 57;
+	int32 max_title_lines = 58;
+	Renderer avatar = 59;
+	Command impression_endpoint = 60;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	VideoRenderer video_renderer = 50577878;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/offline_content_descriptor.proto";
+import "customer_support/help/mobile/proto/offline_contextual_recommendation.proto";
+import "customer_support/help/mobile/proto/offline_feeling_lucky_recommendation.proto";
+
+option objc_class_prefix = "CSHM";
+
+message OfflineBundleConfiguration {
+	string product_id = 1;
+	repeated OfflineContentDescriptor default_recommendation = 2;
+	repeated OfflineContextualRecommendation contextual_recommendation = 3;
+	repeated OfflineFeelingLuckyRecommendation feeling_lucky_recommendation = 4;
+}

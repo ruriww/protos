@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridNarrowPlaylistRenderer {
+	string playlist_id = 1;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 2;
+	FormattedString title = 3;
+	FormattedString short_byline_text = 4;
+	FormattedString video_count_text = 5;
+	FormattedString video_count_short_text = 6;
+	Command navigation_endpoint = 7;
+	MenuSupportedRenderers menu = 8;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 9;
+	bytes tracking_params = 11;
+	int32 title_max_line_count = 12;
+	ButtonSupportedRenderers bottom_buttons = 13;
+	repeated BadgeSupportedRenderers badges = 14;
+	repeated BadgeSupportedRenderers owner_badges = 15;
+}
+
+extend Renderer {
+	GridNarrowPlaylistRenderer grid_narrow_playlist_renderer = 145831208;
+}

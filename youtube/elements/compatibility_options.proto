@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/version_compatibility_range.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CompatibilityOptions {
+	repeated VersionCompatibilityRange ios_versions = 1;
+	repeated VersionCompatibilityRange android_versions = 2;
+	string ios_support_notes = 3;
+	string android_support_notes = 4;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsContentGroupHeroRenderer {
+	FormattedString title = 1;
+	Renderer hero = 3;
+	Renderer browse_button = 5;
+	bytes tracking_params = 8;
+	Datas bg_color_palette = 9;
+}
+
+extend Renderer {
+	KidsContentGroupHeroRenderer kids_content_group_hero_renderer = 154971701;
+}

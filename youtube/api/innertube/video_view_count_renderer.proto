@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoViewCountRenderer {
+	FormattedString view_count = 1;
+	FormattedString help_text = 2;
+	bool is_live = 3;
+	FormattedString short_view_count = 4;
+	FormattedString extra_short_view_count = 5;
+	string entity_key = 6;
+	FormattedString unlabeled_view_count_value = 7;
+	FormattedString view_count_label = 8;
+	int64 original_view_count = 9;
+}
+
+extend Renderer {
+	VideoViewCountRenderer video_view_count_renderer = 70044402;
+}

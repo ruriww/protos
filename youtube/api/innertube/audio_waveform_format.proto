@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AudioWaveformFormat {
+	int32 itag = 1;
+	string xtags = 2;
+	string url = 3;
+	string mime_type = 4;
+	int32 sample_rate = 5;
+	int32 bits_per_sample = 6;
+	int32 channels = 7;
+	int64 approx_duration_ms = 8;
+	int64 file_size = 9;
+	int64 last_modified = 10;
+}

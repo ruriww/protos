@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnimationEntity {
+	string key = 1;
+	float start = 2;
+	float end = 3;
+	bool had_user_interaction = 4;
+}

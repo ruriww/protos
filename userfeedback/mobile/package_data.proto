@@ -1,0 +1,13 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message PackageData {
+	string package_name = 1;
+	string installer_package_name = 2;
+	string process_name = 3;
+	int32 package_version = 4;
+	string package_version_name = 5;
+}

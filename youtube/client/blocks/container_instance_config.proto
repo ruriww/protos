@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+option objc_class_prefix = "YTB";
+
+message ContainerInstanceConfig {
+	bool ignore_stream_write_errors = 1;
+	map<int32, int32> runtime_impl_overrides = 2;
+	bool enable_objc_same_language_optimization = 3;
+	bool enable_ts_same_language_optimization = 4;
+	bool use_mutex_for_lifecycle_state = 5;
+
+	extensions 1000 to max;
+}

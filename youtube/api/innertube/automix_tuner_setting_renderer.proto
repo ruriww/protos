@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/automix_tuner_setting_thumbnail_renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutomixTunerSettingRenderer {
+	FormattedString setting_label = 1;
+
+	message AutomixTunerSettingThumbnailSupportedRenderers {
+		AutomixTunerSettingThumbnailRenderer automix_tuner_setting_thumbnail_renderer = 97840359;
+	}
+
+	repeated AutomixTunerSettingThumbnailSupportedRenderers tuner_images = 2;
+	bytes tracking_params = 6;
+}

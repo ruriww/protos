@@ -1,0 +1,16 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/image.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message AnimatedImage {
+	string animation_url = 1;
+	string animation_url_dark = 2;
+	int32 width = 3;
+	int32 height = 4;
+	Image placeholder_image = 5;
+	string alt_text = 6;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitDiskIOMetric {
+	double cumulative_logical_writes_bytes = 1;
+}

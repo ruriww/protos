@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/tastebuilder_contents_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/tastebuilder_data_policy.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/tastebuilder_item_list_renderer.proto";
+import "youtube/api/innertube/tastebuilder_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TastebuilderRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	repeated TastebuilderContentsSupportedRenderers contents = 3;
+	ButtonSupportedRenderers accept_button = 4;
+	ButtonSupportedRenderers dismiss_button = 5;
+	repeated Command impression_endpoints = 6;
+	int32 items_needed = 7;
+	bytes tracking_params = 9;
+	int32 additional_content_threshold = 10;
+	Command additional_content_endpoint = 11;
+	TastebuilderDataPolicy data_policy = 12;
+	Renderer search_bar = 13;
+	Renderer header = 14;
+}
+
+extend Renderer {
+	TastebuilderRenderer tastebuilder_renderer = 121288100;
+}
+
+extend Renderer {
+	TastebuilderItemListRenderer tastebuilder_item_list_renderer = 119090873;
+}
+
+extend Renderer {
+	TastebuilderItemRenderer tastebuilder_item_renderer = 119339461;
+}

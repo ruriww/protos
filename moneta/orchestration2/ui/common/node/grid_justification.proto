@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum GridJustification {
+	option features.enum_type = CLOSED;
+
+	GRID_JUSTIFICATION_UNKNOWN = 0;
+	GRID_JUSTIFICATION_AUTO = 1;
+	GRID_JUSTIFICATION_START = 2;
+	GRID_JUSTIFICATION_END = 3;
+	GRID_JUSTIFICATION_CENTER = 4;
+	GRID_JUSTIFICATION_STRETCH = 5;
+}

@@ -1,0 +1,87 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "webutil/html/types/trusted_resource_url_proto.proto";
+import "youtube/api/innertube/embedded_link_loading_policy.proto";
+import "youtube/api/innertube/web_view_url_matcher.proto";
+import "youtube/api/innertube/web_view_use_case.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/mini_app_context.proto";
+import "youtube/api/innertube/web_view_authentication_type.proto";
+import "youtube/api/innertube/web_view_ad_signals_data.proto";
+import "youtube/api/innertube/mini_app_web_view_delegate.proto";
+import "youtube/api/innertube/web_view_deep_link_config.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WebViewRenderer {
+	oneof url_oneof {
+		webutil.html.types.TrustedResourceUrlProto url = 1;
+		string untrusted_url = 14;
+	}
+
+	bool authenticate_with_google_account = 2;
+	Command on_failure_command = 3;
+	bytes tracking_params = 5;
+	EmbeddedLinkLoadingPolicy embedded_link_loading_policy = 6;
+	string web_view_entity_key = 7;
+	map<string, Command> web_to_native_message_map = 8;
+	repeated WebViewUrlMatcher web_view_url_matchers = 9;
+	EmbeddedLinkLoadingPolicy new_window_link_loading_policy = 10;
+	WebViewUseCase web_view_use_case = 11;
+	bool enable_web_view_bottom_toolbar = 12;
+	bool disable_web_view_loading_spinner = 13;
+	bool disable_web_view_bounce = 15;
+	string additional_user_agent = 16;
+	repeated string open_in_browser_urls = 18;
+	Renderer loading_renderer = 19;
+	bool dismiss_loading_manually = 20;
+	Command on_background_command = 21;
+	Command on_exit_command = 22;
+	Command on_non_critical_failure_command = 23;
+	Command on_initiated_command = 24;
+	Command on_loaded_command = 25;
+	MiniAppContext mini_app_context = 26;
+	Command on_system_back_gesture_command = 27;
+	Command on_web_view_message_not_supported_command = 28;
+	repeated string first_party_host_name_allow_list = 29;
+	WebViewAuthenticationType authentication_type = 30;
+	Command on_navigate_away_from_url_command = 31;
+	Command ad_termination_command = 32;
+	bool should_maintain_minimum_height = 33;
+
+	message WebViewGestureCommands {
+		Command on_tap_command = 1;
+		Command on_scroll_up_command = 2;
+	}
+
+	WebViewGestureCommands gesture_commands = 34;
+	WebViewAdSignalsData web_view_ad_signals_data = 35;
+	Command on_web_view_open_command = 36;
+	Command on_shown_command = 37;
+	Command on_hidden_command = 38;
+	bool supports_webview_website_deep_link = 39;
+	bool disable_loading_screen_experiments = 40;
+	bool use_web_view_renderer_v2 = 41;
+	map<string, Command> external_native_message_map = 42;
+	string web_view_id = 43;
+
+	oneof delegate {
+		MiniAppWebViewDelegate mini_app_web_view_delegate = 44;
+	}
+
+	string data_bridge_js_object_name = 45;
+	WebViewDeepLinkConfig deep_link_config = 46;
+	bool enable_scrolling = 47;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	WebViewRenderer web_view_renderer = 449330433;
+}

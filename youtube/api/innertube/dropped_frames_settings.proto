@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DroppedFramesSettings {
+	bool enabled = 1;
+	float render_threshold_ms = 2;
+	float single_frame_threshold_ms = 3;
+	float average_frame_threshold_ms = 4;
+	float fraction_of_runs_to_sample = 6;
+	float sampling_timer_interval_ms = 9;
+	float sampling_leeway_ms = 10;
+	bool is_only_main_thread = 11;
+	int32 max_snapshot_capacity = 12;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.notifications;
+
+import "youtube/api/innertube/push_notification_supported_renderers.proto";
+
+option objc_class_prefix = "YTNP";
+
+message IosPushNotificationPayload {
+	api.innertube.PushNotificationSupportedRenderers push_notification_supported_renderers = 1;
+	int32 attachment_url_retry_interval_sec = 2;
+	int32 attachment_url_max_retries = 3;
+	string attachment_url = 4;
+	string attachment_url_static = 5;
+	string channel_avatar_url = 6;
+	int32 logging_url_retry_interval_sec = 7;
+	int32 logging_url_max_retries = 8;
+	string impression_logging_url = 9;
+	string datasync_id_token = 10;
+}

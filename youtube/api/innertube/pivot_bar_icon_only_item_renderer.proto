@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/pivot_bar_item_presentation_style.proto";
+import "youtube/api/innertube/pivot_bar_navigation_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PivotBarIconOnlyItemRenderer {
+	extend Renderer {
+		PivotBarIconOnlyItemRenderer pivot_bar_icon_only_item_renderer = 318370163;
+	}
+
+	string pivot_identifier = 1;
+	string target_id = 2;
+	Command navigation_endpoint = 3;
+	AccessibilitySupportedDatas accessibility = 4;
+
+	oneof image {
+		Icon icon = 5;
+		ThumbnailDetails thumbnail = 10;
+	}
+
+	PivotBarItemPresentationStyle presentation_style = 6;
+	PivotBarNavigationType navigation_type = 7;
+	bytes tracking_params = 9;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InnerTubeCapability {
+	uint32 capability = 1;
+	repeated uint32 features = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated string experiment_flags = 6;
+	uint32 contextual_capability = 7;
+}

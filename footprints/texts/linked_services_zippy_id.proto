@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.texts;
+
+option objc_class_prefix = "FOOTC";
+
+enum LinkedServicesZippyId {
+	option features.enum_type = CLOSED;
+
+	LINKED_SERVICES_ZIPPY_ID_UNSPECIFIED = 0;
+	LINKED_SERVICES_ZIPPY_ID_THINGS_TO_KNOW = 1;
+	LINKED_SERVICES_ZIPPY_ID_DATA_USAGE = 2;
+	LINKED_SERVICES_ZIPPY_ID_UNCHANGED_INFORMATION = 3;
+}

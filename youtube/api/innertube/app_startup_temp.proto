@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AppStartupTemp {
+	option features.enum_type = CLOSED;
+
+	APP_STARTUP_TEMP_UNKNOWN = 0;
+	APP_STARTUP_TEMP_COLD = 1;
+	APP_STARTUP_TEMP_FROZEN_APP_UPDATE = 2;
+	APP_STARTUP_TEMP_FROZEN_FRESH_INSTALL_OR_DATA_CLEARED = 3;
+	APP_STARTUP_TEMP_COLD_UNKNOWN = 4;
+	APP_STARTUP_TEMP_WARM = 5;
+	APP_STARTUP_TEMP_HOT = 6;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+enum FamilyRole {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_FAMILY_ROLE = 0;
+	HEAD_OF_HOUSEHOLD = 1;
+	PARENT = 2;
+	MEMBER = 3;
+	CHILD = 4;
+	UNCONFIRMED_MEMBER = 5;
+}

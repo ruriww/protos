@@ -1,0 +1,37 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/audio_doc_article_metadata_processing_options.proto";
+import "google/search/readaloud/v1/audio_encoding.proto";
+import "google/search/readaloud/v1/translation_strategy.proto";
+import "google/search/readaloud/v1/text_mode.proto";
+import "google/search/readaloud/v1/text_extraction_strategy.proto";
+import "google/search/readaloud/v1/session_info.proto";
+import "google/search/readaloud/v1/audio_generation_options.proto";
+import "google/search/readaloud/v1/content_hint.proto";
+import "google/search/readaloud/v1/page_type.proto";
+import "google/search/readaloud/v1/web_page_version.proto";
+import "google/search/readaloud/v1/text_part_unit.proto";
+import "google/search/readaloud/v1/audio_doc_mode.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioDocProcessingOptions {
+	bool disable_caching = 1;
+	bool disable_image_download = 2;
+	AudioDocArticleMetadataProcessingOptions article_metadata = 3;
+	repeated string experimental_flags = 4;
+	string force_language = 5;
+	AudioEncoding audio_encoding = 6;
+	TranslationStrategy translation_strategy = 7;
+	TextMode text_mode = 8;
+	TextExtractionStrategy text_extraction_strategy = 9;
+	SessionInfo session_info = 10;
+	AudioGenerationOptions audio_generation_options = 11;
+	ContentHint content_hint = 12;
+	PageType page_type = 13;
+	WebPageVersion web_page_version = 14;
+	TextPartUnit text_part_unit = 15;
+	AudioDocMode audio_doc_mode = 16;
+}

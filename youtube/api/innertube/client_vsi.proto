@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/container_id.proto";
+import "youtube/api/innertube/codec_id.proto";
+import "youtube/api/innertube/pixel_format_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientVSI {
+	double av_length = 1;
+	int32 video_width = 2;
+	int32 video_height = 3;
+	bool video_has_leading_moov_atom = 4;
+	ContainerId container_id = 5 [ default = CONTAINER_ID_NONE ];
+	CodecId video_codec_id = 6 [ default = CODEC_ID_NONE ];
+	CodecId audio_codec_id = 7 [ default = CODEC_ID_NONE ];
+	double video_fps = 8;
+	PixelFormatId pixel_format_id = 9 [ default = PIXEL_FORMAT_ID_UNKNOWN ];
+	int32 audio_channels = 10;
+	int64 video_stream_index = 11;
+	int64 audio_stream_index = 12;
+}

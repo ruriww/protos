@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_operation_type.proto";
+import "logs/proto/contacts/common/error_status.proto";
+
+option objc_class_prefix = "CTC";
+
+message OperationSummary {
+	customer_support.content.guidance.chat.v1.AOperationType type = 1;
+	int64 latency = 2;
+	ErrorStatus error_status = 3;
+}

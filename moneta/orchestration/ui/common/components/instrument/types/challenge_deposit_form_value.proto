@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message ChallengeDepositFormValue {
+	string id = 1;
+	bytes form_token = 2;
+	generic.UiFieldValue money_input_value = 4;
+}

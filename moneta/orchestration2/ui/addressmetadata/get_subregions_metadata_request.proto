@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.addressmetadata;
+
+import "moneta/orchestration2/ui/common/request_context.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GetSubregionsMetadataRequest {
+	common.RequestContext context = 1;
+	bytes opaque_token = 2;
+	int32 option_tag = 3;
+}

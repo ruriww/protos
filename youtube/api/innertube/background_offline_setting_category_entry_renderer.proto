@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackgroundOfflineSettingCategoryEntryRenderer {
+	FormattedString title = 1;
+	bool is_background_enabled = 2;
+	bool is_offline_enabled = 3;
+	bytes tracking_params = 5;
+	bool is_cross_device_offline_enabled = 6;
+	bool is_1080p_format_option_available = 7;
+	bool is_recommendations_enabled = 8;
+	bool is_download_quality_enabled = 9;
+	bool should_display_smart_downloads = 10;
+	repeated OfflineabilityFormatType download_quality_formats = 11;
+	OfflineabilityFormatType default_smart_downloads_quality_format = 12;
+	OfflineabilityFormatType default_shorts_smart_downloads_quality_format = 13;
+	Icon icon = 14;
+	repeated OfflineabilityFormatType smart_downloads_quality_formats = 15;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/tflite_model_type.proto";
+import "youtube/api/innertube/tflite_model_error_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TfliteModelError {
+	TfliteModelType model_type = 1;
+	TfliteModelErrorType error_type = 2;
+	string model_filename = 3;
+	string tensor_name = 4;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+import "moneta/testing/demoserver/teststudio/proto/test_scenario.proto";
+
+option objc_class_prefix = "TSLSSE";
+
+message InitialLoadResponse {
+	TestScenario test_scenario = 1;
+	string encrypted_parameters = 2;
+	int64 execution_id = 3;
+	string client_parameters_in_jspb = 4;
+}

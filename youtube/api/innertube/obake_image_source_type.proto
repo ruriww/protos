@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ObakeImageSourceType {
+	option features.enum_type = CLOSED;
+
+	OBAKE_IMAGE_SOURCE_TYPE_UNKNOWN = 0;
+	OBAKE_IMAGE_SOURCE_TYPE_CAMERA = 1;
+	OBAKE_IMAGE_SOURCE_TYPE_DEVICE_PHOTO = 2;
+	OBAKE_IMAGE_SOURCE_TYPE_GOOGLE_PHOTOS = 3;
+	OBAKE_IMAGE_SOURCE_TYPE_ILLUSTRATION = 4;
+	OBAKE_IMAGE_SOURCE_TYPE_AI_SELFIE = 5;
+	OBAKE_IMAGE_SOURCE_TYPE_PAST_PROFILE_PHOTO = 6;
+}

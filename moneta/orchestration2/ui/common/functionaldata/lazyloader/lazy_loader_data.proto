@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.lazyloader;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message LazyLoaderData {
+	extend data.Data {
+		LazyLoaderData lazy_loader_data_extension = 462181704;
+	}
+
+	repeated int64 data_reference = 1;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+option objc_class_prefix = "RCH";
+
+message OneGoogleTriggeringEvent {
+	enum OneGoogleTriggeringEventReason {
+		option features.enum_type = CLOSED;
+
+		ONE_GOOGLE_TRIGGERING_EVENT_REASON_UNSPECIFIED = 0;
+		ACCOUNT_MENU_OPENED = 1;
+		ACCOUNT_SWITCHED = 2;
+		PERIODIC_POLL = 3;
+		TICKLE_RECEIVED = 4;
+		TAB_SWITCH = 5;
+		SECURITY_ADVISOR_FLOW_COMPLETED = 6;
+		WEB_PAGE_LOAD = 7;
+	}
+
+	OneGoogleTriggeringEventReason reason = 1;
+}

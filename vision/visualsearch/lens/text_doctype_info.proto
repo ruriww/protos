@@ -1,0 +1,15 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "vision/visualsearch/lens/text_doctype.proto";
+import "vision/visualsearch/lens/medium_type.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message TextDoctypeInfo {
+	TextDoctype text_doctype = 1;
+	float score = 2;
+	MediumType medium_type = 3;
+	float medium_score = 4;
+}

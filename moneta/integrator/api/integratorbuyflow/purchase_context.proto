@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.integrator.api.integratorbuyflow;
+
+import "moneta/integrator/common/cart/cart.proto";
+import "moneta/integrator/common/fundsguarantee/funds_guarantee_criteria.proto";
+
+option objc_class_prefix = "IBuyFlow";
+
+message PurchaseContext {
+	oneof context {
+		string currency_code = 4;
+		common.cart.Cart cart = 7;
+		bytes serialized_checkout_cart = 8;
+	}
+
+	common.fundsguarantee.FundsGuaranteeCriteria funds_guarantee_criteria = 6;
+	string physical_store_id = 12;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package af.data;
+
+import "net/loadshedding/request_qo_s.proto";
+import "framework/experiments/encrypted_selected_experiments.proto";
+import "proto2/bridge/message_set.proto";
+import "af/data/client_info.proto";
+
+option objc_class_prefix = "AFD";
+
+message BatchDataRequestHeader {
+	string effective_user = 1;
+	string consistency_token_jar = 2;
+	string experiment_override = 4;
+	net.loadshedding.RequestQoS request_qos = 6;
+	bytes social_client_bytes = 7;
+	framework.experiments.EncryptedSelectedExperiments encrypted_selected_experiments = 8;
+	repeated string consistency_token_jars = 9;
+	proto2.bridge.MessageSet custom_extensions = 10;
+	ClientInfo client_info = 11;
+}

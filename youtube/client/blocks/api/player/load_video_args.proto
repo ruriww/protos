@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/api/innertube/command.proto";
+
+option objc_class_prefix = "YTBA";
+
+message LoadVideoArgs {
+	youtube.api.innertube.Command navigation_endpoint = 1;
+	bool disable_watch_next = 2;
+}

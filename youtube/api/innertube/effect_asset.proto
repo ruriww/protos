@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/applied_control_input_value.proto";
+import "youtube/api/innertube/asset_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EffectAsset {
+	string asset_id = 1;
+	string asset_logging_id = 2;
+	repeated AppliedControlInputValue applied_control_input_values = 3;
+	AssetSource asset_source = 4;
+	bytes serialized_generative_media_params = 5;
+	bool are_asset_id_and_logging_id_purged = 6;
+}

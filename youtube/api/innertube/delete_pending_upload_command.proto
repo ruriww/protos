@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DeletePendingUploadCommand {
+	extend elements.Command {
+		DeletePendingUploadCommand delete_pending_upload_command = 525000008;
+	}
+
+	string upload_frontend_id = 1;
+	Command on_success = 2;
+	Command on_failed = 3;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShoppingAdInfoCardContentLayout {
+	enum ShoppingAdInfoCardContentLayoutType {
+		option features.enum_type = CLOSED;
+
+		SHOPPING_AD_INFO_CARD_CONTENT_LAYOUT_TYPE_UNKNOWN = 0;
+		SHOPPING_AD_INFO_CARD_CONTENT_LAYOUT_TYPE_TRUEVIEW_FOR_SHOPPING = 1;
+		SHOPPING_AD_INFO_CARD_CONTENT_LAYOUT_TYPE_PRODUCT_LISTING_AD = 2;
+	}
+
+	ShoppingAdInfoCardContentLayoutType layout_type = 1 [ default = SHOPPING_AD_INFO_CARD_CONTENT_LAYOUT_TYPE_TRUEVIEW_FOR_SHOPPING ];
+}

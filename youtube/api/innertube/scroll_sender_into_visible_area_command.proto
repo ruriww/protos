@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScrollSenderIntoVisibleAreaCommand {
+	extend elements.Command {
+		ScrollSenderIntoVisibleAreaCommand scroll_sender_into_visible_area_command = 325821959;
+	}
+
+	string parent_container_a11y_id = 1;
+	bool in_bottom_sheet = 2;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/heartbeat_request_params.proto";
+import "youtube/api/innertube/heartbeat_client_playback_state.proto";
+import "youtube/api/innertube/attestation_response_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeartbeatRequest {
+	InnerTubeContext context = 1;
+	string video_id = 2;
+	string heartbeat_token = 3;
+	HeartbeatRequestParams heartbeat_request_params = 5;
+	string cpn = 6;
+	int32 sequence_number = 7;
+	bytes heartbeat_server_data = 8;
+	HeartbeatClientPlaybackState playback_state = 9;
+	AttestationResponseData attestation_response = 10;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MediaCompositionSetAudioSourceArgs {
+	api.innertube.Command audio_gssv_command = 1;
+	string player_instance_id = 2;
+}

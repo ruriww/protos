@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mutate_creation_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GenerateCompositionCreationContext {
+	extend MutateCreationContext {
+		GenerateCompositionCreationContext generate_composition_creation_context = 1;
+	}
+
+	oneof opaque_feature_options {
+		bytes opaque_video_editing_plan_options = 1;
+		bytes opaque_mutate_voiceover_params = 2;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/page_metadata_lite.proto";
+
+option objc_class_prefix = "CSHM";
+
+message SupportContentPageLite {
+	string html = 1;
+	string title = 4;
+	string redirect_url = 5;
+	PageMetadataLite page_metadata = 6;
+	int32 application_error = 8;
+	string long_title = 9;
+	string fingerprint = 10;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/shared/user_type.proto";
+import "apps/dynamite/app_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message UserId {
+	string id = 1;
+	shared.UserType type = 2;
+	AppId origin_app_id = 3;
+	string acting_user_id = 4;
+}

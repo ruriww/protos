@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PickerMerchant {
+	int64 id = 1;
+	string merchant_name = 2;
+	string url = 3;
+
+	message Identifier {
+		oneof identifier {
+			uint64 merchant_id = 1;
+			uint64 aggregator_id = 2;
+			string youtube_group_id = 3;
+		}
+	}
+
+	repeated Identifier identifiers = 4;
+	double global_score = 5;
+
+	enum MerchantType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		FIRST_PARTY_MERCHANT = 1;
+		THIRD_PARTY_MERCHANT = 2;
+		ALL_CONNECTED_STORES = 3;
+		ALL_THIRD_PARTY_MERCHANTS = 4;
+	}
+
+	MerchantType merchant_type = 6;
+}

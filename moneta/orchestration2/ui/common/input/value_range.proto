@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+option objc_class_prefix = "ORCH2";
+
+message ValueRange {
+	int64 min_numeric_value_in_micros = 1;
+	int64 max_numeric_value_in_micros = 2;
+}

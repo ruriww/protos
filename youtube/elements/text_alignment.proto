@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum TextAlignment {
+	option features.enum_type = CLOSED;
+
+	TEXT_ALIGNMENT_UNKNOWN = 0;
+	TEXT_ALIGNMENT_LEFT = 1;
+	TEXT_ALIGNMENT_RIGHT = 2;
+	TEXT_ALIGNMENT_CENTER = 3;
+	TEXT_ALIGNMENT_JUSTIFIED = 4;
+	TEXT_ALIGNMENT_LAYOUT_START = 5;
+}

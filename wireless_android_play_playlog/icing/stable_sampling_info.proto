@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+option objc_class_prefix = "ICING";
+
+message StableSamplingInfo {
+	bool stable_sampling_used = 1;
+	int64 stable_sampling_first_enabled_timestamp_ms = 2;
+	bool part_of_always_logging_group = 3;
+	bool invalid_sampling_rate_used = 4;
+}

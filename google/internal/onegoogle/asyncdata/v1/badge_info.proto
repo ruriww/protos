@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+import "google/internal/onegoogle/asyncdata/v1/badge_type.proto";
+import "google/internal/onegoogle/asyncdata/v1/badge_behavior.proto";
+import "google/internal/onegoogle/asyncdata/v1/badge_source.proto";
+
+option objc_class_prefix = "OGADS";
+
+message BadgeInfo {
+	BadgeType badge_type = 1;
+	BadgeBehavior badge_behavior = 2;
+	BadgeSource badge_source = 3;
+}

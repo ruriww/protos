@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SlimOwnerDividerStyle {
+	option features.enum_type = CLOSED;
+
+	SLIM_OWNER_DIVIDER_STYLE_UNSPECIFIED = 0;
+	SLIM_OWNER_DIVIDER_STYLE_NONE = 1;
+	SLIM_OWNER_DIVIDER_STYLE_FULL_BLEED_THIN = 2;
+	SLIM_OWNER_DIVIDER_STYLE_INSET_THIN = 3;
+	SLIM_OWNER_DIVIDER_STYLE_FULL_BLEED_THICK = 4;
+}

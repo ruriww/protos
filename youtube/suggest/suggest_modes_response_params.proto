@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.suggest;
+
+option objc_class_prefix = "YTS";
+
+message SuggestModesResponseParams {
+	map<int32, string> header_mapping = 1;
+}

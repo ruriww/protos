@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/api/innertube/creation_image_asset.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GenerateSuggestedPromptsArgs {
+	youtube.api.innertube.CreationImageAsset input_image = 1;
+	string serialized_gdca_token = 2;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package googledata.experiments.mobile.moneta_ios.proto;
+
+option objc_class_prefix = "GWA";
+
+message DataRealmHostnames {
+	map<string, string> data_realm_hostnames = 1;
+}

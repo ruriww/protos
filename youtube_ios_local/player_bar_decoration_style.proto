@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+import "youtube_ios_local/player_bar_decoration_shape.proto";
+import "youtube_ios_local/player_bar_decoration_color.proto";
+import "youtube_ios_local/player_bar_gradient_color.proto";
+import "youtube_ios_local/player_bar_rounded_corners.proto";
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarDecorationStyle {
+	PlayerBarDecorationShape shape = 1;
+	PlayerBarDecorationColor color = 2;
+	double fixed_width = 4;
+	double fixed_height = 5;
+	bool has_border = 6;
+	double elastic_from_time_sec = 7;
+	double elastic_to_time_sec = 8;
+	PlayerBarGradientColor gradient_color = 9;
+	PlayerBarRoundedCorners rounded_corners = 10;
+	double fixed_start_position = 11;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message VideoCardExperiment {
+	float percentage_width = 1;
+	float max_width = 2;
+	bool enable_feed_items_touch_feedback = 3;
+	bool disable_modern_collections_v2 = 5;
+	bool disable_inline_playback_flex_grow = 6;
+	bool should_poll_upload_feedback = 9;
+	bool enable_rounded_corners_for_imp = 10;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message CrisisAlertContext {
+	string alert_mid = 1;
+	string alert_id = 2;
+}

@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package google.android.gsf.checkin;
+
+option java_package = "com.google.android.gsf.checkin.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message AndroidEventProto {
+	optional string tag = 1;
+	optional string value = 2;
+	optional int64 time_msec = 3;
+}

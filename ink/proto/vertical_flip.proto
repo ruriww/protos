@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum VerticalFlip {
+	option features.enum_type = CLOSED;
+
+	VERTICAL_FLIP_UNSPECIFIED = 0;
+	VERTICAL_FLIP_Y_UP = 1;
+	VERTICAL_FLIP_Y_DOWN = 2;
+}

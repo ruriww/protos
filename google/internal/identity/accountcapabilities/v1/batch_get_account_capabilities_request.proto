@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.identity.accountcapabilities.v1;
+
+option objc_class_prefix = "GIIAC";
+
+message BatchGetAccountCapabilitiesRequest {
+	repeated string names = 2;
+}

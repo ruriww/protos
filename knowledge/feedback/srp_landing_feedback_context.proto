@@ -1,0 +1,25 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+import "unknown/youtube/event_id_message.proto";
+
+option objc_class_prefix = "UFR";
+
+message SrpLandingFeedbackContext {
+	message NotificationContentId {
+		string content_domain = 1;
+		string id = 3;
+	}
+
+	NotificationContentId content_id = 1;
+	string url_fingerprint = 4;
+
+	message DocEntitySignal {
+		string mid = 1;
+		float topicality_score = 2;
+	}
+
+	repeated DocEntitySignal entity_signals = 5;
+	unknown.youtube.EventIdMessage parent_event_id = 6;
+}

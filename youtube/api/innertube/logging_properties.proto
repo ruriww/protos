@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoggingProperties {
+	bytes tracking_params = 1;
+	bool disable_explicit_tap = 2;
+	bool disable_explicit_double_tap = 3;
+	bool disable_explicit_long_press = 4;
+
+	extensions 900 to max;
+}

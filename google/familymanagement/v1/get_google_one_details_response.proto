@@ -1,0 +1,37 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message GetGoogleOneDetailsResponse {
+	bool has_subscription = 1;
+	bool shared_with_family = 2;
+
+	message Self {
+	}
+
+	message Other {
+		string first_name = 1;
+		string gender = 2;
+	}
+
+	oneof sharer {
+		Self self = 3;
+		Other other = 4;
+	}
+
+	string plan_name = 5;
+	string benefits = 6;
+
+	enum PlanType {
+		option features.enum_type = CLOSED;
+
+		PLAN_TYPE_UNSPECIFIED = 0;
+		BASIC = 1;
+		PREMIUM = 2;
+		PREMIUM_AI = 3;
+	}
+
+	PlanType plan_type = 7;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/transparencyandcontrol/proto/consent_decision.proto";
+import "footprints/texts/primitiveconsent/rich_text.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message RadioButtonList {
+	uint32 id = 1;
+
+	message RadioButton {
+		repeated transparencyandcontrol.proto.ConsentDecision decisions = 3;
+		bool selected_state = 4;
+		bool saved_state = 5;
+		RichText text = 7;
+		RichText description = 8;
+	}
+
+	repeated RadioButton radio_button = 2;
+	string unselected_option_error_message = 3;
+
+	message RadioButtonListStyle {
+		bool without_separators = 1;
+	}
+
+	RadioButtonListStyle radio_button_list_style = 4;
+}

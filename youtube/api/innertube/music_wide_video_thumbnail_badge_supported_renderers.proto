@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_badge_renderer.proto";
+import "youtube/api/innertube/music_pivot_badge_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicWideVideoThumbnailBadgeSupportedRenderers {
+	oneof renderer {
+		LiveBadgeRenderer live_badge_renderer = 50921414;
+		MusicPivotBadgeRenderer music_pivot_badge_renderer = 65013849;
+	}
+}

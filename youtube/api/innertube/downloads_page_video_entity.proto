@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/badge_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsPageVideoEntity {
+	extend EntityMutationPayload {
+		DownloadsPageVideoEntity downloads_page_video_entity = 173;
+	}
+
+	string key = 1;
+	ThumbnailDetails thumbnail = 2;
+	string title = 3;
+	string channel_owner = 4;
+	int32 video_length_seconds = 5;
+	string download_status = 6;
+	int32 playback_position_seconds = 7;
+	string video_id = 8;
+	bool is_android = 9;
+	bool is_large_form_factor = 10;
+	int32 ui_type = 11;
+	string view_count_text = 13;
+	string video_length_accessibility_text = 14;
+	string published_time_text = 15;
+	repeated BadgeInfo badge_info = 17;
+	string view_count_accessibility_text = 18;
+}

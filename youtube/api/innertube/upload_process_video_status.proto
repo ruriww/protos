@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadProcessVideoStatus {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_PROCESS_VIDEO_STATUS_UNKNOWN = 0;
+	UPLOAD_PROCESS_VIDEO_STATUS_OK = 1;
+	UPLOAD_PROCESS_VIDEO_STATUS_FAILED = 2;
+	UPLOAD_PROCESS_VIDEO_STATUS_FAILED_TRANSIENT = 3;
+}

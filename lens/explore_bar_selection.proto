@@ -1,0 +1,19 @@
+edition = "2023";
+
+package lens;
+
+import "lens/mode.proto";
+import "lens/lens_refinement_actions.proto";
+import "lens/multimodal_text_query.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ExploreBarSelection {
+	oneof selection {
+		Mode mode = 1;
+		LensRefinementActions refinement = 2;
+		MultimodalTextQuery multimodal_text_query = 3;
+	}
+
+	string label = 4;
+}

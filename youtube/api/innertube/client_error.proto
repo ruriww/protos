@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/error_meta_data.proto";
+import "youtube/api/innertube/error_stack_trace.proto";
+import "youtube/api/innertube/log_message.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientError {
+	ErrorMetaData error_metadata = 1;
+	ErrorStackTrace stack_trace = 2;
+	LogMessage log_message = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+enum ResponseResultProto {
+	RESPONSE_RESULT_UNSPECIFIED = 0;
+	RESPONSE_RESULT_SUCCESS = 1;
+	RESPONSE_RESULT_FAILURE = 2;
+}

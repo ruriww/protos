@@ -1,0 +1,21 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/criterion.proto";
+
+option objc_class_prefix = "CADP";
+
+message RemoteConnectionSummary {
+	Criterion receiver_application = 1;
+	bool is_reconnect = 2;
+	bool suspend_on_app_backgrounded = 3;
+	bool connection_failed = 4;
+	int64 connection_start_duration_ms = 5;
+	int64 connection_end_duration_ms = 6;
+	int32 status_code = 7;
+	int32 data_received_count = 8;
+	repeated int32 unexpected_error = 9;
+	string connection_id = 10;
+	bool connection_skipped = 11;
+}

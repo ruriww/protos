@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+option objc_class_prefix = "ORCH2";
+
+enum RequestMethodType {
+	option features.enum_type = CLOSED;
+
+	REQUEST_METHOD_TYPE_UNKNOWN = 0;
+	REQUEST_METHOD_TYPE_POST = 1;
+	REQUEST_METHOD_TYPE_GET = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "lens/device_info.proto";
+import "lens/cloud_copy_action_data.proto";
+
+option objc_class_prefix = "LFE";
+
+message SendCloudCopyPayloadResponse {
+	.lens.DeviceInfo target_device = 1;
+	.lens.CloudCopyActionData.CopyMode copy_mode = 2;
+
+	enum ErrorCode {
+		NO_ERROR = 0;
+		TIMEOUT = 1;
+		ENCRYPTION_FAILED = 2;
+		INTERNAL = 3;
+	}
+
+	ErrorCode error_code = 3;
+}

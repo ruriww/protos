@@ -1,0 +1,21 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message PhenotypeExperimentData {
+	repeated string direct_experiment_token = 1;
+
+	enum NoTokensReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NO_TOKENS_RETURNED = 1;
+		PHENOTYPE_FAILURE = 2;
+		USER_MISMATCH = 3;
+	}
+
+	NoTokensReason no_tokens_reason = 2;
+	repeated string server_token = 3;
+}

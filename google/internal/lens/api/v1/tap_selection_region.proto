@@ -1,0 +1,27 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "lens/center_rotated_box.proto";
+
+option objc_class_prefix = "LFE";
+
+message TapSelectionRegion {
+	enum Type {
+		UNKNOWN = 0;
+		TAP = 1;
+		REGION = 2;
+		TEXT_SELECTION = 3;
+		TAP_LIVE_TEXT = 4;
+	}
+
+	Type type = 1;
+	int32 top = 2;
+	int32 left = 3;
+	int32 width = 4;
+	int32 height = 5;
+	float angle_degrees = 6;
+	float zoom = 7;
+	string text = 8;
+	.lens.CenterRotatedBox selection_box = 9;
+}

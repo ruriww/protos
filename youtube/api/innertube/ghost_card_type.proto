@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum GhostCardType {
+	option features.enum_type = CLOSED;
+
+	GHOST_CARD_TYPE_UNKNOWN = 0;
+	GHOST_CARD_TYPE_SLIM_VIDEO_TITLE_BAR = 1;
+	GHOST_CARD_TYPE_SLIM_VIDEO_METADATA_BAR = 2;
+	GHOST_CARD_TYPE_VIDEO_WITH_CONTEXT = 3;
+	GHOST_CARD_TYPE_COMMENTS = 4;
+	GHOST_CARD_TYPE_VIDEO_FULL_BLEED_WITH_CONTEXT = 5;
+	GHOST_CARD_TYPE_SLIM_CHANNEL_BAR = 6;
+	GHOST_CARD_TYPE_SLIM_ACTION_BAR = 7;
+	GHOST_CARD_TYPE_SLIM_VIDEO_SUBTITLE_BAR = 8;
+}

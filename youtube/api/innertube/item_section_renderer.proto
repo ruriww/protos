@@ -1,0 +1,73 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/item_section_supported_renderers.proto";
+import "youtube/api/innertube/item_section_supported_continuations.proto";
+import "youtube/api/innertube/item_section_header_supported_renderers.proto";
+import "youtube/api/innertube/item_section_background_supported_renderers.proto";
+import "youtube/api/innertube/separator_details.proto";
+import "youtube/api/innertube/item_section_autoload_override_behavior.proto";
+import "youtube/api/innertube/targeting_context.proto";
+import "youtube/api/innertube/data_source_behavior.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/item_section_header_renderer.proto";
+import "youtube/api/innertube/item_section_menu_header_renderer.proto";
+import "youtube/api/innertube/item_section_title_menu_header_renderer.proto";
+import "youtube/api/innertube/item_section_background_color_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ItemSectionRenderer {
+	extend ContinuationSupportedRenderers {
+		ItemSectionRenderer item_section_continuation = 50195462;
+	}
+
+	repeated ItemSectionSupportedRenderers contents = 1;
+	repeated ItemSectionSupportedContinuations continuations = 2;
+	bytes tracking_params = 4;
+	ItemSectionHeaderSupportedRenderers header = 5;
+	ItemSectionBackgroundSupportedRenderers background = 6;
+	string section_identifier = 7;
+	bool hide_bottom_separator = 8;
+	uint32 max_age_store_seconds = 9;
+	SeparatorDetails separator_details = 10;
+	bool hide_section_top_inset = 11;
+	ItemSectionAutoloadOverrideBehavior autoload_settings = 12;
+	string target_id = 13;
+	int32 scroll_to_item_at_position = 14;
+	int32 selected_index = 15;
+	SeparatorDetails top_separator_details = 18;
+	TargetingContext targeting_context = 19;
+	int32 relative_feed_position = 20;
+	DataSourceBehavior data_source_behavior = 21;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 287123187;
+	extensions 333461202;
+}
+
+extend Renderer {
+	ItemSectionRenderer item_section_renderer = 50195462;
+}
+
+extend Renderer {
+	ItemSectionHeaderRenderer item_section_header_renderer = 61393757;
+}
+
+extend Renderer {
+	ItemSectionMenuHeaderRenderer item_section_menu_header_renderer = 88941025;
+}
+
+extend Renderer {
+	ItemSectionTitleMenuHeaderRenderer item_section_title_menu_header_renderer = 199213812;
+}
+
+extend Renderer {
+	ItemSectionBackgroundColorRenderer item_section_background_color_renderer = 85043231;
+}

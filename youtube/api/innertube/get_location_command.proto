@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetLocationCommand {
+	extend Command {
+		GetLocationCommand get_location_command = 324237090;
+	}
+
+	Command on_success_command = 1;
+	Command on_failure_command = 2;
+	Command on_denied_command = 3;
+	Command on_loading_command = 4;
+	Command resolve_location_command = 5;
+	bool enable_filling_xgeo_header = 6;
+	int32 freshness_interval_milliseconds = 7;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reload_continuation_data.proto";
+import "youtube/api/innertube/timed_continuation_data.proto";
+import "youtube/api/innertube/invalidation_continuation_data.proto";
+import "youtube/api/innertube/live_chat_replay_continuation_data.proto";
+import "youtube/api/innertube/player_seek_continuation_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatSupportedContinuations {
+	ReloadContinuationData reload_continuation_data = 60487319;
+	TimedContinuationData timed_continuation_data = 70339736;
+	InvalidationContinuationData invalidation_continuation_data = 77894792;
+	LiveChatReplayContinuationData live_chat_replay_continuation_data = 145131358;
+	PlayerSeekContinuationData player_seek_continuation_data = 148230271;
+}

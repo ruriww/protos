@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/view_mode.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/generic/display_type_enum.proto";
+
+option objc_class_prefix = "Orch";
+
+message FormHeader {
+	string id = 1;
+	bytes data_token = 2;
+	string log_key = 3;
+	string title = 4;
+	repeated generic.InfoMessage description = 5;
+	bool is_optional = 6;
+	int64 ui_reference = 7;
+	generic.ViewMode view_mode = 8;
+	generic.Tooltip tooltip = 9;
+	generic.ImageWithCaption icon = 10;
+	repeated generic.ComponentGroup component_group = 13;
+	generic.DisplayTypeEnum.DisplayType display_type = 14;
+	bool hide_optional_text = 16;
+}

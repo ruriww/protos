@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetPdgBuyFlowCommand {
+	extend Command {
+		GetPdgBuyFlowCommand get_pdg_buy_flow_command = 257016449;
+	}
+
+	string buyflow_api_path = 1;
+	bytes params = 2;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.identity.reauth.v2;
+
+import "google/identity/reauth/v2/programmatic_challenge_type.proto";
+
+option objc_class_prefix = "GIDRA";
+
+message Challenge {
+	enum Status {
+		STATUS_UNSPECIFIED = 0;
+		PROPOSED = 1;
+		READY = 2;
+		RETRYABLE_ERROR = 3;
+	}
+
+	Status status = 1;
+	int32 challenge_id = 2;
+	ProgrammaticChallengeType challenge_type = 3;
+}

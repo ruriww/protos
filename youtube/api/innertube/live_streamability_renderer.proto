@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_stream_slate_supported_renderers.proto";
+import "youtube/api/innertube/stream_transition_timing.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveStreamabilityRenderer {
+	string video_id = 1;
+	string broadcast_id = 2;
+	Command stream_transition_endpoint = 3;
+	LiveStreamSlateSupportedRenderers offline_slate = 4;
+	int64 poll_delay_ms = 5;
+	bool switch_streams_immediately = 6;
+	bool display_endscreen = 7;
+	StreamTransitionTiming transition_timing = 10 [ default = STREAM_TRANSITION_TIMING_AT_HEAD ];
+}
+
+extend Renderer {
+	LiveStreamabilityRenderer live_streamability_renderer = 108363419;
+}

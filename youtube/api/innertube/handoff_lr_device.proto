@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HandoffLrDevice {
+	string discovery_device_id = 1;
+	string screen_id = 2;
+	string device_name = 3;
+	string device_brand = 4;
+	ClientInfo.ClientName client_name = 5;
+	string passive_sign_in_session_id = 6;
+}

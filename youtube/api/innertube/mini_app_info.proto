@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MiniAppInfo {
+	string external_post_id = 1;
+	string post_play_nonce = 2;
+	int32 local_release_id = 3;
+	ClientInfo.ClientName derived_device_interface = 4;
+}

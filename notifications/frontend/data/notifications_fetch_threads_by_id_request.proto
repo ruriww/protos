@@ -1,0 +1,17 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/target_metadata.proto";
+import "notifications/frontend/data/render_context.proto";
+import "notifications/frontend/data/notifications_fetch_latest_threads_request.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsFetchThreadsByIdRequest {
+	string client_id = 1;
+	repeated string identifier = 5;
+	TargetMetadata target_metadata = 6;
+	RenderContext render_context = 7;
+	NotificationsFetchLatestThreadsRequest.CFRFetchReason fetch_reason = 9;
+}

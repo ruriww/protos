@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visibility_update_request.proto";
+import "youtube/api/innertube/screen_graft_request.proto";
+import "youtube/api/innertube/click_request.proto";
+import "youtube/api/innertube/screen_graft_attach_child_request.proto";
+import "youtube/api/innertube/client_data.proto";
+import "youtube/api/innertube/inner_tube_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InteractionLoggingRequest {
+	InnerTubeContext context = 1;
+
+	message Interaction {
+		VisibilityUpdateRequest visibility_update = 1;
+		ScreenGraftRequest screen_graft = 2;
+		ClickRequest click = 3;
+		int64 event_time_ms = 4;
+		ScreenGraftAttachChildRequest attach_child = 5;
+		ClientData client_data = 6;
+		uint32 conn = 7;
+		int64 lact_ms = 8;
+	}
+
+	repeated Interaction interactions = 2;
+	int64 request_time_ms = 3;
+}

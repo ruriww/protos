@@ -1,0 +1,42 @@
+edition = "2023";
+
+package mdi.download;
+
+import "mdi/download/data_file.proto";
+import "mdi/download/download_conditions.proto";
+import "mdi/download/extra_http_header.proto";
+import "google/protobuf/any.proto";
+import "abuse/hades/transparency/proto/file_group_inclusion_proof.proto";
+
+option objc_class_prefix = "Icing";
+
+message DataFileGroup {
+	string group_name = 1;
+	repeated DataFile file = 2;
+	int64 stale_lifetime_secs = 3;
+	string owner_package = 6;
+	int32 file_group_version_number = 10;
+	int64 expiration_date = 11;
+
+	enum AllowedReaders {
+		option features.enum_type = CLOSED;
+
+		ALL_GOOGLE_APPS = 0;
+		ONLY_GOOGLE_PLAY_SERVICES = 1;
+		ALL_APPS = 2;
+	}
+
+	AllowedReaders allowed_readers_enum = 12;
+	DownloadConditions download_conditions = 13;
+	bool preserve_filenames_and_isolate_files = 14;
+	int32 traffic_tag = 16;
+	repeated ExtraHttpHeader group_extra_http_headers = 17;
+	google.protobuf.Any custom_property = 20;
+	int64 build_id = 23;
+	repeated string locale = 25;
+	string variant_id = 26;
+	google.protobuf.Any custom_metadata = 27;
+	google.protobuf.Any custom_downloader_metadata = 29;
+	abuse.hades.transparency.proto.FileGroupInclusionProof file_group_inclusion_proof = 30;
+	map<string, abuse.hades.transparency.proto.FileGroupInclusionProof> file_group_inclusion_proof_by_label = 31;
+}

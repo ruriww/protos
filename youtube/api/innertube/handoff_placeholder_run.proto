@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/string_run.proto";
+import "youtube/api/innertube/handoff_placeholder_type.proto";
+import "youtube/api/innertube/handoff_placeholder_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HandoffPlaceholderRun {
+	StringRun base_string_run = 1;
+	HandoffPlaceholderType placeholder_type = 2;
+	HandoffPlaceholderData placeholder_data = 3;
+}

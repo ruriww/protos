@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/get_video_editor_preview_url_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetVideoEditorPreviewUrlResult {
+	youtube.api.innertube.GetVideoEditorPreviewUrlResponse response = 1;
+}

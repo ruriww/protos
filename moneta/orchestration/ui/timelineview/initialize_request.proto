@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.timelineview;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+
+option objc_class_prefix = "TimelineView";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+	bytes encrypted_parameters = 2;
+}

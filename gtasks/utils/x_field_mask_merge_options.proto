@@ -1,0 +1,10 @@
+edition = "2023";
+
+package gtasks.utils;
+
+option objc_class_prefix = "TSK";
+
+message XFieldMaskMergeOptions {
+	bool replace_repeated_fields = 2 [ default = true ];
+	bool merge_unknown_fields = 3 [ default = true ];
+}

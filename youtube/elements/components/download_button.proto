@@ -1,0 +1,67 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/download_button_experiments.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadButton {
+	oneof content_id {
+		string video_id = 1;
+		string playlist_id = 2;
+	}
+
+	api.innertube.OfflineabilityRenderer offlineability_renderer = 3;
+	string completed_text = 4;
+	string in_progress_text = 5;
+	string downloadable_text = 6;
+	string completed_a11y_text = 7;
+	string in_progress_a11y_text = 8;
+	bytes tracking_params = 9;
+	string download_status_key = 12;
+	string generation_status_key = 13;
+
+	enum Layout {
+		option features.enum_type = CLOSED;
+
+		LAYOUT_UNSPECIFIED = 0;
+		LAYOUT_NO_TEXT = 1;
+		LAYOUT_SIDE_DISPLAY = 2;
+		LAYOUT_BELOW_DISPLAY = 3;
+		LAYOUT_VIDEO_ACTION_PILL = 4;
+		LAYOUT_VIDEO_ACTION_RECTANGLE_PILL = 5;
+		LAYOUT_VIDEO_ACTION_PILL_WITHOUT_TEXT = 6;
+		LAYOUT_VIDEO_ACTION_ANCHORED_ICON = 7;
+		LAYOUT_OVERLAY_ICON = 8;
+	}
+
+	Layout layout = 14;
+	bool show_menu_when_in_progress = 17;
+	bool use_grey_for_inactive_button = 18;
+	bool show_menu_as_bottom_sheet = 19;
+	string offlineability_entity_key = 20;
+	bool can_visibily_disable = 21;
+
+	enum DownloadButtonColor {
+		option features.enum_type = CLOSED;
+
+		DOWNLOAD_BUTTON_COLOR_UNSPECIFIED = 0;
+		DOWNLOAD_BUTTON_COLOR_TEXT_PRIMARY = 1;
+		DOWNLOAD_BUTTON_COLOR_OVERLAY_TEXT_PRIMARY = 2;
+	}
+
+	DownloadButtonColor icon_color = 23;
+	DownloadButtonColor text_color = 24;
+	Command on_visible_command = 25;
+	string downloadable_a11y_text = 26;
+	Command on_tap_command = 27;
+	DownloadButtonExperiments experiments = 28;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

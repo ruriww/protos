@@ -1,0 +1,13 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+import "knowledge/feedback/taxonomy.proto";
+
+option objc_class_prefix = "UFR";
+
+message UserInput {
+	Taxonomy.IssueType issue_type = 1;
+	string option_text = 2;
+	string comment = 3;
+}

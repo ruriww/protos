@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/feature_control.proto";
+import "youtube/api/innertube/environment.proto";
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FaceViewerRenderer {
+	repeated string effect_id = 1;
+	FeatureControl feature_control = 2;
+	string web_template_url = 3;
+	Environment env = 4;
+	string cta_url_override = 5;
+	repeated Ping effect_loaded_tracking_pings = 6;
+	LoggingDirectives logging_directives = 999;
+}

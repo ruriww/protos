@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/uncompressed_stroke.proto";
+
+option objc_class_prefix = "INKPB";
+
+message UncompressedElement {
+	UncompressedStroke uncompressed_stroke = 1;
+}

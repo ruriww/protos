@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Macro {
+	enum MacroType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		VSS_CONN = 2;
+		VSS_EVENT_TYPE = 11;
+		VSS_LACT = 12;
+		VSS_VIS = 6;
+		VSS_CMT = 1;
+		VSS_CPN = 3;
+		VSS_RT = 4;
+		VSS_STATE = 5;
+		VSS_AD_CMT = 7;
+		VSS_AD_CPN = 8;
+		VSS_AD_RT = 10;
+		VSS_AD_STATE = 9;
+		LOGGING_INSECURE_URL = 13;
+		QOE = 14;
+		DEVICE_ADVERTISER_ID = 15;
+		DEVICE_LAT = 16;
+		DEVICE_ADVERTISER_ID_FOR_CONVERSION_TRACKING = 17;
+	}
+
+	MacroType macro_type = 1;
+}

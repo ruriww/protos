@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/add_live_chat_text_message_from_template_supported_renderers.proto";
+import "youtube/api/innertube/chat_item_stickiness_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddLiveChatTextMessageFromTemplateAction {
+	extend Command {
+		AddLiveChatTextMessageFromTemplateAction add_live_chat_text_message_from_template_action = 126084307;
+	}
+
+	AddLiveChatTextMessageFromTemplateSupportedRenderers template = 1;
+	ChatItemStickinessParams stickiness_params = 2;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/creation_asset.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShareDynamicCreationAssetsCommand {
+	extend Command {
+		ShareDynamicCreationAssetsCommand share_dynamic_creation_assets_command = 22629;
+	}
+
+	repeated CreationAsset dynamic_creation_assets = 1;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/iosguard_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/player_attestation_botguard_renderer.proto";
+import "youtube/api/innertube/player_attestation_dummy_renderer.proto";
+import "youtube/api/innertube/player_attestation_adblock_reporting_renderer.proto";
+import "youtube/api/innertube/player_attestation_iosguard_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerAttestationRenderer {
+	string challenge = 1;
+	IosguardData iosguard_data = 3;
+	bool use_shared_challenge = 4;
+}
+
+extend Renderer {
+	PlayerAttestationRenderer player_attestation_renderer = 59961494;
+}
+
+extend Renderer {
+	PlayerAttestationBotguardRenderer player_attestation_botguard_renderer = 63290905;
+}
+
+extend Renderer {
+	PlayerAttestationDummyRenderer player_attestation_dummy_renderer = 63337038;
+}
+
+extend Renderer {
+	PlayerAttestationAdblockReportingRenderer player_attestation_adblock_reporting_renderer = 86954420;
+}
+
+extend Renderer {
+	PlayerAttestationIosguardRenderer player_attestation_iosguard_renderer = 129604219;
+}

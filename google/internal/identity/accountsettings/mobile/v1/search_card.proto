@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/action_chip.proto";
+
+option objc_class_prefix = "ASM";
+
+message SearchCard {
+	string placeholder_text = 1;
+	repeated ActionChip chips = 2;
+}

@@ -1,0 +1,49 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/target.proto";
+
+option objc_class_prefix = "NFD";
+
+message AnalyticsInfo {
+	oneof source {
+		string system_name = 1;
+		Target target = 2;
+	}
+
+	message UserInteractionInfo {
+		enum ActionType {
+			option features.enum_type = CLOSED;
+
+			ACTION_TYPE_UNSPECIFIED = 0;
+			CUSTOM = 1;
+			CLICKED = 2;
+			DISMISSED = 3;
+			EXPIRED = 4;
+			SHOWN = 5;
+			ACKNOWLEDGED = 6;
+			DECLINED = 7;
+			COUNTERFACTUAL = 8;
+		}
+
+		ActionType action_type = 1;
+		string action_id = 2;
+
+		enum EventSource {
+			option features.enum_type = CLOSED;
+
+			EVENT_SOURCE_UNSPECIFIED = 0;
+			SYSTEM_TRAY = 1;
+			INBOX = 2;
+			API = 3;
+			IN_APP = 4;
+		}
+
+		EventSource event_source = 3;
+	}
+
+	oneof channel_specific_info {
+		UserInteractionInfo user_interaction_info = 4;
+	}
+}

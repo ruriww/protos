@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HandoffGates {
+	bool require_same_network = 1;
+	bool require_no_local_playback = 2;
+	bool require_no_mdx_connection = 3;
+	bool require_mdx_screen_availability = 4;
+	bool require_lr_device_discovery = 5;
+	bool require_no_child_identity = 6;
+	bool require_premium_identity = 7;
+	bool require_foreground_execution = 8;
+	ClientFrequencyCapConfig client_frequency_cap_config = 9;
+}

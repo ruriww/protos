@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens;
+
+import "lens/coordinate_type.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message CenterRotatedBox {
+	float center_x = 1;
+	float center_y = 2;
+	float width = 3;
+	float height = 4;
+	float rotation_z = 5;
+	CoordinateType coordinate_type = 6;
+}

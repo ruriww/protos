@@ -1,0 +1,12 @@
+edition = "2023";
+
+package validator;
+
+import "validator/one_of_group.proto";
+
+option objc_class_prefix = "PBV";
+
+message Definitions {
+	repeated string feature = 1;
+	repeated OneOfGroup one_of_group = 2;
+}

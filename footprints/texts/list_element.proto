@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "footprints/texts/icon_list_item.proto";
+import "footprints/texts/bulleted_list_item.proto";
+import "footprints/texts/product_list_item.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ListElement {
+	oneof list_element {
+		IconListItem icon_list_item = 1;
+		BulletedListItem bulleted_list_item = 2;
+		ProductListItem product_list_item = 3;
+	}
+}

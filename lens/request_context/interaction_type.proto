@@ -1,0 +1,21 @@
+edition = "2023";
+
+package lens.request_context;
+
+option objc_class_prefix = "LNSRC";
+
+enum InteractionType {
+	UNKNOWN_INTERACTION = 0;
+	TAP = 1;
+	REGION = 2;
+	TEXT_SELECTION = 3;
+	REGION_SEARCH = 4;
+	OBJECT_FULFILLMENT = 5;
+	VIDEO_QUERY = 6;
+	LIVE_CONVERSATION_QUERY = 7;
+	LIVE_CONVERSATION_AIM_QUERY = 12;
+	OMNI_LIVE_QUERY = 8;
+	PDF_QUERY = 10;
+	WEBPAGE_QUERY = 11;
+	DRAW = 13;
+}

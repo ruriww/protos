@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message FamilyProductCorrelationId {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPE = 0;
+		FAMILY_SHARING_PLAY = 1;
+		FAMILY_SHARING_YOUTUBE = 2;
+		FAMILY_SHARING_CLOUDCAST = 3;
+		FAMILY_SHARING_P11 = 4;
+	}
+}

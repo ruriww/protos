@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/posts_external_links_feature.proto";
+import "youtube/api/innertube/posts_rate_limit_feature.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostsAdvancedTierFeatures {
+	PostsExternalLinksFeature external_links = 1;
+	PostsRateLimitFeature rate_limit = 2;
+}

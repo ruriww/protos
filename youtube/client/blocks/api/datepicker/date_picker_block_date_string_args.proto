@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.datepicker;
+
+import "youtube/api/innertube/date.proto";
+
+option objc_class_prefix = "YTBA";
+
+message DatePickerBlockDateStringArgs {
+	youtube.api.innertube.Date date = 1;
+}

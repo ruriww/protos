@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unlimited_subscription_info_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/unlimited_manage_family_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unlimited_subscription_info_renderer.proto";
+import "youtube/api/innertube/unlimited_user_notification_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnlimitedManageSubscriptionPageRenderer {
+	FormattedString subscription_title = 1;
+	repeated UnlimitedSubscriptionInfoSupportedRenderers subscription_infos = 2;
+	ButtonSupportedRenderers manage_subscription_button = 3;
+	repeated FormattedString additional_infos = 4;
+	bytes tracking_params = 6;
+	UnlimitedManageFamilyButtonSupportedRenderers manage_family_button = 7;
+	ButtonSupportedRenderers help_button = 8;
+	Renderer manage_fix_fop_button = 9;
+	Renderer offers = 10;
+	Command post_manage_family_redirect_endpoint = 11;
+}
+
+extend Renderer {
+	UnlimitedManageSubscriptionPageRenderer unlimited_manage_subscription_page_renderer = 91811524;
+}
+
+extend Renderer {
+	UnlimitedSubscriptionInfoRenderer unlimited_subscription_info_renderer = 90435102;
+}
+
+extend Renderer {
+	UnlimitedUserNotificationRenderer unlimited_user_notification_renderer = 116074546;
+}

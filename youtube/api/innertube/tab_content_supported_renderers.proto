@@ -1,0 +1,52 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/element_tab_renderer.proto";
+import "youtube/api/innertube/section_list_renderer.proto";
+import "youtube/api/innertube/item_section_renderer.proto";
+import "youtube/api/innertube/playlist_panel_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/setting_single_option_menu_renderer.proto";
+import "youtube/api/innertube/setting_boolean_renderer.proto";
+import "youtube/api/innertube/generic_promo_renderer.proto";
+import "youtube/api/innertube/setting_category_collection_renderer.proto";
+import "youtube/api/innertube/setting_action_renderer.proto";
+import "youtube/api/innertube/conversation_bar_renderer.proto";
+import "youtube/api/innertube/setting_read_only_item_renderer.proto";
+import "youtube/api/innertube/epg_renderer.proto";
+import "youtube/api/innertube/unplugged_content_details_renderer.proto";
+import "youtube/api/innertube/analytics_multi_column_tab_content_renderer.proto";
+import "youtube/api/innertube/music_page_content_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/music_queue_renderer.proto";
+import "youtube/api/innertube/flow_root_renderer.proto";
+import "youtube/api/innertube/music_split_view_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TabContentSupportedRenderers {
+	ElementTabRenderer element_tab_renderer = 1084;
+	SectionListRenderer section_list_renderer = 49399797;
+	ItemSectionRenderer item_section_renderer = 50195462;
+	PlaylistPanelRenderer playlist_panel_renderer = 50631000;
+	MessageRenderer message_renderer = 58508690;
+	SettingSingleOptionMenuRenderer setting_single_option_menu_renderer = 61321220;
+	SettingBooleanRenderer setting_boolean_renderer = 61331416;
+	GenericPromoRenderer generic_promo_renderer = 65665980;
+	SettingCategoryCollectionRenderer setting_category_collection_renderer = 66930374;
+	SettingActionRenderer setting_action_renderer = 71709717;
+	ConversationBarRenderer conversation_bar_renderer = 74886276;
+	SettingReadOnlyItemRenderer setting_read_only_item_renderer = 76886494;
+	EpgRenderer epg_renderer = 84078878;
+	UnpluggedContentDetailsRenderer unplugged_content_details_renderer = 118702303;
+	AnalyticsMultiColumnTabContentRenderer analytics_multi_column_tab_content_renderer = 150449772;
+	MusicPageContentRenderer music_page_content_renderer = 152202437;
+	ElementRenderer element_renderer = 153515154;
+	MusicQueueRenderer music_queue_renderer = 278751218;
+	FlowRootRenderer flow_root_renderer = 371777145;
+	MusicSplitViewRenderer music_split_view_renderer = 426806493;
+}

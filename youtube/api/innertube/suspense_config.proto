@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/suspense_continuation_data.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/suspense_entity_trigger_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuspenseConfig {
+	string suspense_key = 1;
+	Renderer contents = 2;
+	Renderer placeholder = 3;
+	Renderer error_contents = 4;
+
+	oneof continuation_options {
+		SuspenseContinuationData suspense_continuation_data = 5;
+		Command continuation_command = 6;
+	}
+
+	SuspenseEntityTriggerConfig entity_trigger_config = 7;
+}

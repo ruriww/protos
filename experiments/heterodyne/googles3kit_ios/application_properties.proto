@@ -1,0 +1,16 @@
+edition = "2023";
+
+package experiments.heterodyne.googles3kit_ios;
+
+option objc_class_prefix = "GSK";
+
+message ApplicationProperties {
+	enum BuildChannel {
+		UNKNOWN = 0;
+		DEV = 1;
+		DOGFOOD = 2;
+		PROD = 3;
+	}
+
+	BuildChannel build_channel = 1;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/server_queue_params.proto";
+import "communication/meetings/s11ysync/client_queue.proto";
+
+option objc_class_prefix = "GHM";
+
+message CoWatchingQueue {
+	ServerQueueParams server_queue_params = 1;
+	ClientQueue client_queue = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package lens;
+
+import "lens/client_image.proto";
+import "lens/zoomed_crop.proto";
+import "lens/client_signals.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ImageCrop {
+	string crop_id = 1;
+	ClientImage image = 2;
+	ZoomedCrop zoomed_crop = 3;
+	ClientSignals client_signals = 4;
+	uint64 crop_payload_id = 5;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelEntity {
+	extend EntityMutationPayload {
+		ChannelEntity channel_entity = 13;
+	}
+
+	string key = 1;
+	string channel_id = 2;
+	string title = 3;
+	ThumbnailDetails avatar = 4;
+	int32 video_count = 5;
+	int32 subscriber_count = 6;
+}

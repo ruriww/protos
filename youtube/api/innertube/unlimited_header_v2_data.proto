@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/thumbnail_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnlimitedHeaderV2Data {
+	extend Datas {
+		UnlimitedHeaderV2Data unlimited_header_v2_data = 150008866;
+	}
+
+	repeated uint32 scrim_layer_colors = 1 [ features.repeated_field_encoding = EXPANDED ];
+	ThumbnailSupportedRenderers background_thumbnail_small_factor = 2;
+	ThumbnailSupportedRenderers background_thumbnail_large_factor = 3;
+	ThumbnailSupportedRenderers logo_thumbnail = 4;
+}

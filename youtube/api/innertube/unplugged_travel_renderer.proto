@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedTravelRenderer {
+	ThumbnailDetails header_icon = 1;
+	FormattedString location_name = 2;
+	FormattedString title_text = 3;
+	FormattedString body_text = 4;
+	ButtonSupportedRenderers action_button = 5;
+	ButtonSupportedRenderers learn_more_ghelp_button = 6;
+	bytes tracking_params = 7;
+	repeated Command impression_endpoints = 9;
+	string current_dma_id = 10;
+	FormattedString header_text = 11;
+	repeated Renderer items = 12;
+	UnpluggedAnimationDetails animation = 14;
+	Command back_command = 15;
+}
+
+extend Renderer {
+	UnpluggedTravelRenderer unplugged_travel_renderer = 139486753;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message LinkedServicesDialogButton {
+	webutil.html.types.SafeHtmlProto text = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message ThirdPartyInfo {
+	int64 project_number = 1;
+	string client_name = 4;
+}

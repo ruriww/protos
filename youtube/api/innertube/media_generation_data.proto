@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaGenerationData {
+	message TextGeneration {
+		Command open_text_transform_panel_command = 1;
+		string text_transform_entity_key = 2;
+	}
+
+	TextGeneration text_generation = 1;
+
+	message TextToImageGeneration {
+		Renderer gallery_teaser_entry_point = 1;
+	}
+
+	TextToImageGeneration text_to_image_generation = 2;
+}

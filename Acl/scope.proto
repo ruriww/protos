@@ -1,0 +1,79 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+message Scope {
+	int64 GaiaId = 1;
+	string GaiaEmail = 2;
+	int64 InviteId = 3;
+	int64 GaiaGroup = 4;
+
+	message FocusGroup {
+		int64 OwnerGaiaId = 6;
+		int64 GroupId = 7;
+	}
+
+	FocusGroup focus_group = 5 [ features.message_encoding = DELIMITED ];
+	bool AllUsers = 8;
+	int64 OrginatingInviteId = 9;
+	bool AllAuthenticatedUsers = 10;
+
+	message ServiceBlob {
+		int32 ServiceId = 12;
+		bytes Blob = 13;
+	}
+
+	ServiceBlob service_blob = 11 [ features.message_encoding = DELIMITED ];
+
+	message Key {
+		uint64 KeyValue = 15;
+	}
+
+	Key key = 14 [ features.message_encoding = DELIMITED ];
+	string MdbUser = 17;
+	string MdbGroup = 18;
+	string LdapUser = 19;
+	string LdapGroup = 20;
+	int32 OBSOLETE_21 = 21;
+	bytes OBSOLETE_22 = 22;
+
+	message Circle {
+		int64 OwnerGaiaId = 24;
+		int64 CircleId = 25;
+	}
+
+	Circle circle = 23 [ features.message_encoding = DELIMITED ];
+
+	message Square {
+		int64 SquareId = 27;
+		int32 MemberType = 28;
+	}
+
+	Square square = 26 [ features.message_encoding = DELIMITED ];
+
+	message Event {
+		string EventId = 30;
+		int32 MemberType = 31;
+	}
+
+	Event event = 29 [ features.message_encoding = DELIMITED ];
+
+	message Chat {
+		string ChatId = 33;
+		int32 MemberType = 34;
+	}
+
+	Chat chat = 32 [ features.message_encoding = DELIMITED ];
+
+	message ResourceRole {
+		string OBSOLETE_36 = 36;
+		string OBSOLETE_37 = 37;
+		int32 role_id = 38;
+	}
+
+	ResourceRole resource_role = 35 [ features.message_encoding = DELIMITED ];
+	int64 AnonymousInviteId = 40;
+	bool NoUser = 41;
+}

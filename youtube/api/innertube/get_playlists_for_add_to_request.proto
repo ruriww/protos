@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetPlaylistsForAddToRequest {
+	InnerTubeContext context = 1;
+	repeated string video_ids = 2;
+	string playlist_id = 3;
+	bool show_watch_later = 4;
+	repeated string exclude_playlist_ids = 5;
+}

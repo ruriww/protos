@@ -1,0 +1,17 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/local_network_access_permission_status.proto";
+
+option objc_class_prefix = "CADP";
+
+message LocalNetworkPermissionInfo {
+	bool is_local_network_permission_allowed = 1;
+	bool is_probable_cast_user = 2;
+	bool was_local_network_permission_allowed = 3;
+	bool is_first_time_tapped = 4;
+	cast.LocalNetworkAccessPermissionStatus current_permission_status = 5;
+	cast.LocalNetworkAccessPermissionStatus previous_permission_status = 6;
+	bool should_present_local_network_access_permission_dialog = 7;
+}

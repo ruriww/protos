@@ -1,0 +1,70 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/universal_watch_card_renderer.proto";
+import "youtube/api/innertube/watch_card_rich_header_renderer.proto";
+import "youtube/api/innertube/watch_card_section_tab_renderer.proto";
+import "youtube/api/innertube/watch_card_section_dropdown_renderer.proto";
+import "youtube/api/innertube/watch_card_section_sequence_renderer.proto";
+import "youtube/api/innertube/watch_card_section_standalone_renderer.proto";
+import "youtube/api/innertube/vertical_watch_card_list_renderer.proto";
+import "youtube/api/innertube/watch_card_compact_video_renderer.proto";
+import "youtube/api/innertube/watch_card_hero_video_renderer.proto";
+import "youtube/api/innertube/single_hero_image_renderer.proto";
+import "youtube/api/innertube/collage_hero_image_renderer.proto";
+import "youtube/api/innertube/call_to_action_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	UniversalWatchCardRenderer universal_watch_card_renderer = 119956144;
+}
+
+extend Renderer {
+	WatchCardRichHeaderRenderer watch_card_rich_header_renderer = 117928329;
+}
+
+extend Renderer {
+	WatchCardSectionTabRenderer watch_card_section_tab_renderer = 117703174;
+}
+
+extend Renderer {
+	WatchCardSectionDropdownRenderer watch_card_section_dropdown_renderer = 147633782;
+}
+
+extend Renderer {
+	WatchCardSectionSequenceRenderer watch_card_section_sequence_renderer = 117548244;
+}
+
+extend Renderer {
+	WatchCardSectionStandaloneRenderer watch_card_section_standalone_renderer = 117457335;
+}
+
+extend Renderer {
+	VerticalWatchCardListRenderer vertical_watch_card_list_renderer = 117337765;
+}
+
+extend Renderer {
+	WatchCardCompactVideoRenderer watch_card_compact_video_renderer = 122814739;
+}
+
+extend Renderer {
+	WatchCardHeroVideoRenderer watch_card_hero_video_renderer = 122710540;
+}
+
+extend Renderer {
+	SingleHeroImageRenderer single_hero_image_renderer = 155483823;
+}
+
+extend Renderer {
+	CollageHeroImageRenderer collage_hero_image_renderer = 155492686;
+}
+
+extend Renderer {
+	CallToActionButtonRenderer call_to_action_button_renderer = 154950953;
+}

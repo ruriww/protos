@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum GroupDismissalBehavior {
+	option features.enum_type = CLOSED;
+
+	GROUP_DISMISSAL_BEHAVIOR_UNSPECIFIED = 0;
+	GROUP_DISMISSAL_BEHAVIOR_REMOVE_SUBSEQUENT_ITEMS = 1;
+	GROUP_DISMISSAL_BEHAVIOR_REMOVE_ALL_ITEMS = 2;
+}

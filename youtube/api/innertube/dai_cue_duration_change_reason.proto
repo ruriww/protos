@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DAICueDurationChangeReason {
+	option features.enum_type = CLOSED;
+
+	DAI_CUE_DURATION_CHANGE_REASON_UNKNOWN = 0;
+	DAI_CUE_DURATION_CHANGE_REASON_EARLY_RETURN = 1;
+	DAI_CUE_DURATION_CHANGE_REASON_FORCE_RETURN = 2;
+}

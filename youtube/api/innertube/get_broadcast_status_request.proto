@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetBroadcastStatusRequest {
+	InnerTubeContext context = 1;
+	bool include_default = 2;
+	bool include_live = 3;
+	repeated string video_ids = 4;
+	bool include_viewer_stats = 5;
+	bool include_vote_stats = 6;
+	bool include_content_id_status = 7;
+	string params = 8;
+	bool include_broadcast_duration = 9;
+	bool include_monitor_broadcast_offset = 10;
+	bool include_donation_stats = 11;
+	bool include_ads_reminder = 12;
+	int64 ads_reminder_cooldown_seconds = 14;
+	int64 ads_reminder_initial_cooldown_seconds = 15;
+	bool include_ads_automation_reminder_status = 16;
+	bool include_sticker_entrypoint_checks = 17;
+	bool include_recommendations = 18;
+	bool include_live_overlay_status = 19;
+	bool include_fanzone_properties = 20;
+}

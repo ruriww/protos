@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsVideoTitleViewModel {
+	extend Renderer {
+		ShortsVideoTitleViewModel shorts_video_title_view_model = 1080;
+	}
+
+	elements.AttributedString text = 1;
+	uint32 max_lines = 2;
+	elements.Command truncated_text_on_tap_command = 3;
+	LoggingDirectives logging_directives = 999;
+}

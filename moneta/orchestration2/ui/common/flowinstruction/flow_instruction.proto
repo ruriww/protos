@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.flowinstruction;
+
+import "moneta/orchestration2/ui/common/flowinstruction/set_page.proto";
+import "moneta/orchestration2/ui/common/flowinstruction/update_current_page.proto";
+import "moneta/orchestration2/ui/common/flowinstruction/non_ui_finish.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FlowInstruction {
+	enum FlowInstructionType {
+		option features.enum_type = CLOSED;
+
+		FLOW_INSTRUCTION_TYPE_UNKNOWN = 0;
+		FLOW_INSTRUCTION_TYPE_SET_PAGE = 1;
+		FLOW_INSTRUCTION_TYPE_UPDATE_CURRENT_PAGE = 2;
+		FLOW_INSTRUCTION_TYPE_DO_NOTHING = 3;
+		FLOW_INSTRUCTION_TYPE_NON_UI_FINISH = 4;
+		FLOW_INSTRUCTION_TYPE_RELOAD = 5;
+	}
+
+	FlowInstructionType flow_instruction_type = 1;
+
+	oneof flow_message {
+		SetPage set_page = 2;
+		UpdateCurrentPage update_current_page = 3;
+		NonUiFinish non_ui_finish = 5;
+	}
+
+	int64 transition_event_rule_id = 4;
+}

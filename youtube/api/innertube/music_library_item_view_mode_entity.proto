@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/music_library_item_view_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicLibraryItemViewModeEntity {
+	extend EntityMutationPayload {
+		MusicLibraryItemViewModeEntity music_library_item_view_mode_entity = 424;
+	}
+
+	string id = 1;
+	MusicLibraryItemViewMode view_mode = 2;
+}

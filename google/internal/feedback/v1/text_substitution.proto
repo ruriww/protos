@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message TextSubstitution {
+	string match_text = 1;
+
+	message AnswerPipe {
+		uint32 from_question_ordinal = 1;
+	}
+
+	oneof replacement_operation {
+		AnswerPipe answer_pipe = 2;
+	}
+}

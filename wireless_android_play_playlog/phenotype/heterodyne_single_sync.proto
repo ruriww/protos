@@ -1,0 +1,45 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+import "wireless_android_play_playlog/phenotype/sync_summary.proto";
+
+option objc_class_prefix = "PHT";
+
+message HeterodyneSingleSync {
+	enum RequestType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		LOGGED_OUT = 1;
+		LOGGED_IN = 2;
+		ALL_ACCOUNTS = 3;
+	}
+
+	RequestType request_type = 1;
+
+	enum SingleSyncErrorType {
+		option features.enum_type = CLOSED;
+
+		UNSET = 0;
+		UNKNOWN_ERROR = 1;
+		NETWORK = 2;
+		AUTH_TOKEN_INVALID = 3;
+		URL_INVALID = 4;
+		RESPONSE_INVALID = 5;
+		SERVER_ERROR = 6;
+		UNEXPECTED_CHANGE_COUNT = 7;
+		RUNTIME_EXCEPTION = 8;
+		PARTIAL_AUTH_TOKEN_INVALID = 9;
+		GET_PSEUDONYMOUS_ID_FAILED = 10;
+		SET_PSEUDONYMOUS_ID_FAILED = 11;
+		NO_ACCOUNTS = 12;
+	}
+
+	SingleSyncErrorType single_sync_error_type = 2 [ default = UNSET ];
+	int32 network_latency_ms = 3;
+	int32 single_sync_latency_ms = 4;
+	string client_server_debug_link_id = 5;
+	SyncSummary sync_summary = 6;
+	int32 server_status_code = 7;
+}

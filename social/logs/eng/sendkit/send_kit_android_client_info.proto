@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_android_version.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitAndroidClientInfo {
+	SendKitAndroidVersion version = 1 [ default = LEGACY ];
+}

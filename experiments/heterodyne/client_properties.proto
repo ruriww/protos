@@ -1,0 +1,17 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "wireless_android_play_playlog/client_info.proto";
+
+option objc_class_prefix = "EXH";
+
+message ClientProperties {
+	bool authenticated = 1;
+	int64 user_id = 2;
+	int64 pseudonymous_id = 3;
+	wireless_android_play_playlog.ClientInfo client_info = 4;
+	string pseudonymous_cookie = 5;
+	bytes dogfood_token = 6;
+	bool is_maybe_googler_gmscore = 7;
+}

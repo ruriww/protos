@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/channel_thumbnail_style.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelThumbnailWithLinkRenderer {
+	ThumbnailDetails thumbnail = 1;
+	Command navigation_endpoint = 2;
+	AccessibilitySupportedDatas accessibility = 3;
+	ChannelThumbnailStyle style = 4;
+	FormattedString name = 5;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package mdi.download;
+
+option objc_class_prefix = "Icing";
+
+message DownloadConditions {
+	enum DeviceNetworkPolicy {
+		option features.enum_type = CLOSED;
+
+		DOWNLOAD_ONLY_ON_WIFI = 0;
+		DOWNLOAD_ON_ANY_NETWORK = 1;
+		DOWNLOAD_FIRST_ON_WIFI_THEN_ON_ANY_NETWORK = 2;
+	}
+
+	DeviceNetworkPolicy device_network_policy = 2;
+	int64 download_first_on_wifi_period_secs = 4;
+}

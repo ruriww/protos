@@ -1,0 +1,22 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/family_management_event_enum.proto";
+
+option objc_class_prefix = "FML";
+
+message ErrorEvent {
+	enum ErrorSource {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		FAMILY_MANAGEMENT = 1;
+		FAMILY_SETUP = 2;
+		FAMILY_INVITATION = 3;
+	}
+
+	ErrorSource error_source = 1;
+	FamilyManagementEventEnum.ErrorType error_type = 2;
+	string additional_info = 3;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmbeddedPlayerHotConfig {
+	bool end_to_end_test_flag = 3;
+	bool show_nerd_stats = 5;
+	float intent_to_play_time_limit = 7;
+	bool enable_relaxed_mode_first_party = 8;
+	bool enable_related_scroller_at_end_of_video = 9;
+	bool enable_window_focus_check = 11;
+	bool disable_ad_choices_dialog = 12;
+	bool enable_landscape_fullscreen = 14;
+	bool deprecate_client_screen = 15;
+	bool embeds_ios_crash_reporting_kill_switch = 16;
+	bool enable_dtts_flag = 17;
+	bool enable_player_error_message_renderer = 18;
+	bool enable_ios_deeplink_in_title_with_animation = 19;
+	bool enable_android_ad_event_logging = 20;
+	bool android_enable_quick_seek_edu_animation = 21;
+	bool android_enable_prewarm = 22;
+	int64 android_prebuffer_media_duration_ms = 23;
+	bool android_enable_new_muted_autoplay_player_service_modifier = 24;
+	bool android_enable_layout_policy_system_id_exceptions = 25;
+	bool android_enable_remote_crash_logging = 26;
+	bool android_share_error_screen = 27;
+	bool android_enable_top_controls_2_0 = 28;
+	bool android_enable_overlay_inflation_fallback = 29;
+	bool android_enable_top_controls_2_0_delayed = 30;
+	bool android_enable_overlay_lazyload = 31;
+	bool android_enable_thumbnail_scaling = 32;
+}

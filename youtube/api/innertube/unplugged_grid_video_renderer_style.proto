@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UnpluggedGridVideoRendererStyle {
+	option features.enum_type = CLOSED;
+
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_UNKNOWN = 0;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_DEFAULT = 1;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_HOME = 2;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_SMALLER = 3;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_SMART_DISPLAY = 4;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_HORIZONTAL = 5;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_NO_METADATA = 6;
+	UNPLUGGED_GRID_VIDEO_RENDERER_STYLE_SMALLER_NO_METADATA = 7;
+}

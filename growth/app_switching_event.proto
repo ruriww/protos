@@ -1,0 +1,77 @@
+edition = "2023";
+
+package growth;
+
+import "growth/event_enums.proto";
+import "growth/presented_app.proto";
+import "growth/google_app_install_event.proto";
+import "growth/accessibility_info.proto";
+
+option objc_class_prefix = "GRW";
+
+message AppSwitchingEvent {
+	enum PromptEvaluationStage {
+		option features.enum_type = CLOSED;
+
+		PROMPT_EVALUATION_STAGE_UNKNOWN = 0;
+		UNIVERSAL_LINK = 1;
+		INTENT_OVERRIDE = 2;
+		FIRST_LAUNCH = 3;
+		ASK_EVERY_TIME = 4;
+		PREFERRED_APP_NOT_INSTALLED = 5;
+		IN_COOLDOWN = 6;
+		IMPRESSIONS_MAXED = 7;
+		NO_GOOGLE_APP_INSTALLED = 8;
+		PROMPTING_DISABLED = 9;
+		INTENT_TYPE_DISABLED = 10;
+	}
+
+	enum PromptEvaluationStatus {
+		option features.enum_type = CLOSED;
+
+		PROMPT_EVALUATION_STATUS_UNSPECIFIED = 0;
+		EVALUATED_TRUE = 1;
+		EVALUATED_FALSE = 2;
+	}
+
+	string bundle_identifier = 1;
+	EventEnums.IntentType intent_type = 2;
+	EventEnums.LinkType link_type = 3;
+	repeated string presented_app_identifiers = 4;
+	repeated PresentedApp presented_apps = 5;
+	string itunes_campaign_code = 6;
+	int64 app_first_used_timestamp_ms = 7;
+	bool first_prompt_for_intent_type = 8;
+	bool is_counterfactual = 9;
+
+	message PromptEvaluation {
+		PromptEvaluationStage stage = 1;
+		PromptEvaluationStatus status = 2;
+	}
+
+	repeated PromptEvaluation prompt_evaluations = 10;
+
+	enum SKOverlayFeature {
+		option features.enum_type = CLOSED;
+
+		SKOVERLAY_FEATURE_UNSUPPORTED = 0;
+		SKOVERLAY_NOT_SHOWN = 1;
+		SKOVERLAY_SHOWN = 2;
+	}
+
+	SKOverlayFeature skoverlay_feature = 11;
+	int32 session_id = 12;
+	GoogleAppInstallEvent.SourceType source_type = 13;
+	EventEnums.RedirectType redirect_type = 15;
+	AccessibilityInfo.PreferredContentSizeCategory preferred_content_size_category = 16;
+
+	enum UserInterfaceStyle {
+		option features.enum_type = CLOSED;
+
+		USER_INTERFACE_STYLE_UNSPECIFIED = 0;
+		USER_INTERFACE_STYLE_LIGHT = 1;
+		USER_INTERFACE_STYLE_DARK = 2;
+	}
+
+	UserInterfaceStyle user_interface_style = 17;
+}

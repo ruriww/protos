@@ -1,0 +1,65 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/broadcast_setup_supported_renderers.proto";
+import "youtube/api/innertube/broadcast_setup_error_supported_renderers.proto";
+import "youtube/api/innertube/broadcast_terms_of_service_supported_renderers.proto";
+import "youtube/api/innertube/broadcast_phone_verification_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/broadcast_conference_type.proto";
+import "youtube/api/innertube/metadata_editor_config.proto";
+import "youtube/api/innertube/client_side_update_properties.proto";
+import "youtube/api/innertube/broadcast_dialog_type.proto";
+import "youtube/api/innertube/mobile_stream_tray_supported_renderers.proto";
+import "youtube/api/innertube/mobile_broadcast_setup_show_go_live_screen_endpoint.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetBroadcastSetupResponse {
+	ResponseContext response_context = 1;
+	BroadcastSetupSupportedRenderers setup_screen = 3;
+	repeated BroadcastSetupErrorSupportedRenderers errors = 4;
+
+	oneof renderer {
+		BroadcastTermsOfServiceSupportedRenderers terms_of_service = 5;
+		BroadcastPhoneVerificationSupportedRenderers phone_verification = 6;
+		Renderer safeguard_education = 10;
+		Renderer costream_creator_education = 16;
+	}
+
+	bytes tracking_params = 8;
+	repeated Command commands = 9;
+	BroadcastConferenceType broadcast_conference_type = 11;
+	Renderer mde_content = 12;
+	MetadataEditorConfig metadata_editor_config = 13;
+	Command save_command = 14;
+	Renderer next_button = 15;
+	Renderer mde_engagement_panel = 17;
+	Renderer intro_dialog_renderer = 18;
+	ClientSideUpdateProperties client_side_update_properties = 19;
+	BroadcastDialogType broadcast_dialog_type = 20;
+	bool enable_orientation_nudge = 21;
+	bool has_created_mobile_livestream = 22;
+	Renderer preview_tile_renderer = 23;
+	Renderer mfk_engagement_panel = 24;
+	bool enable_auto_created_broadcast_pre_live_screen = 25;
+	MobileStreamTraySupportedRenderers toolbelt = 26;
+	MobileBroadcastSetupShowGoLiveScreenEndpoint mobile_show_go_live_screen_endpoint = 27;
+	bool is_landscape_stream = 28;
+	Command go_live_screen_navigation_endpoint = 29;
+	Renderer edit_thumbnail_menu = 30;
+	Renderer share_button_renderer = 31;
+	string avatar_url = 32;
+	bool should_open_mde_panel_on_load = 33;
+	bool is_remove_go_live_screen_for_scheduled_streams_enabled = 34;
+	Command update_metadata_for_sharing_command = 35;
+	Renderer mobile_go_live_renderer = 36;
+	FrameworkUpdateTransport framework_updates = 777;
+}

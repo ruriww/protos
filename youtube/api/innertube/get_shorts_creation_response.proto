@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/sticker_config.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetShortsCreationResponse {
+	ResponseContext response_context = 1;
+	Renderer camera_renderer = 2;
+	Renderer edit_renderer = 3;
+	repeated EngagementPanelSupportedRenderers engagement_panels = 4;
+	repeated Renderer overlays = 5;
+	Command intentful_creation_exit_command = 8;
+	Command non_intentful_creation_exit_command = 9;
+	Renderer above_engagement_panel = 11;
+	Renderer trim_renderer = 12;
+	StickerConfig sticker_config = 13;
+	FrameworkUpdateTransport framework_updates = 777;
+	LoggingDirectives logging_directives = 999;
+}

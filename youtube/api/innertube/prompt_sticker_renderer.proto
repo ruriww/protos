@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/sticker_editor_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromptStickerRenderer {
+	extend Renderer {
+		PromptStickerRenderer prompt_sticker_renderer = 1354;
+	}
+
+	bool hack = 1;
+	Command comments_disabled_warning_dialog_command = 2;
+	StickerEditorData.PromptStickerEditorData initial_data = 3;
+}

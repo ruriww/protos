@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+import "youtube/api/innertube/user_interface_theme.proto";
+
+option objc_class_prefix = "YTBA";
+
+message UserInterfaceTheme {
+	youtube.api.innertube.UserInterfaceTheme user_interface_theme = 1;
+}

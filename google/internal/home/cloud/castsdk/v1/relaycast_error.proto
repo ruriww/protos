@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+option objc_class_prefix = "GCC";
+
+enum RelaycastError {
+	RELAYCAST_ERROR_UNSPECIFIED = 0;
+	DEVICE_NOT_LINKED_TO_USER = 1;
+	RELAY_NOT_SUPPORTED = 2;
+	DEVICE_CERTIFICATE_ABSENT = 3;
+	FAILED_TO_COMMUNICATE_DEVICE = 4;
+	INVALID_RELAY_ACCESS_TOKEN = 5;
+	RELAYCAST_DISABLED_BY_OWNER = 6;
+	DEVICE_NOT_FOUND = 7;
+}

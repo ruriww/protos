@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ghost_card_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListGhostCardRenderer {
+	GhostCardType ghost_card_type = 1;
+	bool enable_modern_style = 2;
+	bool enable_animation = 3;
+}

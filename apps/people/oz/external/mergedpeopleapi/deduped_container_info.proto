@@ -1,0 +1,12 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/container_type.proto";
+
+option objc_class_prefix = "POEM";
+
+message DedupedContainerInfo {
+	ContainerType container_type = 1;
+	string id = 2;
+}

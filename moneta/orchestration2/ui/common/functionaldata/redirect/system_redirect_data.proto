@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SystemRedirectData {
+	extend data.Data {
+		SystemRedirectData system_redirect_data_extension = 355684755;
+	}
+
+	enum SystemRedirectType {
+		option features.enum_type = CLOSED;
+
+		SYSTEM_REDIRECT_TYPE_UNKNOWN = 0;
+		SYSTEM_REDIRECT_TYPE_SETTINGS = 1;
+	}
+
+	SystemRedirectType system_redirect_type = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+enum MediaEngineClient {
+	option features.enum_type = CLOSED;
+
+	MEDIA_ENGINE_CLIENT_UNKNOWN = 0;
+	MEDIA_ENGINE_CLIENT_SHORTS_EFFECT = 1;
+	MEDIA_ENGINE_CLIENT_XENO_IN_EDITOR = 3;
+	MEDIA_ENGINE_CLIENT_AUDIO = 4;
+	MEDIA_ENGINE_CLIENT_PRODUCER = 2;
+	MEDIA_ENGINE_CLIENT_SHORTS_CREATION = 5;
+	MEDIA_ENGINE_CLIENT_LIVE = 6;
+	MEDIA_ENGINE_CLIENT_IMAGE_EDITOR = 7;
+	MEDIA_ENGINE_CLIENT_IMAGE_EDITOR_ON_MUSIC = 8;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/abuse_i_am_message.proto";
+
+option objc_class_prefix = "AIA";
+
+message ClassifyMessageRequest {
+	AbuseIAmMessage message = 1;
+	bool full_response = 2 [ default = false ];
+	string argv0 = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/bottomsheet/bottom_sheet_position_state.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BottomSheetDataValue {
+	extend data.DataValue {
+		BottomSheetDataValue bottom_sheet_data_value_extension = 260216772;
+	}
+
+	BottomSheetPositionState bottom_sheet_position_state = 1;
+	repeated BottomSheetPositionState allowed_bottom_sheet_position_state = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

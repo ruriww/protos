@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppStoreOverlayDismissCommand {
+	bool hack = 1;
+	bool only_if_portrait = 2;
+	bool only_if_landscape = 3;
+	int64 overlay_dismiss_ms = 4;
+}
+
+extend Command {
+	AppStoreOverlayDismissCommand app_store_overlay_dismiss_command = 343591101;
+}

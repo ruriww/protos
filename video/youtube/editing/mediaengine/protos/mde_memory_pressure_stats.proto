@@ -1,0 +1,10 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeMemoryPressureStats {
+	uint32 num_memory_trim_warning_background = 1;
+	uint32 num_memory_trim_warning_foreground = 2;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+option objc_class_prefix = "CLI";
+
+message BlockedParameter {
+	string message_format = 1;
+	uint32 index = 2;
+}

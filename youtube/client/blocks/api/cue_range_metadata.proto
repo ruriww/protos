@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api;
+
+option objc_class_prefix = "YTBA";
+
+message CueRangeMetadata {
+	string id = 1;
+
+	extensions 1000 to max;
+}

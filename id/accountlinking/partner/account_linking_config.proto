@@ -1,0 +1,20 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "id/accountlinking/partner/o_auth2_config.proto";
+import "id/accountlinking/partner/gsi_config.proto";
+import "id/accountlinking/partner/two_way_linking_config.proto";
+import "id/accountlinking/partner/app_flip_config.proto";
+import "id/accountlinking/partner/token_refresh_policy_config.proto";
+
+option objc_class_prefix = "ALKP";
+
+message AccountLinkingConfig {
+	OAuth2Config oauth2_config = 1;
+	GsiConfig gsi_config = 2;
+	TwoWayLinkingConfig two_way_linking_config = 3;
+	AppFlipConfig app_flip_config = 4;
+	TokenRefreshPolicyConfig token_refresh_policy_config = 5;
+	string federated_idp = 9;
+}

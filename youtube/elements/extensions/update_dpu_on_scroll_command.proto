@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/size.proto";
+import "youtube/elements/extensions/computed_translation.proto";
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message UpdateDpuOnScrollCommand {
+	extend Command {
+		UpdateDpuOnScrollCommand update_dpu_on_scroll_command = 525000057;
+	}
+
+	string on_scroll_direct_update_data_key = 1;
+	Size component_size = 2;
+	ComputedTranslation ui_translation = 3;
+}

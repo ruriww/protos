@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/element.proto";
+import "youtube/elements/extensions/bottom_sheet_style.proto";
+import "youtube/elements/extensions/bottom_sheet_source.proto";
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ShowBottomSheetCommand {
+	extend Command {
+		ShowBottomSheetCommand show_bottom_sheet_command = 220544256;
+	}
+
+	Element element = 1;
+	BottomSheetStyle style = 2;
+	uint32 container_background_color = 3;
+	double duration_seconds = 4;
+	double scrim_opacity = 5;
+	bool should_log_as_new_screen = 7;
+	int32 large_form_width = 8;
+	BottomSheetSource bottom_sheet_source = 10;
+}

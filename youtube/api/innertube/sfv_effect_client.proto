@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SfvEffectClient {
+	option features.enum_type = CLOSED;
+
+	SFV_EFFECT_CLIENT_UNKNOWN = 0;
+	SFV_EFFECT_CLIENT_MDE_SHORTS_EFFECTS = 1;
+	SFV_EFFECT_CLIENT_MDE_XENO_IN_EDITOR = 3;
+	SFV_EFFECT_CLIENT_MDE_AUDIO = 4;
+	SFV_EFFECT_CLIENT_MDE_PRODUCER = 2;
+	SFV_EFFECT_CLIENT_MDE_SHORTS_CREATION = 5;
+	SFV_EFFECT_CLIENT_MDE_LIVE = 6;
+	SFV_EFFECT_CLIENT_MDE_IMAGE_EDITOR = 7;
+	SFV_EFFECT_CLIENT_MDE_IMAGE_EDITOR_ON_MUSIC = 8;
+}

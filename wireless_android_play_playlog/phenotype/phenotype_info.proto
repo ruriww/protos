@@ -1,0 +1,14 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+option objc_class_prefix = "PHT";
+
+message PhenotypeInfo {
+	bool dummy_boolean_flag = 1;
+	int32 dummy_integer_flag = 2;
+	string dummy_string_flag = 3;
+	bool committed_dummy_boolean_flag = 5;
+	int32 committed_dummy_integer_flag = 6;
+	string committed_dummy_string_flag = 7;
+}

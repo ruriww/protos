@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/network_connectivity_baseline_measurement.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NetworkConnectivityBaselineMetric {
+	NetworkConnectivityBaselineMeasurement innertube_measurement = 1;
+	NetworkConnectivityBaselineMeasurement first_gen204_measurement = 2;
+	NetworkConnectivityBaselineMeasurement second_gen204_measurement = 3;
+	bool initially_connected = 4;
+	bool connected_when_innertube_request_completed = 5;
+	string request_service = 6;
+	string request_annotation = 7;
+	NetworkConnectivityBaselineMeasurement cronet_sample_measurement = 8;
+}

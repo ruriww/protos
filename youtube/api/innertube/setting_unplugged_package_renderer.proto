@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/client_setting_item.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/setting_confirm_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingUnpluggedPackageRenderer {
+	string package_id = 1;
+	string package_name = 2;
+	string package_description = 3;
+	ThumbnailDetails package_thumbnail = 4;
+	bool is_base_package = 5;
+	bool is_purchased = 6;
+	repeated ClientSettingItem client_setting_dependencies = 7;
+	bytes tracking_params = 9;
+	FormattedString retail_price_for_display = 10;
+	int64 retail_price_micros = 11;
+	string payment_currency = 12;
+	FormattedString info_message = 13;
+	Command info_service_endpoint = 14;
+	repeated SettingConfirmDialogSupportedRenderers info_confirmation_steps = 15;
+	FormattedString title = 16;
+	string offer_params = 19;
+}

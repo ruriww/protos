@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneInputDataTrigger {
+	extend eventrules.trigger.Trigger {
+		PhoneInputDataTrigger phone_input_data_trigger_extension = 232060282;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_REGION_CODE_CHANGED = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+option objc_class_prefix = "ADCO";
+
+message ReportAttributedSignalRequest {
+	int64 latest_processed_timestamp = 1;
+	map<string, bytes> serialized_attributed_states = 2;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+option objc_class_prefix = "Orch";
+
+enum ActionType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN = 0;
+	EDIT = 1;
+	FIX_FLOW = 2;
+	DELETE = 3;
+	REDIRECT_TO_URL = 4;
+	REDIRECT_IN_APP_LOCATION = 5;
+	INFO = 6;
+	SET_AS_PRIMARY = 7;
+	SET_AS_BACKUP = 8;
+	REMOVE_INSTRUMENT_RANK = 9;
+	CONFIRM_REMOVE_INSTRUMENT_RANK = 12;
+	DOWNLOAD_FROM_URL = 10;
+	REDIRECT_TO_WIDGET = 11;
+	CONFIRM_SET_AS_PRIMARY = 13;
+	DEPENDENCY_GRAPH_TRIGGER = 14;
+}

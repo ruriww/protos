@@ -1,0 +1,16 @@
+edition = "2023";
+
+package focus_backend;
+
+import "focus_backend/contact_detail_hash.proto";
+
+option objc_class_prefix = "FSBKD";
+
+message SecondaryContactId {
+	oneof name {
+		uint64 contact_name_hash = 1;
+		string contact_name = 3;
+	}
+
+	repeated ContactDetailHash contact_detail_hash = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.video_as_thumbnail_details;
+
+import "youtube/video_as_thumbnail_details/cache_object.proto";
+
+option objc_class_prefix = "YTVATD";
+
+message Cache {
+	repeated CacheObject cached_objects = 1;
+}

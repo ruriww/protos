@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum MediaCompositionExportError {
+	option features.enum_type = CLOSED;
+
+	MEDIA_COMPOSITION_EXPORT_ERROR_UNSPECIFIED = 0;
+	MEDIA_COMPOSITION_EXPORT_ERROR_UNKNOWNN = 1;
+	MEDIA_COMPOSITION_EXPORT_ERROR_INSUFFICIENT_DISK_SPACE = 2;
+	MEDIA_COMPOSITION_EXPORT_ERROR_ENCODER_FAILED_TO_INITIALIZE = 3;
+	MEDIA_COMPOSITION_EXPORT_ERROR_ENCODER_FAILED = 4;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.identity.mobile.identitykit;
+
+import "logs/proto/identity/mobile/identitykit/flow_type.proto";
+import "logs/proto/identity/mobile/identitykit/fetch_capabilities_flow_event.proto";
+import "logs/proto/identity/mobile/identitykit/embedded_re_auth_flow_event.proto";
+import "logs/proto/identity/mobile/identitykit/sign_in_state_event.proto";
+
+option objc_class_prefix = "GIKEXT";
+
+message IdentityKitIosExtension {
+	string client_id = 1;
+	FlowType flow_type = 2;
+	string flow_id = 3;
+	FetchCapabilitiesFlowEvent fetch_capabilities_flow_event = 4;
+	EmbeddedReAuthFlowEvent embedded_re_auth_flow_event = 5;
+	SignInStateEvent sign_in_state_event = 6;
+}

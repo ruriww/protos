@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/rect.proto";
+
+option objc_class_prefix = "INKPB";
+
+message RotatedImage {
+	Rect bounds = 1;
+	string texture_uri = 2;
+	float rotation_ccw_radians = 3;
+}

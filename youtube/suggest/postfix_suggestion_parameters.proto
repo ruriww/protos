@@ -1,0 +1,10 @@
+edition = "2023";
+
+package youtube.suggest;
+
+option objc_class_prefix = "YTS";
+
+message PostfixSuggestionParameters {
+	string ignored_prefix = 1;
+	string partial_query = 2;
+}

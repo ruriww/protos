@@ -1,0 +1,29 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/coded_numeric_run.proto";
+
+option objc_class_prefix = "INKPB";
+
+message CodedStrokeInputBatch {
+	CodedNumericRun x_stroke_space = 1;
+	CodedNumericRun y_stroke_space = 2;
+	CodedNumericRun elapsed_time_seconds = 3;
+	CodedNumericRun pressure = 4;
+	CodedNumericRun tilt = 5;
+	CodedNumericRun orientation = 6;
+
+	enum ToolType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPE = 0;
+		MOUSE = 1;
+		TOUCH = 2;
+		STYLUS = 3;
+	}
+
+	ToolType tool_type = 7;
+	float stroke_unit_length_in_centimeters = 8;
+	fixed32 noise_seed = 9;
+}

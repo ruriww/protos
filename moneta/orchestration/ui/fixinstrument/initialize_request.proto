@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.fixinstrument;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/common/bootstrap/client_parameters.proto";
+
+option objc_class_prefix = "FixInstrument";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+	bytes encrypted_parameters = 2;
+	common.bootstrap.ClientParameters payments_client_parameters = 3;
+}

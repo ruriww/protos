@@ -1,0 +1,18 @@
+edition = "2023";
+
+package visionkit;
+
+import "visionkit/bounding_box.proto";
+import "visionkit/class.proto";
+import "visionkit/bounding_polygon_f.proto";
+
+option objc_class_prefix = "VKS";
+
+message Detection {
+	int64 object_id = 1;
+	BoundingBox bounding_box = 2;
+	repeated Class classes = 3;
+	BoundingPolygonF bounding_polygon = 4;
+
+	extensions 1000000 to max;
+}

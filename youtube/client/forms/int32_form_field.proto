@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.client.forms;
+
+import "youtube/api/innertube/validation_error.proto";
+
+option objc_class_prefix = "YTFA";
+
+message Int32FormField {
+	int32 value = 1;
+	bool changed = 2;
+	bool touched = 3;
+	bool validating = 4;
+	bool validated = 5;
+	repeated api.innertube.ValidationError errors = 6;
+	bool valid = 7;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/flow_event_namespace.proto";
+import "youtube/api/innertube/flow_type.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/top_bar_handling_method.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowRootRenderer {
+	string target_id = 1;
+	Renderer top_bar = 2;
+	repeated Renderer steps = 3;
+	string flow_state_entity_key = 4;
+	Command flow_continuation_command = 5;
+
+	message FlowLoggingData {
+		FlowEventNamespace event_namespace = 1;
+		FlowType flow_type = 2;
+		string nonce = 3;
+	}
+
+	FlowLoggingData flow_logging_data = 6;
+	Command on_flow_dismissed = 7;
+	TopBarHandlingMethod top_bar_handling_method = 8;
+	bool enable_legacy_ve_logging = 9;
+}
+
+extend Renderer {
+	FlowRootRenderer flow_root_renderer = 371777145;
+}

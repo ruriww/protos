@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/context.proto";
+import "youtube/elements/components/main_app_experiments.proto";
+import "youtube/api/innertube/client_info.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MainAppContext {
+	extend Context {
+		MainAppContext main_app_context = 351816584;
+	}
+
+	MainAppExperiments experiments = 1;
+	api.innertube.ClientInfo.ClientName client_name = 2;
+}

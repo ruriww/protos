@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sk_ad_network_yt_parameters.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PreloadAppStoreCommand {
+	string app_id = 1;
+	string play_store_url = 2;
+	string custom_product_page_id = 5;
+	SkAdNetworkYTParameters sk_ad_parameters = 7;
+}
+
+extend Command {
+	PreloadAppStoreCommand preload_app_store_command = 199835557;
+}

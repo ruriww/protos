@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/asset_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetDetail {
+	string asset_id = 1;
+	string version_id = 2;
+	AssetSource asset_source = 3;
+	string external_channel_id = 5;
+	int32 avatar_item_variant_index = 6;
+	bytes params = 7;
+}

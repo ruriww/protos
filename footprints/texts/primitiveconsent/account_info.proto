@@ -1,0 +1,20 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+option objc_class_prefix = "FOOTCP";
+
+message AccountInfo {
+	bool account_particle_visible = 1;
+
+	enum AccountLabelType {
+		option features.enum_type = CLOSED;
+
+		ACCOUNT_LABEL_TYPE_UNSPECIFIED = 0;
+		ACCOUNT_LABEL_TYPE_NONE = 1;
+		ACCOUNT_LABEL_TYPE_EMAIL = 2;
+		ACCOUNT_LABEL_TYPE_NAME = 3;
+	}
+
+	AccountLabelType account_label_type = 2;
+}

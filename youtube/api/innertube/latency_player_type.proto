@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LatencyPlayerType {
+	option features.enum_type = CLOSED;
+
+	LATENCY_PLAYER_UNKNOWN = 0;
+	LATENCY_PLAYER_EXO = 1;
+	LATENCY_PLAYER_FLASH = 2;
+	LATENCY_PLAYER_FRAMEWORK = 3;
+	LATENCY_PLAYER_HTML5 = 4;
+	LATENCY_PLAYER_HTML5_FULLSCREEN = 5;
+	LATENCY_PLAYER_HTML5_INLINE = 6;
+	LATENCY_PLAYER_RTSP = 7;
+}

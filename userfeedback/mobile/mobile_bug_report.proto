@@ -1,0 +1,48 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/common_data.proto";
+import "userfeedback/mobile/system_data.proto";
+import "userfeedback/mobile/package_data.proto";
+import "userfeedback/mobile/build_data.proto";
+import "userfeedback/mobile/crash_data.proto";
+import "userfeedback/mobile/battery_data.proto";
+import "userfeedback/mobile/user_initiated_feedback_data.proto";
+import "userfeedback/mobile/signal.proto";
+import "userfeedback/mobile/phenotype_experiment_data.proto";
+
+option objc_class_prefix = "UFM";
+
+message MobileBugReport {
+	CommonData common_data = 1;
+	MobileData mobile_data = 2;
+	int32 report_type = 3;
+
+	enum OsType {
+		option features.enum_type = CLOSED;
+
+		ANDROID = 0;
+		IOS = 1;
+	}
+
+	OsType os_type = 4 [ default = ANDROID ];
+}
+
+message MobileData {
+	SystemData system_data = 1;
+	PackageData package_data = 2;
+	BuildData build_data = 3;
+	CrashData crash_data = 4;
+	BatteryData battery_data = 6;
+	UserInitiatedFeedbackData user_initiated_feedback_data = 9;
+	int32 report_type = 10;
+	bool silent_send = 12 [ default = false ];
+	bool ctl_allowed = 13 [ default = true ];
+	string suggestion_session_id = 14;
+	bool suggestion_shown = 15;
+	repeated Signal classification_signal = 16;
+	MobileBugReport.OsType os_type = 17 [ default = ANDROID ];
+	repeated string phenotype_experiment_token = 18;
+	PhenotypeExperimentData phenotype_experiment_data = 19;
+}

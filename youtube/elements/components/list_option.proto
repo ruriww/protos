@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/components/icon_content.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/list_option_selection_style.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ListOption {
+	oneof content {
+		string option_text = 1;
+		AttributedString attributed_option_text = 6;
+	}
+
+	string selection_text = 2;
+
+	oneof sublabel {
+		string supplementary_text = 3;
+		AttributedString attributed_supplementary_text = 26;
+	}
+
+	oneof leading_accessory_oneof {
+		IconContent icon_content = 4;
+		api.innertube.Renderer leading_accessory = 23;
+	}
+
+	Command on_tap = 5;
+
+	oneof trailing_accessory {
+		IconContent trailing_icon_content = 7;
+		api.innertube.Renderer trailing_badge = 28;
+		api.innertube.Renderer trailing_item = 29;
+	}
+
+	bool is_disabled = 8;
+	string a11y_label = 9;
+	uint32 text_color = 10;
+	uint32 supplementary_text_max_line = 12;
+	string accessibility_id = 13;
+	bool center_icon_vertically = 14;
+	bool center_trailing_icon_vertically = 15;
+	bool use_elc = 17;
+	bool elc_should_log_explicit_gestures = 18;
+	uint32 background_color = 19;
+	bool is_selected = 21;
+	ListOptionSelectionStyle selection_style = 22;
+	uint32 option_text_max_lines = 24;
+	bool disable_ripple = 25;
+	api.innertube.Renderer subtitle_badge = 27;
+	bool has_divider_below = 31;
+	AttributedString superlabel = 32;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

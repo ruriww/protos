@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/person_field_metadata.proto";
+
+option objc_class_prefix = "SGWPPM";
+
+message Photo {
+	PersonFieldMetadata metadata = 1;
+	string url = 2;
+	bool is_default = 3;
+	bool is_monogram = 7;
+	string monogram_background = 8;
+}

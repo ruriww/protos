@@ -1,0 +1,14 @@
+edition = "2023";
+
+package java.com.google.support.asx.frontend.server.proto;
+
+option objc_class_prefix = "ASX";
+
+message HomePageData {
+	string nd4c_country_code = 1;
+	bool feedback_enabled = 2;
+	bool has_promoted_product_link_click_callback = 3;
+	bool is_in_chat_session_on_device = 4;
+	bool display_account_picker = 5;
+	bool show_contact_cards_on_top = 6;
+}

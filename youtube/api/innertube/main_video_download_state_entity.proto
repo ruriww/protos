@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MainVideoDownloadStateEntity {
+	extend EntityMutationPayload {
+		MainVideoDownloadStateEntity main_video_download_state_entity = 262;
+	}
+
+	string key = 1;
+	bytes video_download_state_version = 2;
+	string playback_data = 3;
+	uint64 added_timestamp_millis = 4;
+	repeated string local_image_entities = 5;
+	bool pending_approval = 7;
+	bytes click_tracking_params = 8;
+	bool is_contained_by_playlist = 9;
+	string video_download_context_entity = 10;
+
+	extensions 1001;
+}

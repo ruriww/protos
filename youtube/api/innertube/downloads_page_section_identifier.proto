@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DownloadsPageSectionIdentifier {
+	option features.enum_type = CLOSED;
+
+	DOWNLOADS_PAGE_SECTION_IDENTIFIER_UNKNOWN = 0;
+	DOWNLOADS_PAGE_SECTION_IDENTIFIER_MANUAL_DOWNLOADS = 1;
+	DOWNLOADS_PAGE_SECTION_IDENTIFIER_SMART_DOWNLOADS = 2;
+	DOWNLOADS_PAGE_SECTION_IDENTIFIER_RECOMMENDATIONS = 3;
+}

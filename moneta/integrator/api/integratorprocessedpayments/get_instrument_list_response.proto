@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.integrator.api.integratorprocessedpayments;
+
+import "moneta/integrator/common/api_error.proto";
+import "moneta/integrator/common/instrument/new_instrument.proto";
+import "moneta/integrator/api/integratorprocessedpayments/existing_instrument.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "IProcPay";
+
+message GetInstrumentListResponse {
+	common.ApiError error = 1;
+	bytes common_token = 2;
+	repeated common.instrument.NewInstrument new_instrument = 3;
+	repeated ExistingInstrument existing_instrument = 4;
+	string customer_legal_country = 8;
+	webutil.html.types.SafeHtmlProto disclosure_message = 9;
+}

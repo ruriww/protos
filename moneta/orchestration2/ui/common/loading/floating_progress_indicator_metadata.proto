@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.loading;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FloatingProgressIndicatorMetadata {
+	int32 version = 1;
+	int64 full_sheet_ui_reference = 2;
+	int64 content_container_ui_reference = 3;
+	data.Data content_container_data = 4;
+	int64 progress_indicator_ui_reference = 5;
+	data.Data progress_indicator_data = 6;
+}

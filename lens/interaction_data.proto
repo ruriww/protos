@@ -1,0 +1,26 @@
+edition = "2023";
+
+package lens;
+
+import "quality_genie/eyes/detection_result.proto";
+import "lens/geometry.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message InteractionData {
+	message VisualObject {
+		string visual_object_id = 1;
+		quality_genie.eyes.DetectionResult.ReconciliationInfo.RenderType render_type = 2;
+	}
+
+	VisualObject selected_visual_object = 1;
+
+	message Result {
+		Geometry geometry = 1;
+		bytes encoded_explore_grid_hcc_results = 2;
+		Geometry parent_image_geometry = 3;
+	}
+
+	Result top_result = 2;
+	string selected_detected_object_id = 3;
+}

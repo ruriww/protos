@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CacheFetchResult {
+	option features.enum_type = CLOSED;
+
+	CACHE_FETCH_RESULT_UNSPECIFIED = 0;
+	CACHE_FETCH_RESULT_SUCCESS = 1;
+	CACHE_FETCH_RESULT_MISS = 2;
+	CACHE_FETCH_RESULT_MISS_DUE_TO_EVICTED = 3;
+}

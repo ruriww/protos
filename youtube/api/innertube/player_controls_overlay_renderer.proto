@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_overflow_supported_renderers.proto";
+import "youtube/api/innertube/player_no_sound_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/player_overflow_renderer.proto";
+import "youtube/api/innertube/player_no_sound_memo_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerControlsOverlayRenderer {
+	PlayerOverflowSupportedRenderers overflow = 1;
+
+	oneof control_bg_oneof {
+		uint32 control_bg_argb = 2;
+		string control_bg_html = 5;
+	}
+
+	PlayerNoSoundSupportedRenderers no_sound_supported_renderers = 3;
+	Renderer muted_autoplay = 4;
+	bool hide_controls_on_start = 6;
+	Renderer composite_video_overlay = 7;
+	PlayerOverflowSupportedRenderers additional_settings_overflow = 8;
+}
+
+extend Renderer {
+	PlayerControlsOverlayRenderer player_controls_overlay_renderer = 131221923;
+}
+
+extend Renderer {
+	PlayerOverflowRenderer player_overflow_renderer = 131239165;
+}
+
+extend Renderer {
+	PlayerNoSoundMemoRenderer player_no_sound_memo_renderer = 139837953;
+}

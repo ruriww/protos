@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/logging_url.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistInfoCardContentRenderer {
+	ThumbnailDetails playlist_thumbnail = 3;
+	FormattedString playlist_video_count = 4;
+	FormattedString playlist_title = 5;
+	FormattedString channel_name = 6;
+	FormattedString video_count_text = 7;
+	Command action = 8;
+	bytes tracking_params = 11;
+	repeated LoggingUrl impression_logging_urls_v2s = 15;
+	FormattedString custom_message = 16;
+}

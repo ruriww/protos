@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/epg_pagination_header_renderer.proto";
+import "youtube/api/innertube/epg_row_renderer.proto";
+import "youtube/api/innertube/counterfactual_renderer.proto";
+import "youtube/api/innertube/epg_unavailable_row_renderer.proto";
+import "youtube/api/innertube/epg_elements_row_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgSupportedRenderers {
+	oneof renderer {
+		EpgPaginationHeaderRenderer epg_pagination_header_renderer = 37062;
+		EpgRowRenderer epg_row_renderer = 84080259;
+		CounterfactualRenderer counterfactual_renderer = 98817457;
+		EpgUnavailableRowRenderer epg_unavailable_row_renderer = 140064293;
+		EpgElementsRowRenderer epg_elements_row_renderer = 258807811;
+	}
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package knowledge.feedback.frontend;
+
+import "knowledge/feedback/taxonomy.proto";
+import "knowledge/feedback/frontend/image.proto";
+import "knowledge/feedback/frontend/blob.proto";
+import "knowledge/feedback/frontend/binary_data.proto";
+
+option objc_class_prefix = "UFR";
+
+message ResultContext {
+	string entity = 1;
+	string title = 2;
+	int32 ve_id = 3;
+	string attribute = 4;
+	string reported_value = 5;
+	repeated int32 experiment_id = 6;
+	repeated string vertical_id = 7;
+	int32 one_namespace_type = 8;
+	Taxonomy.FeatureTag feature_tag = 9;
+	string event_id = 10;
+	repeated Image result_images = 11;
+	repeated Blob result_blobs = 12;
+	string visual_element = 13;
+	repeated BinaryData product_specific_binary_data = 14;
+}

@@ -1,0 +1,94 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_home_item_carousel_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_spoiler_mode_entity.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedHomeItemRenderer {
+	UnpluggedSubscribeButtonSupportedRenderers subscribe_button = 3;
+	MenuSupportedRenderers menu = 4;
+	ThumbnailDetails thumbnail = 5;
+	ThumbnailDetails network_icon = 6;
+	FormattedString title = 7;
+	FormattedString reason = 8;
+	FormattedString release_year = 9;
+	FormattedString content_rating = 10;
+	FormattedString start_time = 11;
+	FormattedString episode_title = 12;
+	FormattedString episode_number = 13;
+	FormattedString episode_count = 14;
+	Command video_endpoint = 15;
+	BadgeSupportedRenderers badge = 16;
+
+	enum Style {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		LANDSCAPE_OVERLAY = 1;
+		PORTRAIT_PADDED = 2;
+		PORTRAIT = 3;
+		LANDSCAPE_MINIMAL = 4;
+		LANDSCAPE_FULL = 5;
+		CAROUSEL = 6;
+		LANDSCAPE_MINIMAL_WITH_CAROUSEL = 7;
+		LANDSCAPE_FULL_WITH_CAROUSEL = 8;
+		CAROUSEL_CARD = 9;
+	}
+
+	Style style = 17;
+	FormattedString end_time = 19;
+	FormattedString duration = 20;
+	bytes tracking_params = 21;
+	string tenx_id = 23;
+	uint64 start_time_seconds = 25;
+	uint64 end_time_seconds = 26;
+	Command navigation_endpoint = 27;
+	ThumbnailDetails secondary_thumbnail = 28;
+	FormattedString network_name = 29;
+	repeated UnpluggedHomeItemCarouselSupportedRenderers carousel_items = 30;
+	FormattedString primary_text = 31;
+	FormattedString secondary_text = 32;
+	FormattedString tertiary_text = 33;
+
+	message Badges {
+		bool needs_toggle = 1;
+		BadgeSupportedRenderers default_badge = 2;
+		BadgeSupportedRenderers toggle_badge = 3;
+		BadgeSupportedRenderers spoiler_mode_badge = 4;
+		BadgeSupportedRenderers airing_soon_badge = 5;
+		BadgeSupportedRenderers ultra_high_definition_badge = 22;
+	}
+
+	Badges badges = 34;
+	int32 watched_percentage_for_display = 35;
+	string debug_string = 36;
+	repeated UnpluggedSpoilerModeEntity spoiler_mode_entities = 38;
+	BadgeSupportedRenderers secondary_badge = 39;
+	FormattedString primary_text_second_line = 40;
+
+	message ClientStateSyncData {
+		string watch_state_entity_key = 1;
+	}
+
+	ClientStateSyncData client_state_sync_data = 41;
+	repeated Renderer tertiary_container = 42;
+	UnpluggedThumbnailDetails unplugged_thumbnail = 43;
+}
+
+extend Renderer {
+	UnpluggedHomeItemRenderer unplugged_home_item_renderer = 96602836;
+}

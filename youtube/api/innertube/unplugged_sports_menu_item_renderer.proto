@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedSportsMenuItemRenderer {
+	message ClientStateSyncData {
+		repeated string entity_ids_for_state_sync = 1;
+		repeated string entity_keys_for_state_sync = 2;
+	}
+
+	ClientStateSyncData client_state_sync_data = 1;
+	bool is_selected = 2;
+	FormattedString selected_text = 3;
+	FormattedString unselected_text = 4;
+	Icon selected_icon = 5;
+	Icon unselected_icon = 6;
+	AccessibilityData selected_accessibility = 9;
+	AccessibilityData unselected_accessibility = 10;
+	bytes tracking_params = 12;
+	Command command = 13;
+}

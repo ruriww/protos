@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "lens/payload.proto";
+import "lens/visual_suggest_server_type.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message FetchVisualSuggestResultRequest {
+	.lens.Payload payload = 1;
+	string prompt = 2;
+	.lens.VisualSuggestServerType server_type = 3;
+	string model_name = 4;
+}

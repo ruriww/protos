@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/lightsource_color_palette_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThumbnailDetails {
+	message Thumbnail {
+		string url = 1;
+		uint32 width = 2;
+		uint32 height = 3;
+	}
+
+	repeated Thumbnail thumbnails = 1;
+	uint32 placeholder_color = 2;
+	bool enable_loaded_logging = 3;
+	AccessibilitySupportedDatas accessibility = 4;
+	bool log_as_moving_thumbnail = 5;
+	bytes low_res_jpeg = 6;
+	bool is_reels_video = 9;
+	bool is_original_aspect_ratio = 11;
+
+	message RgbColor {
+		int32 red = 1;
+		int32 green = 2;
+		int32 blue = 3;
+	}
+
+	RgbColor sampled_thumbnail_color = 12;
+	LightsourceColorPaletteData light_color_palette = 13;
+	LightsourceColorPaletteData dark_color_palette = 14;
+	string target_id = 15;
+	float opacity = 16;
+	LightsourceColorPaletteData vibrant_color_palette = 18;
+
+	extensions 10;
+	extensions 1000 to max;
+}

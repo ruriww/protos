@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs_proto;
+
+option objc_class_prefix = "LOGS";
+
+message MessageDetails {
+	message Type {
+		string source_type = 1;
+		string log_type = 2;
+	}
+
+	repeated Type may_appear_in = 1;
+}

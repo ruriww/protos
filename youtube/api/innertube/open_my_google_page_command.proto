@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenMyGooglePageCommand {
+	extend Command {
+		OpenMyGooglePageCommand open_my_google_page_command = 432546775;
+	}
+
+	int32 screen_id = 1;
+	map<string, string> resource_params = 2;
+	bool hide_octarine_header_titles = 3;
+	string anchor = 4;
+}

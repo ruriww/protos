@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/client/blocks/api/creation/text_transform_options.proto";
+
+option objc_class_prefix = "YTBA";
+
+message TextGenerationArgs {
+	string text = 1;
+	TextTransformOptions text_transform_options = 2;
+	string serialized_gdca_token = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message SmartReplyRecommendation {
+	string recommendation_id = 1;
+	string text = 2;
+}

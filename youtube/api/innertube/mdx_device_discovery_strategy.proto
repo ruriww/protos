@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdxDeviceDiscoveryStrategy {
+	option features.enum_type = CLOSED;
+
+	MDX_DEVICE_DISCOVERY_STRATEGY_UNKNOWN = 0;
+	MDX_DEVICE_DISCOVERY_STRATEGY_DIAL = 1;
+	MDX_DEVICE_DISCOVERY_STRATEGY_CAST = 2;
+	MDX_DEVICE_DISCOVERY_STRATEGY_PAIRED = 3;
+	MDX_DEVICE_DISCOVERY_STRATEGY_REMOTE = 4;
+}

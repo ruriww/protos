@@ -1,0 +1,56 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "speech/s3/cannellini_info.proto";
+
+option objc_class_prefix = "S3";
+
+message ClientInfo {
+	extend Request {
+		ClientInfo client_info = 294000;
+	}
+
+	string client_id = 1;
+	string application_id = 2;
+	string user_agent = 4;
+	repeated string experiment_id = 5;
+	string platform_id = 8;
+	string platform_version = 9;
+	string application_version = 10;
+	string device_model = 11;
+	int32 device_display_width_pixels = 12;
+	int32 device_display_height_pixels = 13;
+	int32 device_display_density_dpi = 14;
+	repeated string noise_suppressor_id = 15;
+	string trigger_application_id = 16;
+	string agent_id = 17;
+	repeated string heterodyne_experiment_token = 18;
+	bool is_shared_device = 19;
+	repeated string effects_profile_id = 20;
+	bool cannellini_enabled = 21;
+	CannelliniInfo cannellini_info = 22;
+	string cloud_traffic_id = 23;
+	string accounting_user = 24;
+	int64 partner_id = 25;
+
+	enum ApplicationChannel {
+		option features.enum_type = CLOSED;
+
+		UNDEFINED = 0;
+		PRODUCTION = 1;
+		CANARY = 2;
+		DOGFOOD = 3;
+		FISHIFOOD = 4;
+		DEV_OR_TEST = 5;
+		PRELOAD = 6;
+		BETA = 7;
+		PERFTEST = 8;
+		TEAMFOOD = 9;
+	}
+
+	ApplicationChannel application_channel = 26;
+	bool is_youtube_kids_experience = 27;
+	string partition = 28;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message Photo {
+	string url = 1;
+
+	enum PhotoType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MONOGRAM = 1;
+		SILHOUETTE = 2;
+		USER_SPECIFIED = 3;
+	}
+
+	PhotoType type = 2;
+	string glyph = 3;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package engage.api.boq.support.discovery.logging.journey;
+
+option objc_class_prefix = "SDL";
+
+message Search {
+	string query = 2;
+}

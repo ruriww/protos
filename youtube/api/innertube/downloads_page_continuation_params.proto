@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/downloads_page_endpoint.proto";
+import "youtube/api/innertube/downloads_page_section_filter_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsPageContinuationParams {
+	message BannerSectionContinuation {
+		bool reload = 1;
+	}
+
+	message DownloadsSectionContinuation {
+		enum RequestType {
+			option features.enum_type = CLOSED;
+
+			REQUEST_TYPE_UNSPECIFIED = 0;
+			REQUEST_TYPE_FILTER_CHANGE = 1;
+			REQUEST_TYPE_EXPANSION = 2;
+		}
+
+		RequestType request_type = 1;
+		DownloadsPageEndpoint.FilterType filter_type = 2;
+		int32 items_to_show = 3;
+	}
+
+	message RecommendationsSectionContinuation {
+		bool reload = 1;
+	}
+
+	message SmartDownloadsSectionContinuation {
+		enum RequestType {
+			option features.enum_type = CLOSED;
+
+			REQUEST_TYPE_UNSPECIFIED = 0;
+			REQUEST_TYPE_LOADING = 1;
+		}
+
+		RequestType request_type = 1;
+		DownloadsPageSectionFilterType section_filter_type = 2;
+	}
+
+	oneof type {
+		BannerSectionContinuation banner_section_continuation = 1;
+		DownloadsSectionContinuation downloads_section_continuation = 2;
+		RecommendationsSectionContinuation recommendations_section_continuation = 3;
+		SmartDownloadsSectionContinuation smart_downloads_section_continuation = 4;
+	}
+}

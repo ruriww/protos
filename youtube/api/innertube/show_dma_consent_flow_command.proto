@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "identity_consent/consent_primitive_request.proto";
+import "youtube/api/innertube/consent_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowDmaConsentFlowCommand {
+	extend Command {
+		ShowDmaConsentFlowCommand show_dma_consent_flow_command = 512156911;
+	}
+
+	bool hack = 1;
+
+	oneof consent_request_payload {
+		identity_consent.ConsentPrimitiveRequest consent_request = 2;
+		bytes serialized_consent_request = 3;
+	}
+
+	ConsentAction consent_action = 4;
+}

@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compact_video_renderer.proto";
+import "youtube/api/innertube/compact_playlist_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/generic_promo_renderer.proto";
+import "youtube/api/innertube/music_list_video_renderer.proto";
+import "youtube/api/innertube/compact_promoted_item_renderer.proto";
+import "youtube/api/innertube/background_promo_renderer.proto";
+import "youtube/api/innertube/unplugged_compact_video_renderer.proto";
+import "youtube/api/innertube/music_list_playlist_renderer.proto";
+import "youtube/api/innertube/unlimited_user_notification_renderer.proto";
+import "youtube/api/innertube/music_list_album_renderer.proto";
+import "youtube/api/innertube/music_wide_offline_mixtape_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/music_two_column_item_renderer.proto";
+import "youtube/api/innertube/unplugged_storage_usage_renderer.proto";
+import "youtube/api/innertube/smart_downloads_error_message_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineItemSectionSupportedRenderers {
+	CompactVideoRenderer compact_video_renderer = 50630979;
+	CompactPlaylistRenderer compact_playlist_renderer = 50742631;
+	MessageRenderer message_renderer = 58508690;
+	GenericPromoRenderer generic_promo_renderer = 65665980;
+	MusicListVideoRenderer music_list_video_renderer = 89166951;
+	CompactPromotedItemRenderer compact_promoted_item_renderer = 92511086;
+	BackgroundPromoRenderer background_promo_renderer = 94317419;
+	UnpluggedCompactVideoRenderer unplugged_compact_video_renderer = 97141623;
+	MusicListPlaylistRenderer music_list_playlist_renderer = 111664726;
+	UnlimitedUserNotificationRenderer unlimited_user_notification_renderer = 116074546;
+	MusicListAlbumRenderer music_list_album_renderer = 122847250;
+	MusicWideOfflineMixtapeRenderer music_wide_offline_mixtape_renderer = 137443827;
+	ElementRenderer element_renderer = 153515154;
+	MusicTwoColumnItemRenderer music_two_column_item_renderer = 161429595;
+	UnpluggedStorageUsageRenderer unplugged_storage_usage_renderer = 339341032;
+	SmartDownloadsErrorMessageRenderer smart_downloads_error_message_renderer = 446289076;
+}

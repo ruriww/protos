@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetSelectionEligibility {
+	Command criteria_failed_action = 1;
+
+	oneof criteria {
+		int32 min_assets_selected = 2;
+		int32 max_assets_selected = 3;
+		int64 min_duration_ms_selected = 4;
+		int64 max_duration_ms_selected = 5;
+		bool check_internet_connection = 6;
+		bool check_processing_project = 7;
+		int64 individual_asset_max_duration_ms = 8;
+	}
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.serving.errors;
+
+import "proto2/bridge/message_set.proto";
+import "unknown/youtube/gerr_code10785.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "ORCH";
+
+message PublicPaymentsError {
+	extend proto2.bridge.MessageSet {
+		PublicPaymentsError public_payments_error = 308540723;
+	}
+
+	unknown.youtube.GERRCode10785.GERRCode canonical_code = 1;
+	string error_code = 2;
+	bool retriable = 3;
+	string user_request_id = 6;
+	string user_message = 7;
+	string user_debug_code = 8;
+	webutil.html.types.SafeHtmlProto user_message_html = 11;
+}

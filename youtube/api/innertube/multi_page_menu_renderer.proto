@@ -1,0 +1,76 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/topbar_menu_button_presentation_style.proto";
+import "youtube/api/innertube/topbar_menu_button_hint_supported_renderers.proto";
+import "youtube/api/innertube/multi_page_menu_header_supported_renderers.proto";
+import "youtube/api/innertube/multi_page_menu_section_supported_renderers.proto";
+import "youtube/api/innertube/multi_page_menu_footer_supported_renderers.proto";
+import "youtube/api/innertube/multi_page_menu_title_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/multi_page_menu_section_renderer.proto";
+import "youtube/api/innertube/multi_page_menu_notification_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TopbarMenuButtonRenderer {
+	oneof button {
+		Icon icon = 1;
+		ThumbnailDetails avatar = 2;
+	}
+
+	oneof menu {
+		MultiPageMenuSupportedRenderers menu_renderer = 3;
+		Command menu_request = 4;
+	}
+
+	bytes tracking_params = 6;
+	AccessibilitySupportedDatas accessibility = 7;
+	string tooltip = 8;
+	TopbarMenuButtonPresentationStyle presentation_style = 10;
+	TopbarMenuButtonHintSupportedRenderers hint = 11;
+	bool has_unlimited_entitlement = 12;
+	string target_id = 13;
+	string label = 14;
+	string sublabel = 15;
+	string channel_data_entity_key = 16;
+}
+
+message MultiPageMenuSupportedRenderers {
+	oneof multi_page_menu {
+		MultiPageMenuRenderer multi_page_menu_renderer = 120770929;
+	}
+}
+
+message MultiPageMenuRenderer {
+	MultiPageMenuHeaderSupportedRenderers header = 1;
+	repeated MultiPageMenuSectionSupportedRenderers sections = 2;
+	bytes tracking_params = 4;
+	MultiPageMenuFooterSupportedRenderers footer = 5;
+	MultiPageMenuTitleSupportedRenderers title = 6;
+	bool show_loading_spinner = 8;
+}
+
+extend Renderer {
+	TopbarMenuButtonRenderer topbar_menu_button_renderer = 120823052;
+}
+
+extend Renderer {
+	MultiPageMenuRenderer multi_page_menu_renderer = 120770929;
+}
+
+extend Renderer {
+	MultiPageMenuSectionRenderer multi_page_menu_section_renderer = 122175950;
+}
+
+extend Renderer {
+	MultiPageMenuNotificationSectionRenderer multi_page_menu_notification_section_renderer = 133154844;
+}

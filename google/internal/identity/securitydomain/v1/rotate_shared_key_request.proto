@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message RotateSharedKeyRequest {
+	string security_domain = 1;
+	int32 base_epoch = 2;
+
+	message RotatedSharedMemberKey {
+		string security_domain_member = 1;
+		bytes wrapped_key = 2;
+		bytes member_proof = 3;
+	}
+
+	repeated RotatedSharedMemberKey rotated_shared_member_keys = 3;
+	bytes rotation_proof = 4;
+	string client_session_id = 6;
+}

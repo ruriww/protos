@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.integrator.ui.purchasemanager;
+
+option objc_class_prefix = "IPurMan";
+
+message RequestChallengeResponse {
+	enum ChallengeStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		UNSUPPORTED = 1;
+		SUCCESS = 2;
+		FAILURE = 3;
+	}
+
+	ChallengeStatus challenge_status = 1;
+	string failure_reason = 2;
+	string integrator_request_id = 3;
+}

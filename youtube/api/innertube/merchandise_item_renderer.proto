@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MerchandiseItemRenderer {
+	string title = 1;
+	string description = 2;
+	ThumbnailDetails thumbnail = 3;
+	string price = 4;
+	string vendor_name = 5;
+	bytes tracking_params = 9;
+	string button_text = 10;
+	Command button_command = 11;
+	string accessibility_title = 12;
+	string button_accessibility_text = 13;
+	string from_vendor_text = 14;
+	string additional_fees_text = 15;
+	bool is_product_placeholder = 17;
+	string debug_offer_version_id = 18;
+	bool show_open_in_new_icon = 19;
+	string affiliate_disclaimer = 20;
+	string price_replacement_text = 21;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message PromotedProductLinkData {
+	string icon_base_64 = 1;
+	string link_text = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.identityandcredit;
+
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/identityandcredit/page.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+
+option objc_class_prefix = "IDV";
+
+message InitializeResponse {
+	common.ResponseContext context = 1;
+	common.UiError error = 2;
+	Page initial_page = 3;
+	common.generic.FlowInstruction flow_instruction = 4;
+	common.SecureDataHeader secure_header = 5;
+	repeated Page additional_page = 6;
+	common.IntegratorCallbackData callback_data = 7;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/clip_interval.proto";
+
+option objc_class_prefix = "TENOR";
+
+message BackgroundMedia {
+	enum InputMediaFormat {
+		option features.enum_type = CLOSED;
+
+		INPUT_MEDIA_FORMAT_UNSPECIFIED = 0;
+		INPUT_MEDIA_FORMAT_GIF = 1;
+		INPUT_MEDIA_FORMAT_JPEG = 2;
+		INPUT_MEDIA_FORMAT_PNG = 3;
+		INPUT_MEDIA_FORMAT_WEBP = 4;
+		INPUT_MEDIA_FORMAT_WEBM = 5;
+		INPUT_MEDIA_FORMAT_MP4 = 6;
+	}
+
+	InputMediaFormat input_media_format = 1;
+
+	oneof data {
+		bytes media = 2;
+		string blob_id = 3;
+		string media_file = 4;
+	}
+
+	repeated ClipInterval clip_intervals = 5;
+}

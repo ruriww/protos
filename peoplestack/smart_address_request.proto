@@ -1,0 +1,20 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/lookup_id.proto";
+import "peoplestack/client_information.proto";
+import "social/graph/wire/proto/peopleapi/minimal/affinity.proto";
+
+option objc_class_prefix = "PSK";
+
+message SmartAddressRequest {
+	message ExistingSelection {
+		LookupId id = 1;
+		string query_string = 2;
+	}
+
+	repeated ExistingSelection existing_selection = 2;
+	ClientInformation client_information = 3;
+	social.graph.wire.proto.peopleapi.minimal.Affinity.AffinityType affinity_type = 5;
+}

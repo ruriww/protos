@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InAppBrowserContext {
+	bool enable_progress_bar = 1;
+	bool hide_header_on_scroll = 2;
+	float opacity_for_background_in_loading_screen = 3;
+	float opaque_background_threshold_for_loading_screen = 4;
+	bool enable_horizontal_swipe_navigation = 5;
+	string title = 6;
+	string subtitle = 8;
+}

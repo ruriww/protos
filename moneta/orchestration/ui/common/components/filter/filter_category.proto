@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.filter;
+
+import "moneta/orchestration/ui/common/generic/view_mode.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+
+option objc_class_prefix = "Orch";
+
+message FilterCategory {
+	int64 ui_reference = 1;
+	string display_name = 2;
+	string initial_value = 3;
+	bytes data_token = 4;
+	generic.ViewMode view_mode = 5;
+	repeated SimpleForm simple_form = 6;
+	bool deletable = 7;
+	int64 delete_button_ui_reference = 8;
+	int64 popup_ui_reference = 9;
+	string delete_button_text = 10;
+	bool always_shown = 11;
+}

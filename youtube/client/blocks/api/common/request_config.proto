@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/time_sensitivity.proto";
+
+option objc_class_prefix = "YTBA";
+
+message RequestConfig {
+	bool enable_retries = 1;
+	google.protobuf.Timestamp deadline = 2;
+	youtube.api.innertube.TimeSensitivity time_sensitivity = 3;
+}

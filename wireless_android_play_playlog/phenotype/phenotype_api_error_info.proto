@@ -1,0 +1,13 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+option objc_class_prefix = "PHT";
+
+message PhenotypeApiErrorInfo {
+	string exception = 1;
+	int32 error_code = 2;
+	string exception_message = 3;
+	string sqlite_ce_integrity_check_result = 4;
+	string sqlite_de_integrity_check_result = 5;
+}

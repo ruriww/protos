@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+option objc_class_prefix = "PIL";
+
+message InferredAddress {
+	string formatted = 1;
+	string po_box = 2;
+	string street_address = 3;
+	string extended_address = 4;
+	string locality = 5;
+	string region = 6;
+	string postal_code = 7;
+	string country = 8;
+	string country_code = 9;
+}

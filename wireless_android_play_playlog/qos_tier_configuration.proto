@@ -1,0 +1,24 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "unknown/youtube/lse_log_source6173.proto";
+
+option objc_class_prefix = "CADP";
+
+message QosTierConfiguration {
+	string log_source_name = 1;
+
+	enum QosTier {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		UNMETERED_ONLY = 1;
+		UNMETERED_OR_DAILY = 2;
+		FAST_IF_RADIO_AWAKE = 3;
+		NEVER = 4;
+	}
+
+	QosTier qos_tier = 2;
+	unknown.youtube.LSELogSource6173.LSELogSource log_source = 3 [ default = UNKNOWN ];
+}

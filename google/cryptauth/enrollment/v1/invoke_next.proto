@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+import "google/cryptauth/enrollment/v1/target_service.proto";
+
+option objc_class_prefix = "CRPT";
+
+message InvokeNext {
+	TargetService service = 1;
+	string key_name = 2;
+}

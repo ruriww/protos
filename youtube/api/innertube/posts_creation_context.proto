@@ -1,0 +1,53 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/posts_creation_feature.proto";
+import "youtube/api/innertube/posts_creation_feature_milestone.proto";
+import "youtube/api/innertube/posts_creation_flow_event_type.proto";
+import "youtube/api/innertube/posts_creation_rpc.proto";
+import "youtube/api/innertube/posts_creation_error.proto";
+import "youtube/api/innertube/posts_creation_rpc_milestone.proto";
+import "youtube/api/innertube/comment_creation_source.proto";
+import "youtube/api/innertube/creation_modes_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostsCreationContext {
+	message FeatureContext {
+		PostsCreationFeature feature = 1;
+		PostsCreationFeatureMilestone milestone = 2;
+	}
+
+	message ErrorContext {
+		oneof source {
+			PostsCreationFeature feature = 1;
+			PostsCreationFlowEventType event = 2;
+			PostsCreationRpc rpc_type = 3;
+		}
+
+		PostsCreationError error = 4;
+		bool is_server_error = 5;
+	}
+
+	message RpcContext {
+		PostsCreationRpc rpc_type = 1;
+		PostsCreationRpcMilestone milestone = 2;
+	}
+
+	message OpenContext {
+		bytes serialized_creation_item_info = 1;
+		CommentCreationSource creation_source = 2;
+		CreationModesSource creation_modes_source = 3;
+	}
+
+	oneof context {
+		FeatureContext feature_context = 1;
+		ErrorContext error_context = 2;
+		RpcContext rpc_context = 3;
+		OpenContext open_context = 4;
+	}
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineStateConfig {
+	bool enable_offline_state_logging = 1;
+	int64 offline_state_gel_logging_interval_s = 2;
+}

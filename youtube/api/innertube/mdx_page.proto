@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdxPage {
+	option features.enum_type = CLOSED;
+
+	MDX_PAGE_UNKNOWN = 0;
+	MDX_PAGE_REMOTE_QUEUE = 1;
+	MDX_PAGE_SMART_REMOTE = 2;
+	MDX_PAGE_WATCH = 3;
+}

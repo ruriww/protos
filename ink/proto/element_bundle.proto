@@ -1,0 +1,19 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/element.proto";
+import "ink/proto/transform.proto";
+import "ink/proto/uncompressed_element.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementBundle {
+	string uuid = 1;
+	Element element = 2;
+	Transform transform = 3;
+	UncompressedElement uncompressed_element = 4;
+	string group_uuid = 5;
+	bool visibility = 6 [ default = true ];
+	int32 opacity = 7 [ default = 255 ];
+}

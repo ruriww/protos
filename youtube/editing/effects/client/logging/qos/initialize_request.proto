@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "youtube/editing/effects/client/logging/qos/qos_logger_block_weak_ref.proto";
+import "youtube/client/blocks/api/common/date_block_weak_ref.proto";
+
+option objc_class_prefix = "YTEE";
+
+message InitializeRequest {
+	QosLoggerBlockWeakRef qos_logger_block_ref = 1;
+	youtube.client.blocks.api.common.DateBlockWeakRef date_block_ref = 2;
+	bool strict_error_reporting = 3;
+}

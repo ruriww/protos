@@ -1,0 +1,28 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleBadgeInfo {
+	enum BadgeType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		TEXTUAL = 1;
+		NUMERIC = 2;
+		IMAGE = 3;
+		WARNING = 4;
+		CRITICAL_ALERT = 5;
+		APP_CUSTOM = 7;
+		UPLOAD_ARROW = 8;
+		PAUSED_UPLOAD_ARROW = 9;
+		COMPLETED_CHECKMARK = 10;
+		SYNCING_OFF = 11;
+		ACCOUNT_CHECKUP_WARNING = 12;
+		ALERT = 13;
+		OBAKE = 6;
+	}
+
+	BadgeType badge_type = 1;
+}

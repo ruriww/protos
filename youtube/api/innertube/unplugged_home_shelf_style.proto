@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedHomeShelfStyle {
+	enum HomeShelfStyleType {
+		option features.enum_type = CLOSED;
+
+		HOME_SHELF_STYLE_TYPE_UNKNOWN = 0;
+		HOME_SHELF_STYLE_TYPE_SUGGESTION_SHELF = 1;
+		HOME_SHELF_STYLE_TYPE_VIDEO_SHELF = 2;
+		HOME_SHELF_STYLE_TYPE_GRID_SHELF = 3;
+		HOME_SHELF_STYLE_TYPE_CHANNEL_SHELF = 4;
+		HOME_SHELF_STYLE_TYPE_CHIP_SHELF = 5;
+		HOME_SHELF_STYLE_TYPE_STORE_SHELF = 6;
+	}
+
+	HomeShelfStyleType style_type = 1;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/video_action_bar_button_data.proto";
+import "youtube/elements/components/video_action_button_style.proto";
+import "youtube/elements/components/video_action_bar_style.proto";
+import "youtube/api/innertube/offlineability_entity.proto";
+import "youtube/api/innertube/ad_video_playing_state_entity.proto";
+import "youtube/api/innertube/download_status_entity.proto";
+import "youtube/api/innertube/player_state_entity.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/watch_metapanel_collapse_entity.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message VideoActionBarModel {
+	Theme theme = 1;
+	EnvironmentData environment = 2;
+	Context context = 3;
+	repeated VideoActionBarButtonData buttons = 4;
+	VideoActionButtonStyle button_style = 5;
+	bytes tracking_params = 7;
+	VideoActionBarStyle bar_style = 8;
+	api.innertube.OfflineabilityEntity offlineability_entity = 9;
+	api.innertube.AdVideoPlayingStateEntity ad_video_playing_state_entity = 11;
+	api.innertube.DownloadStatusEntity download_status = 12;
+	bool hide_download_button = 13;
+	api.innertube.PlayerStateEntity player_state_entity = 15;
+	bool use_theme_from_context = 16;
+
+	oneof data {
+		api.innertube.Renderer video_action_bar_view_model = 18;
+	}
+
+	api.innertube.WatchMetapanelCollapseEntity watch_metapanel_collapse_entity = 19;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message AudioData {
+	extend Request {
+		AudioData audio_data = 293101;
+	}
+
+	extend Request {
+		AudioData preamble_audio_data = 62724734;
+	}
+
+	bytes audio = 1;
+}

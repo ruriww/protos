@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatHotConfig {
+	bool enable_live_chat_fullscreen = 2;
+	bool enable_creator_highlights = 3;
+	bool enable_engagement_panel_viewers_count = 4;
+	bool android_live_chat_overlay_allow_low_profile_mode = 5;
+	bool enable_verified_author_highlights = 6;
+	bool enable_free_super_chats = 8;
+	bool flash_money_button_on_super_chat_delivery_ios = 9;
+	bool android_live_chat_ep_load_on_show = 10;
+	bool android_enable_litho_recyclerbinder_live_chat = 13;
+	bool enable_android_live_chat_context_menu_bottom_sheet = 14;
+	bool live_chat_enable_new_fullscreen = 18;
+	string live_chat_default_mode_on_landscape_transition = 20;
+	bool live_chat_enable_pill_ep_entry_point = 21;
+}

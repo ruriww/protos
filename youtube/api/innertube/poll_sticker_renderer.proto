@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollStickerRenderer {
+	extend Renderer {
+		PollStickerRenderer poll_sticker_renderer = 50155;
+	}
+
+	message StickerDisplayData {
+		FormattedString question_placeholder_text = 1;
+		int32 question_line_limit = 2;
+
+		message PollOption {
+			FormattedString placeholder_text = 1;
+		}
+
+		repeated PollOption options = 3;
+		int32 option_line_limit = 4;
+		FormattedString description_text = 5;
+		FormattedString vote_count_indication_placeholder = 6;
+		int32 question_character_limit = 7;
+		int32 option_character_limit = 8;
+		FormattedString add_option_button_text = 9;
+		FormattedString remove_option_a11y_label = 10;
+	}
+
+	StickerDisplayData sticker_display_data = 1;
+}

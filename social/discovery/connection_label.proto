@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.discovery;
+
+option objc_class_prefix = "SDIS";
+
+message ConnectionLabel {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		CONNECTION_LABEL_UNSPECIFIED = 0;
+		HIDDEN = 1;
+	}
+}

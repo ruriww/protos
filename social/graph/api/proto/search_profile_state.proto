@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/protobuf/timestamp.proto";
+import "social/graph/api/proto/search_profile_state_type_container.proto";
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileState {
+	google.protobuf.Timestamp change_timestamp = 1;
+	google.protobuf.Timestamp display_timestamp = 2;
+	SearchProfileStateTypeContainer.SearchProfileStateType type = 3;
+}

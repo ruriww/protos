@@ -1,0 +1,26 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/family_data.proto";
+import "familymanagement/logs/family_member_data.proto";
+import "kids/families/invite_method_holder.proto";
+import "kids/families/unmet_precondition.proto";
+import "kids/families/family_role.proto";
+import "familymanagement/logs/opt_out_supervision_event.proto";
+
+option objc_class_prefix = "FML";
+
+message FamiliesServiceLog {
+	FamilyData requesting_user_family_data = 1;
+	FamilyMemberData requesting_user_member_data = 2;
+	repeated kids.families.InviteMethodHolder.InviteMethod invite_method = 3 [ features.repeated_field_encoding = EXPANDED ];
+	repeated kids.families.UnmetPrecondition unmet_precondition = 4 [ features.repeated_field_encoding = EXPANDED ];
+	bool switch_grant_usage = 5;
+	bool silent_family_deletion = 6;
+	kids.families.FamilyRole requested_role = 7;
+	OptOutSupervisionEvent opt_out_supervision_event = 8;
+	int64 accept_invitation_reminder_count = 9;
+	bytes invitation_secret = 10;
+	bool empty_family_switch = 11;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+import "youtube/client/datapush/utils/manifest_extension.proto";
+import "youtube/client/datapush/utils/srs_metadata.proto";
+
+option objc_class_prefix = "YTI";
+
+message SRSManifest {
+	extend ManifestExtension {
+		SRSManifest srs_manifest = 1;
+	}
+
+	repeated SRSMetadata contents = 1;
+}

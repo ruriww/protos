@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/mde_stream_optimizations_renderer_latency.proto";
+import "youtube/api/innertube/music_video_type.proto";
+import "youtube/api/innertube/video_playback_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoDetails {
+	string video_id = 1;
+	string title = 15;
+	uint64 length_seconds = 16;
+	bool is_live = 17;
+	repeated string keywords = 18;
+	string channel_id = 19;
+	bool is_owner_viewing = 20;
+	string short_description = 21;
+	bool is_crawlable = 22;
+	bool is_live_dvr_enabled = 24;
+	ThumbnailDetails thumbnail = 25;
+	bool use_cipher = 26;
+	bool is_upcoming = 27;
+	bool is_fake_vod = 28;
+	int32 live_chunk_readahead = 29;
+	float average_rating = 30;
+	bool allow_ratings = 31;
+	string view_count = 32;
+	string author = 33;
+	bool is_live_default_broadcast = 34;
+	bool is_low_latency_live_stream = 35;
+	bool is_private = 37;
+	bool is_unplugged_corpus = 38;
+	MdeStreamOptimizationsRendererLatency latency_class = 39;
+	MusicVideoType music_video_type = 40;
+	bool is_live_content = 41;
+	bool is_post_live_dvr = 42;
+	bool is_externally_hosted_podcast = 43;
+	VideoPlaybackPosition viewer_livestream_join_position = 44;
+	bool is_partial_rewind_enabled = 45;
+}

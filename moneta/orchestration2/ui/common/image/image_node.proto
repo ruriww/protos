@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/image/image_url_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ImageNode {
+	extend node.Node {
+		ImageNode image_node_extension = 213678542;
+	}
+
+	ImageUrlOptions fife_options = 1;
+}

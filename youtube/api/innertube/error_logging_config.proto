@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unthrottled_error.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ErrorLoggingConfig {
+	bool error_logging_on_gel_enabled = 1;
+	int32 client_error_gel_sample_weight = 2;
+	float csi_sample_ratio = 3;
+	repeated UnthrottledError unthrottled_error_type = 4;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message CrashMetric {
+	int32 user_initiated_sessions = 1;
+	bool is_memory_suspension = 2;
+	int64 crash_count = 3;
+	int64 start_samples = 5;
+	bool is_using_crashpad = 6;
+	string application_version = 8;
+	int64 launch_samples = 9;
+}

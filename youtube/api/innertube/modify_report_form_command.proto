@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/report_form_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ModifyReportFormCommand {
+	extend Command {
+		ModifyReportFormCommand modify_report_form_command = 171313789;
+	}
+
+	ReportFormAction action = 1;
+}

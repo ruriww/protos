@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_made_for_kids_update_operation.proto";
+import "youtube/api/innertube/mde_made_for_kids_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeMadeForKidsUpdateRequestParams {
+	MdeMadeForKidsUpdateOperation operation = 1;
+	MdeMadeForKidsType new_mfk = 2;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/reminder.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "PIL";
+
+message SuggestedReminder {
+	Reminder reminder = 1;
+	bool existing_reminder = 2;
+	google.protobuf.Duration reminder_relative_time = 3;
+}

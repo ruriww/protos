@@ -1,0 +1,16 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/affinity.proto";
+
+option objc_class_prefix = "POEM";
+
+message SortKeys {
+	string name = 1;
+	string interaction_rank = 2;
+	repeated Affinity affinity = 3;
+	string last_name = 4;
+	string name_raw = 5;
+	string last_name_raw = 6;
+}

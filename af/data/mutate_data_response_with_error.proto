@@ -1,0 +1,13 @@
+edition = "2023";
+
+package af.data;
+
+import "af/data/mutate_data_response.proto";
+import "util/status_proto.proto";
+
+option objc_class_prefix = "AFD";
+
+message MutateDataResponseWithError {
+	MutateDataResponse data_response = 1;
+	util.StatusProto error_status = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/client_text_selection.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message PrefetchedTextSelectable {
+	ClientTextSelection selectable_text = 1;
+}

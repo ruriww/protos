@@ -1,0 +1,13 @@
+edition = "2023";
+
+package googlemac.iphone.shared.identity.familymanagement;
+
+import "googlemac/iphone/shared/identity/familymanagement/flow.proto";
+import "kids/families/app_id.proto";
+
+option objc_class_prefix = "GFM";
+
+message FamilyManagementUiRequest {
+	Flow flow = 1;
+	kids.families.AppId app_id = 2;
+}

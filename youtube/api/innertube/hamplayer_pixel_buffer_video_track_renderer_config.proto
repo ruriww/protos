@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerPixelBufferVideoTrackRendererConfig {
+	int32 min_frame_queue_size = 1;
+	int32 target_frame_queue_size = 2;
+	int32 max_frame_fall_behind_ms = 3;
+	bool queue_more_frames_on_render = 4;
+	bool fix_frame_drop_calculation = 5;
+	bool fix_frame_drop_calculation_jan2020 = 6;
+}

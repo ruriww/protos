@@ -1,0 +1,33 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/text_part_info.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/search/readaloud/v1/audio_doc_sentiment.proto";
+import "google/search/readaloud/v1/audio_doc_mode.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioDocMetadata {
+	string canonical_url = 1;
+	string full_text = 2;
+	string language_code = 3;
+	string audio_format = 4;
+	string publisher = 5;
+	string author = 6;
+	string title = 7;
+	repeated TextPartInfo text_parts = 8;
+	bytes version_token = 9;
+	protobuf.Timestamp publish_time = 10;
+	protobuf.Duration estimated_duration = 11;
+	bool supports_translation = 12;
+	protobuf.Timestamp last_modify_time = 13;
+	AudioDocSentiment sentiment_info = 14;
+	string image_url = 15;
+	bytes session_token = 16;
+	bool is_partial = 17;
+	bytes feedback_token = 18;
+	AudioDocMode audio_doc_mode = 19;
+}

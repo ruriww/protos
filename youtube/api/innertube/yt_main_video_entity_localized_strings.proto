@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtMainVideoEntityLocalizedStrings {
+	string view_count = 1;
+	string like_count = 2;
+	string dislike_count = 3;
+	string video_length_accessibility_string = 4;
+	string video_length = 5;
+	string published_date = 6;
+	string like_count_accessibility_string = 7;
+	string dislike_accessibility_string = 8;
+	string view_count_accessibility_string = 9;
+}

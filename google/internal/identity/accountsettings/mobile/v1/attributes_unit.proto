@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message AttributesUnit {
+	message Attribute {
+		string attribute = 1;
+		Image image = 2;
+	}
+
+	repeated Attribute attributes = 1;
+}

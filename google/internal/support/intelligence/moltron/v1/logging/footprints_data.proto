@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+message FootprintsData {
+	string url = 1;
+	string title = 2;
+
+	enum Client {
+		option features.enum_type = CLOSED;
+
+		CLIENT_UNKNOWN = 0;
+		CLIENT_SUPPORT_CONTENT = 1;
+		CLIENT_CASES = 2;
+		CLIENT_SALES = 3;
+		CLIENT_SALES_KNOWLEDGE_HUB = 4;
+	}
+
+	Client client = 3;
+}

@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VrConfig {
+	bool allow_vr = 1;
+	bool allow_subtitles = 2;
+	bool show_hq_button = 3;
+	bool spherical_direction_logging_enabled = 4;
+	bool use_native_vrtoolkit = 5;
+	bool enable_vertex_distortion = 6;
+	bool partial_spherical = 7;
+	bool use_vr_capable_rendering = 8;
+	bool magic_window_center_on_video_start = 9;
+	float magic_window_drift_to_neutral_speed = 10;
+	float magic_window_gyro_damp_time_on_start = 11;
+	bool enable_watch_in_vr_chip = 12;
+	bool magic_window_disable_roll = 13;
+	bool enable_android_vr180_magic_window = 14;
+	float spherical_video_playback_aspect_ratio = 15;
+	bool enable_android_magic_window_edu_overlay = 16;
+	string magic_window_edu_overlay_text = 17;
+	string magic_window_edu_overlay_animation_url = 18;
+	bool enable_ios_magic_window_edu_overlay = 19;
+	bool enable_magic_window_zoom = 20;
+	bool use_cardboard_oss_sdk = 21;
+}

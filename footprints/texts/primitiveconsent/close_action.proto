@@ -1,0 +1,11 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/transparencyandcontrol/proto/consent_decision.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message CloseAction {
+	repeated transparencyandcontrol.proto.ConsentDecision exit_decisions = 1;
+}

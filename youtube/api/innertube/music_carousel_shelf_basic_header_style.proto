@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicCarouselShelfBasicHeaderStyle {
+	option features.enum_type = CLOSED;
+
+	MUSIC_CAROUSEL_SHELF_BASIC_HEADER_STYLE_UNKNOWN = 0;
+	MUSIC_CAROUSEL_SHELF_BASIC_HEADER_STYLE_DEFAULT = 1;
+	MUSIC_CAROUSEL_SHELF_BASIC_HEADER_STYLE_COMPACT_DEPRECATED = 2;
+	MUSIC_CAROUSEL_SHELF_BASIC_HEADER_STYLE_DISPLAY_TWO = 3;
+	MUSIC_CAROUSEL_SHELF_BASIC_HEADER_STYLE_TITLE_TWO = 4;
+}

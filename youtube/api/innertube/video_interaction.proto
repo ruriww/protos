@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/interaction_type_queue_impress.proto";
+import "youtube/api/innertube/interaction_type_playback_skip.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoInteraction {
+	string video_id = 1;
+	uint32 queue_index = 2;
+	uint64 interaction_timestamp_ms = 3;
+
+	oneof interaction_type {
+		InteractionTypeQueueImpress queue_impress = 4;
+		InteractionTypePlaybackSkip playback_skip = 5;
+	}
+}

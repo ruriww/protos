@@ -1,0 +1,25 @@
+edition = "2023";
+
+package engage.api.boq.support.discovery.logging;
+
+import "engage/api/boq/support/discovery/logging/journey/help_center_context.proto";
+import "engage/api/boq/support/discovery/logging/journey/page_view.proto";
+import "engage/api/boq/support/discovery/logging/journey/search.proto";
+import "engage/api/boq/support/discovery/logging/journey/search_result_click.proto";
+import "engage/api/boq/support/discovery/logging/journey/search_results_shown.proto";
+import "unknown/youtube/csc_request_source12500.proto";
+
+option objc_class_prefix = "SDL";
+
+message LogJourneyRequest {
+	journey.HelpCenterContext help_center_context = 1;
+
+	oneof event_oneof {
+		journey.PageView page_view = 2;
+		journey.Search search = 3;
+		journey.SearchResultClick search_result_click = 6;
+		journey.SearchResultsShown search_results_shown = 7;
+	}
+
+	unknown.youtube.CSCRequestSource12500.CSCRequestSource request_source = 4;
+}

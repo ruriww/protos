@@ -1,0 +1,53 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/decorated_player_bar_button_type.proto";
+import "youtube/api/innertube/chaptered_player_bar_renderer.proto";
+import "youtube/api/innertube/non_chaptered_player_bar_renderer.proto";
+import "youtube/api/innertube/multi_markers_player_bar_renderer.proto";
+import "youtube/api/innertube/chapter_renderer.proto";
+import "youtube/api/innertube/marker_renderer.proto";
+import "youtube/api/innertube/segment_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DecoratedPlayerBarRenderer {
+	Renderer player_bar = 1;
+	Renderer player_bar_action_button = 2;
+	Renderer playhead = 3;
+	uint32 progress_color = 4;
+	DecoratedPlayerBarButtonType button_type = 5;
+}
+
+extend Renderer {
+	DecoratedPlayerBarRenderer decorated_player_bar_renderer = 286900302;
+}
+
+extend Renderer {
+	ChapteredPlayerBarRenderer chaptered_player_bar_renderer = 286400274;
+}
+
+extend Renderer {
+	NonChapteredPlayerBarRenderer non_chaptered_player_bar_renderer = 286400616;
+}
+
+extend Renderer {
+	MultiMarkersPlayerBarRenderer multi_markers_player_bar_renderer = 328571098;
+}
+
+extend Renderer {
+	ChapterRenderer chapter_renderer = 286400532;
+}
+
+extend Renderer {
+	MarkerRenderer marker_renderer = 286400944;
+}
+
+extend Renderer {
+	SegmentRenderer segment_renderer = 286401062;
+}

@@ -1,0 +1,78 @@
+edition = "2023";
+
+package youtube.editing.mobile;
+
+import "youtube/api/innertube/video_response_sticker_renderer.proto";
+import "youtube/api/innertube/sticker_theme.proto";
+import "youtube/api/innertube/editing.proto";
+import "youtube/api/innertube/sticker_editor_data.proto";
+import "youtube/api/innertube/creator_product_sticker_view_model.proto";
+import "youtube/api/innertube/upload_image_sticker_shape.proto";
+import "youtube/api/innertube/interactive_sticker_renderer.proto";
+import "youtube/api/innertube/interactive_sticker_type.proto";
+
+option objc_class_prefix = "YTEM";
+
+message InteractiveSticker {
+	message Rectangle {
+		double width = 1;
+		double height = 2;
+	}
+
+	message VideoResponseStickerData {
+		api.innertube.VideoResponseStickerRenderer initial_renderer = 1;
+		api.innertube.StickerTheme sticker_theme = 3;
+		string text = 4;
+		Rectangle unscaled_body_rectangle = 5;
+	}
+
+	message PromptStickerData {
+		string text = 1;
+		api.innertube.Editing.StateEvent.PositionableLayerEvent.PositionableLayerContent.PromptStickerContent.PromptStickerTheme theme = 2;
+		api.innertube.StickerEditorData.PromptStickerEditorData elements_editor_data = 3;
+	}
+
+	message PollStickerData {
+		string question_text = 1;
+		Rectangle unscaled_body_rectangle = 3;
+		api.innertube.StickerTheme theme = 4;
+	}
+
+	message QuizStickerData {
+		string question_text = 1;
+		Rectangle unscaled_body_rectangle = 3;
+		api.innertube.StickerTheme theme = 4;
+	}
+
+	message ProductStickerData {
+		Rectangle unscaled_body_rectangle = 1;
+		api.innertube.CreatorProductStickerViewModel view_model = 2;
+	}
+
+	message UploadImageStickerData {
+		api.innertube.UploadImageStickerShape shape = 1;
+		api.innertube.StickerTheme theme = 2;
+		string image_identifier = 3;
+		bool is_image_loaded = 4;
+	}
+
+	message GenAiStickerData {
+		bytes serialized_generated_media_image = 1;
+		string image_identifier = 2;
+		bool is_image_loaded = 3;
+		bytes serialized_generative_media_params = 4;
+	}
+
+	oneof sticker_data {
+		VideoResponseStickerData video_response_sticker_data = 1;
+		PromptStickerData prompt_sticker_data = 3;
+		PollStickerData poll_sticker_data = 4;
+		QuizStickerData quiz_sticker_data = 5;
+		ProductStickerData product_sticker_data = 8;
+		UploadImageStickerData upload_image_sticker_data = 9;
+		GenAiStickerData gen_ai_sticker_data = 10;
+	}
+
+	api.innertube.InteractiveStickerRenderer initial_sticker_renderer = 2;
+	api.innertube.InteractiveStickerType sticker_type = 7;
+}

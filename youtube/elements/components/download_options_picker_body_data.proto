@@ -1,0 +1,53 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/download_format.proto";
+import "youtube/api/innertube/download_audio_track.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadOptionsPickerBodyData {
+	enum FormatHeaderType {
+		option features.enum_type = CLOSED;
+
+		FORMAT_HEADER_TYPE_UNKNOWN = 0;
+		FORMAT_HEADER_TYPE_DIVIDER = 1;
+		FORMAT_HEADER_TYPE_PREMIUM = 2;
+	}
+
+	string upsell_text = 1;
+	repeated api.innertube.DownloadFormat formats = 2;
+	repeated api.innertube.DownloadAudioTrack audio_tracks = 3;
+	string remember_settings_text = 4;
+	string expiring_remember_settings_text = 5;
+	bool display_remember_settings_checkbox = 6;
+	string hint_for_1080p = 7;
+
+	message DownloadOptionsA11yStrings {
+		string selected = 1;
+	}
+
+	DownloadOptionsA11yStrings a11y_strings = 8;
+	string selected_values_id = 9;
+	string format_picker_id = 10;
+	string audio_track_picker_id = 11;
+
+	message FormatHeader {
+		FormatHeaderType type = 1;
+		int32 index = 2;
+	}
+
+	repeated FormatHeader format_headers = 12;
+
+	message PickerHeader {
+		string title = 1;
+		string subtitle = 2;
+	}
+
+	PickerHeader format_picker_header = 13;
+	PickerHeader audio_track_picker_header = 14;
+}

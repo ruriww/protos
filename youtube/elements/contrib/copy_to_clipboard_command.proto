@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.contrib;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/contrib/clipboard_content.proto";
+
+option java_package = "com.google.protos.youtube.elements.contrib";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CopyToClipboardCommand {
+	extend Command {
+		CopyToClipboardCommand copy_to_clipboard_command = 379658484;
+	}
+
+	ClipboardContent content = 1;
+}

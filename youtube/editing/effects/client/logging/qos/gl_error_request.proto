@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTEE";
+
+message GlErrorRequest {
+	uint32 gl_error = 1;
+	uint32 egl_error = 2;
+	google.protobuf.Timestamp request_time = 3;
+	int64 pipeline_reference_id = 4;
+}

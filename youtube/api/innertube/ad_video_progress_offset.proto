@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdVideoProgressOffset {
+	enum AdVideoProgressKind {
+		option features.enum_type = CLOSED;
+
+		AD_VIDEO_PROGRESS_KIND_UNKNOWN = 0;
+		AD_VIDEO_PROGRESS_KIND_PERCENT = 1;
+		AD_VIDEO_PROGRESS_KIND_MILLISECONDS = 2;
+	}
+
+	AdVideoProgressKind kind = 1;
+	float percent = 2;
+	int64 milliseconds = 3;
+}

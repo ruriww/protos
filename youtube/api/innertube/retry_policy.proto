@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/time_sensitivity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RetryPolicy {
+	repeated TimeSensitivity time_sensitivities = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 max_explicit_errors_from_server = 3;
+	int32 max_network_timeout_errors = 4;
+	int32 max_network_non_timeout_errors = 5;
+	int32 max_pre_request_errors = 6;
+	int32 response_header_received_timeout_ms = 7;
+	int32 whole_response_received_timeout_ms = 8;
+	repeated string server_domains = 9;
+	int32 default_total_timeout_ms = 10;
+}

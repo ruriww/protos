@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/client/blocks/api/watch/player_overlay_visibility.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerOverlayVisibilityState {
+	string overlay_identifier = 1;
+	PlayerOverlayVisibility player_overlay_visibility = 2;
+}

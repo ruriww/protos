@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/left_nav_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/left_nav_divider.proto";
+
+option objc_class_prefix = "ASM";
+
+message LeftNavBlock {
+	oneof type {
+		LeftNavItem item = 1;
+		LeftNavDivider divider = 2;
+	}
+}

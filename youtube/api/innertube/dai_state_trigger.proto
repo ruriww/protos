@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dai_cue_start_change.proto";
+import "youtube/api/innertube/dai_cue_duration_change.proto";
+import "youtube/api/innertube/dai_cue_duration_change_reason.proto";
+import "youtube/api/innertube/dai_error_type.proto";
+import "youtube/api/innertube/ad_client_data_entry.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DAIStateTrigger {
+	string content_cpn = 1;
+	double total_cue_duration_ms = 2;
+	double filled_ads_duration_ms = 3;
+	DAICueStartChange cue_start_change = 4;
+	DAICueDurationChange cue_duration_change = 5;
+	DAICueDurationChangeReason cue_duration_change_reason = 6;
+	DAIErrorType error_type = 7;
+	string external_channel_id = 8;
+	AdClientDataEntry ad_client_data = 9;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package search.rendering.xuikit.elements;
+
+import "search/rendering/xuikit/elements/data_store_mutation_type.proto";
+import "search/rendering/xuikit/elements/data_store_mutation_payload.proto";
+
+option objc_class_prefix = "XUI";
+
+message DataStoreMutation {
+	string data_store_key = 1;
+	DataStoreMutationType type = 2;
+	DataStoreMutationPayload payload = 3;
+}

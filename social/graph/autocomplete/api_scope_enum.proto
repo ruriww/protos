@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message ApiScopeEnum {
+	enum Scope {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		ALL_RESULTS = 1;
+		ONLY_CACHED_RESULTS = 2;
+		ONLY_PREFETCHED_RESULTS = 3;
+		NO_CACHED_RESULTS = 4;
+	}
+}

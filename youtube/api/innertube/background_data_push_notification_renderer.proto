@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/active_identity_supported_tokens.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BackgroundDataPushNotificationRenderer {
+	repeated Command actions = 1;
+	ActiveIdentitySupportedTokens identity = 2;
+}
+
+extend Renderer {
+	BackgroundDataPushNotificationRenderer background_data_push_notification_renderer = 100987577;
+}

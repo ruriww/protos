@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/setting_category_id.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLiveGuideSettingCategoryRenderer {
+	FormattedString title = 1;
+	repeated Renderer items = 2;
+	Icon icon = 3;
+	SettingCategoryId category_id = 4;
+	Command unplugged_update_live_guide_order_command = 5;
+	bytes tracking_params = 7;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillSubmitData {
+	bool email_changed = 1;
+	bool name_changed = 2;
+	bool phone_changed = 3;
+	bool email_prefilled = 4;
+	bool name_prefilled = 5;
+	bool phone_prefilled = 6;
+}

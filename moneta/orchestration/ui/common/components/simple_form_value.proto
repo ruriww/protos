@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/sub_form_value.proto";
+import "moneta/orchestration/ui/common/components/field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message SimpleFormValue {
+	string id = 1;
+	bytes data_token = 2;
+
+	message FormFieldValue {
+		oneof formfieldvalue {
+			SubFormValue sub_form_value = 1;
+			FieldValue field_value = 2;
+		}
+	}
+
+	repeated FormFieldValue form_field_value = 3;
+	string legal_doc_data = 4;
+	int64 ui_reference = 5;
+	string attestation_jws = 6;
+}

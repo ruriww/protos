@@ -1,0 +1,19 @@
+edition = "2023";
+
+package focus_backend;
+
+option objc_class_prefix = "FSBKD";
+
+message ContactDetailHash {
+	uint32 value = 2;
+
+	enum DetailType {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		PHONE = 1;
+		EMAIL = 2;
+	}
+
+	DetailType type = 3;
+}

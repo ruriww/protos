@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_guest_session_identity_match.proto";
+import "youtube/api/innertube/kids_guest_session_user_settings_recency.proto";
+import "youtube/api/innertube/kids_guest_session_user_settings_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsGuestSessionMismatch {
+	bool after_fix = 1;
+	KidsGuestSessionIdentityMatch stored_child_identity_match = 2;
+	KidsGuestSessionIdentityMatch stored_parent_identity_match = 3;
+	KidsGuestSessionUserSettingsStatus user_settings_status = 4;
+
+	message KidsGuestSessionUserSettingsInfo {
+		KidsGuestSessionIdentityMatch identity_match = 1;
+		KidsGuestSessionUserSettingsRecency recency = 2;
+		bool search_history_paused = 3;
+		bool watch_history_paused = 4;
+	}
+
+	repeated KidsGuestSessionUserSettingsInfo guest_user_settings = 5;
+	bool parent_and_child_session_id_collision = 6;
+}

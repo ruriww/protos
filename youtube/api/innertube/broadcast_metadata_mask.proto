@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/schedule_metadata_mask.proto";
+import "youtube/api/innertube/chat_metadata_mask.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BroadcastMetadataMask {
+	bool set_broadcast_delay_ms = 1;
+	bool set_latency_mode = 2;
+	bool set_privacy_after_complete = 3;
+	bool set_enable_monitor_stream = 4;
+	ScheduleMetadataMask schedule_metadata_mask = 5;
+	ChatMetadataMask chat_metadata_mask = 6;
+	bool set_is_spherical = 7;
+	bool set_broadcast_conference_type = 8;
+	bool set_orientation_option = 9;
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/static_context.proto";
+import "youtube/api/innertube/dynamic_context.proto";
+import "youtube/api/innertube/crash_data.proto";
+import "youtube/api/innertube/delayed_event_metric_captured.proto";
+import "youtube/api/innertube/ios_battery_metric.proto";
+import "youtube/api/innertube/cpu_profiling.proto";
+import "youtube/api/innertube/compact_stack_traces_proto.proto";
+import "youtube/api/innertube/memory_usage_proto.proto";
+import "youtube/api/innertube/ios_thermal_metric.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtSystemHealthMetric {
+	StaticContext static_context = 2;
+	DynamicContext dynamic_context = 3;
+	bytes serialized_primes_metric = 4;
+	bytes serialized_ios_primes_metric = 6;
+	CrashData crash_data = 9;
+	repeated DelayedEventMetricCaptured delayed_event_metrics = 10;
+	IosBatteryMetric ios_battery_metric = 11;
+	CPUProfiling cpu_profiling = 14;
+	CompactStackTracesProto stall_stack_trace = 15;
+	MemoryUsageProto memory_usage = 16;
+	bytes serialized_web_system_health_metric = 23;
+	IosThermalMetric ios_thermal_metric = 25;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/curve_type.proto";
+
+option objc_class_prefix = "INKPB";
+
+message AnimationCurve {
+	CurveType type = 1 [ default = EASE_IN_OUT ];
+	repeated float params = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

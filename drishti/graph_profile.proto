@@ -1,0 +1,15 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/graph_trace.proto";
+import "drishti/calculator_profile.proto";
+import "drishti/calculator_graph_config.proto";
+
+option objc_class_prefix = "Drishti";
+
+message GraphProfile {
+	repeated GraphTrace graph_trace = 1;
+	repeated CalculatorProfile calculator_profiles = 2;
+	CalculatorGraphConfig config = 3;
+}

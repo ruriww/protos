@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.toggle;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CheckboxNode {
+	extend node.Node {
+		CheckboxNode checkbox_node_extension = 228982941;
+	}
+
+	node.Node label = 1;
+}

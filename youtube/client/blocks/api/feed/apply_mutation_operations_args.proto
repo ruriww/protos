@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.feed;
+
+import "youtube/api/innertube/section_list_mutation_operations.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ApplyMutationOperationsArgs {
+	youtube.api.innertube.SectionListMutationOperations operations = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package securemessage;
+
+import "securemessage/sig_scheme.proto";
+import "securemessage/enc_scheme.proto";
+
+option objc_class_prefix = "SMSG";
+
+message Header {
+	SigScheme signature_scheme = 1;
+	EncScheme encryption_scheme = 2;
+	bytes verification_key_id = 3;
+	bytes decryption_key_id = 4;
+	bytes iv = 5;
+	bytes public_metadata = 6;
+	uint32 associated_data_length = 7 [ default = 0 ];
+}

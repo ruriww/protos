@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollChoice {
+	FormattedString text = 1;
+	uint64 num_votes = 2;
+	bool selected = 3;
+	Command service_endpoint = 4;
+	double vote_ratio = 5;
+	FormattedString vote_percentage = 6;
+	Command signin_endpoint = 8;
+	Command select_service_endpoint = 9;
+	Command deselect_service_endpoint = 10;
+	double vote_ratio_if_selected = 11;
+	FormattedString vote_percentage_if_selected = 12;
+	double vote_ratio_if_not_selected = 13;
+	FormattedString vote_percentage_if_not_selected = 14;
+	ThumbnailDetails image = 15;
+}

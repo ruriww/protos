@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentZeroStateRenderer {
+	FormattedString primary_text = 1;
+	FormattedString secondary_text = 2;
+	bytes tracking_params = 3;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	CommentZeroStateRenderer comment_zero_state_renderer = 223052164;
+}

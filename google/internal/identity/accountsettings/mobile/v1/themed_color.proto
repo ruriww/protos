@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/type/color.proto";
+
+option objc_class_prefix = "ASM";
+
+message ThemedColor {
+	type.Color light = 1;
+	type.Color dark = 2;
+}

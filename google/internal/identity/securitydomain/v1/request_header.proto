@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message RequestHeader {
+	bool force_master_read = 1;
+}

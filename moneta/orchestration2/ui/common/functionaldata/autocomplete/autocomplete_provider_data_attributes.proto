@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete;
+
+option objc_class_prefix = "ORCH2";
+
+message AutocompleteProviderDataAttributes {
+	int32 display_threshold = 1;
+	int32 max_results = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package search.rendering.xuikit.elements;
+
+option objc_class_prefix = "XUI";
+
+enum DataStoreMutationType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_DATA_STORE_MUTATION_TYPE = 0;
+	REPLACE = 1;
+	DELETE = 2;
+}

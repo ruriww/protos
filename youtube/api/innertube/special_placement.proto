@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SpecialPlacement {
+	option features.enum_type = CLOSED;
+
+	SPECIAL_PLACEMENT_UNSPECIFIED = 0;
+	SPECIAL_PLACEMENT_ABOVE_CHAT_START_ALIGNED = 1;
+}

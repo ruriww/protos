@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_shelf_divider_spacing.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicShelfDividerRenderer {
+	bool hidden = 1;
+	MusicShelfDividerSpacing spacing = 2;
+}
+
+extend Renderer {
+	MusicShelfDividerRenderer music_shelf_divider_renderer = 132810515;
+}

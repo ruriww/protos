@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/chip.proto";
+
+option objc_class_prefix = "LFE";
+
+message ChipList {
+	repeated Chip chip = 1;
+
+	enum Style {
+		UNKNOWN = 0;
+		ASSISTIVE = 1;
+		SUGGESTIVE = 2;
+	}
+
+	Style style = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.core;
+
+import "logs/visual_element_lite_proto.proto";
+import "logs/visual_element_graft.proto";
+
+option objc_class_prefix = "CORE";
+
+message CoreGraftMetadata {
+	repeated VisualElementLiteProto path = 1;
+}
+
+extend VisualElementGraft {
+	CoreGraftMetadata core_graft_metadata = 100;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/producer_player_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProducerMediaServicesResetDetails {
+	string project_id = 1;
+	bool is_app_in_background = 2;
+	uint64 time_spent_since_last_return_to_foreground_ms = 3;
+	bool is_export_in_progress = 4;
+	ProducerPlayerState player_state = 5;
+}

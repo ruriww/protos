@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/canned_buyflow.proto";
+
+option objc_class_prefix = "TSL";
+
+message Buyflow {
+	oneof buy_flow {
+		CannedBuyflow canned_buyflow_parameters = 1;
+	}
+}

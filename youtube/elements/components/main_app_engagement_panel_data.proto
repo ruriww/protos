@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MainAppEngagementPanelData {
+	float section_list_container_height = 1;
+	map<string, bool> watch_engagement_panel_visibility_state_map = 2;
+	float section_list_container_width = 3;
+	bool engagement_panel_is_visible = 4;
+	bool landscape_engagement_panel_is_visible = 5;
+	bool engagement_panel_entrypoint_is_visible = 6;
+	bool live_chat_engagement_panel_entrypoint_is_visible = 7;
+}

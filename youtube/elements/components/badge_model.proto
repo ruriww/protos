@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/components/theme.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message BadgeModel {
+	extend Model {
+		BadgeModel badge_model = 194476615;
+	}
+
+	Context context = 4;
+	EnvironmentData environment = 6;
+
+	oneof data_model {
+		api.innertube.Renderer view_model = 7;
+	}
+
+	Theme theme = 8;
+}

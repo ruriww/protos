@@ -1,0 +1,15 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+option objc_class_prefix = "YTEE";
+
+message ImageTransformationAttributes {
+	bool preserve_gender = 1;
+	bool preserve_skin_tone = 2;
+	bool preserve_hair_style = 3;
+	bool preserve_clothing_and_accessories = 4;
+	bool preserve_background = 5;
+	float control_strength = 6;
+	float prompt_strength = 7;
+}

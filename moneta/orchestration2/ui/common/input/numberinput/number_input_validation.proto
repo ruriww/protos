@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+import "moneta/orchestration2/ui/common/validation/validation.proto";
+import "moneta/orchestration2/ui/common/input/value_range.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NumberInputValidation {
+	extend validation.Validation {
+		NumberInputValidation number_input_validation_extension = 355457965;
+	}
+
+	ValueRange value_range = 1;
+}

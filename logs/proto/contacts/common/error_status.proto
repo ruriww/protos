@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "unknown/youtube/gerr_code10785.proto";
+import "customer_support/content/guidance/chat/v1/a_error_cause.proto";
+import "logs/proto/contacts/common/raw_error_code.proto";
+
+option objc_class_prefix = "CTC";
+
+message ErrorStatus {
+	unknown.youtube.GERRCode10785.GERRCode code = 1 [ default = OK ];
+	customer_support.content.guidance.chat.v1.AErrorCause cause = 2;
+	RawErrorCode raw_error_code = 3;
+	string exception_name = 4;
+}

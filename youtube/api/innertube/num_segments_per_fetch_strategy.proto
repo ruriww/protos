@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum NumSegmentsPerFetchStrategy {
+	NUM_SEGMENTS_PER_FETCH_STRATEGY_UNKNOWN = 0;
+	NUM_SEGMENTS_PER_FETCH_STRATEGY_CONSTANT = 1;
+	NUM_SEGMENTS_PER_FETCH_STRATEGY_LIMITED_DURATION = 2;
+}

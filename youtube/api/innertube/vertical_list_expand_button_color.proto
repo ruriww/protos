@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum VerticalListExpandButtonColor {
+	option features.enum_type = CLOSED;
+
+	VERTICAL_LIST_EXPAND_BUTTON_COLOR_UNKNOWN = 0;
+	VERTICAL_LIST_EXPAND_BUTTON_COLOR_DEFAULT = 1;
+	VERTICAL_LIST_EXPAND_BUTTON_COLOR_GREY = 2;
+	VERTICAL_LIST_EXPAND_BUTTON_COLOR_SAMPLE = 3;
+	VERTICAL_LIST_EXPAND_BUTTON_COLOR_THEMED = 4;
+}

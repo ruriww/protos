@@ -1,0 +1,16 @@
+edition = "2023";
+
+package speech.s3.bard;
+
+import "speech/s3/request.proto";
+import "speech/s3/bard/conversation_turn.proto";
+
+option objc_class_prefix = "S3BD";
+
+message BardRequestInfo {
+	extend Request {
+		BardRequestInfo id = 1201;
+	}
+
+	repeated ConversationTurn conversation_turns = 2;
+}

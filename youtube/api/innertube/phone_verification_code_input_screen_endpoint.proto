@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/phone_verification_code_input_screen_supported_renderers.proto";
+import "youtube/api/innertube/code_delivery_method.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PhoneVerificationCodeInputScreenEndpoint {
+	extend Command {
+		PhoneVerificationCodeInputScreenEndpoint phone_verification_code_input_screen_endpoint = 132445607;
+	}
+
+	PhoneVerificationCodeInputScreenSupportedRenderers code_input_screen = 1;
+	string phone_number = 2;
+	string country_code = 3;
+	int64 idv_request_id = 4;
+	CodeDeliveryMethod code_delivery_method = 5;
+	string params = 6;
+}

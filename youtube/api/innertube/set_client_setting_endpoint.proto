@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/client_setting_enum_value_pair.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SetClientSettingEndpoint {
+	extend Command {
+		SetClientSettingEndpoint set_client_setting_endpoint = 81212182;
+	}
+
+	repeated ClientSettingEnumValuePair setting_datas = 1;
+	repeated Command actions = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package af.data;
+
+import "af/data/data_fetch.proto";
+
+option objc_class_prefix = "AFD";
+
+message BatchDataRequest {
+	repeated DataFetch data_fetch = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.filepicker;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FilePickerData {
+	extend data.Data {
+		FilePickerData file_picker_data_extension = 280016706;
+	}
+
+	repeated string uploadable_mime_type = 1;
+	int64 max_document_size_bytes = 2;
+	int64 min_document_size_bytes = 3;
+	bool allow_multiple_select = 4;
+}

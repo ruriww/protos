@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InteractionLoggingVisibilityEventType {
+	option features.enum_type = CLOSED;
+
+	INTERACTION_LOGGING_VISIBILITY_EVENT_TYPE_UNKNOWN = 0;
+	INTERACTION_LOGGING_VISIBILITY_EVENT_TYPE_LOG_WHEN_FIRST_SHOWN = 1;
+	INTERACTION_LOGGING_VISIBILITY_EVENT_TYPE_LOG_WHEN_FIRST_HIDDEN = 2;
+	INTERACTION_LOGGING_VISIBILITY_EVENT_TYPE_LOG_WHEN_SHOWN = 4;
+	INTERACTION_LOGGING_VISIBILITY_EVENT_TYPE_LOG_WHEN_HIDDEN = 8;
+	INTERACTION_LOGGING_VISIBILITY_EVENT_TYPE_LOG_WHEN_DESTROYED = 16;
+}

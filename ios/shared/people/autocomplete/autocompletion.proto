@@ -1,0 +1,26 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person.proto";
+import "ios/shared/people/autocomplete/group.proto";
+import "ios/shared/people/autocomplete/field_pointer.proto";
+
+option objc_class_prefix = "PDL";
+
+message Autocompletion {
+	enum ObjectType {
+		option features.enum_type = CLOSED;
+
+		OBJECT_TYPE_UNSPECIFIED = 0;
+		PERSON = 1;
+		GOOGLE_GROUP = 2;
+		GROUP = 3;
+	}
+
+	ObjectType object_type = 3;
+	Person person = 4;
+	Group group = 5;
+	repeated FieldPointer matching_field_internal = 10;
+	uint32 result_index = 99;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PollPlaylistFreshnessSource {
+	option features.enum_type = CLOSED;
+
+	POLL_PLAYLIST_FRESHNESS_SOURCE_UNKNOWN = 0;
+	POLL_PLAYLIST_FRESHNESS_SOURCE_WATCH_NEXT = 1;
+	POLL_PLAYLIST_FRESHNESS_SOURCE_BROWSE = 2;
+}

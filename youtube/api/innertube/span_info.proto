@@ -1,0 +1,56 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/blocks_method_execution_info.proto";
+import "youtube/api/innertube/collection_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SpanInfo {
+	message TemplateUri {
+		string uri = 1;
+	}
+
+	repeated TemplateUri template_uris = 1;
+	string network_request_url = 2;
+	int32 network_response_size_bytes = 3;
+	bool is_main_thread = 4 [ default = false ];
+	int64 thread_id = 5;
+	string node_identifier = 6;
+	int32 materialization_count = 7;
+	int32 command_extension_id = 8;
+	int32 yoga_external_measurement_count = 9;
+
+	message JsSpanInfo {
+		uint64 identifier = 1;
+		int32 status_code = 2;
+		string module_identifier = 3;
+		string function_name = 4;
+		bool is_synchronous = 5;
+		uint32 binding_extension_id = 6;
+	}
+
+	JsSpanInfo js_span_info = 10;
+
+	message EntityTransformerInfo {
+		int64 input_entity_type = 1;
+		int64 output_entity_type = 2;
+	}
+
+	EntityTransformerInfo entity_transformer_info = 11;
+	BlocksMethodExecutionInfo blocks_method_execution_info = 12;
+	int64 page_faults = 14;
+	int32 thread_priority = 15;
+	int32 relative_thread_priority_offset = 16;
+	int32 feed_item_count = 18;
+	bool is_app_backgrounded = 19;
+	int32 tree_id = 21;
+	bool is_wasm = 22;
+	int32 collection_rate = 23;
+	CollectionReason collection_reason = 24;
+	bool is_first_mat = 25;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/text_span.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message RichText {
+	repeated TextSpan spans = 1;
+
+	enum TextAlignment {
+		option features.enum_type = CLOSED;
+
+		TEXT_ALIGNMENT_UNSPECIFIED = 0;
+		TEXT_ALIGNMENT_LEADING = 1;
+		TEXT_ALIGNMENT_TRAILING = 2;
+		TEXT_ALIGNMENT_CENTER = 3;
+	}
+
+	TextAlignment text_alignment = 2;
+}

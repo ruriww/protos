@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message OtpField {
+	generic.UiField otp = 1;
+	Button button = 2;
+	string otp_sender_number_regex = 3;
+	string otp_from_sms_retrieval_regex = 4;
+
+	enum DisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		HORIZONTAL_DISPLAY_TYPE = 1;
+		VERTICAL_DISPLAY_TYPE = 2;
+	}
+
+	DisplayType display_type = 5;
+	generic.InfoMessage info_message = 6;
+}

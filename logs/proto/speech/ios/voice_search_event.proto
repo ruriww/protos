@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/voice_search_event_type.proto";
+import "logs/proto/speech/ios/voice_search_event_metadata.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message VoiceSearchEvent {
+	VoiceSearchEventType voice_search_event_type = 1;
+	float duration_in_sec = 2;
+	VoiceSearchEventMetadata metadata = 3;
+}

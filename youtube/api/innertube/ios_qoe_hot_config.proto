@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosQoeHotConfig {
+	bool flush_qoe_controller_when_stopping = 3;
+	bool report_audio_route = 4;
+	bool report_low_power_mode = 5;
+	bool use_network_properties_api = 16;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadQualityType {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_QUALITY_TYPE_UNKNOWN = 0;
+	UPLOAD_QUALITY_TYPE_RESOLUTION_360P = 1;
+	UPLOAD_QUALITY_TYPE_RESOLUTION_480P = 2;
+	UPLOAD_QUALITY_TYPE_RESOLUTION_720P = 3;
+	UPLOAD_QUALITY_TYPE_RESOLUTION_1080P = 4;
+	UPLOAD_QUALITY_TYPE_RESOLUTION_FULL = 5;
+}

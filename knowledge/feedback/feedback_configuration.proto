@@ -1,0 +1,50 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message FeedbackConfiguration {
+	enum RetentionPolicy {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_POLICY = 0;
+		DEFAULT_RETENTION = 1;
+		WIPEOUT_COMPLIANT = 2;
+	}
+
+	RetentionPolicy retention_policy = 1;
+
+	enum EmailPolicy {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_EMAIL_POLICY = 0;
+		THANKS_EMAIL = 1;
+		NO_EMAIL = 2;
+	}
+
+	EmailPolicy email_policy = 2;
+
+	enum FeatureTag {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_FEATURE_TAG = 0;
+		SHOPPING_JACKPOT = 1;
+	}
+
+	FeatureTag feature_tag = 3;
+
+	enum FrontendType {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_FRONTEND_TYPE = 0;
+		KE_FEEDBACK = 1;
+		ALOHA = 2;
+		MAGI_FORM = 3;
+		MAGI_BUTTON = 4;
+		AIDA_ONEBOX_FORM = 5;
+		AIDA_ONEBOX_BUTTON = 6;
+	}
+
+	FrontendType frontend_type = 4;
+}

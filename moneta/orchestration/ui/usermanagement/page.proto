@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration.ui.usermanagement;
+
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/actionbar/action_bar.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/generic/selectable_ui_field_group_form.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+
+option objc_class_prefix = "UserManagement";
+
+message Page {
+	repeated common.generic.ComponentGroup component_group = 1;
+	repeated common.components.SimpleForm simple_form = 2;
+	common.generic.DependencyGraph dependency_graph = 4;
+	repeated common.components.actionbar.ActionBar action_bar = 5;
+	repeated common.components.ConfirmationDialog confirmation_dialog = 7;
+	repeated common.generic.SelectableUiFieldGroupForm selectable_ui_field_group_form = 11;
+	common.components.webview.WebViewComponent web_view_component = 12;
+}

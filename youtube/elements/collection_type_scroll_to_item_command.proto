@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/repeat_mode.proto";
+import "youtube/elements/animation_config.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CollectionTypeScrollToItemCommand {
+	extend Command {
+		CollectionTypeScrollToItemCommand collection_type_scroll_to_item_command = 281539545;
+	}
+
+	int32 index = 1;
+	float scroll_interval_seconds = 2;
+	bool cancel_on_user_interaction = 3 [ default = true ];
+	RepeatMode repeat_mode = 4 [ default = REPEAT_MODE_NONE ];
+	string element_key = 5;
+	AnimationConfig animation_config = 6;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message LOD {
+	float max_coverage = 1;
+	bytes ctm_blob = 2;
+	bytes draco_blob = 3;
+	float ctm_scale_factor = 4;
+}

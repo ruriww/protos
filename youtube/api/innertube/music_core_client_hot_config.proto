@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicCoreClientHotConfig {
+	bool ios_enable_siri_shortcut_donation = 1;
+	bool music_show_detail_page_share_icon = 2;
+	bool music_enable_screenshot_sharing = 3;
+	bool logging_fix_version_1mod4 = 5;
+	bool logging_fix_version_3mod4 = 6;
+	bool disable_fine_grained_location_if_opted_in_to_ulr = 7;
+	bool enable_single_tap_to_play = 8;
+	bool enable_explore_tab = 9;
+	bool should_reduce_carousel_shelf_spacing = 10;
+	bool android_migrate_fragment_screen_logging = 11;
+	bool android_fix_queue_logging_race_condition = 12;
+	bool android_migrate_activity_screen_logging = 13;
+	bool ios_nitrate_triggered_notification_permission = 14;
+	bool nitrate_triggered_smart_downloads_permission = 15;
+	int64 reload_continuation_spinner_delay_ms = 16;
+	bool enable_ad_to_video_tick = 17;
+	bool enable_user_preferences_logging = 18;
+	bool enable_misc_ui_improvements = 19;
+	bool enable_two_line_title_in_compact_shelves = 20;
+	bool enable_bigger_compact_shelves = 21;
+	bool ios_enable_modal_reorientation = 22;
+	bool music_android_enable_audio_routes_and_cpn_feedback_fillers = 23;
+}

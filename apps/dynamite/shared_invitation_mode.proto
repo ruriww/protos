@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+enum SharedInvitationMode {
+	option features.enum_type = CLOSED;
+
+	INVITATION_MODE_UNSPECIFIED = 0;
+	GAIA_ID = 1;
+	EMAIL_ONLY = 2;
+	EMAIL_OR_GUESTPASS = 3;
+}

@@ -1,0 +1,71 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "goodoc/document.proto";
+import "goodoc/page_layout_proto.proto";
+import "vision/visualsearch/lens/box.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message PrecomputedSignal {
+	message NormalizedBoundingBox {
+		float x1 = 1;
+		float y1 = 2;
+		float x2 = 3;
+		float y2 = 4;
+	}
+
+	enum SignalIdentifier {
+		option features.enum_type = CLOSED;
+
+		IM2QUERY_STOREFRONT_V2 = 0;
+		GLOF_V5 = 4;
+		ICA_REGION = 7;
+		ICA_WHOLE_IMAGE = 8;
+		OCR = 1;
+		STARBURST_V5 = 2;
+		STARBURST_V5_5 = 3;
+		FACES = 9;
+	}
+
+	SignalIdentifier identifier = 1;
+
+	message PrecomputedEmbedding {
+		message RegionalEmbedding {
+			NormalizedBoundingBox normalized_bounding_box = 1;
+			repeated float embedding = 2 [ features.repeated_field_encoding = EXPANDED ];
+			float detection_score = 3;
+
+			message ClusterId {
+				string cluster_id = 1;
+				float squared_distance = 2;
+			}
+
+			repeated ClusterId cluster_ids = 4;
+		}
+
+		repeated RegionalEmbedding regional_embedding = 1;
+	}
+
+	message PrecomputedOcr {
+		goodoc.Document goodoc = 1;
+		goodoc.PageLayoutProto page_layout = 2;
+	}
+
+	message PrecomputedEntityInfos {
+		message EntityInfo {
+			string mid = 1;
+			float score = 2;
+			Box box = 3;
+		}
+
+		repeated EntityInfo entity_info = 1;
+	}
+
+	oneof signal {
+		PrecomputedEmbedding embedding = 2;
+		PrecomputedOcr ocr = 3;
+		PrecomputedEntityInfos entity_infos = 4;
+	}
+}

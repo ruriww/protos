@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "youtube/api/innertube/sfv_effect_client.proto";
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/sfv_effect_surface.proto";
+
+option objc_class_prefix = "YTEE";
+
+message PipelineStartedRequest {
+	string gl_version = 1;
+	string gl_renderer = 2;
+	api.innertube.SfvEffectClient client = 3;
+	google.protobuf.Timestamp request_time = 4;
+	api.innertube.SfvEffectSurface surface = 5;
+	int64 pipeline_reference_id = 6;
+	int64 service_session_id = 7;
+}

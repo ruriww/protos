@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum AccessibilityHasPopupType {
+	option features.enum_type = CLOSED;
+
+	ACCESSIBILITY_HAS_POPUP_TYPE_UNKNOWN = 0;
+	ACCESSIBILITY_HAS_POPUP_TYPE_NONE = 1;
+	ACCESSIBILITY_HAS_POPUP_TYPE_MENU = 2;
+	ACCESSIBILITY_HAS_POPUP_TYPE_LISTBOX = 3;
+	ACCESSIBILITY_HAS_POPUP_TYPE_TREE = 4;
+	ACCESSIBILITY_HAS_POPUP_TYPE_GRID = 5;
+	ACCESSIBILITY_HAS_POPUP_TYPE_DIALOG = 6;
+}

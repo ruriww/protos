@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/section_list_mutation_operation.proto";
+import "youtube/api/innertube/section_list_scroll_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListMutationOperations {
+	repeated SectionListMutationOperation operations = 1;
+	SectionListScrollConfig scroll_config = 2;
+	bool enable_section_list_mutation_operations = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+import "experiments/heterodyne/scope.proto";
+import "experiments/phenotype/ios/registration_data.proto";
+import "experiments/phenotype/ios/configuration_snapshot.proto";
+
+option objc_class_prefix = "EPI";
+
+message PackageData {
+	heterodyne.Scope scope = 1;
+	RegistrationData registration = 2;
+	ConfigurationSnapshot snapshot = 3;
+}

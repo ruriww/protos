@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/expanded_shelf_contents_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExpandedShelfContentsRenderer {
+	repeated ExpandedShelfContentsSupportedRenderers items = 1;
+	FormattedString view_all_text = 2;
+	Command view_all_endpoint = 3;
+	FormattedString show_more_text = 4;
+}

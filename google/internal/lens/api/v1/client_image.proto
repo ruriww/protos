@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/image_context.proto";
+
+option objc_class_prefix = "LFE";
+
+message ClientImage {
+	bytes image_content = 1;
+	ImageContext image_context = 2;
+	bool is_screenshot_donated = 3;
+}

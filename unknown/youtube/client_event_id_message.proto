@@ -1,0 +1,12 @@
+edition = "2023";
+
+package unknown.youtube;
+
+import "unknown/youtube/event_id_message.proto";
+
+option objc_class_prefix = "EID";
+
+message ClientEventIdMessage {
+	EventIdMessage base = 1;
+	int64 client_counter = 2;
+}

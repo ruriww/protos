@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.proto.people_primitives;
+
+import "social/frontend/sendkit/data/client_id.proto";
+import "social/frontend/sendkit/data/entry_point.proto";
+import "social/clients/application.proto";
+import "logs/proto/people_primitives/metadata.proto";
+import "social/logs/eng/sharekit/entry_point_enum.proto";
+
+option objc_class_prefix = "PKTPB";
+
+message PeoplePrimitivesClientExtension {
+	social.frontend.sendkit.data.ClientId client_id = 1;
+	social.frontend.sendkit.data.EntryPoint entry_point = 2;
+	social.clients.Application application = 3;
+	string version_name = 4;
+	int64 baseline_cl = 5;
+	Metadata metadata = 6;
+	social.logs.eng.sharekit.EntryPointEnum.EntryPoint sharekit_entry_point = 7;
+}

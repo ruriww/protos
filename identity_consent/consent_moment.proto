@@ -1,0 +1,16 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+enum ConsentMoment {
+	option features.enum_type = CLOSED;
+
+	CONSENT_MOMENT_UNSPECIFIED = 0;
+	CONSENT_MOMENT_NO_CONSENT = 1;
+	CONSENT_MOMENT_INITIAL = 2;
+	CONSENT_MOMENT_SOCS_REBUMP = 3;
+	CONSENT_MOMENT_REVISIT_DECISION = 5;
+	CONSENT_MOMENT_YT_NOHO_REVISIT = 6;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/performance_metrics.proto";
+import "logs/proto/lens/on_device_model_query_latency_metrics.proto";
+import "logs/proto/lens/accessibility_log_data.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message VisitLogData {
+	int32 visit_duration_ms = 1;
+	int32 final_requests_count = 2;
+	int32 lvf_final_requests_count = 3;
+	int32 shutter_final_requests_count = 4;
+	int32 gleam_final_requests_count = 5;
+	int32 text_final_requests_count = 6;
+	int32 prefetch_requests_count = 7;
+	int32 visible_gleams_count = 8;
+	PerformanceMetrics performance_metrics = 9;
+	OnDeviceModelQueryLatencyMetrics on_device_model_query_latency_metrics = 10;
+	AccessibilityLogData accessibility_log_data = 11;
+	uint64 lfe_session_id = 12;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+message DataReferenceDynamicContainerTemplate {
+	int64 dynamic_container_data_reference = 1;
+	int64 template_data_reference = 2;
+}

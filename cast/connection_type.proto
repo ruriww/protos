@@ -1,0 +1,13 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum ConnectionType {
+	option features.enum_type = CLOSED;
+
+	CONNECTION_TYPE_UNKNOWN = 0;
+	CONNECTION_TYPE_STRONG = 1;
+	CONNECTION_TYPE_INVISIBLE = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message UserGuidance {
+	string viewfinder_guidance_text = 1;
+	string region_search_guidance_text = 2;
+	string selection_state_guidance_text = 3;
+}

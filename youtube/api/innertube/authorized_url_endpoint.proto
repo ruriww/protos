@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/grw_open_in_override.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AuthorizedUrlEndpoint {
+	string url = 1;
+	GRWOpenInOverride grw_open_in_override = 2;
+}
+
+extend Command {
+	AuthorizedUrlEndpoint authorized_url_endpoint = 104383677;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/offline_channel_supported_datas.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/offline_video_additional_supported_datas.proto";
+import "youtube/api/innertube/offline_candidate_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineVideoData {
+	extend Datas {
+		OfflineVideoData offline_video_data = 75074928;
+	}
+
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	OfflineChannelSupportedDatas channel = 3;
+	string title = 4;
+	string length_text = 5;
+	int64 published_timestamp = 6;
+	int64 view_count = 7;
+	string share_url = 8;
+	FormattedString description = 9;
+	string short_view_count_text = 10;
+	string likes_count = 12;
+	string dislikes_count = 13;
+	repeated OfflineVideoAdditionalSupportedDatas additional_metadatas = 14;
+	bool hide_view_count = 15;
+	int64 length_seconds = 16;
+	OfflineCandidateSupportedRenderers candidate_renderers = 17;
+	string published_date_text = 19;
+	string like_count_accessibility_text = 20;
+	string dislike_accessibility_text = 21;
+	string view_count_accessibility_text = 22;
+}

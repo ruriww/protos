@@ -1,0 +1,9 @@
+edition = "2023";
+
+package scone.v1;
+
+option objc_class_prefix = "UVSP";
+
+message SurveyRecordEventResponse {
+	repeated string error = 1;
+}

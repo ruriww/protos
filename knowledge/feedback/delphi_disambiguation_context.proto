@@ -1,0 +1,28 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message DelphiDisambiguationContext {
+	message DisambiguationOptionData {
+		string translation_phrase = 1;
+		string explanation = 2;
+		bool is_selected = 4;
+	}
+
+	string source_language = 1;
+	string target_language = 2;
+	string source_text = 3;
+	string target_text = 4;
+
+	message AmbiguousPhrase {
+		int32 ambiguity_index = 1;
+		string source_phrase = 2;
+		string translation_phrase = 3;
+		repeated DisambiguationOptionData disambiguation_option_data = 5;
+	}
+
+	repeated AmbiguousPhrase ambiguous_phrases = 5;
+	int32 feedback_phrase_index = 6;
+}

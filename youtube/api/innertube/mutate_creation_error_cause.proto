@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MutateCreationErrorCause {
+	option features.enum_type = CLOSED;
+
+	MUTATE_CREATION_ERROR_CAUSE_UNKNOWN = 0;
+	MUTATE_CREATION_ERROR_CAUSE_DOWNSAMPLE_FAILED = 1;
+	MUTATE_CREATION_ERROR_CAUSE_UPLOAD_FAILED = 2;
+	MUTATE_CREATION_ERROR_CAUSE_GENERATION_FAILED = 3;
+	MUTATE_CREATION_ERROR_CAUSE_TNS_FAILED = 4;
+	MUTATE_CREATION_ERROR_CAUSE_MAX_RETRY_FAILED = 5;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package identity_oauth;
+
+import "identity_oauth/caveat_type.proto";
+
+option objc_class_prefix = "SSO";
+
+message CaveatWrapper {
+	CaveatType type = 1;
+	bytes payload = 2;
+	int32 created_at_offset_seconds = 3;
+}

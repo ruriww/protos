@@ -1,0 +1,15 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message ConfiguredFlagsValue {
+	fixed64 flag = 1;
+
+	oneof value {
+		bool bool_val = 2;
+		int64 numeric_val = 3;
+		fixed64 string_val = 4;
+	}
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/client_data.proto";
+import "youtube/elements/components/container_layout_config.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ContainerLayoutConfigClientData {
+	extend ClientData {
+		ContainerLayoutConfigClientData container_layout_config_client_data = 1003;
+	}
+
+	ContainerLayoutConfig container_layout_config = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "vision/visualsearch/lens/box.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message StarburstFeature {
+	int32 version = 1;
+	repeated int32 tokens = 2 [ features.repeated_field_encoding = EXPANDED ];
+	bytes descriptor_short = 3;
+	repeated float values = 4 [ features.repeated_field_encoding = EXPANDED ];
+	float distance = 5;
+	Box bounding_box = 6;
+	repeated float squared_distance = 9;
+
+	extensions 8;
+}

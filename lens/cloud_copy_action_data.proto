@@ -1,0 +1,20 @@
+edition = "2023";
+
+package lens;
+
+import "lens/device_list.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message CloudCopyActionData {
+	bytes payload = 2;
+	DeviceList synced_devices = 3;
+
+	enum CopyMode {
+		TEXT = 0;
+		IMAGE = 1;
+	}
+
+	CopyMode copy_mode = 4;
+	bool is_on_device_chip = 5;
+}

@@ -1,0 +1,108 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+import "google/type/localized_text.proto";
+import "notifications/platform/common/proto/color_scheme.proto";
+import "notifications/platform/common/proto/button_action.proto";
+import "notifications/platform/common/proto/ios_custom_action.proto";
+
+option objc_class_prefix = "GNPC";
+
+message CustomPrompt {
+	enum UiType {
+		option features.enum_type = CLOSED;
+
+		UI_TYPE_UNSPECIFIED = 0;
+		BOTTOM_SHEET = 1;
+		DIALOG = 2;
+		INSTALLATION_BOTTOM_SHEET = 3;
+	}
+
+	UiType ui_type = 1;
+	google.type.LocalizedText headline_text = 2;
+	google.type.LocalizedText body_text = 3;
+
+	enum FontSize {
+		option features.enum_type = CLOSED;
+
+		FONT_SIZE_UNSPECIFIED = 0;
+		SMALL = 1;
+		LARGE = 2;
+	}
+
+	FontSize headline_font_size = 4;
+	ColorScheme light_theme = 5;
+	ColorScheme dark_theme = 6;
+
+	message Buttons {
+		message AckButton {
+			google.type.LocalizedText label = 1;
+			ColorScheme light_theme = 2;
+			ColorScheme dark_theme = 3;
+			ButtonAction.UserAction user_action_to_log = 4;
+			bool highlighted = 5;
+		}
+
+		AckButton ack_button = 1;
+
+		message ActionButton {
+			google.type.LocalizedText label = 1;
+			bool highlighted = 2;
+
+			oneof target {
+				string ios_url = 4;
+				IosCustomAction ios_custom_action = 15;
+			}
+
+			enum ButtonsLayout {
+				option features.enum_type = CLOSED;
+
+				BUTTONS_LAYOUT_UNSPECIFIED = 0;
+				STACKED = 1;
+				SIDE_BY_SIDE = 2;
+			}
+
+			ButtonsLayout preferred_layout = 6;
+			ColorScheme light_theme = 7;
+			ColorScheme dark_theme = 8;
+			ButtonAction.UserAction user_action_to_log = 9;
+
+			enum ButtonsOrder {
+				option features.enum_type = CLOSED;
+
+				BUTTONS_ORDER_UNSPECIFIED = 0;
+				ACTION_BUTTON_PRIMARY = 1;
+				ACK_BUTTON_PRIMARY = 2;
+			}
+
+			ButtonsOrder buttons_order = 10;
+		}
+
+		ActionButton action_button = 2;
+
+		enum Alignment {
+			option features.enum_type = CLOSED;
+
+			ALIGNMENT_UNSPECIFIED = 0;
+			TRAILING = 1;
+			CENTER = 2;
+		}
+
+		Alignment buttons_alignment = 7;
+	}
+
+	Buttons buttons = 7;
+
+	message GraphicElement {
+		string light_theme_url = 1;
+		string dark_theme_url = 2;
+	}
+
+	oneof graphic_element {
+		GraphicElement icon = 8;
+		GraphicElement image = 9;
+	}
+
+	bool is_html_body_text = 10;
+}

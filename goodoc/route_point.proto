@@ -1,0 +1,10 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message RoutePoint {
+	int32 RouteIndex = 1;
+	int32 WordIndex = 2;
+}

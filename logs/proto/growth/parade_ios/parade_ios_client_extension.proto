@@ -1,0 +1,27 @@
+edition = "2023";
+
+package logs.proto.growth.parade_ios;
+
+import "logs/proto/growth/parade_ios/start_parade_request_event.proto";
+import "logs/proto/growth/parade_ios/eligible_user_event.proto";
+import "logs/proto/growth/parade_ios/ineligible_user_event.proto";
+import "logs/proto/growth/parade_ios/error_event.proto";
+import "logs/proto/growth/parade_ios/timeout_event.proto";
+import "logs/proto/growth/parade_ios/app_store_event.proto";
+import "logs/proto/growth/parade_ios/parade_state_event.proto";
+import "logs/proto/growth/parade_ios/close_button_click_event.proto";
+
+option objc_class_prefix = "PRD";
+
+message ParadeIosClientExtension {
+	oneof event {
+		StartParadeRequestEvent start_parade_request_event = 1;
+		EligibleUserEvent eligible_user_event = 2;
+		IneligibleUserEvent ineligible_user_event = 3;
+		ErrorEvent error_event = 4;
+		TimeoutEvent timeout_event = 5;
+		AppStoreEvent app_store_event = 6;
+		ParadeStateEvent parade_state_event = 7;
+		CloseButtonClickEvent close_button_click_event = 8;
+	}
+}

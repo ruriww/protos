@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_session_type.proto";
+import "youtube/api/innertube/mdx_connection_state.proto";
+import "youtube/api/innertube/dial_data.proto";
+import "youtube/api/innertube/mdx_session_source.proto";
+import "youtube/api/innertube/mdx_receiver_device.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxSessionConnected {
+	MdxSessionType session_type = 1;
+	MdxConnectionState previous_connection_state = 2;
+	int64 time_since_connection_start_ms = 3;
+	bool is_reconnection_in_progress = 4;
+	DialData dial_data_when_started = 5;
+	bool retry = 6;
+	bool smooth_pairing_used = 7;
+	MdxSessionSource session_source = 8;
+	MdxReceiverDevice receiver_device = 9;
+	string mdx_session_nonce = 10;
+	int64 mdx_session_index = 11;
+	MdxReceiverDevice receiver_supplied_device = 12;
+}

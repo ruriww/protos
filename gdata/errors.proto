@@ -1,0 +1,9 @@
+edition = "2023";
+
+package gdata;
+
+option objc_class_prefix = "GDATA";
+
+message Errors {
+	string request_id = 2;
+}

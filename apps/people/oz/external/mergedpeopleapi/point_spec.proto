@@ -1,0 +1,25 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "geostore/point_proto.proto";
+import "geostore/rect_proto.proto";
+
+option objc_class_prefix = "POEM";
+
+message PointSpec {
+	geostore.PointProto point = 1;
+
+	enum PointSource {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_POINT_SOURCE = 0;
+		POINT_SOURCE_UNSPECIFIED = 1;
+		USER_PROVIDED = 2;
+		SYSTEM_PROVIDED = 3;
+		USER_CONFIRMED = 4;
+	}
+
+	PointSource point_source = 2 [ default = SYSTEM_PROVIDED ];
+	geostore.RectProto bounds = 3;
+}

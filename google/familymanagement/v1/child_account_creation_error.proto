@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum ChildAccountCreationError {
+	option features.enum_type = CLOSED;
+
+	CHILD_CREATION_ERROR_UNKNOWN = 0;
+	CHILD_CREATION_NO_PARENTAL_CONSENT = 1;
+	CHILD_CREATION_TOO_MANY_MEMBERS = 2;
+}

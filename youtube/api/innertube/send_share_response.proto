@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SendShareResponse {
+	ResponseContext response_context = 1;
+	Command navigation_endpoint = 2;
+	repeated Command actions = 4;
+	bytes tracking_params = 8;
+	FormattedString read_receipt_text = 9;
+	repeated Command commands = 10;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum ConsentType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CONSENT_TYPE = 0;
+	JOIN_FAMILY = 1;
+	OPT_IN_GRIFFIN = 2;
+	OPT_IN_GELLER = 3;
+	ALLOW_ELIGIBILITY_CHECK = 4;
+}

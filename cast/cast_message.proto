@@ -1,0 +1,35 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+message CastMessage {
+	enum ProtocolVersion {
+		option features.enum_type = CLOSED;
+
+		CASTV2_1_0 = 0;
+		CASTV2_1_1 = 1;
+		CASTV2_1_2 = 2;
+		CASTV2_1_3 = 3;
+		NOT_SUPPORTED_PROTOCOL_VERSION_FOR_TEST = 999;
+	}
+
+	ProtocolVersion protocol_version = 1;
+	string source_id = 2;
+	string destination_id = 3;
+	string namespace = 4;
+
+	enum PayloadType {
+		option features.enum_type = CLOSED;
+
+		STRING = 0;
+		BINARY = 1;
+	}
+
+	PayloadType payload_type = 5;
+	string payload_utf8 = 6;
+	bytes payload_binary = 7;
+	bool continued = 8;
+	uint32 remaining_length = 9;
+}

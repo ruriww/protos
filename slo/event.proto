@@ -1,0 +1,87 @@
+edition = "2023";
+
+package slo;
+
+import "google/protobuf/timestamp.proto";
+import "unknown/youtube/gerr_code10785.proto";
+import "google/protobuf/duration.proto";
+import "net/loadshedding/request_qo_s.proto";
+import "slo/lifecycle_stage.proto";
+
+option objc_class_prefix = "SLO";
+
+message Event {
+	string id = 1;
+
+	message Producer {
+		string id = 1;
+		string cell = 2;
+
+		extensions 10 to 16;
+		extensions 20 to 24;
+	}
+
+	Producer producer = 2;
+
+	message Task {
+		google.protobuf.Timestamp time = 1;
+
+		message GeoLocation {
+			string country = 1;
+			string locale = 2;
+		}
+
+		GeoLocation geo = 2;
+		string trace = 3;
+
+		message User {
+			oneof identifier {
+				int64 gaia = 1;
+				uint64 zwieback = 2;
+				string loas_identity = 3;
+			}
+		}
+
+		User user = 4;
+		string action = 5;
+		string artifact_id = 6;
+
+		extensions 10 to 24;
+	}
+
+	Task task = 3;
+
+	message Result {
+		google.protobuf.Timestamp time = 1;
+		unknown.youtube.GERRCode10785.GERRCode code = 2;
+		google.protobuf.Duration latency = 3;
+		double quality = 4;
+		google.protobuf.Duration age = 5;
+
+		message Status {
+			int32 code = 1;
+			string space = 2;
+			string reason = 3;
+		}
+
+		Status status = 6;
+
+		extensions 7 to 8;
+	}
+
+	Result result = 4;
+
+	message Significance {
+		double score = 1;
+		double weight = 2 [ default = 1 ];
+		string interaction = 3;
+		string product = 4;
+		net.loadshedding.RequestQoS.Criticality request_criticality = 5;
+		LifecycleStage.LifecycleStageEnum lifecycle_stage = 6;
+		int32 interaction_id = 7;
+	}
+
+	Significance significance = 5;
+
+	extensions 6 to 7;
+}

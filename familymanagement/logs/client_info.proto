@@ -1,0 +1,10 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+option objc_class_prefix = "FML";
+
+message ClientInfo {
+	string version = 1;
+	string app_id = 2;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/emoji.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmojiPickerCategoryRenderer {
+	string category_id = 1;
+	FormattedString title = 2;
+	repeated string emoji_ids = 3;
+	bytes tracking_params = 5;
+	repeated Emoji emoji_data = 6;
+	bool image_loading_lazy = 7;
+	bool use_png_images = 8;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorOptionDataValue {
+	extend data.DataValue {
+		SelectorOptionDataValue selector_option_data_value_extension = 1003;
+	}
+
+	bytes value = 1;
+}

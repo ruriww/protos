@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/int_packed_color.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementColorMutation {
+	string uuid = 1;
+	IntPackedColor color = 2;
+}

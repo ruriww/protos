@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum GaiaDelegationType {
+	option features.enum_type = CLOSED;
+
+	GAIA_DELEGATION_TYPE_UNKNOWN = 0;
+	GAIA_DELEGATION_TYPE_NONE = 1;
+	GAIA_DELEGATION_TYPE_EARLY = 2;
+	GAIA_DELEGATION_TYPE_LATE = 3;
+}

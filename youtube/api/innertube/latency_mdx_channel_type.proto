@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LatencyMdxChannelType {
+	option features.enum_type = CLOSED;
+
+	LATENCY_MDX_CHANNEL_TYPE_UNKNOWN = 0;
+	LATENCY_MDX_CHANNEL_TYPE_CLOUD_BROWSER_CHANNEL = 1;
+	LATENCY_MDX_CHANNEL_TYPE_CAST_CHANNEL = 2;
+	LATENCY_MDX_CHANNEL_TYPE_LOCAL_WEB_SOCKET_CHANNEL = 3;
+	LATENCY_MDX_CHANNEL_TYPE_LOCAL_BROWSER_CHANNEL = 4;
+	LATENCY_MDX_CHANNEL_TYPE_WEB_CHANNEL = 5;
+	LATENCY_MDX_CHANNEL_TYPE_BROWSER_CHANNEL = 6;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+message SerialNumberRange {
+	bytes issuer_public_key_hash = 1;
+	uint64 first_serial_number = 2;
+	uint64 last_serial_number = 3;
+}

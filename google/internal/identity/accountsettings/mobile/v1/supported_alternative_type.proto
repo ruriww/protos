@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message SupportedAlternativeType {
+	int32 alternative_type = 1;
+}

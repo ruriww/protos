@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpublishedEffectAssetItem {
+	oneof asset_id {
+		string blueprint_id = 2;
+		string snapshot_id = 3;
+	}
+
+	bytes params = 4;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetProfileCardRequest {
+	InnerTubeContext context = 1;
+	string profile_owner_external_channel_id = 2;
+	string profile_card_context = 3;
+	string sheet_id = 4;
+	EngagementPanelIdentifier engagement_panel_identifier_for_dismissal = 5;
+}

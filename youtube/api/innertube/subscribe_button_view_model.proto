@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/subscribe_button_view_model_content.proto";
+import "youtube/api/innertube/subscribe_button_view_model_style.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscribeButtonViewModel {
+	extend Renderer {
+		SubscribeButtonViewModel subscribe_button_view_model = 518912898;
+	}
+
+	SubscribeButtonViewModelContent subscribe_button_content = 1;
+	SubscribeButtonViewModelContent unsubscribe_button_content = 2;
+	string state_entity_store_key = 3;
+	bytes tracking_params = 5;
+	Renderer notification_bell_view_model = 7;
+	bool disable_notification_bell = 9;
+	float custom_font_size = 10;
+	SubscribeButtonViewModelStyle button_style = 11;
+	bool is_signed_out = 13;
+	elements.Command on_subscribe_success = 15;
+	bool disable_subscribe_button = 16;
+	elements.Command disabled_subscribe_menu_item_command = 17;
+	elements.Command on_show_subscription_options = 18;
+	string channel_id = 20;
+	bool enable_subscribe_button_post_click_animation = 23;
+	bool enable_animated_subscribe_button_ts_controller = 28;
+	bool hide_when_unsubscribed = 31;
+	bool disable_optimistic_update = 32;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/video_manager_video_metrics.proto";
+import "youtube/api/innertube/video_manager_thumbnail_icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/creator_video_detail_header_badge_supported_renderers.proto";
+import "youtube/api/innertube/creator_video_detail_header_notification_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorVideoDetailHeaderRenderer {
+	FormattedString video_title = 1;
+	ThumbnailDetails video_thumbnail = 2;
+	VideoManagerVideoMetrics metrics = 4;
+	repeated VideoManagerThumbnailIcon thumbnail_icons = 5;
+	Command play_video_endpoint = 6;
+	Command edit_video_endpoint = 7;
+	Command share_video_endpoint = 9;
+	repeated CreatorVideoDetailHeaderBadgeSupportedRenderers badges = 10;
+	FormattedString play_video_label = 11;
+	FormattedString edit_video_label = 12;
+	FormattedString share_video_label = 13;
+	string video_id = 14;
+	repeated CreatorVideoDetailHeaderNotificationSupportedRenderers video_notifications = 15;
+	Renderer schedule = 20;
+	bool playable = 21;
+	repeated Renderer header_renderers = 22;
+}
+
+extend Renderer {
+	CreatorVideoDetailHeaderRenderer creator_video_detail_header_renderer = 81531855;
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package mdi.download;
+
+import "mobstore/proto/transforms.proto";
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "Icing";
+
+message DataFile {
+	string url_to_download = 2;
+	int64 byte_size = 4;
+	string checksum = 5;
+	string file_id = 7;
+	mobstore.proto.Transforms download_transforms = 11;
+	mobstore.proto.Transforms read_transforms = 12;
+	string downloaded_file_checksum = 14;
+
+	enum ChecksumType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		NONE = 1;
+		SHA256 = 2;
+	}
+
+	ChecksumType checksum_type = 15;
+	int64 downloaded_file_byte_size = 16;
+	string android_sharing_checksum = 19;
+	string relative_file_path = 20;
+	google.protobuf.Any custom_metadata = 21;
+	repeated string labels = 22;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+option objc_class_prefix = "ORCH2";
+
+message DateInputTransform {
+	enum DateComponent {
+		option features.enum_type = CLOSED;
+
+		DATE_COMPONENT_UNKNOWN = 0;
+		DATE_COMPONENT_MONTH = 1;
+		DATE_COMPONENT_YEAR_TWO_DIGITS = 2;
+		DATE_COMPONENT_YEAR_FOUR_DIGITS = 3;
+		DATE_COMPONENT_DAY = 4;
+	}
+
+	repeated DateComponent format_template = 1 [ features.repeated_field_encoding = EXPANDED ];
+	string date_separator = 2;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package chromecast.receiver;
+
+option objc_class_prefix = "GCRE";
+
+message WrappedSenderKey {
+	uint64 key_expiry = 1;
+	bytes wrapped_sender_key_data = 2;
+	bytes iv = 3;
+	uint64 milliseconds_to_expiry = 4;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/image/image_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorOptionData {
+	extend data.Data {
+		SelectorOptionData selector_option_data_extension = 223344551;
+	}
+
+	repeated int64 content_data_reference = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int64 selector_data_reference = 2;
+	string template_text_summary = 3;
+	repeated int32 group_id = 4 [ features.repeated_field_encoding = EXPANDED ];
+	image.ImageContent unchecked_icon = 5;
+	image.ImageContent checked_icon = 6;
+	bytes value = 7;
+}

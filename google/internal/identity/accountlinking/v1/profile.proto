@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message Profile {
+	string user_id = 1;
+	string display_name = 2;
+	string email = 3;
+	string profile_picture = 4;
+	string username = 5;
+}

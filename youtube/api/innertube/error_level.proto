@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ErrorLevel {
+	option features.enum_type = CLOSED;
+
+	ERROR_LEVEL_UNKNOWN = 0;
+	ERROR_LEVEL_WARNING = 3;
+	ERROR_LEVEL_WARNNING = 1;
+	ERROR_LEVEL_ERROR = 2;
+}

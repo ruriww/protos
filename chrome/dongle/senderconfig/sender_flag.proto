@@ -1,0 +1,16 @@
+edition = "2023";
+
+package chrome.dongle.senderconfig;
+
+option objc_class_prefix = "GCKSF";
+
+message SenderFlag {
+	string name = 1;
+
+	oneof value {
+		string string_value = 2;
+		int32 int_value = 3;
+		float float_value = 4;
+		bool bool_value = 5;
+	}
+}

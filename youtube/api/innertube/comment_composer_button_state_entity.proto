@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentComposerButtonStateEntity {
+	extend EntityMutationPayload {
+		CommentComposerButtonStateEntity comment_composer_button_state_entity_payload = 215;
+	}
+
+	string key = 1;
+	bool is_timestamp_button_enabled = 2;
+	bool is_sending = 4;
+	bool is_emoji_picker_enabled = 5;
+	bool is_emoji_picker_toggled = 6;
+	bool is_timestamp_button_supported = 7;
+	bool is_dismiss_from_send = 8;
+	bool is_dismiss_from_confirm = 10;
+	string send_button_a11y = 11;
+	string send_button_disabled_a11y = 12;
+	string confirm_button_a11y = 13;
+	string confirm_button_disabled_a11y = 14;
+	string short_creation_button_a11y = 15;
+	string timestamp_button_a11y = 16;
+	string timestamp_button_disabled_a11y = 17;
+	string emoji_picker_button_a11y = 18;
+}

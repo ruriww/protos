@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+import "footprints/texts/linked_services_consent_element.proto";
+import "footprints/texts/linked_services_dialog_button.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message LinkedServicesDialog {
+	webutil.html.types.SafeHtmlProto title = 1;
+	repeated LinkedServicesConsentElement element = 2;
+	LinkedServicesDialogButton close_button = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StartStreamEndpoint {
+	extend Command {
+		StartStreamEndpoint start_stream_endpoint = 147899445;
+	}
+
+	bool hack = 1;
+	string video_id = 2;
+	repeated Command commands = 3;
+	bool start_go_live_countdown = 4;
+}

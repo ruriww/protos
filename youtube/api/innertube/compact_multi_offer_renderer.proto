@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactMultiOfferRenderer {
+	message OfferCell {
+		ButtonSupportedRenderers offer_button = 1;
+	}
+
+	message OfferRow {
+		repeated OfferCell offer_cells = 1;
+	}
+
+	repeated OfferRow offers = 1;
+	bytes tracking_params = 4;
+	repeated Command impression_endpoints = 5;
+	FormattedString restrictions_label = 6;
+	FormattedString restrictions = 7;
+}
+
+extend Renderer {
+	CompactMultiOfferRenderer compact_multi_offer_renderer = 137954693;
+}

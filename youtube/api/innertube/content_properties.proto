@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/content_asset_time_range.proto";
+import "youtube/api/innertube/text_content.proto";
+import "youtube/api/innertube/skottie_overrides.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentProperties {
+	string asset_id = 1;
+	ContentAssetTimeRange asset_content_time_range = 2;
+	TextContent text_content = 3;
+	SkottieOverrides skottie_overrides = 4;
+
+	extensions 1000 to 2000;
+}

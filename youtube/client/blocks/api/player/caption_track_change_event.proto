@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/api/innertube/caption_track.proto";
+
+option objc_class_prefix = "YTBA";
+
+message CaptionTrackChangeEvent {
+	youtube.api.innertube.CaptionTrack selected_track = 1;
+}

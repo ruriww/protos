@@ -1,0 +1,18 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/viewport.proto";
+import "ink/proto/camera_position.proto";
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message CameraSettings {
+	Viewport viewport = 1;
+
+	oneof camera_spec {
+		CameraPosition position = 2;
+		Transform screen_to_world_transform = 3;
+	}
+}

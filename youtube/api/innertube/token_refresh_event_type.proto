@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TokenRefreshEventType {
+	option features.enum_type = CLOSED;
+
+	TOKEN_REFRESH_EVENT_TYPE_UNKNOWN = 0;
+	TOKEN_REFRESH_EVENT_TYPE_SUCCESS = 1;
+	TOKEN_REFRESH_EVENT_TYPE_FAILURE = 2;
+	TOKEN_REFRESH_EVENT_TYPE_FAILURE_WITH_BACKUP = 3;
+	TOKEN_REFRESH_EVENT_TYPE_FAILURE_WITH_RETRY = 4;
+}

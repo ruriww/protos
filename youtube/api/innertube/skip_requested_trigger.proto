@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SkipRequestedTrigger {
+	string triggering_layout_id = 1;
+	bool should_disable_if_video_start_muted = 2;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SlimOwnerPaddingStyle {
+	option features.enum_type = CLOSED;
+
+	SLIM_OWNER_PADDING_STYLE_UNSPECIFIED = 0;
+	SLIM_OWNER_PADDING_STYLE_WATCH_FEED = 1;
+}

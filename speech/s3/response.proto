@@ -1,0 +1,24 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message Response {
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		IN_PROGRESS = 0;
+		DONE_SUCCESS = 1;
+		DONE_ERROR = 2;
+		NOT_STARTED = 3;
+	}
+
+	Status status = 1 [ default = IN_PROGRESS ];
+	int32 error_code = 2;
+	string error_description = 3;
+	repeated string debug_line = 4;
+	int64 message_index = 5 [ default = -1 ];
+
+	extensions 128 to max;
+}

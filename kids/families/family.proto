@@ -1,0 +1,36 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/family_member.proto";
+import "kids/families/invitation.proto";
+import "kids/families/family_product_correlation_id.proto";
+import "kids/families/family_product_correlation_id_auth_token.proto";
+import "kids/families/youtube_kid_persona.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "FAM";
+
+message Family {
+	int64 family_id = 1;
+	repeated FamilyMember member = 3;
+	repeated Invitation invitation = 4;
+
+	enum FamilyState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAMILY_STATE = 0;
+		ACTIVE = 1;
+		INACTIVE = 2;
+	}
+
+	FamilyState family_state = 5;
+	repeated FamilyProductCorrelationId family_product_correlation_id = 8;
+	repeated FamilyProductCorrelationIdAuthToken family_product_correlation_id_auth_token = 10;
+	int64 family_creation_timestamp_millis = 11;
+	FamilyProductCorrelationId.Type anchor_family_pcid_type = 12;
+	int32 free_slots_count = 13;
+	repeated YoutubeKidPersona persona = 14;
+	google.protobuf.Timestamp family_last_update_timestamp = 15;
+	google.protobuf.Timestamp family_state_last_update_timestamp = 16;
+}

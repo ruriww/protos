@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.suggest;
+
+option objc_class_prefix = "YTS";
+
+message SharedSuggestionParameters {
+	double client_score = 1;
+	string icon_color_filter_override = 3;
+	string line_one_override = 4;
+	string line_two_override = 5;
+	int32 suggestion_group = 6;
+	int32 suggestion_priority = 7;
+	map<string, string> extra_search_parameter = 8;
+	bool do_not_truncate = 9;
+	bool do_not_dedupe = 10;
+	string thumbnail_icon_url = 11;
+	string thumbnail_icon_dominant_color = 12;
+	string thumbnail_icon_fallback_color = 13;
+	bool rich_image_mode_suggestion = 14;
+	string vasco_suggestion_hash = 15;
+	string delete_url = 16;
+	string dedupe_key = 17;
+	int32 thumbnail_icon_dimension_px = 18;
+	uint32 pips_index_id = 19;
+	uint64 timestamp = 20;
+	string secondary_thumbnail_icon_url = 24;
+	uint32 cs_original_index = 28;
+	string inner_icon_color_filter_override = 32;
+	string inner_icon_background_color_override = 33;
+}

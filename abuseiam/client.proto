@@ -1,0 +1,30 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message Client {
+	enum Id {
+		option features.enum_type = CLOSED;
+
+		ABUSE_TEAM = 1;
+		SEARCH = 9;
+		GROUPS = 14;
+		PROFILES = 24;
+		WRITELY = 32;
+		EXPLORER = 35;
+		URL_SHORTENER = 45;
+		USENET = 65;
+		PHOTOS = 68;
+		ANDROID_MARKET = 75;
+		ES = 81;
+		BABEL = 90;
+		STRATUS = 93;
+		GMAIL = 114;
+		GJOBS = 117;
+	}
+
+	Id id = 1;
+	string subservice = 2;
+}

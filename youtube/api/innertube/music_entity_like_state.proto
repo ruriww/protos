@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicEntityLikeState {
+	option features.enum_type = CLOSED;
+
+	MUSIC_ENTITY_LIKE_STATE_UNKNOWN = 0;
+	MUSIC_ENTITY_LIKE_STATE_LIKED = 1;
+	MUSIC_ENTITY_LIKE_STATE_DISLIKED = 2;
+	MUSIC_ENTITY_LIKE_STATE_NEUTRAL = 3;
+}

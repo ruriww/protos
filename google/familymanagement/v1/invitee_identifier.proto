@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message InviteeIdentifier {
+	string email = 1;
+	string phone_number = 2;
+}

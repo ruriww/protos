@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/api/innertube/js_engine_selection.proto";
+import "youtube/javascript/client/platform_details.proto";
+import "youtube/client/blocks/container_instance_config.proto";
+
+option objc_class_prefix = "YTB";
+
+message JSRuntimeConfig {
+	extend ContainerInstanceConfig {
+		JSRuntimeConfig js_runtime_config = 409459387;
+	}
+
+	int32 dedicated_executor_key = 1;
+
+	message ExecutorCreationArgs {
+		api.innertube.JsEngineSelection js_engine_selection = 2;
+		javascript.client.PlatformDetails platform_details = 3;
+		string extra_vm_flags = 4;
+		bool use_cppgc_for_external_objects = 5;
+		bool pump_message_loop = 9;
+		int64 idle_message_microseconds = 10;
+		bool enable_swap_proto_kernel = 13;
+	}
+
+	ExecutorCreationArgs executor_creation_args = 2;
+}

@@ -1,0 +1,47 @@
+edition = "2023";
+
+package drishti.app.skia;
+
+import "drishti/calculator_options.proto";
+import "image/tenor/creation/embedded_animation.proto";
+import "drishti/app/skia/shader_warmup_config.proto";
+import "drishti/app/skia/output_size_config.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message GlSkottieRendererCalculatorOptions {
+	extend CalculatorOptions {
+		GlSkottieRendererCalculatorOptions ext = 402689442;
+	}
+
+	image.tenor.creation.AnimationConfig animation_config = 1;
+	string background_input_stream_tag = 2;
+	repeated string live_cam_resource_ids = 3;
+	map<string, string> resource_id_to_video_input_tag = 4;
+
+	enum InputImageToCompositionScaleToFit {
+		option features.enum_type = CLOSED;
+
+		IMAGE_SCALE_TO_FIT_UNSPECIFIED = 0;
+		IMAGE_SCALE_TO_FIT_FILL = 1;
+		IMAGE_SCALE_TO_FIT_CENTER = 2;
+	}
+
+	InputImageToCompositionScaleToFit image_scale_to_fit = 5;
+
+	enum CompositionToViewportScaleToFit {
+		option features.enum_type = CLOSED;
+
+		COMPOSITION_SCALE_TO_FIT_UNSPECIFIED = 0;
+		COMPOSITION_SCALE_TO_FIT_FILL = 1;
+		COMPOSITION_SCALE_TO_FIT_CENTER = 2;
+		COMPOSITION_SCALE_TO_FIT_FILL_CUSTOM_SIZE = 3;
+	}
+
+	CompositionToViewportScaleToFit composition_scale_to_fit = 6;
+	ShaderWarmupConfig shader_warmup_config = 8;
+	string cache_namespace = 9;
+	OutputSizeConfig output_size_config = 10;
+	bool clean_gl_context_after_every_frame = 11;
+	int64 skia_resource_cache_limit = 12;
+}

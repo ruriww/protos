@@ -1,0 +1,30 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum NetworkType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN = 0;
+	GPRS = 1;
+	EDGE = 2;
+	UMTS = 3;
+	CDMA = 4;
+	EVDO_0 = 5;
+	EVDO_A = 6;
+	ONEXRTT = 7;
+	HSDPA = 8;
+	HSUPA = 9;
+	HSPA = 10;
+	IDEN = 11;
+	EVDO_B = 12;
+	LTE = 13;
+	EHRPD = 14;
+	HSPAP = 15;
+	NR = 16;
+	NRNSA = 17;
+	WIFI = 50;
+	NO_CONNECTION = 60;
+}

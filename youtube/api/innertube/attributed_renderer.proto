@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/attributed_renderer_content_alignment.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AttributedRenderer {
+	Renderer renderer = 1;
+
+	message ContentPadding {
+		float top = 1;
+		float right = 2;
+		float bottom = 3;
+		float left = 4;
+	}
+
+	ContentPadding padding = 2;
+	AttributedRendererContentAlignment alignment = 3;
+	uint32 background_color = 4;
+}
+
+extend Renderer {
+	AttributedRenderer attributed_renderer = 162031871;
+}

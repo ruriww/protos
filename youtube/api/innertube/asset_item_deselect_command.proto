@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetItemDeselectCommand {
+	extend Command {
+		AssetItemDeselectCommand asset_item_deselect_command = 444949225;
+	}
+
+	repeated string asset_ids = 1;
+	string serialized_entity_key = 2;
+	string edu_label = 3;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/image_source.proto";
+import "youtube/api/innertube/crop_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadPlaylistImageCommand {
+	extend Command {
+		UploadPlaylistImageCommand upload_playlist_image_command = 1380;
+	}
+
+	ImageSource image_source = 1;
+	CropParams crop_params = 2;
+	string upload_url = 3;
+	string playlist_thumbnail_edits_entity_key = 4;
+	string edit_playlist_request_image_name = 5;
+	bool save_immediately_after_upload = 6;
+	string playlist_id = 7;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.iossso;
+
+import "id/logging/frontend/mobile/iossso/ios_sso_auth_latency_data.proto";
+import "id/logging/frontend/mobile/iossso/ios_sso_auth_error_data.proto";
+
+option objc_class_prefix = "SSOEXT";
+
+message IosSsoLibraryExtension {
+	string client_id = 1;
+	string library_version = 2;
+	string app_version = 3;
+	bool success = 4;
+	IosSsoAuthLatencyData latency_data = 5;
+	IosSsoAuthErrorData error_data = 6;
+	bool is_view_event = 7;
+}

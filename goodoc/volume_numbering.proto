@@ -1,0 +1,12 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/page_numbering.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message VolumeNumbering {
+	repeated PageNumbering pages = 1;
+	repeated PageNumbering works = 2;
+}

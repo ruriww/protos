@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/themed_url.proto";
+
+option objc_class_prefix = "ASM";
+
+message HelpParams {
+	string context = 1;
+	string url = 2;
+	ThemedUrl themed_url = 3;
+	string fallback_url = 4;
+	string ios_package_override_name = 5;
+	string android_package_override_name = 6;
+	string ios_feedback_category_tag = 7;
+	string android_feedback_category_tag = 8;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/min_readahead_policy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackStartPolicy {
+	repeated MinReadaheadPolicy start_min_readahead_policy = 1;
+	repeated MinReadaheadPolicy resume_min_readahead_policy = 2;
+	string video_id = 3;
+	int32 start_timeout_ms = 4;
+	int32 resume_timeout_ms = 5;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflinePlaylistAutoSyncType {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_PLAYLIST_AUTO_SYNC_TYPE_UNSPECIFIED = 0;
+	OFFLINE_PLAYLIST_AUTO_SYNC_TYPE_METADATA_AND_STREAMS = 1;
+	OFFLINE_PLAYLIST_AUTO_SYNC_TYPE_METADATA_ONLY = 2;
+}

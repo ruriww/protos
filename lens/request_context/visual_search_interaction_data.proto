@@ -1,0 +1,28 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "lens/request_context/interaction_type.proto";
+import "lens/geometry.proto";
+import "logs/proto/lens/visualsearch/visual_search_interaction_log_data.proto";
+import "lens/zoomed_crop.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message VisualSearchInteractionData {
+	InteractionType type = 1;
+	Geometry geometry = 2;
+	string object_id = 3;
+	logs.proto.lens.visualsearch.VisualSearchInteractionLogData log_data = 5;
+
+	message TranslateLanguage {
+		string source_language = 1;
+		string target_language = 2;
+	}
+
+	TranslateLanguage translate_language = 6;
+	ZoomedCrop zoomed_crop = 7;
+	bool trigger_process_image_in_gws = 9;
+	uint64 crop_payload_id = 10;
+	bool is_primary_multimodal = 11;
+}

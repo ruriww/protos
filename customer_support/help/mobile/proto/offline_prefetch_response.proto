@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/offline_prefetch_response_data.proto";
+
+option objc_class_prefix = "CSHM";
+
+message OfflinePrefetchResponse {
+	repeated OfflinePrefetchResponseData response_data = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/state_tag_cache_instruction.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RelevantStateTag {
+	int32 state_tag = 1;
+	StateTagCacheInstruction on_state_tag_modified = 2;
+}

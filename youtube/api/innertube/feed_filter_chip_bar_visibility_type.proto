@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FeedFilterChipBarVisibilityType {
+	option features.enum_type = CLOSED;
+
+	FEED_FILTER_CHIP_BAR_VISIBILITY_TYPE_UNKNOWN = 0;
+	FEED_FILTER_CHIP_BAR_VISIBILITY_TYPE_SCROLLY = 1;
+	FEED_FILTER_CHIP_BAR_VISIBILITY_TYPE_STICKY = 2;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/playlist_contribution_state.proto";
+import "youtube/api/innertube/playlist_contributors_list.proto";
+import "youtube/api/innertube/playlist_settings_editor_contributors_supported_continuations.proto";
+import "youtube/api/innertube/playlist_settings_editor_create_invite_link_supported_renderers.proto";
+import "youtube/api/innertube/playlist_settings_editor_button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistSettingsEditorCollaborationSectionRenderer {
+	extend ContinuationSupportedRenderers {
+		PlaylistSettingsEditorCollaborationSectionRenderer playlist_settings_editor_collaboration_section_continuation = 91613400;
+	}
+
+	FormattedString title = 1;
+	PlaylistContributionState state = 2;
+	PlaylistContributorsList contributor_list = 3;
+	PlaylistContributorsList blocked_list = 4;
+	FormattedString people_with_invite_link = 5;
+	PlaylistSettingsEditorContributorsSupportedContinuations continuation = 6;
+	PlaylistSettingsEditorCreateInviteLinkSupportedRenderers create_invite_link = 7;
+	FormattedString create_invite_link_description = 8;
+	PlaylistSettingsEditorButtonSupportedRenderers create_invite_link_button = 9;
+	FormattedString revoke_invite_links_description = 10;
+	PlaylistSettingsEditorButtonSupportedRenderers revoke_invite_links_button = 11;
+	bool has_invite_links = 12;
+	PlaylistSettingsEditorButtonSupportedRenderers share_invite_link_button = 13;
+	FormattedString share_invite_link_description = 14;
+	bool collaboration_settings_disabled = 15;
+	Command collaboration_settings_command = 16;
+	string playlist_id = 17;
+}

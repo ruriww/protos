@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum EDataUsageNoticeType {
+	DATA_USAGE_NOTICE_TYPE_UNSPECIFIED = 0;
+	DATA_USAGE_NOTICE_TYPE_LINKING_INFO = 1;
+	DATA_USAGE_NOTICE_TYPE_CAPABILITY_CONSENT = 2;
+	DATA_USAGE_NOTICE_TYPE_LINKING_INFO_WITH_CONSENT = 3;
+}

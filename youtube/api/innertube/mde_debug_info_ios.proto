@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_ios_error_domain.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeDebugInfoIos {
+	message ErrorInfo {
+		int32 error_code = 1;
+		MediaEngineIosErrorDomain error_domain = 2;
+	}
+
+	ErrorInfo error_info = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message FeedbackPacketMetrics {
+	int32 packet_size = 1;
+	int32 expanded_size = 2;
+	int32 packet_size_before_pruning = 3;
+}

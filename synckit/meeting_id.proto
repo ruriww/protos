@@ -1,0 +1,10 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+message MeetingID {
+	string meeting_code = 1;
+	string meeting_url = 2;
+}

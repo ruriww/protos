@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CollectMobileDeviceSignalsCommand {
+	extend Command {
+		CollectMobileDeviceSignalsCommand collect_mobile_device_signals_command = 44035;
+	}
+
+	map<string, string> content_binding = 1;
+}

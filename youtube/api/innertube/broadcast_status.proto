@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/broadcast_lifecycle_status.proto";
+import "youtube/api/innertube/live_stream_health_status.proto";
+import "youtube/api/innertube/live_stream_viewer_stats.proto";
+import "youtube/api/innertube/live_stream_vote_stats.proto";
+import "youtube/api/innertube/content_id_status.proto";
+import "youtube/api/innertube/ingestion_status.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/live_stream_gift_stats.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BroadcastStatus {
+	string video_id = 1;
+	bool default_broadcast = 2;
+	BroadcastLifecycleStatus life_cycle_status = 3;
+	int64 scheduled_start_time_s = 4;
+	int64 actual_start_time_s = 5;
+	int64 actual_end_time_s = 6;
+	repeated LiveStreamHealthStatus stream_healths = 7;
+	LiveStreamViewerStats viewer_stats = 8;
+	LiveStreamVoteStats vote_stats = 9;
+	ContentIdStatus content_id_status = 10;
+	int64 monitor_first_frame_wallclock_s = 11;
+	int32 broadcast_duration_ms = 13;
+	int32 chunk_duration_ms = 16;
+	int64 monitor_broadcast_offset_ms = 18;
+	int64 seconds_since_start = 21;
+	IngestionStatus ingestion_status = 23;
+	google.protobuf.Duration remaining_midroll_schedule_disabled_duration = 24;
+	LiveStreamGiftStats gift_stats = 28;
+	repeated BroadcastStatus linked_broadcast_status = 30;
+	bool is_broadcast_synced = 32 [ default = true ];
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message ProfilerConfig {
+	int64 histogram_interval_size_usec = 1;
+	int64 num_histogram_intervals = 2;
+	bool enable_input_output_latency = 3;
+	bool enable_profiler = 4;
+	bool enable_stream_latency = 5;
+	bool use_packet_timestamp_for_added_packet = 6;
+	int64 trace_log_capacity = 7;
+	repeated int32 trace_event_types_disabled = 8;
+	string trace_log_path = 9;
+	int32 trace_log_count = 10;
+	int64 trace_log_interval_usec = 11;
+	int64 trace_log_margin_usec = 12;
+	bool trace_log_duration_events = 13;
+	int32 trace_log_interval_count = 14;
+	bool trace_log_disabled = 15;
+	bool trace_enabled = 16;
+	bool trace_log_instant_events = 17;
+	string calculator_filter = 18;
+}

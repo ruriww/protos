@@ -1,0 +1,11 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/answer_choice.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message AnswerChoices {
+	repeated AnswerChoice answer_choice = 1;
+}

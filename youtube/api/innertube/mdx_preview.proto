@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxPreview {
+	enum MdxPreviewType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		DISABLED = 1;
+		FORCE_SINGLE_VIDEO = 2;
+		FORCE_PLAYLIST = 3;
+	}
+
+	MdxPreviewType type = 1;
+}

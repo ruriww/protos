@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/creator_channel_sponsorships.proto";
+import "youtube/api/innertube/delegate_role.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorChannelData {
+	string channel_id = 1;
+	string title = 2;
+	ThumbnailDetails thumbnail_details = 4;
+	bool is_partner = 5;
+	uint64 time_created_seconds = 12;
+	bool is_official_artist_channel = 15;
+	bool is_name_verified = 17;
+	uint32 copyright_strikes_count = 18;
+	CreatorChannelSponsorships sponsorships = 19;
+	bool treat_as_verified = 28;
+	string key = 32;
+	string business_email = 35;
+	string fife_banner_url = 36;
+	repeated DelegateRole delegate_roles = 41;
+	string channel_handle = 44;
+	bool is_avatar_custom = 49;
+	LoggingDirectives logging_directives = 999;
+}

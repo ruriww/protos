@@ -1,0 +1,30 @@
+edition = "2023";
+
+package engage.ui.support.guidance.chat.shared.embedproto;
+
+import "customer_support/ursa/proto/extensions/product_specific_custom_data.proto";
+
+option objc_class_prefix = "SGC";
+
+message GseSessionOptions {
+	string session_config_id = 1;
+	string session_context_string = 2;
+	bool enable_maximize = 3;
+	string entry_button_id = 4;
+	repeated string internal_help_center_names_override = 6;
+	string entry_button_text = 8;
+	string resume_id = 10;
+	bool start_maximized = 12;
+	string initial_user_message = 13;
+	bool disable_resume = 14;
+	customer_support.ursa.proto.extensions.ProductSpecificCustomData product_specific_custom_data = 17;
+	repeated int32 mendel_ids = 18;
+	string genie_session_id = 19;
+	string initial_agent_message = 20;
+	string custom_header_title = 22;
+	string custom_header_logo_url = 23;
+	string custom_header_logo_url_dark = 24;
+	bool hide_initial_agent_message = 25;
+	string custom_agent_display_name = 26;
+	bool show_inline_disclaimer = 27;
+}

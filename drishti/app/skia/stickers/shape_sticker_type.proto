@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+enum ShapeStickerType {
+	option features.enum_type = CLOSED;
+
+	SHAPE_STICKER_TYPE_UNSPECIFIED = 0;
+	SHAPE_STICKER_TYPE_RECTANGLE = 1;
+	SHAPE_STICKER_TYPE_OVAL = 2;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.calculations.date;
+
+import "moneta/integrator/common/date.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AbsoluteDifferenceCalculation {
+	integrator.common.Date operand_date = 1;
+
+	enum AbsoluteDifferenceCalculationUnit {
+		option features.enum_type = CLOSED;
+
+		ABSOLUTE_DIFFERENCE_CALCULATION_UNIT_UNKNOWN = 0;
+		ABSOLUTE_DIFFERENCE_CALCULATION_UNIT_DAYS = 1;
+		ABSOLUTE_DIFFERENCE_CALCULATION_UNIT_WEEKS = 2;
+		ABSOLUTE_DIFFERENCE_CALCULATION_UNIT_MONTHS = 3;
+		ABSOLUTE_DIFFERENCE_CALCULATION_UNIT_YEARS = 4;
+	}
+
+	AbsoluteDifferenceCalculationUnit absolute_difference_calculation_unit = 2;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/panel_loading_strategy.proto";
+import "youtube/api/innertube/screen_logging_data.proto";
+import "youtube/api/innertube/sheet_theme.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowSheetCommand {
+	extend Command {
+		ShowSheetCommand show_sheet_command = 443434441;
+	}
+
+	PanelLoadingStrategy panel_loading_strategy = 1;
+	ScreenLoggingData screen_logging_data = 2;
+	SheetTheme sheet_theme = 3;
+	bool skip_collapsed_state = 4;
+}

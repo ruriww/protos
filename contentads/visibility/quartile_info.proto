@@ -1,0 +1,23 @@
+edition = "2023";
+
+package contentads.visibility;
+
+import "contentads/visibility/time_bucket.proto";
+import "contentads/visibility/measured_ads_position.proto";
+
+option objc_class_prefix = "CAVIS";
+
+message QuartileInfo {
+	repeated TimeBucket max_consecutive_onscreen_time = 1;
+	float minimum_audio_volume = 2 [ default = -1 ];
+	float maximum_audio_volume = 3 [ default = -1 ];
+	float audio_volume = 4 [ default = -1 ];
+	float onscreen_coverage = 5 [ default = -1 ];
+	float minimum_onscreen_coverage = 6 [ default = -1 ];
+	float maximum_onscreen_coverage = 7 [ default = -1 ];
+	float screen_share = 8 [ default = -1 ];
+	float minimum_screen_share = 9 [ default = -1 ];
+	float maximum_screen_share = 10 [ default = -1 ];
+	MeasuredAdsPosition position = 11;
+	MeasuredAdsPosition container_position = 12;
+}

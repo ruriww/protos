@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/call_to_action_button_supported_renderers.proto";
+import "youtube/api/innertube/hero_image_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/watch_card_badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchCardHeroVideoRenderer {
+	ThumbnailDetails thumbnail = 1;
+	Command navigation_endpoint = 2;
+	FormattedString title = 3;
+	FormattedString subtitle = 4;
+	FormattedString length_text = 5;
+	bytes tracking_params = 7;
+	StandaloneBadgeSupportedRenderers standalone_badge = 8;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 9;
+	CallToActionButtonSupportedRenderers call_to_action_button = 10;
+	HeroImageSupportedRenderers hero_image = 11;
+	AccessibilitySupportedDatas accessibility = 12;
+	UpcomingEventData upcoming_event_data = 13;
+	Renderer reminder_button = 14;
+	string video_id = 15;
+	repeated WatchCardBadgeSupportedRenderers badges = 16;
+}

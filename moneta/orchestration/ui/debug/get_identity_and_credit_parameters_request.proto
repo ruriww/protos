@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/identityandcredit/internal_identity_and_credit_parameters.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetIdentityAndCreditParametersRequest {
+	common.RequestContext context = 1;
+	identityandcredit.InternalIdentityAndCreditParameters parameters = 2;
+}

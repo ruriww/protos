@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SkAdNetworkYTParameters {
+	string ad_network_identifier = 1;
+	int64 ad_network_campaign_identifier = 2;
+	int64 ad_network_ms_from_epoch = 3;
+	string ad_network_nonce = 4;
+	string ad_network_version = 5;
+	string ad_network_advertised_app_identifier = 6;
+	string ad_network_source_app_identifier = 7;
+	string ad_network_attribution_signature = 8;
+	int64 ad_network_fidelity_type = 9;
+	string campaign_token = 10;
+	uint32 skan_campaign_encoding_feature_bit_map = 11;
+	int64 ad_network_source_id = 12;
+}

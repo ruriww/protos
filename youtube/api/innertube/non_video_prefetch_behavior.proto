@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum NonVideoPrefetchBehavior {
+	option features.enum_type = CLOSED;
+
+	NON_VIDEO_PREFETCH_BEHAVIOR_NONE = 0;
+	NON_VIDEO_PREFETCH_BEHAVIOR_PREFETCH_NEXT_ITEM = 1;
+}

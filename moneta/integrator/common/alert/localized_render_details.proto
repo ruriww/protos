@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.integrator.common.alert;
+
+option objc_class_prefix = "AlertService";
+
+message LocalizedRenderDetails {
+	string single_line_message = 1;
+	string title = 2;
+	string description = 3;
+	string action_label = 4;
+	string dismiss_label = 5;
+	string alert_context = 6;
+}

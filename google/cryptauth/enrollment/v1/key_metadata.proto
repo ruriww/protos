@@ -1,0 +1,8 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+option objc_class_prefix = "CRPT";
+
+message KeyMetadata {
+}

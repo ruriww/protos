@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.common.fixflow;
+
+option objc_class_prefix = "FixFlow";
+
+message FixFlow {
+	bytes action_token = 1;
+	bytes dismiss_token = 2;
+	bytes help_token = 3;
+}

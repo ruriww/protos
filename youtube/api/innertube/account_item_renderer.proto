@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/active_session_policy.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/gaia_authenticated_identity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountItemRenderer {
+	bytes tracking_params = 2;
+	string on_behalf_of_parameter = 3;
+	FormattedString account_name = 4;
+	ThumbnailDetails account_photo = 6;
+	bool is_selected = 7;
+	bool is_disabled = 8;
+	ThumbnailDetails mobile_banner = 9;
+	bool has_channel = 10;
+	string external_id = 11;
+	Command service_endpoint = 12;
+	FormattedString account_byline = 13;
+	repeated FormattedString unlimited_status = 14;
+	FormattedString sign_in_restriction_reason = 15;
+	Icon.IconType icon_type = 16;
+	ActiveSessionPolicy active_session_policy = 17;
+	bool kids_supervised_account_access_allowed = 18;
+	Renderer editing_renderer = 19;
+	bool is_redirect_to_studio = 20;
+	FormattedString studio_redirect_visual_hint = 21;
+	GaiaAuthenticatedIdentity identity = 22;
+	bool should_disable_autoplay_by_default_on_living_room = 24;
+	FormattedString given_name = 25;
+	FormattedString channel_handle = 26;
+	bool should_show_premium_logo = 27;
+	string channel_delegation_role = 28;
+	bool youtube_suspended = 30;
+	bool is_app_redirect = 32;
+	repeated string account_log_directives = 33;
+	bool can_supervise_in_force_kids_mode = 34;
+	Renderer whos_watching_item_renderer = 35;
+	repeated int32 account_log_directive_ints = 36 [ features.repeated_field_encoding = EXPANDED ];
+}

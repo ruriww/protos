@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/container_type.proto";
+import "apps/people/oz/external/mergedpeopleapi/edge_key_info_extension_data.proto";
+
+option objc_class_prefix = "POEM";
+
+message EdgeKeyInfo {
+	string container_id = 1;
+	ContainerType container_type = 2;
+	bool materialized = 3;
+	EdgeKeyInfoExtensionData extended_data = 4;
+}

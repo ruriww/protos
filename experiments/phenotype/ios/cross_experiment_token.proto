@@ -1,0 +1,12 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+import "experiments/heterodyne/cross_app_descriptor.proto";
+
+option objc_class_prefix = "EPI";
+
+message CrossExperimentToken {
+	bytes experiment_token = 1;
+	heterodyne.CrossAppDescriptor.DiversionProvenance provenance = 2;
+}

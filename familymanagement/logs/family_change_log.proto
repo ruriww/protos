@@ -1,0 +1,28 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "kids/families/e_event_type.proto";
+import "kids/families/family_role.proto";
+import "familymanagement/logs/family_state_change_log.proto";
+import "familymanagement/logs/family_product_correlation_id_change_log.proto";
+import "familymanagement/logs/age_boundary_cross_details_log.proto";
+import "kids/families/member_supervision_state_change.proto";
+import "familymanagement/logs/subscription_change_log.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilyChangeLog {
+	kids.families.EEventType event_type = 1;
+	int64 family_id = 2;
+	int64 event_timestamp_usec = 3;
+	int64 notified_user_id = 4;
+	int64 affected_user_id = 5;
+	kids.families.FamilyRole affected_user_role = 6;
+	kids.families.FamilyRole old_user_role = 7;
+	FamilyStateChangeLog family_state_change = 8;
+	FamilyProductCorrelationIdChangeLog product_correlation_id_change = 9;
+	AgeBoundaryCrossDetailsLog age_boundary_cross_details = 10;
+	kids.families.MemberSupervisionStateChange supervision_state_change = 11;
+	SubscriptionChangeLog subscription_change = 13;
+}

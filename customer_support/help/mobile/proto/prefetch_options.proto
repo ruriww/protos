@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_app_data.proto";
+
+option objc_class_prefix = "CSHM";
+
+message PrefetchOptions {
+	repeated MobileAppData prefetch_app_data = 1;
+}

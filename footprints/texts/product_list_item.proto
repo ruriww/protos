@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ProductListItem {
+	string image_url = 1;
+	webutil.html.types.SafeHtmlProto text = 3;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/action_chips_unit.proto";
+
+option objc_class_prefix = "ASM";
+
+message StackFooterContentUnit {
+	oneof unit_type {
+		ActionChipsUnit action_chips_unit = 1;
+	}
+}

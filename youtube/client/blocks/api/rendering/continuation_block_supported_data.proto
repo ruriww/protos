@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.rendering;
+
+import "youtube/api/innertube/suspense_continuation_data.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ContinuationBlockSupportedData {
+	oneof continuation_type {
+		youtube.api.innertube.SuspenseContinuationData suspense_continuation_data = 1;
+	}
+}

@@ -1,0 +1,96 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/rich_text.proto";
+import "footprints/texts/separator.proto";
+import "footprints/texts/primitiveconsent/checkbox_list.proto";
+import "footprints/texts/primitiveconsent/bulleted_list.proto";
+import "footprints/texts/primitiveconsent/product_list.proto";
+import "footprints/texts/primitiveconsent/icon_list.proto";
+import "footprints/texts/primitiveconsent/image.proto";
+import "footprints/texts/primitiveconsent/radio_button_list.proto";
+import "footprints/texts/primitiveconsent/toggle_button_group.proto";
+import "footprints/texts/primitiveconsent/animated_image.proto";
+import "footprints/texts/primitiveconsent/animated_success_element.proto";
+import "footprints/texts/semantic_tag.proto";
+import "footprints/texts/primitiveconsent/primitive_zippy_id.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message PrimitiveConsentElement {
+	oneof consent_element {
+		RichText heading = 1;
+		RichText paragraph = 2;
+		Separator separator = 3;
+		CheckboxList checkbox_list = 4;
+		BulletedList bulleted_list = 5;
+		ProductList product_list = 6;
+		IconList icon_list = 7;
+		ZippyList zippy_list = 8;
+		PrimitiveContainer container = 9;
+		Image visual = 11;
+		RadioButtonList radio_button_list = 13;
+		Expando expando = 14;
+		ToggleButtonGroup toggle_button_group = 15;
+		RichText title = 16;
+		AnimatedImage animated_visual = 17;
+		AnimatedSuccessElement animated_success_element = 18;
+	}
+
+	SemanticTag semantic_tag = 10;
+}
+
+message PrimitiveContainer {
+	repeated PrimitiveConsentElement elements = 1;
+
+	message PrimitiveContainerStyle {
+		enum ContainerBackground {
+			option features.enum_type = CLOSED;
+
+			CONTAINER_BACKGROUND_UNSPECIFIED = 0;
+			CONTAINER_BACKGROUND_EMPTY = 1;
+			CONTAINER_BACKGROUND_OUTLINED = 2;
+			CONTAINER_BACKGROUND_FILLED = 3;
+		}
+
+		ContainerBackground container_background = 1;
+
+		enum ContainerAlignment {
+			option features.enum_type = CLOSED;
+
+			CONTAINER_ALIGNMENT_UNSPECIFIED = 0;
+			CONTAINER_ALIGNMENT_STICKS_OUT = 1;
+			CONTAINER_ALIGNMENT_ALIGNED = 2;
+		}
+
+		ContainerAlignment container_alignment = 2;
+	}
+
+	PrimitiveContainerStyle primitive_container_style = 2;
+}
+
+message ZippyList {
+	repeated PrimitiveZippy zippy = 1;
+	bool hide_top_divider = 2;
+	bool hide_between_items_divider = 3;
+	bool hide_bottom_divider = 4;
+}
+
+message PrimitiveZippy {
+	repeated RichText button_text = 1;
+	repeated PrimitiveConsentElement elements = 2;
+	PrimitiveZippyId zippy_id = 3;
+}
+
+message Expando {
+	message HighlightedTextStickyIconExpandoHeader {
+		RichText text = 1;
+	}
+
+	oneof header {
+		HighlightedTextStickyIconExpandoHeader highlighted_text_sticky_icon_header = 1;
+	}
+
+	repeated PrimitiveConsentElement content = 2;
+}

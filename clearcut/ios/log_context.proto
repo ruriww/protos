@@ -1,0 +1,18 @@
+edition = "2023";
+
+package clearcut.ios;
+
+import "unknown/youtube/lse_log_source6173.proto";
+import "wireless_android_play_playlog/client_info.proto";
+
+option objc_class_prefix = "CCT";
+
+message LogContext {
+	string obfuscated_gaia_id = 1;
+	unknown.youtube.LSELogSource6173.LSELogSource log_source = 2;
+	string pseudonymous_id = 3;
+	wireless_android_play_playlog.ClientInfo client_info = 4;
+	int32 qos_tier = 5;
+	bool is_anonymous = 6;
+	uint32 app_mobilespec_id_code = 7;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/instrument/types/card_subform_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/credit_card_input_result.proto";
+
+option objc_class_prefix = "Orch";
+
+message CardFormValue {
+	string id = 1;
+	bytes token = 2;
+	string encrypted_account_number = 3;
+	string ees_session_material = 4;
+	repeated CardSubformValue card_subform_value = 5;
+	repeated CreditCardInputResult input_result = 6;
+	bytes pan_category_token = 7;
+}

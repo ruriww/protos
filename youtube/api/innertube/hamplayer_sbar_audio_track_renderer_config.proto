@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerSBARAudioTrackRendererConfig {
+	int32 samples_per_buffer = 1;
+	bool flush_on_return_from_background = 2;
+	bool trim_priming = 3;
+	bool feed_media_data = 4;
+	bool handle_automatic_flush = 5;
+	int32 renderer_max_retry_count = 6;
+	bool use_all_tracks_for_playability_status = 7;
+	bool rewrite_flush_timestamp = 8;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/input/dateinput/secure_date.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DateInputSecureDataValue {
+	extend data.DataValue {
+		DateInputSecureDataValue date_input_secure_data_value_extension = 254223143;
+	}
+
+	SecureDate value = 1;
+	string string_value = 2;
+	bytes annotated_value = 3;
+	string calculated_value = 4;
+}

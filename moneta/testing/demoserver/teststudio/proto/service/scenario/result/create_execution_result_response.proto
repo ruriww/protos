@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.result;
+
+option objc_class_prefix = "TSLSSR";
+
+message CreateExecutionResultResponse {
+	int64 execution_id = 1;
+}

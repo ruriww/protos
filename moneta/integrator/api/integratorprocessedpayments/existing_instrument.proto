@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.integrator.api.integratorprocessedpayments;
+
+import "moneta/integrator/common/instrument/instrument_status.proto";
+import "moneta/integrator/common/instrument/instrument_description.proto";
+
+option objc_class_prefix = "IProcPay";
+
+message ExistingInstrument {
+	common.instrument.InstrumentStatus instrument_status = 1;
+	common.instrument.InstrumentDescription instrument_description = 2;
+	bytes instrument_token = 3;
+	bytes challenge_token = 5;
+	int64 instrument_id = 6;
+	bool challenge_required = 7;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playback_offline_fallback_request_type.proto";
+import "youtube/api/innertube/playback_offline_fallback_result.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackOfflineFallbackTracking {
+	string cpn = 1;
+	PlaybackOfflineFallbackRequestType request_type = 2;
+	PlaybackOfflineFallbackResult fallback_result = 3;
+}

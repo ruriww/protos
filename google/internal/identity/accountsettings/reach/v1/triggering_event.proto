@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+import "google/internal/identity/accountsettings/reach/v1/one_google_triggering_event.proto";
+
+option objc_class_prefix = "RCH";
+
+message TriggeringEvent {
+	oneof event {
+		OneGoogleTriggeringEvent onegoogle_triggering_event = 1;
+	}
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/menu_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/native_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/browser_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/message_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/webview_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/cards_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/search_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/android_intent_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/fauxbake_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/support_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/onboarding_alternative.proto";
+import "google/internal/identity/accountsettings/mobile/v1/placeholder_alternative.proto";
+
+option objc_class_prefix = "ASM";
+
+message Alternative {
+	MenuAlternative menu_alternative = 1;
+	NativeAlternative native_alternative = 2;
+	BrowserAlternative browser_alternative = 3;
+	MessageAlternative message_alternative = 4;
+	WebviewAlternative webview_alternative = 5;
+	CardsAlternative cards_alternative = 6;
+	SearchAlternative search_alternative = 8;
+	AndroidIntentAlternative android_intent_alternative = 9;
+	FauxbakeAlternative fauxbake_alternative = 10;
+	SupportAlternative support_alternative = 11;
+	OnboardingAlternative onboarding_alternative = 12;
+	PlaceholderAlternative placeholder_alternative = 1000;
+}

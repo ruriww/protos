@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/ad_cta_click_target_mode.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/ad_cta_state_trigger.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppPromoAdCtaRenderer {
+	ThumbnailDetails icon = 1;
+
+	message ExpandAction {
+		ButtonSupportedRenderers action = 1;
+		FormattedString title_text = 2;
+		FormattedString description_text = 3;
+		float rating = 4;
+		uint32 background_color = 5;
+		uint32 text_color = 6;
+		AdCtaClickTargetMode click_target_mode = 7;
+	}
+
+	ExpandAction expand_action = 2;
+
+	message CollapseAction {
+		ButtonSupportedRenderers action = 1;
+		AdCtaClickTargetMode click_target_mode = 2;
+	}
+
+	CollapseAction collapse_action = 3;
+	repeated AdCtaStateTrigger state_triggers = 4;
+	bytes tracking_params = 6;
+	repeated Command impression_endpoints = 7;
+	bool enable_shadow = 8;
+	AdLayoutLoggingData ad_layout_logging_data = 9;
+	bool enable_modern_style = 10;
+}
+
+extend Renderer {
+	AppPromoAdCtaRenderer app_promo_ad_cta_renderer = 133765738;
+}

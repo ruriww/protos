@@ -1,0 +1,10 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+option objc_class_prefix = "PIL";
+
+enum InferredContactExtractionType {
+	UNKNOWN_EXTRACTION = 0;
+	GOLDMINE_EXTRACTION = 1;
+}

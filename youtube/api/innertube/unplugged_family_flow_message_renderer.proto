@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedFamilyFlowMessageRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	FormattedString content = 3;
+	FormattedString footer = 4;
+	ButtonSupportedRenderers dismiss_button = 5;
+	ButtonSupportedRenderers action_button = 6;
+	bytes tracking_params = 8;
+	FormattedString thumbnail_info = 9;
+	FormattedString invites_remaining = 10;
+}
+
+extend Renderer {
+	UnpluggedFamilyFlowMessageRenderer unplugged_family_flow_message_renderer = 142640027;
+}

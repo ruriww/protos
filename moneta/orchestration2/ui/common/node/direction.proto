@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum Direction {
+	option features.enum_type = CLOSED;
+
+	DIRECTION_UNKNOWN = 0;
+	DIRECTION_ROW = 1;
+	DIRECTION_ROW_REVERSE = 2;
+	DIRECTION_COLUMN = 3;
+	DIRECTION_COLUMN_REVERSE = 4;
+}

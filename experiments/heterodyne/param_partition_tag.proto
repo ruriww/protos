@@ -1,0 +1,10 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message ParamPartitionTag {
+	int64 id = 1;
+	bytes tag = 2;
+}

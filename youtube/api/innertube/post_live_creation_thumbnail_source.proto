@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/custom_image_source.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostLiveCreationThumbnailSource {
+	extend elements.CustomImageSource {
+		PostLiveCreationThumbnailSource post_live_creation_thumbnail_source = 33557330;
+	}
+
+	google.protobuf.Duration video_timestamp = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration.ui.timelineview;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/ui/timelineview/timeline_view_parameters.proto";
+import "moneta/integrator/common/date.proto";
+import "moneta/integrator/common/funds_guarantee_id.proto";
+
+option objc_class_prefix = "TimelineView";
+
+message InternalTimelineViewParameters {
+	integrator.ui.common.CommonParameters common_parameters = 1;
+	integrator.ui.timelineview.TimelineViewParameters.TimelineViewScenario timeline_view_scenario = 2;
+	integrator.common.Date expanding_card_end_date = 7;
+	string p2p_transaction_token = 8;
+	bool should_allow_p2p_action_in_payment_methods = 9;
+	integrator.common.FundsGuaranteeId funds_guarantee_id = 10;
+}

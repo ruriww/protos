@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/compact_video_data.proto";
+import "youtube/elements/context.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CompactVideoModel {
+	extend Model {
+		CompactVideoModel compact_video_model = 232971250;
+	}
+
+	bytes tracking_params = 3;
+	Theme theme = 6;
+	EnvironmentData environment = 10;
+	Command log_long_press_command = 18;
+	Command preview_tooltip_command = 19;
+	Command log_menu_click_command = 24;
+	CompactVideoData compact_video_data = 25;
+	bool use_panel_background_color = 33 [ default = false ];
+	Context context = 34;
+	string updatable_compact_video_refresh_key = 36;
+	Command updatable_compact_video_refresh_command = 37;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/request_context.proto";
+import "google/internal/identity/accountsettings/mobile/v1/screen_to_omit.proto";
+
+option objc_class_prefix = "ASM";
+
+message GetScreenRequest {
+	RequestContext context = 1;
+	int32 screen_id = 2;
+	repeated ScreenToOmit screens_to_omit = 3;
+}

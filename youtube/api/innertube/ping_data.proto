@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/trigger_type.proto";
+import "youtube/api/innertube/ads_client_ping_dispatch_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PingData {
+	TriggerType source_trigger_type = 1;
+	int32 ping_count = 3;
+	AdsClientPingDispatchStatus ping_dispatch_status = 4;
+	bytes serialized_ad_ping_metadata = 5;
+	int32 ping_index = 8;
+}

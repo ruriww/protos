@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/location_collection_initiation_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ResolveLocationCommand {
+	extend Command {
+		ResolveLocationCommand resolve_location_command = 394311467;
+	}
+
+	bool is_user_initiated = 1;
+	LocationCollectionInitiationSource initiation_source = 2;
+}

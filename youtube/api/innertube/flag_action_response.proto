@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/comment_action_result.proto";
+import "youtube/api/innertube/report_action_result_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlagActionResponse {
+	ResponseContext response_context = 1;
+	FormattedString response_message = 3;
+	CommentActionResult comment_action_result = 5;
+	ReportActionResultSupportedRenderers report_action_result_supported_renderers = 6;
+	repeated Command actions = 7;
+	string flagged_user_id = 8;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/watch_card_one_vs_one_event.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchCardOneVsOneEventCompactVideoRenderer {
+	ThumbnailDetails thumbnail = 1;
+	WatchCardOneVsOneEvent one_vs_one_event = 2;
+	FormattedString length_text = 3;
+	Command navigation_endpoint = 4;
+	bytes tracking_params = 6;
+	MainAppCompactRendererStyle main_app_style = 7;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 8;
+}

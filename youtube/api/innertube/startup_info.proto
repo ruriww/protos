@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/startup_edge_case_info.proto";
+import "youtube/api/innertube/start_type.proto";
+import "youtube/api/innertube/app_startup_temp.proto";
+import "youtube/api/innertube/adshield_version.proto";
+import "youtube/api/innertube/early_start_type.proto";
+import "youtube/api/innertube/browse_service_cache_key.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StartupInfo {
+	StartupEdgeCaseInfo startup_edge_case_info = 1;
+	StartType startup_type_info = 3;
+	AppStartupTemp app_startup_temperature_info = 4;
+	bool is_saved_instance = 5;
+	AdshieldVersion adshield_version = 6;
+	EarlyStartType early_startup_type_info = 7;
+	repeated BrowseServiceCacheKey innertube_request_cache_miss = 8;
+	bool startup_abandoned = 9;
+}

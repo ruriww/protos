@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/sender_state.proto";
+import "youtube/elements/point.proto";
+import "youtube/elements/size.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CollectionSenderState {
+	extend SenderState {
+		CollectionSenderState collection_sender_state = 198239242;
+	}
+
+	Point content_offset = 1;
+	int32 item_index = 2;
+	int32 item_count = 3;
+	Size content_size = 4;
+	float offset_x_begin = 5;
+	Point scroll_delta = 6;
+}

@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/music_card_shelf_top_card_thumbnail_aspect_ratio.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicCardShelfRenderer {
+	bytes tracking_params = 5;
+	Renderer thumbnail = 11;
+	FormattedString title = 12;
+	FormattedString subtitle = 13;
+	repeated Renderer contents = 14;
+	repeated Renderer buttons = 15;
+	Renderer menu = 16;
+	Command on_tap = 17;
+	Renderer header = 18;
+	Icon end_icon = 19;
+	repeated Renderer subtitle_badges = 20;
+	MusicCardShelfTopCardThumbnailAspectRatio thumbnail_aspect_ratio = 21;
+	Renderer thumbnail_overlay = 22;
+	FormattedString undercard_text = 23;
+}
+
+extend Renderer {
+	MusicCardShelfRenderer music_card_shelf_renderer = 116824375;
+}

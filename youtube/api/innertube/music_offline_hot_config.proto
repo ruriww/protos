@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicOfflineHotConfig {
+	bool enable_offline_content_deleted_while_traveling_fix = 1;
+	bool disable_offline_playlist_foreground_manual_sync = 2;
+	bool android_enable_playlist_sync_controller_for_playlist_auto_sync = 3;
+	bool android_enable_playlist_sync_controller_for_smart_downloads = 4;
+	bool ios_enable_auto_sync_user_downloaded_playlists = 5;
+	bool defer_music_offline_store_initialization = 6;
+	bool ios_enable_fast_offline_shuffle_playback = 7;
+	bool enable_mealbar_network_connectivity_messaging = 8;
+	bool enable_navigate_to_downloads_on_startup_without_network = 9;
+	int32 online_to_offline_navigation_fallback_milliseconds = 10;
+	bool enable_online_to_offline_navigation_fallback_for_library_landing_page = 11;
+	bool enable_order_preserving_overlap_strategy = 12;
+	bool android_enable_async_offline_store_apis = 13;
+	bool enable_offline_manual_sync = 14;
+	bool android_offline_sync_during_playback_fix = 15;
+	bool music_android_enable_single_videos_orchestration_phase_2 = 16;
+	bool enable_downloads_search = 17;
+	bool enable_save_queue_to_playlist = 18;
+}

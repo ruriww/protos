@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedlandingpage;
+
+import "moneta/orchestration/ui/embeddedlandingpage/action_type.proto";
+
+option objc_class_prefix = "EmbeddedLandingPage";
+
+message ActionToken {
+	ActionType action_type = 1;
+	int64 billing_account_id = 2;
+	bytes document_zippy_action_token = 3;
+}

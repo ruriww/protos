@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/latency_metric_stats.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message FrameProcessingNodeLatencyMetricStats {
+	int32 node_type = 1;
+	bool deallocation = 2;
+	LatencyMetricStats latency_metric_stats = 3;
+}

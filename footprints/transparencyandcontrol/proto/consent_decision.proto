@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "footprints/transparencyandcontrol/proto/decision.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentDecision {
+	ConsentSetting consent_setting = 1;
+	Decision decision = 2;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosAvPlayerConfig {
+	bool enable_background_suspend = 1;
+	bool enable_background_error_retry = 2;
+	bool use_main_queue_for_resource_loader = 3;
+	bool enable_media_services_reset_retry = 4;
+	int32 max_failure_retry_count = 5;
+	bool use_player_item_log_recorder = 6;
+	bool use_stall_notification = 8;
+	bool set_player_layer_scale = 9;
+	bool poll_player_item_video_track_for_qoe = 10;
+	int32 preferred_peak_bit_rate = 11;
+	int32 max_buffer_readahead_ms = 13;
+	bool enable_seek_to_end = 14;
+	bool enable_failed_to_parse_retry = 15;
+	bool enable_program_date_in_media_time = 16;
+	bool use_failed_to_play_notification = 17;
+	float oversend_factor = 19;
+	bool disable_external_playback = 20;
+	int32 peg_to_live_threshold_ms = 22;
+	int32 unpeg_from_live_threshold_ms = 23;
+	repeated int32 auto_quality_excluded_itags = 24 [ features.repeated_field_encoding = EXPANDED ];
+	bool no_whitelist_quic_domains = 25;
+	bool enable_manifestless_live_captions = 26;
+	bool create_hls_paired_audio_urls = 27;
+	bool use_text_format_dvr_duration = 28;
+	bool ignore_player_cuepoints_when_proxied = 29;
+	float hpq_oversend_factor = 30;
+}

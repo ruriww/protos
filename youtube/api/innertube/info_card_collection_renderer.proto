@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/info_card_supported_renderers.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/info_card_button_supported_renderers.proto";
+import "youtube/api/innertube/info_card_collection_badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InfoCardCollectionRenderer {
+	repeated InfoCardSupportedRenderers cards = 1;
+	repeated LoggingUrl drawer_icon_click_logging_urls_v2s = 9;
+	repeated LoggingUrl drawer_close_logging_urls_v2s = 11;
+	FormattedString header_text = 13;
+	InfoCardButtonSupportedRenderers icon = 14;
+	InfoCardButtonSupportedRenderers close_button = 15;
+	bytes tracking_params = 16;
+	bool allow_teaser_dismiss = 17;
+	InfoCardCollectionBadgeSupportedRenderers badge = 18;
+	int64 auto_open_ms = 19;
+	bool log_icon_visibility_updates = 20;
+	Command on_icon_tap_command = 21;
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/email_security_info.proto";
+import "peoplestack/flexorgs/proto/internal_external.proto";
+
+option objc_class_prefix = "PSK";
+
+message Email {
+	string value = 1;
+
+	message Certificate {
+		int64 expiration_timestamp_seconds = 1;
+
+		enum Status {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			CERTIFICATE_VALID = 1;
+			CERTIFICATE_MISSING = 2;
+			CERTIFICATE_EXPIRED = 3;
+			CERTIFICATE_REVOKED = 4;
+		}
+
+		Status status = 2;
+		string configuration_name = 3;
+	}
+
+	repeated Certificate certificates = 2;
+	EmailSecurityInfo security_info = 3;
+	flexorgs.proto.InternalExternal internal_external = 4;
+}

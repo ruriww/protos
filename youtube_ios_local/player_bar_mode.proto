@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+enum PlayerBarMode {
+	option features.enum_type = CLOSED;
+
+	PLAYER_BAR_MODE_UNKNOWN = 0;
+	PLAYER_BAR_MODE_VIDEO = 1;
+	PLAYER_BAR_MODE_LIVE = 2;
+	PLAYER_BAR_MODE_LIVE_DVR = 3;
+	PLAYER_BAR_MODE_AD = 4;
+	PLAYER_BAR_MODE_TRAILER = 5;
+	PLAYER_BAR_MODE_PRE_INTERSTITIAL_VIDEO = 6;
+	PLAYER_BAR_MODE_POST_INTERSTITIAL_VIDEO = 7;
+	PLAYER_BAR_MODE_SHORTS = 8;
+	PLAYER_BAR_MODE_IMMERSIVE_LIVE = 9;
+}

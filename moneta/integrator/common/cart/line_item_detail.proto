@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.integrator.common.cart;
+
+import "moneta/integrator/common/amount.proto";
+import "moneta/integrator/common/cart/tax_info.proto";
+import "moneta/integrator/common/cart/detail_rendering_info.proto";
+
+option objc_class_prefix = "OrchCart";
+
+message LineItemDetail {
+	string localized_description = 1;
+	Amount amount = 2;
+	int64 start_date_millis = 5;
+	TaxInfo tax_info = 6;
+	bool amount_due_later = 7;
+	int32 line_item_detail_index = 8;
+	bool amount_includes_tax = 9;
+	int32 quantity = 10;
+	DetailRenderingInfo detail_rendering_info = 11;
+
+	oneof tax_assessee_address {
+		bool use_legal_address_for_tax_evaluation = 18;
+	}
+
+	bool use_instrument_filter_for_buyflow_only = 19;
+	Amount original_amount = 21;
+}

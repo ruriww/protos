@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/flow_body_item_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedFlowBodyRenderer {
+	FormattedString body_text = 1;
+	repeated FlowBodyItemSupportedRenderers flow_body_items = 2;
+	bytes tracking_params = 4;
+	ThumbnailDetails body_image = 5;
+}

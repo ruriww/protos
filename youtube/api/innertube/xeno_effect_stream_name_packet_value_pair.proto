@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/xeno_effect_asset_registry_value.proto";
+import "youtube/api/innertube/xeno_effect_color.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectStreamNamePacketValuePair {
+	string stream_name = 1;
+
+	oneof value {
+		int32 int_value = 2;
+		float float_value = 3;
+		bool bool_value = 4;
+		string string_value = 5;
+		bytes options_value = 6;
+		XenoEffectAssetRegistryValue asset_registry_value = 7;
+		bytes runtime_options_value = 8;
+		XenoEffectColor color_value = 9;
+	}
+}

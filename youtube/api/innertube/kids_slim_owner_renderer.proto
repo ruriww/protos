@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsSlimOwnerRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	Command navigation_endpoint = 3;
+	bytes tracking_params = 5;
+	repeated BadgeSupportedRenderers badges = 7;
+	bool is_channel_subscribed = 8;
+}
+
+extend Renderer {
+	KidsSlimOwnerRenderer kids_slim_owner_renderer = 166492654;
+}

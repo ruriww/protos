@@ -1,0 +1,32 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message Pronunciation {
+	string token = 1;
+	string phonemes = 2;
+
+	enum PhonologyType {
+		option features.enum_type = CLOSED;
+
+		PHONOLOGY_TYPE_UNKNOWN = 0;
+		PSAMPA = 1;
+	}
+
+	PhonologyType phonology_type = 3;
+	string locale = 4;
+
+	enum LearningSource {
+		option features.enum_type = CLOSED;
+
+		LEARNING_SOURCE_UNKNOWN = 0;
+		EXPLICIT_YOUR_PEOPLE_UI = 1;
+		INFERRED_COMMS_DIALOG = 2;
+	}
+
+	LearningSource learning_source = 5;
+	string learning_session_id = 6;
+	string spelling_hint = 7;
+}

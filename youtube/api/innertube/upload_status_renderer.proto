@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/phone_verification_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadStatusRenderer {
+	enum UploadStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		FAILED = 2;
+		REJECTED = 3;
+		DELETED = 4;
+		TIMEOUT = 5;
+		VIEWABLE = 6;
+	}
+
+	UploadStatus upload_status = 1;
+	FormattedString message = 2;
+	FormattedString detailed_message = 3;
+	Command help_endpoint = 4;
+	Command watch_endpoint = 5;
+	PhoneVerificationButtonSupportedRenderers verify_user = 6;
+	PhoneVerificationButtonSupportedRenderers activate_video = 7;
+	FormattedString short_watch_url = 8;
+	FormattedString help_endpoint_title = 10;
+}
+
+extend Renderer {
+	UploadStatusRenderer upload_status_renderer = 65387055;
+}

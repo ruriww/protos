@@ -1,0 +1,33 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/link_message.proto";
+import "footprints/transparencyandcontrol/proto/call_to_action.proto";
+import "footprints/transparencyandcontrol/proto/responsive_image.proto";
+import "footprints/transparencyandcontrol/proto/setting_spec.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message SettingState {
+	bool is_saving_activity = 2;
+	string formatted_setting_name = 3;
+	LinkMessage formatted_setting_description = 4;
+	string formatted_setting_state_text = 5;
+	repeated string formatted_additional_setting_state_text = 6;
+	string formatted_retention_state_text = 7;
+	CallToAction change_setting_cta = 8;
+	ResponsiveImage setting_state_icon = 9;
+
+	enum SettingDataState {
+		option features.enum_type = CLOSED;
+
+		SETTING_DATA_STATE_UNSPECIFIED = 0;
+		DATA_EXISTS = 1;
+		NO_DATA_EXISTS = 2;
+	}
+
+	SettingDataState setting_data_state = 10;
+	ResponsiveImage setting_icon = 11;
+	SettingSpec setting_spec = 12;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum EAccountLinkingSdk {
+	ACCOUNT_LINKING_SDK_UNSPECIFIED = 0;
+	ANDROID_SDK = 1;
+	IOS_SDK = 2;
+	JAVASCRIPT_SDK = 3;
+}

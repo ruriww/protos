@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addressentry;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/common/components/address_form.proto";
+
+option objc_class_prefix = "AddressEntry";
+
+message GetAddressSuggestionRequest {
+	common.RequestContext context = 1;
+	string query = 2;
+	string country_code = 3;
+	int32 max_result = 4 [ default = 3 ];
+	common.components.AddressForm.RelativeReference current_field = 5;
+}

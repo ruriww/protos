@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/update_comment_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateCommentDialogEndpoint {
+	extend Command {
+		UpdateCommentDialogEndpoint update_comment_dialog_endpoint = 122557296;
+	}
+
+	UpdateCommentDialogSupportedRenderers dialog = 1;
+	bool open_in_persistent_comment_box = 2;
+	bool from_civility_reminder_dialog = 3;
+	string target_id = 5;
+}

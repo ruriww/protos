@@ -1,0 +1,18 @@
+edition = "2023";
+
+package photos_vision;
+
+option objc_class_prefix = "MVC";
+
+message Email {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WORK = 1;
+		HOME = 2;
+	}
+
+	Type type = 1 [ default = UNKNOWN ];
+	string address = 2;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless/android/icing/proto/mdd_download_result.proto";
+import "wireless_android_play_playlog/icing/icing_data_download_file_group_stats.proto";
+import "wireless/android/icing/proto/mdd_download_failure_level.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddDownloadResultLog {
+	wireless.android.icing.proto.MddDownloadResult.Code result = 1;
+	IcingDataDownloadFileGroupStats data_download_file_group_stats = 2;
+	wireless.android.icing.proto.MddDownloadFailureLevel.Code detailed_failure_level = 3;
+	int32 detailed_failure_code = 4;
+}

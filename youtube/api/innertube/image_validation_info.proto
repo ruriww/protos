@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImageValidationInfo {
+	float min_aspect_ratio = 1;
+	float max_aspect_ratio = 2;
+	int32 max_file_size_mb = 3;
+	float allowed_min_aspect_ratio = 4;
+	float allowed_max_aspect_ratio = 5;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/environment_scan.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message FindDevicesRequest {
+	EnvironmentScan environment_scan = 1;
+	string application_id = 3;
+}

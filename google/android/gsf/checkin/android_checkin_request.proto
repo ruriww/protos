@@ -1,0 +1,39 @@
+syntax = "proto2";
+
+package google.android.gsf.checkin;
+
+import "google/android/gsf/checkin/android_checkin_proto.proto";
+import "google/android/gsf/checkin/device_configuration_proto.proto";
+
+option java_package = "com.google.android.gsf.checkin.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message AndroidCheckinRequest {
+	optional string imei = 1;
+	optional int64 id = 2;
+	optional string digest = 3;
+	optional AndroidCheckinProto checkin = 4;
+	optional string locale = 6;
+	optional string mac_addr = 9;
+	optional string meid = 10;
+	optional string account_cookie = 11;
+	optional string time_zone = 12;
+	optional fixed64 security_token = 13;
+	optional int32 version = 14;
+	optional string ota_cert = 15;
+	optional string serial_number = 16;
+	optional string esn = 17;
+	optional DeviceConfigurationProto device_configuration = 18;
+	optional string mac_addr_type = 19;
+	optional int32 fragment = 20;
+	optional int32 user_serial_number = 22;
+	optional bytes unnamed_field_23 = 23;
+	optional string unnamed_field_24 = 24;
+	optional string unnamed_field_25 = 25;
+	optional int32 unnamed_field_26 = 26;
+	optional bytes unnamed_field_27 = 27;
+	optional bool unnamed_field_29 = 29;
+	optional bool unnamed_field_30 = 30;
+	optional bool unnamed_field_31 = 31;
+}

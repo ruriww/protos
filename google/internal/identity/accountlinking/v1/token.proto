@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_token_type.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "ALK";
+
+message Token {
+	string token = 1;
+	ETokenType token_type = 2;
+	repeated string scopes = 3;
+	protobuf.Duration expires_in = 4;
+	protobuf.Timestamp create_time = 5;
+	repeated string capabilities = 6;
+	repeated string google_scopes_granted_to_3p = 7;
+}

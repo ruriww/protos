@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UnpluggedDvrState {
+	option features.enum_type = CLOSED;
+
+	UNPLUGGED_DVR_STATE_UNKNOWN = 0;
+	UNPLUGGED_DVR_STATE_DISABLED = 1;
+	UNPLUGGED_DVR_STATE_OFF = 2;
+	UNPLUGGED_DVR_STATE_ON = 3;
+	UNPLUGGED_DVR_STATE_RECORDING = 4;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/criterion.proto";
+import "cast/precache_message_type.proto";
+import "cast/precache_message_result.proto";
+import "cast/device_connection_error_code.proto";
+import "cast/broadcast_error.proto";
+
+option objc_class_prefix = "CADP";
+
+message PrecacheActivity {
+	Criterion application = 1;
+	cast.PrecacheMessageType type = 2;
+	cast.PrecacheMessageResult result = 3;
+	cast.DeviceConnectionErrorCode connection_error = 4;
+	cast.BroadcastError broadcast_error = 5;
+	int64 request_timestamp_ms = 6;
+	repeated Criterion app_ids = 7;
+}

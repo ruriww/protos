@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/audio_format.proto";
+import "google/search/readaloud/v1/audio_quality.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioEncoding {
+	AudioFormat audio_format = 1;
+	AudioQuality audio_quality = 2;
+}

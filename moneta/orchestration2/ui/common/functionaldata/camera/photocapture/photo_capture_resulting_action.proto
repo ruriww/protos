@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.photocapture;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhotoCaptureResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		PhotoCaptureResultingAction photo_capture_resulting_action_extension = 307704173;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_CAPTURE = 1;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package google.rpc.context;
+
+option objc_class_prefix = "RPC";
+
+message CheckContext {
+	string service_config_id = 1;
+	string service_rollout_id = 2;
+	repeated string restricted_containers = 3;
+	repeated string unrestricted_containers = 4;
+
+	enum ConsumerType {
+		UNKNOWN = 0;
+		CLIENT_PROJECT = 1;
+		RESOURCE_CONTAINER = 2;
+		USER_PROJECT = 3;
+	}
+
+	ConsumerType consumer_type = 5;
+	bool has_only_fail_open_errors = 6;
+	string principal_email = 7;
+	bool has_quota_unavailability_error = 8;
+	string iam_principal = 9;
+	int64 auth_api_key_project_number = 10;
+}

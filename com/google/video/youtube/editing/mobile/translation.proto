@@ -1,0 +1,10 @@
+edition = "2023";
+
+package com.google.video.youtube.editing.mobile;
+
+option objc_class_prefix = "YTEM";
+
+message Translation {
+	float x = 1;
+	float y = 2;
+}

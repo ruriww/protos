@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_location_step_renderer.proto";
+import "youtube/api/innertube/unplugged_full_screen_step_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLocationStepSupportedRenderers {
+	oneof renderer {
+		UnpluggedLocationStepRenderer unplugged_location_step_renderer = 140510832;
+		UnpluggedFullScreenStepRenderer unplugged_full_screen_step_renderer = 157910660;
+	}
+}

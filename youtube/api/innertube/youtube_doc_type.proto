@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum YoutubeDocType {
+	option features.enum_type = CLOSED;
+
+	YOUTUBE_DOC_TYPE_UNKNOWN = 0;
+	YOUTUBE_DOC_TYPE_VIDEO = 1;
+	YOUTUBE_DOC_TYPE_CHANNEL = 2;
+	YOUTUBE_DOC_TYPE_PLAYLIST = 3;
+	YOUTUBE_DOC_TYPE_MIX = 4;
+	YOUTUBE_DOC_TYPE_LIVE = 5;
+}

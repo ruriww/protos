@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/slim_metadata_button_supported_renderers.proto";
+import "youtube/api/innertube/slim_metadata_offline_button_tooltip_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SlimVideoScrollableActionBarRenderer {
+	repeated SlimMetadataButtonSupportedRenderers buttons = 1;
+	SlimMetadataOfflineButtonTooltipSupportedRenderers offline_button_tooltip = 2;
+	SlimMetadataOfflineButtonTooltipSupportedRenderers offline_button_poor_connectivity_tooltip = 3;
+	bytes tracking_params = 5;
+}

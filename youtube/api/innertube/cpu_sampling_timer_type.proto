@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CPUSamplingTimerType {
+	option features.enum_type = CLOSED;
+
+	CPU_SAMPLING_TIMER_TYPE_UNKNOWN = 0;
+	CPU_SAMPLING_TIMER_TYPE_CPU_TIMER = 1;
+	CPU_SAMPLING_TIMER_TYPE_WORLD_TIMER = 2;
+}

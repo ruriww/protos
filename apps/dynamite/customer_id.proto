@@ -1,0 +1,9 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message CustomerId {
+	string customer_id = 1;
+}

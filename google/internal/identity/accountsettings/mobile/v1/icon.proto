@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message Icon {
+	int32 icon_id = 1;
+	string content_description = 2;
+}

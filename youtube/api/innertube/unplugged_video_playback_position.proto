@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_video_time_based_position.proto";
+import "youtube/api/innertube/unplugged_stream_chunk_based_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedVideoPlaybackPosition {
+	UnpluggedVideoTimeBasedPosition stream_time_position = 1;
+	UnpluggedVideoTimeBasedPosition utc_time_position = 2;
+	UnpluggedStreamChunkBasedPosition chunk_position = 3;
+	UnpluggedVideoTimeBasedPosition manifestless_stream_time_position = 4;
+}

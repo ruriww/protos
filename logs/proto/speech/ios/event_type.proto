@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+option objc_class_prefix = "SPEECH";
+
+enum EventType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_LOG_EVENT = 0;
+	GOOGLE_S3_KIT_S3_SESSION_EVENT = 1;
+	GOOGLE_S3_KIT_SPEECH_RECOGNIZER_EVENT = 2;
+	GOOGLE_S3_KIT_VOICE_SEARCH_EVENT = 3;
+	AUDIO_ENGINE_RECORD_AND_PLAY_EVENT = 4;
+	PLAYOUT_ERASER_EVENT = 5;
+}

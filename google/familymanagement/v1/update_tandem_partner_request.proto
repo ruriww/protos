@@ -1,0 +1,24 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message UpdateTandemPartnerRequest {
+	ApiRequestHeader api_header = 1;
+	string new_tandem_partner_id = 2;
+	string old_tandem_partner_id = 3;
+
+	enum UpdateSubscriptionActionType {
+		option features.enum_type = CLOSED;
+
+		ACTION_TYPE_UNSPECIFIED = 0;
+		ADD = 1;
+		REMOVE = 2;
+		SWITCH = 3;
+	}
+
+	UpdateSubscriptionActionType action_type = 4;
+}

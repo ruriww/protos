@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiteGlobalConfig {
+	int32 max_local_search_results_online = 2;
+	int32 max_local_search_results_offline = 3;
+	repeated string android_supported_file_sharing_app_packages = 27;
+}

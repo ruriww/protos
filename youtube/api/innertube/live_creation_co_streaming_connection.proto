@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationCoStreamingConnection {
+	LiveCreationContext live_creation_context = 1;
+
+	message CoStreamingMediaSessionInfo {
+		uint32 video_ssrc = 1;
+		uint32 audio_ssrc = 2;
+	}
+
+	CoStreamingMediaSessionInfo local_session = 2;
+	CoStreamingMediaSessionInfo remote_session = 3;
+}

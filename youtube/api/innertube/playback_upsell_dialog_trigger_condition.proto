@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackUpsellDialogTriggerCondition {
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_AFTER_BACKGROUND = 1;
+		TRIGGER_TYPE_BEFORE_PLAYBACK = 2;
+		TRIGGER_TYPE_AFTER_PLAYBACK = 3;
+		TRIGGER_TYPE_IMMEDIATE = 4;
+		TRIGGER_TYPE_POST_DOWNLOAD = 5;
+		TRIGGER_TYPE_AFTER_BACKGROUND_AND_PLAYBACK_RESUME = 6;
+		TRIGGER_TYPE_AFTER_DOUBLE_TAP_TO_SEEK = 7;
+	}
+
+	TriggerType trigger_type = 1;
+}

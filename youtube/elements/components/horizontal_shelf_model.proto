@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/horizontal_shelf_data.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/client/blocks/api/responsive_container_result.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message HorizontalShelfModel {
+	extend Model {
+		HorizontalShelfModel horizontal_shelf_model = 312131490;
+	}
+
+	Theme theme = 2;
+	EnvironmentData environment = 11;
+	Context context = 14;
+	HorizontalShelfData shelf_data = 20;
+	youtube.api.innertube.ActiveStateDescriptor active_state_descriptor = 21;
+	string collection_key = 22;
+	client.blocks.api.ResponsiveContainerResult responsive_container_result = 25;
+}

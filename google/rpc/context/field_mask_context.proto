@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.rpc.context;
+
+import "google/protobuf/field_mask.proto";
+
+option objc_class_prefix = "RPC";
+
+message FieldMaskContext {
+	protobuf.FieldMask request_mask = 1;
+	protobuf.FieldMask response_mask = 2;
+}

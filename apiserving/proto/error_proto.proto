@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apiserving.proto;
+
+import "apiserving/proto/individual_error.proto";
+
+option objc_class_prefix = "API";
+
+message ErrorProto {
+	int32 code = 1;
+	string message = 2;
+	repeated IndividualError errors = 3;
+}

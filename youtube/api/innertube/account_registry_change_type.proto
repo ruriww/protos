@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AccountRegistryChangeType {
+	option features.enum_type = CLOSED;
+
+	ACCOUNT_REGISTRY_CHANGE_TYPE_UNKNOWN = 0;
+	ACCOUNT_REGISTRY_CHANGE_TYPE_ADD_ACCOUNT = 1;
+	ACCOUNT_REGISTRY_CHANGE_TYPE_REMOVE_ACCOUNT = 2;
+}

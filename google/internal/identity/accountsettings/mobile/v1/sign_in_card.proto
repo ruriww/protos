@@ -1,0 +1,29 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message SignInCard {
+	Image image = 1;
+	string title = 2;
+
+	message Paragraph {
+		string text = 1;
+		string link_text = 2;
+		Link link = 3;
+	}
+
+	repeated Paragraph paragraphs = 3;
+
+	message CtaButton {
+		string cta_text = 1;
+		Link link = 2;
+	}
+
+	CtaButton sign_in_button = 4;
+	CtaButton create_account_button = 5;
+}

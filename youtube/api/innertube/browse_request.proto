@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/player_request.proto";
+import "youtube/api/innertube/force_ad_parameters.proto";
+import "youtube/api/innertube/browse_form_data.proto";
+import "youtube/api/innertube/searchbox_stats.proto";
+import "youtube/api/innertube/unplugged_browse_options.proto";
+import "youtube/api/innertube/consistency_token.proto";
+import "youtube/api/innertube/browse_notifications_params.proto";
+import "youtube/api/innertube/recent_user_event_info.proto";
+import "youtube/api/innertube/inline_setting_status.proto";
+import "youtube/api/innertube/browse_request_context.proto";
+import "youtube/api/innertube/device_context_event.proto";
+import "youtube/api/innertube/browse_request_supported_metadata.proto";
+import "youtube/api/innertube/mdx_context.proto";
+import "youtube/api/innertube/producer_asset_request_data.proto";
+import "youtube/api/innertube/latest_container_item_events_info.proto";
+import "youtube/api/innertube/form_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseRequest {
+	InnerTubeContext context = 1;
+	string browse_id = 2;
+	string params = 3;
+	string continuation = 7;
+	string force_ad_format = 8;
+	int32 debug_level = 9;
+	PlayerRequest player_request = 10;
+	string query = 11;
+	bool has_external_ad_vars = 12;
+	ForceAdParameters force_ad_parameters = 13;
+	string previous_ad_information = 14;
+	bool offline = 15;
+	bool offline_mode_forced = 17;
+	BrowseFormData form_data = 18;
+	SearchboxStats suggest_stats = 19;
+	UnpluggedBrowseOptions unplugged_browse_options = 22;
+	ConsistencyToken consistency_token = 23;
+	bool android_extended_permissions = 25;
+	BrowseNotificationsParams browse_notification_params = 26;
+	repeated int32 installed_sharing_service_ids = 27 [ features.repeated_field_encoding = EXPANDED ];
+	repeated RecentUserEventInfo recent_user_event_infos = 28;
+	InlineSettingStatus inline_setting_status = 29;
+	BrowseRequestContext browse_request_context = 31;
+	DeviceContextEvent device_context_info = 32;
+	BrowseRequestSupportedMetadata browse_request_supported_metadata = 33;
+	string target_id = 35;
+	MdxContext mdx_context = 37;
+	ProducerAssetRequestData producer_asset_request_data = 39;
+	LatestContainerItemEventsInfo latest_container_item_events_info = 40;
+	FormData generic_form_data = 43;
+
+	extensions 1000 to max;
+}

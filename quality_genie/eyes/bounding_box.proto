@@ -1,0 +1,22 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+option objc_class_prefix = "LNSAE";
+
+message BoundingBox {
+	float top = 1;
+	float left = 2;
+	float width = 3;
+	float height = 4;
+
+	enum CoordinateType {
+		option features.enum_type = CLOSED;
+
+		NORMALIZED = 0;
+		PIXELS = 1;
+	}
+
+	CoordinateType coordinate_type = 5 [ default = NORMALIZED ];
+	float angle = 6;
+}

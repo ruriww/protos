@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/ns_error_node.proto";
+
+option objc_class_prefix = "PRM";
+
+message NSError {
+	repeated NSErrorNode underlying_errors = 3;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetVideoEditorPreviewUrlRequest {
+	InnerTubeContext context = 1;
+	string encrypted_video_id = 3;
+	google.protobuf.Duration audio_waveform_sampling_rate = 5;
+	repeated int32 mendel_experiment_ids = 6 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,59 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/account_item_section_renderer.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/account_channel_renderer.proto";
+import "youtube/api/innertube/account_section_list_renderer.proto";
+import "youtube/api/innertube/account_item_renderer.proto";
+import "youtube/api/innertube/active_account_header_renderer.proto";
+import "youtube/api/innertube/account_item_section_header_renderer.proto";
+import "youtube/api/innertube/accounts_dialog_header_renderer.proto";
+import "youtube/api/innertube/google_account_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	AccountItemSectionRenderer account_item_section_renderer = 63434476;
+}
+
+extend ContinuationSupportedRenderers {
+	AccountItemSectionRenderer account_item_section_continuation = 63434476;
+}
+
+extend Renderer {
+	AccountChannelRenderer account_channel_renderer = 93418219;
+}
+
+extend Renderer {
+	AccountSectionListRenderer account_section_list_renderer = 77108254;
+}
+
+extend ContinuationSupportedRenderers {
+	AccountSectionListRenderer account_section_list_continuation = 77108254;
+}
+
+extend Renderer {
+	AccountItemRenderer account_item_renderer = 62381864;
+}
+
+extend Renderer {
+	ActiveAccountHeaderRenderer active_account_header_renderer = 77195710;
+}
+
+extend Renderer {
+	AccountItemSectionHeaderRenderer account_item_section_header_renderer = 74902114;
+}
+
+extend Renderer {
+	AccountsDialogHeaderRenderer accounts_dialog_header_renderer = 62382097;
+}
+
+extend Renderer {
+	GoogleAccountHeaderRenderer google_account_header_renderer = 343947961;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/lens_live_response.proto";
+import "google/internal/lens/api/v1/multimodal_live_turn_id.proto";
+import "lens/voice_live_web_rtc_setup_response_payload.proto";
+
+option objc_class_prefix = "LFE";
+
+message MultimodalLiveResponse {
+	LensLiveResponse lens_live_response = 1;
+	MultimodalLiveTurnId response_turn_id = 2;
+	bool channel_complete = 3;
+	bool is_terminal_query = 4;
+	.lens.VoiceLiveWebRtcSetupResponsePayload web_rtc_setup_response = 5;
+	bool has_frames = 6;
+}

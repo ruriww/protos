@@ -1,0 +1,9 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+message PixPaymentData {
+	string recipient_identifier = 1;
+}

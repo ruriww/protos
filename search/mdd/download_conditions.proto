@@ -1,0 +1,9 @@
+edition = "2023";
+
+package search.mdd;
+
+option objc_class_prefix = "MDD";
+
+message DownloadConditions {
+	int64 download_on_any_network_after_timestamp_secs = 1;
+}

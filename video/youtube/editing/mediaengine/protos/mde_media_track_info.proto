@@ -1,0 +1,19 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "MDE";
+
+message MdeMediaTrackInfo {
+	string mime_type = 1;
+	google.protobuf.Duration duration = 2;
+	int32 sample_rate_hz = 3;
+	int32 channel_count = 4;
+	int32 width_px = 5;
+	int32 height_px = 6;
+	int32 color_standard = 7;
+	int32 color_transfer = 8;
+	int32 color_range = 9;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TransferState {
+	option features.enum_type = CLOSED;
+
+	TRANSFER_STATE_UNKNOWN = 0;
+	TRANSFER_STATE_TRANSFER_IN_QUEUE = 1;
+	TRANSFER_STATE_PRE_TRANSFER = 2;
+	TRANSFER_STATE_TRANSFERRING = 3;
+	TRANSFER_STATE_PAUSED_BY_USER = 4;
+	TRANSFER_STATE_FAILED = 5;
+	TRANSFER_STATE_COMPLETE = 6;
+	TRANSFER_STATE_WAITING_FOR_PLAYER_RESPONSE_REFRESH = 7;
+}

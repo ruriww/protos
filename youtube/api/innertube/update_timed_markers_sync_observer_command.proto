@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateTimedMarkersSyncObserverCommand {
+	extend Command {
+		UpdateTimedMarkersSyncObserverCommand update_timed_markers_sync_observer_command = 376871121;
+	}
+
+	bool is_enabled = 1;
+	string timed_sync_entity_key = 2;
+	string panel_sync_entity_key = 3;
+	Command create_panel_sync_entity_command = 4;
+	bool is_sync_on_scrub_enabled = 5;
+}

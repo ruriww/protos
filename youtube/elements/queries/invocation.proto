@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.queries;
+
+import "youtube/elements/queries/operation.proto";
+import "google/protobuf/any.proto";
+
+option java_package = "com.google.protos.youtube.elements.queries";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMQY";
+
+message Invocation {
+	Operation operation = 1;
+	google.protobuf.Any variable_values = 2;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+option objc_class_prefix = "DYNProto";
+
+enum GsuiteAppType {
+	option features.enum_type = CLOSED;
+
+	GSUITE_APP_TYPE_UNSPECIFIED = 0;
+	TASKS_APP = 1;
+	CALENDAR_APP = 2;
+	DOCS_APP = 3;
+	SHEETS_APP = 4;
+	SLIDES_APP = 5;
+	MEET_APP = 6;
+	ASSISTIVE_SUGGESTION_APP = 7;
+	CONTACTS_APP = 8;
+	ACTIVITY_FEED_APP = 9;
+	DRIVE_APP = 10;
+	CHAT_IN_MEET_APP = 12;
+	SHORTCUT_APP = 13;
+}

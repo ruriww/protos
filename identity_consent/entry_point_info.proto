@@ -1,0 +1,29 @@
+edition = "2023";
+
+package identity_consent;
+
+import "privacy/consent/product_surface.proto";
+import "privacy/consent/feature_id.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+
+option objc_class_prefix = "IDC";
+
+message EntryPointInfo {
+	int32 product_id = 1;
+	privacy.consent.ProductSurface product_surface = 3;
+	string client_event_id = 4;
+	string entrypoint_id = 5;
+	bytes serialized_consent_session_id = 7;
+	int64 client_request_time_epoch_millis = 8;
+
+	enum IntegrationType {
+		option features.enum_type = CLOSED;
+
+		INTEGRATION_TYPE_UNSPECIFIED = 0;
+		WEB_SEARCH_EMBEDDED = 1;
+	}
+
+	IntegrationType integration_type = 9;
+	privacy.consent.FeatureId feature_id = 10;
+	privacy.consent.SharedConsentSessionId shared_consent_session_id = 11;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/set_app_theme_command_theme.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SetAppThemeCommand {
+	extend Command {
+		SetAppThemeCommand set_app_theme_command = 195899132;
+	}
+
+	SetAppThemeCommandTheme theme = 1;
+}

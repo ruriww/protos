@@ -1,0 +1,19 @@
+edition = "2023";
+
+package lens;
+
+import "lens/voice_live_web_rtc_ice_config.proto";
+import "lens/voice_live_web_rtc_sdp.proto";
+import "lens/voice_live_web_rtc_error_message.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message VoiceLiveWebRtcSetupResponsePayload {
+	uint64 setup_uuid = 1;
+
+	oneof payload_oneof {
+		VoiceLiveWebRtcIceConfig ice_config = 2;
+		VoiceLiveWebRtcSdp answer_sdp = 3;
+		VoiceLiveWebRtcErrorMessage error_message = 4;
+	}
+}

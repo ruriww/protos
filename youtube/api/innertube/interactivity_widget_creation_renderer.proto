@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InteractivityWidgetCreationRenderer {
+	extend Renderer {
+		InteractivityWidgetCreationRenderer interactivity_widget_creation_renderer = 1565;
+	}
+
+	Renderer start_qna_button = 1;
+	string delete_widget_text = 2;
+	Renderer start_poll_button = 3;
+	string delete_poll_text = 4;
+}

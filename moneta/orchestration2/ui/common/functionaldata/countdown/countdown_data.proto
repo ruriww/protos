@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.countdown;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CountdownData {
+	extend data.Data {
+		CountdownData countdown_data_extension = 232057537;
+	}
+
+	enum Unit {
+		option features.enum_type = CLOSED;
+
+		UNIT_UNKNOWN = 0;
+		UNIT_SECOND = 1;
+		UNIT_MINUTE = 2;
+	}
+
+	Unit unit = 1;
+	int32 countdown_duration = 2;
+	string pattern = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MentionSuggestionSelectionCommand {
+	extend Command {
+		MentionSuggestionSelectionCommand mention_suggestion_selection_command = 1446;
+	}
+
+	string handle = 1;
+	string external_channel_id = 2;
+	string suggestion_text = 3;
+	int32 suggestion_index = 4;
+}

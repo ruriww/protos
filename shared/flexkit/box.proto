@@ -1,0 +1,12 @@
+edition = "2023";
+
+package shared.flexkit;
+
+option objc_class_prefix = "FLX";
+
+message Box {
+	float x = 1;
+	float y = 2;
+	float width = 3;
+	float height = 4;
+}

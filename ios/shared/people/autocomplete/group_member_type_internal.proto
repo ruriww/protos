@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+enum GroupMemberTypeInternal {
+	option features.enum_type = CLOSED;
+
+	UNSPECIFIED = 0;
+	PERSON = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/internal/identity/accountlinking/v1/e_account_linking_entry_point.proto";
+
+option objc_class_prefix = "ALK";
+
+message DeleteLinksForProviderRequest {
+	RequestHeader header = 1;
+	string provider_id = 2;
+	EAccountLinkingEntryPoint entry_point = 3;
+}

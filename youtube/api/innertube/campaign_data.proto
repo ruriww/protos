@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/attribution_feature.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CampaignData {
+	oneof campaign_id {
+		string marketing_tag = 1;
+	}
+
+	string relative_url = 2;
+	AttributionFeature attribution_feature = 3;
+	int64 timestamp_usec = 4;
+	string utm_campaign = 5;
+	string utm_content = 6;
+	string utm_medium = 7;
+	string utm_source = 8;
+	string utm_term = 9;
+	string yt_campaign_id = 12;
+}

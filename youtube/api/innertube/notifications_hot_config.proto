@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/device_context_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationsHotConfig {
+	bool samsung_badging_enabled = 1;
+	bool sony_badging_enabled = 2;
+	bool htc_badging_enabled = 3;
+	bool send_device_context_gaia = 5;
+	DeviceContextConfig device_context_config = 7;
+	bool send_device_context_wifi_id = 9;
+	bool force_notification_registration = 10;
+	int32 notification_registration_expiry_days = 12;
+	bool enable_streamz_logging = 13;
+	bool background_reregistration_enabled = 15;
+	bool notification_registration_disabled = 20;
+	bool enable_bell_state_changed_logging = 23;
+	bool disable_android_background_cancellation = 24;
+	bool fill_permission_state_in_innertube_context = 25;
+	bool android_receive_notifications_through_chime = 26;
+	bool android_permission_prompt_on_resume_enabled = 27;
+	int32 android_permission_prompt_on_resume_delay_sec = 28;
+	int32 android_permission_prompt_preserved_attempts_total = 29;
+	bool execute_most_recent_foreground_command_on_active = 30;
+}

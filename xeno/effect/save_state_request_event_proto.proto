@@ -1,0 +1,8 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message SaveStateRequestEventProto {
+}

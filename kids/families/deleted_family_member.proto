@@ -1,0 +1,14 @@
+edition = "2023";
+
+package kids.families;
+
+import "kids/families/family_role.proto";
+import "kids/families/family_member_profile.proto";
+
+option objc_class_prefix = "FAM";
+
+message DeletedFamilyMember {
+	int64 gaia_id = 1;
+	FamilyRole role = 2;
+	FamilyMemberProfile profile = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+import "unknown/youtube/ccs_core_platform_service.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+
+option objc_class_prefix = "GIDLLE";
+
+message ConsentSetting {
+	oneof setting_id {
+		unknown.youtube.CCSCorePlatformService cps = 1;
+		footprints.transparencyandcontrol.proto.ConsentSetting.ConsentSettingId consent_id = 2;
+	}
+}

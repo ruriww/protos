@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/cold_config_group.proto";
+import "youtube/api/innertube/hot_config_group.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConfigResponse {
+	ResponseContext response_context = 1;
+	string config_data = 2;
+	ColdConfigGroup raw_cold_config_group = 4;
+	HotConfigGroup raw_hot_config_group = 5;
+}

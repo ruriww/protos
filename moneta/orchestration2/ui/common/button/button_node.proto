@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.button;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/image/image_url_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ButtonNode {
+	extend node.Node {
+		ButtonNode button_node_extension = 232057537;
+	}
+
+	image.ImageUrlOptions icon_fife_option = 2;
+	image.ImageUrlOptions image_content_options = 3;
+}

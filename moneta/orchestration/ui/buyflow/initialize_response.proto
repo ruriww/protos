@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/buyflow/page.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+import "moneta/orchestration/ui/buyflow/overflow_menu_option.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message InitializeResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	Page initial_page = 3;
+	common.IntegratorCallbackData callback_data = 4;
+	repeated OverflowMenuOption overflow_menu_option = 5;
+	common.generic.FlowInstruction flow_instruction = 6;
+	common.SecureDataHeader secure_header = 7;
+	repeated Page additional_page = 8;
+	common.IntegratorCallbackData client_callback_data = 9;
+}

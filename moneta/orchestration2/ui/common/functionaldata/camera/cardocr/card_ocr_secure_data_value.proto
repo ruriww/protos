@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.cardocr;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/integrator/common/date.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/flashlight_state.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CardOcrSecureDataValue {
+	extend data.DataValue {
+		CardOcrSecureDataValue card_ocr_secure_data_value_extension = 426759538;
+	}
+
+	string card_number = 1;
+	integrator.common.Date expiration_date = 2;
+	string cardholder_name = 3;
+	FlashlightState flashlight_state = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message Feature {
+	string name = 1;
+	bool boolean_value = 2;
+	double double_value = 3;
+	repeated string string_value = 4;
+	int32 integer_value = 5;
+	int64 int64_value = 6;
+	int64 feature_count = 7;
+	repeated int64 timestamp_sequence = 8 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,80 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/slot_id_entered_trigger.proto";
+import "youtube/api/innertube/before_content_video_id_started_trigger.proto";
+import "youtube/api/innertube/on_layout_self_exit_requested_trigger.proto";
+import "youtube/api/innertube/on_new_playback_after_content_video_id_trigger.proto";
+import "youtube/api/innertube/skip_requested_trigger.proto";
+import "youtube/api/innertube/slot_id_exited_trigger.proto";
+import "youtube/api/innertube/survey_submitted_trigger.proto";
+import "youtube/api/innertube/on_slot_cancellation_requested_trigger.proto";
+import "youtube/api/innertube/slot_id_scheduled_trigger.proto";
+import "youtube/api/innertube/layout_exited_for_reason_trigger.proto";
+import "youtube/api/innertube/media_resumed_trigger.proto";
+import "youtube/api/innertube/close_requested_trigger.proto";
+import "youtube/api/innertube/media_time_range_trigger.proto";
+import "youtube/api/innertube/layout_id_entered_trigger.proto";
+import "youtube/api/innertube/sequence_item_in_player_space_available_trigger.proto";
+import "youtube/api/innertube/sequence_item_in_player_space_unavailable_trigger.proto";
+import "youtube/api/innertube/reel_item_sequence_abandoned_trigger.proto";
+import "youtube/api/innertube/content_video_id_ended_trigger.proto";
+import "youtube/api/innertube/on_engagement_panel_close_requested_trigger.proto";
+import "youtube/api/innertube/on_engagement_panel_auto_close_trigger.proto";
+import "youtube/api/innertube/on_different_layout_id_entered_trigger.proto";
+import "youtube/api/innertube/layout_id_exited_trigger.proto";
+import "youtube/api/innertube/on_playback_with_content_video_id_trigger.proto";
+import "youtube/api/innertube/on_next_slot_enter_requested_trigger.proto";
+import "youtube/api/innertube/live_stream_break_started_trigger.proto";
+import "youtube/api/innertube/live_stream_break_ended_trigger.proto";
+import "youtube/api/innertube/on_activate_external_playback_trigger.proto";
+import "youtube/api/innertube/on_reel_organic_started_trigger.proto";
+import "youtube/api/innertube/below_player_space_taken_trigger.proto";
+import "youtube/api/innertube/duration_after_layout_exited_trigger.proto";
+import "youtube/api/innertube/trigger_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsControlFlowTrigger {
+	string id = 1;
+	bool should_only_trigger_once = 2;
+
+	oneof trigger {
+		SlotIdEnteredTrigger slot_id_entered_trigger = 3;
+		BeforeContentVideoIdStartedTrigger before_content_video_id_started_trigger = 4;
+		OnLayoutSelfExitRequestedTrigger on_layout_self_exit_requested_trigger = 5;
+		OnNewPlaybackAfterContentVideoIdTrigger on_new_playback_after_content_video_id_trigger = 6;
+		SkipRequestedTrigger skip_requested_trigger = 7;
+		SlotIdExitedTrigger slot_id_exited_trigger = 8;
+		SurveySubmittedTrigger survey_submitted_trigger = 9;
+		OnSlotCancellationRequestedTrigger on_slot_cancellation_requested_trigger = 11;
+		SlotIdScheduledTrigger slot_id_scheduled_trigger = 12;
+		LayoutExitedForReasonTrigger layout_exited_for_reason_trigger = 14;
+		MediaResumedTrigger media_resumed_trigger = 15;
+		CloseRequestedTrigger close_requested_trigger = 16;
+		MediaTimeRangeTrigger media_time_range_trigger = 17;
+		LayoutIdEnteredTrigger layout_id_entered_trigger = 18;
+		SequenceItemInPlayerSpaceAvailableTrigger sequence_item_in_player_space_available_trigger = 19;
+		SequenceItemInPlayerSpaceUnavailableTrigger sequence_item_in_player_space_unavailable_trigger = 20;
+		ReelItemSequenceAbandonedTrigger reel_item_sequence_abandoned_trigger = 23;
+		ContentVideoIdEndedTrigger content_video_id_ended_trigger = 24;
+		OnEngagementPanelCloseRequestedTrigger on_engagement_panel_close_requested_trigger = 25;
+		OnEngagementPanelAutoCloseTrigger on_engagement_panel_auto_close_trigger = 26;
+		OnDifferentLayoutIdEnteredTrigger on_different_layout_id_entered_trigger = 27;
+		LayoutIdExitedTrigger layout_id_exited_trigger = 28;
+		OnPlaybackWithContentVideoIdTrigger on_playback_with_content_video_id_trigger = 29;
+		OnNextSlotEnterRequestedTrigger on_next_slot_enter_requested_trigger = 30;
+		LiveStreamBreakStartedTrigger live_stream_break_started_trigger = 34;
+		LiveStreamBreakEndedTrigger live_stream_break_ended_trigger = 38;
+		OnActivateExternalPlaybackTrigger on_activate_external_playback_trigger = 41;
+		OnReelOrganicStartedTrigger on_reel_organic_started_trigger = 43;
+		BelowPlayerSpaceTakenTrigger below_player_space_taken_trigger = 45;
+		DurationAfterLayoutExitedTrigger duration_after_layout_exited_trigger = 52;
+	}
+
+	TriggerType type = 51;
+}

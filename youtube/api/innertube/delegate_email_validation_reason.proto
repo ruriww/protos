@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DelegateEmailValidationReason {
+	option features.enum_type = CLOSED;
+
+	DELEGATE_EMAIL_VALIDATION_REASON_UNSPECIFIED = 0;
+	DELEGATE_EMAIL_VALIDATION_REASON_NOT_GOOGLE_ACCOUNT = 1;
+	DELEGATE_EMAIL_VALIDATION_REASON_OTHER = 2;
+}

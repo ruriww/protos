@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/promoted_app_install_badge_supported_renderers.proto";
+import "youtube/api/innertube/promoted_app_install_layout.proto";
+import "youtube/api/innertube/active_view_display_measurement.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedAppInstallRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	float rating = 3;
+	FormattedString byline = 4;
+	FormattedString description = 5;
+	Command navigation_endpoint = 6;
+	repeated Command impression_endpoints = 7;
+	ButtonSupportedRenderers action_button = 8;
+	MenuSupportedRenderers menu = 9;
+	PromotedAppInstallBadgeSupportedRenderers badge = 10;
+	bytes tracking_params = 12;
+	int64 click_target_delay_ms = 13;
+	int64 click_padding_percent = 14;
+	PromotedAppInstallLayout layout = 15;
+	ActiveViewDisplayMeasurement active_view = 16;
+	string identifier = 17;
+}
+
+extend Renderer {
+	PromotedAppInstallRenderer promoted_app_install_renderer = 99845384;
+}

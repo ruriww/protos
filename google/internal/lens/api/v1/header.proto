@@ -1,0 +1,29 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/education_header_metadata.proto";
+
+option objc_class_prefix = "LFE";
+
+message Header {
+	string title = 1;
+	string subtitle = 2;
+
+	message Style {
+		bool should_quote_title = 1;
+		bool should_emphasize_title = 2;
+		bool should_only_show_docked_header = 3;
+		bool use_plrp_font = 4;
+		bool render_latex = 5;
+	}
+
+	Style style = 3;
+	string short_space_title = 8;
+	string result_id = 9;
+	string title_prefix = 11;
+
+	oneof vertical_specific_metadata {
+		EducationHeaderMetadata education_header_metadata = 12;
+	}
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/unmet_precondition.proto";
+
+option objc_class_prefix = "GFM";
+
+message FailedInvitation {
+	string client_correlation_id = 1;
+	repeated UnmetPrecondition unmet_precondition = 2;
+}

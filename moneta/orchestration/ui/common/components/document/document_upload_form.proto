@@ -1,0 +1,81 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.document;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "proto2/bridge/message_set.proto";
+import "moneta/orchestration/ui/common/generic/dependent_variable.proto";
+
+option objc_class_prefix = "Orch";
+
+message DocumentUploadForm {
+	FormHeader form_header = 1;
+	Button upload_button = 2;
+	string picker_title = 3;
+
+	enum MimeType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		IMAGE_PNG = 1;
+		IMAGE_JPEG = 2;
+		APPLICATION_PDF = 3;
+	}
+
+	repeated MimeType allowed_mime_type = 4 [ features.repeated_field_encoding = EXPANDED ];
+	int64 max_document_size_bytes = 5;
+	int64 ui_reference = 6;
+	int64 min_document_size_bytes = 7;
+	int32 secure_data_type = 9;
+	string label = 10;
+	bytes upload_token = 11;
+	string upload_instructions_html = 12;
+	generic.ImageWithCaption upload_instructions_image_uri = 13;
+
+	enum UiMode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_UI_MODE = 0;
+		UPLOAD_FILE_BUTTON = 1;
+		FULL_SCREEN_CAMERA = 2;
+		PARTIAL_SCREEN_CAMERA = 3;
+	}
+
+	UiMode ui_mode = 14;
+	Button exit_button = 15;
+
+	enum UploadMode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_UPLOAD_MODE = 0;
+		SINGLE_FILE_UPLOAD = 1;
+		MULTIPLE_FILE_UPLOAD = 2;
+	}
+
+	UploadMode upload_mode = 17;
+	string upload_endpoint_url_path = 18;
+	generic.InfoMessage additional_info = 19;
+
+	enum UploadFlow {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_UPLOAD_FLOW = 0;
+		UPLOAD_ON_BUTTON_CLICK = 1;
+		UPLOAD_ON_INTEGRATOR_MESSAGE = 2;
+	}
+
+	UploadFlow upload_flow = 20;
+	string delete_endpoint_url_path = 21;
+	generic.InfoMessage delete_confirmation_dialog_text = 22;
+	repeated string uploadable_mime_type = 23;
+	repeated generic.InfoMessage initial_error = 24;
+	proto2.bridge.MessageSet private_extensions = 25;
+	string xsrf_token = 26;
+	bool enable_quality_preprocessing = 27;
+	generic.DependentVariable has_image_quality_issues = 28;
+	repeated generic.InfoMessage warning = 29;
+	generic.DependentVariable image_quality_score = 30;
+}

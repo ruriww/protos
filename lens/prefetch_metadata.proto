@@ -1,0 +1,36 @@
+edition = "2023";
+
+package lens;
+
+import "lens/zoomed_crop.proto";
+import "lens/mode.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message PrefetchMetadata {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SHUTTER_TAP = 1;
+		PRE_CAPTURE_FILTER_SWITCH = 2;
+		POST_CAPTURE_FILTER_SWITCH = 3;
+		POST_CAPTURE_IMAGE_SELECTION = 4;
+		EXPLORE_BAR_MODE_SELECTION = 5;
+		LVF_MIC = 6;
+		SELECTION_STATE = 7;
+		VISUAL_SUGGEST = 8;
+		VIDEO_INPUT = 9;
+		LIVE_CONVERSATION_INPUT = 10;
+	}
+
+	Type type = 1;
+	bool is_two_phase_request = 2;
+	bool is_document_scanning_eligible = 3;
+	ZoomedCrop reticle = 4;
+	Mode mode = 5;
+	bool supports_primary_multimodal_query = 6;
+	bool is_video_frame_upload = 7;
+	bool is_visual_suggest_interaction = 8;
+	bool is_lensient_full_screen_request = 9;
+}

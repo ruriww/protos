@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/commerce_action_client_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommerceActionRequest {
+	InnerTubeContext context = 1;
+	string commerce_action_params = 2;
+	string action_id = 4;
+	repeated bytes entity_mutation_payload_params = 5;
+	repeated EntityMutationPayload entity_mutation_payloads = 6;
+	CommerceActionClientData client_data = 7;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/tcp_probing_summary.proto";
+import "cast/tcp_prober_ip_source.proto";
+
+option objc_class_prefix = "CADP";
+
+message DeviceDiscoverySummary {
+	string receiver_metrics_id = 1;
+	bool is_discovered_by_mdns = 2;
+	TcpProbingSummary probing_summary = 3;
+	bool is_in_home_graph = 4;
+	repeated cast.TcpProberIpSource active_ip_sources = 5;
+	bool is_discovered_by_cchord = 6;
+	int64 cchord_discovered_timestamp_ms = 7;
+	int64 mdns_discovered_timestamp_ms = 8;
+}

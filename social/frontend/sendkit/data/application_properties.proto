@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.frontend.sendkit.data;
+
+option objc_class_prefix = "SKT";
+
+message ApplicationProperties {
+	int64 baseline_cl = 1;
+	int64 baseline_cl_fallback = 2;
+	string bundle_id = 3;
+}

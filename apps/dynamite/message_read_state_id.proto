@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/user_id.proto";
+import "apps/dynamite/message_id.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message MessageReadStateId {
+	UserId user_id = 1;
+	MessageId message_id = 2;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "google/internal/lens/frontend/api/v1/objects_request.proto";
+import "google/internal/lens/frontend/api/v1/interaction_request.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message ObjectsInteractionRequest {
+	ObjectsRequest objects_request = 1;
+	InteractionRequest interaction_request = 2;
+	bool call_process_image = 4;
+	bool is_prober_request = 5;
+}

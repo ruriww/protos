@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/composition.proto";
+import "youtube/api/innertube/timed_continuation_data.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/mutate_creation_detailed_progress.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MutateCreationResponse {
+	ResponseContext response_context = 1;
+	Composition composition = 2;
+	TimedContinuationData timed_continuation_data = 3;
+	Command on_error = 4;
+	MutateCreationDetailedProgress detailed_progress = 6;
+	FrameworkUpdateTransport framework_updates = 777;
+}

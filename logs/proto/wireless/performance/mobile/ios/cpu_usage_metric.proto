@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/process_stats.proto";
+
+option objc_class_prefix = "PRM";
+
+message CPUUsageMetric {
+	float total_cpu_usage = 1;
+	ProcessStats process_stats = 2;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AdsClientPingDispatchStatus {
+	option features.enum_type = CLOSED;
+
+	ADS_CLIENT_PING_DISPATCH_STATUS_UNSPECIFIED = 0;
+	ADS_CLIENT_PING_DISPATCH_STATUS_SUCCESS = 1;
+	ADS_CLIENT_PING_DISPATCH_STATUS_INVALID_URI = 2;
+	ADS_CLIENT_PING_DISPATCH_STATUS_NULL_FULFILLED_PING = 3;
+	ADS_CLIENT_PING_DISPATCH_STATUS_MACRO_ERROR = 4;
+}

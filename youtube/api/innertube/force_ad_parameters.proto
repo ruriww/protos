@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/in_display_ad.proto";
+import "youtube/api/innertube/video_ad.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ForceAdParameters {
+	repeated string ad_urls = 1;
+	repeated string ads = 2;
+	string masthead_keyword = 3;
+	string force_ad_group_id = 4;
+	bytes serialized_vmap_response = 5;
+	bool disable_frequency_cap = 6;
+	InDisplayAd in_display_ad = 7;
+	repeated VideoAd video_ads = 8;
+	repeated int64 viral_experiment_ids = 9 [ features.repeated_field_encoding = EXPANDED ];
+	repeated bytes serialized_time_turner_configs = 10;
+	bool bypass_brand_safety_for_shorts = 11;
+}

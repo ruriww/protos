@@ -1,0 +1,14 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "kids/families/family_role.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilyMemberData {
+	string play_country = 1;
+	kids.families.FamilyRole role = 2;
+	string bla_country = 3;
+	string ip_country = 4;
+}

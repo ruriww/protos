@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+
+option objc_class_prefix = "ALK";
+
+message CheckAccountByAssertionRequest {
+	RequestHeader header = 1;
+	string service_id = 2;
+}

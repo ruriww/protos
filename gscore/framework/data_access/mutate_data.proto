@@ -1,0 +1,9 @@
+edition = "2023";
+
+package gscore.framework.data_access;
+
+option objc_class_prefix = "GSC";
+
+message MutateData {
+	extensions 1000 to max;
+}

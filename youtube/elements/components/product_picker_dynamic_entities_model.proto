@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/product_picker_entity.proto";
+import "youtube/elements/components/product_picker_args.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ProductPickerDynamicEntitiesModel {
+	extend Model {
+		ProductPickerDynamicEntitiesModel product_picker_dynamic_entities_model = 409153197;
+	}
+
+	ProductPickerEntity client_state = 1;
+	ProductPickerArgs product_picker_args = 2;
+}

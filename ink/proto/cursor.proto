@@ -1,0 +1,30 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/int_packed_color.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Cursor {
+	enum CursorType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		BRUSH = 1;
+		CROSSHAIR = 2;
+		GRAB = 3;
+		GRABBING = 4;
+		MOVE = 5;
+		RESIZE_EW = 6;
+		RESIZE_NS = 7;
+		RESIZE_NESW = 8;
+		RESIZE_NWSE = 9;
+		TEXT = 10;
+		POINTER = 11;
+	}
+
+	CursorType type = 1;
+	IntPackedColor brush_color = 2;
+	float brush_size = 3;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/ancestry_visual_element_proto.proto";
+import "logs/proto/contacts/contact_sheet_visual_element_metadata.proto";
+
+option objc_class_prefix = "CST";
+
+message ContactSheetVisualElementEntry {
+	AncestryVisualElementProto ancestry_visual_element = 1;
+	ContactSheetVisualElementMetadata visual_element_metadata = 2;
+}

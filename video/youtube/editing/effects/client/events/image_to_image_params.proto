@@ -1,0 +1,17 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+import "video/youtube/editing/effects/client/events/image_data.proto";
+import "video/youtube/editing/effects/client/events/image_to_image_prompt_type.proto";
+import "video/youtube/editing/effects/client/events/image_transformation_attributes.proto";
+
+option objc_class_prefix = "YTEE";
+
+message ImageToImageParams {
+	ImageData image = 1;
+	ImageToImagePromptType prompt_type = 2;
+	uint32 preset_effect_type = 3;
+	string prompt = 4;
+	ImageTransformationAttributes image_attributes = 5;
+}

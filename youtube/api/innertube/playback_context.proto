@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/content_playback_context.proto";
+import "youtube/api/innertube/ad_playback_context.proto";
+import "youtube/api/innertube/prefetch_playback_context.proto";
+import "youtube/api/innertube/resume_playback_context.proto";
+import "youtube/api/innertube/offline_playback_context.proto";
+import "youtube/api/innertube/reload_playback_context.proto";
+import "youtube/api/innertube/device_playback_capabilities.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackContext {
+	ContentPlaybackContext content_playback_context = 1;
+	AdPlaybackContext ad_playback_context = 2;
+	PrefetchPlaybackContext prefetch_playback_context = 3;
+	ResumePlaybackContext resume_playback_context = 4;
+	OfflinePlaybackContext offline_playback_context = 5;
+	ReloadPlaybackContext reload_playback_context = 7;
+	DevicePlaybackCapabilities device_playback_capabilities = 8;
+}

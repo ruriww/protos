@@ -1,0 +1,24 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message CallerIdExtendedData {
+	message CallerIdSource {
+		enum SourceType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_SOURCE_TYPE = 0;
+			PLACE = 1;
+			SCOOBY_MANUAL = 2;
+			SCOOBY_GOOGLE_VOICE = 3;
+			SCOOBY_CSA = 4;
+			SCOOBY_KNOWLEDGE_GRAPH = 5;
+		}
+
+		SourceType source_type = 1;
+	}
+
+	CallerIdSource caller_id_source = 1;
+}

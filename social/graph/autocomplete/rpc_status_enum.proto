@@ -1,0 +1,26 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message RpcStatusEnum {
+	enum RpcStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		FAILED_UNKNOWN = 2;
+		FAILED_CANCELED = 3;
+		FAILED_INTERRUPTED = 4;
+		FAILED_AUTH = 5;
+		FAILED_NETWORK = 6;
+		FAILED_TIMEOUT = 7;
+		FAILED_DATA_FRESH = 8;
+		FAILED_PAPI_RESPONSE_EMPTY = 9;
+		FAILED_PAPI_INVALID_ARGUMENT = 10;
+		FAILED_HTTP_SERVER_ERROR = 11;
+		FAILED_REMOTE = 12;
+		FAILED_PROCESS_EXCEPTION = 13;
+	}
+}

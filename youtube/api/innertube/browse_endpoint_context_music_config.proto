@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_page_type.proto";
+import "youtube/api/innertube/music_screen_target_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseEndpointContextMusicConfig {
+	MusicPageType page_type = 1;
+	MusicScreenTargetType screen_target_type = 2;
+	string playlist_id_for_fallback = 3;
+}

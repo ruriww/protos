@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/video_action_toggle_button_data.proto";
+import "youtube/api/innertube/like_status_entity.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DislikeButtonData {
+	VideoActionToggleButtonData button_data = 1;
+	api.innertube.LikeStatusEntity like_status_entity = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package peoplestack;
+
+import "social/graph/wire/proto/peopleapi/minimal/affinity.proto";
+import "peoplestack/client_information.proto";
+
+option objc_class_prefix = "PSK";
+
+message WarmupRequest {
+	social.graph.wire.proto.peopleapi.minimal.Affinity.AffinityType affinity_type = 1;
+	ClientInformation client_information = 2;
+}

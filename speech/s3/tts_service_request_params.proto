@@ -1,0 +1,44 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message TtsServiceRequestParams {
+	string voice_language = 1;
+	string voice_name = 2;
+	int32 voice_sample_rate = 3;
+	string voice_engine = 4;
+
+	oneof speed {
+		double synthesis_speed = 5;
+		double speaking_rate = 15;
+	}
+
+	oneof pitch {
+		double synthesis_pitch = 6;
+		double pitch_gain_semitones = 16;
+	}
+
+	oneof volume {
+		double synthesis_volume = 7;
+		double volume_gain_db = 17;
+	}
+
+	string voice_gender = 8;
+	bool enable_timepoints = 9;
+	string fallback_voice_name = 13;
+	bool lucid_voice_selection_ran = 14;
+
+	enum TimepointLevel {
+		option features.enum_type = CLOSED;
+
+		TIMEPOINT_LEVEL_UNSPECIFIED = 0;
+		TOKEN_LEVEL_TIMEPOINTS = 1;
+		VISEME_LEVEL_TIMEPOINTS = 2;
+		MARK_LEVEL_TIMEPOINTS = 3;
+	}
+
+	TimepointLevel timepoint_level = 18;
+	string internal_voice_name = 19;
+}

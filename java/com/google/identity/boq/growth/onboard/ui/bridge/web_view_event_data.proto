@@ -1,0 +1,25 @@
+edition = "2023";
+
+package java.com.google.identity.boq.growth.onboard.ui.bridge;
+
+option objc_class_prefix = "PRD";
+
+message WebViewEventData {
+	message EligibilityData {
+		bool is_eligible = 1;
+	}
+
+	message CloseWebViewData {
+	}
+
+	message OpenAppStoreData {
+		string itunes_item_identifier = 1;
+		string campaign_token = 2;
+	}
+
+	oneof event_data {
+		EligibilityData eligibility_data = 1;
+		CloseWebViewData close_web_view_data = 2;
+		OpenAppStoreData open_app_store_data = 3;
+	}
+}

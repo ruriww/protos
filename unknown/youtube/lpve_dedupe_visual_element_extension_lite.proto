@@ -1,0 +1,9 @@
+edition = "2023";
+
+package unknown.youtube;
+
+import "logs/visual_element_lite_proto.proto";
+
+extend logs.VisualElementLiteProto {
+	int64 dedupe_key = 508;
+}

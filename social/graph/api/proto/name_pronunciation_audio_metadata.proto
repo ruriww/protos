@@ -1,0 +1,27 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message NamePronunciationAudioMetadata {
+	enum GenerationSource {
+		option features.enum_type = CLOSED;
+
+		SOURCE_UNSPECIFIED = 0;
+		USER_GENERATED = 1;
+		TTS_GENERATED = 2;
+	}
+
+	GenerationSource audio_source = 2;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		STATE_UNSPECIFIED = 0;
+		ENABLED = 1;
+		DISABLED_FOR_NAME_CHANGE = 2;
+	}
+
+	State audio_state = 3;
+}

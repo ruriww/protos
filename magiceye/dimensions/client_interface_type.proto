@@ -1,0 +1,8 @@
+edition = "2023";
+
+package magiceye.dimensions;
+
+option objc_class_prefix = "MED";
+
+message ClientInterfaceType {
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.purchasemanager;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/purchasemanager/parameters.proto";
+
+option objc_class_prefix = "PurchaseManager";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+	Parameters parameters = 2;
+	bytes encrypted_parameters = 3;
+	bytes client_parameters = 4;
+}

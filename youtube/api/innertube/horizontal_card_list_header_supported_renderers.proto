@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/title_and_button_list_header_renderer.proto";
+import "youtube/api/innertube/rich_list_header_renderer.proto";
+import "youtube/api/innertube/sort_filter_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalCardListHeaderSupportedRenderers {
+	TitleAndButtonListHeaderRenderer title_and_button_list_header_renderer = 112067016;
+
+	oneof header_renderer {
+		RichListHeaderRenderer rich_list_header_renderer = 120280839;
+		SortFilterHeaderRenderer sort_filter_header_renderer = 207130962;
+	}
+}

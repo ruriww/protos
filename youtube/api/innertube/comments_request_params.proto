@@ -1,0 +1,77 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/comment_request_options.proto";
+import "youtube/api/innertube/comments_filter.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentsRequestParams {
+	string channel_id = 2;
+
+	oneof scope {
+		string video_id = 4;
+		string post_id = 29;
+		string playlist_id = 50;
+	}
+
+	bool channel_discussion_only = 5;
+
+	enum SortOrder {
+		option features.enum_type = CLOSED;
+
+		BEST = 0;
+		NEWEST = 1;
+		TIMED = 2;
+		MOST_RELEVANT = 4;
+	}
+
+	SortOrder sort_order = 6 [ default = BEST ];
+	bool notable_only = 7;
+	uint32 max_threads = 9 [ default = 20 ];
+	uint32 max_replies = 10 [ default = 2 ];
+	string search_query = 11;
+	CommentRequestOptions comment_options = 13;
+	repeated string comment_ids = 14;
+	string linked_comment_id = 16;
+	string last_group_video_id = 17;
+	string last_group_channel_id = 20;
+	bool force_discussion = 21;
+	string linked_backstage_item_id = 22;
+	string cluster_id = 23;
+	bool show_edit_dialog_for_linked_item = 24;
+	bool show_create_dialog = 25;
+	bool open_post_comment_dialog = 26;
+	bool fill_comments_header = 27 [ default = true ];
+	bool scroll_to_comment_section = 28;
+	string post_channel_id = 30;
+	CommentsFilter comments_filter = 31;
+	string search_query_for_held_for_review_tab = 32;
+	string search_query_for_spam_tab = 33;
+	CommentsFilter comments_filter_for_held_for_review_tab = 34;
+	CommentsFilter comments_filter_for_spam_tab = 35;
+	string last_group_post_id = 36;
+	repeated string teased_comment_ids = 37;
+
+	oneof show_elq {
+		bool show_moderated_elq_comments = 38;
+		bool show_moderated_elq_banner = 39;
+	}
+
+	bool enable_timed_comments_online_index = 41;
+	EngagementPanelIdentifier engagement_panel_identifier = 42;
+	bool fetch_smart_replies = 43;
+	bool use_timed_comments_partial_fetch = 44 [ default = false ];
+	bool disable_fill_composer_text = 46 [ default = false ];
+	string topic_id = 47;
+	bool enable_post_text_in_comments_ep = 49;
+	string last_group_playlist_id = 51;
+	elements.AttributedString prefill_composer_text = 52;
+	bool is_for_prompt_sticker = 53;
+}

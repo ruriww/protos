@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_transfer_status_changed_context.proto";
+import "youtube/api/innertube/offline_orchestration_context.proto";
+import "youtube/api/innertube/shorts_creation_context.proto";
+import "youtube/api/innertube/mdx_connection_context.proto";
+import "youtube/api/innertube/hashtag_auto_complete_context.proto";
+import "youtube/api/innertube/live_streaming_context.proto";
+import "youtube/api/innertube/social_suggestions_context.proto";
+import "youtube/api/innertube/mdx_stream_transfer_context.proto";
+import "youtube/api/innertube/pdg_buy_flow_context.proto";
+import "youtube/api/innertube/web_view_context.proto";
+import "youtube/api/innertube/download_my_video_context.proto";
+import "youtube/api/innertube/mini_app_context.proto";
+import "youtube/api/innertube/ypc_cuj_context.proto";
+import "youtube/api/innertube/posts_creation_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowEventMetadata {
+	OfflineTransferStatusChangedContext offline_transfer_status_changed_context = 2;
+	OfflineOrchestrationContext offline_orchestration_context = 3;
+	ShortsCreationContext shorts_creation_context = 4;
+	MdxConnectionContext mdx_connection_context = 5;
+	HashtagAutoCompleteContext hashtag_auto_complete_context = 9;
+	LiveStreamingContext live_streaming_context = 10;
+	SocialSuggestionsContext social_suggestions_context = 13;
+	MdxStreamTransferContext mdx_stream_transfer_context = 19;
+	PdgBuyFlowContext pdg_buy_flow_context = 20;
+	WebViewContext web_view_context = 22;
+	DownloadMyVideoContext download_my_video_context = 26;
+	MiniAppContext mini_app_context = 27;
+	YpcCujContext ypc_cuj_context = 30;
+	PostsCreationContext posts_creation_context = 35;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cc_stack_trace_element.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CcStack {
+	repeated CcStackTraceElement stack_trace = 1;
+}

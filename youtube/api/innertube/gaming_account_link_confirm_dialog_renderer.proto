@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GamingAccountLinkConfirmDialogRenderer {
+	bytes tracking_params = 2;
+	FormattedString title = 3;
+	ThumbnailDetails header_image = 4;
+	ThumbnailDetails user_avatar = 5;
+	ThumbnailDetails third_party_avatar = 6;
+	Icon icon = 7;
+	repeated FormattedString dialog_messages = 8;
+	ButtonSupportedRenderers confirm_button = 9;
+	ButtonSupportedRenderers cancel_button = 10;
+	bool primary_is_cancel = 19;
+}
+
+extend Renderer {
+	GamingAccountLinkConfirmDialogRenderer gaming_account_link_confirm_dialog_renderer = 189943004;
+}

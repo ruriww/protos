@@ -1,0 +1,12 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message TriggerContext {
+	string trigger_id = 1;
+	repeated string language = 2;
+	bool testing_mode = 3;
+	string survey_id = 4;
+}

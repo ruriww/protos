@@ -1,0 +1,13 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message VideoPresenceSignals {
+	uint32 clicks = 1;
+	uint32 scrolls = 2;
+	uint32 mouse_moves = 3;
+	uint32 time_since_tag_load_msec = 4;
+	uint32 key_presses = 5;
+}

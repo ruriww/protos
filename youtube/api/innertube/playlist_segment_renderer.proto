@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistSegmentRenderer {
+	FormattedString title = 1;
+	FormattedString position_text = 2;
+	Renderer video_list = 5;
+	bytes tracking_params = 7;
+	FormattedString segment_annotation = 8;
+	bool is_collapsible = 9;
+	bool is_collapsed_by_default = 10;
+	Renderer trailer = 11;
+	Renderer expand_button = 12;
+	AccessibilitySupportedDatas expanding_accessibility_data = 13;
+	AccessibilitySupportedDatas collapsing_accessibility_data = 14;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+import "youtube/elements/element.proto";
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message UpdateActionSheetCommand {
+	Element header = 1;
+	Element footer = 2;
+	repeated Element list_option = 3;
+	string sheet_id = 4;
+	bool should_log_as_new_screen = 5;
+	bool refresh_sheet = 6;
+	Element single_content_element = 7;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/event_logging_config.proto";
+import "youtube/api/innertube/interaction_logging_config.proto";
+import "youtube/api/innertube/csi_config.proto";
+import "youtube/api/innertube/drp_config.proto";
+import "youtube/api/innertube/logging_heartbeat_config.proto";
+import "youtube/api/innertube/clearcut_config.proto";
+import "youtube/api/innertube/error_logging_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoggingHotConfig {
+	EventLoggingConfig event_logging_config = 1;
+	InteractionLoggingConfig interaction_logging_config = 2;
+	CsiConfig csi_config = 3;
+	DrpConfig drp_config = 4;
+	LoggingHeartbeatConfig logging_heartbeat_config = 5;
+	ClearcutConfig clearcut_config = 6;
+	ErrorLoggingConfig error_logging_config = 7;
+}

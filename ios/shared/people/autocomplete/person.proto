@@ -1,0 +1,26 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_metadata.proto";
+import "ios/shared/people/autocomplete/person_name.proto";
+import "ios/shared/people/autocomplete/person_photo.proto";
+import "ios/shared/people/autocomplete/person_email.proto";
+import "ios/shared/people/autocomplete/person_phone.proto";
+import "ios/shared/people/autocomplete/person_in_app_notification_target.proto";
+
+option objc_class_prefix = "PDL";
+
+message Person {
+	string server_person_id = 1;
+	PersonMetadata metadata = 2;
+	repeated PersonName name = 3;
+	repeated PersonPhoto photo = 4;
+	repeated PersonEmail email = 10;
+	repeated PersonPhone phone = 12;
+	bytes ordered_contact_method_fields = 13;
+	bytes extended_data_internal = 38;
+	repeated PersonInAppNotificationTarget in_app_notification_target = 46;
+	bytes client_specific_data_internal = 47;
+	bytes person_extended_data_internal = 48;
+}

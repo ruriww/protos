@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+import "identity_consent/dismiss_method.proto";
+
+option objc_class_prefix = "GIDLLE";
+
+message WebViewHidden {
+	identity_consent.DismissMethod user_initiated_dismiss_method = 1;
+}

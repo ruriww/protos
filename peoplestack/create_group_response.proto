@@ -1,0 +1,12 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/group.proto";
+
+option objc_class_prefix = "PSK";
+
+message CreateGroupResponse {
+	Group group = 1;
+	string token_secret = 2;
+}

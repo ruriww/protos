@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.integrator.common.paymentfraud;
+
+import "moneta/integrator/common/paymentfraud/item.proto";
+
+option objc_class_prefix = "OrchRisk";
+
+message Transaction {
+	repeated Item item = 1;
+	int64 creation_time_millis = 2;
+	bool guest_buyer = 3;
+	string transaction_id = 4;
+	bool gift = 5;
+}

@@ -1,0 +1,39 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_display_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_memory_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_disk_io_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_app_responsiveness_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_app_launch_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_network_transfer_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_app_run_time_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_gpu_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_cpu_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_app_exit_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_animation_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_signpost_metric.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_meta_data.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitPayload {
+	MetricKitDisplayMetric display_metrics = 1;
+	MetricKitMemoryMetric memory_metrics = 2;
+	MetricKitDiskIOMetric disk_io_metrics = 3;
+	MetricKitAppResponsivenessMetric application_responsiveness_metrics = 4;
+	MetricKitAppLaunchMetric application_launch_metrics = 5;
+	MetricKitNetworkTransferMetric network_transfer_metrics = 6;
+	MetricKitAppRunTimeMetric application_time_metrics = 7;
+	MetricKitGPUMetric gpu_metrics = 8;
+	MetricKitCPUMetric cpu_metrics = 9;
+	int64 time_stamp_end_ms = 10;
+	int64 time_stamp_begin_ms = 11;
+	bool includes_multiple_application_versions = 12;
+	string latest_application_version = 13;
+	MetricKitAppExitMetric application_exit_metrics = 14;
+	MetricKitAnimationMetric animation_metrics = 15;
+	repeated MetricKitSignpostMetric signpost_metrics = 16;
+	MetricKitMetaData metadata = 17;
+}

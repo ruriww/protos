@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.rpcmessage;
+
+import "moneta/orchestration2/ui/common/response_context.proto";
+import "moneta/orchestration2/ui/common/flowinstruction/flow_instruction.proto";
+import "moneta/orchestration2/ui/common/secure_data_header.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message UiResponse {
+	ResponseContext context = 1;
+
+	oneof flow {
+		flowinstruction.FlowInstruction flow_instruction = 2;
+	}
+
+	SecureDataHeader secure_header = 3;
+}

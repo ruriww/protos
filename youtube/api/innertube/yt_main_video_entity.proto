@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/yt_main_video_entity_localized_strings.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtMainVideoEntity {
+	extend EntityMutationPayload {
+		YtMainVideoEntity yt_main_video_entity = 151;
+	}
+
+	string id = 1;
+	bytes video_version = 2;
+	string video_id = 3;
+	string channel_owner = 4;
+	string title = 5;
+	uint64 published_timestamp_millis = 6;
+	int32 length_seconds = 7;
+	ThumbnailDetails thumbnail = 8;
+	elements.AttributedString description = 9;
+	uint64 view_count = 10;
+	uint64 like_count = 11;
+	uint64 dislike_count = 12;
+	string playback_position = 13;
+	string download_status = 14;
+	YtMainVideoEntityLocalizedStrings localized_strings = 15;
+	FormattedString formatted_description = 16;
+	repeated string local_image_entities = 17;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package visionkit;
+
+option objc_class_prefix = "VKS";
+
+message BoundingBoxF {
+	float origin_x = 1;
+	float origin_y = 2;
+	float width = 3;
+	float height = 4;
+}

@@ -1,0 +1,63 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/horizontal_card_list_supported_renderers.proto";
+import "youtube/api/innertube/horizontal_card_list_header_supported_renderers.proto";
+import "youtube/api/innertube/horizontal_card_list_hint_supported_renderers.proto";
+import "youtube/api/innertube/horizontal_card_list_style.proto";
+import "youtube/api/innertube/horizontal_card_list_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/api/innertube/horizontal_card_list_nav_indicators_config.proto";
+import "youtube/api/innertube/horizontal_card_list_supported_continuations.proto";
+import "youtube/api/innertube/title_and_button_list_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HorizontalCardListRenderer {
+	repeated HorizontalCardListSupportedRenderers cards = 1;
+	bytes tracking_params = 2;
+	HorizontalCardListHeaderSupportedRenderers header = 4;
+	HorizontalCardListHintSupportedRenderers hint = 5;
+	HorizontalCardListStyle style = 6;
+	string lookup_tag = 7;
+	uint32 background_color = 8;
+	HorizontalCardListButtonSupportedRenderers button = 9;
+	Renderer previous_button = 10;
+	Renderer next_button = 11;
+	Renderer sort_filter = 12;
+	repeated Command impression_endpoints = 13;
+	float vertical_padding = 14;
+	ActiveStateDescriptor active_state_descriptor = 15;
+	bool transparent_background = 16;
+	HorizontalCardListNavIndicatorsConfig nav_indicators_config = 17;
+	bool center_items = 18;
+	repeated HorizontalCardListSupportedContinuations continuations = 19;
+	int32 custom_paging_collection_view_inset_padding = 20;
+	int32 custom_paging_inter_cell_padding = 21;
+	int32 custom_paging_adjacent_cell_peek_padding = 22;
+	int32 paging_continuation_interval_count = 23;
+	bool should_hide_header = 24;
+	int32 playback_layout_management_scheme = 25;
+	int32 auto_reveal_scheme = 26;
+	int32 auto_reveal_interval_count = 27;
+	Renderer footer_button = 28;
+	bool center_header_title = 29;
+	bool constrain_shelf_items_to_equal_height = 30;
+	int32 scroll_to_index = 31;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	HorizontalCardListRenderer horizontal_card_list_renderer = 88962895;
+}
+
+extend Renderer {
+	TitleAndButtonListHeaderRenderer title_and_button_list_header_renderer = 112067016;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum ContactModeType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CONTACT_MODE = 0;
+	CHAT = 1;
+	PHONE = 2;
+	EMAIL = 3;
+	HANGOUTS = 4;
+	ENTERPRISE_SUPPORT = 5;
+	C2C = 6;
+	FEEDBACK_MODE = 7;
+	ND4C_EMAIL = 8;
+	ND4C_PHONE = 9;
+	ND4C_CHAT = 10;
+}

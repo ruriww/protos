@@ -1,0 +1,12 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+import "support/asx/common/proto/iph_trails_event.proto";
+
+option objc_class_prefix = "ASX";
+
+message IphTrails {
+	repeated IphTrailsEvent events = 1;
+	bool received_user_consent_from_client = 2;
+}

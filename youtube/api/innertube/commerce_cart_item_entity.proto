@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/elements/components/divider_style.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommerceCartItemEntity {
+	extend EntityMutationPayload {
+		CommerceCartItemEntity commerce_cart_item_entity = 219;
+	}
+
+	string key = 1;
+	int32 quantity = 2;
+	string formatted_quantity = 3;
+	bool hide_error_message = 5;
+	bool is_hidden = 6;
+	elements.components.DividerStyle divider_style = 7;
+	elements.AttributedString total_price = 8;
+	bool is_disabled = 12;
+}

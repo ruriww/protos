@@ -1,0 +1,9 @@
+edition = "2023";
+
+package video_streaming;
+
+import "video_streaming/internal_debug_info.proto";
+
+message PlaybackDebugInfo {
+	InternalDebugInfo unnamed_field_1 = 1;
+}

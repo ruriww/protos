@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/account_item_section_renderer.proto";
+import "youtube/api/innertube/compact_link_renderer.proto";
+import "youtube/api/innertube/additional_account_continuation_data.proto";
+import "youtube/api/innertube/general_account_footer_renderer.proto";
+import "youtube/api/innertube/account_channel_renderer.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/separator_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountSectionListRenderer {
+	message AccountSectionListSupportedRenderers {
+		oneof renderer {
+			AccountItemSectionRenderer account_item_section_renderer = 63434476;
+			CompactLinkRenderer compact_link_renderer = 79129962;
+		}
+	}
+
+	repeated AccountSectionListSupportedRenderers contents = 1;
+
+	message AccountSectionListSupportedContinuations {
+		AdditionalAccountContinuationData additional_account_continuation_data = 76807672;
+	}
+
+	repeated AccountSectionListSupportedContinuations continuations = 2;
+	bytes tracking_params = 3;
+
+	message AccountSectionListFooterSupportedRenderers {
+		oneof renderer {
+			GeneralAccountFooterRenderer general_account_footer_renderer = 2138;
+			AccountChannelRenderer account_channel_renderer = 93418219;
+		}
+	}
+
+	repeated AccountSectionListFooterSupportedRenderers footers = 4;
+	Renderer header = 5;
+	SeparatorDetails separator_details = 6;
+}

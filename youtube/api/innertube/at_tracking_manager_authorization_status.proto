@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ATTrackingManagerAuthorizationStatus {
+	option features.enum_type = CLOSED;
+
+	AT_TRACKING_MANAGER_AUTHORIZATION_STATUS_UNKNOWN = 0;
+	AT_TRACKING_MANAGER_AUTHORIZATION_STATUS_RESTRICTED = 1;
+	AT_TRACKING_MANAGER_AUTHORIZATION_STATUS_DENIED = 2;
+	AT_TRACKING_MANAGER_AUTHORIZATION_STATUS_AUTHORIZED = 3;
+	AT_TRACKING_MANAGER_AUTHORIZATION_STATUS_NOT_DETERMINED = 4;
+	AT_TRACKING_MANAGER_AUTHORIZATION_STATUS_DENIED_REQUESTED = 6;
+}

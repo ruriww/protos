@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridNarrowRadioRenderer {
+	string playlist_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 3;
+	FormattedString title = 4;
+	FormattedString video_count_text = 5;
+	FormattedString video_count_short_text = 6;
+	FormattedString short_byline_text = 7;
+	Command navigation_endpoint = 8;
+	Command secondary_navigation_endpoint = 9;
+	MenuSupportedRenderers menu = 10;
+	bytes tracking_params = 12;
+	int32 title_max_line_count = 13;
+	ButtonSupportedRenderers bottom_buttons = 14;
+}
+
+extend Renderer {
+	GridNarrowRadioRenderer grid_narrow_radio_renderer = 145844540;
+}

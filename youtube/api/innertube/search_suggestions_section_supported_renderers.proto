@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/search_suggestion_renderer.proto";
+import "youtube/api/innertube/music_shelf_renderer.proto";
+import "youtube/api/innertube/entity_suggestion_renderer.proto";
+import "youtube/api/innertube/tastebuilder_item_renderer.proto";
+import "youtube/api/innertube/history_suggestion_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/music_carousel_shelf_renderer.proto";
+import "youtube/api/innertube/music_two_column_item_renderer.proto";
+import "youtube/api/innertube/unplugged_horizontal_chip_list_renderer.proto";
+import "youtube/api/innertube/music_responsive_list_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchSuggestionsSectionSupportedRenderers {
+	SearchSuggestionRenderer search_suggestion_renderer = 87116080;
+	MusicShelfRenderer music_shelf_renderer = 91303872;
+	EntitySuggestionRenderer entity_suggestion_renderer = 99770749;
+	TastebuilderItemRenderer tastebuilder_item_renderer = 119339461;
+	HistorySuggestionRenderer history_suggestion_renderer = 128521690;
+	ElementRenderer element_renderer = 153515154;
+	MusicCarouselShelfRenderer music_carousel_shelf_renderer = 161206564;
+	MusicTwoColumnItemRenderer music_two_column_item_renderer = 161429595;
+	UnpluggedHorizontalChipListRenderer unplugged_horizontal_chip_list_renderer = 174532213;
+	MusicResponsiveListItemRenderer music_responsive_list_item_renderer = 182604430;
+}

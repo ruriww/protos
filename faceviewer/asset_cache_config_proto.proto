@@ -1,0 +1,20 @@
+edition = "2023";
+
+package faceviewer;
+
+option objc_class_prefix = "FVR";
+
+message AssetCacheConfigProto {
+	message TemporaryCacheConfig {
+	}
+
+	message PersistentCacheConfig {
+		string base_path = 1;
+		int32 asset_ttl_duration = 2;
+	}
+
+	oneof cache_config_param {
+		TemporaryCacheConfig temporary = 1;
+		PersistentCacheConfig persistent = 2;
+	}
+}

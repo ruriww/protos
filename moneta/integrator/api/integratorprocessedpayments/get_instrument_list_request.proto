@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.integrator.api.integratorprocessedpayments;
+
+import "moneta/integrator/common/client_context.proto";
+
+option objc_class_prefix = "IProcPay";
+
+message GetInstrumentListRequest {
+	common.ClientContext context = 1;
+	bytes client_token = 2;
+	string customer_legal_country_guess = 3;
+	bool collect_cvn_for_credit_card = 4;
+	bool guest_user = 5;
+	bool is_test_mode = 11;
+	bool collect_pin_for_korean_card = 13;
+	string facilitation_payment_data_request = 14;
+	bool return_thin_action_tokens = 15 [ default = false ];
+	bool display_brand_image = 16;
+	string guest_email = 18;
+	bytes internal_request_params = 19;
+}

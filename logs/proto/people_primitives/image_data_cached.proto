@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.people_primitives;
+
+option objc_class_prefix = "PKTPB";
+
+enum ImageDataCached {
+	option features.enum_type = CLOSED;
+
+	IMAGE_DATA_CACHED_UNKNOWN = 0;
+	CACHED = 1;
+	NOT_CACHED = 2;
+	IMAGE_DATA_CACHED_COMPOSITE = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+option objc_class_prefix = "GCC";
+
+enum RelaycastSupportStatus {
+	RELAYCAST_SUPPORT_STATUS_UNKNOWN = 0;
+	SUPPORTED = 1;
+	NOT_SUPPORTED = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_connection_type.proto";
+import "youtube/api/innertube/sequence_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EventContext {
+	int64 last_activity_ms = 1;
+	ClientConnectionType client_connection_type = 2;
+	SequenceInfo sequence = 3;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/anchored_section_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsHomeScreenRenderer {
+	repeated AnchoredSectionSupportedRenderers anchors = 2;
+	Command wia_navigation_endpoint = 3;
+	int32 num_rows = 4;
+	Renderer error_renderer = 6;
+	bytes tracking_params = 8;
+	Renderer footer_renderer = 9;
+	Renderer kids_user_education_renderer = 10;
+	Renderer contents = 11;
+}

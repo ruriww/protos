@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelChannelBarViewModel {
+	extend Renderer {
+		ReelChannelBarViewModel reel_channel_bar_view_model = 1213;
+	}
+
+	oneof avatar {
+		Renderer decorated_avatar_view_model = 1;
+		Renderer avatar_stack_view_model = 24;
+	}
+
+	elements.AttributedString channel_name = 2;
+	Renderer subscribe_button_view_model = 3;
+	Renderer sponsor_button_view_model = 4;
+	Renderer analytics_button = 5;
+	Renderer alc_purchase_button = 6;
+	string subscribe_state_entity_store_key = 7;
+	string sponsor_state_entity_store_key = 8;
+	string alc_purchase_state_entity_store_key = 9;
+	string view_count_entity_store_key = 10;
+	string live_indicator_entity_store_key = 11;
+	bool end_position_action_button = 12;
+	string indicator_text = 13;
+	float padding_start = 14;
+	float padding_end = 15;
+	float padding_top = 16;
+	float padding_bottom = 17;
+	string channel_name_accessibility_text = 18;
+	elements.AttributedString description_line = 19;
+	string description_line_accessibility_text = 20;
+	string like_count_entity_store_key = 21;
+	string like_status_entity_store_key = 22;
+	elements.AttributedString channel_name_suffix = 23;
+	RendererContext renderer_context = 997;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package framework.experiments;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "FRC";
+
+message EncryptedSelectedExperiments {
+	extend proto2.bridge.MessageSet {
+		EncryptedSelectedExperiments message_set_extension = 113286343;
+	}
+
+	enum BlobType {
+		option features.enum_type = CLOSED;
+
+		BLOB_TYPE_UNKNOWN = 0;
+		BLOB_TYPE_APPS_FRAMEWORK = 1;
+		BLOB_TYPE_HETERODYNE = 2;
+	}
+
+	BlobType blob_type = 1;
+	bytes selected_experiments = 2;
+}

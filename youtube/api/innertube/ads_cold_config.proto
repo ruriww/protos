@@ -1,0 +1,70 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/active_view_display_cold_config.proto";
+import "youtube/api/innertube/persistent_state_controller_cold_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsColdConfig {
+	bool enable_spam_signals_skip = 1;
+	bool disable_android_legacy_app_promo_cta = 4;
+	bool ios_enable_elements_in_engagement_panel_ads = 6;
+	bool android_use_rx_for_player_events = 7;
+	bool ios_disable_sparkles_app_store_preload = 8;
+	bool ios_clear_home_video_ad_impression_pings = 9;
+	bool enable_autoscroll_to_companion_ad = 10;
+	bool enable_ios_pause_video_on_url_endpoint = 11;
+	bool enable_simple_preview_for_postrolls_ios = 12;
+	ActiveViewDisplayColdConfig active_view_display_config = 13;
+	bool enable_mobile_amp_interaction_data = 14;
+	bool prevent_pip_during_playstore_intent = 15;
+	bool enable_cache_opened_ios_appstore_panel = 16;
+	bool enable_ios_visit_advertiser_always_visible = 17;
+	bool ios_enable_survey_interstitial_line_height_calculation = 18;
+	PersistentStateControllerColdConfig persistent_state_controller_config = 19;
+	bool update_blues_enabled = 20;
+	float android_include_debug_metadata_percentage = 21;
+	bool disable_sparkles_touch_on_android_talkback = 22;
+	bool android_in_player_slot_revamp_for_player_overlay = 23;
+	float ios_include_debug_metadata_percentage = 24;
+	bool android_use_in_player_slot_for_dai = 25;
+	bool disable_ios_fullscreen_app_store_dismiss_fix = 26;
+	bool android_enable_companions_for_mdx = 27;
+	bool android_refactor_default_director_events_api = 28;
+	bool enable_android_home_ads_panel = 30;
+	bool enable_ios_fullscreen_cta_ellipsis_tail = 31;
+	bool android_enable_full_in_player_overlay_for_mdx = 32;
+	bool use_updated_icons_for_ads_managed_icons_android = 33;
+	bool defer_getting_home_ads_panel_bottom_sheet_controller = 34;
+	bool use_updated_icons_for_ads_managed_icons_ios = 35;
+	bool enable_android_play_store_prewarm_wait_for_startup = 36;
+	bool android_enable_ad_overlay_for_inline = 37;
+	bool android_enable_app_to_background_signals_for_non_terminal_abandon = 38;
+	bool use_store_product_cache = 39;
+	int32 store_product_cache_limit = 40;
+	bool android_enable_ads_rubidium_client_signal = 42;
+	bool android_enable_ads_rubidium_client_signal_verbose = 43;
+	bool android_enable_ads_rubidium_client_signal_skip_enablement = 44;
+	bool android_enable_ads_rubidium_client_signal_foreground_only = 45;
+	bool android_disable_ad_id_listener_service = 46;
+	bool android_enable_ads_rubidium_client_signal_critical = 47;
+	bool android_enable_ads_rubidium_client_signal_non_critical = 48;
+	bool enable_ads_essential_only_mode_awareness_android = 49;
+	bool android_enable_custom_tabs_reconnection = 50;
+	bool android_enable_in_app_webview = 51;
+	bool enable_ads_landscape_engagement_panel_on_ios = 52;
+	bool enable_ads_landscape_ep_on_ios_fullscreen_animation_fix = 53;
+	bool enable_background_rendering_on_shorts = 54;
+	bool ios_force_rendering_event_for_debug_tier = 55;
+	bool ios_force_rendering_event_for_permanent_tier = 56;
+	bool enable_tighter_ads_android = 57;
+	bool enable_updated_ios_instream_cta_overlay = 58;
+	bool enable_ios_instream_leave_behind_cta = 59;
+	bool enable_ios_ablate_ads_leave_behind_cta = 60;
+	bool enable_updated_ios_instream_cta_expand_action_fallback = 61;
+}

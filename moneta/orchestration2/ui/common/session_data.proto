@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+option objc_class_prefix = "ORCH2";
+
+message SessionData {
+	oneof data {
+		bytes encrypted_session_data = 5;
+	}
+
+	extensions 10 to max;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+import "home/cloud/proto/common/player_state.proto";
+import "home/cloud/proto/common/media_entity.proto";
+
+option objc_class_prefix = "GHCC";
+
+message CastMediaSessionState {
+	PlayerState player_state = 1;
+	double current_time_sec = 2;
+	int64 supported_media_commands = 3;
+	MediaEntity media_entity = 4;
+}

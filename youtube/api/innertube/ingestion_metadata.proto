@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IngestionMetadata {
+	int32 itag = 1;
+	int32 height_px = 2;
+	bool is_reusable = 3;
+
+	enum ProtocolType {
+		option features.enum_type = CLOSED;
+
+		PROTOCOL_UNKNOWN = 0;
+		PROTOCOL_RTMP = 1;
+		PROTOCOL_HTTP = 2;
+		PROTOCOL_DASH = 3;
+		PROTOCOL_WEBRTC = 4;
+		PROTOCOL_HLS = 5;
+		PROTOCOL_SRT = 6;
+	}
+
+	ProtocolType protocol_type = 4;
+	string name = 5;
+	string description = 6;
+	int32 width_px = 7;
+	bool enable_hfr = 8 [ default = false ];
+}

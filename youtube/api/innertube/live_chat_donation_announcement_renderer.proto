@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatDonationAnnouncementRenderer {
+	string id = 1;
+	uint64 timestamp_usec = 2;
+	FormattedString timestamp_text = 3;
+	FormattedString text = 5;
+	FormattedString subtext = 6;
+	FormattedString deleted_state_message = 9;
+	FormattedString show_original_content_message = 10;
+	Command context_menu_endpoint = 11;
+	AccessibilitySupportedDatas context_menu_accessibility = 12;
+	repeated Renderer inline_action_buttons = 13;
+	bytes tracking_params = 15;
+	string author_external_channel_id = 17;
+	FormattedString author_name = 18;
+	ThumbnailDetails author_photo = 19;
+	FormattedString hide_original_content_message = 20;
+}

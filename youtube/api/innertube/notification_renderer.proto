@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/notification_settings_info.proto";
+import "youtube/api/innertube/notification_renderer_swipe_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationRenderer {
+	ThumbnailDetails thumbnail = 1;
+	ThumbnailDetails video_thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString short_message = 4;
+	FormattedString sent_time_text = 5;
+	Command navigation_endpoint = 6;
+	bool read = 9;
+	Command record_click_endpoint = 10;
+
+	oneof more_options {
+		MenuSupportedRenderers contextual_menu = 11;
+		Command close_button_command = 24;
+	}
+
+	bytes tracking_params = 13;
+	Command record_dismissed_endpoint = 14;
+	FormattedString sub_title = 15;
+	int32 timestamp_secs = 16;
+	NotificationSettingsInfo notification_settings_information = 18;
+	string notification_id = 19;
+	repeated NotificationRendererSwipeButtonSupportedRenderers swipe_to_reveal_buttons = 20;
+	bool using_gray_activity_indicator = 22;
+	bool high_priority_notification = 23;
+	Renderer high_priority_notification_action_button = 27;
+	Command impression_endpoint = 29;
+}
+
+extend Renderer {
+	NotificationRenderer notification_renderer = 65099882;
+}

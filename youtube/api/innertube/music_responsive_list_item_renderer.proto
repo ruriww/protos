@@ -1,0 +1,55 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/music_playlist_item_data.proto";
+import "youtube/api/innertube/music_responsive_list_item_flex_column_display_style.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/music_item_renderer_display_policy.proto";
+import "youtube/api/innertube/music_responsive_list_item_flex_column_renderer.proto";
+import "youtube/api/innertube/music_responsive_list_item_fixed_column_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicResponsiveListItemRenderer {
+	bytes tracking_params = 2;
+	AccessibilitySupportedDatas accessibility_data = 3;
+
+	oneof overlay_background {
+		Renderer thumbnail = 4;
+		FormattedString index = 18;
+	}
+
+	Renderer overlay = 6;
+	repeated Renderer flex_columns = 7;
+	repeated Renderer fixed_columns = 8;
+	Renderer menu = 9;
+	repeated Renderer badges = 10;
+	MusicPlaylistItemData playlist_item_data = 11;
+	MusicResponsiveListItemFlexColumnDisplayStyle flex_column_display_style = 12;
+	Command navigation_endpoint = 13;
+	Command double_tap_command = 15;
+	Renderer custom_index_column = 16;
+	MusicItemRendererDisplayPolicy music_item_renderer_display_policy = 17;
+	Renderer multi_select_checkbox = 21;
+	Renderer engagement_bar = 24;
+	Renderer contributors_avatars = 25;
+}
+
+extend Renderer {
+	MusicResponsiveListItemRenderer music_responsive_list_item_renderer = 182604430;
+}
+
+extend Renderer {
+	MusicResponsiveListItemFlexColumnRenderer music_responsive_list_item_flex_column_renderer = 182822168;
+}
+
+extend Renderer {
+	MusicResponsiveListItemFixedColumnRenderer music_responsive_list_item_fixed_column_renderer = 182822139;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinedContentsInBrowse {
+	message OfflinedPlaylistInBrowse {
+		string full_list_id = 1;
+		repeated OfflinedVideoInBrowse offlined_videos = 2;
+		int64 offline_last_modified_timestamp = 3;
+	}
+
+	repeated OfflinedPlaylistInBrowse offlined_playlists = 1;
+
+	message OfflinedVideoInBrowse {
+		string external_video_id = 1;
+	}
+
+	repeated OfflinedVideoInBrowse offlined_videos = 2;
+	bool has_offlined_content = 3;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "speech/s3/locale.proto";
+import "speech/s3/auth_token.proto";
+import "speech/s3/impersonated_user.proto";
+
+option objc_class_prefix = "S3";
+
+message UserInfo {
+	extend Request {
+		UserInfo user_info = 293000;
+	}
+
+	Locale spoken_language = 2;
+	Locale user_locale = 3;
+	repeated Locale additional_languages = 4;
+	string install_id = 5;
+	string lat_long = 6;
+	string x_geo_location = 8;
+	repeated AuthToken auth_token = 9;
+	string adaptation_id = 12;
+	bool use_precise_geolocation = 13 [ default = true ];
+	string client_instance_id = 14;
+	bool speaker_id_enabled = 15;
+	repeated ImpersonatedUser impersonated_user = 16;
+	repeated Locale server_added_languages = 17;
+
+	enum TisidConsentState {
+		option features.enum_type = CLOSED;
+
+		DEFAULT_NO_TISID_CONSENT_SELF = 0;
+		NO_TISID_CONSENT_OTHERS = 1;
+		HAS_TISID_CONSENT = 2;
+	}
+
+	TisidConsentState tisid_consent_state = 18;
+	bool prefer_client_locale = 19;
+	bool is_managed_device = 20;
+}

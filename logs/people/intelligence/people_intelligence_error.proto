@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/error_type.proto";
+import "logs/people/intelligence/assistive_feature_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message PeopleIntelligenceError {
+	string request_id = 1;
+	ErrorType people_intelligence_error_type = 2;
+	AssistiveFeatureType feature_type = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.integrator.common.cart;
+
+import "moneta/integrator/common/cart/line_item_detail.proto";
+import "moneta/integrator/common/cart/rendering_info.proto";
+
+option objc_class_prefix = "OrchCart";
+
+message LineItem {
+	string localized_title = 1;
+	repeated LineItemDetail line_item_detail = 2;
+	int32 line_item_index = 3;
+	RenderingInfo rendering_info = 4;
+
+	extensions 1000 to max;
+}

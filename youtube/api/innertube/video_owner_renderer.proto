@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/subscription_button.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/video_owner_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/membership_button_supported_renderers.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoOwnerRenderer {
+	oneof avatar {
+		ThumbnailDetails thumbnail = 1;
+		Renderer avatar_stack = 18;
+	}
+
+	FormattedString title = 2;
+	SubscriptionButton subscription_button = 3;
+	Command navigation_endpoint = 4;
+	FormattedString subscriber_count_text = 5;
+	VideoOwnerSubscribeButtonSupportedRenderers subscribe_button = 6;
+	bytes tracking_params = 8;
+	repeated BadgeSupportedRenderers badges = 10;
+	MembershipButtonSupportedRenderers membership_button = 11;
+	Renderer analytics_button = 14;
+	FormattedString video_count_text = 15;
+	Renderer purchase_button = 16;
+	bool hide_membership_button_if_unsubscribed = 17;
+	elements.AttributedString attributed_title = 19;
+}
+
+extend Renderer {
+	VideoOwnerRenderer video_owner_renderer = 51779708;
+}

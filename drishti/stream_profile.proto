@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/time_histogram.proto";
+
+option objc_class_prefix = "Drishti";
+
+message StreamProfile {
+	string name = 1;
+	bool back_edge = 2 [ default = false ];
+	TimeHistogram latency = 3;
+}

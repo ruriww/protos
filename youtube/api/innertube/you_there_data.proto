@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/you_there_trigger_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YouThereData {
+	extend Datas {
+		YouThereData you_there_data = 126827209;
+	}
+
+	int64 lact_threshold_ms = 1;
+	bool show_after_skippable_instream_ad = 2;
+	FormattedString user_prompt_text = 3;
+	ButtonSupportedRenderers action_button = 4;
+	uint32 playback_pause_delay_ms = 5 [ default = 10000 ];
+	FormattedString user_prompt_after_pause_text = 6;
+	FormattedString follow_up_text = 7;
+	ButtonSupportedRenderers after_pause_action_button = 10;
+	int32 prompt_delay_sec = 11;
+	repeated Command show_warning_actions = 12;
+	repeated Command show_paused_actions = 13;
+	YouThereTriggerReason trigger_reason = 14;
+	int64 lact_server_request_ms = 15;
+	Command user_active_during_flow_action = 17;
+	bool show_toast_warning_prompt = 18;
+	uint32 blocking_prompt_delay_ms = 19;
+	Command show_blocking_warning_action = 20;
+	bool show_dialog_warning_prompt = 21;
+	bool show_dialog_pause_prompt = 22;
+	int64 nonblocking_lact_threshold_ms = 23;
+	int64 nonblocking_prompt_delay_ms = 24;
+	bool play_audio_prompt = 25;
+	string audio_prompt_sound_id = 26;
+}

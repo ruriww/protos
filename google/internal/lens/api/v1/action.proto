@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "quality_genie/eyes/query_request_metadata.proto";
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "LFE";
+
+message Action {
+	string app_id = 2;
+
+	oneof action_payload {
+		string intent_uri = 3;
+	}
+
+	repeated int32 vertical_id = 5;
+	quality_genie.eyes.QueryRequestMetadata query_metadata = 6;
+	webutil.html.types.SafeUrlProto safe_intent_uri = 7;
+}

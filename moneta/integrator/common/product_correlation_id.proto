@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message ProductCorrelationId {
+	int32 billable_service = 1;
+	string product_account_key = 2;
+	string product_order_line_key = 3;
+}

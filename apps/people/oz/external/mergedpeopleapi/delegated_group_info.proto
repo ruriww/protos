@@ -1,0 +1,11 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "social/graph/api/proto/delegated_group_id.proto";
+
+option objc_class_prefix = "POEM";
+
+message DelegatedGroupInfo {
+	social.graph.api.proto.DelegatedGroupId delegated_group_id = 1;
+}

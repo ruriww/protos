@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/offline_video_policy_action.proto";
+import "youtube/api/innertube/offline_future_unplayable_info.proto";
+import "youtube/api/innertube/client_endpoint_builder_data.proto";
+import "youtube/api/innertube/offline_playback_disabled_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineVideoPolicyEntity {
+	extend EntityMutationPayload {
+		OfflineVideoPolicyEntity offline_video_policy = 130;
+	}
+
+	string key = 1;
+	OfflineVideoPolicyAction action = 2;
+	int64 expiration_timestamp = 3;
+	bytes offline_state_bytes = 4;
+	OfflineFutureUnplayableInfo offline_future_unplayable_info = 5;
+	int64 last_updated_timestamp_seconds = 6;
+	ClientEndpointBuilderData on_tap_command_override_data = 7;
+	string short_message_for_disabled_action = 8;
+	string offline_token = 9;
+	OfflinePlaybackDisabledReason offline_playback_disabled_reason = 10;
+}

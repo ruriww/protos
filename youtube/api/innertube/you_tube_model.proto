@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/model.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/slot_contents.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YouTubeModel {
+	extend elements.Model {
+		YouTubeModel youtube_model = 413471385;
+	}
+
+	Renderer view_model = 1;
+	elements.Context context = 3;
+	elements.components.Theme theme = 4;
+	elements.EnvironmentData environment = 5;
+	elements.SlotContents slot_contents = 7;
+
+	extensions 1000 to max;
+}

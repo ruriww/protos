@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/item_count_bucket.proto";
+import "logs/proto/lens/image_age_count_entry.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message LensStartupMetadata {
+	message MediaStoreInfo {
+		bool permission_granted = 1;
+		bool read_exception = 2;
+		ItemCountBucket image_count = 3;
+		repeated ImageAgeCountEntry image_age_count_entries = 5;
+		ItemCountBucket screenshot_count = 6;
+	}
+
+	MediaStoreInfo media_store_info = 3;
+}

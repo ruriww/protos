@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+option objc_class_prefix = "ORCH2";
+
+enum AnimatedImageState {
+	option features.enum_type = CLOSED;
+
+	ANIMATED_IMAGE_STATE_UNKNOWN = 0;
+	ANIMATED_IMAGE_STATE_NOT_STARTED = 1;
+	ANIMATED_IMAGE_STATE_RUNNING = 2;
+	ANIMATED_IMAGE_STATE_COMPLETED = 3;
+}

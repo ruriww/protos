@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicListMetadataInfoListItemType {
+	option features.enum_type = CLOSED;
+
+	MUSIC_LIST_METADATA_INFO_LIST_ITEM_TYPE_UNKNOWN = 0;
+	MUSIC_LIST_METADATA_INFO_LIST_ITEM_TYPE_HEADER = 1;
+}

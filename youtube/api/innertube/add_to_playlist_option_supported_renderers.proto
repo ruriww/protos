@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_add_to_option_renderer.proto";
+import "youtube/api/innertube/music_responsive_list_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddToPlaylistOptionSupportedRenderers {
+	oneof renderer {
+		PlaylistAddToOptionRenderer playlist_add_to_option_renderer = 74079946;
+		MusicResponsiveListItemRenderer music_responsive_list_item_renderer = 182604430;
+	}
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_flow_completed.proto";
+import "identity_consent/consent_flow_not_completed.proto";
+import "identity_consent/consent_decision.proto";
+import "identity_consent/consent_flow_id.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentPrimitiveResponse {
+	oneof outcome {
+		ConsentFlowCompleted consent_flow_completed = 1;
+		ConsentFlowNotCompleted consent_flow_not_completed = 2;
+	}
+
+	repeated ConsentDecision consent_decision = 3;
+	ConsentFlowId flow_id = 5;
+}

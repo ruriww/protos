@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/frame_coordinate_space.proto";
+import "youtube/api/innertube/frame_fit.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoCompositionConfig {
+	FrameCoordinateSpace content_space = 1 [ default = FRAME_COORDINATE_SPACE_NORMALIZED_SYMMETRIC_ASPECT ];
+	FrameCoordinateSpace output_space = 2 [ default = FRAME_COORDINATE_SPACE_NORMALIZED_SYMMETRIC_ASPECT ];
+	FrameFit frame_fit = 3 [ default = FRAME_FIT_NORMALIZED ];
+}

@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message ManagementCapabilities {
+	enum ManageFamilyCapability {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_MANAGE_FAMILY_CAPABILITY = 0;
+		CAN_DISSOLVE_FAMILY = 1;
+		CAN_INVITE_MEMBERS = 2;
+		CAN_REMOVE_INVITATIONS = 3;
+		CAN_CREATE_NEW_ACCOUNT = 4;
+		CAN_MANAGE_PARENTS = 5;
+		CAN_RECOVER_KIDS_ACCOUNTS = 6;
+	}
+
+	repeated ManageFamilyCapability manage_family_capability = 1 [ features.repeated_field_encoding = EXPANDED ];
+
+	message ManageMemberCapabilities {
+		string member_id = 1;
+
+		enum Capability {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_CAPABILITY = 1;
+			CAN_REMOVE_MEMBER = 2;
+			CAN_MANAGE_MEMBER = 3;
+			CAN_REMOVE_PRIVILEGE = 4;
+		}
+
+		repeated Capability capability = 2 [ features.repeated_field_encoding = EXPANDED ];
+	}
+
+	repeated ManageMemberCapabilities manage_member_capabilities = 2;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+option objc_class_prefix = "GIDLOG";
+
+message NavigateEvent {
+	int32 current_resource_id = 1;
+	int32 target_resource_id = 2;
+	int32 current_step_id = 3;
+	int32 target_step_id = 4;
+	int32 current_area = 5;
+	int32 target_area = 6;
+	int32 current_item_id = 7;
+	int32 target_item_id = 8;
+	int32 current_category_id = 9 [ default = -1 ];
+	int32 target_category_id = 10 [ default = -1 ];
+}

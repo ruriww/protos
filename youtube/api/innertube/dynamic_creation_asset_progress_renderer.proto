@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/progress_background_type.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicCreationAssetProgressRenderer {
+	extend Renderer {
+		DynamicCreationAssetProgressRenderer dynamic_creation_asset_progress_renderer = 1099;
+	}
+
+	float progress_percentage = 1;
+	FormattedString progress_message_primary = 2;
+	FormattedString progress_message_secondary = 3;
+	ProgressBackgroundType progress_background_type = 4;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/playlist_auto_add_rule.proto";
+import "youtube/api/innertube/boolean_form_field_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistAutoAddConfirmationRenderer {
+	FormattedString title = 1;
+	FormattedString description = 2;
+	repeated PlaylistAutoAddRule auto_add_rules = 3;
+	BooleanFormFieldSupportedRenderers add_matching_videos = 4;
+	Command add_matching_videos_endpoint = 5;
+}
+
+extend Renderer {
+	PlaylistAutoAddConfirmationRenderer playlist_auto_add_confirmation_renderer = 81299423;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/broadcast_participant.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BroadcastConference {
+	string external_video_id = 1;
+	string share_url = 2;
+	repeated BroadcastParticipant participants = 3;
+	string invite_url = 4;
+	int32 max_participants = 5;
+	Renderer join_permission_panel_renderer = 6;
+	Command kick_participant_command = 7;
+	Renderer end_screen_error_renderer = 8;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_search_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicInfo {
+	string get_music_search_suggestions_request_id = 1;
+	MusicSearchType search_type = 2;
+	int64 num_search_results = 3;
+	bool downloads_context = 4;
+	int64 browse_content_size = 5;
+}

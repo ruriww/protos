@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/formfill_post_submit_format.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillPostSubmitEndpoint {
+	extend Command {
+		FormfillPostSubmitEndpoint formfill_post_submit_endpoint = 160183255;
+	}
+
+	Ping ping = 1;
+	string email_key = 2;
+	string email_value = 3;
+	string full_name_key = 4;
+	string full_name_value = 5;
+	string lead_metadata = 6;
+	FormfillPostSubmitFormat format = 7;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless_android_play_playlog/icing/icing_data_download_file_group_stats.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddStorageStats {
+	repeated IcingDataDownloadFileGroupStats data_download_file_group_stats = 1;
+	repeated uint64 total_bytes_used = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 downloaded_group_bytes_used = 3 [ features.repeated_field_encoding = EXPANDED ];
+	uint64 total_mdd_bytes_used = 4;
+	uint64 total_mdd_directory_bytes_used = 5;
+	int32 days_since_last_log = 6;
+	repeated uint64 total_inline_bytes_used = 7;
+	repeated uint64 downloaded_group_inline_bytes_used = 8;
+}

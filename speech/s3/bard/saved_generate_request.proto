@@ -1,0 +1,11 @@
+edition = "2023";
+
+package speech.s3.bard;
+
+import "speech/s3/bard/saved_user_query.proto";
+
+option objc_class_prefix = "S3BD";
+
+message SavedGenerateRequest {
+	SavedUserQuery query = 1;
+}

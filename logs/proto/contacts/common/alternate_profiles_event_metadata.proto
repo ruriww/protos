@@ -1,0 +1,24 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_ui_view_name.proto";
+
+option objc_class_prefix = "CTC";
+
+message AlternateProfilesEventMetadata {
+	enum ApOperationState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_STATE = 0;
+		CLOSED_STATE = 1;
+		LINKED_CREATED_STATE = 2;
+		UNLINKED_CREATED_STATE = 3;
+		PROFILE_UPDATED_STATE = 4;
+		LINKED_TO_UNLINKED_SWITCHED_STATE = 5;
+		UNLINKED_TO_LINKED_SWITCHED_STATE = 6;
+	}
+
+	ApOperationState operation_state = 1;
+	customer_support.content.guidance.chat.v1.AUiViewName view_name = 2;
+}

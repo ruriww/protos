@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MediaCompositionSeekArgs {
+	string player_instance_id = 1;
+	int64 seek_to_millis = 2;
+}

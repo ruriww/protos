@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/promoted_native_ad_click_behavior_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Promoted15ClickUnclickableBorderBehavior {
+	PromotedNativeAdClickBehaviorType behavior_type_base_state = 1;
+	PromotedNativeAdClickBehaviorType behavior_type_15_click_state = 2;
+}

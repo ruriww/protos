@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_package_confirmation_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_package_notification_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedUserAddonPackageRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString action_message = 2;
+	string offer_params = 3;
+	bool is_purchased = 4;
+	bool show_checkbox = 5;
+	Command service_endpoint = 6;
+	repeated UnpluggedPackageConfirmationSupportedRenderers confirmations = 7;
+	UnpluggedPackageNotificationSupportedRenderers success_notification = 9;
+	UnpluggedPackageNotificationSupportedRenderers failure_notification = 10;
+	bytes tracking_params = 12;
+	FormattedString primary_text = 13;
+	ThumbnailDetails thumbnail_white = 14;
+	Renderer thumbnail_white_with_background = 15;
+	Renderer primary_button = 17;
+	FormattedString package_description = 18;
+	repeated Renderer badges = 19;
+	repeated Renderer offer_renderers = 20;
+	FormattedString promotional_text = 21;
+	FormattedString terms_text = 22;
+}
+
+extend Renderer {
+	UnpluggedUserAddonPackageRenderer unplugged_user_addon_package_renderer = 136304013;
+}

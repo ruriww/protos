@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+option objc_class_prefix = "PIL";
+
+enum ErrorType {
+	ERROR_TYPE_UNSPECIFIED = 0;
+	CLIENT_CALLBACK = 1;
+	COMPUTATION_VALUE_DEPENDENCY = 2;
+	COMPUTATION_VALUE_COMPUTE = 3;
+	CLIENT_SIDE_PROXY_PARSING = 4;
+	CLIENT_SIDE_PROXY = 5;
+	TIMEOUT = 6;
+}

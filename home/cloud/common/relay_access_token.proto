@@ -1,0 +1,12 @@
+edition = "2023";
+
+package home.cloud.common;
+
+option objc_class_prefix = "GHCC";
+
+message RelayAccessToken {
+	bytes nonce = 1;
+	bytes transport_tls_cert_pk = 2;
+	string algorithm = 3;
+	bytes signature = 4;
+}

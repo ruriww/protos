@@ -1,0 +1,10 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message WebAnswers {
+	fixed64 img_doc_id = 2;
+	repeated fixed64 image_doc_ids = 3;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/rotated_bounding_box.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message Break {
+	enum BreakType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		NONE = 1;
+		SPACE = 2;
+		SURE_SPACE = 3;
+		SOFT_HYPHEN = 4;
+	}
+
+	BreakType type = 1 [ default = SPACE ];
+	RotatedBoundingBox box = 2;
+	float confidence = 7;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/device_connection_error_code.proto";
+import "cast/device_disconnect_reason.proto";
+import "cast/application_connection_failed_reason.proto";
+import "wireless_android_play_playlog/launch_application_request.proto";
+import "cast/device_connection_type.proto";
+
+option objc_class_prefix = "CADP";
+
+message DeviceController {
+	bool is_mrp_controller = 1;
+	cast.DeviceConnectionErrorCode connection_failure_reason = 2;
+	cast.DeviceDisconnectReason disconnect_reason = 3;
+	cast.ApplicationConnectionFailedReason application_connection_failed_reason = 4;
+	LaunchApplicationRequest launch_application_request = 5;
+	cast.DeviceConnectionType connection_type = 6;
+	bool crl_bundle_download_error_occurred = 7;
+	int32 disconnect_reason_int = 9;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message FeelingLuckyOptions {
+	string helpcenter_path = 1;
+	string answer_id = 2;
+	string fragment = 3;
+	string answer_url = 4;
+}

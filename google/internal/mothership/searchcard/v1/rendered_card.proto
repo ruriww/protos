@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.internal.mothership.searchcard.v1;
+
+import "quilt/component.proto";
+import "google/internal/mothership/searchcard/v1/deferred_image.proto";
+import "google/internal/mothership/searchcard/v1/styles/style_config.proto";
+
+option objc_class_prefix = "MSP";
+
+message RenderedCard {
+	quilt.Component component = 1;
+	repeated DeferredImage deferred_image = 2;
+	styles.StyleConfig style_config = 3;
+	string card_id = 4;
+
+	extensions 5 to 6;
+	extensions 8 to 12;
+	extensions 10000 to max;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.identityandcredit;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+
+option objc_class_prefix = "IDV";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+	bytes encrypted_parameters = 3;
+}

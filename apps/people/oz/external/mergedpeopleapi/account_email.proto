@@ -1,0 +1,9 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message AccountEmail {
+	string email = 1;
+}

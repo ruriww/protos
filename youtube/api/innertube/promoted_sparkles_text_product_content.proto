@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/border_misclick_protection_info.proto";
+import "youtube/api/innertube/promoted_sparkles_background_color.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedSparklesTextProductContent {
+	ThumbnailDetails thumbnail = 1;
+	Renderer badge = 2;
+	Icon icon = 3;
+	FormattedString title = 4;
+	FormattedString description_text = 5;
+	FormattedString price_text = 6;
+	FormattedString advertiser_text = 7;
+	Renderer cta_button = 8;
+	Command navigation_endpoint = 9;
+	repeated Command impression_endpoints = 10;
+	Renderer close_button = 11;
+	int64 click_target_delay_ms = 12;
+	BorderMisclickProtectionInfo border_info = 13;
+	repeated Command noop_tap_endpoints = 14;
+	bool show_bottom_separator = 15;
+	bool use_prominent_thumbnail = 16;
+	PromotedSparklesBackgroundColor background_color = 17;
+	bool larger_close_button = 19;
+	FormattedString separator_text = 20;
+	bool has_square_thumbnail = 21;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/rich_text.proto";
+import "footprints/texts/primitiveconsent/success_card.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message AnimatedSuccessElement {
+	RichText heading = 1;
+	RichText success_heading = 2;
+	repeated SuccessCard cards = 3;
+}

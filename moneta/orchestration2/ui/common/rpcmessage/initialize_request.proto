@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.rpcmessage;
+
+import "moneta/orchestration2/ui/common/request_context.proto";
+import "moneta/orchestration2/ui/common/loading/client_generated_loading_ui.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message InitializeRequest {
+	RequestContext context = 1;
+	bytes encrypted_parameters = 2;
+	bytes serialized_unencrypted_parameters = 3;
+	loading.ClientGeneratedLoadingUi client_generated_loading_ui = 4;
+	bytes prefetch_parameters = 5;
+}

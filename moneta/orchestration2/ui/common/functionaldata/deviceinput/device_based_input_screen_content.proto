@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.deviceinput;
+
+import "moneta/orchestration2/ui/common/image/image_content.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DeviceBasedInputScreenContent {
+	string screen_title = 2;
+	string screen_description = 3;
+	image.ImageContent screen_instruction_fife_url = 4;
+	string switch_screen_instruction_text = 5;
+	string fallback_text = 6;
+}

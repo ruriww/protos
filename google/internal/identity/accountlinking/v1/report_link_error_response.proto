@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/e_access_token_state.proto";
+import "google/internal/identity/accountlinking/v1/e_error_handling_action.proto";
+
+option objc_class_prefix = "ALK";
+
+message ReportLinkErrorResponse {
+	EAccessTokenState access_token_state_change = 1;
+	EErrorHandlingAction error_handling_action = 2;
+	string consistency_key = 3;
+}

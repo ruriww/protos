@@ -1,0 +1,12 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/client_queue_entry.proto";
+
+option objc_class_prefix = "GHM";
+
+message ClientQueue {
+	int32 current_index = 1;
+	repeated ClientQueueEntry client_queue_entries = 2;
+}

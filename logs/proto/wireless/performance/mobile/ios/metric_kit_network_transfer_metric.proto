@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitNetworkTransferMetric {
+	int64 cumulative_cellular_download_bytes = 1;
+	int64 cumulative_cellular_upload_bytes = 2;
+	int64 cumulative_wifi_download_bytes = 3;
+	int64 cumulative_wifi_upload_bytes = 4;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "POEM";
+
+message CertifiedBornBefore {
+	PersonFieldMetadata metadata = 1;
+	google.protobuf.Timestamp born_before = 3;
+}

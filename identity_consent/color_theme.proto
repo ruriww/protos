@@ -1,0 +1,13 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+enum ColorTheme {
+	option features.enum_type = CLOSED;
+
+	COLOR_THEME_UNSPECIFIED = 0;
+	LIGHT = 1;
+	DARK = 2;
+}

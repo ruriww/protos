@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadPhotoEndpoint {
+	extend Command {
+		UploadPhotoEndpoint upload_photo_endpoint = 99402190;
+	}
+
+	string album_id = 1;
+
+	oneof endpoint {
+		Command next_serv_endpoint = 2;
+		Command next_nav_endpoint = 3;
+	}
+
+	ThumbnailDetails invalidation_thumbnails = 4;
+	FormattedString success_message = 5;
+	FormattedString error_message = 6;
+	string owner_id = 7;
+	string external_channel_id = 8;
+	string upload_url = 9;
+	string creator_image_upload_entity_key = 10;
+	string channel_image_entity_key = 11;
+	bool keep_png = 12;
+}

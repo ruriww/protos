@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message TimeRange {
+	protobuf.Timestamp start_time = 1;
+	protobuf.Timestamp end_time = 2;
+}

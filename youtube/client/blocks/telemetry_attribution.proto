@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+option objc_class_prefix = "YTB";
+
+enum TelemetryAttribution {
+	option features.enum_type = CLOSED;
+
+	TELEMETRY_ATTRIBUTION_UNKNOWN = 0;
+	TELEMETRY_ATTRIBUTION_BLOCKS = 1;
+	TELEMETRY_ATTRIBUTION_USER_UNEXPECTED = 2;
+	TELEMETRY_ATTRIBUTION_USER_MAYBE_EXPECTED = 3;
+}

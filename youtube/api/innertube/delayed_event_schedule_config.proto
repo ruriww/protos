@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dispatch_policy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DelayedEventScheduleConfig {
+	int32 seconds_between_dispatches = 1;
+	int32 max_seconds_between_dispatches = 2;
+	DispatchPolicy dispatch_policy = 3;
+	bool ios_flush_delayed_events_in_background = 4;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message OnDeviceTextSensitivityClassifierLogData {
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_REASON = 0;
+		INVALID_IMAGE_CONTEXT = 1;
+		CLIENT_INITIALIZATION_ERROR = 2;
+		CLASSIFICATION_ERROR = 3;
+		PREDICTION_ERROR = 4;
+		MODEL_NOT_FOUND_ERROR = 5;
+	}
+
+	FailureReason failure_reason = 1;
+}

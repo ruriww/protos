@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/grid_alignment.proto";
+import "moneta/orchestration2/ui/common/node/grid_justification.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GridContainerProperties {
+	int32 row_count = 1;
+	int32 column_count = 2;
+	repeated float row_weights = 3 [ features.repeated_field_encoding = EXPANDED ];
+	repeated float column_weights = 4 [ features.repeated_field_encoding = EXPANDED ];
+	GridAlignment align_items = 5;
+	GridJustification justify_items = 6;
+}

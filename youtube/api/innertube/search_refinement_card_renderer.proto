@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/search_refinement_card_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchRefinementCardRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString query = 2;
+	Command search_endpoint = 3;
+	bytes tracking_params = 4;
+	SearchRefinementCardRendererStyle search_refinement_card_renderer_style = 6;
+	FormattedString byline_text = 7;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	SearchRefinementCardRenderer search_refinement_card_renderer = 88967868;
+}

@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/watch_time_metadata.proto";
+import "youtube/api/innertube/client_connection_type.proto";
+import "youtube/api/innertube/playback_experience.proto";
+import "youtube/api/innertube/player_playback_state.proto";
+import "youtube/api/innertube/seek_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchTimeSegment {
+	string client_playback_nonce = 1;
+	string doc_id = 2;
+	float start_media_time_sec = 3;
+	float end_media_time_sec = 4;
+	WatchTimeMetadata watch_time_metadata = 5;
+	float playback_rate = 6 [ default = 1 ];
+	ClientConnectionType conn = 7;
+	PlaybackExperience vis = 8;
+	int32 volume = 9;
+	bool is_user_audio_only = 10;
+	bool is_muted = 11;
+	bool is_blacked_out = 12;
+	int64 live_ingestion_offset_usec = 13;
+	PlayerPlaybackState end_playback_state = 14;
+	string caption_track = 15;
+	string audio_track = 16;
+	double media_length_sec = 17;
+	bytes serialized_server_context_data = 19;
+	string clip_id = 20;
+	bytes serialized_account_link_state = 23;
+	float inview = 24;
+	string size = 25;
+	bytes serialized_watch_endpoint_logging_context = 26;
+	SeekSource seek_source = 27;
+	bool previously_ended = 28;
+	bool delay_threshold_met = 29;
+	string serialized_heartbeat_logging_data = 30;
+}

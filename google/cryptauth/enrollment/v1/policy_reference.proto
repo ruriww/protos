@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+option objc_class_prefix = "CRPT";
+
+message PolicyReference {
+	string name = 1;
+	int64 version = 2;
+}

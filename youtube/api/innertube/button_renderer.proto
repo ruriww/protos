@@ -1,0 +1,74 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_style.proto";
+import "youtube/api/innertube/button_color_supported_datas.proto";
+import "youtube/api/innertube/themed_basic_color_palette.proto";
+import "youtube/api/innertube/button_size.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/hint_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/button_icon_position_type.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/toggle_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ButtonRenderer {
+	oneof style_oneof {
+		ButtonStyle.ButtonStyleType style = 1;
+		ButtonColorSupportedDatas color_data = 17;
+		ThemedBasicColorPalette themed_basic_color_palette = 20;
+	}
+
+	ButtonSize.ButtonSizeType size = 2;
+	bool is_disabled = 3;
+	FormattedString text = 5;
+	Command service_endpoint = 7;
+	Icon icon = 8;
+	Command navigation_endpoint = 9;
+	AccessibilityData accessibility = 10;
+	string tooltip = 11;
+	bytes tracking_params = 13;
+	HintSupportedRenderers hint = 14;
+	bool is_selected = 15;
+	AccessibilitySupportedDatas accessibility_data = 16;
+	string target_id = 18;
+	Command command = 19;
+	repeated Command impression_commands = 21;
+	ButtonIconPositionType icon_position = 22;
+	string disabled_tooltip = 23;
+	Command on_focus_command = 26;
+	Icon secondary_icon = 27;
+	Command disabled_command = 28;
+	string button_entity_key = 29;
+	bool one_off_custom_text_wrap = 30;
+
+	oneof image {
+		ThumbnailDetails thumbnail = 31;
+		Renderer content_stack = 33;
+	}
+
+	bool is_expandable = 32;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 24;
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	ButtonRenderer button_renderer = 65153809;
+}
+
+extend Renderer {
+	ToggleButtonRenderer toggle_button_renderer = 79971800;
+}

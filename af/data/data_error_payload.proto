@@ -1,0 +1,17 @@
+edition = "2023";
+
+package af.data;
+
+import "proto2/bridge/message_set.proto";
+import "af/data/data_error.proto";
+
+option objc_class_prefix = "AFD";
+
+message DataErrorPayload {
+	extend proto2.bridge.MessageSet {
+		DataErrorPayload data_error_payload_extension = 106627163;
+	}
+
+	int32 id = 1;
+	DataError data_error = 2;
+}

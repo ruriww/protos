@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VerboseUpgradeConfig {
+	string prompt_below_version = 1;
+	string force_below_version = 2;
+	int64 prompt_holdoff_seconds = 3;
+	int64 update_deadline_seconds = 4;
+	repeated FormattedString new_version_features = 5;
+	ThumbnailDetails thumbnail = 6;
+	FormattedString title = 7;
+	string upgrade_url = 8;
+	FormattedString prompt_body = 9;
+	int64 prompt_time_of_day_seconds = 10;
+	FormattedString cta_button_text = 11;
+	int64 prompt_dismissible_seconds = 12;
+	bool back_button_enabled = 13;
+	string migrate_url = 14;
+}

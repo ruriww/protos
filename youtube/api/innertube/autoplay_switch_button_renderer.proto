@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/autoplay_toggle_locked_state.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoplaySwitchButtonRenderer {
+	Icon enabled_thumb_icon = 1;
+	Icon disabled_thumb_icon = 2;
+	Command on_enabled_command = 3;
+	Command on_disabled_command = 4;
+	Command enabled_edu_command = 5;
+	Command disabled_edu_command = 6;
+	AccessibilitySupportedDatas enabled_accessibility_data = 7;
+	AccessibilitySupportedDatas disabled_accessibility_data = 8;
+	bytes tracking_params = 10;
+	AutoplayToggleLockedState autoplay_toggle_locked_state = 11;
+	FormattedString enabled_display_text = 12;
+	FormattedString disabled_display_text = 13;
+	Command locked_edu_command = 14;
+	bool enabled = 15;
+	FormattedString label = 16;
+}
+
+extend Renderer {
+	AutoplaySwitchButtonRenderer autoplay_switch_button_renderer = 301667256;
+}

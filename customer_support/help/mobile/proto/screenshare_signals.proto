@@ -1,0 +1,35 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ScreenshareSignals {
+	int32 rtc_version = 1;
+	int32 telephony_type = 2;
+	bool using_wifi = 3;
+	bool background_data_on = 4;
+	int32 battery_level = 5;
+	int32 wifi_signal_strength = 6;
+	bool network_metered = 7;
+	bool accessibility_mode = 8;
+	bool network_volte_enabled = 9;
+
+	enum UnsetSignals {
+		option features.enum_type = CLOSED;
+
+		RTC_VERSION_UNSET = 1;
+		TELEPHONY_TYPE_UNSET = 2;
+		USING_WIFI_UNSET = 3;
+		BACKGROUND_DATA_ON_UNSET = 4;
+		BATTERY_LEVEL_UNSET = 5;
+		WIFI_SIGNAL_STRENGTH_UNSET = 6;
+		NETWORK_METERED_UNSET = 7;
+		ACCESSIBILITY_MODE_UNSET = 8;
+		NETWORK_VOLTE_ENABLED_UNSET = 9;
+		PHONE_TYPE_UNSET = 10;
+	}
+
+	repeated UnsetSignals unset_signals = 10 [ features.repeated_field_encoding = EXPANDED ];
+	int32 phone_type = 11;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.posts;
+
+import "youtube/client/forms/posts_creation_options_editor_form.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PostsCreationOptionsData {
+	forms.PostsCreationOptionsEditorForm form = 1;
+}

@@ -1,0 +1,67 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/force_ad_parameters.proto";
+import "youtube/api/innertube/mdx_playback_context.proto";
+import "youtube/api/innertube/live_playback_context.proto";
+import "youtube/api/innertube/unplugged_content_playback_context.proto";
+import "youtube/api/innertube/autonav_settings_state.proto";
+import "youtube/api/innertube/video_playback_position.proto";
+import "youtube/api/innertube/co_watch_playback_context.proto";
+import "youtube/api/innertube/watch_ambient_mode_playback_context.proto";
+import "youtube/api/innertube/composite_video_playback_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentPlaybackContext {
+	string device_signals = 1;
+	uint32 time_since_last_ad_seconds = 4;
+	int64 lact_milliseconds = 5;
+	uint32 autoplays_since_last_ad = 6;
+	uint32 conn = 7;
+	uint32 vis = 8;
+	bool fling = 9;
+	bool splay = 10;
+	bool autoplay = 11;
+	string adsense_client_params = 12;
+	uint64 time_of_last_instream_preroll_ad = 13;
+	string current_url = 15;
+	string referer = 16;
+	bool load_annotations_by_demand = 23;
+	bool auto_captions_default_on = 24;
+	ForceAdParameters force_ad_parameters = 25;
+	string ad_channel = 28;
+	bool autonav = 29;
+	bool trailer = 30;
+	MdxPlaybackContext mdx_context = 31;
+	LivePlaybackContext live_context = 32;
+	int32 player_width_pixels = 34;
+	int32 player_height_pixels = 35;
+	int32 snd = 37;
+	int32 vnd = 38;
+	string widget_referrer = 39;
+	UnpluggedContentPlaybackContext unplugged_context = 40;
+	int32 uao = 41;
+	string cyc_token = 42;
+	string wpid = 43;
+	bool muted_autoplay = 44;
+	AutonavSettingsState autonav_state = 45;
+	bool enable_privacy_filter = 46;
+	bool is_living_room_deeplink = 47;
+	uint32 signature_timestamp = 48;
+	bool is_inline_playback_no_ad = 50;
+	bool is_inline_unmuted_playback = 51;
+	repeated string ancestor_origins = 53;
+	VideoPlaybackPosition player_playback_position = 54;
+	int64 play_package_version = 55;
+	CoWatchPlaybackContext co_watch_context = 56;
+	WatchAmbientModePlaybackContext watch_ambient_mode_context = 57;
+	CompositeVideoPlaybackContext composite_video_context = 58;
+	string encrypted_host_flags = 59;
+	bool is_sequence_entry = 60;
+	bool is_initial_sequence_load = 62;
+}

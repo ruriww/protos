@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.dynamiclist;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/existing_item.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/new_item.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message DynamicList {
+	FormHeader form_header = 1;
+	repeated ExistingItem existing_item = 2;
+	repeated NewItem new_item = 3;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

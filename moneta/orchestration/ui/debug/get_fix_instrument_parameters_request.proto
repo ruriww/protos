@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/fixinstrument/internal_fix_instrument_parameters.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetFixInstrumentParametersRequest {
+	common.RequestContext context = 1;
+	fixinstrument.InternalFixInstrumentParameters unencrypted_fix_instrument_parameters = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum SendKitAndroidVersion {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_VERSION = 0;
+	LEGACY = 1;
+	REWRITE = 2;
+}

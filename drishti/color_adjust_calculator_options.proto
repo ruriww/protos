@@ -1,0 +1,16 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/calculator_options.proto";
+
+option objc_class_prefix = "Drishti";
+
+message ColorAdjustCalculatorOptions {
+	extend CalculatorOptions {
+		ColorAdjustCalculatorOptions ext = 111649382;
+	}
+
+	float mix = 3 [ default = 1 ];
+	bool preserve_source_alpha = 4;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message AndroidAppId {
+	string package_name = 1;
+	string certificate_sha1_hash_base16 = 2;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/endscreen_element_supported_renderers.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/endscreen_url_renderer.proto";
+import "youtube/api/innertube/skip_endscreen_renderer.proto";
+import "youtube/api/innertube/endscreen_element_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EndscreenRenderer {
+	repeated EndscreenElementSupportedRenderers elements = 1;
+	int64 start_ms = 2;
+	repeated LoggingUrl impression_urls = 3;
+	bool skip_endscreen = 4;
+	bytes tracking_params = 6;
+	Renderer hide_button = 7;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	EndscreenRenderer endscreen_renderer = 106301526;
+}
+
+extend Renderer {
+	EndscreenUrlRenderer endscreen_url_renderer = 107233212;
+}
+
+extend Renderer {
+	SkipEndscreenRenderer skip_endscreen_renderer = 150436494;
+}
+
+extend Renderer {
+	EndscreenElementRenderer endscreen_element_renderer = 105860658;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeDeviceInfo {
+	int32 audio_output_latency_ms = 1;
+}

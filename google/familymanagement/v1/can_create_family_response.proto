@@ -1,0 +1,24 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+import "google/familymanagement/v1/page.proto";
+
+option objc_class_prefix = "GFM";
+
+message CanCreateFamilyResponse {
+	ApiResponseHeader api_header = 1;
+	bool can_create_family = 2;
+	repeated UnmetPrecondition unmet_preconditions = 3;
+
+	message BirthdayInfo {
+		int32 month = 1;
+		int32 day = 2;
+	}
+
+	BirthdayInfo existing_birthday_info = 4;
+	Page error_description = 5;
+	int32 required_minimum_age = 6;
+}

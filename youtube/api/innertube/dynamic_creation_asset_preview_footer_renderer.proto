@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DynamicCreationAssetPreviewFooterRenderer {
+	extend Renderer {
+		DynamicCreationAssetPreviewFooterRenderer dynamic_creation_asset_preview_footer_renderer = 1117;
+	}
+
+	Renderer primary_button = 1;
+}

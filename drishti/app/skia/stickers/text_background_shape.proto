@@ -1,0 +1,14 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+message TextBackgroundShape {
+	float horizontal_padding_pixels = 1;
+	float vertical_padding_pixels = 2;
+	float corner_radius_pixels = 3;
+	uint32 fill_color = 4;
+	float stroke_width_pixels = 5;
+	uint32 stroke_color = 6;
+}

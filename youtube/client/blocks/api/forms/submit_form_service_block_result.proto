@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.forms;
+
+import "youtube/api/innertube/submit_form_result.proto";
+import "youtube/api/innertube/submit_error.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SubmitFormServiceBlockResult {
+	oneof result {
+		youtube.api.innertube.SubmitFormResult submit_form_result = 1;
+		youtube.api.innertube.SubmitError submit_error = 2;
+	}
+}

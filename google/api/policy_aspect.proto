@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.api;
+
+import "google/protobuf/struct.proto";
+
+option objc_class_prefix = "GAPI";
+
+message PolicyAspect {
+	string kind = 1;
+	protobuf.Struct spec = 2;
+	bool suppress_deterministic_encode = 3;
+}

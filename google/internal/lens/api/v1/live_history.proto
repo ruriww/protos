@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "unknown/youtube/event_id_message.proto";
+
+option objc_class_prefix = "LFE";
+
+message LiveHistory {
+	message Turn {
+		string user_query = 1;
+		string model_response = 2;
+	}
+
+	repeated Turn turns = 1;
+	int32 restored_turn_id = 2;
+	unknown.youtube.EventIdMessage my_activity_event_id = 3;
+}

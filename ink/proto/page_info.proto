@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/transform.proto";
+import "ink/proto/rect.proto";
+import "ink/proto/page_spec.proto";
+
+option objc_class_prefix = "INKPB";
+
+message PageInfo {
+	Transform page_to_world = 1;
+	Rect bounds = 2;
+	PageSpec page_spec = 3;
+	uint32 page_index = 4;
+}

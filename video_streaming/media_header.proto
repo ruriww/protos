@@ -1,0 +1,32 @@
+syntax = "proto2";
+
+package video_streaming;
+
+import "video_streaming/media_compression.proto";
+import "video_streaming/format_id.proto";
+import "video_streaming/time_range.proto";
+import "unknown/youtube/unnamed10445.proto";
+
+option java_package = "com.google.android.apps.youtube.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+message MediaHeader {
+	optional uint32 header_id = 1;
+	optional string video_id = 2;
+	optional int32 itag = 3;
+	optional uint64 last_modified = 4;
+	optional string xtags = 5;
+	optional int64 start_range = 6;
+	optional MediaCompression compression = 7;
+	optional bool is_init_segment = 8;
+	optional int64 sequence_number = 9;
+	optional int64 unnamed_field_10 = 10;
+	optional FormatId format_id = 13;
+	optional int64 length = 14;
+	optional TimeRange time_range = 15;
+	optional uint64 unnamed_field_16 = 16;
+	optional int64 unnamed_field_17 = 17;
+	optional unknown.youtube.Unnamed10445 unnamed_field_19 = 19;
+}

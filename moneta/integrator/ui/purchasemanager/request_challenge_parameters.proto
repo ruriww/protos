@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.integrator.ui.purchasemanager;
+
+import "moneta/integrator/ui/common/common_parameters.proto";
+import "moneta/integrator/ui/purchasemanager/purchase_manager_parameter_enums.proto";
+
+option objc_class_prefix = "IPurMan";
+
+message RequestChallengeParameters {
+	common.CommonParameters common_parameters = 3;
+	PurchaseManagerParameterEnums.PurchaseManagerScenario purchase_manager_scenario = 4;
+	string integrator_request_id = 5;
+	bool display_brand_image = 15;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/calculator_options.proto";
+import "drishti/affine_transform_data.proto";
+
+option objc_class_prefix = "Drishti";
+
+message GlMaskTransformCalculatorOptions {
+	extend CalculatorOptions {
+		GlMaskTransformCalculatorOptions ext = 392118741;
+	}
+
+	enum MaskChannel {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		RED = 1;
+		ALPHA = 2;
+	}
+
+	MaskChannel mask_channel = 1 [ default = RED ];
+	AffineTransformData transform_data = 2;
+	bool use_premultiplied_alpha = 3 [ default = false ];
+}

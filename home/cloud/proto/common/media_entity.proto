@@ -1,0 +1,16 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+import "home/cloud/proto/common/metadata_type.proto";
+
+option objc_class_prefix = "GHCC";
+
+message MediaEntity {
+	string content_id = 1;
+	double duration_sec = 2;
+	string title = 3;
+	string subtitle = 4;
+	string artist_name = 5;
+	MetadataType metadata_type = 6;
+}

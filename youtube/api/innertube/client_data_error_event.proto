@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/client_data_error_type.proto";
+import "youtube/api/innertube/client_data_event_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientDataErrorEvent {
+	ClientDataErrorType error_type = 1;
+	repeated uint32 field_path = 2 [ features.repeated_field_encoding = EXPANDED ];
+	ClientDataEventType event_type = 3;
+}

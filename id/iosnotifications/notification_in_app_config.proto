@@ -1,0 +1,30 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+option objc_class_prefix = "RCH";
+
+message NotificationInAppConfig {
+	enum BadgeType {
+		option features.enum_type = CLOSED;
+
+		BADGE_TYPE_UNSPECIFIED = 0;
+		CRITICAL = 1;
+	}
+
+	BadgeType badge_type = 1;
+	string title_text = 2;
+	string subtitle_text = 3;
+	string action_button_text = 4;
+	bool enable_apd_ring_animation = 5 [ default = true ];
+	string action_button_short_text = 6;
+
+	enum RenderingOption {
+		option features.enum_type = CLOSED;
+
+		RENDERING_OPTION_UNSPECIFIED = 0;
+		CRITICAL_ALERT = 1;
+	}
+
+	RenderingOption rendering_option = 7;
+}

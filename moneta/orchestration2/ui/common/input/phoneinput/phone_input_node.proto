@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/input/textinput/input_node_material_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PhoneInputNode {
+	extend node.Node {
+		PhoneInputNode phone_input_node_extension = 232060281;
+	}
+
+	textinput.InputNodeMaterialType input_node_material_type = 1;
+}

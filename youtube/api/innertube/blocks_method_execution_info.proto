@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/blocks_telemetry_method_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BlocksMethodExecutionInfo {
+	uint32 method_id = 1;
+	uint32 block_type_id = 2;
+	BlocksTelemetryMethodType method_type = 3;
+	uint32 request_size = 4;
+	uint32 response_size = 5;
+	uint32 status_code = 6;
+	uint32 container_id = 7;
+	string module_identifier = 8;
+	uint64 datapush_build_id = 9;
+}

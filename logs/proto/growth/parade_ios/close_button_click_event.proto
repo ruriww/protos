@@ -1,0 +1,8 @@
+edition = "2023";
+
+package logs.proto.growth.parade_ios;
+
+option objc_class_prefix = "PRD";
+
+message CloseButtonClickEvent {
+}

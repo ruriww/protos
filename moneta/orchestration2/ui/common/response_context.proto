@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+import "moneta/orchestration2/ui/common/session_data.proto";
+import "moneta/orchestration2/ui/common/web_server_context.proto";
+import "moneta/orchestration2/ui/logging/logging_configuration.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ResponseContext {
+	int64 response_time_millis = 1 [ default = -1 ];
+	SessionData session_data = 2;
+	repeated string outgoing_rpc_info_string = 4;
+	bytes client_log_token = 5;
+	bytes analytics_token = 7;
+	WebServerContext web_server_context = 9;
+
+	enum DataLocalizationRequirement {
+		option features.enum_type = CLOSED;
+
+		DATA_LOCALIZATION_REQUIREMENT_UNKNOWN = 0;
+		DATA_LOCALIZATION_REQUIREMENT_RUSSIA = 1;
+	}
+
+	repeated DataLocalizationRequirement data_localization_requirement = 12;
+	repeated logging.LoggingConfiguration logging_configuration = 13;
+}

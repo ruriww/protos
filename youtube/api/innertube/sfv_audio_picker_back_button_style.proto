@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/sfv_audio_picker_back_button_position.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvAudioPickerBackButtonStyle {
+	Icon icon = 1;
+	SfvAudioPickerBackButtonPosition position = 2;
+	Command command = 204158123;
+}

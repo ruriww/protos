@@ -1,0 +1,22 @@
+edition = "2023";
+
+package logs;
+
+import "unknown/youtube/event_id_message.proto";
+import "unknown/youtube/client_event_id_message.proto";
+import "logs/click_tracking_cgi.proto";
+
+option objc_class_prefix = "LOG";
+
+message VisualElementTreeRef {
+	oneof events {
+		unknown.youtube.EventIdMessage event = 1;
+		unknown.youtube.ClientEventIdMessage client_event = 3;
+		string ei = 4;
+	}
+
+	oneof root {
+		ClickTrackingCGI root_ve = 2;
+		string ved = 5;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SnackbarAnimationStyle {
+	option features.enum_type = CLOSED;
+
+	SNACKBAR_ANIMATION_STYLE_UNKNOWN = 0;
+	SNACKBAR_ANIMATION_STYLE_DEFAULT = 1;
+	SNACKBAR_ANIMATION_STYLE_COLLAPSING = 2;
+}

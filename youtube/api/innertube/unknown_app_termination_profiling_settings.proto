@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnknownAppTerminationProfilingSettings {
+	bool enable = 1;
+	int32 max_start_time_sec = 2;
+	int32 stack_trace_removal_delay_ms = 3;
+	float sampling_timer_interval_ms = 4;
+	float sampling_leeway_ms = 5;
+	bool is_only_main_thread = 6;
+	int32 max_snapshot_capacity = 7;
+}

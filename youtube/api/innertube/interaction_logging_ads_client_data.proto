@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_client_data_entry.proto";
+import "youtube/api/innertube/ad_gesture_termination_data.proto";
+import "youtube/api/innertube/about_this_ad_data.proto";
+import "youtube/api/innertube/preload_app_store_data.proto";
+import "youtube/api/innertube/post_click_data.proto";
+import "youtube/api/innertube/ads_click_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InteractionLoggingAdsClientData {
+	int32 click_location = 3 [ default = -1 ];
+	AdClientDataEntry ad_client_data_entry = 4;
+	bytes serialized_ad_serving_data = 5;
+
+	oneof ads_client_data {
+		AdGestureTerminationData ad_gesture_termination_data = 10;
+		AboutThisAdData about_this_ad_data = 11;
+		PreloadAppStoreData preload_app_store_data = 14;
+		PostClickData post_click_data = 16;
+	}
+
+	AdsClickData click_data = 12;
+}

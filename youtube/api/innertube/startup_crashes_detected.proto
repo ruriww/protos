@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StartupCrashesDetected {
+	bool safe_mode_triggered = 1;
+	uint32 crash_count = 2;
+	uint32 uncaught_exception_count = 3;
+	bool cache_cleared = 4;
+}

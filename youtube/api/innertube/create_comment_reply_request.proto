@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/backstage_image_attachment.proto";
+import "youtube/api/innertube/backstage_lightweight_video_attachment.proto";
+import "youtube/api/innertube/smart_reply_suggestion_tracking.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateCommentReplyRequest {
+	InnerTubeContext context = 1;
+	string create_reply_params = 2;
+	string comment_text = 3;
+	string parent_comment_id = 4;
+	string botguard_response = 5;
+
+	oneof attachment {
+		BackstageImageAttachment image_attachment = 6;
+		BackstageLightweightVideoAttachment lightweight_video_attachment = 7;
+	}
+
+	SmartReplySuggestionTracking suggestion_tracking = 8;
+}

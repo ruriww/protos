@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cpid_endpoint.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlanAwareStreamingConfig {
+	repeated CpidEndpoint cpid_endpoint = 1;
+	map<int32, int32> error_to_ttl_override_map = 2;
+	bool fetch_cpid_on_app_init = 4;
+}

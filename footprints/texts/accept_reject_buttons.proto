@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "footprints/texts/accept_reject_config.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message AcceptRejectButtons {
+	string accept_button_label = 1;
+	string reject_button_label = 2;
+	AcceptRejectConfig config = 3;
+	string accept_button_accessibility_label = 4;
+	string reject_button_accessibility_label = 5;
+}

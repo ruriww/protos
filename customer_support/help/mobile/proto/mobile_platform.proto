@@ -1,0 +1,14 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum MobilePlatform {
+	option features.enum_type = CLOSED;
+
+	MP_UNSPECIFIED = 0;
+	MP_ANDROID = 1;
+	MP_IOS = 2;
+	MP_ANDROID_GSS = 3;
+}

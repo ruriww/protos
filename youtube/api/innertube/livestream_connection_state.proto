@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LivestreamConnectionState {
+	option features.enum_type = CLOSED;
+
+	LIVESTREAM_CONNECTION_STATE_UNKNOWN = 0;
+	LIVESTREAM_CONNECTION_STATE_NEVER_CONNECTED = 1;
+	LIVESTREAM_CONNECTION_STATE_DISCONNECTED = 2;
+	LIVESTREAM_CONNECTION_STATE_RECONNECTING = 3;
+	LIVESTREAM_CONNECTION_STATE_ACTIVE = 4;
+}

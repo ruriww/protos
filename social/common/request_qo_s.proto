@@ -1,0 +1,24 @@
+edition = "2023";
+
+package social.common;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Social";
+
+message RequestQoS {
+	extend proto2.bridge.MessageSet {
+		RequestQoS message_set_extension = 30461376;
+	}
+
+	enum CriticalityQoS {
+		option features.enum_type = CLOSED;
+
+		SHEDDABLE_10 = 10;
+		SHEDDABLE_20 = 20;
+		SHEDDABLE_30 = 30;
+		CRITICAL_80 = 80;
+	}
+
+	CriticalityQoS criticality_qos = 2 [ default = CRITICAL_80 ];
+}

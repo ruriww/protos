@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/like_status_entity.proto";
+import "youtube/api/innertube/like_count_entity.proto";
+import "youtube/api/innertube/dynamic_like_count_update_status.proto";
+import "youtube/api/innertube/dynamic_like_count_update_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SegmentedLikeDislikeButtonViewModel {
+	extend Renderer {
+		SegmentedLikeDislikeButtonViewModel segmented_like_dislike_button_view_model = 484586709;
+	}
+
+	Renderer like_button_view_model = 1;
+	Renderer dislike_button_view_model = 2;
+	string like_status_entity_key = 3;
+	LikeStatusEntity like_status_entity = 4;
+	LikeCountEntity like_count_entity = 7;
+	DynamicLikeCountUpdateStatus dynamic_like_count_update_status = 8;
+	DynamicLikeCountUpdateData dynamic_like_count_update_data = 9;
+	string teasers_order_entity_key = 10;
+	bool enable_animation_url = 14;
+	string like_animation_light_url = 15;
+	string like_animation_dark_url = 16;
+}

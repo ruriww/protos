@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.rpc.context;
+
+option objc_class_prefix = "RPC";
+
+message HttpHeaderContext {
+	map<string, string> headers = 1;
+	string request_path = 2;
+	int32 response_code = 3;
+	string request_firstline = 4;
+}

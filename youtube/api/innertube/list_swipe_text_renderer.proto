@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ListSwipeTextRenderer {
+	uint32 background_color = 1;
+	FormattedString action_text = 2;
+	Command swipe_endpoint = 3;
+	bytes tracking_params = 4;
+	bool prompt_user_action = 6;
+	Icon action_icon = 7;
+	FormattedString action_completed_text = 8;
+}
+
+extend Renderer {
+	ListSwipeTextRenderer list_swipe_text_renderer = 121438932;
+}

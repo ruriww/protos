@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens.visualsearch;
+
+import "quality_genie/eyes/filter_type.proto";
+
+option objc_class_prefix = "LLOGVS";
+
+message FilterData {
+	quality_genie.eyes.FilterType filter_type = 1;
+}

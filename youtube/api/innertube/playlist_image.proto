@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_image_key.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistImage {
+	PlaylistImageKey image_key = 1;
+
+	oneof image_source {
+		string encrypted_scotty_resource_id = 2;
+		string generated_image_id = 3;
+		string playlist_scotty_encrypted_blob_id = 4;
+	}
+}

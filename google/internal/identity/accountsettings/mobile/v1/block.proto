@@ -1,0 +1,42 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/description_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/divider_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/list_item_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/carousel_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_line_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_chip_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/profile_picture_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/progress_bar_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/sign_in_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/legend_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/progress_bar_list_item_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/search_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message Block {
+	oneof block_type {
+		DescriptionBlock description_block = 1;
+		ImageBlock image_block = 2;
+		DividerBlock divider_block = 3;
+		ListItemBlock list_item_block = 5;
+		CarouselBlock carousel_block = 6;
+		ActionLineBlock action_line_block = 8;
+		ActionChipBlock action_chip_block = 9;
+		ProfilePictureBlock profile_picture_block = 10;
+		ProgressBarBlock progress_bar_block = 12;
+		SignInBlock sign_in_block = 13;
+		LegendBlock legend_block = 16;
+		ProgressBarListItemBlock progress_bar_list_item_block = 21;
+		SearchBlock search_block = 33;
+	}
+
+	ResourceKey target = 11;
+	Link link = 31;
+}

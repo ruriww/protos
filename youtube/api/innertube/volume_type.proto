@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum VolumeType {
+	option features.enum_type = CLOSED;
+
+	VOLUME_TYPE_UNKNOWN = 0;
+	VOLUME_TYPE_ORIGINAL = 1;
+	VOLUME_TYPE_ADDED_MUSIC = 2;
+	VOLUME_TYPE_VOICEOVER = 3;
+	VOLUME_TYPE_GREEN_SCREEN = 4;
+	VOLUME_TYPE_VISUAL_REMIX = 5;
+	VOLUME_TYPE_TEXT_TO_SPEECH = 6;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelWatchPostOverlayRenderer {
+	Renderer overlay = 1;
+	repeated Renderer top_bar_buttons = 2;
+	Command double_tap_command = 3;
+	Command long_press_command = 4;
+}

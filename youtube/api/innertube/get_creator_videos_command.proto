@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/get_creator_videos_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetCreatorVideosCommand {
+	extend elements.Command {
+		GetCreatorVideosCommand get_creator_videos_command = 509216673;
+	}
+
+	GetCreatorVideosRequest request = 1;
+}

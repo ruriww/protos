@@ -1,0 +1,43 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "experiments/heterodyne/experiment_ids.proto";
+import "wireless_android_play_playlog/network_connection_info.proto";
+import "wireless_android_play_playlog/compliance_data.proto";
+
+option objc_class_prefix = "CADP";
+
+message LogEvent {
+	int64 event_time_ms = 1;
+	string tag = 2;
+	bytes store = 4;
+	bytes source_extension = 6;
+	string source_extension_js = 8;
+	bool is_user_initiated = 10;
+	int32 event_code = 11;
+	int64 event_flow_id = 12;
+	string source_extension_json = 13;
+	string test_id = 14;
+	sint64 timezone_offset_seconds = 15 [ default = 180000 ];
+	experiments.heterodyne.ExperimentIds experiment_ids = 16;
+	int64 event_uptime_ms = 17;
+	bytes client_ve = 18;
+	repeated int32 test_code = 20 [ features.repeated_field_encoding = EXPANDED ];
+	int64 sequence_position = 21;
+	int64 boot_count = 22;
+	NetworkConnectionInfo network_connection_info = 23;
+	string client_ve_js = 24;
+	bool in_direct_boot_mode = 25;
+	string component_id = 26;
+	repeated int32 generic_dimensions = 27;
+	string zwieback_cookie_override = 28;
+	string source_extension_json_proto3 = 29;
+	double module_applied_sampling_rate = 30;
+	double client_applied_sampling_rate = 32;
+	ComplianceData compliance_data = 33;
+	bool use_session_zwieback = 34;
+
+	extensions 31;
+	extensions 1000 to max;
+}

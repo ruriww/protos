@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum ETokenType {
+	TOKEN_TYPE_UNSPECIFIED = 0;
+	OAUTH2_ACCESS_TOKEN = 1;
+	OAUTH2_REFRESH_TOKEN = 2;
+	GOOGLE_ID_TOKEN = 3;
+}

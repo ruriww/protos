@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+import "youtube/client/blocks/api/mdx/media_hub_ui_device_item.proto";
+
+option objc_class_prefix = "YTBA";
+
+message MediaHubUiDeviceItemsResult {
+	repeated MediaHubUiDeviceItem media_hub_ui_device_items = 1;
+}

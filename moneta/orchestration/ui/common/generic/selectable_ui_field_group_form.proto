@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/view_mode.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message SelectableUiFieldGroupForm {
+	string id = 1;
+	string title = 2;
+	repeated UiField option = 3;
+	int32 initially_selected_option_index = 4;
+	InfoMessage bottom_info_message = 5;
+	int64 ui_reference = 6;
+
+	enum Style {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_STYLE = 0;
+		RADIO_BUTTONS_GROUP = 1;
+		INLINE_DROPDOWN = 2;
+	}
+
+	Style style = 7;
+	ViewMode view_mode = 8;
+	bool keep_options_expanded = 10;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

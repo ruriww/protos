@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+enum VideoType {
+	option features.enum_type = CLOSED;
+
+	VIDEO_TYPE_UNSPECIFIED = 0;
+	VIDEO_TYPE_CONTENT = 1;
+	VIDEO_TYPE_AD = 2;
+	VIDEO_TYPE_TRAILER = 3;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelResizeRestriction {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_RESIZE_RESTRICTION_UNSPECIFIED = 0;
+	ENGAGEMENT_PANEL_RESIZE_RESTRICTION_NONE = 1;
+	ENGAGEMENT_PANEL_RESIZE_RESTRICTION_DOWN_ONLY = 2;
+}

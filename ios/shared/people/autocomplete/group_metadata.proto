@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_affinity.proto";
+
+option objc_class_prefix = "PDL";
+
+message GroupMetadata {
+	repeated PersonAffinity affinity = 1;
+	int32 size = 2;
+}

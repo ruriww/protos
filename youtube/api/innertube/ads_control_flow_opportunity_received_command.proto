@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/opportunity_type.proto";
+import "youtube/api/innertube/ad_slot_logging_data.proto";
+import "youtube/api/innertube/ad_slot_and_layout_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsControlFlowOpportunityReceivedCommand {
+	extend Command {
+		AdsControlFlowOpportunityReceivedCommand ads_control_flow_opportunity_received_command = 350496818;
+	}
+
+	OpportunityType opportunity_type = 1;
+	repeated AdSlotLoggingData ad_slot_logging_data = 4;
+	bool is_initial_load = 5;
+	repeated AdSlotAndLayoutMetadata ad_slot_and_layout_metadata = 6;
+	bool enable_pacf_logging_web = 7;
+	int32 enable_delayed_pacf_logging_tv_ms = 8;
+}

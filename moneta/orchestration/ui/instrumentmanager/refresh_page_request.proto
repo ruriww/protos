@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/instrumentmanager/page_value.proto";
+import "moneta/orchestration/ui/common/form_field_reference.proto";
+
+option objc_class_prefix = "IManager";
+
+message RefreshPageRequest {
+	common.RequestContext context = 1;
+	PageValue page_value = 2;
+	common.FormFieldReference refresh_trigger_field = 3;
+}

@@ -1,0 +1,152 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/setting_category_entry_renderer.proto";
+import "youtube/api/innertube/setting_category_collection_renderer.proto";
+import "youtube/api/innertube/unplugged_live_guide_setting_category_renderer.proto";
+import "youtube/api/innertube/unplugged_subscriptions_setting_category_renderer.proto";
+import "youtube/api/innertube/tv_mdx_setting_renderer.proto";
+import "youtube/api/innertube/notification_setting_category_collection_renderer.proto";
+import "youtube/api/innertube/notification_entry_setting_renderer.proto";
+import "youtube/api/innertube/notification_type_opt_in_renderer.proto";
+import "youtube/api/innertube/setting_action_renderer.proto";
+import "youtube/api/innertube/setting_boolean_renderer.proto";
+import "youtube/api/innertube/setting_dialog_renderer.proto";
+import "youtube/api/innertube/setting_single_option_menu_renderer.proto";
+import "youtube/api/innertube/setting_menu_item_renderer.proto";
+import "youtube/api/innertube/setting_menu_date_item_renderer.proto";
+import "youtube/api/innertube/setting_read_only_item_renderer.proto";
+import "youtube/api/innertube/setting_text_renderer.proto";
+import "youtube/api/innertube/setting_notification_list_renderer.proto";
+import "youtube/api/innertube/setting_notification_item_renderer.proto";
+import "youtube/api/innertube/client_storage_usage_renderer.proto";
+import "youtube/api/innertube/auto_offline_storage_usage_renderer.proto";
+import "youtube/api/innertube/caption_preview_renderer.proto";
+import "youtube/api/innertube/setting_spacer_decoration_renderer.proto";
+import "youtube/api/innertube/setting_unplugged_package_renderer.proto";
+import "youtube/api/innertube/unplugged_location_setting_renderer.proto";
+import "youtube/api/innertube/unplugged_app_tour_setting_renderer.proto";
+import "youtube/api/innertube/unplugged_disclaimer_setting_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	SettingCategoryEntryRenderer setting_category_entry_render = 61520386;
+}
+
+extend Renderer {
+	SettingCategoryCollectionRenderer setting_category_collection_renderer = 66930374;
+}
+
+extend Renderer {
+	SettingCategorySectionRenderer setting_category_section_renderer = 75120871;
+}
+
+extend Renderer {
+	CaptionSettingCategoryRenderer caption_setting_category_renderer = 85446662;
+}
+
+extend Renderer {
+	UnpluggedLiveGuideSettingCategoryRenderer unplugged_live_guide_setting_category_renderer = 174749716;
+}
+
+extend Renderer {
+	UnpluggedSubscriptionsSettingCategoryRenderer unplugged_subscriptions_setting_category_renderer = 128367722;
+}
+
+extend Renderer {
+	TvMdxSettingRenderer tv_mdx_setting_renderer = 134624760;
+}
+
+extend Renderer {
+	NotificationSettingCategoryCollectionRenderer notification_setting_category_collection_renderer = 93763033;
+}
+
+extend Renderer {
+	NotificationEntrySettingRenderer notification_entry_setting_renderer = 133017926;
+}
+
+extend Renderer {
+	NotificationTypeOptInRenderer notification_type_opt_in_renderer = 133044997;
+}
+
+extend Renderer {
+	SettingActionRenderer setting_action_renderer = 71709717;
+}
+
+extend Renderer {
+	SettingBooleanRenderer setting_boolean_renderer = 61331416;
+}
+
+extend Renderer {
+	SettingDialogRenderer setting_dialog_renderer = 190513794;
+}
+
+extend Renderer {
+	SettingSingleOptionMenuRenderer setting_single_option_menu_renderer = 61321220;
+}
+
+extend Renderer {
+	SettingMenuItemRenderer setting_menu_item_renderer = 64166933;
+}
+
+extend Renderer {
+	SettingMenuDateItemRenderer setting_menu_date_item_renderer = 190692730;
+}
+
+extend Renderer {
+	SettingReadOnlyItemRenderer setting_read_only_item_renderer = 76886494;
+}
+
+extend Renderer {
+	SettingTextRenderer setting_text_renderer = 84887323;
+}
+
+extend Renderer {
+	SettingNotificationListRenderer setting_notification_list_renderer = 75560919;
+}
+
+extend Renderer {
+	SettingNotificationItemRenderer setting_notification_item_renderer = 76381307;
+}
+
+extend Renderer {
+	ClientStorageUsageRenderer client_storage_usage_renderer = 84082909;
+}
+
+extend Renderer {
+	AutoOfflineStorageUsageRenderer auto_offline_storage_usage_renderer = 147386845;
+}
+
+extend Renderer {
+	CaptionPreviewRenderer caption_preview_renderer = 85346949;
+}
+
+extend Renderer {
+	CaptionCustomOptionsSectionRenderer caption_custom_options_section_renderer = 85732916;
+}
+
+extend Renderer {
+	SettingSpacerDecorationRenderer setting_spacer_decoration_renderer = 124684298;
+}
+
+extend Renderer {
+	SettingUnpluggedPackageRenderer setting_unplugged_package_renderer = 128367724;
+}
+
+extend Renderer {
+	UnpluggedLocationSettingRenderer unplugged_location_setting_renderer = 133074661;
+}
+
+extend Renderer {
+	UnpluggedAppTourSettingRenderer unplugged_app_tour_setting_renderer = 139240142;
+}
+
+extend Renderer {
+	UnpluggedDisclaimerSettingRenderer unplugged_disclaimer_setting_renderer = 157490845;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.textinfo;
+
+option objc_class_prefix = "ORCH2";
+
+enum TextCategory {
+	option features.enum_type = CLOSED;
+
+	TEXT_CATEGORY_UNKNOWN = 0;
+	TEXT_CATEGORY_H1 = 1;
+	TEXT_CATEGORY_H2 = 2;
+	TEXT_CATEGORY_H3 = 3;
+	TEXT_CATEGORY_H4 = 4;
+	TEXT_CATEGORY_H5 = 5;
+	TEXT_CATEGORY_H6 = 6;
+	TEXT_CATEGORY_SUBHEADER_1 = 7;
+	TEXT_CATEGORY_SUBHEADER_2 = 8;
+	TEXT_CATEGORY_SUBTITLE_1 = 9;
+	TEXT_CATEGORY_SUBTITLE_2 = 10;
+	TEXT_CATEGORY_BODY_1 = 11;
+	TEXT_CATEGORY_BODY_2 = 12;
+	TEXT_CATEGORY_CAPTION = 14;
+	TEXT_CATEGORY_OVERLINE = 15;
+}

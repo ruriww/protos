@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/marker_type.proto";
+import "youtube/api/innertube/macro_marker_message.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/markers_metadata.proto";
+import "youtube/api/innertube/markers_decoration.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MacroMarkersListMessage {
+	MarkerType marker_type = 1;
+	repeated MacroMarkerMessage markers = 2;
+	FormattedString info_title = 3;
+	FormattedString header_title = 4;
+	string engagement_panel_target_id = 5;
+	elements.Command on_tap = 6;
+	elements.Command on_markers_hidden = 7;
+	elements.Command carousel_view_all = 8;
+	MarkersMetadata markers_metadata = 9;
+	MarkersDecoration markers_decoration = 10;
+	LoggingDirectives logging_directives = 999;
+}

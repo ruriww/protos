@@ -1,0 +1,16 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message FieldEmergencyInfo {
+	enum EmergencyLevel {
+		option features.enum_type = CLOSED;
+
+		EMERGENCY_LEVEL_UNSPECIFIED = 0;
+		EMERGENCY_LEVEL_PRIMARY = 1;
+	}
+
+	EmergencyLevel emergency_level = 1;
+}

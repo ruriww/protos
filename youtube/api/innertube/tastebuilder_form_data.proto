@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TastebuilderFormData {
+	repeated string previous_selected_items = 1;
+	repeated string previous_seen_items = 2;
+	repeated string current_selected_items = 3;
+	repeated string current_seen_items = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_upload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoUploads {
+	repeated string upload_frontend_ids = 1;
+	bool is_decorated = 2;
+	repeated VideoUpload video_uploads = 3;
+}

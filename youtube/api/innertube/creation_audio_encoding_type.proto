@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CreationAudioEncodingType {
+	option features.enum_type = CLOSED;
+
+	CREATION_AUDIO_ENCODING_TYPE_UNKNOWN = 0;
+	CREATION_AUDIO_ENCODING_TYPE_LINEAR16 = 1;
+	CREATION_AUDIO_ENCODING_TYPE_AMR_WB = 2;
+	CREATION_AUDIO_ENCODING_TYPE_MP3 = 3;
+}

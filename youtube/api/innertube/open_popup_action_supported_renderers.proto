@@ -1,0 +1,94 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/section_list_renderer.proto";
+import "youtube/api/innertube/dismissable_dialog_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/confirm_dialog_renderer.proto";
+import "youtube/api/innertube/ypc_transaction_error_message_renderer.proto";
+import "youtube/api/innertube/options_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_renderer.proto";
+import "youtube/api/innertube/ad_feedback_renderer.proto";
+import "youtube/api/innertube/single_option_survey_renderer.proto";
+import "youtube/api/innertube/fancy_dismissible_dialog_renderer.proto";
+import "youtube/api/innertube/unified_share_panel_renderer.proto";
+import "youtube/api/innertube/upsell_dialog_renderer.proto";
+import "youtube/api/innertube/membership_offer_renderer.proto";
+import "youtube/api/innertube/notification_action_renderer.proto";
+import "youtube/api/innertube/membership_post_transaction_renderer.proto";
+import "youtube/api/innertube/membership_post_cancel_renderer.proto";
+import "youtube/api/innertube/mealbar_promo_renderer.proto";
+import "youtube/api/innertube/bubble_hint_renderer.proto";
+import "youtube/api/innertube/report_form_modal_renderer.proto";
+import "youtube/api/innertube/checkbox_survey_renderer.proto";
+import "youtube/api/innertube/topic_picker_renderer.proto";
+import "youtube/api/innertube/multi_page_menu_renderer.proto";
+import "youtube/api/innertube/inline_survey_renderer.proto";
+import "youtube/api/innertube/unlimited_family_profile_interstitial_renderer.proto";
+import "youtube/api/innertube/unlimited_family_message_interstitial_renderer.proto";
+import "youtube/api/innertube/kids_reporting_renderer.proto";
+import "youtube/api/innertube/survey_follow_up_renderer.proto";
+import "youtube/api/innertube/offline_promo_renderer.proto";
+import "youtube/api/innertube/broadcast_setup_renderer.proto";
+import "youtube/api/innertube/menu_popup_renderer.proto";
+import "youtube/api/innertube/tooltip_renderer.proto";
+import "youtube/api/innertube/red_cancel_survey_renderer.proto";
+import "youtube/api/innertube/ypc_offers_overlay_renderer.proto";
+import "youtube/api/innertube/gaming_account_link_setting_renderer.proto";
+import "youtube/api/innertube/legal_report_details_form_renderer.proto";
+import "youtube/api/innertube/unplugged_voice_remote_dialog_renderer.proto";
+import "youtube/api/innertube/gaming_account_link_confirm_dialog_renderer.proto";
+import "youtube/api/innertube/about_this_ad_renderer.proto";
+import "youtube/api/innertube/kids_blocklist_picker_renderer.proto";
+import "youtube/api/innertube/flow_root_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpenPopupActionSupportedRenderers {
+	oneof renderer {
+		SectionListRenderer section_list_renderer = 49399797;
+		DismissableDialogRenderer dismissable_dialog_renderer = 53345347;
+		MessageRenderer message_renderer = 58508690;
+		ConfirmDialogRenderer confirm_dialog_renderer = 64099105;
+		YPCTransactionErrorMessageRenderer ypc_transaction_error_message_renderer = 65500215;
+		OptionsRenderer options_renderer = 77875886;
+		PlaylistSettingsEditorRenderer playlist_settings_editor_renderer = 78398567;
+		AdFeedbackRenderer ad_feedback_renderer = 79214810;
+		SingleOptionSurveyRenderer single_option_survey_renderer = 84469086;
+		FancyDismissibleDialogRenderer fancy_dismissible_dialog_renderer = 85374086;
+		UnifiedSharePanelRenderer unified_share_panel_renderer = 87759049;
+		UpsellDialogRenderer upsell_dialog_renderer = 88122887;
+		MembershipOfferRenderer membership_offer_renderer = 94946882;
+		NotificationActionRenderer notification_action_renderer = 96140188;
+		MembershipPostTransactionRenderer membership_post_transaction_renderer = 96152614;
+		MembershipPostCancelRenderer membership_post_cancel_renderer = 96619486;
+		MealbarPromoRenderer mealbar_promo_renderer = 96907215;
+		BubbleHintRenderer bubble_hint_renderer = 106514900;
+		ReportFormModalRenderer report_form_modal_renderer = 113762946;
+		CheckboxSurveyRenderer checkbox_survey_renderer = 114254277;
+		TopicPickerRenderer topic_picker_renderer = 118637602;
+		MultiPageMenuRenderer multi_page_menu_renderer = 120770929;
+		InlineSurveyRenderer inline_survey_renderer = 125105119;
+		UnlimitedFamilyProfileInterstitialRenderer unlimited_family_profile_interstitial_renderer = 127046814;
+		UnlimitedFamilyMessageInterstitialRenderer unlimited_family_message_interstitial_renderer = 127387931;
+		KidsReportingRenderer kids_reporting_renderer = 127738223;
+		SurveyFollowUpRenderer survey_follow_up_renderer = 131334012;
+		OfflinePromoRenderer offline_promo_renderer = 131899791;
+		BroadcastSetupRenderer broadcast_setup_renderer = 144361002;
+		MenuPopupRenderer menu_popup_renderer = 144495266;
+		TooltipRenderer tooltip_renderer = 152873793;
+		RedCancelSurveyRenderer red_cancel_survey_renderer = 152893110;
+		YpcOffersOverlayRenderer ypc_offers_overlay_renderer = 154146115;
+		GamingAccountLinkSettingRenderer gaming_account_link_setting_renderer = 155765234;
+		LegalReportDetailsFormRenderer legal_report_details_form_renderer = 171313147;
+		UnpluggedVoiceRemoteDialogRenderer unplugged_voice_remote_dialog_renderer = 173734140;
+		GamingAccountLinkConfirmDialogRenderer gaming_account_link_confirm_dialog_renderer = 189943004;
+		AboutThisAdRenderer about_this_ad_renderer = 343935806;
+		KidsBlocklistPickerRenderer kids_blocklist_picker_renderer = 370744367;
+		FlowRootRenderer flow_root_renderer = 371777145;
+	}
+}

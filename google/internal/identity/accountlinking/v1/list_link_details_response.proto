@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/service_link_details.proto";
+
+option objc_class_prefix = "ALK";
+
+message ListLinkDetailsResponse {
+	repeated ServiceLinkDetails details = 1;
+	string next_page_token = 2;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/formula_metadata.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message TextSelectionMetadata {
+	message LineMetadata {
+		int32 selected_word_count = 2;
+		bool completely_selected = 3;
+		repeated FormulaMetadata formula_metadata = 4;
+	}
+
+	message ParagraphMetadata {
+		repeated LineMetadata selected_lines = 2;
+		bool completely_selected = 3;
+	}
+
+	repeated ParagraphMetadata selected_paragraphs = 2;
+	bool completely_selected = 3;
+}

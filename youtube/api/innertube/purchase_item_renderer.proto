@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PurchaseItemRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString title = 2;
+	FormattedString price_text = 3;
+	bytes tracking_params = 5;
+	Command navigation_endpoint = 6;
+	FormattedString manage_subscription_text = 7;
+	FormattedString free_trial_text = 8;
+	MenuSupportedRenderers menu = 9;
+}
+
+extend Renderer {
+	PurchaseItemRenderer purchase_item_renderer = 89747139;
+}

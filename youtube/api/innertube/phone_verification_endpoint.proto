@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/phone_verification_intent.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PhoneVerificationEndpoint {
+	extend Command {
+		PhoneVerificationEndpoint phone_verification_endpoint = 155595733;
+	}
+
+	bool hack = 1;
+	Command next_endpoint = 2;
+	PhoneVerificationIntent intent = 3;
+	Command success_command = 4;
+	Command failure_command = 5;
+	Command aborted_command = 6;
+}

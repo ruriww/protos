@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowBottomBarRenderer {
+	Renderer primary_button = 1;
+	Renderer secondary_button = 2;
+	Renderer text_section = 4;
+	Renderer coupon_renderer = 5;
+	string flow_state_entity_key = 6;
+	bool display_divider = 7;
+}
+
+extend Renderer {
+	FlowBottomBarRenderer flow_bottom_bar_renderer = 364867319;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.utils.crypto.mobile;
+
+import "youtube/utils/crypto/mobile/signed_keyset.proto";
+
+option objc_class_prefix = "YTCRYPT";
+
+message KeysetCertificate {
+	SignedKeyset signed_keyset = 1;
+}

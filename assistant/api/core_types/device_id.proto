@@ -1,0 +1,23 @@
+edition = "2023";
+
+package assistant.api.core_types;
+
+import "assistant/api/core_types/device_config.proto";
+
+option objc_class_prefix = "ASTCT";
+
+message DeviceId {
+	string cast_device_id = 1;
+	string client_instance_id = 2;
+	string device_type = 3;
+	string allo_device_id = 4;
+	string multi_hotword_arbitration_device_id = 5;
+	DeviceConfig device_config = 6;
+	string quartz_device_id = 7;
+	string agsa_client_instance_id = 8;
+	string libassistant_device_id = 9;
+	string opa_ios_device_id = 10;
+	string home_graph_device_id = 11;
+	string connected_dock_id = 12;
+	string canonical_device_id = 13;
+}

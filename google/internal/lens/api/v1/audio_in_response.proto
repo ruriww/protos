@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "speech/s3/response.proto";
+
+option objc_class_prefix = "LFE";
+
+message AudioInResponse {
+	speech.s3.Response s3_response = 1;
+	string encoded_request_id = 2;
+}

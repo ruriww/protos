@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/reel_watch_sequence_entry.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelWatchSequenceResponse {
+	ResponseContext response_context = 1;
+	repeated ReelWatchSequenceEntry entries = 2;
+
+	oneof continuation_oneof {
+		string continuation = 3;
+		Command continuation_endpoint = 8;
+	}
+
+	repeated ReelWatchSequenceEntry prev_entries = 4;
+
+	oneof prev_continuation_oneof {
+		string prev_continuation = 5;
+		Command prev_continuation_endpoint = 9;
+	}
+
+	bytes tracking_params = 7;
+	repeated Command on_response_received_actions = 10;
+
+	oneof refresh_continuation_oneof {
+		string refresh_continuation = 11;
+		Command refresh_continuation_endpoint = 12;
+	}
+
+	oneof soft_refresh_continuation_oneof {
+		string soft_refresh_continuation = 13;
+		Command soft_refresh_continuation_endpoint = 14;
+	}
+
+	FrameworkUpdateTransport framework_updates = 777;
+}

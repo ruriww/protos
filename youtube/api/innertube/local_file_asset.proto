@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/composition_asset_format.proto";
+import "youtube/api/innertube/android_metadata.proto";
+import "youtube/api/innertube/ios_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LocalFileAsset {
+	string path = 1;
+	google.protobuf.Timestamp last_modified_time = 2;
+	CompositionAssetFormat format = 3;
+
+	oneof platform_metadata {
+		AndroidMetadata android_metadata = 4;
+		IosMetadata ios_metadata = 5;
+	}
+}

@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelMetadataRenderer {
+	string title = 1;
+	string description = 2;
+	string rss_url = 3;
+	string plus_page_link = 4;
+	string tracking_image_url = 6;
+	string channel_conversion_url = 7;
+	string external_id = 8;
+	bool draw_comment_metadata = 10;
+	string keywords = 11;
+	repeated string owner_urls = 12;
+	bool is_paid_channel = 13;
+	ThumbnailDetails avatar = 14;
+	string channel_url = 15;
+	bool is_family_safe = 16;
+	string facebook_profile_id = 17;
+	repeated string available_country_codes = 18;
+	string analytics_id = 19;
+	string music_artist_name = 20;
+	string android_deep_link = 21;
+	string main_channel_path = 22;
+	repeated string alternate_channel_paths = 23;
+	string android_appindexing_link = 24;
+	string ios_appindexing_link = 25;
+	string vanity_channel_url = 27;
+	string tag_manager_id = 28;
+}
+
+extend Renderer {
+	ChannelMetadataRenderer channel_metadata_renderer = 57075253;
+}

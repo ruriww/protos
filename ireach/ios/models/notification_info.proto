@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ireach.ios.models;
+
+import "google/protobuf/timestamp.proto";
+import "id/iosnotifications/notification_handling_config.proto";
+
+option objc_class_prefix = "RCH";
+
+message NotificationInfo {
+	google.protobuf.Timestamp received = 1;
+	string webview_url = 2;
+	string title_text = 3;
+	id.iosnotifications.NotificationHandlingConfig notification_handling_config = 4;
+	string notification_identifier = 5;
+	string subtitle_text = 6;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/offline_video_playback_position.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineVideoPlaybackPositionSyncResponse {
+	ResponseContext response_context = 1;
+	bool watch_history_paused = 2;
+	int64 sync_timestamp_usec = 3;
+	repeated OfflineVideoPlaybackPosition offline_video_playback_positions = 4;
+	FrameworkUpdateTransport framework_updates = 777;
+}

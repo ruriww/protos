@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+enum BootstrapType {
+	option features.enum_type = CLOSED;
+
+	BOOTSTRAP_TYPE_UNKNOWN = 0;
+	BOOTSTRAP_TYPE_KNOWLEDGE_ID = 1;
+	BOOTSTRAP_TYPE_CASES_BOOKMARK_URL = 2;
+	BOOTSTRAP_TYPE_SYMPTOM = 3;
+	BOOTSTRAP_TYPE_CASES_DIFM_PARENT_ID = 4;
+	BOOTSTRAP_TYPE_ASP_GENERATED = 5;
+	BOOTSTRAP_TYPE_CASES_HISTORY_URL = 6;
+}

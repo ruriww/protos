@@ -1,0 +1,12 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/product_specific_data.proto";
+
+option objc_class_prefix = "UFM";
+
+message FeedbackClientExperimentData {
+	string experiment_name = 1;
+	repeated ProductSpecificData experiment_psd = 2;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message GroupTypeId {
+	enum GroupType {
+		option features.enum_type = CLOSED;
+
+		GROUP_TYPE_UNSPECIFIED = 0;
+		SPACE = 1;
+		GROUP_DM = 2;
+	}
+
+	GroupType group_type = 1;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delegate_email_validation_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorDelegateEmailValidationResult {
+	string email = 1;
+	bool is_valid = 2;
+	DelegateEmailValidationReason reason = 3;
+}

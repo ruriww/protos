@@ -1,0 +1,43 @@
+edition = "2023";
+
+package moneta.integrator.common.identityandcredit;
+
+option objc_class_prefix = "Orch";
+
+message IdentityAndCreditEnums {
+	enum CreditCheckType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CREDIT_CHECK_TYPE = 0;
+		SOFT_PULL = 1;
+		HARD_PULL = 2;
+	}
+
+	enum IdentityVerificationType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_IDENTITY_VERIFICATION_TYPE = 0;
+		P2P = 2;
+		GOOGLE_PAYMENTS_LIMITED_BUYER_VERIFICATION = 4;
+		KNOWLEDGE_BASED_CHALLENGE = 5;
+		SELLER = 6;
+		ELECTION = 14;
+		KYC = 10;
+		TAX_FORM = 12;
+		STORED_VALUE_KYC = 13;
+		BUYER_DUE_DILIGENCE = 15;
+		AGE = 16;
+		GOOGLE_ONE = 17;
+		REVERIFICATION = 18;
+		MERCHANT_DUE_DILIGENCE = 19;
+		GIFT_CARD_VICTIM_ASSISTANCE = 20;
+	}
+
+	enum IdentityAndCreditScenario {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		CREDIT_CHECK = 2;
+		CUSTOMER_SUPPORT = 4;
+	}
+}

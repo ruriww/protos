@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/sponsorship_dialog_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SponsorshipConfirmCancelRenderer {
+	Renderer header = 1;
+	FormattedString title = 2;
+	FormattedString description = 3;
+	ButtonSupportedRenderers confirm_button = 4;
+	bytes tracking_params = 6;
+	Renderer feedback_survey = 7;
+	repeated Command on_open_commands = 8;
+	repeated Command on_dismiss_commands = 9;
+}
+
+extend Renderer {
+	SponsorshipConfirmCancelRenderer sponsorship_confirm_cancel_renderer = 173521720;
+}
+
+extend Renderer {
+	SponsorshipDialogHeaderRenderer sponsorship_dialog_header_renderer = 173545678;
+}

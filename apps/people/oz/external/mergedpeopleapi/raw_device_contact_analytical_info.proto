@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "social/graph/api/proto/sync_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message RawDeviceContactAnalyticalInfo {
+	bool dirty = 1;
+	bool source_id_exist = 2;
+	social.graph.api.proto.SyncInfo sync_info = 3;
+	string data_set = 4;
+}

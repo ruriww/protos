@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/image_source.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message Image {
+	repeated ImageSource source = 1;
+	string alt_text = 4;
+}

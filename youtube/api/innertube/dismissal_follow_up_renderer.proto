@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/dismissal_reason_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/dismissal_view_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DismissalFollowUpRenderer {
+	bytes tracking_params = 2;
+	FormattedString dismissal_reasons_prompt = 3;
+	repeated DismissalReasonSupportedRenderers reasons = 4;
+	ButtonSupportedRenderers cancel_button = 5;
+	ButtonSupportedRenderers submit_button = 6;
+	Command submit_feedback_endpoint = 7;
+	ButtonSupportedRenderers undo_button = 8;
+	DismissalViewStyle dismissal_view_style = 9;
+}

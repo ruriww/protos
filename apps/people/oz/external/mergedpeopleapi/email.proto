@@ -1,0 +1,81 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "google/protobuf/timestamp.proto";
+import "apps/people/oz/external/mergedpeopleapi/email_extended_data.proto";
+
+option objc_class_prefix = "POEM";
+
+message Email {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+	string type = 3;
+	string formatted_type = 4;
+
+	message ContactGroupPreference {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			GMAIL = 1;
+		}
+
+		Type type = 1;
+		string contact_group_id = 2;
+		bool is_synthetic = 3;
+	}
+
+	repeated ContactGroupPreference contact_group_preference = 5;
+	string display_name = 6;
+
+	message Certificate {
+		PersonFieldMetadata metadata = 1;
+
+		message CertificateStatus {
+			int64 not_after_sec = 1;
+
+			enum StatusCode {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN = 0;
+				CERTIFICATE_VALID = 1;
+				CERTIFICATE_MISSING = 2;
+				CERTIFICATE_EXPIRED = 3;
+				CERTIFICATE_REVOKED = 4;
+			}
+
+			StatusCode status_code = 2;
+		}
+
+		CertificateStatus status = 2;
+		string configuration_name = 3;
+	}
+
+	repeated Certificate certificate = 7;
+	EmailExtendedData extended_data = 8;
+
+	enum EmailClassification {
+		option features.enum_type = CLOSED;
+
+		EMAIL_CLASSIFICATION_UNKNOWN = 0;
+		SIGNUP_EMAIL = 1;
+		GUEST_PASS_EXTERNAL_EMAIL = 2;
+	}
+
+	EmailClassification classification = 9;
+
+	message SignupEmailMetadata {
+		bool primary = 1;
+	}
+
+	SignupEmailMetadata signup_email_metadata = 10;
+
+	message InteractionStats {
+		int32 outbound_count = 1;
+		google.protobuf.Timestamp last_outbound_interaction_time = 2;
+	}
+
+	InteractionStats interaction_stats = 13;
+}

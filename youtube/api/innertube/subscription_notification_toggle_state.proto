@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/subscription_notification_toggle_state_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscriptionNotificationToggleState {
+	int32 state_id = 1;
+	int32 next_state_id = 2;
+	SubscriptionNotificationToggleStateSupportedRenderers state = 3;
+	FormattedString inline_menu_text = 4;
+	Renderer inline_menu_button = 5;
+}

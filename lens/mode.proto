@@ -1,0 +1,18 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum Mode {
+	option features.enum_type = CLOSED;
+
+	MODE_UNSPECIFIED = 0;
+	MODE_PRODUCTS = 1;
+	MODE_VIDEOS = 2;
+	MODE_VISUAL_MATCHES = 3;
+	MODE_ALL = 4;
+	MODE_ABOUT_THIS_IMAGE = 5;
+	MODE_HOMEWORK = 6;
+	MODE_EXACT_MATCHES = 7;
+}

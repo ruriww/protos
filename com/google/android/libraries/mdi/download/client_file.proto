@@ -1,0 +1,19 @@
+edition = "2023";
+
+package com.google.android.libraries.mdi.download;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "ICN";
+
+message ClientFile {
+	string file_id = 1;
+	string file_uri = 2;
+	int64 full_size_in_bytes = 3;
+	int64 download_size_in_bytes = 4;
+	.google.protobuf.Any custom_metadata = 5;
+	bool is_downloaded = 6;
+	string checksum = 7;
+
+	extensions 1000 to max;
+}

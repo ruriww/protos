@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/shelf_header_data.proto";
+import "youtube/elements/components/video_card_data.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/collection_type_snap_mode.proto";
+import "youtube/elements/collection_type_snap_mode_deceleration_rate.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message HorizontalShelfData {
+	ShelfHeaderData shelf_header = 1;
+	float header_top_margin = 2;
+	float collection_top_margin = 3;
+	float collection_bottom_margin = 4;
+	bytes tracking_params = 5;
+	float shelf_height = 7;
+	uint32 background_color = 8;
+	repeated VideoCardData video_cards = 9;
+	EnvironmentData environment = 10;
+	bool use_largest_cell_sizing_mode = 11;
+	Command on_first_visible = 12;
+	CollectionTypeSnapMode collection_snap_mode = 20;
+	CollectionTypeSnapModeDecelerationRate collection_snap_mode_deceleration_rate = 21;
+	Button purchase_button = 22;
+	bool disable_dynamic_height_on_scroll = 24;
+	uint32 light_theme_background_color = 25;
+	uint32 dark_theme_background_color = 26;
+	float collection_left_inset = 28;
+	float collection_right_inset = 29;
+	api.innertube.Renderer bottom_actions = 30;
+	Command on_scroll_began_dragging_command = 31;
+	bool log_scroll_on_horizontal_shelf = 34;
+	bool android_disable_performance_materialization_optimizations = 37;
+	bool disable_shelf_margins_for_responsive_container = 38;
+	bool enable_survey_dismiss_on_scroll = 39;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTickerPaidStickerItemRenderer {
+	string id = 1;
+	ThumbnailDetails author_photo = 2;
+	uint32 start_background_color = 3;
+	uint32 end_background_color = 4;
+	uint32 duration_sec = 5;
+	uint32 full_duration_sec = 6;
+	Command show_item_endpoint = 7;
+	string author_external_channel_id = 8;
+	ThumbnailDetails sticker_thumbnail = 9;
+	repeated ThumbnailDetails ticker_thumbnails = 10;
+	bytes tracking_params = 12;
+}
+
+extend Renderer {
+	LiveChatTickerPaidStickerItemRenderer live_chat_ticker_paid_sticker_item_renderer = 201730354;
+}

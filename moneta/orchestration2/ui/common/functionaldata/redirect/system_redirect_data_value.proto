@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/key_value_pair.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SystemRedirectDataValue {
+	extend data.DataValue {
+		SystemRedirectDataValue system_redirect_data_value_extension = 355684755;
+	}
+
+	repeated KeyValuePair result_intent_extra = 1;
+}

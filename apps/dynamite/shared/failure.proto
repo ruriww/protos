@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.dynamite.shared;
+
+import "apps/dynamite/shared/failure_reason.proto";
+import "apps/dynamite/shared/supplemental_reason.proto";
+
+option objc_class_prefix = "DYNProto";
+
+message Failure {
+	FailureReason reason = 1;
+	repeated SupplementalReason supplemental_reason = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

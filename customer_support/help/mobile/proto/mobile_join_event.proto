@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message MobileJoinEvent {
+	string participant_id = 1;
+	string participant_display_name = 2;
+	bool translation_used = 3;
+	string agent_locale = 4;
+	string translated_agent_language = 5;
+}

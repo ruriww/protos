@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+option objc_class_prefix = "YTBA";
+
+enum DeviceState {
+	option features.enum_type = CLOSED;
+
+	DEVICE_STATE_UNKNOWN = 0;
+	DEVICE_STATE_ACTIVE = 1;
+	DEVICE_STATE_INACTIVE = 2;
+}

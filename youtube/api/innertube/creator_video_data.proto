@@ -1,0 +1,62 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_privacy.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/thumbnail_editor_state.proto";
+import "youtube/api/innertube/video_editor_project.proto";
+import "youtube/api/innertube/date.proto";
+import "youtube/api/innertube/live_chat_settings.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorVideoData {
+	string video_id = 1;
+	string title = 2;
+	string description = 3;
+	VideoPrivacy privacy = 4;
+	string channel_id = 5;
+	uint64 time_published_seconds = 6;
+	ThumbnailDetails thumbnail_details = 7;
+
+	message Metrics {
+		uint64 view_count = 1;
+		uint64 comment_count = 2;
+		uint64 like_count = 3;
+		uint64 dislike_count = 4;
+	}
+
+	Metrics metrics = 8;
+	uint64 length_seconds = 15;
+	uint64 time_created_seconds = 16;
+	ThumbnailEditorState thumbnail_editor_state = 19;
+	VideoEditorProject video_editor_project = 20;
+	bool allow_comments = 25;
+	bool allow_ratings = 29;
+	bool crowdsourcing_enabled = 32;
+	bool allow_embed = 38;
+	Date date_recorded = 39;
+	string download_url = 44;
+	string watch_url = 46;
+	LiveChatSettings live_chat = 61;
+	string serialized_share_entity = 63;
+	bool unlisted_expired = 64;
+	string original_filename = 65;
+	string video_stream_url = 66;
+	int32 video_duration_ms = 67;
+	FormattedString title_formatted_string = 71;
+	FormattedString description_formatted_string = 72;
+	bool comments_disabled_internally = 73;
+	bool view_count_is_hidden = 83;
+	string key = 85;
+	string share_url = 99;
+	bool is_paygated = 102;
+	string upload_frontend_id = 117;
+	LoggingDirectives logging_directives = 999;
+}

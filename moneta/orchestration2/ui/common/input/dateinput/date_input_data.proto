@@ -1,0 +1,40 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+import "moneta/integrator/common/date.proto";
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/input/dateinput/date_type.proto";
+import "moneta/orchestration2/ui/common/input/dateinput/date_input_transform.proto";
+import "moneta/orchestration2/ui/common/input/dateinput/date_input_validation.proto";
+import "moneta/orchestration2/ui/common/input/input_data_auto_advance.proto";
+import "moneta/orchestration2/ui/common/calculations/date/date_calculation.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DateInputData {
+	extend data.Data {
+		DateInputData date_input_data_extension = 220794717;
+	}
+
+	DateType type = 1;
+
+	oneof hint {
+		string label = 2;
+		string placeholder_text = 3;
+	}
+
+	string helper_text = 4;
+	DateInputTransform transform = 5;
+	repeated DateInputValidation validation = 6;
+	InputDataAutoAdvance auto_advance = 7;
+	calculations.date.DateCalculation date_calculation = 8;
+	string malformed_date_error_text = 9;
+
+	message DateContext {
+		integrator.common.Date cutoff_date = 11;
+		uint32 base_century = 12;
+	}
+
+	DateContext cutoff_date_context = 10;
+}

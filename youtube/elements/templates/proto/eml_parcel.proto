@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.templates.proto;
+
+import "youtube/elements/templates/proto/eml_template_data.proto";
+
+option java_package = "com.google.protos.youtube.elements.templates.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message EMLParcel {
+	repeated EMLTemplateData eml_template_data = 1;
+}

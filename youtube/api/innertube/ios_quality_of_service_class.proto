@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosQualityOfServiceClass {
+	option features.enum_type = CLOSED;
+
+	IOS_QOS_CLASS_UNKNOWN = 0;
+	IOS_QOS_CLASS_USER_INTERACTIVE = 1;
+	IOS_QOS_CLASS_USER_INITIATED = 2;
+	IOS_QOS_CLASS_DEFAULT = 3;
+	IOS_QOS_CLASS_UTILITY = 4;
+	IOS_QOS_CLASS_BACKGROUND = 5;
+}

@@ -1,0 +1,77 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/clearcut_event.proto";
+import "notifications/frontend/data/common/visual_element_event.proto";
+import "notifications/platform/sdk/proto/app_permission.proto";
+import "google/type/timeofday.proto";
+import "google/type/dayofweek.proto";
+import "google/protobuf/duration.proto";
+import "notifications/frontend/data/common/client_side_targeting_rule.proto";
+
+option objc_class_prefix = "NFDC";
+
+message Triggering {
+	message TriggeringEvent {
+		oneof event {
+			ClearcutEvent clearcut_event = 1;
+			VisualElementEvent visual_element_event = 2;
+			platform.sdk.proto.AppPermission.IosPermissionType ios_programmatic_permission_request = 3;
+		}
+	}
+
+	repeated TriggeringEvent event = 1;
+
+	message TriggeringConditions {
+		enum ConnectivityState {
+			option features.enum_type = CLOSED;
+
+			CONNECTIVITY_STATE_UNSPECIFIED = 0;
+			OFFLINE = 1;
+			ONLINE = 2;
+		}
+
+		ConnectivityState connectivity = 1;
+		int32 min_battery_percentage = 2;
+		ClientSideTargetingRule client_side_targeting_rule = 3;
+
+		message TimeConstraintCondition {
+			google.type.TimeOfDay start_time = 1;
+			google.type.TimeOfDay end_time = 2;
+			repeated google.type.DayOfWeek allowed_days = 3;
+		}
+
+		repeated TimeConstraintCondition time_constraint = 5;
+
+		enum DasherDeviceFilter {
+			option features.enum_type = CLOSED;
+
+			DASHER_DEVICE_FILTER_UNSPECIFIED = 0;
+			BLOCK_WHEN_DASHER_ON_DEVICE = 1;
+		}
+
+		DasherDeviceFilter dasher_filter = 6;
+
+		message OnDeviceCapping {
+			int64 on_device_capping_key = 1;
+			google.protobuf.Duration cap_duration_when_engaged = 2;
+			google.protobuf.Duration cap_duration_when_ack_or_dismiss = 3;
+			bool enable_across_apps = 4;
+		}
+
+		OnDeviceCapping on_device_capping = 7;
+
+		message InstalledAppsCondition {
+			repeated string application_id_installed = 1;
+			repeated string application_id_not_installed = 2;
+			repeated string any_application_id_not_installed = 3;
+			int32 min_apps_not_installed = 4;
+		}
+
+		InstalledAppsCondition installed_apps_condition = 8;
+		bool skip_ios_low_power_mode_check = 9;
+	}
+
+	TriggeringConditions conditions = 2;
+}

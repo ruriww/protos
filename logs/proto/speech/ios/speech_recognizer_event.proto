@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/speech_recognizer_event_type.proto";
+import "logs/proto/speech/ios/speech_recognizer_event_metadata.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message SpeechRecognizerEvent {
+	SpeechRecognizerEventType speech_recognizer_event_type = 1;
+	float duration_in_sec = 2;
+	string error_code = 3;
+	uint32 recognized_string_length = 4;
+	bool is_first_partial = 5;
+	SpeechRecognizerEventMetadata metadata = 6;
+}

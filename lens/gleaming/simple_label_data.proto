@@ -1,0 +1,24 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+message SimpleLabelData {
+	string label = 1;
+
+	message PlaceData {
+		float overall_rating = 1;
+		int32 price_level = 2;
+		string prominent_type_name = 3;
+		bool represented_by_address = 4;
+	}
+
+	PlaceData place_data = 2;
+
+	message LanguageLearningData {
+		string sub_label = 2;
+	}
+
+	LanguageLearningData language_learning_data = 3;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_signpost_interval_data.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitSignpostMetric {
+	string signpost_name = 1;
+	string signpost_category = 2;
+	MetricKitSignpostIntervalData signpost_interval_data = 3;
+	int64 total_count = 4;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.frontend.sendkit.data;
+
+option objc_class_prefix = "SKT";
+
+message InternalMetadata {
+	string monogram = 1;
+	bool name_hidden = 2;
+	bool has_profile_name = 3;
+	string originating_field = 4;
+	string key = 6;
+}

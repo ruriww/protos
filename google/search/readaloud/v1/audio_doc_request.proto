@@ -1,0 +1,41 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/privacy_level.proto";
+import "google/search/readaloud/v1/client_info.proto";
+import "google/search/readaloud/v1/audio_doc_processing_options.proto";
+import "google/search/readaloud/v1/text_parts.proto";
+import "google/search/readaloud/v1/seek_options.proto";
+import "google/search/readaloud/v1/voice_settings.proto";
+import "google/search/readaloud/v1/authorization_info.proto";
+
+option objc_class_prefix = "RAS";
+
+message AudioDocRequest {
+	ClientInfo client_info = 2;
+	map<string, string> language_voices = 3;
+	AudioDocProcessingOptions advanced_options = 5;
+
+	message Media {
+		oneof content_oneof {
+			string content = 1;
+			bytes binary_content = 2;
+		}
+
+		string mime_type = 3;
+		PrivacyLevel privacy_level = 4;
+		string url = 5;
+	}
+
+	oneof input_oneof {
+		string url = 6;
+		TextParts text = 7;
+		Media media = 11;
+		bytes session_token = 12;
+	}
+
+	SeekOptions seek_options = 8;
+	VoiceSettings voice_settings = 9;
+	AuthorizationInfo authorization_info = 10;
+}

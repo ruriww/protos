@@ -1,0 +1,28 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message ProfilePhotoOptions {
+	enum PrivatePhotoUrlFormat {
+		option features.enum_type = CLOSED;
+
+		PRIVATE_PHOTO_URL_FORMAT_UNSPECIFIED = 0;
+		REDIRECT_COOKIE_CREDENTIAL = 1;
+		EMBEDDED_CREDENTIAL = 2;
+		OAUTH2_CREDENTIAL = 3;
+	}
+
+	PrivatePhotoUrlFormat private_url_format = 1;
+
+	enum CorpHeaderPreference {
+		option features.enum_type = CLOSED;
+
+		CORP_HEADER_PREFERENCE_UNSPECIFIED = 0;
+		EXCLUDE_CORP_HEADERS = 1;
+		INCLUDE_CORP_HEADERS = 2;
+	}
+
+	CorpHeaderPreference corp_header_preference = 2;
+}

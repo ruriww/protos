@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/setting_item_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SetSettingEndpoint {
+	extend Command {
+		SetSettingEndpoint set_setting_endpoint = 77872990;
+	}
+
+	string setting_item_id = 1;
+
+	oneof setting_value {
+		string string_value = 2;
+		bool bool_value = 3;
+		int64 int_value = 4;
+	}
+
+	repeated Command actions = 5;
+	SettingItemId setting_item_id_for_client = 6;
+}

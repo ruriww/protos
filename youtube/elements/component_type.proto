@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/type.proto";
+import "youtube/elements/store_config.proto";
+import "youtube/elements/model.proto";
+import "youtube/elements/subscription_config.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ComponentType {
+	extend Type {
+		ComponentType component_type = 168777401;
+	}
+
+	string custom_class = 1;
+	StoreConfig store_config = 4;
+	Model model = 5;
+	SubscriptionConfig subscription_config = 6;
+	string development_fixture = 7;
+	bool enable_css_styling = 9;
+}

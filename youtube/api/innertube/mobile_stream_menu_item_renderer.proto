@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/mobile_stream_quick_action_item_supported_renderers.proto";
+import "youtube/api/innertube/mobile_stream_menu_item_style_type.proto";
+import "youtube/api/innertube/mobile_stream_visibility_condition.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/mobile_stream_menu_item_tag.proto";
+import "youtube/api/innertube/mobile_shared_toolbelt_item_enums.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamMenuItemRenderer {
+	FormattedString title = 1;
+	FormattedString description = 2;
+	Icon icon = 3;
+	bool is_selected = 4;
+	Command navigation_endpoint = 5;
+	Command service_endpoint = 6;
+	MobileStreamQuickActionItemSupportedRenderers quick_action_item = 7;
+	MobileStreamMenuItemStyleType style = 8;
+	repeated MobileStreamVisibilityCondition visibility_conditions = 9;
+	AccessibilitySupportedDatas accessibility = 10;
+	uint64 initial_delay_ms = 11;
+	uint64 cooldown_ms = 12;
+	FormattedString disabled_description = 13;
+	bytes tracking_params = 15;
+	MobileStreamMenuItemTag tag = 16;
+	MobileSharedToolbeltItemEnums toolbelt_item_type = 17;
+	Icon selected_state_icon = 18;
+}
+
+extend Renderer {
+	MobileStreamMenuItemRenderer mobile_stream_menu_item_renderer = 142366640;
+}

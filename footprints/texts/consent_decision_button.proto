@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "footprints/texts/button_style.proto";
+import "footprints/transparencyandcontrol/proto/consent_decision.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentDecisionButton {
+	string text = 1;
+	ButtonStyle button = 2;
+	repeated transparencyandcontrol.proto.ConsentDecision decision = 3;
+}

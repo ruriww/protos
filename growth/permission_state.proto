@@ -1,0 +1,17 @@
+edition = "2023";
+
+package growth;
+
+import "growth/s_ios_permission_type.proto";
+import "growth/s_ios_permission_state.proto";
+import "growth/s_android_permission_type.proto";
+import "growth/s_android_permission_state.proto";
+
+option objc_class_prefix = "GRW";
+
+message PermissionState {
+	SIosPermissionType permission_type = 1;
+	SIosPermissionState permission_state = 2;
+	SAndroidPermissionType android_permission_type = 3;
+	SAndroidPermissionState android_permission_state = 4;
+}

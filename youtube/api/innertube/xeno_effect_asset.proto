@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/xeno_effect_graph_version.proto";
+import "youtube/api/innertube/xeno_effect_static_asset_registry_config.proto";
+import "youtube/api/innertube/xeno_effect_graph_input_config.proto";
+import "youtube/api/innertube/xeno_effect_edu_type.proto";
+import "youtube/api/innertube/xeno_effect_rendering_priority.proto";
+import "youtube/api/innertube/xeno_effect_rendering_layer.proto";
+import "youtube/api/innertube/xeno_effect_control_input_ui_config.proto";
+import "youtube/api/innertube/xeno_effect_user_interaction_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectAsset {
+	XenoEffectGraphVersion graph = 1;
+	XenoEffectStaticAssetRegistryConfig static_asset_registry_config = 2;
+	XenoEffectGraphInputConfig graph_input_config = 3;
+	repeated XenoEffectEduType edu_types = 4;
+	XenoEffectRenderingPriority rendering_priority = 5;
+	XenoEffectRenderingLayer rendering_layer = 6;
+	XenoEffectControlInputUiConfig control_input_ui_config = 7;
+	repeated XenoEffectEduType preview_edu_types = 8;
+	repeated XenoEffectUserInteractionType user_interaction_types = 9;
+	repeated string edu_text = 10;
+	repeated string preview_edu_text = 11;
+	string dynamic_creation_asset_token = 12;
+	Command on_dynamic_creation_asset_request_event = 13;
+	Command on_effect_activated_command = 14;
+	Command on_effect_deactivated_command = 15;
+}

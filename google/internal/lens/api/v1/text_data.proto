@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "quality_genie/eyes/prefetched_text_selectable.proto";
+import "quality_genie/eyes/client_text_selection.proto";
+import "quality_genie/eyes/pruned_ocr.proto";
+import "vision/visualsearch/lens/text_doctype_info.proto";
+
+option objc_class_prefix = "LFE";
+
+message TextData {
+	repeated quality_genie.eyes.PrefetchedTextSelectable text_selectable = 1;
+	quality_genie.eyes.ClientTextSelection selected_text = 2;
+	quality_genie.eyes.PrunedOcr recognized_text = 3;
+	string content_language = 4;
+	vision.visualsearch.lens.TextDoctypeInfo doctype_info = 7;
+}

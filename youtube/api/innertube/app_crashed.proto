@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/app_crash_type.proto";
+import "youtube/api/innertube/yt_system_health_metric.proto";
+import "youtube/api/innertube/user_visibility_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppCrashed {
+	AppCrashType app_crash_type = 1;
+	string interface_version = 2;
+	uint64 resident_memory_in_bytes = 3;
+	YtSystemHealthMetric system_health = 4;
+	UserVisibilityContext user_visibility_context = 5;
+}

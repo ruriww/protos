@@ -1,0 +1,11 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+option objc_class_prefix = "GIDLOGAS";
+
+message UtmParams {
+	string source = 1;
+	string medium = 2;
+	string campaign = 3;
+}

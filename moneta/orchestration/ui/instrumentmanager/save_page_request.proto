@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/common/bootstrap/client_parameters.proto";
+import "moneta/orchestration/ui/instrumentmanager/page_value.proto";
+
+option objc_class_prefix = "IManager";
+
+message SavePageRequest {
+	common.RequestContext context = 1;
+	common.bootstrap.ClientParameters client_parameters = 3;
+	PageValue page_value = 4;
+}

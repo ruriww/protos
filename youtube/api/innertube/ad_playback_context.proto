@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_system.proto";
+import "youtube/api/innertube/ad_type.proto";
+import "youtube/api/innertube/instream_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdPlaybackContext {
+	AdSystem ad_system = 1;
+	AdType ad_type = 2;
+	InstreamType instream_type = 3;
+	string host_video_id = 5;
+	bool pyv = 6;
+	string ad_query_id = 8;
+	uint64 ad_id_for_watch_history = 10;
+	int64 slot_position = 11;
+	float user_presence = 14;
+	int64 vast_ad_duration_ms = 16;
+	int64 drift_from_head_ms = 46;
+	bool instream_ad_feedback_enabled = 47;
+	bytes ad_serving_data_entry = 49;
+	uint64 ad_id = 50;
+	bool hide_text_overlay_for_livestream = 51;
+}

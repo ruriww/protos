@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+enum AgeOfConsentStatus {
+	option features.enum_type = CLOSED;
+
+	AOC_STATUS_UNKNOWN = 0;
+	UNDER_AOC = 1;
+	AT_OR_ABOVE_AOC = 2;
+}

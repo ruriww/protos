@@ -1,0 +1,25 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/stroke.proto";
+import "ink/proto/path.proto";
+import "ink/proto/element_attributes.proto";
+import "ink/proto/text/text.proto";
+import "ink/proto/composite_image_info.proto";
+import "ink/proto/tool_params.proto";
+import "ink/proto/shape_spec.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Element {
+	string deprecated_uuid = 4 [ deprecated = true ];
+	uint32 minimum_serializer_version = 5;
+	Stroke stroke = 6;
+	Path path = 9;
+	ElementAttributes attributes = 10;
+	text.Text text = 11;
+	CompositeImageInfo composite_image_info = 12;
+	ToolParams tool_params = 13;
+	ShapeSpec shape_spec = 14;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AutocompleteOption {
+	webutil.html.types.SafeHtmlProto display_text = 1;
+
+	message AutocompleteOptionFieldValue {
+		int32 autocomplete_field_id = 1;
+		string value = 2;
+		int32 option_tag = 3;
+	}
+
+	repeated AutocompleteOptionFieldValue autocomplete_option_field_value = 2;
+}

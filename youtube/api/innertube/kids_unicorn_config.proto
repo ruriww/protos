@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsUnicornConfig {
+	bool kids_capture_main_links = 1;
+	bool kids_enable_unicorn_auto_login = 2;
+	bool kids_enable_unicorn = 3;
+	bool kids_enable_unicorns_in_onboarding_flow = 4;
+	bool kids_enable_unicorns_in_signin = 5;
+}

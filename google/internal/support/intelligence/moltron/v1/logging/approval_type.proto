@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+enum ApprovalType {
+	option features.enum_type = CLOSED;
+
+	APPROVAL_TYPE_UNSPECIFIED = 0;
+	APPROVAL_TYPE_FOLLOWED = 1;
+	APPROVAL_TYPE_UNFOLLOWED = 2;
+}

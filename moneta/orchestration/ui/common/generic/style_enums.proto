@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+option objc_class_prefix = "Orch";
+
+message StyleEnums {
+	enum Alignment {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ALIGNMENT = 0;
+		START = 1;
+		END = 2;
+		CENTER = 3;
+	}
+
+	enum OverlayStyle {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_UI_STYLE = 0;
+		FULL_SCREEN = 1;
+		DIALOG = 2;
+		BOTTOM_SHEET = 3;
+		POPUP = 4;
+	}
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsWatchNextConfig {
+	bool enable_wn_larger_thumbnails_for_phones = 1;
+	bool enable_wn_title_overlay_for_phones = 2;
+	bool enable_wn_back_paddle = 3;
+	bool enable_watch_transitions_ios = 4;
+}

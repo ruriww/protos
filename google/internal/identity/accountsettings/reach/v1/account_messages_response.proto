@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.reach.v1;
+
+import "google/internal/identity/accountsettings/reach/v1/account_particle_disc.proto";
+import "google/internal/identity/accountsettings/reach/v1/account_menu.proto";
+import "google/internal/identity/accountsettings/reach/v1/account_advice.proto";
+
+option objc_class_prefix = "RCH";
+
+message AccountMessagesResponse {
+	AccountParticleDisc account_particle_disc = 1;
+	AccountMenu account_menu = 2;
+	bool is_server_dark_launch = 3;
+	repeated AccountAdvice account_advices = 4;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchVideosPostsElementsDialogCommand {
+	extend elements.Command {
+		SearchVideosPostsElementsDialogCommand search_videos_posts_elements_dialog_command = 525000110;
+	}
+
+	string dialog_id = 1;
+
+	message BrowseRequestParams {
+		string browse_id = 1;
+		string query = 2;
+	}
+
+	oneof request_params {
+		BrowseRequestParams browse_request_params = 2;
+	}
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.monet;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message MonetData {
+	extend data.Data {
+		MonetData monet_data_extension = 268123868;
+	}
+
+	oneof params {
+		bytes launching_params = 1;
+		bytes tokenization_params = 2;
+	}
+
+	int32 tokenizable_type = 3;
+}

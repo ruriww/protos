@@ -1,0 +1,24 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/platform.proto";
+import "google/internal/identity/accountsettings/mobile/v1/client_capabilities.proto";
+import "google/internal/identity/accountsettings/mobile/v1/client_versions.proto";
+
+option objc_class_prefix = "ASM";
+
+message RequestContext {
+	Platform platform = 1;
+	ClientCapabilities client_capabilities = 2;
+	ClientVersions client_versions = 3;
+	string time_zone = 4;
+	int32 logical_screen_density = 6;
+	bool is_rtl = 7;
+	bool is_auto = 8;
+	bool is_dark_mode_enabled = 9;
+	bool uses_all_image_urls = 10;
+	bool is_pay_module_available = 13;
+	string calling_android_app = 14;
+	string google_account_referrer = 16;
+}

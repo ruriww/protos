@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RemoveRendererFromItemSectionAction {
+	oneof field_number {
+		uint32 element_renderer_model_extension_field_number = 1;
+		uint32 renderer_extension_field_number = 2;
+	}
+}
+
+extend Command {
+	RemoveRendererFromItemSectionAction remove_renderer_from_item_section_action = 305286116;
+}

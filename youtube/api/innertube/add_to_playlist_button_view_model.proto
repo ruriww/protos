@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/save_to_playlist_list_entity.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddToPlaylistButtonViewModel {
+	extend Renderer {
+		AddToPlaylistButtonViewModel add_to_playlist_button_view_model = 484598023;
+	}
+
+	Renderer toggle_button_view_model = 1;
+	string add_to_playlist_entity_key = 2;
+	SaveToPlaylistListEntity save_to_playlist_list_entity = 3;
+}

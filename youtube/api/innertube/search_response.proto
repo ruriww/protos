@@ -1,0 +1,51 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/search_response_supported_renderers.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/search_survey_trigger_supported_renderers.proto";
+import "youtube/api/innertube/search_header_supported_renderers.proto";
+import "youtube/api/innertube/search_topbar_supported_renderers.proto";
+import "youtube/api/innertube/search_overlay_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/add_to_playlist_search_context.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchResponse {
+	ResponseContext response_context = 1;
+	int64 estimated_results = 2;
+	SearchResponseSupportedRenderers contents = 4;
+	string debug_html = 5;
+	repeated string debug_lines = 6;
+	ContinuationSupportedRenderers continuation_contents = 7;
+	bytes tracking_params = 9;
+	SearchSurveyTriggerSupportedRenderers survey = 10;
+	bytes generic_search_request = 11;
+	bytes generic_search_response = 12;
+	SearchHeaderSupportedRenderers header = 13;
+	SearchTopbarSupportedRenderers topbar = 16;
+	string search_ads_request_url = 17;
+	SearchOverlaySupportedRenderers overlay = 18;
+	bool display_bottom_sheet_search_filter = 19;
+	bool temporary_disable_search_ads = 21;
+	repeated string refinements = 22;
+	string corrected_query = 23;
+	bool hide_contents = 24;
+	string search_history_feedback_token = 25;
+	repeated Command on_response_received_commands = 26;
+	repeated Renderer panels = 28;
+	bool is_shorts_context = 29;
+	string target_id = 30;
+	bool is_playlists_context = 31;
+	AddToPlaylistSearchContext add_to_playlist_search_context = 32;
+	bool is_safe_search_triggered = 33;
+	FrameworkUpdateTransport framework_updates = 777;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "cast/counted_features.proto";
+
+option objc_class_prefix = "CADP";
+
+message FeatureUsageCounters {
+	cast.CountedFeatures counted_features = 1;
+	int32 usage_count = 2;
+}

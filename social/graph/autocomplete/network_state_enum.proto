@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message NetworkStateEnum {
+	enum NetworkState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OFFLINE = 1;
+		ONLINE = 2;
+		ONLINE_WIFI = 3;
+		ONLINE_CELLULAR = 4;
+	}
+}

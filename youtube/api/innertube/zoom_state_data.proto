@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/zoom_state.proto";
+import "youtube/api/innertube/player_layout_state.proto";
+import "youtube/api/innertube/device_orientation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ZoomStateData {
+	ZoomState start_zoom_state = 1;
+	ZoomState end_zoom_state = 2;
+	float start_zoom_level = 3;
+	float end_zoom_level = 4;
+	PlayerLayoutState player_layout_state = 5;
+	DeviceOrientation device_orientation = 6;
+
+	message VideoData {
+		string video_id = 1;
+		int32 video_width = 2;
+		int32 video_height = 3;
+	}
+
+	VideoData video_data = 7;
+
+	message BoundingBox {
+		int32 x = 1;
+		int32 y = 2;
+		int32 width = 3;
+		int32 height = 4;
+	}
+
+	BoundingBox bounding_box = 8;
+}

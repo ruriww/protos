@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImagePreviewSelectCommand {
+	Renderer preview_select_renderer = 1;
+	string image_attachment_creation_key = 2;
+	string image_attachment_key = 3;
+}
+
+extend Command {
+	ImagePreviewSelectCommand image_preview_select_command = 248050398;
+}

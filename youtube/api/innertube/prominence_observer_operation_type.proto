@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ProminenceObserverOperationType {
+	option features.enum_type = CLOSED;
+
+	PROMINENCE_OBSERVER_OPERATION_TYPE_UNKNOWN = 0;
+	PROMINENCE_OBSERVER_OPERATION_TYPE_ENABLE = 1;
+	PROMINENCE_OBSERVER_OPERATION_TYPE_DISABLE = 2;
+}

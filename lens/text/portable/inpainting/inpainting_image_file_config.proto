@@ -1,0 +1,39 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+option objc_class_prefix = "LNSINP";
+
+message InpaintingImageFileConfig {
+	enum FileFormat {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		RAW_BYTES_RGBA = 1;
+		PNG_RGBA = 2;
+		WEBP_RGBA = 3;
+		JPEG_RGB_PNG_MASK = 4;
+	}
+
+	FileFormat file_format = 1;
+
+	message PngRgbaCompressionConfig {
+		uint32 compression_level = 1;
+	}
+
+	message WebpRgbaCompressionConfig {
+		bool lossless = 1;
+		float compression_factor = 2;
+	}
+
+	message JpegRgbPngMaskCompressionConfig {
+		float jpeg_rgb_quality_level = 1;
+		uint32 png_mask_compression_level = 2;
+	}
+
+	oneof compression_amount {
+		PngRgbaCompressionConfig png_rgba_compression_config = 4;
+		WebpRgbaCompressionConfig webp_rgba_compression_config = 5;
+		JpegRgbPngMaskCompressionConfig jpeg_rgb_png_mask_compression_config = 6;
+	}
+}

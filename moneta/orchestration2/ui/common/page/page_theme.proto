@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.page;
+
+import "moneta/orchestration2/ui/common/node/node_properties.proto";
+import "moneta/orchestration2/ui/common/page/device_screen_size_category.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PageTheme {
+	map<int32, node.NodeProperties> properties = 1;
+	map<int32, DeviceScreenSizeCategory> device_screen_size_category = 2;
+}

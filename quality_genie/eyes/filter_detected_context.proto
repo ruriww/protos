@@ -1,0 +1,23 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/filter_type.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message FilterDetectedContext {
+	FilterType filter_type = 1;
+	bool is_recommended = 2;
+
+	message TranslateContext {
+		string dominant_source_language = 1;
+		bool multiple_source_languages = 2;
+	}
+
+	oneof filter_context {
+		TranslateContext translate = 4;
+	}
+
+	string recommendation_text = 6;
+}

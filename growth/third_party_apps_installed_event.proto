@@ -1,0 +1,11 @@
+edition = "2023";
+
+package growth;
+
+import "growth/url_scheme_info.proto";
+
+option objc_class_prefix = "GRW";
+
+message ThirdPartyAppsInstalledEvent {
+	repeated UrlSchemeInfo url_schemes = 1;
+}

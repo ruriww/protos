@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delayed_event_config_set.proto";
+import "youtube/api/innertube/delayed_event_buffer_config.proto";
+import "youtube/api/innertube/delayed_event_tier_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DelayedEventConfig {
+	int32 seconds_between_dispatches = 1;
+	DelayedEventConfigSet interaction_logging_config = 2;
+	DelayedEventConfigSet event_logging_config = 3;
+	bool metrics_enabled = 4;
+	int32 max_seconds_between_dispatches = 5;
+	int32 seconds_between_cleans = 6;
+	DelayedEventBufferConfig buffer_config = 8;
+	bool dispatch_on_app_to_background = 9;
+	DelayedEventTierConfig tier_config = 10;
+	int32 cold_start_dispatch_delay_seconds = 11;
+	int32 bytes_length_limit = 13;
+	bool should_drop_db_on_large_record = 14;
+	bool should_grab_notifications_logs = 15;
+	bool default_delayed_event_service_refactor = 16;
+	int32 ios_seconds_before_cleaning = 17;
+	bool ios_should_enable_immediate_tier_support = 18;
+	DelayedEventConfigSet notification_registration_config = 19;
+	bool ios_should_enable_log_immediate = 20;
+	bool android_should_log_delayed_event_errors_ecatcher = 21;
+	float android_delayed_event_ecatcher_sample_rate = 22;
+	bool in_android_remove_blocking_experiment = 23;
+	bool in_android_dispatch_all_events_tiered_experiment = 24;
+	bool in_android_batch_logging_on_mobile_networks_experiment = 25;
+	int32 android_delayed_event_service_v2 = 26;
+	float android_log_error_message_sampling_rate = 27;
+}

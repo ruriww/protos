@@ -1,0 +1,13 @@
+edition = "2023";
+
+package knowledge.verticals.translate;
+
+option objc_class_prefix = "KVT";
+
+message TranslateLanguageMid {
+	string language_code = 1;
+	string language_mid = 2;
+	string language_name = 3;
+	bool enabled_only_for_sticky_triggering = 4;
+	bool is_new_translate_root_language = 5;
+}

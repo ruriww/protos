@@ -1,0 +1,29 @@
+edition = "2023";
+
+package experiments.phenotype;
+
+option objc_class_prefix = "PHENO";
+
+message RegistrationInfo {
+	string config_package = 1;
+
+	oneof package_version {
+		int32 version = 2;
+		int64 ios_version = 15;
+	}
+
+	repeated string log_source_name = 3;
+	repeated int32 experiment_id = 4;
+	bytes params = 5;
+	bool weak = 6;
+
+	oneof application_info {
+		string android_package = 7;
+		string ios_bundle = 10;
+	}
+
+	bool auto_subpackage = 11;
+	bool delete_runtime_properties = 12;
+	sfixed64 baseline_cl = 13;
+	bytes heterodyne_info = 14;
+}

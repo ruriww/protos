@@ -1,0 +1,32 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "footprints/texts/primitiveconsent/rich_text.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message CheckboxList {
+	message Checkbox {
+		string image_url = 1;
+		transparencyandcontrol.proto.ConsentSetting consent_setting = 2;
+		RichText text = 3;
+		bool saved_state = 4;
+		bool selected_state = 5;
+		RichText description = 6;
+	}
+
+	repeated Checkbox checkbox = 1;
+	bool has_select_all = 2;
+	RichText select_all_text = 3;
+	bool is_required = 4;
+	RichText description = 5;
+
+	message CheckboxListStyle {
+		bool without_separators = 1;
+	}
+
+	CheckboxListStyle checkbox_list_style = 6;
+	uint32 id = 7;
+}

@@ -1,0 +1,60 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_filter.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InnerTubeUploadsConfig {
+	string scotty_upload_url = 2;
+	string frontend_upload_id_prefix = 3;
+	bool video_editing_enabled = 4;
+	repeated uint64 scotty_transfer_retry_pattern_values = 5 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 video_creation_retry_pattern_values = 6 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 feedback_polling_retry_pattern_values = 7 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 metadata_saving_retry_pattern_values = 8 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 video_publishing_retry_pattern_values = 9 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 video_deletion_retry_pattern_values = 10 [ features.repeated_field_encoding = EXPANDED ];
+	uint64 transfer_idle_timeout_millis = 11;
+	int32 max_hardware_decoders = 12;
+	bool background_uploads_enabled = 13;
+	bool audio_swap_enabled = 14;
+	bool video_filters_enabled = 15;
+	bool client_transcoding_enabled = 16;
+	bool creator_fab_enabled = 17;
+	bool moov_atom_relocation_enabled = 18;
+	repeated VideoFilter video_filters = 19;
+	bool is_default_mobile_resolution_720p = 20;
+	bool extractor_sample_source_enabled = 21;
+	bool video_filters_with_b_frame_enabled = 24;
+	bool cronet_enabled = 27;
+	string cronet_experimental_options = 30;
+	bool scotty_transfer_no_chunks = 32;
+	bool filter_only_edit_passthrough_enabled = 34;
+	bool unified_progress_bar_enabled = 36;
+	bool drishti_effects_enabled = 38;
+	bool cameo_enabled = 39;
+	bool foreground_upload_service_enabled = 40;
+	int32 ecatcher_upload_send_rate = 45;
+	int32 ecatcher_edit_send_rate = 46;
+	bool live_video_filters_enabled = 47;
+	repeated VideoFilter live_video_filters = 48;
+	bool cronet_async_interface_enabled = 54;
+	bool cronet_quic_enabled = 55;
+	repeated uint64 lightweight_registration_retry_patterns = 58 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 default_retry_patterns = 59 [ features.repeated_field_encoding = EXPANDED ];
+	bool android_enable_live_filters_dogfood = 60;
+	bool ios_universal_topbar_upload_enabled = 61;
+	int32 reels_allowed_prebuffer_length = 62;
+	bool reel_to_reel_navigation_enabled = 63;
+	repeated uint64 create_reel_items_retry_pattern_values = 64 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint64 process_video_retry_pattern_values = 65 [ features.repeated_field_encoding = EXPANDED ];
+	string cronet_upload_exp_options = 66;
+	bool cronet_upload_enable_spdy = 67;
+	string creation_media_entity_scotty_upload_url = 68;
+	repeated uint64 creation_media_entity_video_scotty_transfer_retry_pattern_values = 69;
+}

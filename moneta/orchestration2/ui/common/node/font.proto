@@ -1,0 +1,68 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Font {
+	string family = 1;
+	UnitSize size = 2;
+	uint32 color_argb = 3;
+
+	enum FontStyle {
+		option features.enum_type = CLOSED;
+
+		FONT_STYLE_UNKNOWN = 0;
+		FONT_STYLE_ITALIC = 1;
+	}
+
+	FontStyle style = 4;
+	UnitSize letter_spacing = 5;
+
+	enum FontWeight {
+		option features.enum_type = CLOSED;
+
+		FONT_WEIGHT_UNKNOWN = 0;
+		FONT_WEIGHT_LIGHT = 1;
+		FONT_WEIGHT_NORMAL = 2;
+		FONT_WEIGHT_LIGHT_BOLD = 3;
+		FONT_WEIGHT_SEMI_BOLD = 7;
+		FONT_WEIGHT_BOLD = 4;
+		FONT_WEIGHT_DARK_BOLD = 5;
+		FONT_WEIGHT_DARKEST_BOLD = 6;
+	}
+
+	FontWeight weight = 6 [ default = FONT_WEIGHT_NORMAL ];
+	UnitSize line_height = 7;
+
+	enum FontTransformation {
+		option features.enum_type = CLOSED;
+
+		FONT_TRANSFORMATION_UNKNOWN = 0;
+		FONT_TRANSFORMATION_UPPERCASE = 1;
+		FONT_TRANSFORMATION_LOWERCASE = 2;
+	}
+
+	FontTransformation font_transformation = 8;
+
+	enum TextAlignment {
+		option features.enum_type = CLOSED;
+
+		TEXT_ALIGNMENT_UNKNOWN = 0;
+		TEXT_ALIGNMENT_START = 1;
+		TEXT_ALIGNMENT_END = 2;
+		TEXT_ALIGNMENT_CENTER = 3;
+		TEXT_ALIGNMENT_JUSTIFY = 4;
+	}
+
+	TextAlignment text_alignment = 9;
+
+	message TextDecoration {
+		bool underline = 1;
+		bool strike_through = 2;
+	}
+
+	TextDecoration text_decoration = 10;
+}

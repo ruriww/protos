@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsTransitionAnimationConfig {
+	bool enable_gem_island_transition_animation = 1;
+	bool enable_video_cell_to_player_transition_animation = 2;
+	bool enable_channel_cell_to_page_transition_animation = 3;
+	bool enable_player_to_cell_pop_animation = 4;
+	bool enable_channel_page_to_cell_pop_animation = 5;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/create_reel_items_status.proto";
+import "youtube/api/innertube/reel_result.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateReelItemsResponse {
+	ResponseContext response_context = 1;
+	CreateReelItemsStatus status = 3 [ default = CREATE_REEL_ITEMS_STATUS_UNKNOWN ];
+	string debug_info = 4;
+	repeated ReelResult reel_results = 5;
+}

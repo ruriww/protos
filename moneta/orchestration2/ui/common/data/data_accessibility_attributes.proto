@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+message DataAccessibilityAttributes {
+	string label = 1;
+	int32 extension_field_number = 2;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addressentry;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/addressentry/address_suggestion.proto";
+
+option objc_class_prefix = "AddressEntry";
+
+message GetAddressSuggestionResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	repeated AddressSuggestion address_suggestion = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum WatchEpPromoConflictType {
+	option features.enum_type = CLOSED;
+
+	WATCH_EP_PROMO_CONFLICT_TYPE_UNKNOWN = 0;
+	WATCH_EP_PROMO_CONFLICT_TYPE_PROMO_NOT_SHOWN = 1;
+}

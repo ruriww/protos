@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message MobileConversationStateChangeEvent {
+	enum StateChangeType {
+		option features.enum_type = CLOSED;
+
+		CONVERSATION_STATE_CHANGE_UNSPECIFIED = 0;
+		CONVERSATION_STATE_CHANGE_CHAT_SESSION_IDLED = 1;
+		CONVERSATION_STATE_CHANGE_CHAT_SESSION_REVIVED = 2;
+	}
+
+	StateChangeType state_change_type = 1;
+}

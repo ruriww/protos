@@ -1,0 +1,12 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/session_id.proto";
+
+option objc_class_prefix = "GSYP";
+
+message GetClientConfigRequest {
+	SessionId session_id = 1;
+	bytes cipher = 2;
+}

@@ -1,0 +1,74 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/avatar_view_model.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/download_state.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/attachment_run.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message Metadata {
+	oneof title_oneof {
+		string title = 1;
+		AttributedString formatted_title = 27;
+	}
+
+	oneof byline_oneof {
+		string byline = 2;
+		string channel_name = 46;
+	}
+
+	string metadata_details = 3;
+	uint32 max_title_line = 7;
+	bool is_playlist_mix = 8;
+	string secondary_headline = 9;
+	uint32 max_lines_secondary_headline = 10;
+	bool is_android = 11;
+	bool is_large_form_factor = 12;
+	string offline_video_status_key = 14;
+	bool show_offline_status = 15;
+	bool is_video_with_context = 16;
+	api.innertube.AvatarViewModel avatar = 17;
+	bool is_compact_video = 18;
+	bool is_video_card = 19;
+	uint32 max_lines_metadata_details = 20;
+	uint32 max_lines_byline = 24;
+	Command verified_badge_tooltip_command = 25;
+	bool is_movie_card = 26;
+	string byline_icon_name = 28;
+	bool is_video_card_with_context = 29;
+	string original_title = 30;
+	string toggle_title_entity_key = 31;
+	bool is_clip_viewing_compact_video = 32;
+	uint32 metadata_custom_color = 33;
+	string leading_byline_icon_name = 35;
+	bool is_show_card = 36;
+	string download_status_entity_key = 37;
+	repeated api.innertube.DownloadState download_states_to_show = 38 [ features.repeated_field_encoding = EXPANDED ];
+	bool has_no_byline_text = 40;
+	string download_completed_badge_a11y_label = 41;
+	bool enable_update_wnif_specs = 42;
+	string metadata_details_a11y_label = 43;
+	bool avatar_as_leading_details_icon = 44;
+	bool no_bold_title_enabled = 45;
+	string metadata_details_icon_name = 47;
+	string additional_details = 48;
+	bool apply_error_styling = 49;
+	bool enable_light_weight_title_font = 51;
+	bool enable_modern_type_metadata = 55;
+	repeated api.innertube.Renderer top_badge = 56;
+	api.innertube.Renderer decorated_avatar_view_model = 57;
+	bool enable_dynamic_byline_position = 59;
+	api.innertube.Renderer download_badge = 60;
+	bool enable_updated_metadata_spacing = 61;
+	AttachmentRun metadata_details_attachment_run = 63;
+	bool enable_text_shadow = 64;
+	bool remove_metadata_details_top_margin = 65;
+}

@@ -1,0 +1,100 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/reel_watch_sequence_provider.proto";
+import "youtube/api/innertube/reel_watch_input_type.proto";
+import "youtube/api/innertube/reel_ad_client_params.proto";
+import "youtube/api/innertube/watch_endpoint_logging_context.proto";
+import "youtube/api/innertube/reel_watch_endpoint_source.proto";
+import "youtube/api/innertube/reel_video_type.proto";
+import "youtube/api/innertube/reel_loop_behavior.proto";
+import "youtube/api/innertube/reel_watch_presentation.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/reel_watch_endpoint_prefetch_data.proto";
+import "youtube/api/innertube/watch_endpoint_supported_authorization_token_config.proto";
+import "youtube/api/innertube/reel_watch_experience_config.proto";
+import "youtube/api/innertube/emergency_buffer_config.proto";
+import "youtube/api/innertube/reel_playback_behavior.proto";
+import "youtube/api/innertube/reel_watch_endpoint_prefetch_image_data.proto";
+import "youtube/api/innertube/watch_endpoint_supported_onesie_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelWatchEndpoint {
+	extend Command {
+		ReelWatchEndpoint reel_watch_endpoint = 139608561;
+	}
+
+	string video_id = 1;
+	string playlist_id = 2;
+	uint32 index = 3;
+	string player_params = 4;
+	ThumbnailDetails thumbnail = 5;
+	Command dismissal_survey = 7;
+	Renderer overlay = 8;
+	bool skip_dynamic_update = 10;
+	string params = 11;
+	ReelWatchSequenceProvider sequence_provider = 12;
+	string sequence_params = 13;
+	Renderer watch_survey = 14;
+	ReelWatchInputType input_type = 15;
+	ReelAdClientParams ad_client_params = 16;
+	Command on_story_completed = 17;
+	string update_key = 18;
+	string external_channel_id = 19;
+	Command on_playback_command = 22;
+	WatchEndpointLoggingContext logging_context = 23;
+	bytes ustreamer_config = 24;
+	Renderer featured_video_button = 25;
+	ReelWatchEndpointSource watch_endpoint_source = 26;
+	int32 page_ui_type = 27;
+	string prefetch_task_id = 28;
+	string sequence_shelf_key = 29;
+	string parent_tab_identifier = 30;
+	ReelVideoType video_type = 31;
+	ReelLoopBehavior tvhtml5_default_loop_behavior = 32;
+	string linked_comment_id = 33;
+
+	message ResumeToShortsConfig {
+		bool is_ineligible_for_resume_to_shorts = 1 [ default = false ];
+	}
+
+	ResumeToShortsConfig resume_to_shorts_config = 34;
+	float start_time_seconds = 35;
+	Command on_entered_command = 36;
+	float end_time_seconds = 37;
+	Command on_response_received_command = 38;
+	ReelWatchPresentation reel_watch_presentation = 39;
+	bool racy_check_ok = 40;
+	bool content_check_ok = 41;
+	string offline_playlist_id = 42;
+	OfflineModeType offline_mode_type = 43;
+
+	oneof server_prefetch_data {
+		ReelWatchEndpointPrefetchData prefetch_data = 44;
+	}
+
+	bool skip_if_unplayable = 45;
+	WatchEndpointSupportedAuthorizationTokenConfig watch_endpoint_supported_authorization_token_config = 47;
+	bool is_pip_supported = 48;
+	ReelWatchExperienceConfig experience_config = 50;
+	Renderer accessibility_renderer = 51;
+	Command on_playback_completed = 52;
+	string identifier = 53;
+	string soft_refresh_deadline_video_id = 54;
+	string soft_refresh_continuation = 55;
+	EmergencyBufferConfig emergency_buffer_config = 58;
+	ReelPlaybackBehavior reel_playback_behavior = 59;
+	ReelWatchEndpointPrefetchImageData prefetch_image_data = 60;
+	Command watch_endpoint = 1001;
+	WatchEndpointSupportedOnesieConfig watch_endpoint_supported_onesie_config = 79857908;
+
+	extensions 5000;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message ConstantRestriction {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		ALWAYS_TRUE = 1;
+		ALWAYS_FALSE = 2;
+	}
+
+	Type type = 1 [ default = ALWAYS_TRUE ];
+}

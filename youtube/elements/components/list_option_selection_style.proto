@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum ListOptionSelectionStyle {
+	option features.enum_type = CLOSED;
+
+	LIST_OPTION_SELECTION_STYLE_UNSPECIFIED = 0;
+	LIST_OPTION_SELECTION_STYLE_DEFAULT = 1;
+	LIST_OPTION_SELECTION_STYLE_RADIO_BUTTON = 2;
+	LIST_OPTION_SELECTION_STYLE_TOGGLE_BUTTON = 3;
+}

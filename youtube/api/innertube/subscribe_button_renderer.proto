@@ -1,0 +1,83 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/subscribe_message_supported_renderers.proto";
+import "youtube/api/innertube/unsubscribe_message_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/subscribe_button_style.proto";
+import "youtube/api/innertube/subscribe_button_theme.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/subscribe_button_options_supported_renderers.proto";
+import "youtube/api/innertube/hint_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/subscribe_button_notification_options_supported_renderers.proto";
+import "youtube/api/innertube/subscribe_message_endpoint_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscribeButtonRenderer {
+	FormattedString button_text = 1;
+	FormattedString subscriber_count_text = 2;
+	bool subscribed = 3;
+	bool enabled = 4;
+	SubscribeMessageSupportedRenderers subscribe_message = 5;
+	string channel_id = 7;
+	bool show_preferences = 8;
+	FormattedString subscriber_count_with_subscribe_text = 9;
+	FormattedString subscriber_count_with_unsubscribe_text = 10;
+	UnsubscribeMessageSupportedRenderers unsubscribe_message = 11;
+	FormattedString subscribed_button_text = 12;
+	FormattedString unsubscribed_button_text = 13;
+	bytes tracking_params = 15;
+	FormattedString unsubscribe_button_text = 16;
+
+	oneof subscribe_button_icons {
+		Icon icon = 17;
+		Renderer avatar = 46;
+	}
+
+	repeated Command service_endpoints = 18;
+
+	oneof button_style {
+		SubscribeButtonStyle style = 19;
+		SubscribeButtonTheme theme = 35;
+	}
+
+	FormattedString long_subscriber_count_text = 20;
+	ButtonSupportedRenderers notification_preference_toggle_button = 21;
+	SubscribeButtonOptionsSupportedRenderers subscribe_button_options = 22;
+	FormattedString short_subscriber_count_text = 23;
+	HintSupportedRenderers hint = 24;
+	AccessibilitySupportedDatas subscribe_accessibility = 25;
+	AccessibilitySupportedDatas unsubscribe_accessibility = 26;
+	SubscribeButtonNotificationOptionsSupportedRenderers notification_preference_button = 27;
+	int64 subscribed_timestamp = 29;
+	string unsubscribe_confirm_time_limit = 30;
+	string target_id = 31;
+	Command sign_in_endpoint = 32;
+	int64 android_client_last_updated_timestamp = 33;
+	repeated Command actions = 34;
+	string subscribed_entity_key = 36;
+	repeated Command on_subscribe_endpoints = 38;
+	repeated Command on_unsubscribe_endpoints = 39;
+	int64 server_timestamp_ms = 40;
+	bool include_gaia_id_for_debug = 41;
+	bool read_subscribed_value_from_entity_store = 42;
+	bool is_channel_delegate = 43;
+	bool hide_when_unsubscribed = 47;
+}
+
+extend Renderer {
+	SubscribeButtonRenderer subscribe_button_renderer = 55419609;
+}
+
+extend Renderer {
+	SubscribeMessageEndpointRenderer subscribe_message_endpoint_renderer = 65205146;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.chip;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ChipTrigger {
+	extend eventrules.trigger.Trigger {
+		ChipTrigger chip_trigger_extension = 340762285;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_REMOVE_BUTTON_CLICKED = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

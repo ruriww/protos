@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.rendering;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ContinuationBlockRequestContinuationResult {
+	youtube.api.innertube.ContinuationSupportedRenderers continuation_supported_renderers = 1;
+}

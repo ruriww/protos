@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/media_engine_audio_mime_type.proto";
+import "youtube/api/innertube/media_engine_video_mime_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeExporterSettings {
+	int32 audio_channel_count = 1;
+	int32 resolution_width = 2;
+	int32 resolution_height = 3;
+	MediaEngineAudioMimeType audio_mime_type = 4;
+	MediaEngineVideoMimeType video_mime_type = 5;
+	uint32 bitrate = 6;
+	float frame_rate = 7;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi;
+
+import "proto2/bridge/message_set.proto";
+import "social/graph/wire/proto/peopleapi/affinity_response_context.proto";
+
+option objc_class_prefix = "SGWPP";
+
+message AffinityResponseContextMessage {
+	extend proto2.bridge.MessageSet {
+		AffinityResponseContextMessage message_set_extension = 129127567;
+	}
+
+	AffinityResponseContext affinity_response_context = 1;
+}

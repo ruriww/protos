@@ -1,0 +1,23 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "logs/people/intelligence/client_type.proto";
+import "social/clients/application_proto3_wrapper.proto";
+
+option objc_class_prefix = "PIL";
+
+message ClientContext {
+	logs.people.intelligence.ClientType client_type = 1;
+	string version = 2;
+	clients.ApplicationProto3Wrapper application = 3;
+
+	enum Platform {
+		PLATFORM_UNSPECIFIED = 0;
+		ANDROID = 1;
+		IOS = 2;
+		WEB = 3;
+	}
+
+	Platform platform = 4;
+}

@@ -1,0 +1,141 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchboxStats {
+	enum ValidationStatus {
+		option features.enum_type = CLOSED;
+
+		NO_STATUS_UNKNOWN = 0;
+		INVALID = 3;
+		VALID = 4;
+		DEPRECATED_EXEMPTED = 1;
+		DEPRECATED_INCOMPLETE = 2;
+	}
+
+	ValidationStatus validation_status = 1;
+	string client_name = 2;
+
+	message ExperimentInfo {
+		string id = 1;
+		bool triggered = 2;
+		int32 experiment_triggered = 3;
+	}
+
+	ExperimentInfo suggest_experiment_info = 3;
+	string original_query = 4;
+
+	message SuggestionInfo {
+		int32 index = 1;
+		uint32 type = 2;
+		repeated uint32 subtypes = 3 [ features.repeated_field_encoding = EXPANDED ];
+		int32 relevance = 4;
+
+		enum SuggestionSource {
+			option features.enum_type = CLOSED;
+
+			NONE = 0;
+			COMPLETE_SERVER = 1;
+			CONTENT_PROVIDERS = 2;
+			ICING = 3;
+			SSB_CONTEXT = 4;
+			NOW_PROMO = 5;
+			DEVICE_UNDO_REWRITE = 6;
+			DISCOVERABILITY = 7;
+			NEXT_APP_PREDICTION = 8;
+			YOUTUBE_REFINEMENT = 18;
+			SUGGEST_2G_LITE = 22;
+		}
+
+		SuggestionSource source = 5;
+		string entity_mid = 13;
+	}
+
+	SuggestionInfo assisted_query_info = 5;
+	repeated SuggestionInfo available_suggestions = 6;
+	bool unstable_connection = 7;
+	uint32 session_number = 8;
+	uint32 session_duration_msec = 9;
+	uint32 first_edit_time_msec = 10;
+	uint32 last_edit_time_msec = 11;
+	uint32 out_of_sync_response_count = 18;
+	uint32 max_round_trip_time_msec = 19;
+	uint32 total_round_trip_time_msec = 20;
+	string compressed_round_trip_histogram = 21;
+	uint32 last_query_build_time_msec = 22;
+
+	enum SearchMethod {
+		option features.enum_type = CLOSED;
+
+		SEARCH_METHOD_UNKNOWN = 0;
+		CLICKED_SUGGESTION = 1;
+		CUE_CARDS_IMPRESSION = 21;
+		DELETE_KEY = 2;
+		ENTER_KEY = 3;
+		SHIFT_ENTER_KEY = 4;
+		ESCAPE_KEY = 5;
+		FEELING_LUCKY_ARROW_KEY = 6;
+		FEELING_LUCKY_BUTTON = 7;
+		FEELING_LUCKY_BUTTON_INLINE = 8;
+		FEELING_LUCKY_LINK = 9;
+		PREFETCH = 10;
+		PREFETCH_QUERY = 27;
+		PREFETCH_SUGGESTION = 28;
+		SCROLL = 11;
+		SEARCH_ANYWAY_LINK = 16;
+		SEARCH_BUTTON = 12;
+		SEARCH_BUTTON_INLINE = 13;
+		SECONDARY_BUTTON_INLINE = 14;
+		SOUND_RECOGNITION = 35;
+		SPEECH_RECOGNITION = 15;
+		SPEECH2_CLICK = 17;
+		SPEECH2_FINAL_RESULT = 18;
+		SPEECH2_IDLE_TIMEOUT = 19;
+		SPEECH2_RESTORE = 20;
+		SEARCH_FOR_QUERY_SUGGESTION = 23;
+		VISUAL_SEARCH = 36;
+	}
+
+	SearchMethod search_method = 23;
+	string experiment_stats = 26;
+
+	enum ParameterValidationStatus {
+		option features.enum_type = CLOSED;
+
+		PARAMETERS_UNKNOWN = 0;
+		VALID_PARAMETERS = 1;
+		INCOMPLETE_PARAMETERS = 2;
+		INVALID_PARAMETERS = 3;
+	}
+
+	ParameterValidationStatus parameter_validation_status = 29;
+
+	enum InputMethod {
+		option features.enum_type = CLOSED;
+
+		INPUT_METHOD_UNKNOWN = 0;
+		KEYBOARD = 1;
+		PASTE = 2;
+		ON_SCREEN_KEYBOARD = 3;
+		IME = 4;
+		QUERY_BUILDER = 5;
+		SPEECH = 6;
+		HANDWRITING = 7;
+		TAB = 8;
+		GESTURE_DECODING_DYM_QUERY_BUILDER = 9;
+		LENS_CAMERA = 10;
+	}
+
+	repeated InputMethod input_methods = 31 [ features.repeated_field_encoding = EXPANDED ];
+	string request_identifier = 33;
+	uint32 num_zero_prefix_suggestions_shown = 37;
+	bool zero_prefix_enabled = 38;
+	repeated SuggestionInfo previous_suggestions = 40;
+	string query_prefix_for_displayed_suggestions = 41;
+	string session_id = 42;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedSingleSelectionMenuItemRenderer {
+	FormattedString primary_text = 1;
+	Command selected_command = 2;
+	bool is_default = 3;
+	bytes tracking_params = 5;
+	FormattedString toast_text = 6;
+}

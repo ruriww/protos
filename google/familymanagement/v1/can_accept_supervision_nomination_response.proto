@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+import "google/familymanagement/v1/supervision_type.proto";
+
+option objc_class_prefix = "GFM";
+
+message CanAcceptSupervisionNominationResponse {
+	ApiResponseHeader api_header = 1;
+	bool can_accept_supervision_nomination = 2;
+	repeated UnmetPrecondition unmet_precondition = 3;
+	SupervisionType supervision_type = 4;
+	int32 required_minimum_age = 5;
+}

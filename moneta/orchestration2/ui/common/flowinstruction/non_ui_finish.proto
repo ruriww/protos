@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.flowinstruction;
+
+import "moneta/orchestration2/ui/common/integrator_client_callback_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NonUiFinish {
+	IntegratorClientCallbackData integrator_client_callback_data = 1;
+}

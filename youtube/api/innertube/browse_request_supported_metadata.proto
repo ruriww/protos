@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlined_contents_in_browse.proto";
+import "youtube/api/innertube/bedtime_reminder_contents.proto";
+import "youtube/api/innertube/downloads_browse_params.proto";
+import "youtube/api/innertube/music_library_browse_request_metadata.proto";
+import "youtube/api/innertube/video_uploads.proto";
+import "youtube/api/innertube/local_shorts_drafts.proto";
+import "youtube/api/innertube/local_shorts_drafts_overview.proto";
+import "youtube/api/innertube/shorts_creation_client_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseRequestSupportedMetadata {
+	OfflinedContentsInBrowse offlined_contents_in_browse = 1;
+	BedtimeReminderContents bedtime_reminder_contents = 2;
+	DownloadsBrowseParams downloads_browse_params = 5;
+	MusicLibraryBrowseRequestMetadata music_library_browse_request_metadata = 7;
+	VideoUploads video_uploads = 8;
+	LocalShortsDrafts local_shorts_drafts = 9;
+	LocalShortsDraftsOverview local_shorts_drafts_overview = 10;
+	ShortsCreationClientData shorts_creation_client_data = 11;
+}

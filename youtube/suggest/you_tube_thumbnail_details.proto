@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.suggest;
+
+option objc_class_prefix = "YTS";
+
+message YouTubeThumbnailDetails {
+	string url = 1;
+	uint32 width = 2;
+	uint32 height = 3;
+}

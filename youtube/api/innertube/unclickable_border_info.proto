@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnclickableBorderInfo {
+	message UnclickableBorderSize {
+		int32 flat = 1;
+		float percentage = 2;
+	}
+
+	UnclickableBorderSize left = 1;
+	UnclickableBorderSize right = 2;
+	UnclickableBorderSize top = 3;
+	UnclickableBorderSize bottom = 4;
+}

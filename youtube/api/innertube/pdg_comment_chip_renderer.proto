@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/basic_color_palette_data.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PdgCommentChipRenderer {
+	oneof chip_content {
+		FormattedString chip_text = 1;
+		string app_store_product_id = 7;
+	}
+
+	BasicColorPaletteData chip_color_palette = 2;
+	Command command = 3;
+	Icon chip_icon = 4;
+	bytes tracking_params = 6;
+	string super_vod_item_id = 8;
+	AccessibilitySupportedDatas accessibility = 9;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	PdgCommentChipRenderer pdg_comment_chip_renderer = 360551129;
+}

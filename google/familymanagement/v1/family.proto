@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message Family {
+	enum FamilyState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAMILY_STATE = 0;
+		ACTIVE = 1;
+		INACTIVE = 2;
+	}
+}

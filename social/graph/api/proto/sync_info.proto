@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message SyncInfo {
+	string source_id = 1;
+	string sync1 = 2;
+	string sync2 = 3;
+	string sync3 = 4;
+	string sync4 = 5;
+}

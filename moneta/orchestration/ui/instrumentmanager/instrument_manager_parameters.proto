@@ -1,0 +1,68 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/instrumentmanager/instrument_manager_action_type.proto";
+import "moneta/integrator/common/amount.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/camera_input_ui_preference.proto";
+import "moneta/integrator/ui/common/common_parameters.proto";
+
+option objc_class_prefix = "IManager";
+
+message InstrumentManagerParameters {
+	InstrumentManagerActionType action = 1;
+
+	oneof payment_info {
+		string currency_code = 3 [ default = "USD" ];
+		integrator.common.Amount payment_amount = 23;
+	}
+
+	string country = 4 [ default = "US" ];
+	string instrument_id = 5;
+	string language_code = 6;
+	int64 cdp_broker_id = 8;
+	string additional_upsert_bottom_message = 12;
+	bool allow_adding_korean_local_card = 13;
+	common.components.instrument.types.CameraInputUiPreference credit_card_camera_input_preference = 14;
+	int64 f1_instrument_id = 16;
+	bool return_credit_card_cvn_token = 17;
+	bool guest_user = 18;
+	integrator.ui.common.CommonParameters common_parameters = 19;
+	string creation_option_brand_id = 25;
+	bool return_korean_card_pin_token = 28;
+	bool show_success_page_after_instrument_creation = 32;
+	bool display_brand_image = 33;
+	bytes new_card_context = 34;
+	repeated string creation_option_brand_ids = 35;
+	bool sticky_buttons = 36;
+	string public_device_id = 39;
+	bool skip_paypal_fop_selection_for_account_linking = 40;
+	string cancel_button_text = 41;
+	string guest_email = 42;
+	int32 flow_context = 43;
+	repeated bytes instrument_v2_render_params = 45;
+	string instrument_v2_creation_option_id = 46;
+	string verified_phone_number = 47;
+	bool instrument_v2_creation_option_locked = 49;
+	string fix_flow_id = 50;
+	int64 billing_account_id = 52;
+	string physical_store_id = 55;
+	bytes integrator_token = 56;
+
+	enum PaymentContext {
+		option features.enum_type = CLOSED;
+
+		PAYMENT_CONTEXT_UNSPECIFIED = 0;
+		PROCESSED = 1;
+		FACILITATED = 2;
+		SUBSCRIPTION = 3;
+	}
+
+	PaymentContext payment_context = 57;
+	bool save_guest_pan_sdid_with_cookie = 58;
+	bool billing_phone_number_required = 59;
+	bool is_explicit_user_action = 60;
+	int32 new_instrument_key = 63;
+	string tnp_server_provisioning_session_id = 70;
+	bool can_skip_legal_address_collection = 73;
+}

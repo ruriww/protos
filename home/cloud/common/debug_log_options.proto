@@ -1,0 +1,8 @@
+edition = "2023";
+
+package home.cloud.common;
+
+option objc_class_prefix = "GHCC";
+
+message DebugLogOptions {
+}

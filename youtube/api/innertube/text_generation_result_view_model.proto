@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TextGenerationResultViewModel {
+	extend Renderer {
+		TextGenerationResultViewModel text_generation_result_view_model = 36971;
+	}
+
+	message TextGenerationSuccess {
+		elements.AttributedString text = 1;
+	}
+
+	message TextGenerationError {
+		string error_message = 1;
+		elements.AttributedString error_text = 2;
+	}
+
+	oneof result {
+		TextGenerationSuccess success = 1;
+		TextGenerationError error = 2;
+	}
+
+	string serialized_gdca_token = 3;
+	RendererContext renderer_context = 997;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+enum InteractionLocation {
+	option features.enum_type = CLOSED;
+
+	INTERACTION_LOCATION_UNSPECIFIED = 0;
+	INTERACTION_LOCATION_HELP_CHAT_SCREEN = 1;
+	INTERACTION_LOCATION_SYSTEM_NOTIFICATION = 2;
+	INTERACTION_LOCATION_POP_UP_WINDOW = 3;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/did_you_mean_renderer.proto";
+import "youtube/api/innertube/including_results_for_renderer.proto";
+import "youtube/api/innertube/showing_results_for_renderer.proto";
+import "youtube/api/innertube/no_results_found_showing_results_for_renderer.proto";
+import "youtube/api/innertube/results_without_quotes_renderer.proto";
+import "youtube/api/innertube/fixed_escape_hatch_showing_results_for_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	DidYouMeanRenderer did_you_mean_renderer = 55641975;
+}
+
+extend Renderer {
+	IncludingResultsForRenderer including_results_for_renderer = 55571012;
+}
+
+extend Renderer {
+	ShowingResultsForRenderer showing_results_for_renderer = 55504968;
+}
+
+extend Renderer {
+	NoResultsFoundShowingResultsForRenderer no_results_found_showing_results_for_renderer = 55496280;
+}
+
+extend Renderer {
+	ResultsWithoutQuotesRenderer results_without_quotes_renderer = 54808605;
+}
+
+extend Renderer {
+	FixedEscapeHatchShowingResultsForRenderer fixed_escape_hatch_showing_results_for_renderer = 95010287;
+}

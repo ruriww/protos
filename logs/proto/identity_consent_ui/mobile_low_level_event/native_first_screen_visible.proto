@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+import "logs/proto/identity_consent_ui/mobile_low_level_event/consent_setting.proto";
+
+option objc_class_prefix = "GIDLLE";
+
+message NativeFirstScreenVisible {
+	repeated ConsentSetting consent_settings = 1;
+}

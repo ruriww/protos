@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/text/text.proto";
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message UpdateTextAction {
+	string uuid = 1;
+	text.Text old_text = 2;
+	Transform old_transform = 3;
+	text.Text new_text = 4;
+	Transform new_transform = 5;
+}

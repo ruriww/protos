@@ -1,0 +1,17 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message DebugInfo {
+	extend Request {
+		DebugInfo debug_info = 47096292;
+	}
+
+	string root_id = 1;
+
+	extensions 128 to max;
+}

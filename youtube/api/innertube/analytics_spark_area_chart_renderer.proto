@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/analytics_named_color.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsSparkAreaChartRenderer {
+	repeated double values = 1 [ features.repeated_field_encoding = EXPANDED ];
+	AnalyticsNamedColor area_color = 2;
+	repeated int64 dates = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message SpecialRestriction {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		ALCOHOL = 1;
+	}
+
+	Type type = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package knowledge.feedback;
+
+option objc_class_prefix = "UFR";
+
+message EncodedMessage {
+	bytes data = 1;
+	bool is_encrypted = 2;
+	bool is_compressed = 3;
+}

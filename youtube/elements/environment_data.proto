@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/device_orientation.proto";
+import "youtube/elements/size.proto";
+import "youtube/elements/platform_name.proto";
+import "youtube/elements/form_factor.proto";
+import "youtube/elements/dimension_edges.proto";
+import "youtube/elements/folding_display_info.proto";
+import "youtube/elements/color_contrast_mode.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message EnvironmentData {
+	float layout_root_max_width = 1;
+	float layout_root_max_height = 2;
+	DeviceOrientation device_orientation = 3;
+	Size window_size = 4;
+	PlatformName platform_name = 5;
+	FormFactor form_factor = 6;
+	bool is_screen_reader_active = 7;
+	DimensionEdges window_safe_area_insets = 8;
+	bool is_reduce_animations_setting_enabled = 9;
+	FoldingDisplayInfo folding_display_info = 10;
+	ColorContrastMode color_contrast_mode = 11;
+}

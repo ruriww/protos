@@ -1,0 +1,85 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/associated_game_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/grid_video_rich_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/grid_video_style.proto";
+import "youtube/api/innertube/main_app_grid_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString long_byline_text = 4;
+	FormattedString published_time_text = 5;
+	FormattedString view_count_text = 6;
+	FormattedString length_text = 7;
+	Command navigation_endpoint = 8;
+	string debug_html = 9;
+	FormattedString short_byline_text = 10;
+	UpcomingEventData upcoming_event_data = 12;
+	repeated BadgeSupportedRenderers badges = 13;
+	ThumbnailDetails channel_thumbnail = 14;
+	repeated BadgeSupportedRenderers owner_badges = 15;
+	bytes tracking_params = 17;
+	repeated ThumbnailBadgeSupportedRenderers thumbnail_badges = 18;
+
+	message GridVideoOfflineabilitySupportedRenderers {
+		OfflineabilityRenderer offlineability_renderer = 60572968;
+	}
+
+	GridVideoOfflineabilitySupportedRenderers offlineability = 20;
+	repeated Command service_endpoints = 21;
+	FormattedString short_view_count_text = 22;
+	bool is_watched = 23;
+	MenuSupportedRenderers menu = 24;
+	StandaloneBadgeSupportedRenderers standalone_badge = 25;
+	AssociatedGameSupportedRenderers associated_game = 26;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 28;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 29;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 30;
+	Command edit_metadata_endpoint = 31;
+	GridVideoRichThumbnailSupportedRenderers rich_thumbnail = 32;
+	GridVideoStyle style = 33;
+	MainAppGridRendererStyle main_app_style = 34;
+	repeated Renderer buttons = 35;
+	VideoClientBindingData video_client_binding_data = 37;
+	Command inline_playback_endpoint = 38;
+	FormattedString playlist_index_text = 39;
+	bool is_disabled = 40;
+	ChannelThumbnailSupportedRenderers channel_thumbnail_supported_renderers = 41;
+	FormattedString last_watched_timestamp = 42;
+	FormattedString rating = 43;
+	FormattedString release_year = 44;
+	FormattedString season = 45;
+	FormattedString episode = 46;
+	int64 video_length_seconds = 47;
+	int64 playback_time = 48;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	GridVideoRenderer grid_video_renderer = 60373625;
+}

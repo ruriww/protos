@@ -1,0 +1,10 @@
+edition = "2023";
+
+package engage.api.boq.support.discovery.logging.journey;
+
+option objc_class_prefix = "SDL";
+
+message MoltronResponseContext {
+	string prediction_id = 1;
+	repeated string moltron_experiment_ids = 2;
+}

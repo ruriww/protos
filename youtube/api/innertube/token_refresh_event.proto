@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/token_refresh_event_type.proto";
+import "youtube/api/innertube/token_refresh_failure_reason.proto";
+import "youtube/api/innertube/sso_error_category.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TokenRefreshEvent {
+	TokenRefreshEventType refresh_event_type = 1;
+	TokenRefreshFailureReason failure_reason = 3;
+	int64 prior_failure_duration_ms = 4;
+	bool is_premium = 5;
+	bool is_app_suspended = 6;
+	int64 foreground_uptime_ms = 7;
+	bool is_first = 8;
+	int64 total_uptime_ms = 9;
+	int64 token_refresh_request_duration_ms = 10;
+	int64 previous_token_remaining_duration_ms = 11;
+	int64 index = 13;
+	string network_request_path = 15;
+	SSOErrorCategory ios_sso_error = 16;
+	bool nsm_is_network_available = 17;
+	string account_manager_error_thrown = 20;
+}

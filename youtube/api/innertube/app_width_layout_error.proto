@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppWidthLayoutError {
+	int32 app_view_x = 1;
+	int32 app_view_y = 2;
+	int32 app_view_width = 3;
+	int32 app_view_height = 4;
+	int32 window_x = 5;
+	int32 window_y = 6;
+	int32 window_width = 7;
+	int32 window_height = 8;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CaptionFontFamily {
+	enum FontFamily {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MONOSPACED_SERIF = 1;
+		PROPORTIONAL_SERIF = 2;
+		MONOSPACED_SANS_SERIF = 3;
+		PROPORTIONAL_SANS_SERIF = 4;
+		CASUAL = 5;
+		CURSIVE = 6;
+		SMALL_CAPITALS = 7;
+	}
+
+	FontFamily font_family = 1;
+}

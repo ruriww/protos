@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/composition_effect_time_range_type.proto";
+import "youtube/api/innertube/time.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompositionEffectTimeRange {
+	CompositionEffectTimeRangeType type = 1;
+	Time start_time = 2;
+	Time end_time = 3;
+}

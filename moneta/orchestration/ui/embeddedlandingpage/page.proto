@@ -1,0 +1,42 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedlandingpage;
+
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/components/cardheader/card_header.proto";
+import "moneta/orchestration/ui/common/components/actionbar/action_bar.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_details.proto";
+import "moneta/orchestration/ui/common/components/balancecard/balance_card.proto";
+import "moneta/orchestration/ui/common/components/alert/alert.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/components/document/document_download.proto";
+import "moneta/orchestration/ui/common/partial_update_data.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+
+option objc_class_prefix = "EmbeddedLandingPage";
+
+message Page {
+	int64 ui_reference = 1;
+	repeated common.generic.ComponentGroup component_group = 2;
+	repeated common.components.cardheader.CardHeader card_header = 3;
+	repeated common.components.actionbar.ActionBar action_bar = 4;
+	repeated common.components.instrument.InstrumentDetails payment_method = 5;
+	common.components.balancecard.BalanceCard balance_card = 6;
+	common.components.alert.Alert alert = 7;
+	repeated common.generic.InfoMessage detail_information = 8;
+	repeated common.components.Link link = 9;
+	common.generic.ImageWithCaption image = 10;
+	repeated common.components.SimpleForm simple_form = 11;
+	common.generic.DependencyGraph dependency_graph = 13;
+	repeated common.components.ConfirmationDialog confirmation_dialog = 14;
+	string title = 17;
+	common.components.document.DocumentDownload document_download = 18;
+	repeated common.PartialUpdateData partial_update_data = 19;
+	common.components.webview.WebViewComponent web_view_component = 20;
+	common.components.cardheader.CardHeader banner = 22;
+}

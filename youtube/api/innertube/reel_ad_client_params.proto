@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelAdClientParams {
+	bool is_ad = 1;
+	bool is_tap_to_pause_disabled = 2;
+	bool is_image_ad = 3;
+	int64 player_organic_overlay_additional_feed_offset = 4;
+	repeated Renderer ad_break_renderers = 5;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package java.com.google.support.asx.frontend.server.proto;
+
+option objc_class_prefix = "ASX";
+
+message ThemeSettings {
+	enum PageTheme {
+		option features.enum_type = CLOSED;
+
+		PT_UNSPECIFIED = 0;
+		PT_LIGHT = 1;
+		PT_DARK = 2;
+	}
+
+	PageTheme page_theme = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/pronoun_entry.proto";
+
+option objc_class_prefix = "SGAP";
+
+message PronounData {
+	repeated PronounEntry pronoun_entry = 1;
+}

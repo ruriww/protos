@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+option objc_class_prefix = "FOOTCP";
+
+message FormattedString {
+	message Format {
+		bool bold = 1;
+		bool italic = 2;
+	}
+
+	Format format = 1;
+	string content = 2;
+}

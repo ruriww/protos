@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum EmailNotificationStatus {
+	option features.enum_type = CLOSED;
+
+	NOTIFICATION_STATUS_UNSPECIFIED = 0;
+	NOTIFICATION_SENT = 1;
+	NOTIFICATION_NOT_SENT_RATELIMIT = 2;
+}

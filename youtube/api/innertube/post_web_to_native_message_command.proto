@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostWebToNativeMessageCommand {
+	extend Command {
+		PostWebToNativeMessageCommand post_web_to_native_message_command = 494294450;
+	}
+
+	string method_name = 1;
+	string url = 2;
+	string serialized_additional_metadata = 3;
+	string web_view_id = 4;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum ArticleStyle {
+	ARTICLE_STYLE_UNSPECIFIED = 0;
+	ARTICLE_STYLE_STYLE_1 = 1;
+	ARTICLE_STYLE_STYLE_2 = 2;
+	ARTICLE_STYLE_STYLE_3 = 3;
+	ARTICLE_STYLE_STYLE_4 = 4;
+	ARTICLE_STYLE_STYLE_5 = 5;
+	ARTICLE_STYLE_STYLE_6 = 6;
+	ARTICLE_STYLE_STYLE_7 = 7;
+	ARTICLE_STYLE_STYLE_8 = 8;
+	ARTICLE_STYLE_STYLE_9 = 9;
+}

@@ -1,0 +1,83 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message RemoteDisplayPluginConfig {
+	int32 resolution_width = 1;
+	int32 resolution_height = 2;
+
+	enum RenderBackend {
+		option features.enum_type = CLOSED;
+
+		RENDER_BACKEND_UNKNOWN = 0;
+		RENDER_BACKEND_OPENGL_ES_2 = 1;
+		RENDER_BACKEND_OPENGL_ES_3 = 2;
+		RENDER_BACKEND_METAL = 3;
+	}
+
+	RenderBackend render_backend = 3;
+
+	enum RenderTarget {
+		option features.enum_type = CLOSED;
+
+		RENDER_TARGET_UNKNOWN = 0;
+		RENDER_TARGET_CAMERA = 1;
+		RENDER_TARGET_RENDER_TEXTURE_SET_ON_CAMERA = 2;
+		RENDER_TARGET_RENDER_TEXTURE = 3;
+	}
+
+	RenderTarget render_target = 4;
+
+	enum BitrateMode {
+		option features.enum_type = CLOSED;
+
+		BITRATE_MODE_UNKNOWN = 0;
+		BITRATE_MODE_FIXED = 1;
+		BITRATE_MODE_ADAPTIVE = 2;
+	}
+
+	BitrateMode bitrate_mode = 5;
+
+	enum TargetDelay {
+		option features.enum_type = CLOSED;
+
+		TARGET_DELAY_UNKNOWN = 0;
+		TARGET_DELAY_MINIMUM = 1;
+		TARGET_DELAY_LOW = 2;
+		TARGET_DELAY_NORMAL = 3;
+		TARGET_DELAY_HIGH = 4;
+	}
+
+	TargetDelay target_delay = 6;
+
+	enum TargetFps {
+		option features.enum_type = CLOSED;
+
+		TARGET_FPS_UNKNOWN = 0;
+		TARGET_FPS_15 = 1;
+		TARGET_FPS_24 = 2;
+		TARGET_FPS_25 = 3;
+		TARGET_FPS_30 = 4;
+		TARGET_FPS_60 = 5;
+	}
+
+	TargetFps target_fps = 7;
+
+	enum AudioFormat {
+		option features.enum_type = CLOSED;
+
+		AUDIO_FORMAT_UNKNOWN = 0;
+		AUDIO_FORMAT_AV_AUDIO_PCM_FLOAT_32 = 1;
+		AUDIO_FORMAT_AV_AUDIO_PCM_FLOAT_64 = 2;
+		AUDIO_FORMAT_AV_AUDIO_PCM_INT_16 = 3;
+		AUDIO_FORMAT_AV_AUDIO_PCM_INT_32 = 4;
+	}
+
+	AudioFormat audio_format = 8;
+	int32 audio_input_sample_rate = 9;
+	int32 audio_output_sample_rate = 10;
+	int32 audio_number_channels = 11;
+	bool audio_is_interleaved = 12;
+}

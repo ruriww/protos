@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_delete_reason.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineDeleteEvent {
+	string video_id = 1;
+	string playlist_id = 3;
+	OfflineDeleteReason offline_delete_reason = 5;
+	string cotn = 6;
+	OfflineModeType offline_mode_type = 7;
+}

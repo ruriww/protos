@@ -1,0 +1,16 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/modal_presentation_style.proto";
+
+option objc_class_prefix = "IDC";
+
+message IOSParams {
+	message ModalPresentation {
+		ModalPresentationStyle style = 1;
+		bool animated = 2;
+	}
+
+	ModalPresentation modal_presentation = 1;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message GoogleAppUninstallEvent {
+	repeated string uninstalled_google_apps = 1;
+}

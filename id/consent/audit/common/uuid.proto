@@ -1,0 +1,10 @@
+edition = "2023";
+
+package id.consent.audit.common;
+
+option objc_class_prefix = "ARI";
+
+message UUID {
+	uint64 most_significant_uuid_bits = 1;
+	uint64 least_significant_uuid_bits = 2;
+}

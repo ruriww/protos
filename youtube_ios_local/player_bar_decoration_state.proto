@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarDecorationState {
+	bool is_active = 1;
+	bool disable_unfocused_chapters = 2;
+	bool enable_minimum_width_chapter_decoration = 3;
+}

@@ -1,0 +1,33 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/font_style_weight.proto";
+import "drishti/app/skia/stickers/font_style_width.proto";
+import "drishti/app/skia/stickers/font_style_slant.proto";
+import "drishti/app/skia/stickers/paint_style.proto";
+import "drishti/app/skia/stickers/para_style_text_align.proto";
+import "drishti/app/skia/stickers/text_style_decoration.proto";
+import "drishti/app/skia/stickers/text_style_shadow.proto";
+import "drishti/app/skia/stickers/text_background_shape.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message TextStickerConfig {
+	string text = 1;
+	float font_size_points = 2;
+	string typeface_family_name = 3;
+	uint32 color = 4;
+	float layout_width_pixels = 5;
+	FontStyleWeight font_style_weight = 6;
+	FontStyleWidth font_style_width = 7;
+	FontStyleSlant font_style_slant = 8;
+	PaintStyle paint_style = 9;
+	uint32 stroke_color = 10;
+	float stroke_width_pixels = 11;
+	ParaStyleTextAlign para_style_text_align = 12;
+	TextStyleDecoration text_style_decoration = 13;
+	TextStyleShadow text_style_shadow = 14;
+	TextBackgroundShape background_shape = 15;
+	bool enable_text_wrapping = 16 [ default = true ];
+}

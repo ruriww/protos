@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/survey_question_common.proto";
+import "youtube/api/innertube/layout_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MultiChoiceQuestionRenderer {
+	FormattedString question_text = 1;
+	FormattedString additional_info_text = 2;
+	repeated FormattedString answers = 3;
+	uint32 max_selections_allowed = 4;
+	SurveyQuestionCommon survey_question_common_data = 5;
+	LayoutType layout_type = 7;
+}

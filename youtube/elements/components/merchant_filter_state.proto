@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/picker_merchant.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MerchantFilterState {
+	string merchant_search_query = 1;
+	bool is_apply_button_active = 2;
+	repeated api.innertube.PickerMerchant merchant_search_suggestions = 6;
+	int32 query_character_count = 7;
+	api.innertube.PickerMerchant checked_merchant = 8;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		LOADING = 1;
+		SEARCH_RESULT = 2;
+		EMPTY_RESULT = 3;
+	}
+
+	State state = 9;
+}

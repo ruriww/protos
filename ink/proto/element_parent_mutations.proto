@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementParentMutations {
+	message Mutation {
+		string uuid = 1;
+		string parent_uuid = 2;
+		Transform transform = 3;
+	}
+
+	repeated Mutation mutation = 1;
+}

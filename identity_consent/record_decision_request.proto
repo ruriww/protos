@@ -1,0 +1,27 @@
+edition = "2023";
+
+package identity_consent;
+
+import "footprints/texts/primitiveconsent/consent_decision_button.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "footprints/transparencyandcontrol/proto/record_consent_decision_request.proto";
+import "identity_consent/consent_request_metadata.proto";
+import "identity_consent/mobile_metadata.proto";
+import "identity_consent/privacy_primitive_config.proto";
+
+option objc_class_prefix = "IDC";
+
+message RecordDecisionRequest {
+	footprints.transparencyandcontrol.proto.RecordConsentDecisionRequest ftc_record_consent_decision_request = 1;
+	ConsentRequestMetadata metadata = 2;
+	MobileMetadata mobile_metadata = 3;
+	PrivacyPrimitiveConfig privacy_primitive_config = 4;
+	bool has_non_final_consent_decision = 5;
+
+	message FinalDecisionsMetadata {
+		footprints.texts.primitiveconsent.ConsentDecisionButton.Metadata button_metadata = 1;
+		repeated footprints.transparencyandcontrol.proto.ConsentSetting consent_screen_settings = 2;
+	}
+
+	FinalDecisionsMetadata final_decisions_metadata = 6;
+}

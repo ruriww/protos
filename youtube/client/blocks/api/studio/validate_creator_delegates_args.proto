@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/validate_creator_delegates_request.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ValidateCreatorDelegatesArgs {
+	youtube.api.innertube.ValidateCreatorDelegatesRequest request = 1;
+}

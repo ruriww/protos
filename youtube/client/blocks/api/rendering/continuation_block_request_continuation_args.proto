@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.rendering;
+
+import "youtube/client/blocks/api/rendering/continuation_block_supported_data.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ContinuationBlockRequestContinuationArgs {
+	ContinuationBlockSupportedData continuation_data = 1;
+}

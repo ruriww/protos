@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MstatsInfo {
+	bool has_mstats = 1;
+	int32 kbytes_total = 2;
+	int32 chunks_used = 3;
+	int32 kbytes_used = 4;
+	int32 chunks_free = 5;
+	int32 kbytes_free = 6;
+}

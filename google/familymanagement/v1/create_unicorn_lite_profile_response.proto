@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/child_account_creation_error.proto";
+
+option objc_class_prefix = "GFM";
+
+message CreateUnicornLiteProfileResponse {
+	ApiResponseHeader api_header = 1;
+	string obfuscated_unicorn_lite_profile_id = 2;
+	ChildAccountCreationError error = 3;
+}

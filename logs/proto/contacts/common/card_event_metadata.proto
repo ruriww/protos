@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_card_event_type.proto";
+import "customer_support/content/guidance/chat/v1/a_card_name.proto";
+
+option objc_class_prefix = "CTC";
+
+message CardEventMetadata {
+	customer_support.content.guidance.chat.v1.ACardEventType event_type = 1;
+	customer_support.content.guidance.chat.v1.ACardName card_name = 2;
+}

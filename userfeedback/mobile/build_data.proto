@@ -1,0 +1,17 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+import "userfeedback/mobile/platform_attr.proto";
+
+option objc_class_prefix = "UFM";
+
+message BuildData {
+	string device = 1;
+	string build_id = 2;
+	string build_type = 3;
+	string model = 4;
+	string product = 5;
+	string release = 7;
+	PlatformAttr platform_attr = 13;
+}

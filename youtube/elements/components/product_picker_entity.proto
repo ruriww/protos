@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/search_state.proto";
+import "youtube/elements/components/merchant_filter_state.proto";
+import "youtube/api/innertube/picker_merchant.proto";
+import "youtube/elements/components/selected_items_panel_header_state.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ProductPickerEntity {
+	string key = 1;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		USER_INPUT = 1;
+		USER_QUERY = 2;
+		INTRO = 3;
+		EMPTY_RESULT = 4;
+		LOADING = 5;
+	}
+
+	State state = 2;
+	SearchState search_state = 3;
+	bool product_search_input_focus = 5;
+	MerchantFilterState merchant_filter_state = 7;
+	repeated api.innertube.PickerMerchant connected_stores = 8;
+	api.innertube.PickerMerchant selected_merchant = 9;
+	SelectedItemsPanelHeaderState selected_items_panel_header_state = 10;
+	bool dialog_dismissed = 11;
+	bool higher_commission_banner_dismissed = 12;
+	bool is_saved_filter_chip_selected = 14;
+	bool tagging_reputation_warning_dismissed = 15;
+	bool is_commission_filter_chip_selected = 16;
+}

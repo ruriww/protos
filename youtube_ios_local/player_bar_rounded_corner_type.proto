@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+enum PlayerBarRoundedCornerType {
+	option features.enum_type = CLOSED;
+
+	PLAYER_BAR_ROUNDED_CORNERS_UNKNOWN = 0;
+	PLAYER_BAR_ROUNDED_CORNERS_TOP_LEFT = 1;
+	PLAYER_BAR_ROUNDED_CORNERS_TOP_RIGHT = 2;
+	PLAYER_BAR_ROUNDED_CORNERS_BOTTOM_LEFT = 3;
+	PLAYER_BAR_ROUNDED_CORNERS_BOTTOM_RIGHT = 4;
+}

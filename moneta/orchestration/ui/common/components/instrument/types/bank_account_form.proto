@@ -1,0 +1,29 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/address_form.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_visibility_dependency.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_grouping.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+
+option objc_class_prefix = "Orch";
+
+message BankAccountForm {
+	repeated generic.UiField bank_account_field = 3;
+	repeated generic.ImageWithCaption default_image_with_caption = 4;
+	AddressForm bank_address = 5;
+	AddressForm billing_address = 6;
+	repeated generic.UiFieldVisibilityDependency field_dependency = 7;
+	repeated legal.LegalMessage legal_message = 8;
+	generic.InfoMessage description = 10;
+	repeated generic.UiFieldGrouping grouping = 11;
+	repeated int32 concatenate_field_index = 12 [ features.repeated_field_encoding = EXPANDED ];
+	FormHeader form_header = 13;
+	Button form_button = 14;
+}

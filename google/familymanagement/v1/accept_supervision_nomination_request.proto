@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/flow_type.proto";
+
+option objc_class_prefix = "GFM";
+
+message AcceptSupervisionNominationRequest {
+	ApiRequestHeader api_header = 1;
+	string nomination_token = 2;
+	string consent_order_id = 3;
+	string ari_session_id = 5;
+	string android_id = 6;
+	FlowType flow_type = 7;
+}

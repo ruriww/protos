@@ -1,0 +1,57 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+import "paymentfraud/proto/browser_fingerprinting.proto";
+import "moneta/orchestration2/ui/common/query_param.proto";
+import "paymentfraud/proto/chromecast_fingerprinting.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message WebClientContext {
+	paymentfraud.proto.BrowserFingerprinting risk_data = 2;
+	string http_user_agent = 3;
+	string http_browser_url = 4;
+
+	oneof referer {
+		string http_browser_referer = 5;
+		string http_browser_referer_not_logged = 14;
+	}
+
+	repeated QueryParam http_request_parameter = 6;
+	string http_browser_locale = 7;
+	string http_invocation_method = 9;
+	string remote_ip = 10;
+
+	enum MashupMode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_MASHUP_MODE = 0;
+		EMBEDDED = 1;
+		POPUP = 2;
+		OVERLAY = 3;
+	}
+
+	MashupMode mashup_mode = 11;
+
+	enum WebClientSubType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		COFFEE = 1;
+		BEDROCK_LIBRARY = 2;
+		BOQ_WEB = 3;
+		YETI_CHROMECAST_LIBRARY = 4;
+		COBALT = 5;
+	}
+
+	WebClientSubType sub_type = 12;
+
+	message HttpHeader {
+		string key = 1;
+		string value = 2;
+	}
+
+	repeated HttpHeader http_header = 13;
+	paymentfraud.proto.ChromecastFingerprinting risk_chromecast_data = 15;
+}

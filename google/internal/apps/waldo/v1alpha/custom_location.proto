@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/type/latlng.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message CustomLocation {
+	string location = 2;
+	type.LatLng geo_coordinates = 3;
+	string label = 4;
+}

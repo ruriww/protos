@@ -1,0 +1,15 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+enum UnavailabilityReason {
+	option features.enum_type = CLOSED;
+
+	NO_AVAILABLE_AGENTS = 0;
+	TOO_MANY_WAITING_CUSTOMERS = 1;
+	EXISTING_SUPPORT_REQUEST = 2;
+	INCOMPATIBLE_BROWSER = 3;
+	UNSAFE_PROTOCOL = 4;
+}

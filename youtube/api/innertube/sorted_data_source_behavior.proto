@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/data_source_behavior.proto";
+import "youtube/api/innertube/feed_comparable_field.proto";
+import "youtube/api/innertube/data_source_sort_direction.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SortedDataSourceBehavior {
+	extend DataSourceBehavior {
+		SortedDataSourceBehavior sorted_data_source_behavior = 1000;
+	}
+
+	FeedComparableField feed_comparable_field = 1;
+	DataSourceSortDirection sort_direction = 2;
+}

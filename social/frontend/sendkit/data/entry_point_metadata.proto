@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.frontend.sendkit.data;
+
+import "social/frontend/sendkit/data/client_id.proto";
+
+option objc_class_prefix = "SKT";
+
+message EntryPointMetadata {
+	ClientId client_id = 1;
+}

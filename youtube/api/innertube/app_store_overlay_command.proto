@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sk_ad_network_yt_parameters.proto";
+import "youtube/api/innertube/app_store_overlay_position.proto";
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppStoreOverlayCommand {
+	string app_id = 1;
+	SkAdNetworkYTParameters sk_ad_parameters = 2;
+	AppStoreOverlayPosition overlay_position = 3;
+	bool prevent_user_dismissal = 4;
+	bool enable_landscape = 5;
+	AppStoreOverlayPosition overlay_position_landscape = 6;
+	repeated Ping skoverlay_triggered = 7;
+	repeated Ping skoverlay_registered = 8;
+	repeated Ping skoverlay_dismissed = 9;
+	repeated Ping skoverlay_failed = 10;
+	bool disable_landscape = 11;
+	int64 overlay_registration_delay_ms = 12;
+	bytes tracking_params = 14;
+	int64 overlay_collapse_delay_ms = 15;
+	repeated Ping overlay_clicked = 16;
+	Command learn_more_command = 17;
+	string android_deep_link = 18;
+	string custom_product_page_id = 19;
+	repeated Ping skoverlay_click_stay = 20;
+	repeated Ping skoverlay_click_background = 21;
+	bool enable_for_infeed_ads = 22;
+	bool dismiss_overlay_on_click = 23;
+	bool show_on_command_resolution = 24;
+	bool is_user_triggered = 25;
+	bool use_tall_display_mode = 26;
+}
+
+extend Command {
+	AppStoreOverlayCommand app_store_overlay_command = 343591339;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectControlInputUpdateValue {
+	oneof value {
+		float float_value = 1;
+		string string_value = 2;
+		bool bool_value = 3;
+		int32 int_value = 4;
+	}
+}

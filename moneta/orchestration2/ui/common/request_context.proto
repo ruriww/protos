@@ -1,0 +1,132 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+import "moneta/orchestration2/ui/common/session_data.proto";
+import "moneta/orchestration2/ui/common/web_client_context.proto";
+import "moneta/orchestration2/ui/common/native_client_context.proto";
+import "moneta/orchestration2/ui/common/actions_on_google_context.proto";
+import "moneta/api/experiment_context_pb.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message RequestContext {
+	SessionData session_data = 2;
+
+	oneof client_context {
+		WebClientContext web_context = 4;
+		NativeClientContext native_context = 10;
+		ActionsOnGoogleContext actions_on_google_context = 20;
+	}
+
+	string language_code = 7;
+
+	enum ClientType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WEB = 1;
+		ANDROID = 2;
+		IOS = 3;
+		ASSISTANT_DEVICE = 4;
+	}
+
+	ClientType client_type = 8;
+	int64 client_version = 9;
+	int64 request_id = 11;
+	bool is_prefetch_request = 13;
+
+	enum UserType {
+		option features.enum_type = CLOSED;
+
+		USER_TYPE_UNKNOWN = 0;
+		GAIA = 1;
+		THIRD_PARTY_EXTERNAL = 4;
+		ICS = 2;
+		ANONYMOUS = 3;
+	}
+
+	UserType user_type = 14;
+
+	enum GlobalClientFeature {
+		option features.enum_type = CLOSED;
+
+		GLOBAL_CLIENT_FEATURE_UNKNOWN = 0;
+		SUPPORT_EMBEDDED_PORTAL_NAVIGATION = 1;
+	}
+
+	repeated GlobalClientFeature global_client_features = 16;
+
+	enum WidgetParametersType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT_TYPE = 0;
+		NATIVE_BOOTSTRAP_TYPE = 1;
+		FIX_FLOW_TYPE = 2;
+		NOT_ALLOWED = 3;
+		HANDOFF_PARAMETER_TYPE = 5;
+	}
+
+	WidgetParametersType widget_params_type = 18;
+	repeated string accounts = 19;
+
+	message AuthContext {
+		repeated string signature_based_authentication_key_id = 1;
+		bool is_device_fido_compatible = 2;
+		bytes product_auth_token = 3;
+	}
+
+	AuthContext auth_context = 21;
+	int64 client_session_id = 22;
+
+	message IntegratorStyleParameters {
+		message Color {
+			uint32 light_mode_color_argb = 1;
+			uint32 dark_mode_color_argb = 2;
+		}
+
+		message Material1 {
+			Color toolbar_color_argb = 1;
+			Color primary_color_argb = 2;
+			Color toolbar_font_color_argb = 3;
+		}
+
+		message GoogleMaterial2 {
+			Color background_color_argb = 1;
+		}
+
+		message PlayVisDre {
+			Color accent_color_argb = 1;
+			Color primary_color_argb = 2;
+		}
+
+		message GoogleMaterial3 {
+			Color background_color_argb = 1;
+		}
+
+		oneof ui_spec_customization {
+			string theme_id = 1;
+			Material1 material1 = 3;
+			GoogleMaterial2 google_material2 = 4;
+			PlayVisDre play_visdre = 5;
+			GoogleMaterial3 google_material3 = 6;
+		}
+	}
+
+	IntegratorStyleParameters integrator_style_parameters = 23;
+	api.ExperimentContextPb experiment_context = 24;
+	int32 account_count = 25;
+	int32 current_account_index = 26;
+
+	enum IntegratorControlledSubmit {
+		option features.enum_type = CLOSED;
+
+		INTEGRATOR_CONTROLLED_SUBMIT_UNKNOWN = 0;
+		NO = 1;
+		YES = 2;
+	}
+
+	IntegratorControlledSubmit integrator_controlled_submit = 27;
+	repeated int32 client_test_code = 28;
+	string csesidx = 29;
+}

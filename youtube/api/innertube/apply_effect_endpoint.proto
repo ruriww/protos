@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_effect_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ApplyEffectEndpoint {
+	extend Command {
+		ApplyEffectEndpoint apply_effect_endpoint = 1386;
+	}
+
+	bool enabled = 1;
+	LiveEffectType effect_type = 2;
+}

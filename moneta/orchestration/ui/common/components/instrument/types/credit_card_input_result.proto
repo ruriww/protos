@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+option objc_class_prefix = "Orch";
+
+message CreditCardInputResult {
+	string encrypted_card_number = 1;
+	int32 exp_month = 2;
+	int32 exp_year = 3;
+	int32 dominant_color = 4;
+	string ees_session_material = 5;
+	string cardholder_name = 6;
+	string cardholder_raw_name = 8;
+}

@@ -1,0 +1,68 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/video_card_rich_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/video_card_style.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/active_state_descriptor.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoCardRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString byline_text = 4;
+	FormattedString metadata_text = 5;
+	FormattedString length_text = 6;
+	Command navigation_endpoint = 7;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 8;
+	StandaloneBadgeSupportedRenderers standalone_badge = 9;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 10;
+
+	message VideoCardOfflineabilitySupportedRenderers {
+		oneof renderer {
+			OfflineabilityRenderer offlineability_renderer = 60572968;
+		}
+	}
+
+	VideoCardOfflineabilitySupportedRenderers offlineability = 11;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 12;
+	VideoCardRichThumbnailSupportedRenderers rich_thumbnail = 13;
+	MenuSupportedRenderers menu = 14;
+	string debug_html = 15;
+	bytes tracking_params = 17;
+	UpcomingEventData upcoming_event_data = 18;
+	repeated BadgeSupportedRenderers badges = 19;
+	VideoCardStyle style = 20;
+	VideoClientBindingData video_client_binding_data = 21;
+	repeated Renderer buttons = 22;
+	repeated BadgeSupportedRenderers owner_badges = 24;
+	ActiveStateDescriptor thumbnail_active_state_descriptor = 25;
+	ChannelThumbnailSupportedRenderers channel_thumbnail = 26;
+	int32 custom_paging_inter_cell_padding = 27;
+	int32 custom_paging_adjacent_cell_peek_padding = 28;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	VideoCardRenderer video_card_renderer = 120168182;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package home.cloud.common;
+
+option objc_class_prefix = "GHCC";
+
+message DeviceMicState {
+	enum MicState {
+		option features.enum_type = CLOSED;
+
+		MIC_STATE_UNKNOWN = 0;
+		MIC_ON = 1;
+		MIC_OFF = 2;
+	}
+
+	MicState mic_state = 2;
+}

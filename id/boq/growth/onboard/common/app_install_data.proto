@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.boq.growth.onboard.common;
+
+option objc_class_prefix = "PRD";
+
+message AppInstallData {
+	string android_package = 1;
+	bool is_installed = 2;
+	int32 version = 3;
+	bool is_wizard_done = 4;
+	bool is_app_disabled = 5;
+	bool is_eligible = 6;
+	string ios_bundle_identifier = 7;
+}

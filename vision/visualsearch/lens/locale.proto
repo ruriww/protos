@@ -1,0 +1,13 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "vision/visualsearch/lens/timezone.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message Locale {
+	string language_code = 1;
+	string region_code = 2;
+	Timezone timezone = 3;
+}

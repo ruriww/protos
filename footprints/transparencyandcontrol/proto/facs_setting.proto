@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/activity_controls_setting.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message FacsSetting {
+	ActivityControlsSetting setting = 1;
+	bool user_setting_enabled = 2;
+}

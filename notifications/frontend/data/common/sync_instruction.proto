@@ -1,0 +1,41 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/thread_state_update.proto";
+import "notifications/frontend/data/versioned_identifier.proto";
+import "notifications/frontend/data/common/display_surface/notification_display_surface.proto";
+
+option objc_class_prefix = "NFDC";
+
+message SyncInstruction {
+	enum Instruction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INSTRUCTION = 0;
+		SYNC = 1;
+		FULL_SYNC = 2;
+		STORE_ALL_ACCOUNTS = 3;
+		UPDATE_THREAD = 4;
+		UPDATE_BADGE_COUNT = 5;
+		REMOVE_STORAGE = 6;
+		DELETE_NOTIFICATION = 7;
+		REFRESH_REGISTRATION = 8;
+	}
+
+	Instruction instruction = 1;
+	int64 sync_version = 2;
+
+	message UpdateThreadInstruction {
+		message Update {
+			ThreadStateUpdate thread_state_update = 1;
+			repeated VersionedIdentifier versioned_identifier = 2;
+			repeated string external_ids_to_delete = 3;
+		}
+
+		repeated Update update = 1;
+	}
+
+	UpdateThreadInstruction update_thread_instruction = 3;
+	display_surface.NotificationDisplaySurface.Enum notification_display_surface = 4;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelVisibility {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_VISIBILITY_UNSPECIFIED = 0;
+	ENGAGEMENT_PANEL_VISIBILITY_EXPANDED = 1;
+	ENGAGEMENT_PANEL_VISIBILITY_COLLAPSED = 2;
+	ENGAGEMENT_PANEL_VISIBILITY_HIDDEN = 3;
+	ENGAGEMENT_PANEL_VISIBILITY_FULL_BLEED = 4;
+	ENGAGEMENT_PANEL_VISIBILITY_WRAP_CONTENT = 5;
+}

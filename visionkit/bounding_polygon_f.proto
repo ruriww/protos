@@ -1,0 +1,14 @@
+edition = "2023";
+
+package visionkit;
+
+option objc_class_prefix = "VKS";
+
+message BoundingPolygonF {
+	message PointF {
+		float x = 1;
+		float y = 2;
+	}
+
+	repeated PointF corner_point = 1;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/stream_progress.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineVideoStreamsEntity {
+	extend EntityMutationPayload {
+		OfflineVideoStreamsEntity offline_video_streams = 198;
+	}
+
+	string key = 1;
+	repeated StreamProgress streams_progress = 2;
+}

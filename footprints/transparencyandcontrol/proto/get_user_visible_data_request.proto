@@ -1,0 +1,19 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/caller_info.proto";
+import "footprints/transparencyandcontrol/proto/localization_info.proto";
+import "footprints/transparencyandcontrol/proto/utm_info.proto";
+import "footprints/transparencyandcontrol/proto/request_setting_state.proto";
+import "footprints/transparencyandcontrol/proto/request_sample_activity_items.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetUserVisibleDataRequest {
+	CallerInfo caller_info = 1;
+	LocalizationInfo localization_info = 2;
+	UtmInfo utm_info = 3;
+	repeated RequestSettingState request_setting_state = 4;
+	repeated RequestSampleActivityItems request_sample_activity_items = 5;
+}

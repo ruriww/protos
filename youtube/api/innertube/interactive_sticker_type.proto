@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum InteractiveStickerType {
+	option features.enum_type = CLOSED;
+
+	INTERACTIVE_STICKER_TYPE_UNKNOWN = 0;
+	INTERACTIVE_STICKER_TYPE_VIDEO_RESPONSE = 1;
+	INTERACTIVE_STICKER_TYPE_PROMPT_STICKER = 2;
+	INTERACTIVE_STICKER_TYPE_POLL = 3;
+	INTERACTIVE_STICKER_TYPE_QUIZ = 4;
+	INTERACTIVE_STICKER_TYPE_PRODUCT = 5;
+	INTERACTIVE_STICKER_TYPE_IMAGE = 6;
+	INTERACTIVE_STICKER_TYPE_COMMENT = 7;
+	INTERACTIVE_STICKER_TYPE_GEN_AI = 8;
+	INTERACTIVE_STICKER_TYPE_COUNTDOWN = 9;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_flow_id.proto";
+import "identity_consent/ftc_consent_api_parameters.proto";
+import "identity_consent/user_info.proto";
+import "identity_consent/ui_parameters.proto";
+import "identity_consent/entry_point_info.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentPrimitiveRequest {
+	ConsentFlowId flow_id = 1;
+	FtcConsentApiParameters ftc_consent_api_parameters = 2;
+	UserInfo user_info = 3;
+	UiParameters ui_parameters = 4;
+	EntryPointInfo entry_point_info = 5;
+}

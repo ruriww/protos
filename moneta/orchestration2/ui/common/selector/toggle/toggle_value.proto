@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.toggle;
+
+option objc_class_prefix = "ORCH2";
+
+enum ToggleValue {
+	option features.enum_type = CLOSED;
+
+	TOGGLE_VALUE_UNKNOWN = 0;
+	TOGGLE_VALUE_ON = 1;
+	TOGGLE_VALUE_OFF = 2;
+	TOGGLE_VALUE_INDETERMINATE = 3;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message AutoTextSelection {
+	enum SelectionMode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_MODE = 0;
+		MOST_CENTER_PARAGRAPH = 2;
+		ALL_PARAGRAPHS = 4;
+	}
+
+	SelectionMode selection_mode = 1;
+}

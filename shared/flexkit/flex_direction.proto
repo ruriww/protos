@@ -1,0 +1,14 @@
+edition = "2023";
+
+package shared.flexkit;
+
+option objc_class_prefix = "FLX";
+
+enum FlexDirection {
+	option features.enum_type = CLOSED;
+
+	FD_ROW = 0;
+	FD_ROW_REVERSE = 1;
+	FD_COLUMN = 2;
+	FD_COLUMN_REVERSE = 3;
+}

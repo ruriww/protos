@@ -1,0 +1,9 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+message UserInfo {
+	int32 session_index = 1;
+}

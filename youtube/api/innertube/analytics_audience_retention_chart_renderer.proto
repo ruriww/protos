@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/analytics_named_color.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsAudienceRetentionChartRenderer {
+	repeated double values = 1 [ features.repeated_field_encoding = EXPANDED ];
+	FormattedString label_x_start = 2;
+	FormattedString label_x_end = 3;
+	AnalyticsNamedColor area_color = 4;
+	int64 duration_millis = 5;
+}

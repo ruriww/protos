@@ -1,0 +1,14 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+option objc_class_prefix = "BAR";
+
+message PayloadSegments {
+	message Segment {
+		int32 eci_encoding = 1;
+		bytes data = 2;
+	}
+
+	repeated Segment segments = 1;
+}

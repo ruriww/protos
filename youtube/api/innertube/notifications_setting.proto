@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum NotificationsSetting {
+	option features.enum_type = CLOSED;
+
+	NOTIFICATIONS_SETTING_UNKNOWN = 0;
+	NOTIFICATIONS_SETTING_ENABLED = 1;
+	NOTIFICATIONS_SETTING_DISABLED_OS_LEVEL = 2;
+	NOTIFICATIONS_SETTING_DISABLED_APP_LEVEL = 3;
+	NOTIFICATIONS_SETTING_DISABLED_SUBS_NOTIFICATION_CHANNEL_LEVEL = 4;
+	NOTIFICATIONS_SETTING_IOS_UNPROMPTED = 5;
+}

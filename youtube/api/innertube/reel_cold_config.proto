@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelColdConfig {
+	bool enable_reel_watch_endpoint_entity_observer = 1;
+	bool android_reel_player_decouple_reel_watch_backstack = 2;
+	bool android_reel_player_in_watch_while_activity = 3;
+	bool android_reel_player_clientplayer_migration = 4;
+	bool disable_initial_reel_watch_endpoint_entity_preload = 5;
+	bool enable_reel_watch_endpoint_entity_observer_non_critical = 6;
+	bool enable_shorts_mobile_comments_engagement_panel = 7;
+	bool enable_shorts_mobile_comments_engagement_panel_no_parent = 8;
+	bool enable_shorts_mobile_comments_engagement_panel_no_cache = 9;
+	bool enable_immersive_live_picture_in_picture = 10;
+	float android_screen_scroll_duration_ms = 11;
+	float android_screen_scroll_velocity_factor = 12;
+	bool android_disable_recycler_view_transition_animations = 13;
+	bool android_disable_reel_video_page_view_holder_attach_show_offscreen = 14;
+	bool android_disable_reel_page_controller_set_prefetched_response_show_offscreen = 15;
+	int32 number_of_prefetch_next_shorts = 16;
+	bool android_delay_background_bind_until_scroll_state_idle = 17;
+	bool android_create_smooth_scroller_in_snap_helper = 18;
+	float android_screen_scroll_rate_ms_per_in = 19;
+	bool android_disable_shorts_ads_overlay_prerendering = 20;
+	bool android_disable_shorts_ads_underlay_prerendering = 21;
+}

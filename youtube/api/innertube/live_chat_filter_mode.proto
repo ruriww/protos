@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveChatFilterMode {
+	option features.enum_type = CLOSED;
+
+	LIVE_CHAT_FILTER_MODE_UNKNOWN = 0;
+	LIVE_CHAT_FILTER_MODE_UNFILTERED = 1;
+	LIVE_CHAT_FILTER_MODE_PAID_EVENTS_ONLY = 2;
+	LIVE_CHAT_FILTER_MODE_DEFAULT = 4;
+	LIVE_CHAT_FILTER_MODE_QNA_QUESTIONS = 5;
+	LIVE_CHAT_FILTER_MODE_HIDE_ON_CLIENT = 6;
+}

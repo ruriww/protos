@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addressentry;
+
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+
+option objc_class_prefix = "AddressEntry";
+
+message AddressSuggestion {
+	common.components.AddressFormValue address = 1;
+	common.generic.InfoMessage description = 2;
+}

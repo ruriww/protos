@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/date.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotionData {
+	int64 promotion_id = 1;
+	string video_id = 2;
+	Date end_date = 7;
+	string headline = 8;
+	string description = 9;
+	Date start_date = 12;
+	string name = 14;
+	Date creation_date = 16;
+}

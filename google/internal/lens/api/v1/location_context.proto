@@ -1,0 +1,27 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/type/latlng.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "LFE";
+
+message LocationContext {
+	type.LatLng lat_lng = 1;
+	float accuracy_meters = 2;
+	string location_name = 3;
+	string region = 4;
+	protobuf.Duration age = 5;
+	string geo_place_id = 6;
+
+	enum LocationPermissionStatus {
+		LOCATION_PERMISSION_STATUS_UNKNOWN = 0;
+		LOCATION_PERMISSION_STATUS_CAN_ASK = 1;
+		LOCATION_PERMISSION_STATUS_GRANTED_FINE = 2;
+		LOCATION_PERMISSION_STATUS_GRANTED_COARSE = 3;
+		LOCATION_PERMISSION_STATUS_DENIED = 4;
+	}
+
+	LocationPermissionStatus location_permission_status = 7;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/location_metadata.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlaceAutocompleteBlockRequest {
+	youtube.api.innertube.InnerTubeContext context = 1;
+	youtube.api.innertube.LocationMetadata location = 2;
+	string input = 3;
+	uint32 offset = 4;
+}

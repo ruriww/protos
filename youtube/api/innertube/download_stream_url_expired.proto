@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/download_stream_url_expiry_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadStreamUrlExpired {
+	int64 age_of_stream_url_ms = 1;
+	DownloadStreamUrlExpiryState expiry_state = 2;
+	int64 video_length_ms = 3;
+}

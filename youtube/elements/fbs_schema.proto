@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum FbsSchema {
+	option features.enum_type = CLOSED;
+
+	FBS_SCHEMA_DEFAULT = 0;
+	FBS_SCHEMA_STRUCT = 1;
+	FBS_SCHEMA_SINGLE_EXTENSION = 2;
+	FBS_SCHEMA_MULTIPLE_EXTENSIONS = 3;
+	NO_FBS_SCHEMA = 4;
+}

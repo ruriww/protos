@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message QuaternionDouble {
+	double w = 1;
+	double x = 2;
+	double y = 3;
+	double z = 4;
+}

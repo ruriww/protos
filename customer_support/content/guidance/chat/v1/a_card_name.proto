@@ -1,0 +1,22 @@
+edition = "2023";
+
+package customer_support.content.guidance.chat.v1;
+
+option objc_class_prefix = "SGC";
+
+enum ACardName {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CARD = 0;
+	CONTACT_DETAILS = 1;
+	REPORTING_CHAIN = 2;
+	WORKS_ON = 3;
+	RECENT_INTERACTIONS = 4;
+	SHARED_DOCUMENTS = 5;
+	ABOUT = 6;
+	LINKS = 7;
+	WORK_HISTORY = 8;
+	EDUCATION = 9;
+	GOOGLE_PLUS_POSTS = 10;
+	SHARED_LOCATION = 11;
+}

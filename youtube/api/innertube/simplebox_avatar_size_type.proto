@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SimpleboxAvatarSizeType {
+	option features.enum_type = CLOSED;
+
+	SIMPLEBOX_AVATAR_SIZE_TYPE_UNKNOWN = 0;
+	SIMPLEBOX_AVATAR_SIZE_TYPE_DEFAULT = 1;
+	SIMPLEBOX_AVATAR_SIZE_TYPE_SMALL = 2;
+	SIMPLEBOX_AVATAR_SIZE_TYPE_MEDIUM = 3;
+}

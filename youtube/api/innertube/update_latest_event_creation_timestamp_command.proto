@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateLatestEventCreationTimestampCommand {
+	extend Command {
+		UpdateLatestEventCreationTimestampCommand update_latest_event_creation_timestamp_command = 410014803;
+	}
+
+	uint64 latest_event_creation_timestamp_usec = 1;
+	string video_id = 2;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message GoogleAppInstallEvent {
+	string installed_bundle_identifier = 1;
+	repeated string installed_google_apps = 2;
+
+	enum SourceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPE = 0;
+		APP_SWITCHING = 1;
+		SETTINGS = 2;
+		RECOMMENDATIONS = 3;
+		GOOGLE_ACTIONS = 4;
+		FEATURED_APP = 5;
+		CROSS_APP_PROMO = 6;
+		FLOATING_ACTION_BUTTON = 7;
+		EXPERIENCEKIT_SEARCH = 8;
+		EXPERIENCEKIT_MAPS = 9;
+	}
+
+	SourceType source_type = 3;
+	int32 session_id = 4;
+}

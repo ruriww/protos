@@ -1,0 +1,13 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message TelephonyData {
+	int32 phone_type = 1;
+	string network_name = 2;
+	int32 network_type = 3;
+	int32 network_mcc_code = 4;
+	int32 network_mnc_code = 5;
+}

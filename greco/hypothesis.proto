@@ -1,0 +1,32 @@
+edition = "2023";
+
+package greco;
+
+import "unknown/youtube/alignment_proto.proto";
+import "greco/speaker_align.proto";
+
+option objc_class_prefix = "GRC";
+
+message Hypothesis {
+	string text = 1;
+	float confidence = 2;
+	unknown.youtube.AlignmentProto phone_align = 3;
+	unknown.youtube.AlignmentProto word_align = 4;
+	unknown.youtube.AlignmentProto state_align = 10;
+	bool accept = 11 [ default = true ];
+	string prenorm_text = 12;
+	string scrubbed_text = 13;
+	int32 speech_end_time_usec = 15;
+	float lm_cost_without_rescoring = 16;
+	float lm_cost_without_jinn_boosting = 17;
+	float lm_cost = 18;
+	float am_cost = 19;
+	float total_cost = 20;
+	unknown.youtube.AlignmentProto normalized_word_align = 21;
+	SpeakerAlign speaker_align = 22;
+	repeated string tag = 25;
+	bool contains_numerics = 26;
+	bool hallucination_detected = 28;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/subscribe_button_view_model_unsubscribed_state_style.proto";
+import "youtube/api/innertube/subscribe_button_view_model_size.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscribeButtonViewModelStyle {
+	SubscribeButtonViewModelUnsubscribedStateStyle unsubscribed_state_style = 1;
+	SubscribeButtonViewModelSize button_size = 3;
+}

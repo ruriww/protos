@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/preset_effect_data.proto";
+import "youtube/api/innertube/green_screen_effect_data.proto";
+import "youtube/api/innertube/intensity_effect_data.proto";
+import "youtube/api/innertube/effect_asset.proto";
+import "youtube/api/innertube/collab_effect_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsEffectsData {
+	PresetEffectData preset_effect_data = 1;
+	GreenScreenEffectData green_screen_effect_data = 2;
+	repeated IntensityEffectData intensity_effect_data = 3;
+	repeated EffectAsset effect_assets = 5;
+	CollabEffectData collab_effect_data = 6;
+}

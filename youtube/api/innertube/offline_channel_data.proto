@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/localized_strings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineChannelData {
+	extend Datas {
+		OfflineChannelData offline_channel_data = 75056453;
+	}
+
+	string channel_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	string title = 3;
+	bool is_channel_owner = 4;
+	FormattedString formatted_title = 5;
+	uint64 subscriber_count = 6;
+	LocalizedStrings localized_strings = 7;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+message CurrentTimeResult {
+	int64 media_time_milliseconds = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package paymentfraud.proto;
+
+import "paymentfraud/proto/risk_machine_id_result.proto";
+
+option objc_class_prefix = "PF";
+
+message BrowserFingerprinting {
+	string data = 1;
+	string autocomplete_query = 2;
+	int64 gaia_id = 3;
+	RiskMachineIdResult risk_machine_id_result = 4;
+}

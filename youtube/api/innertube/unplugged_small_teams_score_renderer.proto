@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_sports_team_matchup_supported_renderers.proto";
+import "youtube/api/innertube/named_value.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedSmallTeamsScoreRenderer {
+	string id = 1;
+	UnpluggedSportsTeamMatchupSupportedRenderers start_team = 2;
+	NamedValue start_team_score = 3;
+	UnpluggedSportsTeamMatchupSupportedRenderers end_team = 4;
+	NamedValue end_team_score = 5;
+	NamedValue secondary_text = 6;
+	bytes tracking_params = 8;
+	NamedValue updateable_highlighted_score_index = 10;
+	ThumbnailDetails matchup_art = 12;
+}
+
+extend Renderer {
+	UnpluggedSmallTeamsScoreRenderer unplugged_small_teams_score_renderer = 178853284;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/flow_params.proto";
+import "identity_consent/product_entry_point.proto";
+import "identity_consent/session_info.proto";
+import "identity_consent/presentation_params.proto";
+import "identity_consent/web_platform_params.proto";
+import "identity_consent/mobile_platform_params.proto";
+import "identity_consent/elements_platform_params.proto";
+
+option objc_class_prefix = "IDC";
+
+message PrivacyPrimitiveConfig {
+	FlowParams flow_params = 1;
+	ProductEntryPoint product_entry_point = 2;
+	SessionInfo session_info = 3;
+	PresentationParams presentation_params = 4;
+
+	oneof platform_params {
+		WebPlatformParams web_platform_params = 5;
+		MobilePlatformParams mobile_platform_params = 6;
+		ElementsPlatformParams elements_platform_params = 7;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerDefaultStallPredictorConfig {
+	int32 max_buffer_readahead_ms = 1;
+	int32 min_buffer_readahead_ms = 2;
+	float bandwidth_tweak_scalar = 3;
+	int32 bandwidth_tweak_constant = 4;
+	int32 max_live_buffer_readahead_ms = 5;
+	bool move_playable_time_range_check = 16;
+}

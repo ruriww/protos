@@ -1,0 +1,59 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+import "google/cryptauth/enrollment/v1/key_type.proto";
+import "google/cryptauth/enrollment/v1/key_directive.proto";
+import "google/cryptauth/enrollment/v1/client_directive.proto";
+
+option objc_class_prefix = "CRPT";
+
+message SyncKeysResponse {
+	bytes random_session_id = 1;
+	bytes server_ephemeral_dh = 2;
+
+	message SyncSingleKeyResponse {
+		enum KeyAction {
+			KEY_ACTION_UNSPECIFIED = 0;
+			ACTIVATE = 1;
+			DEACTIVATE = 2;
+			DELETE = 3;
+		}
+
+		repeated KeyAction key_actions = 1;
+
+		enum KeyCreation {
+			NONE = 0;
+			ACTIVE = 1;
+			INACTIVE = 2;
+		}
+
+		KeyCreation key_creation = 2;
+		KeyType key_type = 3;
+		KeyDirective key_directive = 4;
+		bytes key_app_directive = 5;
+
+		enum KeyStorageLevel {
+			KEY_STORAGE_LEVEL_UNSPECIFIED = 0;
+			SOFTWARE = 1;
+			OS = 2;
+			DEDICATED_SECURE_ELEMENT = 3;
+		}
+
+		KeyStorageLevel key_storage_level = 6;
+		bool hardware_user_presence_required = 7;
+		bool user_verification_required = 8;
+		int32 user_verification_validity_duration_seconds = 9;
+	}
+
+	repeated SyncSingleKeyResponse sync_single_key_responses = 3;
+	ClientDirective client_directive = 4;
+	bytes client_app_directive = 5;
+
+	enum ServerStatus {
+		SERVER_OK = 0;
+		SERVER_OVERLOADED = 1;
+	}
+
+	ServerStatus server_status = 6;
+}

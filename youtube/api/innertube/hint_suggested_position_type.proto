@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum HintSuggestedPositionType {
+	option features.enum_type = CLOSED;
+
+	HINT_SUGGESTED_POSITION_TYPE_UNKNOWN = 0;
+	HINT_SUGGESTED_POSITION_TYPE_ABOVE = 1;
+	HINT_SUGGESTED_POSITION_TYPE_BELOW = 2;
+	HINT_SUGGESTED_POSITION_TYPE_START = 3;
+	HINT_SUGGESTED_POSITION_TYPE_END = 4;
+	HINT_SUGGESTED_POSITION_TYPE_BELOW_START = 5;
+	HINT_SUGGESTED_POSITION_TYPE_BELOW_END = 6;
+	HINT_SUGGESTED_POSITION_TYPE_ABOVE_START = 7;
+	HINT_SUGGESTED_POSITION_TYPE_ABOVE_END = 8;
+}

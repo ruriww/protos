@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/single_option_survey_collection.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCancelSurveyRenderer {
+	FormattedString question = 1;
+	SingleOptionSurveyCollection single_options = 2;
+	ButtonSupportedRenderers dismiss_button = 3;
+	ButtonSupportedRenderers next_button = 4;
+	bytes tracking_params = 7;
+}

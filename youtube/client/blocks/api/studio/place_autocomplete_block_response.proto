@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/place_result.proto";
+import "youtube/elements/command.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlaceAutocompleteBlockResponse {
+	youtube.api.innertube.ResponseContext response_context = 1;
+	youtube.api.innertube.FormattedString no_results_label = 4;
+	repeated youtube.api.innertube.PlaceResult place_results = 5;
+	elements.Command location_transparency_panel_command = 7;
+}

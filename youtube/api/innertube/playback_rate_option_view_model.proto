@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/selection_value.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackRateOptionViewModel {
+	extend Renderer {
+		PlaybackRateOptionViewModel playback_rate_option_view_model = 1674;
+	}
+
+	elements.AttributedString option_text = 1;
+	SelectionValue option_value = 2;
+	elements.Command on_tap = 3;
+	string custom_title = 4;
+	string custom_description = 5;
+	RendererContext renderer_context = 997;
+}

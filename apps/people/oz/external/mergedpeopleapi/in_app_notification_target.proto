@@ -1,0 +1,71 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message InAppNotificationTarget {
+	PersonFieldMetadata metadata = 1;
+
+	enum App {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		BABEL = 6;
+		YOUTUBE = 11;
+		WHOS_DOWN = 13;
+		YOUTUBE_MANGO = 15;
+		PHOTOS = 16;
+		GOOGLE_ASSISTANT = 17;
+		KABOO = 19;
+		COMMERCE_PLATFORM = 20;
+		SPACES = 22;
+		MAPS = 24;
+		LOUPE_UNUSED = 27;
+		POMEROY = 28;
+		LOUPE = 29;
+		PEOPLE_PLAYGROUND = 30;
+		NEWS_360 = 34;
+		DUO = 40;
+		MEET = 48;
+	}
+
+	repeated App app = 2 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_KEY_TYPE = 0;
+		PHONE = 1;
+		OBFUSCATED_GAIA_ID = 2;
+		EMAIL = 3;
+	}
+
+	Type type = 3;
+	string value = 4;
+
+	message OriginatingField {
+		enum FieldType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_FIELD_TYPE = 0;
+			PHONE = 1;
+			EMAIL = 2;
+		}
+
+		FieldType field_type = 1;
+		int32 field_index = 2;
+		string value = 3;
+	}
+
+	repeated OriginatingField originating_field = 5;
+
+	message ClientData {
+		bytes byte_value = 1;
+		App app = 2;
+	}
+
+	repeated ClientData client_data = 6;
+}

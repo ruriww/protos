@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message FamilyHomeStructure {
+	string id = 1;
+	string name = 2;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+import "google/internal/home/cloud/castsdk/v1/relaycast_support_status.proto";
+import "google/internal/home/cloud/castsdk/v1/relaycast_error.proto";
+
+option objc_class_prefix = "GCC";
+
+message IsRelaycastSupportedResponse {
+	RelaycastSupportStatus supported = 1;
+	RelaycastError error = 2;
+}

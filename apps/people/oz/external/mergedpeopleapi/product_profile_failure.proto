@@ -1,0 +1,16 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message ProductProfileFailure {
+	enum ProductProfileFailureType {
+		option features.enum_type = CLOSED;
+
+		PRODUCT_PROFILE_FAILURE_TYPE_UNKNOWN = 0;
+		RPC_FAILURE = 1;
+	}
+
+	ProductProfileFailureType failure_type = 1;
+}

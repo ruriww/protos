@@ -1,0 +1,23 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/device_contact_extra_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/device_contact_photo_type.proto";
+import "apps/people/oz/external/mergedpeopleapi/app_unique_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/raw_device_contact_analytical_info.proto";
+
+option objc_class_prefix = "POEM";
+
+message RawDeviceContactInfo {
+	string account_type = 1;
+	string account_name = 2;
+	string id = 3;
+	int64 raw_contact_id = 4;
+	int64 google_contact_id = 5;
+	bool cross_device_allowed = 6 [ default = false ];
+	DeviceContactExtraMetadata device_contact_metadata = 7;
+	DeviceContactPhotoType photo_type = 8;
+	AppUniqueInfo app_info = 9;
+	RawDeviceContactAnalyticalInfo raw_device_contact_analytical_info = 12;
+}

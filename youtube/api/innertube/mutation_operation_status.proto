@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MutationOperationStatus {
+	option features.enum_type = CLOSED;
+
+	MUTATION_OPERATION_STATUS_UNKNOWN = 0;
+	MUTATION_OPERATION_STATUS_PROCESSING = 1;
+	MUTATION_OPERATION_STATUS_COMPLETED = 2;
+	MUTATION_OPERATION_STATUS_FAILED_UNRECOVERABLE = 3;
+	MUTATION_OPERATION_STATUS_FAILED_RECOVERABLE = 4;
+}

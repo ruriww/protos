@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/flag_request_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlagEndpoint {
+	extend Command {
+		FlagEndpoint flag_endpoint = 76638993;
+	}
+
+	string flag_action = 1;
+	bool hack = 2;
+	FlagRequestType flag_request_type = 3;
+	bool legal_checkbox_checked = 4;
+	bool additional_detail_checkbox_checked = 5;
+	bool show_confirmation_dialog = 6;
+	bool skip_client_ui = 7;
+}

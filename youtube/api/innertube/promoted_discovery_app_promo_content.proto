@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/border_misclick_protection_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedDiscoveryAppPromoContent {
+	FormattedString title = 1;
+	string video_id = 2;
+	ThumbnailDetails thumbnail = 3;
+	Renderer thumbnail_badge = 4;
+	float rating = 5;
+	uint32 rating_number_color = 6;
+	uint32 rating_bar_color = 7;
+	Renderer app_badge = 8;
+	Command navigation_endpoint = 9;
+	repeated Command impression_endpoints = 10;
+	Command noop_tap_endpoint = 11;
+	Renderer close_button = 12;
+	int64 click_target_delay_ms = 13;
+	BorderMisclickProtectionInfo border_info = 14;
+	FormattedString price = 15;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.creation;
+
+import "youtube/api/innertube/mutation_operation.proto";
+import "youtube/api/innertube/mutate_creation_detailed_progress.proto";
+
+option objc_class_prefix = "YTCS";
+
+message MutateCreationDetailedStatus {
+	api.innertube.MutationOperation mutation_operation = 1;
+	int32 total_operations_in_current_transaction = 2;
+	int32 remaining_operations_in_current_transaction = 3;
+	float operation_internal_progress_percentage = 4;
+	api.innertube.MutateCreationDetailedProgress detailed_progress = 5;
+}

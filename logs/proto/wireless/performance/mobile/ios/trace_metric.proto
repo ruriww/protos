@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/trace_span.proto";
+
+option objc_class_prefix = "PRM";
+
+message TraceMetric {
+	fixed64 trace_id = 1;
+	repeated TraceSpan spans = 2;
+	fixed64 backend_trace_id = 3;
+	bool had_backend_trace_id = 4;
+}

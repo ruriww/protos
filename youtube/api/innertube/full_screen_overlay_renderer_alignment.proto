@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FullScreenOverlayRendererAlignment {
+	option features.enum_type = CLOSED;
+
+	FULL_SCREEN_OVERLAY_RENDERER_ALIGNMENT_UNKNOWN = 0;
+	FULL_SCREEN_OVERLAY_RENDERER_ALIGNMENT_TOP = 1;
+	FULL_SCREEN_OVERLAY_RENDERER_ALIGNMENT_CENTER = 2;
+	FULL_SCREEN_OVERLAY_RENDERER_ALIGNMENT_BOTTOM = 3;
+}

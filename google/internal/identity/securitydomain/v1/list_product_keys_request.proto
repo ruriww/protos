@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.securitydomain.v1;
+
+option objc_class_prefix = "SDS";
+
+message ListProductKeysRequest {
+	message ProductKeySelectionFilter {
+		string product_name = 1;
+	}
+
+	ProductKeySelectionFilter key_filter = 1;
+}

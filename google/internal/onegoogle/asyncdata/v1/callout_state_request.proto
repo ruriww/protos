@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+option objc_class_prefix = "OGADS";
+
+message CalloutStateRequest {
+	int32 dma_product_id = 3;
+}

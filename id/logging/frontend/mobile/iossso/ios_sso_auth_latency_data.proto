@@ -1,0 +1,14 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.iossso;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "SSOEXT";
+
+message IosSsoAuthLatencyData {
+	google.protobuf.Timestamp latency_start = 1;
+	google.protobuf.Timestamp latency_end = 2;
+	google.protobuf.Duration latency_duration = 3;
+}

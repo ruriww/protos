@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/configuration_key.proto";
+import "customer_support/help/mobile/proto/configuration_value.proto";
+
+option objc_class_prefix = "CSHM";
+
+message Configuration {
+	ConfigurationKey key = 1;
+	ConfigurationValue value = 2;
+}

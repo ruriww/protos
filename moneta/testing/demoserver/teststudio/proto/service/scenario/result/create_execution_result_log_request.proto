@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.result;
+
+import "moneta/testing/demoserver/teststudio/proto/execution_result_log_type.proto";
+import "moneta/testing/demoserver/teststudio/proto/status.proto";
+import "moneta/testing/demoserver/teststudio/proto/test_scenario_type.proto";
+
+option objc_class_prefix = "TSLSSR";
+
+message CreateExecutionResultLogRequest {
+	int64 execution_id = 1;
+	ExecutionResultLogType log_data = 2;
+	Status execution_status = 3;
+	TestScenarioType test_scenario_type = 4;
+}

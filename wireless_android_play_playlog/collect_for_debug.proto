@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message CollectForDebug {
+	int64 collect_until_ms = 1;
+	bool skip_persistent_log_storage = 2;
+	int64 collect_start_ms = 3;
+}

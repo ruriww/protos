@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/contact_mode_type.proto";
+
+option objc_class_prefix = "CSHM";
+
+message EscalationOptionsDisplayPreference {
+	repeated ContactModeType ordering = 1 [ features.repeated_field_encoding = EXPANDED ];
+	string justification_message = 2;
+}

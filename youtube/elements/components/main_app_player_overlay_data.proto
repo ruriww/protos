@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/api/innertube/playback_button_state.proto";
+import "youtube/elements/components/varispeed_state.proto";
+import "youtube/elements/components/double_tap_seek_duration.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MainAppPlayerOverlayData {
+	float width = 1;
+	float height = 2;
+	float edge_inset_left = 3;
+	float edge_inset_right = 4;
+	float edge_inset_top = 5;
+	float edge_inset_bottom = 6;
+	api.innertube.PlaybackButtonState playback_button_state = 7;
+	VarispeedState varispeed_state = 8;
+	string varispeed_string = 9;
+	bool has_next_video = 10;
+	bool has_prev_video = 11;
+	bool drc_available = 12;
+	bool drc_enabled = 13;
+	bool is_cowatching = 14;
+	DoubleTapSeekDuration double_tap_seek_duration = 15;
+	string double_tap_seek_rewind_accessibility_text = 17;
+	string double_tap_seek_forward_accessibility_text = 18;
+	int32 number_of_fully_visible_related_videos_in_fullscreen = 19;
+	bool enable_update_wnif_specs = 20;
+	bool premium_video_quality_available = 21;
+	bool premium_video_quality_enabled = 22;
+	bool premium_audio_quality_available = 23;
+	bool premium_audio_quality_enabled = 24;
+	bool is_auto_speed_enabled = 25;
+	bool has_auto_speed = 26;
+}

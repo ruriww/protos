@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs;
+
+option objc_class_prefix = "LOG";
+
+message TaggingFieldOptions {
+	int32 key_id = 1;
+	string key = 2;
+	string contact = 3;
+	string values_file = 4;
+
+	enum TagEffect {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		EVE = 1;
+		IGSA_DASH = 2;
+		RANKING = 3;
+		AGSA_DASH = 4;
+		GEOEVENTS = 5;
+	}
+
+	repeated TagEffect effect = 5 [ features.repeated_field_encoding = EXPANDED ];
+	string expiration_date = 6;
+}

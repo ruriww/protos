@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TranslationTarget {
+	string language_code = 1;
+	FormattedString language_name = 2;
+	repeated int32 translation_source_track_indices = 3 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 exclude_audio_track_indices = 4 [ features.repeated_field_encoding = EXPANDED ];
+}

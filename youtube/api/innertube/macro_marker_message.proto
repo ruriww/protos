@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/source_type.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MacroMarkerMessage {
+	SourceType source_type = 1;
+	FormattedString title = 2;
+	int64 start_millis = 3;
+	int64 duration_millis = 4;
+	double intensity_score_normalized = 5;
+	ThumbnailDetails thumbnail_details = 6;
+	elements.Command on_active = 7;
+	elements.Command on_tap = 8;
+	elements.Command on_share = 9;
+	FormattedString subtitle = 10;
+	string id = 11;
+	uint64 utc_start_time_millis = 13;
+	LoggingDirectives logging_directives = 999;
+}

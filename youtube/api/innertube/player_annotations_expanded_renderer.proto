@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/featured_video.proto";
+import "youtube/api/innertube/featured_channel.proto";
+import "youtube/api/innertube/call_to_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerAnnotationsExpandedRenderer {
+	FeaturedVideo featured_video = 1;
+	FeaturedChannel featured_channel = 2;
+	repeated CallToAction ctas = 3;
+	bool allow_swipe_dismiss = 5;
+	string annotation_id = 6;
+}

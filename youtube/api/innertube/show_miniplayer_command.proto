@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowMiniplayerCommand {
+	extend Command {
+		ShowMiniplayerCommand show_miniplayer_command = 339694216;
+	}
+
+	Command miniplayer_command = 2;
+	bool show_premium_branding = 3;
+	FormattedString byline = 4;
+	bool should_replace_existing_watch = 5;
+	bool pause_inline_muted_playback = 6;
+	Command ready_to_resume_dismissed_command = 7;
+}

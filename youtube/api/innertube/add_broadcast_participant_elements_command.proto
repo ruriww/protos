@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddBroadcastParticipantElementsCommand {
+	extend elements.Command {
+		AddBroadcastParticipantElementsCommand add_broadcast_participant_elements_command = 370527389;
+	}
+
+	string params = 1;
+	string participant_join_state_entity_key = 2;
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelTabRenderer {
+	extend Renderer {
+		EngagementPanelTabRenderer engagement_panel_tab_renderer = 292019130;
+	}
+
+	string tab_identifier = 1;
+	string title = 2;
+	Renderer content = 3;
+	bool selected = 4;
+	bytes tracking_params = 6;
+	Icon icon = 7;
+	AccessibilitySupportedDatas accessibility = 8;
+	Command on_tap_command = 9;
+	LoggingDirectives logging_directives = 999;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "quality_genie/eyes/filter_type.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message FiltersLogData {
+	quality_genie.eyes.FilterType filter_type = 1;
+
+	message Translate {
+		string client_source_language = 1;
+		string dominant_source_language = 2;
+		string client_target_language = 3;
+		bool text_selected = 4;
+		bool settings_chip_options_caret_expanded = 5;
+		bool show_original_text = 6;
+	}
+
+	message Education {
+		bool has_downloaded_math_font = 1;
+	}
+
+	oneof data {
+		Translate translate = 2;
+		Education education = 4;
+	}
+
+	enum ConnectivityMode {
+		option features.enum_type = CLOSED;
+
+		CONNECTIVITY_MODE_UNKNOWN = 0;
+		CONNECTIVITY_MODE_ONLINE = 1;
+		CONNECTIVITY_MODE_OFFLINE = 2;
+		CONNECTIVITY_MODE_HYBRID = 3;
+	}
+
+	ConnectivityMode connectivity_mode = 5;
+}

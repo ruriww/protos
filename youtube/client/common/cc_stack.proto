@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.common;
+
+import "youtube/client/common/cc_stack_trace_element.proto";
+
+option objc_class_prefix = "YTC";
+
+message CcStack {
+	repeated CcStackTraceElement stack_trace = 1;
+}

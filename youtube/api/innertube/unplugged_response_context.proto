@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedResponseContext {
+	bool is_multi_size_type_dependent = 1;
+	bool is_degraded_mode_on = 2;
+	int64 content_display_time_sec = 3;
+	int64 content_display_timeout_ms = 4;
+	string timezone = 5;
+	int32 timezone_offset_minutes = 6;
+	string sherlog_feedback_service_opt_in_token = 7;
+	string sherlog_feedback_service_shared_sherlog_link = 8;
+}

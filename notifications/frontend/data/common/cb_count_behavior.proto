@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+enum CBCountBehavior {
+	option features.enum_type = CLOSED;
+
+	COUNT_BEHAVIOR_UNSPECIFIED = 0;
+	INCLUDE_IN_COUNTS = 1;
+	EXCLUDE_FROM_COUNTS = 2;
+}

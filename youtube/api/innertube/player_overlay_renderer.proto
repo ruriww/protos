@@ -1,0 +1,129 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_overlay_action_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_overflow_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_end_screen_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_autoplay_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_share_action_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_add_to_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_top_level_overflow_supported_renderers.proto";
+import "youtube/api/innertube/player_overlay_video_details_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/video_playback_position.proto";
+import "youtube/api/innertube/player_overlay_action_renderer.proto";
+import "youtube/api/innertube/player_chat_overlay_action_renderer.proto";
+import "youtube/api/innertube/player_overlay_autoplay_renderer.proto";
+import "youtube/api/innertube/player_overlay_tv_autoplay_renderer.proto";
+import "youtube/api/innertube/player_overlay_autoplay_paused_text_renderer.proto";
+import "youtube/api/innertube/watch_next_end_screen_renderer.proto";
+import "youtube/api/innertube/player_overlay_video_details_renderer.proto";
+import "youtube/api/innertube/watch_to_watch_transition_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerOverlayRenderer {
+	repeated PlayerOverlayActionSupportedRenderers actions = 1;
+	PlayerOverlayOverflowSupportedRenderers overflow_menu = 2;
+	PlayerOverlayEndScreenSupportedRenderers end_screen = 3;
+	PlayerOverlayAutoplaySupportedRenderers autoplay = 4;
+	PlayerOverlayShareActionSupportedRenderers share_button = 5;
+	PlayerOverlayAddToSupportedRenderers add_to_menu = 6;
+	PlayerOverlayTopLevelOverflowSupportedRenderers top_level_overflow_menu = 7;
+	PlayerOverlayVideoDetailsSupportedRenderers video_details = 8;
+	bool show_share_button_smallscreen = 9;
+	bool show_share_button_fullscreen = 10;
+	bool show_add_to_menu_smallscreen = 11;
+	bool show_add_to_menu_fullscreen = 12;
+	Renderer associated_video = 13;
+	Renderer autonav_overflow = 14;
+	Renderer fullscreen_engagement = 15;
+	FormattedString live_indicator_text = 16;
+	Command add_to_menu_long_press_command = 17;
+	Renderer cardboard_mode_renderer = 18;
+	Renderer replay = 19;
+	Renderer autonav_toggle = 20;
+	ButtonSupportedRenderers embeds_watch_in_youtube_button_renderer = 21;
+	Renderer suggested_actions_renderer = 22;
+	Renderer decorated_player_bar_renderer = 23;
+	Command get_share_panel_command = 25;
+	Command subscribe_command = 26;
+	Command unsubscribe_command = 27;
+	Command add_to_watch_later_command = 28;
+	Command remove_from_watch_later_command = 29;
+	Renderer products_in_video_overlay_renderer = 30;
+	FormattedString music_partner_rating_text = 31;
+	Renderer engagement_panel_entrypoint_overlay_renderer = 32;
+	VideoPlaybackPosition start_position = 34;
+	VideoPlaybackPosition end_position = 35;
+	Renderer fullscreen_quick_actions_bar = 37;
+	Renderer live_chat_renderer = 39;
+	Renderer player_disclosure = 40;
+	Renderer timed_reaction_animation_overlay_renderer = 41;
+	repeated Renderer player_overlay_layer_renderers = 42;
+	Renderer kids_player_overflow_menu = 43;
+	Renderer player_multi_feed_renderer = 44;
+	bool is_autoplay_enabled = 45;
+	Renderer player_overlay_chip_renderer = 46;
+	Renderer info_panel = 47;
+	Renderer gated_actions_overlay_renderer = 48;
+	bool allow_free_zoom = 49;
+	repeated Renderer timely_action_renderers = 50;
+	Renderer watch_on_youtube_button = 51;
+	bool show_seeking_controls = 52;
+	Renderer kids_shared_with_kids_overlay_renderer = 53;
+	Renderer speedmaster_user_edu = 54;
+	PlayerOverlayOverflowSupportedRenderers overflow_additional_settings_menu = 55;
+	Renderer cultural_moment_overlay = 56;
+	Renderer video_action_bar = 57;
+	Renderer suggested_action_view_model = 58;
+	Command show_multiview_back_button_edu = 59;
+	Renderer timely_actions_overlay_view_model = 61;
+	Command show_playback_rate_menu_command = 62;
+	Renderer secondary_video_action_bar = 63;
+	bool is_annotations_enabled = 64;
+	Command show_playback_rate_upsell_panel_command = 65;
+}
+
+extend Renderer {
+	PlayerOverlayRenderer player_overlay_renderer = 78882851;
+}
+
+extend Renderer {
+	PlayerOverlayActionRenderer player_overlay_action_renderer = 79120663;
+}
+
+extend Renderer {
+	PlayerChatOverlayActionRenderer player_chat_overlay_action_renderer = 129873968;
+}
+
+extend Renderer {
+	PlayerOverlayAutoplayRenderer player_overlay_autoplay_renderer = 92155347;
+}
+
+extend Renderer {
+	PlayerOverlayTvAutoplayRenderer player_overlay_tv_autoplay_renderer = 128842231;
+}
+
+extend Renderer {
+	PlayerOverlayAutoplayPausedTextRenderer player_overlay_autoplay_paused_text_renderer = 114805702;
+}
+
+extend Renderer {
+	WatchNextEndScreenRenderer watch_next_end_screen_renderer = 57158578;
+}
+
+extend Renderer {
+	PlayerOverlayVideoDetailsRenderer player_overlay_video_details_renderer = 128392103;
+}
+
+extend Renderer {
+	WatchToWatchTransitionRenderer watch_to_watch_transition_renderer = 452087505;
+}

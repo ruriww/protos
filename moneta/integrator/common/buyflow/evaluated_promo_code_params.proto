@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.integrator.common.buyflow;
+
+option objc_class_prefix = "Buyflow";
+
+message EvaluatedPromoCodeParams {
+	string promo_code = 1;
+
+	oneof additional_description {
+		string description = 2;
+	}
+
+	string description_summary = 4;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/caller_info.proto";
+import "footprints/transparencyandcontrol/proto/activity_spec.proto";
+import "footprints/transparencyandcontrol/proto/delete_activity_time_range.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message DeleteActivityRequest {
+	CallerInfo caller_info = 1;
+	ActivitySpec activity_spec = 2;
+	DeleteActivityTimeRange time_range = 3;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationsColdConfig {
+	bool fcm_notifications_enabled = 1;
+	bool doze_change_receiver_enabled = 2;
+	bool fcm_registration_v2_enabled = 3;
+	bool ios_ireach_enabled = 5;
+	uint32 ios_ireach_registration_interval_secs = 6;
+	bool chime_registration_enabled = 7;
+	string chime_environment = 8;
+	bool chime_broadcast_receivers_enabled = 9;
+	uint32 chime_registration_time_to_live_days = 10;
+}

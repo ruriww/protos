@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/handoff_lr_device.proto";
+import "youtube/api/innertube/tv_sign_in_feature_type.proto";
+import "youtube/api/innertube/tv_sign_in_protocol_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LrSignInData {
+	HandoffLrDevice lr_device = 1;
+	TvSignInFeatureType tv_sign_in_feature_type = 2;
+	TvSignInProtocolType tv_sign_in_protocol_type = 3;
+	string client_id = 4;
+	string client_description = 5;
+	string server_token = 6;
+}

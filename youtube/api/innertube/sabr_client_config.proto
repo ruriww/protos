@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SabrClientConfig {
+	int32 default_back_off_time_ms = 1;
+	bool enable_host_fallback = 2;
+	int32 primary_probing_delay_ms = 3;
+	int32 max_failure_attempts_before_fallback = 4;
+	bool enable_server_initiated_host_fallback = 5;
+}

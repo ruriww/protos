@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LocationCollectionInitiationSource {
+	option features.enum_type = CLOSED;
+
+	LOCATION_COLLECTION_INITIATION_SOURCE_UNKNOWN = 0;
+	LOCATION_COLLECTION_INITIATION_SOURCE_WATCH = 1;
+	LOCATION_COLLECTION_INITIATION_SOURCE_SETTINGS = 2;
+	LOCATION_COLLECTION_INITIATION_SOURCE_BROWSE = 3;
+	LOCATION_COLLECTION_INITIATION_SOURCE_NITRATE_BANNER = 4;
+}

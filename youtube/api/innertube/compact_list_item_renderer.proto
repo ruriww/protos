@@ -1,0 +1,57 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/compact_list_item_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/compact_list_item_menu_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/compact_list_item_swipe_to_reveal_button_supported_renderers.proto";
+import "youtube/api/innertube/compact_list_item_style.proto";
+import "youtube/api/innertube/compact_list_item_binding_supported_datas.proto";
+import "youtube/api/innertube/compact_list_item_client_sorting_annotation_supported_datas.proto";
+import "youtube/api/innertube/compact_list_item_offlineability_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactListItemRenderer {
+	FormattedString title = 1;
+	FormattedString sub_title = 2;
+	CompactListItemThumbnailSupportedRenderers thumbnail = 3;
+
+	oneof endpoint {
+		Command navigation_endpoint = 4;
+		Command service_endpoint = 16;
+	}
+
+	oneof rhs_oneof {
+		FormattedString activity_count = 5;
+		FormattedString live_status = 6;
+		CompactListItemMenuSupportedRenderers menu = 14;
+		Icon right_icon = 20;
+		Renderer progress_indicator = 23;
+	}
+
+	bytes tracking_params = 8;
+	Icon sub_title_icon = 9;
+	BadgeSupportedRenderers badge = 10;
+	FormattedString annotation = 11;
+	repeated CompactListItemSwipeToRevealButtonSupportedRenderers swipe_buttons = 12;
+	CompactListItemStyle style = 13;
+	string playlist_set_video_id = 15;
+	CompactListItemBindingSupportedDatas binding = 17;
+	CompactListItemClientSortingAnnotationSupportedDatas client_sorting_annotation = 18;
+	CompactListItemOfflineabilitySupportedRenderers offlineability = 19;
+	bool should_display_index = 21;
+	string target_id = 24;
+}
+
+extend Renderer {
+	CompactListItemRenderer compact_list_item_renderer = 48602820;
+}

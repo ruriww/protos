@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/data_sync_path.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContactMenuEndpoint {
+	extend Command {
+		ContactMenuEndpoint contact_menu_endpoint = 98695964;
+	}
+
+	string contact_id = 1;
+	DataSyncPath contact_data_sync_path = 3;
+}

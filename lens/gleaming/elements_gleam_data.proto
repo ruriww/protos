@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.gleaming;
+
+import "search/rendering/xuikit/elements/elements_output.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ElementsGleamData {
+	search.rendering.xuikit.elements.ElementsOutput elements_output = 1;
+}

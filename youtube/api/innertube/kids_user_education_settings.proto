@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsUserEducationSettings {
+	bool has_seen_home_chip_bar_user_education = 1;
+	bool has_seen_home_pivot_bar_user_education = 2;
+	bool has_seen_parent_muir_user_education = 3;
+}

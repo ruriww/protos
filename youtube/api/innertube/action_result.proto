@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/action_result_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/comment_poll_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActionResult {
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		STATUS_FAILED = 0;
+		STATUS_SUCCEEDED = 1;
+	}
+
+	Status status = 1;
+
+	enum Feedback {
+		option features.enum_type = CLOSED;
+
+		FEEDBACK_NONE = 0;
+		FEEDBACK_REMOVE = 1;
+		FEEDBACK_APPROVE = 2;
+		FEEDBACK_UNLIKE = 3;
+		FEEDBACK_LIKE = 4;
+		FEEDBACK_DISLIKE = 5;
+		FEEDBACK_SELECT = 6;
+		FEEDBACK_DESELECT = 7;
+		FEEDBACK_RESTORE = 8;
+		FEEDBACK_PIN = 9;
+		FEEDBACK_UNPIN = 10;
+		FEEDBACK_TRANSLATE = 11;
+		FEEDBACK_HEART = 12;
+		FEEDBACK_UNHEART = 13;
+		FEEDBACK_CLUSTER_REMOVED = 14;
+		FEEDBACK_UPDATE = 15;
+		FEEDBACK_APPROVE_AND_REMOVE = 16;
+	}
+
+	Feedback feedback = 2;
+	FormattedString feedback_text = 3;
+	FormattedString undo_text = 4;
+	Command undo_service_endpoint = 5;
+	ActionResultSupportedRenderers update = 6;
+	ButtonSupportedRenderers view_button = 7;
+	CommentPollStatus updated_poll_status = 8;
+	int64 action_performed_ms = 9;
+	Command on_response_received_endpoint = 10;
+	bool remove_zero_state = 11;
+	bool use_response_actions_to_add_new_post = 12;
+	bool show_civility_reminder_dialog = 13;
+	string commentbox_state_entity_key = 14;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+import "moneta/orchestration2/ui/common/input/numberinput/freeform_input_formatting_strategy.proto";
+import "moneta/orchestration2/ui/common/input/numberinput/least_significant_digit_formatting_strategy.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NumberInputTransform {
+	oneof strategy {
+		FreeformInputFormattingStrategy freeform_input_formatting_strategy = 1;
+		LeastSignificantDigitFormattingStrategy least_significant_digit_formatting_strategy = 2;
+	}
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum ImageSourceFormat {
+	option features.enum_type = CLOSED;
+
+	IMAGE_SOURCE_FORMAT_UNSPECIFIED = 0;
+	IMAGE_SOURCE_FORMAT_SVG = 1;
+	IMAGE_SOURCE_FORMAT_PNG = 2;
+}

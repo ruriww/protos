@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sfv_effect_user_interaction_type.proto";
+import "youtube/api/innertube/sfv_effect_user_interaction_phase.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvEffectUserInteractionEvent {
+	SfvEffectUserInteractionType type = 1;
+	SfvEffectUserInteractionPhase phase = 2;
+	SfvEffectPipelineData pipeline_data = 3;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/timestamp.proto";
+import "youtube/api/innertube/picker_format_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DateTimePickerConfig {
+	google.protobuf.Timestamp initial_datetime = 1;
+	google.protobuf.Timestamp min_datetime = 2;
+	google.protobuf.Timestamp max_datetime = 3;
+	PickerFormatStyle date_style = 4;
+	PickerFormatStyle time_style = 5;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementToolbarStyle {
+	enum EngagementToolbarStyleValue {
+		option features.enum_type = CLOSED;
+
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_UNKNOWN = 0;
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_BACKSTAGE = 1;
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_WATCH_NEXT = 2;
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_LABELS = 6;
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_DEFAULT = 3;
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_IMPROV_V1 = 4;
+		ENGAGEMENT_TOOLBAR_STYLE_VALUE_IMPROV_V2 = 5;
+	}
+
+	EngagementToolbarStyleValue value = 1;
+}

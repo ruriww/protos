@@ -1,0 +1,12 @@
+edition = "2023";
+
+package synckit;
+
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "GSYP";
+
+message UpdateHandlingConfig {
+	google.protobuf.Duration seek_determination_threshold = 1;
+	bool always_override = 2;
+}

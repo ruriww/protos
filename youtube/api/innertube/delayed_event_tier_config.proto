@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delayed_event_schedule_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DelayedEventTierConfig {
+	bool delayed_event_tier_enabled = 1;
+	DelayedEventScheduleConfig default_tier = 100;
+	DelayedEventScheduleConfig dispatch_to_empty_tier = 200;
+	DelayedEventScheduleConfig fast_tier = 300;
+	DelayedEventScheduleConfig immediate_tier = 400;
+}

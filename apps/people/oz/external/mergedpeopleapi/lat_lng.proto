@@ -1,0 +1,10 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message LatLng {
+	double lat = 1;
+	double lng = 2;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/key_value_pair.proto";
+import "youtube/api/innertube/at_tracking_manager_authorization_status.proto";
+import "youtube/api/innertube/device_id_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdSignalsInfo {
+	repeated KeyValuePair params = 1;
+	string bid = 2;
+	string mutsu_id = 3;
+	string consent_bump_state = 4;
+	ATTrackingManagerAuthorizationStatus at_tracking_manager_authorization_status = 6;
+	string advertising_id = 7;
+	DeviceIdType advertising_id_signal_type = 8;
+	bool limit_ad_tracking = 9;
+	string attribution_os_supported_version = 10;
+}

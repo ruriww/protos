@@ -1,0 +1,72 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/range.proto";
+import "youtube/api/innertube/license_info.proto";
+import "youtube/api/innertube/format_projection.proto";
+import "youtube/api/innertube/audio_track.proto";
+import "youtube/api/innertube/spatial_audio.proto";
+import "youtube/api/innertube/color_info.proto";
+import "youtube/api/innertube/signature_info.proto";
+import "youtube/api/innertube/stereo_layout.proto";
+import "youtube/api/innertube/format_stream_type.proto";
+import "youtube/api/innertube/caption_track.proto";
+import "youtube/api/innertube/audio_quality.proto";
+import "youtube/api/innertube/drm_track_type.proto";
+import "youtube/api/innertube/stereo_resolution.proto";
+import "video_streaming/quality_ordinal.proto";
+import "youtube/api/innertube/video_track.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormatStream {
+	int32 itag = 1;
+	string url = 2;
+	string mime_type = 5;
+	int32 bitrate = 6;
+	int32 width = 7;
+	int32 height = 8;
+	Range init_range = 9;
+	Range index_range = 10;
+	int64 last_modified = 11;
+	int64 content_length = 12;
+	string quality = 16;
+	string xtags = 23;
+	repeated LicenseInfo.DrmFamily drm_families = 24 [ features.repeated_field_encoding = EXPANDED ];
+	int32 fps = 25;
+	string quality_label = 26;
+	FormatProjection.ProjectionType projection_type = 27;
+	AudioTrack audio_track = 28;
+	int32 average_bitrate = 31;
+	SpatialAudio.SpatialAudioType spatial_audio_type = 32;
+	ColorInfo color_info = 33;
+	SignatureInfo signature_info = 34;
+	double target_duration_sec = 35;
+	string fair_play_key_uri = 36;
+	StereoLayout stereo_layout = 37;
+	double max_dvr_duration_sec = 38;
+	bool high_replication = 39;
+	FormatStreamType type = 41;
+	CaptionTrack caption_track = 42;
+	AudioQuality audio_quality = 43;
+	uint64 approx_duration_ms = 44;
+	uint64 audio_sample_rate = 45;
+	uint32 audio_channels = 46;
+	float loudness_db = 47;
+	string signature_cipher = 48;
+	bool is_drc = 49;
+	DrmTrackType drm_track_type = 50;
+	string distinct_params = 51;
+	float track_absolute_loudness_lkfs = 53;
+	bool is_vb = 54;
+	StereoResolution stereo_resolution = 55;
+	video_streaming.QualityOrdinal quality_ordinal = 56;
+	VideoTrack video_track = 57;
+	bool is_selectable = 58;
+
+	extensions 1000 to max;
+}

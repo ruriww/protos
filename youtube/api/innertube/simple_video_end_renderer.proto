@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/ad_video_end_transition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SimpleVideoEndRenderer {
+	ThumbnailDetails icon = 1;
+	FormattedString title = 2;
+	FormattedString description = 3;
+	FormattedString action_text = 4;
+	Command navigation_endpoint = 5;
+	float duration = 6;
+	repeated Command impression_endpoints = 7;
+	bytes tracking_params = 9;
+	ThumbnailDetails background_image = 10;
+	Renderer icon_click_command = 11;
+	Renderer title_click_command = 12;
+	Renderer description_click_command = 13;
+	uint32 background_color = 14;
+	Renderer button_renderer = 15;
+	AdVideoEndTransition transition = 16;
+	float description_width_fraction = 17;
+	string endcap_duration_change_entity_key = 18;
+	Renderer ad_badge_renderer = 19;
+	FormattedString ad_position = 20;
+	Renderer ad_info_renderer = 21;
+
+	extensions 1000 to max;
+}

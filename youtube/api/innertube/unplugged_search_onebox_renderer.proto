@@ -1,0 +1,57 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_spoiler_mode_entity.proto";
+import "youtube/api/innertube/unplugged_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedSearchOneboxRenderer {
+	ThumbnailDetails thumbnail = 1;
+
+	enum ThumbnailType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		RECTANGLE = 1;
+		CIRCLE = 2;
+		BOUNDED_BOX = 3;
+	}
+
+	ThumbnailType thumbnail_type = 2;
+	FormattedString onebox_header = 3;
+	FormattedString title = 4;
+	FormattedString description = 5;
+	Command navigation_endpoint = 6;
+	bytes tracking_params = 7;
+	string background_color = 9 [ default = "#00FFFFFF" ];
+	string title_banner_color = 10 [ default = "#00FFFFFF" ];
+	string preview_video_tenx_id = 11;
+	BadgeSupportedRenderers preview_video_badge = 12;
+	Command preview_video_navigation_endpoint = 13;
+	BadgeSupportedRenderers collect_badge = 14;
+	FormattedString primary_text = 15;
+	FormattedString secondary_text = 16;
+	MenuSupportedRenderers menu = 17;
+	repeated UnpluggedSpoilerModeEntity spoiler_mode_entities = 19;
+	BadgeSupportedRenderers spoiler_mode_badge = 20;
+	UnpluggedSubscribeButtonSupportedRenderers dvr_button = 21;
+	UnpluggedButtonSupportedRenderers bell_button = 22;
+	BadgeSupportedRenderers secondary_badge = 23;
+	repeated Renderer tertiary_container = 24;
+}
+
+extend Renderer {
+	UnpluggedSearchOneboxRenderer unplugged_search_onebox_renderer = 115017721;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mobile_broadcast_setup_go_live_screen_renderer.proto";
+import "youtube/api/innertube/mobile_stream_invite_screen_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConfirmBroadcastSetupSupportedRenderers {
+	oneof renderer {
+		MobileBroadcastSetupGoLiveScreenRenderer mobile_broadcast_setup_go_live_screen_renderer = 126007832;
+		MobileStreamInviteScreenRenderer mobile_stream_invite_screen_renderer = 415593373;
+	}
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "xeno/effect/response_result_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message LoadStateResponseEventProto {
+	ResponseResultProto response = 1;
+	string error_message = 2;
+}

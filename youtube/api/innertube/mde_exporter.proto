@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_exporter_settings.proto";
+import "youtube/api/innertube/media_engine_exporter_state.proto";
+import "youtube/api/innertube/mde_exporter_progress_stats.proto";
+import "youtube/api/innertube/export_event_ids.proto";
+import "youtube/api/innertube/mde_exporter_resume_settings.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeExporter {
+	MdeExporterSettings settings = 1;
+	MediaEngineExporterState state = 2;
+	uint64 duration_ms = 3;
+	uint64 progress_ms = 4;
+	MdeExporterProgressStats progress_stats = 5;
+	uint32 num_retry_attempts = 6;
+	ExportEventIds export_event_ids = 7;
+	MdeExporterResumeSettings resume_settings = 8;
+}

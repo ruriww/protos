@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/backstage_reply_image_creation_supported_renderers.proto";
+import "youtube/api/innertube/backstage_reply_attachment_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentReplyDialogRenderer {
+	string reply_to_text = 1;
+	ButtonSupportedRenderers reply_button = 2;
+	ButtonSupportedRenderers cancel_button = 3;
+	ThumbnailDetails author_thumbnail = 4;
+	FormattedString editable_text = 5;
+	FormattedString placeholder_text = 6;
+	ButtonSupportedRenderers camera_button = 7;
+	FormattedString poll_choice_text = 8;
+	BackstageReplyImageCreationSupportedRenderers image_button = 9;
+	BackstageReplyAttachmentSupportedRenderers reply_attachment = 10;
+	FormattedString error_message = 11;
+	FormattedString header_text = 13;
+	Command navigation_endpoint = 14;
+	ButtonSupportedRenderers emoji_button = 15;
+	Renderer emoji_picker = 17;
+	string emoji_entity_key = 19;
+	Renderer timestamp_hint = 20;
+	bool should_remove_scrim = 21;
+	string aadc_guidelines_state_entity_key = 22;
+	Command open_aadc_dialog = 23;
+}
+
+extend Renderer {
+	CommentReplyDialogRenderer comment_reply_dialog_renderer = 97806346;
+}

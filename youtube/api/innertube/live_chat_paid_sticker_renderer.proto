@@ -1,0 +1,54 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/live_chat_author_badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatPaidStickerRenderer {
+	string id = 1;
+	Command context_menu_endpoint = 2;
+	AccessibilitySupportedDatas context_menu_accessibility = 3;
+	uint64 timestamp_usec = 4;
+	repeated Renderer inline_action_buttons = 5;
+	ThumbnailDetails author_photo = 6;
+	FormattedString author_name = 7;
+	string author_external_channel_id = 8;
+	FormattedString timestamp_text = 9;
+	ThumbnailDetails sticker = 11;
+	repeated LiveChatAuthorBadgeSupportedRenderers author_badges = 12;
+	FormattedString detail_text = 13;
+	FormattedString deleted_state_message = 14;
+	FormattedString show_original_content_message = 15;
+	uint32 money_chip_background_color = 16;
+	uint32 money_chip_text_color = 17;
+	FormattedString purchase_amount_text = 18;
+	int32 sticker_display_width = 19;
+	int32 sticker_display_height = 20;
+	ThumbnailDetails super_sticker_icon = 21;
+	uint32 background_color = 22;
+	uint32 author_name_text_color = 23;
+	bytes tracking_params = 25;
+	Renderer buy_button = 26;
+	ThumbnailDetails header_overlay_image = 27;
+	bool is_v2_style = 28;
+	bool is_premium_sticker_tier = 31;
+	FormattedString purchase_text = 32;
+	Renderer upper_bumper = 35;
+	Renderer lower_bumper = 36;
+	Renderer creator_heart_button = 37;
+	Command on_tap_command = 38;
+}
+
+extend Renderer {
+	LiveChatPaidStickerRenderer live_chat_paid_sticker_renderer = 197064214;
+}

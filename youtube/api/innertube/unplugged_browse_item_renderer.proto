@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_browse_item_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBrowseItemRenderer {
+	ThumbnailDetails thumbnail = 1;
+	ThumbnailDetails network_icon = 2;
+	FormattedString title = 3;
+	FormattedString release_year = 4;
+	FormattedString content_rating = 5;
+	FormattedString duration = 6;
+	FormattedString season_count = 7;
+	MenuSupportedRenderers menu = 8;
+	Command navigation_endpoint = 9;
+	bytes tracking_params = 10;
+	BadgeSupportedRenderers badge = 13;
+	FormattedString primary_text = 14;
+	FormattedString secondary_text = 15;
+	UnpluggedBrowseItemRendererStyle style = 16;
+	string debug_string = 17;
+	FormattedString tertiary_text = 18;
+	string background_color = 19 [ default = "#00FFFFFF" ];
+	string debug_html = 20;
+
+	message ClientStateSyncData {
+		string watch_state_entity_key = 1;
+	}
+
+	ClientStateSyncData client_state_sync_data = 22;
+	BadgeSupportedRenderers secondary_badge = 23;
+	BadgeSupportedRenderers ultra_high_definition_badge = 24;
+	FormattedString quaternary_text = 25;
+	repeated Renderer quaternary_container = 26;
+	BadgeSupportedRenderers progress_badge = 27;
+	int32 progress_percentage = 28;
+	repeated BadgeSupportedRenderers metadata_top_badges = 29;
+	repeated Renderer secondary_container = 30;
+	int64 start_time_seconds = 31;
+	int64 end_time_seconds = 32;
+	int32 watched_percentage_for_display = 33;
+	string focused_background_color = 34 [ default = "#00FFFFFF" ];
+	Command on_record_press = 35;
+	Command on_multiview_press = 36;
+}
+
+extend Renderer {
+	UnpluggedBrowseItemRenderer unplugged_browse_item_renderer = 99952498;
+}

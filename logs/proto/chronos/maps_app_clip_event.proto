@@ -1,0 +1,81 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message MapsAppClipEvent {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNSPECIFIED = 0;
+		LAUNCHED = 1;
+		SCREEN_VIEWED = 2;
+		ACTION_TRIGGERED = 3;
+		APP_INSTALLED = 4;
+		ERROR_OCCURRED = 5;
+	}
+
+	Type type = 1;
+
+	enum LaunchMethod {
+		option features.enum_type = CLOSED;
+
+		LAUNCH_METHOD_UNSPECIFIED = 0;
+		WITHOUT_URL = 1;
+		WITH_URL = 2;
+	}
+
+	LaunchMethod launch_method = 2;
+
+	enum Screen {
+		option features.enum_type = CLOSED;
+
+		SCREEN_UNSPECIFIED = 0;
+		PLACE = 1;
+		APP_STORE_OVERLAY = 2;
+		NO_URL = 3;
+		APP_STORE_SHEET = 4;
+	}
+
+	Screen screen = 3;
+
+	enum Action {
+		option features.enum_type = CLOSED;
+
+		ACTION_UNSPECIFIED = 0;
+		DIRECTIONS_BUTTON_TAPPED = 1;
+		SAVE_BUTTON_TAPPED = 2;
+		GET_THE_APP_BUTTON_TAPPED = 3;
+		SHARE_BUTTON_TAPPED = 4;
+		PHOTO_THUMBNAIL_TAPPED = 5;
+		SEARCH_BAR_TAPPED = 6;
+		ADDRESS_COPIED = 7;
+		PHONE_NUMBER_COPIED = 8;
+		WEBSITE_COPIED = 9;
+		PHONE_NUMBER_TAPPED = 10;
+		WEBSITE_TAPPED = 11;
+		MORE_INFO_BUTTON_TAPPED = 12;
+		FOOTER_BUTTON_TAPPED = 13;
+		APP_STORE_OVERLAY_DISMISSED = 14;
+		APP_STORE_SHEET_DISMISSED = 15;
+		STATIC_MAP_TAPPED = 16;
+	}
+
+	Action action = 4;
+
+	enum ErrorType {
+		option features.enum_type = CLOSED;
+
+		ERROR_TYPE_UNSPECIFIED = 0;
+		MAPS_STATIC_API = 1;
+		PLACES_API = 2;
+		SHORT_LINK_REDIRECT = 3;
+		NO_MAPS_URL_FOUND = 4;
+		PARSING_FAILED = 5;
+		MISSING_FEATURE_ID_AND_COORDINATES = 6;
+		MISSING_ADDRESS_AND_COORDINATES = 7;
+	}
+
+	ErrorType error_type = 6;
+}

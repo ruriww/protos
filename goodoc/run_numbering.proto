@@ -1,0 +1,11 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message RunNumbering {
+	int32 begin_page = 1;
+	int32 end_page = 2;
+	bool type_written = 3;
+}

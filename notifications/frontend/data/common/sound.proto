@@ -1,0 +1,11 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+option objc_class_prefix = "NFDC";
+
+message Sound {
+	string name = 1;
+	bool is_critical = 2;
+	float volume = 3;
+}

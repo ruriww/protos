@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.cryptauth.enrollment.v1;
+
+import "google/cryptauth/enrollment/v1/policy_reference.proto";
+
+option objc_class_prefix = "CRPT";
+
+message KeyDirective {
+	PolicyReference policy_reference = 1;
+	repeated string crossproof_key_names = 2;
+	int64 enroll_time_millis = 3;
+}

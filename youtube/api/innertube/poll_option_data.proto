@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollOptionData {
+	FormattedString remove_option_alt_text = 1;
+	FormattedString chars_remaining_alt_label = 2;
+	FormattedString char_count_error_text = 3;
+}

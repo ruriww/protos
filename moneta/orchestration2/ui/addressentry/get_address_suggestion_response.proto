@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.addressentry;
+
+import "moneta/orchestration2/ui/common/functionaldata/autocomplete/autocomplete_option.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GetAddressSuggestionResponse {
+	repeated common.functionaldata.autocomplete.AutocompleteOption address_autocomplete_option = 1;
+}

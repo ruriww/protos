@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+option objc_class_prefix = "SPEECH";
+
+enum S3SessionConnectionType {
+	option features.enum_type = CLOSED;
+
+	S3_SESSION_CONNECTION_UNKNOWN = 0;
+	S3_SESSION_CONNECTION_TCP = 1;
+	S3_SESSION_CONNECTION_HTTP = 2;
+	S3_SESSION_CONNECTION_GRPC = 3;
+}

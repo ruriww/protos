@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/like_status.proto";
+import "youtube/api/innertube/like_target.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LikeEndpoint {
+	extend Command {
+		LikeEndpoint like_endpoint = 63158558;
+	}
+
+	LikeStatus status = 1;
+	LikeTarget target = 2;
+	repeated Command actions = 3;
+	bool hack = 4;
+	bool is_implicit_like = 5;
+
+	oneof params {
+		string like_params = 6;
+		string dislike_params = 7;
+		string remove_like_params = 8;
+	}
+}

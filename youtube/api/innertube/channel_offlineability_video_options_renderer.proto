@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_offlineability_video_option_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelOfflineabilityVideoOptionsRenderer {
+	repeated ChannelOfflineabilityVideoOptionSupportedRenderers options = 1;
+	FormattedString title = 2;
+	bytes click_tracking_params = 4;
+}

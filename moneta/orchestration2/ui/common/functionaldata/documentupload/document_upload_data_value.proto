@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.documentupload;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/documentupload/uploaded_document.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DocumentUploadDataValue {
+	extend data.DataValue {
+		DocumentUploadDataValue document_upload_data_value_extension = 268311950;
+	}
+
+	repeated UploadedDocument uploaded_document = 1;
+	repeated UploadedDocument previously_uploaded_document = 2;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package logs.proto.wireless.android.apps.search;
+
+import "unknown/youtube/calsap_product_id15192.proto";
+import "logs/proto/wireless/android/apps/search/app_event.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "SAFP";
+
+message AppFlow {
+	enum AppFlowStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		COMPLETE = 1;
+		NO_START_FOUND = 2;
+		NO_END_FOUND = 3;
+		FLOW_ALREADY_CLOSED = 4;
+		FLOW_ALREADY_TIMED_OUT = 5;
+		INVALID_START = 6;
+		SERVER_TIMEOUT = 7;
+		FRAMEWORK_INTERNAL = 8;
+	}
+
+	AppFlowStatus status = 1;
+	repeated AppEvent events = 2;
+	int32 flow_type = 3;
+	int32 app_id = 4;
+	AppEvent start_event = 5;
+	AppEvent end_event = 6;
+	google.protobuf.Duration duration = 7;
+
+	message CrossPlatformIdentifier {
+		int32 app_id = 1;
+		unknown.youtube.CALSAPProductID15192.CALSAPProductID product_id = 2;
+	}
+
+	CrossPlatformIdentifier cross_platform_id = 8;
+	int32 sampling_denominator = 9;
+}

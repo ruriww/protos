@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicSortFilterButtonStyle {
+	option features.enum_type = CLOSED;
+
+	MUSIC_SORT_FILTER_BUTTON_STYLE_UNKNOWN = 0;
+	MUSIC_SORT_FILTER_BUTTON_STYLE_ROUND_CORNERED = 1;
+	MUSIC_SORT_FILTER_BUTTON_STYLE_FLAT = 2;
+	MUSIC_SORT_FILTER_BUTTON_STYLE_FLAT_SMALL_ICON = 3;
+}

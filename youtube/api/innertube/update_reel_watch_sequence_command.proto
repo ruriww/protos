@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/update_reel_watch_sequence_advance_behavior.proto";
+import "youtube/api/innertube/update_reel_watch_sequence_mutation_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateReelWatchSequenceCommand {
+	string continuation = 1;
+	UpdateReelWatchSequenceAdvanceBehavior advance_behavior = 2;
+	UpdateReelWatchSequenceMutationType mutation_type = 3;
+	int64 mutation_offset = 4;
+	bool proceed_only_with_non_empty_results = 5;
+	repeated Command items_to_insert = 6;
+	bool update_tracking_params_for_sequence_request = 7;
+}
+
+extend Command {
+	UpdateReelWatchSequenceCommand update_reel_watch_sequence_command = 1220;
+}

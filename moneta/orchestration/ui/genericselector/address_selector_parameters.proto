@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+option objc_class_prefix = "GenericSelector";
+
+message AddressSelectorParameters {
+	repeated string country_code = 1;
+	string application_display_name = 2;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.customerselector;
+
+import "moneta/orchestration/ui/common/components/customerselector/customer_option.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message CustomerSelector {
+	string title = 1;
+	repeated CustomerOption customer_option = 2;
+	int64 ui_reference = 3;
+	int64 preselected_option_reference = 5;
+	string new_customer_option_label = 6;
+	bytes new_customer_option_token = 7;
+	repeated generic.InfoMessage description = 8;
+	bool always_expanded = 9;
+	FormHeader form_header = 10;
+	generic.ImageWithCaption selected_option_icon = 11;
+
+	enum Style {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		COLLAPSED_WITH_MINIMAL_DETAILS = 1;
+		ALWAYS_EXPANDED = 2;
+		INITIALLY_EXPANDED = 3;
+	}
+
+	Style style = 12;
+	int64 unselected_option_reference = 13;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

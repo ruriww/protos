@@ -1,0 +1,10 @@
+edition = "2023";
+
+package privacy.context.external;
+
+option objc_class_prefix = "PCEP";
+
+message ExternalPRequestContext {
+	int32 origin_associated_product_id = 13;
+	bool is_incognito = 24;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/rendered_recommendation.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ContextSpecificRecommendations {
+	string context = 1;
+	repeated RenderedRecommendation rendered_recommendations = 2;
+	bool retry = 3;
+}

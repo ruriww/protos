@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/offline_channel_supported_datas.proto";
+import "youtube/api/innertube/offline_video_supported_datas.proto";
+import "youtube/api/innertube/offline_playlist_additional_supported_datas.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinePlaylistData {
+	string playlist_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	OfflineChannelSupportedDatas channel = 3;
+	repeated OfflineVideoSupportedDatas videos = 4;
+	string title = 5;
+	string share_url = 6;
+	int64 last_modified_timestamp = 7;
+	repeated OfflinePlaylistAdditionalSupportedDatas additional_metadadatas = 8;
+	bool is_private = 9;
+	PrivacyStatus privacy = 10;
+	FormattedString alert_message = 11;
+	int64 total_video_count = 12;
+	bytes offline_playlist_token = 13;
+	FormattedString playlist_description = 14;
+	int64 view_count = 15;
+	bool library_curation_allowed = 16;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/phone_verification_button_supported_renderers.proto";
+import "youtube/api/innertube/phone_verification_modal_dialog_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PhoneVerificationIntroRenderer {
+	ThumbnailDetails welcome_image = 1;
+	FormattedString title = 2;
+	FormattedString text = 3;
+	PhoneVerificationButtonSupportedRenderers get_started = 6;
+	PhoneVerificationButtonSupportedRenderers learn_more = 7;
+	repeated PhoneVerificationModalDialogSupportedRenderers confirmation_dialogs = 8;
+	Command command = 9;
+	FormattedString consent = 10;
+	FormattedString rate_limit_note = 12;
+}
+
+extend Renderer {
+	PhoneVerificationIntroRenderer phone_verification_intro_renderer = 133186183;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosStartupPrewarmingMode {
+	option features.enum_type = CLOSED;
+
+	IOS_STARTUP_PREWARMING_MODE_UNKNOWN = 0;
+	IOS_STARTUP_PREWARMING_MODE_PREFETCH_DNS = 1;
+	IOS_STARTUP_PREWARMING_MODE_WITH_GTMSESSIONFETCHER = 3;
+	IOS_STARTUP_PREWARMING_MODE_WITH_GTMSESSIONFETCHER_AND_PREFETCH_DNS = 4;
+}

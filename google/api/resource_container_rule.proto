@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+message ResourceContainerRule {
+	string selector = 1;
+	string type = 2;
+}

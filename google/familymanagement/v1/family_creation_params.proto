@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message FamilyCreationParams {
+	string encrypted_family_creation_params = 1;
+}

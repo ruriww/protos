@@ -1,0 +1,22 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum Decision {
+	option features.enum_type = CLOSED;
+
+	DECISION_UNSPECIFIED = 0;
+	DECISION_CONSENT = 1;
+	DECISION_DO_NOT_CONSENT = 2;
+	DECISION_ABANDONED = 3;
+	DECISION_COMPLETED = 11;
+	DECISION_GO_BACK = 4;
+	DECISION_CUSTOMIZE_OPTIONS = 5;
+	DECISION_DISABLE_SETTING = 6;
+	DECISION_KEEP_CONSENT = 7;
+	DECISION_ASK_LATER = 8;
+	DECISION_ASK_LATER_ONE_WEEK = 9;
+	DECISION_ASK_LATER_TWO_WEEKS = 10;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosMdxGlobalConfig {
+	bool enable_gcm_topic_session_status = 1;
+	bool skip_gdata_calls = 2;
+	bool disable_dial_on_chromecast = 3;
+	bool enable_playback_integration = 4;
+	bool enable_mdx_fiji = 5;
+	bool enable_cast_icon_tv = 6;
+}

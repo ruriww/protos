@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.logging;
+
+option objc_class_prefix = "ORCH2";
+
+message TriggerConfiguration {
+	repeated int32 trigger_id = 1;
+	bool log_responsiveness = 3;
+}

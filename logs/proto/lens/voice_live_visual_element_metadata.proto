@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/visual_element_lite_proto.proto";
+import "logs/proto/lens/voice/turn_id.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message VoiceLiveVisualElementMetadata {
+	extend VisualElementLiteProto {
+		VoiceLiveVisualElementMetadata voice_live_ve_metadata = 1178;
+	}
+
+	voice.TurnId turn_id = 1;
+
+	enum AppState {
+		option features.enum_type = CLOSED;
+
+		APP_STATE_UNKNOWN = 0;
+		APP_STATE_FOREGROUND = 1;
+		APP_STATE_BACKGROUND = 2;
+	}
+
+	AppState app_state = 2;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.flowinstruction;
+
+import "moneta/orchestration2/ui/common/page/page.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SetPage {
+	page.Page new_page = 1;
+}

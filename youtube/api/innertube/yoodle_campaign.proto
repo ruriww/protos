@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/timestamp.proto";
+import "youtube/api/innertube/yoodle_logo_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YoodleCampaign {
+	int32 id = 1;
+	Timestamp start_timestamp = 2;
+	Timestamp end_timestamp = 3;
+	YoodleLogoData logo_data = 4;
+	uint32 jitter_in_seconds = 5;
+}

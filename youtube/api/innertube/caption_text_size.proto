@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CaptionTextSize {
+	enum TextSize {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		VERY_SMALL = 1;
+		SMALL = 2;
+		NORMAL = 3;
+		LARGE = 4;
+		VERY_LARGE = 5;
+	}
+
+	TextSize text_size = 1;
+}

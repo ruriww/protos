@@ -1,0 +1,19 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/container_type.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "POEM";
+
+message SourceIdentity {
+	PersonFieldMetadata.Container container = 1;
+	string id = 2;
+	bool deleted = 3;
+	int64 last_updated_micros = 4;
+	string source_etag = 5;
+	ContainerType container_type = 6;
+	google.protobuf.Timestamp last_updated = 7;
+}

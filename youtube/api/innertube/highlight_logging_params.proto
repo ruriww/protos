@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/highlight_creation_source.proto";
+import "youtube/api/innertube/highlight_creation_method.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HighlightLoggingParams {
+	HighlightCreationSource highlight_creation_source = 1;
+	HighlightCreationMethod highlight_creation_method = 2;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/upload_media_id.proto";
+import "youtube/api/innertube/upload_media_type.proto";
+import "youtube/api/innertube/upload_media_use_case.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UploadMedia {
+	UploadMediaId id = 1;
+	UploadMediaType type = 2;
+	UploadMediaUseCase use_case = 3;
+}

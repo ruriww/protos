@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdeStreamOptimizationsRendererLatency {
+	option features.enum_type = CLOSED;
+
+	MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_UNKNOWN = 0;
+	MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_NORMAL = 1;
+	MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_LOW = 2;
+	MDE_STREAM_OPTIMIZATIONS_RENDERER_LATENCY_ULTRA_LOW = 3;
+}

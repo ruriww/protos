@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum ImageSourceDensity {
+	option features.enum_type = CLOSED;
+
+	IMAGE_SOURCE_DENSITY_UNSPECIFIED = 0;
+	IMAGE_SOURCE_DENSITY_1X = 1;
+	IMAGE_SOURCE_DENSITY_2X = 2;
+	IMAGE_SOURCE_DENSITY_3X = 3;
+	IMAGE_SOURCE_DENSITY_4X = 4;
+}

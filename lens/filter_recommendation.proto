@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens;
+
+import "quality_genie/eyes/filter_type.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message FilterRecommendation {
+	quality_genie.eyes.FilterType filter_type = 1;
+	string text = 2;
+}

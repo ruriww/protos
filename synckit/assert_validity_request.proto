@@ -1,0 +1,13 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/session_id.proto";
+import "synckit/validity_attestation.proto";
+
+option objc_class_prefix = "GSYP";
+
+message AssertValidityRequest {
+	SessionId session_id = 1;
+	ValidityAttestation attestation = 2;
+}

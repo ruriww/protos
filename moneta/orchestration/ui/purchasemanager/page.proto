@@ -1,0 +1,39 @@
+edition = "2023";
+
+package moneta.orchestration.ui.purchasemanager;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/components/pagefooter/page_footer.proto";
+import "moneta/orchestration/ui/common/components/pageheader/page_header.proto";
+import "moneta/orchestration/ui/common/components/encryption_form.proto";
+
+option objc_class_prefix = "PurchaseManager";
+
+message Page {
+	string title = 1;
+	common.generic.ImageWithCaption title_image = 2;
+	common.generic.InfoMessage top_info_message = 3;
+	common.generic.DependencyGraph dependency_graph = 4;
+	common.components.Button submit_button = 5;
+	bool auto_submit = 6;
+	string progress_dialog_text = 7;
+	string progress_dialog_title = 8;
+	common.components.instrument.InstrumentForm form = 9;
+	int64 ui_reference = 10;
+	common.components.webview.WebViewComponent web_view_component = 13;
+	repeated common.components.SimpleForm simple_form = 14;
+	common.components.SimpleForm brand_logo = 15;
+	repeated common.generic.ComponentGroup component_group = 16;
+	common.components.pagefooter.PageFooter page_footer = 17;
+	bool hide_cancel_button = 18;
+	common.components.pageheader.PageHeader page_header = 19;
+	int64 submit_after_timeout_millis = 21;
+	common.components.EncryptionForm encryption_form = 23;
+}

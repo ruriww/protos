@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+import "moneta/integrator/common/identity_link_id_pb.proto";
+
+option objc_class_prefix = "Orch";
+
+message IdentityLinkIds {
+	repeated IdentityLinkIdPb identity_link_id = 1;
+}

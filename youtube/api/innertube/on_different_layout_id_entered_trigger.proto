@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/slot_type.proto";
+import "youtube/api/innertube/layout_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OnDifferentLayoutIdEnteredTrigger {
+	string triggering_layout_id = 1;
+	SlotType slot_type = 2;
+	LayoutType layout_type = 3;
+}

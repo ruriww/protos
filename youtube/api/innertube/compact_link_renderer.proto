@@ -1,0 +1,64 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/compact_link_hint_supported_renderers.proto";
+import "youtube/api/innertube/datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactLinkRenderer {
+	Icon icon = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+
+	oneof link {
+		Command navigation_endpoint = 4;
+		Command service_endpoint = 9;
+	}
+
+	oneof secondary_item {
+		Icon secondary_icon = 7;
+		FormattedString secondary_notification_text = 8;
+	}
+
+	bytes tracking_params = 6;
+	int64 proto_creation_timestamp_ms = 10;
+	CompactLinkHintSupportedRenderers hint = 11;
+	string target_id = 12;
+	FormattedString subtitle = 13;
+	ThumbnailDetails thumbnail_secondary = 15;
+	Datas binding = 16;
+	bool should_tint_icon = 17 [ default = true ];
+	Renderer icon_renderer = 18;
+	Command on_focus_command = 19;
+
+	oneof secondary_text_item {
+		FormattedString focused_secondary_text = 21;
+		FormattedString secondary_text = 22;
+	}
+
+	Command show_interstitial_command = 20;
+	string display_id = 23;
+	FormattedString secondary_label = 24;
+	Icon icon_focused = 25;
+	ThumbnailDetails thumbnail_focused = 26;
+	Icon secondary_icon_focused = 27;
+	FormattedString subtitle_focused = 28;
+	ThumbnailOverlaySupportedRenderers thumbnail_overlay = 29;
+	ThumbnailOverlaySupportedRenderers thumbnail_overlay_focused = 30;
+	bool requires_parent_focus = 31;
+}
+
+extend Renderer {
+	CompactLinkRenderer compact_link_renderer = 79129962;
+}

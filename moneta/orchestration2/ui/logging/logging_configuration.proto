@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.logging;
+
+import "payments/logging/orchestration/client/client_log_enums.proto";
+import "moneta/orchestration2/ui/logging/event_rule_evaluation_configuration.proto";
+import "moneta/orchestration2/ui/logging/android_frame_render_configuration.proto";
+import "moneta/orchestration2/ui/logging/trigger_configuration.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message LoggingConfiguration {
+	payments.logging.orchestration.client.ClientLogEnums.EventType enabled_event_type = 1;
+
+	oneof configuration_info {
+		EventRuleEvaluationConfiguration event_rule_evaluation_configuration = 2;
+		AndroidFrameRenderConfiguration android_frame_render_configuration = 3;
+		TriggerConfiguration trigger_configuration = 4;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message GetUserByTokenIdRequest {
+	oneof provider {
+		string issuer = 1;
+		string provider_id = 2;
+	}
+
+	oneof token_id {
+		string access_token_id = 3;
+		string refresh_token_id = 4;
+	}
+}

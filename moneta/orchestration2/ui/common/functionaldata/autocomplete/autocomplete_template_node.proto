@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.autocomplete;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/text_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AutocompleteTemplateNode {
+	extend node.Node {
+		AutocompleteTemplateNode autocomplete_template_node_extension = 318340181;
+	}
+
+	TextProperties text_properties = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_creation_entry_context.proto";
+import "youtube/api/innertube/media_generation_entry_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationEntryContext {
+	oneof entry_context {
+		ShortsCreationEntryContext shorts_creation_entry_context = 1;
+		MediaGenerationEntryContext media_generation_entry_context = 2;
+		bytes serialized_media_generation_entry_context = 3;
+	}
+}

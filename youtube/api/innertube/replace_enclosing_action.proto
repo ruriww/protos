@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/group_dismissal_behavior.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/replace_enclosing_action_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReplaceEnclosingAction {
+	extend Command {
+		ReplaceEnclosingAction replace_enclosing_action = 77297283;
+	}
+
+	ReplaceEnclosingActionSupportedRenderers item = 1;
+	bool replace_parent_section = 2;
+	string target_id = 3;
+
+	message GroupDismissalContext {
+		string target_group_id = 1;
+		int32 source_relative_feed_position = 2;
+		GroupDismissalBehavior behavior = 3;
+	}
+
+	oneof on_replace {
+		GroupDismissalContext group_dismissal = 4;
+	}
+}

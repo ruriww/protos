@@ -1,0 +1,10 @@
+edition = "2023";
+
+package privacy.consent;
+
+option objc_class_prefix = "PCO";
+
+message UUID {
+	fixed64 most_significant_bits = 1;
+	fixed64 least_significant_bits = 2;
+}
