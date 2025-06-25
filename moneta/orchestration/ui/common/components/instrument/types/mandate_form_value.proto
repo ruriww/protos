@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+option objc_class_prefix = "Orch";
+
+message MandateFormValue {
+	string id = 1;
+	bytes form_token = 2;
+	string mandate_legal_message_data = 3;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.parameter.config;
+
+import "moneta/testing/demoserver/teststudio/proto/substitution_user_input_parameter.proto";
+
+option objc_class_prefix = "TSLSPC";
+
+message GetUserInputParameterResponse {
+	repeated SubstitutionUserInputParameter substitution_user_input = 1;
+}

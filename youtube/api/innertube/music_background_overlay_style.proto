@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicBackgroundOverlayStyle {
+	message VerticalGradientStyle {
+		repeated int64 gradient_layer_colors = 1 [ features.repeated_field_encoding = EXPANDED ];
+	}
+
+	message DiagonalGradientStyle {
+		repeated int64 diagonal_gradient_layer_colors = 1;
+	}
+
+	oneof overlay {
+		VerticalGradientStyle vertical_gradient = 1;
+		DiagonalGradientStyle diagonal_gradient = 2;
+	}
+}

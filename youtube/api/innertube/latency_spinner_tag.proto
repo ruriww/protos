@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LatencySpinnerTag {
+	option features.enum_type = CLOSED;
+
+	LATENCY_SPINNER_TAG_UNKNOWN = 0;
+	LATENCY_SPINNER_TAG_BROWSE_RESPONSE = 1;
+	LATENCY_SPINNER_TAG_SEARCH_RESULTS = 2;
+	LATENCY_SPINNER_TAG_WATCH_NEXT_RESPONSE = 3;
+	LATENCY_SPINNER_TAG_VIDEO_INFO_PANEL = 4;
+	LATENCY_SPINNER_TAG_ADD_TO_PLAYLIST = 5;
+}

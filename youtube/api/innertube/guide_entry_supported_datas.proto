@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/guide_entry_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideEntrySupportedDatas {
+	oneof entry_data {
+		GuideEntryData guide_entry_data = 132368149;
+	}
+}

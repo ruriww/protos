@@ -1,0 +1,40 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/key_value_pair.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PaymentsWebDataValue {
+	extend data.DataValue {
+		PaymentsWebDataValue payments_web_data_value_extension = 370403089;
+	}
+
+	enum AuthorizationState {
+		option features.enum_type = CLOSED;
+
+		AUTHORIZATION_STATE_UNKNOWN = 0;
+		AUTHORIZATION_STATE_NOT_STARTED = 1;
+		AUTHORIZATION_STATE_RUNNING = 2;
+		AUTHORIZATION_STATE_COMPLETED = 3;
+		AUTHORIZATION_STATE_FAILED = 4;
+	}
+
+	AuthorizationState authorization_state = 1;
+
+	enum LoadingState {
+		option features.enum_type = CLOSED;
+
+		LOADING_STATE_UNKNOWN = 0;
+		LOADING_STATE_NOT_STARTED = 1;
+		LOADING_STATE_RUNNING = 2;
+		LOADING_STATE_COMPLETED = 3;
+		LOADING_STATE_FAILED = 4;
+	}
+
+	LoadingState loading_state = 2;
+	string intercepted_url = 3;
+	repeated KeyValuePair intercept_url_params = 4;
+}

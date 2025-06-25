@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ComposableDownloadsPageState {
+	option features.enum_type = CLOSED;
+
+	COMPOSABLE_DOWNLOADS_PAGE_STATE_UNSPECIFIED = 0;
+	COMPOSABLE_DOWNLOADS_PAGE_STATE_LEGACY = 1;
+	COMPOSABLE_DOWNLOADS_PAGE_STATE_DARK_LAUNCH = 2;
+	COMPOSABLE_DOWNLOADS_PAGE_STATE_REVERSE_DARK_LAUNCH = 3;
+	COMPOSABLE_DOWNLOADS_PAGE_STATE_LAUNCHED = 4;
+}

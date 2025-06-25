@@ -1,0 +1,35 @@
+edition = "2023";
+
+package frameworks.client.streamz;
+
+option objc_class_prefix = "FCSZ";
+
+message IncrementBatch {
+	string streamz_name = 1;
+	repeated string field_name = 3;
+
+	message Increment {
+		message Field {
+			oneof value {
+				string str_val = 1;
+				int32 int_val = 2;
+				bool bool_val = 3;
+			}
+		}
+
+		repeated Field field = 1;
+
+		message Value {
+			oneof value {
+				int64 int64_val = 1;
+				double double_val = 2;
+			}
+		}
+
+		Value inc_by = 2;
+	}
+
+	repeated Increment inc = 4;
+	fixed64 hashed_streamz_name = 5;
+	repeated fixed64 hashed_field_name = 6 [ features.repeated_field_encoding = EXPANDED ];
+}

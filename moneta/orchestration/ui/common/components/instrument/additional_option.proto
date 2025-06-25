@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_form.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+
+option objc_class_prefix = "Orch";
+
+message AdditionalOption {
+	string label = 1;
+	InstrumentForm instrument_form = 4;
+	repeated InstrumentForm instrument_forms = 5;
+	bool auto_submit = 6;
+	int64 ui_reference = 7;
+	generic.ImageWithCaption icon = 8;
+
+	oneof sublabel {
+		string warning_message = 11;
+		string status_message = 12;
+	}
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package youtube.client.blocks.api.rendering;
+
+option objc_class_prefix = "YTBA";
+
+message SuspenseUpdateParams {
+	string component_key = 1;
+	string data_key = 2;
+}

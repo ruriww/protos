@@ -1,0 +1,91 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message FieldAcl {
+	message AclEntry {
+		enum Role {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			READER = 1;
+			WRITER = 2;
+			OWNER = 3;
+		}
+
+		Role role = 1;
+
+		message Scope {
+			bool all_users = 1;
+
+			message PersonAcl {
+				string person_id = 1;
+				string display_name = 2;
+				string photo_url = 3;
+			}
+
+			PersonAcl person = 2;
+			bool domain_users = 3;
+
+			message MembershipAcl {
+				message CircleAcl {
+					string circle_id = 1;
+
+					enum CircleSet {
+						option features.enum_type = CLOSED;
+
+						UNKNOWN = 0;
+						YOUR_CIRCLES = 1;
+						EXTENDED_CIRCLES = 2;
+					}
+
+					CircleSet circle_set = 2;
+					string display_name = 3;
+				}
+
+				CircleAcl circle = 1;
+
+				message ContactGroupAcl {
+					string contact_group_id = 1;
+					string display_name = 2;
+				}
+
+				ContactGroupAcl contact_group = 2;
+			}
+
+			MembershipAcl membership = 4;
+		}
+
+		Scope scope = 2;
+	}
+
+	repeated AclEntry acl_entry = 1;
+
+	enum PredefinedAclEntry {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OWNER = 1;
+		PUBLIC_READ = 2;
+		DOMAIN_READ = 3;
+		YOUR_CIRCLES_READ = 4;
+		EXTENDED_CIRCLES_READ = 5;
+		PRIVATE_READ = 6;
+	}
+
+	repeated PredefinedAclEntry predefined_acl_entry = 2 [ features.repeated_field_encoding = EXPANDED ];
+
+	enum AuthorizedViewer {
+		option features.enum_type = CLOSED;
+
+		AUTHORIZED_VIEWER_UNSPECIFIED = 0;
+		IDENTITY_ACL_ESTABLISHED = 1;
+		SAME_ORGANIZATION = 2;
+		SAME_UNICORN_FAMILY = 3;
+		ALL_USERS = 4;
+	}
+
+	repeated AuthorizedViewer authorized_viewers = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

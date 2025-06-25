@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/offlined_video_set_update.proto";
+import "youtube/api/innertube/offline_refresh_supported_continuations.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineRefreshResponse {
+	ResponseContext response_context = 1;
+	repeated OfflinedVideoSetUpdate offlined_video_set_updates = 2;
+	OfflineRefreshSupportedContinuations continuation = 3;
+	uint32 refresh_in_seconds = 5;
+}

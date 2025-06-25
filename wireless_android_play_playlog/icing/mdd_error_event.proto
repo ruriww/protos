@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless_android_play_playlog/icing/error.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddErrorEvent {
+	Error error = 1;
+}

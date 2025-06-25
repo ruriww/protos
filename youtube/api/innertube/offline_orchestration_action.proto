@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_type.proto";
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineOrchestrationAction {
+	OfflineOrchestrationActionType action_type = 1;
+	string entity_key = 2;
+	OfflineOrchestrationActionMetadata action_metadata = 3;
+	repeated OfflineOrchestrationAction chained_actions = 4;
+	repeated OfflineOrchestrationAction failed_chained_actions = 5;
+	bytes params = 6;
+	string orchestration_id = 7;
+}

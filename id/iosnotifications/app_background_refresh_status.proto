@@ -1,0 +1,14 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+option objc_class_prefix = "RCH";
+
+enum AppBackgroundRefreshStatus {
+	option features.enum_type = CLOSED;
+
+	STATUS_UNSPECIFIED = 0;
+	RESTRICTED = 1;
+	DENIED = 2;
+	AVAILABLE = 3;
+}

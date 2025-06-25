@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/tvfilm_sellable_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TvfilmRichOffersRenderer {
+	Renderer sellable_item_renderer = 1;
+	Renderer offers_renderer = 2;
+	FormattedString title = 3;
+	FormattedString subtitle = 4;
+	FormattedString legal_text = 5;
+	bytes tracking_params = 7;
+}
+
+extend Renderer {
+	TvfilmRichOffersRenderer tvfilm_rich_offers_renderer = 196832279;
+}
+
+extend Renderer {
+	TvfilmSellableItemRenderer tvfilm_sellable_item_renderer = 196816899;
+}

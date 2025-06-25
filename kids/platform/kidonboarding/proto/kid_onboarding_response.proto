@@ -1,0 +1,28 @@
+edition = "2023";
+
+package kids.platform.kidonboarding.proto;
+
+option objc_class_prefix = "GKP";
+
+message KidOnboardingResponse {
+	message CompletionResult {
+		oneof selection {
+			string child_user_id = 1;
+			bool self_selected = 2;
+		}
+
+		bool new_account_created = 3;
+		bool new_family_created = 4;
+		string encoded_selection_token = 5;
+		bool can_bypass_device_lock = 6;
+	}
+
+	message CancellationResult {
+		string hint = 1;
+	}
+
+	oneof result {
+		CompletionResult completion_result = 5;
+		CancellationResult cancellation_result = 6;
+	}
+}

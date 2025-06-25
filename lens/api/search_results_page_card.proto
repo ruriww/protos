@@ -1,0 +1,18 @@
+edition = "2023";
+
+package lens.api;
+
+import "lens/api/gws_param.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message SearchResultsPageCard {
+	string query = 1;
+	string kgmid = 2;
+	bool enable_ads = 3;
+	string vertical = 4;
+	string sbi_query = 5;
+	int32 num_of_results = 7;
+	string stickiness_signals = 8;
+	repeated GwsParam gws_param = 9;
+}

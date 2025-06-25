@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/string_pair.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ValidationInfo {
+	repeated string active_fields = 1;
+	repeated StringPair list_items = 2;
+}

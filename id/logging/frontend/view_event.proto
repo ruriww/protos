@@ -1,0 +1,29 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+option objc_class_prefix = "GIDLOG";
+
+message ViewEvent {
+	int32 previous_resource_id = 1;
+	int32 current_resource_id = 2;
+	int32 previous_step_id = 3;
+	int32 current_step_id = 4;
+	int32 previous_area = 5;
+	int32 current_area = 6;
+	int32 current_item_id = 7;
+	int32 target_item_id = 8;
+	int32 current_category_id = 9 [ default = -1 ];
+	int32 target_category_id = 10 [ default = -1 ];
+
+	enum ColorScheme {
+		option features.enum_type = CLOSED;
+
+		COLOR_SCHEME_UNSPECIFIED = 0;
+		LIGHT = 1;
+		DARK = 2;
+	}
+
+	ColorScheme color_scheme = 11;
+	string octarine_ios_app_bundle_id = 12;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflinePlaylistSortOrder {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_PLAYLIST_SORT_ORDER_UNSPECIFIED = 0;
+	OFFLINE_PLAYLIST_SORT_ORDER_A_TO_Z = 1;
+	OFFLINE_PLAYLIST_SORT_ORDER_Z_TO_A = 2;
+	OFFLINE_PLAYLIST_SORT_ORDER_RECENTS = 3;
+	OFFLINE_PLAYLIST_SORT_ORDER_RECENTLY_PLAYED = 4;
+	OFFLINE_PLAYLIST_SORT_ORDER_RECENTLY_ADDED = 5;
+}

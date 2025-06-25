@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/image_age.proto";
+import "logs/proto/lens/item_count_bucket.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message ImageAgeCountEntry {
+	ImageAge image_age = 1;
+	ItemCountBucket item_count_bucket = 2;
+}

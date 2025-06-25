@@ -1,0 +1,52 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/comment_creation_supported_renderers.proto";
+import "youtube/api/innertube/comment_section_sub_menu_supported_renderers.proto";
+import "youtube/api/innertube/comment_section_alert_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/emoji.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentsHeaderRenderer {
+	FormattedString count_text = 1;
+	CommentCreationSupportedRenderers create_renderer = 2;
+	CommentSectionSubMenuSupportedRenderers sort_menu = 3;
+	repeated CommentSectionAlertSupportedRenderers alerts = 4;
+	bool is_backstage_content = 6;
+	bytes tracking_params = 7;
+	FormattedString title_text = 10;
+	FormattedString comments_count = 11;
+	bool show_create_dialog = 14;
+	repeated Command actions = 15;
+	Renderer toggle_button = 16;
+	Renderer highlighted_comments = 17;
+	Renderer zero_state_message = 18;
+	Renderer batch_action_bar = 20;
+	FormattedString held_for_review_count = 21;
+	FormattedString likely_spam_count = 22;
+	FormattedString red_commenting_text = 23;
+	Renderer prefilled_create_dialog_header_message = 24;
+	bool show_separator = 25;
+	bool should_show_backstage_post_optimistically = 26;
+	repeated Emoji custom_emojis = 27;
+	string unicode_emojis_url = 28;
+	Renderer post_stream_filter = 29;
+	Renderer scheduling_zero_state_message = 30;
+	bool android_use_log_scrolling_visibility_updates = 31;
+	string section_identifier = 32;
+	Renderer post_disablement_message = 34;
+	Renderer paused_comments_message = 35;
+	Renderer fan_community_banner = 36;
+	bool show_new_post_creation_entry_point = 37;
+	Command post_header_on_tap = 38;
+	LoggingDirectives logging_directives = 999;
+}

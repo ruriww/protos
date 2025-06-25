@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+import "youtube/utils/crypto/mobile/keyset_certificate.proto";
+
+option objc_class_prefix = "YTI";
+
+message ValidationConfig {
+	youtube.utils.crypto.mobile.KeysetCertificate intermediate_certificate = 1;
+	map<string, bytes> file_signatures = 2;
+}

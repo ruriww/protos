@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/ypc_trailer_label_overlay_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YpcTrailerRenderer {
+	bytes player_response = 1;
+	bytes serialized_player_request = 2;
+	float navigation_confidence = 3;
+	FormattedString full_video_message = 4;
+	bytes tracking_params = 6;
+	ThumbnailDetails movie_poster_art = 7;
+	YpcTrailerLabelOverlayStyle full_video_message_overlay_style = 10 [ default = YPC_TRAILER_LABEL_OVERLAY_STYLE_MOVIE ];
+
+	extensions 9;
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	YpcTrailerRenderer ypc_trailer_renderer = 86164011;
+}

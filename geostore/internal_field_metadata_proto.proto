@@ -1,0 +1,12 @@
+edition = "2023";
+
+package geostore;
+
+import "geostore/internal_source_summary_proto.proto";
+
+option objc_class_prefix = "GS";
+
+message InternalFieldMetadataProto {
+	InternalSourceSummaryProto source_summary = 1;
+	bool is_auto = 2 [ default = false ];
+}

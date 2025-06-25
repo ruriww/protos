@@ -1,0 +1,22 @@
+edition = "2023";
+
+package drishti;
+
+option objc_class_prefix = "Drishti";
+
+message InputCollection {
+	string name = 1;
+	repeated string side_packet_name = 2;
+
+	enum InputType {
+		UNKNOWN = 0;
+		RECORDIO = 1;
+		FOREIGN_RECORDIO = 2;
+		FOREIGN_CSV_TEXT = 3;
+		INVALID_UPPER_BOUND = 4;
+	}
+
+	InputType input_type = 3;
+	string file_name = 4;
+	repeated string external_input_name = 1002;
+}

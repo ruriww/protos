@@ -1,0 +1,10 @@
+edition = "2023";
+
+package search.mdd;
+
+option objc_class_prefix = "MDD";
+
+message VersionRestrictions {
+	int64 minimum_write_version = 1;
+	int64 minimum_use_version = 2;
+}

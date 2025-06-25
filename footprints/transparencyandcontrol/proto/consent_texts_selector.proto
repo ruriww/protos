@@ -1,0 +1,21 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_flow_id.proto";
+import "footprints/transparencyandcontrol/proto/localization_info.proto";
+import "footprints/transparencyandcontrol/proto/text_options.proto";
+import "footprints/transparencyandcontrol/proto/image_preferences.proto";
+import "footprints/transparencyandcontrol/proto/consent_screen_dimensions.proto";
+import "footprints/transparencyandcontrol/proto/client_version.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentTextsSelector {
+	ConsentFlowId consent_flow_id = 1;
+	LocalizationInfo localization_info = 2;
+	TextOptions text_options = 3;
+	ImagePreferences image_preferences = 4;
+	ConsentScreenDimensions consent_screen_dimensions = 5;
+	ClientVersion client_version = 6;
+}

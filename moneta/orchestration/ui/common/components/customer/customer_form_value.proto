@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.customer;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_form_value.proto";
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form_value.proto";
+import "moneta/orchestration/ui/common/components/name/name_form_value.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/phone_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message CustomerFormValue {
+	instrument.InstrumentFormValue instrument = 1;
+	string legal_doc_data = 3;
+	AddressFormValue legal_address = 4;
+	string legal_country_code = 5;
+	tax.TaxInfoFormValue tax_info = 6;
+	name.NameFormValue name = 7;
+	generic.UiFieldValue credit_check_identifier = 8;
+	SimpleFormValue contact = 9;
+	PhoneFormValue phone = 10;
+	SimpleFormValue legal_entity_type = 11;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.encryption;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message P256KeyPairGenerationDataValue {
+	extend data.DataValue {
+		P256KeyPairGenerationDataValue p256_key_pair_generation_data_value_extension = 290848973;
+	}
+
+	string public_key = 1;
+}

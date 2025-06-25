@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message OnDeviceModelsDownloadEventLogData {
+	enum FailureContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_CONTEXT = 0;
+		LABELER_DOWNLOADS_FAILURE = 1;
+		LOCALIZER_DOWNLOADS_FAILURE = 2;
+		LABELER_LOCALIZER_DOWNLOADS_FAILURE = 3;
+	}
+
+	FailureContext failure_context = 1;
+	bool is_background_download = 2;
+}

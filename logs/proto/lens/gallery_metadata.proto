@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/tapped_image.proto";
+import "logs/proto/lens/gallery_section.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message GalleryMetadata {
+	TappedImage tapped_image = 1;
+	GallerySection switched_folder = 2;
+}

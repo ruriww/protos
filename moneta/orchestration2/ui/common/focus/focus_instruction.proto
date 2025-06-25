@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.focus;
+
+option objc_class_prefix = "ORCH2";
+
+message FocusInstruction {
+	int64 scope_data_reference = 1;
+
+	enum FocusType {
+		option features.enum_type = CLOSED;
+
+		FOCUS_TYPE_UNKNOWN = 0;
+		FOCUS_TYPE_FIRST_FOCUSABLE = 1;
+		FOCUS_TYPE_FIRST_FOCUSABLE_WITH_ERROR = 2;
+		FOCUS_TYPE_FIRST_EMPTY_TEXT_INPUT = 3;
+	}
+
+	FocusType focus_type = 2;
+}

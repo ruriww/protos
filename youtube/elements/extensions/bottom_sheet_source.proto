@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum BottomSheetSource {
+	option features.enum_type = CLOSED;
+
+	BOTTOM_SHEET_SOURCE_UNKNOWN = 0;
+	BOTTOM_SHEET_SOURCE_CLIP_VIEWING = 1;
+}

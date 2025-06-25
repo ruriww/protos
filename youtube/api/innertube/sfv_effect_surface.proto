@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SfvEffectSurface {
+	option features.enum_type = CLOSED;
+
+	SFV_EFFECT_SURFACE_UNKNOWN = 0;
+	SFV_EFFECT_SURFACE_CAMERA = 1;
+	SFV_EFFECT_SURFACE_EDITOR = 2;
+	SFV_EFFECT_SURFACE_RECOMPOSITION = 3;
+	SFV_EFFECT_SURFACE_EXPORT_SESSION = 4;
+	SFV_EFFECT_SURFACE_UPLOAD_TRANSCODE = 5;
+	SFV_EFFECT_SURFACE_AUDIO_UPLOAD_TRANSCODE = 6;
+	SFV_EFFECT_SURFACE_CLIP_TRIM = 7;
+	SFV_EFFECT_SURFACE_DENOISE = 8;
+	SFV_EFFECT_SURFACE_MEDIAGEN = 9;
+}

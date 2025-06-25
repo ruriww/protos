@@ -1,0 +1,88 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/flow_item_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/interstitial_flow_item_renderer.proto";
+import "youtube/api/innertube/multi_button_choice_flow_item_renderer.proto";
+import "youtube/api/innertube/block_flow_item_renderer.proto";
+import "youtube/api/innertube/flow_body_html_renderer.proto";
+import "youtube/api/innertube/unplugged_flow_body_renderer.proto";
+import "youtube/api/innertube/flow_progress_meter_renderer.proto";
+import "youtube/api/innertube/changeable_flow_item_renderer.proto";
+import "youtube/api/innertube/flow_change_button_renderer.proto";
+import "youtube/api/innertube/flow_change_radio_button_set_renderer.proto";
+import "youtube/api/innertube/flow_image_change_renderer.proto";
+import "youtube/api/innertube/flow_body_change_renderer.proto";
+import "youtube/api/innertube/flow_thumbnails_renderer.proto";
+import "youtube/api/innertube/parent_sign_in_block_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FlowRenderer {
+	repeated FlowItemSupportedRenderers items = 1;
+	repeated Command service_endpoints = 2;
+	bytes tracking_params = 4;
+	repeated Command flow_start_service_endpoints = 5;
+}
+
+extend Renderer {
+	FlowRenderer flow_renderer = 97673187;
+}
+
+extend Renderer {
+	InterstitialFlowItemRenderer interstitial_flow_item_renderer = 97673189;
+}
+
+extend Renderer {
+	MultiButtonChoiceFlowItemRenderer multi_button_choice_flow_item_renderer = 97673190;
+}
+
+extend Renderer {
+	BlockFlowItemRenderer block_flow_item_renderer = 97673191;
+}
+
+extend Renderer {
+	FlowBodyHtmlRenderer flow_body_html_renderer = 99326134;
+}
+
+extend Renderer {
+	UnpluggedFlowBodyRenderer unplugged_flow_body_renderer = 115378440;
+}
+
+extend Renderer {
+	FlowProgressMeterRenderer flow_progress_meter_renderer = 99982437;
+}
+
+extend Renderer {
+	ChangeableFlowItemRenderer changeable_flow_item_renderer = 104233513;
+}
+
+extend Renderer {
+	FlowChangeButtonRenderer flow_change_button_renderer = 104302027;
+}
+
+extend Renderer {
+	FlowChangeRadioButtonSetRenderer flow_change_radio_button_set_renderer = 145846263;
+}
+
+extend Renderer {
+	FlowImageChangeRenderer flow_image_change_renderer = 104154884;
+}
+
+extend Renderer {
+	FlowBodyChangeRenderer flow_body_change_renderer = 142672373;
+}
+
+extend Renderer {
+	FlowThumbnailsRenderer flow_thumbnails_renderer = 103880222;
+}
+
+extend Renderer {
+	ParentSignInBlockItemRenderer parent_sign_in_block_item_renderer = 141089820;
+}

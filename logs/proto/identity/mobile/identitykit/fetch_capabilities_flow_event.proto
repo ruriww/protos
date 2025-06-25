@@ -1,0 +1,36 @@
+edition = "2023";
+
+package logs.proto.identity.mobile.identitykit;
+
+import "logs/proto/identity/mobile/identitykit/event_error_info.proto";
+
+option objc_class_prefix = "GIKEXT";
+
+message FetchCapabilitiesFlowEvent {
+	enum FetchCapabilitiesEventType {
+		EVENT_TYPE_UNDEFINED = 0;
+		START = 1;
+		GET_CACHE_GROUP_FOR_CAPABILITY = 2;
+		PARSE_CAPABILITY_FROM_CACHE = 3;
+		MAKE_RPC = 4;
+		WRITE_CAPABILITY_TO_CACHE = 5;
+		DONE = 6;
+	}
+
+	FetchCapabilitiesEventType event_type = 1;
+
+	enum FetchCapabilitiesEventOutcome {
+		EVENT_OUTCOME_UNDEFINED = 0;
+		SUCCESS = 1;
+		INTERNAL_ERROR = 2;
+		NOT_FOUND_IN_CACHE = 3;
+		ERROR_UNARCHIVING = 4;
+		ERROR_ARCHIVING = 5;
+		ERROR_WRITING_TO_CACHE = 6;
+		FETCH_CAPABILITIES_FAILED = 7;
+		FETCH_CAPABILITIES_SUCCESSFUL = 8;
+	}
+
+	FetchCapabilitiesEventOutcome event_outcome = 2;
+	EventErrorInfo error_info = 3;
+}

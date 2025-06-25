@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.execution;
+
+import "moneta/testing/demoserver/teststudio/proto/service/scenario/execution/current_step_data.proto";
+
+option objc_class_prefix = "TSLSSE";
+
+message RetrieveScenarioForNextStepRequest {
+	int64 execution_id = 1;
+	CurrentStepData current_step_data = 2;
+}

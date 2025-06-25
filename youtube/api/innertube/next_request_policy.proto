@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NextRequestPolicy {
+	int32 target_audio_readahead_ms = 1;
+	int32 target_video_readahead_ms = 2;
+	int32 max_time_since_last_request_ms = 3;
+	int32 backoff_time_ms = 4;
+	int32 min_audio_readahead_ms = 5;
+	int32 min_video_readahead_ms = 6;
+	bytes playback_cookie = 7;
+	string video_id = 8;
+}

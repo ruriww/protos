@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens.ondevice;
+
+import "lens/ondevice/paragraph_backgrounds.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message InpaintingResult {
+	repeated ParagraphBackgrounds paragraph_backgrounds = 1;
+	float vertical_padding = 3;
+	float horizontal_padding = 4;
+}

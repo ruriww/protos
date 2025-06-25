@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamInviteScreenRenderer {
+	Renderer back_button = 1;
+	string stream_title = 2;
+	Renderer share_with_audience_button = 3;
+	Renderer element_renderer = 4;
+	Renderer switch_camera_button = 5;
+	string taking_thumbnail_text = 6;
+	string edit_broadcast_setup_params = 7;
+}

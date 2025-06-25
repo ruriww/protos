@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package google.android.gms.potokens;
+
+import "google/android/gms/potokens/po_integrity_token_mode.proto";
+
+option java_package = "com.google.android.gms.potokens";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message PoIntegrityTokenRequest {
+	PoIntegrityTokenMode mode = 1;
+	bytes response = 2;
+	bytes content_binding = 3;
+}

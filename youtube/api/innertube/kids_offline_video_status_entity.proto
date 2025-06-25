@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/download_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsOfflineVideoStatusEntity {
+	extend EntityMutationPayload {
+		KidsOfflineVideoStatusEntity kids_offline_video_status_entity = 439;
+	}
+
+	string key = 1;
+	DownloadState download_state = 2;
+	bool is_smart_download = 3;
+	bool is_manual_download = 4;
+	float percentage_downloaded = 5;
+}

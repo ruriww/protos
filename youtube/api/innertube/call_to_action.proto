@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/player_visibility.proto";
+import "youtube/api/innertube/logging_url.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CallToAction {
+	int64 start_time_ms = 1;
+	int64 end_time_ms = 2;
+	int64 hide_time_ms = 3;
+	string headline = 4;
+	string display_url = 7;
+	Command click_destination = 8;
+	ThumbnailDetails image = 9;
+	bytes tracking_params = 12;
+	PlayerVisibility player_visibility = 13;
+	repeated LoggingUrl impression_logging_urls = 14;
+	repeated LoggingUrl close_logging_urls = 15;
+	int32 collapse_after_ms = 16;
+}

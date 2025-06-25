@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package video.storage;
+
+option optimize_for = LITE_RUNTIME;
+option objc_class_prefix = "VSTRG";
+
+message VideoResolutionDimensions {
+	optional int32 width = 1;
+	optional int32 height = 2;
+}

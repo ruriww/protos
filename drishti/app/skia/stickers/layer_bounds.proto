@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/rectangle.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message LayerBounds {
+	int32 id = 1;
+	repeated Rectangle rects = 2;
+	repeated float inverse_xform_data = 3;
+}

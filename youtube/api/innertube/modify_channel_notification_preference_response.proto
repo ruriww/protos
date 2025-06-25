@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/channel_notification_preference_button_supported_renderers.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ModifyChannelNotificationPreferenceResponse {
+	ResponseContext response_context = 1;
+	repeated Command actions = 3;
+	ButtonSupportedRenderers new_toggle_button = 4;
+	bool animate_toggle_button_transition = 5;
+	string channel_id = 6;
+	ChannelNotificationPreferenceButtonSupportedRenderers new_notification_button = 7;
+	int64 timestamp_ms = 9;
+	bytes tracking_params = 11;
+	FrameworkUpdateTransport framework_updates = 777;
+}

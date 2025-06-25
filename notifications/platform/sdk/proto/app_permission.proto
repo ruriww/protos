@@ -1,0 +1,46 @@
+edition = "2023";
+
+package notifications.platform.sdk.proto;
+
+option objc_class_prefix = "GNPS";
+
+message AppPermission {
+	enum IosPermissionType {
+		option features.enum_type = CLOSED;
+
+		IOS_PERMISSION_TYPE_UNSPECIFIED = 0;
+		NFC = 1;
+		BLUETOOTH = 2;
+		MICROPHONE = 3;
+		SPEECH_RECOGNITION = 4;
+		CAMERA = 5;
+		MOTION = 6;
+		LOCATION_ALWAYS = 7;
+		LOCATION_WHEN_IN_USE = 8;
+		CONTACTS = 9;
+		CALENDARS = 10;
+		REMINDERS = 11;
+		PHOTOS = 12;
+		PHOTOS_ADD_ONLY = 13;
+		MEDIA_LIBRARY = 14;
+		HOMEKIT = 15;
+		FACE_ID = 16;
+		NOTIFICATION_BADGE = 17;
+		NOTIFICATION_SOUND = 18;
+		NOTIFICATION_ALERT = 19;
+		NOTIFICATION_CAR_PLAY = 20;
+		APP_TRACKING = 21;
+	}
+
+	enum IosPermissionState {
+		option features.enum_type = CLOSED;
+
+		IOS_PERMISSION_STATE_UNSPECIFIED = 0;
+		NOT_DETERMINED = 1;
+		AUTHORIZED = 2;
+		DENIED = 3;
+		RESTRICTED = 4;
+		PROVISIONAL = 5;
+		WRITE_ONLY = 6;
+	}
+}

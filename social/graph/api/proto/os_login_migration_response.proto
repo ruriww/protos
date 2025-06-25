@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/longrunning/operations.proto";
+import "social/graph/api/proto/os_login_meta_data.proto";
+
+option objc_class_prefix = "SGAP";
+
+message OsLoginMigrationResponse {
+	google.longrunning.Operation lro = 1;
+	OsLoginMetaData.SoTRecordEnum sot_record = 2;
+	bytes txn_token = 3;
+}

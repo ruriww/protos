@@ -1,0 +1,30 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.panentry;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+import "moneta/orchestration2/ui/common/input/input_data_transform.proto";
+import "moneta/orchestration2/ui/common/input/input_data_auto_advance.proto";
+import "moneta/orchestration2/ui/common/input/input_data_filter.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PanEntryData {
+	extend data.Data {
+		PanEntryData pan_entry_data_extension = 67853280;
+	}
+
+	oneof hint {
+		string label = 1;
+		string placeholder_text = 3;
+	}
+
+	string helper_text = 2;
+	repeated int64 pan_category_data_reference = 5 [ features.repeated_field_encoding = EXPANDED ];
+	string no_match_pan_category_message = 6;
+	repeated InputDataTransform default_transform = 7;
+	repeated InputDataTransform default_template_text_behaviour = 8;
+	string unresolved_pan_category_message = 9;
+	InputDataAutoAdvance auto_advance = 10;
+	repeated InputDataFilter default_filter = 11;
+}

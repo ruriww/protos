@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IcingApiResultCode {
+	option features.enum_type = CLOSED;
+
+	ICING_API_RESULT_CODE_UNKNOWN = 0;
+	ICING_API_RESULT_CODE_OK = 1;
+	ICING_API_RESULT_CODE_INTERNAL_ERROR = 2;
+	ICING_API_RESULT_CODE_INVALID_ARGUMENT = 3;
+	ICING_API_RESULT_CODE_NOT_FOUND = 4;
+	ICING_API_RESULT_CODE_IO_ERROR = 5;
+	ICING_API_RESULT_CODE_OUT_OF_SPACE = 6;
+	ICING_API_RESULT_CODE_INVALID_SCHEMA = 7;
+	ICING_API_RESULT_CODE_SECURITY_ERROR = 8;
+}

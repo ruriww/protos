@@ -1,0 +1,22 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message GetPrivacyCheckupCardsResponse {
+	enum PrivacyCheckupCard {
+		option features.enum_type = CLOSED;
+
+		PRIVACY_CHECKUP_CARD_UNSPECIFIED = 0;
+		SET_RETENTION_WAA = 1;
+		SET_RETENTION_YTH = 2;
+		SET_RETENTION_LH = 3;
+		WEB_AND_APP_ACTIVITY = 4;
+		YOUTUBE_HISTORY = 5;
+		LOCATION_HISTORY = 6;
+		LINKED_SERVICES = 10;
+	}
+
+	repeated PrivacyCheckupCard privacy_checkup_cards = 1;
+}

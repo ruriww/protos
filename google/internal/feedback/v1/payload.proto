@@ -1,0 +1,24 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+import "google/internal/feedback/v1/invitation.proto";
+import "google/internal/feedback/v1/completion.proto";
+import "google/internal/feedback/v1/display_settings.proto";
+import "google/internal/feedback/v1/privacy_settings.proto";
+import "google/internal/feedback/v1/question.proto";
+import "google/internal/feedback/v1/client_capability.proto";
+import "google/internal/feedback/v1/legal_settings.proto";
+
+option objc_class_prefix = "PUDUI";
+
+message Payload {
+	Invitation invitation = 1;
+	Completion completion = 2;
+	DisplaySettings display_settings = 3;
+	PrivacySettings privacy_settings = 4;
+	repeated Question question = 5;
+	repeated ClientCapability required_capability = 7;
+	string language = 8;
+	LegalSettings legal_settings = 9;
+}

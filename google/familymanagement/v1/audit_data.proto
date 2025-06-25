@@ -1,0 +1,21 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message AuditData {
+	message SessionData {
+		oneof audit_token_type {
+			string external_audit_token = 2;
+		}
+	}
+
+	SessionData session_data = 1;
+
+	message RenderData {
+		string audit_render_data_token = 1;
+	}
+
+	RenderData render_data = 2;
+}

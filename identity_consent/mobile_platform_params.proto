@@ -1,0 +1,18 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/mobile_apps_renderer.proto";
+import "identity_consent/launch_mode.proto";
+import "identity_consent/ios_params.proto";
+
+option objc_class_prefix = "IDC";
+
+message MobilePlatformParams {
+	MobileAppsRenderer mobile_apps_renderer = 1;
+	LaunchMode launch_mode = 2;
+
+	oneof platform_specific_params {
+		IOSParams ios_params = 3;
+	}
+}

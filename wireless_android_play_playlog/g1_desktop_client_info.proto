@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message G1DesktopClientInfo {
+	string build_version = 1;
+
+	enum G1DesktopClientType {
+		option features.enum_type = CLOSED;
+
+		CLIENT_UNKNOWN = 0;
+		PHENOTYPE = 1;
+	}
+
+	G1DesktopClientType g1_desktop_client_type = 2;
+}

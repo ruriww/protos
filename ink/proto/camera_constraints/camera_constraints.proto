@@ -1,0 +1,21 @@
+edition = "2023";
+
+package ink.proto.camera_constraints;
+
+import "ink/proto/camera_constraints/default_policy.proto";
+import "ink/proto/camera_constraints/no_margin_policy.proto";
+import "ink/proto/camera_constraints/multi_page_policy.proto";
+import "ink/proto/camera_constraints/free_policy.proto";
+import "ink/proto/camera_constraints/multi_page_overscroll_absolute_zoom_policy.proto";
+
+option objc_class_prefix = "INKPB";
+
+message CameraConstraints {
+	oneof policy {
+		DefaultPolicy default_policy = 1;
+		NoMarginPolicy no_margin_policy = 2;
+		MultiPagePolicy multi_page_policy = 3;
+		FreePolicy free_policy = 4;
+		MultiPageOverscrollAbsoluteZoomPolicy multi_page_overscroll_absolute_zoom_policy = 5;
+	}
+}

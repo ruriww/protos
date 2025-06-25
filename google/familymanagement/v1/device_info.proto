@@ -1,0 +1,20 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+message DeviceInfo {
+	enum DeviceResolution {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_RESOLUTION = 0;
+		ANDROID_MDPI = 1;
+		ANDROID_HDPI = 2;
+		ANDROID_XHDPI = 3;
+		ANDROID_XXHDPI = 4;
+		ANDROID_XXXHDPI = 5;
+	}
+
+	DeviceResolution device_resolution = 1;
+}

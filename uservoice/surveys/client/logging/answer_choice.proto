@@ -1,0 +1,22 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "uservoice/surveys/client/logging/branching_destination.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message AnswerChoice {
+	enum AnswerType {
+		ANSWER_TYPE_UNSPECIFIED = 0;
+		ANSWER_TYPE_TEXT = 1;
+		ANSWER_TYPE_WRITE_IN = 2;
+		ANSWER_TYPE_NONE_OF_THE_ABOVE = 3;
+	}
+
+	AnswerType answer_type = 1;
+	uint32 answer_ordinal = 2;
+	string text = 3;
+	bool screen_in = 4;
+	BranchingDestination branching_destination = 5;
+}

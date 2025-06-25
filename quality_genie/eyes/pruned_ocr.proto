@@ -1,0 +1,56 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "quality_genie/eyes/bounding_box.proto";
+import "lens/curved_box.proto";
+import "lens/common/writing_direction.proto";
+import "lens/gleaming/alignment.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message PrunedOcr {
+	message Symbol {
+		BoundingBox bounding_box = 1;
+	}
+
+	message Word {
+		string text = 1;
+		BoundingBox bounding_box = 2;
+		repeated Symbol symbol = 3;
+		string text_separator = 4;
+
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			TEXT = 0;
+			FORMULA = 1;
+		}
+
+		Type type = 5;
+		string plain_text = 6;
+	}
+
+	message Line {
+		repeated Word word = 1;
+		BoundingBox bounding_box = 2;
+		repeated LanguageStats language_stats = 3;
+		BoundingBox text_rendering_box = 4;
+		lens.CurvedBox curved_text_rendering_box = 5;
+	}
+
+	message LanguageStats {
+		string language_code = 1;
+		float avg_language_confidence = 2;
+	}
+
+	message Paragraph {
+		repeated Line line = 1;
+		BoundingBox bounding_box = 2;
+		lens.common.WritingDirection writing_direction = 3;
+		lens.gleaming.Alignment alignment = 4;
+		bool justified = 5;
+	}
+
+	repeated Paragraph paragraph = 1;
+}

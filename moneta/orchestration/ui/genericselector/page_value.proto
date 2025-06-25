@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/orchestration/ui/common/components/address_form_value.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message PageValue {
+	common.components.AddressFormValue address_form_value = 1;
+	common.components.customerselector.CustomerSelectorValue customer_selector_value = 2;
+	repeated common.components.SimpleFormValue simple_form_value = 3;
+}

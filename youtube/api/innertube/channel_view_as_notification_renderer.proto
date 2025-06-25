@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelViewAsNotificationRenderer {
+	FormattedString notification_text = 1;
+	ButtonSupportedRenderers button = 2;
+}
+
+extend Renderer {
+	ChannelViewAsNotificationRenderer channel_view_as_notification_renderer = 84822372;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package shared.flexkit;
+
+import "shared/flexkit/style.proto";
+import "shared/flexkit/node.proto";
+
+option objc_class_prefix = "FLX";
+
+message Layout {
+	repeated Style style = 1;
+	Node node = 2;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/watch_playlist_endpoint_music_config.proto";
+import "youtube/api/innertube/watch_endpoint_supported_authorization_token_config.proto";
+import "youtube/api/innertube/watch_endpoint_remote_playback_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchPlaylistEndpoint {
+	string playlist_id = 1;
+	uint32 index = 2;
+	string params = 4;
+	bool hack = 5;
+	Command command = 6;
+	WatchPlaylistEndpointMusicConfig watch_playlist_endpoint_music_config = 7;
+	WatchEndpointSupportedAuthorizationTokenConfig watch_endpoint_supported_authorization_token_config = 65627574;
+	WatchEndpointRemotePlaybackSupportedConfigs watch_endpoint_remote_playback_supported_configs = 96593618;
+}
+
+extend Command {
+	WatchPlaylistEndpoint watch_playlist_endpoint = 52666186;
+}

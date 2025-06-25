@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/story_share_target.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StoriesShareCommand {
+	extend Command {
+		StoriesShareCommand stories_share_command = 377377894;
+	}
+
+	bytes sticker_image_bytes = 1;
+
+	oneof background {
+		bytes background_image_bytes = 2;
+		bytes background_video_bytes = 3;
+	}
+
+	StoryShareTarget story_share_target = 4;
+	string url_to_share = 5;
+	string client_api_key = 6;
+	float sticker_x = 7 [ default = 0.5 ];
+	float sticker_y = 8 [ default = 0.5 ];
+	float sticker_screen_scale = 9 [ default = 0.65 ];
+	string sticker_image_file_name = 10;
+}

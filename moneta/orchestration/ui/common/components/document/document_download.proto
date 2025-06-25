@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.document;
+
+import "moneta/orchestration/common/download/download_spec.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message DocumentDownload {
+	bytes document_token = 1;
+	string document_url = 3;
+	string request_message = 4;
+	int64 ui_reference = 5;
+	orchestration.common.download.DownloadSpec download_spec = 7;
+	string failed_to_load_retry_text = 8;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

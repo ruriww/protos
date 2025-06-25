@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/conditional_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NodeProperties {
+	int32 property_class_id = 1;
+	repeated ConditionalProperties conditional_properties = 3;
+
+	extensions 1000 to max;
+}

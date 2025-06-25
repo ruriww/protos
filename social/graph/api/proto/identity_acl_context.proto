@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message IdentityAclContext {
+	string object_id = 2;
+	string object_part = 3;
+	bytes zookie = 4;
+}

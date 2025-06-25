@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/components/media_composition_export_status.proto";
+import "youtube/elements/components/media_composition_export_error.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message MediaCompositionExportResult {
+	MediaCompositionExportStatus status = 1;
+
+	oneof result {
+		string output_uri = 2;
+		MediaCompositionExportError error = 3;
+		float progress = 4;
+	}
+}

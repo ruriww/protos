@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AnalyticsChartValuesType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_ANALYTICS_CHART_VALUE_TYPE = 0;
+	DEFAULT_ANALYTICS_CHART_VALUE_TYPE = 1;
+	PERCENTAGE_ANALYTICS_CHART_VALUE_TYPE = 2;
+	MINUTES_ANALYTICS_CHART_VALUE_TYPE = 3;
+	MONETARY_ANALYTICS_CHART_VALUE_TYPE = 4;
+}

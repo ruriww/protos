@@ -1,0 +1,16 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/meeting_id.proto";
+import "synckit/meeting_state.proto";
+import "synckit/recording_state.proto";
+
+option objc_class_prefix = "GSYP";
+
+message MeetingInfo {
+	MeetingID meeting_id = 1;
+	MeetingState meeting_state = 2;
+	RecordingState recording_state = 3;
+	bytes cipher = 4;
+}

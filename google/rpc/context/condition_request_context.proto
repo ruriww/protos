@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.rpc.context;
+
+import "google/rpc/context/match.proto";
+
+option objc_class_prefix = "RPC";
+
+message ConditionRequestContext {
+	Match if_match = 1;
+	Match if_none_match = 2;
+}

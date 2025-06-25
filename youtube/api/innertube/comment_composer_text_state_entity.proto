@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/emoji_run.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentComposerTextStateEntity {
+	extend EntityMutationPayload {
+		CommentComposerTextStateEntity comment_composer_text_state_entity_payload = 214;
+	}
+
+	string key = 1;
+	string comment_text = 2;
+	string shown_text = 3;
+	bool should_display_stored_text = 8;
+	repeated EmojiRun emoji_runs = 18;
+	Command dismiss_dialog_command = 19;
+	float num_lines = 21;
+	float line_height = 22;
+	bool num_lines_changed = 23;
+	bool is_initialized = 25;
+	float text_width = 26;
+	string first_line_text = 27;
+	string comment_draft = 28;
+	bool smart_reply_served = 30;
+	FormattedString starting_text = 31;
+	bool disable_entry_point = 32;
+	int32 rating = 33;
+}

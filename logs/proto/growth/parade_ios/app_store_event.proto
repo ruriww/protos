@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.growth.parade_ios;
+
+option objc_class_prefix = "PRD";
+
+message AppStoreEvent {
+	enum Result {
+		RESULT_UNSPECIFIED = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+	}
+
+	Result result = 1;
+}

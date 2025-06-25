@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+import "id/logging/frontend/mobile/accountsettings/load_source.proto";
+import "id/logging/frontend/mobile/accountsettings/screen_rotation.proto";
+import "id/logging/frontend/mobile/accountsettings/alternative_type.proto";
+
+option objc_class_prefix = "GIDLOGAS";
+
+message AsmScreenDisplayed {
+	LoadSource load_source = 1;
+	ScreenRotation screen_rotation = 2;
+	AlternativeType alternative_type = 3;
+}

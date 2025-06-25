@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/compression_format.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchPrefetchDataConfig {
+	bytes search_response_data = 1;
+
+	message CompressedData {
+		CompressionFormat format = 1;
+		bytes data = 2;
+	}
+
+	CompressedData compressed_search_response_data = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "lens/request_context/filter_type.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message FilterDetectedContext {
+	FilterType filter_type = 1;
+	bool is_recommended = 2;
+	string recommendation_text = 3;
+
+	message TranslateContext {
+		string dominant_source_language = 1;
+		bool multiple_source_languages = 2;
+	}
+
+	oneof filter_context {
+		TranslateContext translate = 5;
+	}
+}

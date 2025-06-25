@@ -1,0 +1,12 @@
+edition = "2023";
+
+package visionkit;
+
+option objc_class_prefix = "VKS";
+
+message FileDescriptorMeta {
+	int32 fd = 1;
+	int64 length = 2;
+	int64 offset = 3;
+	uint64 handle = 4;
+}

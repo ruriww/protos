@@ -1,0 +1,52 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/transparencyandcontrol/proto/consent_decision.proto";
+import "footprints/texts/primitiveconsent/button_style.proto";
+import "footprints/texts/primitiveconsent/snackbar.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ConsentDecisionButton {
+	string text = 1;
+	ButtonStyle button = 2;
+	repeated transparencyandcontrol.proto.ConsentDecision decision = 3;
+	string aria_label = 4;
+	Snackbar error_snackbar = 5;
+	bool is_disabled_until_initial_state_changed = 6;
+
+	message StaticDecisions {
+		repeated transparencyandcontrol.proto.ConsentDecision decisions = 1;
+	}
+
+	message DynamicDecisions {
+		message SourceElement {
+			uint32 id = 1;
+		}
+
+		repeated SourceElement source_elements = 1;
+	}
+
+	oneof consent_decision {
+		StaticDecisions static_decisions = 7;
+		DynamicDecisions dynamic_decisions = 8;
+	}
+
+	message Metadata {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			UNSPECIFIED = 0;
+			ACCEPT_ALL = 1;
+			REJECT_ALL = 2;
+			CUSTOMIZE = 3;
+			ASK_ME_LATER = 4;
+			DISMISS = 5;
+		}
+
+		Type type = 1;
+	}
+
+	Metadata metadata = 9;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "lens/center_rotated_box.proto";
+import "lens/geometry.proto";
+import "lens/multimodal_text_query.proto";
+import "lens/request_context/interaction_type.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message InteractionRequestMetadata {
+	InteractionType type = 1;
+
+	message SelectionMetadata {
+		message Point {
+			float x = 1;
+			float y = 2;
+		}
+
+		message Region {
+			CenterRotatedBox region = 1;
+		}
+
+		message Object {
+			string object_id = 1;
+			Geometry geometry = 2;
+		}
+
+		oneof selection {
+			Point point = 1;
+			Region region = 2;
+			Object object = 3;
+		}
+	}
+
+	SelectionMetadata selection_metadata = 2;
+
+	message QueryMetadata {
+		MultimodalTextQuery multimodal_text_query = 2;
+		bool enable_interaction_data = 3;
+	}
+
+	QueryMetadata query_metadata = 4;
+}

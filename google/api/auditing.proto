@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.api;
+
+import "google/api/auditing_rule.proto";
+
+option objc_class_prefix = "GAPI";
+
+message Auditing {
+	repeated AuditingRule rules = 1;
+	map<string, string> labels = 2;
+}

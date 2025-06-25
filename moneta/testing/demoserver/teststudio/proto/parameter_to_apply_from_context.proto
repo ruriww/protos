@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/proto_path_for_substitution.proto";
+
+option objc_class_prefix = "TSL";
+
+message ParameterToApplyFromContext {
+	string context_parameter_name = 1;
+	repeated string preconfigured_field_name_for_substitution = 2;
+	repeated ProtoPathForSubstitution proto_path_for_substitution = 3;
+}

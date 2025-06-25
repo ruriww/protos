@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message WebViewAuthServiceErrorEventLogData {
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_REASON = 0;
+		INTERNAL_ERROR = 1;
+		SSO_ERROR = 2;
+	}
+
+	FailureReason failure_reason = 1;
+	int32 error_code = 2;
+}

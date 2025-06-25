@@ -1,0 +1,35 @@
+edition = "2023";
+
+package moneta.orchestration.common.fixflow;
+
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+
+option objc_class_prefix = "FixFlow";
+
+message Action {
+	enum WidgetType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_WIDGET_TYPE = 0;
+		BUY_FLOW = 1;
+		PAYMENT_SETTINGS = 2;
+		INSTRUMENT_SELECTOR = 3;
+		ADD_INSTRUMENT = 4;
+		FIX_INSTRUMENT = 5;
+		TERMS_AND_CONDITIONS = 6;
+		INSTRUMENT_MANAGER = 7;
+		IDENTITY_AND_CREDIT = 8;
+		O2_BILLING_ACCOUNT_MANAGER = 9;
+	}
+
+	WidgetType widget_type = 1;
+
+	oneof ui_parameters {
+		bytes widget_response = 2;
+		bytes encrypted_widget_parameters = 3;
+		string url = 4;
+		bytes action_token = 8;
+	}
+
+	ui.common.widgetreference.WidgetReference widget_reference = 7;
+}

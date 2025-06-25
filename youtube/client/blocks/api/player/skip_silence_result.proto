@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "google/protobuf/wrappers.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SkipSilenceResult {
+	google.protobuf.BoolValue skip_silence_enabled = 1;
+}

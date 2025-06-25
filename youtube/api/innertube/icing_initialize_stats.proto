@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icing_recovery_cause.proto";
+import "youtube/api/innertube/icing_document_store_data_loss.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IcingInitializeStats {
+	int32 latency_ms = 1;
+	IcingRecoveryCause document_store_recovery_cause = 2;
+	IcingRecoveryCause index_recovery_cause = 3;
+	IcingDocumentStoreDataLoss document_store_data_loss = 4;
+	int32 num_documents = 5;
+}

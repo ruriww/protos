@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/creator_goal_state.proto";
+import "youtube/elements/image.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorGoalEntity {
+	extend EntityMutationPayload {
+		CreatorGoalEntity creator_goal_entity = 506;
+	}
+
+	string key = 1;
+	CreatorGoalState creator_goal_state = 2 [ default = CREATOR_GOAL_STATE_INACTIVE ];
+	int64 current_goal_count = 3;
+	int64 total_goal_count = 4;
+	int64 end_timestamp_ms = 5;
+	int64 server_timestamp_ms = 6;
+	elements.Image author_photo = 7;
+	elements.Image super_chat_tier_image = 8;
+	elements.AttributedString goal_description = 9;
+	elements.Image goal_icon = 10;
+	elements.AttributedString goal_target_text = 11;
+	elements.AttributedString goal_headline_text = 12;
+	elements.AttributedString goal_subheader_text = 13;
+	bool is_creator = 14;
+	Renderer progress_flow_button = 15;
+	uint32 progress_bar_color = 16;
+	Renderer themed_target_image = 17;
+	elements.Image goal_header_background_image = 18;
+	bool should_show_countdown = 19;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+import "moneta/orchestration/ui/common/form_field_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message UiError {
+	string message = 1;
+	repeated FormFieldMessage form_field_message = 2;
+	string error_code = 3;
+	string internal_details = 4;
+
+	enum ErrorAction {
+		option features.enum_type = CLOSED;
+
+		ALLOW_RETRY = 1;
+		EXIT_APPLICATION = 2;
+	}
+
+	ErrorAction action = 5 [ default = ALLOW_RETRY ];
+	bytes integrator_error_token = 6;
+	string title = 7;
+	string button_text = 8;
+	bool hide_title = 9;
+}

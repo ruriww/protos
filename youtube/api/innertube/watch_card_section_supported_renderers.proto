@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/watch_card_section_standalone_renderer.proto";
+import "youtube/api/innertube/watch_card_section_sequence_renderer.proto";
+import "youtube/api/innertube/watch_card_section_tab_renderer.proto";
+import "youtube/api/innertube/watch_card_section_dropdown_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchCardSectionSupportedRenderers {
+	oneof renderer {
+		WatchCardSectionStandaloneRenderer watch_card_section_standalone_renderer = 117457335;
+		WatchCardSectionSequenceRenderer watch_card_section_sequence_renderer = 117548244;
+		WatchCardSectionTabRenderer watch_card_section_tab_renderer = 117703174;
+		WatchCardSectionDropdownRenderer watch_card_section_dropdown_renderer = 147633782;
+	}
+}

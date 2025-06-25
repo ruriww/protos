@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube_ios_local;
+
+option objc_class_prefix = "YTI";
+
+message PlayerBarDecorationColor {
+	int32 default_color = 1;
+	int32 buffered_color = 2;
+	int32 played_color = 3;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/group_member_type_internal.proto";
+import "ios/shared/people/autocomplete/person.proto";
+
+option objc_class_prefix = "PDL";
+
+message GroupMember {
+	GroupMemberTypeInternal type = 1;
+	string server_person_id = 2;
+	Person person = 3;
+}

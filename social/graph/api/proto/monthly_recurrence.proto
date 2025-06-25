@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/monthly_day_recurrence.proto";
+import "social/graph/api/proto/monthly_weekday_recurrence.proto";
+
+option objc_class_prefix = "SGAP";
+
+message MonthlyRecurrence {
+	oneof monthly_pattern {
+		MonthlyDayRecurrence monthly_day_recurrence = 1;
+		MonthlyWeekdayRecurrence monthly_weekday_recurrence = 2;
+	}
+}

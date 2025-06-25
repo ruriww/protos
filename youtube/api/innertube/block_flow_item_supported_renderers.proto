@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_parental_pin_block_renderer.proto";
+import "youtube/api/innertube/kids_red_code_verification_block_renderer.proto";
+import "youtube/api/innertube/kids_account_selector_block_renderer.proto";
+import "youtube/api/innertube/kids_red_settings_block_renderer.proto";
+import "youtube/api/innertube/kids_add_account_block_renderer.proto";
+import "youtube/api/innertube/kids_red_all_set_block_renderer.proto";
+import "youtube/api/innertube/unplugged_location_permission_renderer.proto";
+import "youtube/api/innertube/kids_age_gate_block_item_renderer.proto";
+import "youtube/api/innertube/parent_sign_in_block_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BlockFlowItemSupportedRenderers {
+	oneof renderer {
+		KidsParentalPinBlockRenderer kids_parental_pin_block_renderer = 97673193;
+		KidsRedCodeVerificationBlockRenderer kids_red_code_verification_block_renderer = 115894877;
+		KidsAccountSelectorBlockRenderer kids_account_selector_block_renderer = 116033929;
+		KidsRedSettingsBlockRenderer kids_red_settings_block_renderer = 116177830;
+		KidsAddAccountBlockRenderer kids_add_account_block_renderer = 116587209;
+		KidsRedAllSetBlockRenderer kids_red_all_set_block_renderer = 117182321;
+		UnpluggedLocationPermissionRenderer unplugged_location_permission_renderer = 125495544;
+		KidsAgeGateBlockItemRenderer kids_age_gate_block_item_renderer = 136871366;
+		ParentSignInBlockItemRenderer parent_sign_in_block_item_renderer = 141089820;
+	}
+}

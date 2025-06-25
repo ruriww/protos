@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleAlertInfo {
+	google.protobuf.Timestamp triggering_time = 1;
+	google.protobuf.Timestamp receiving_time = 2;
+	google.protobuf.Timestamp expiration_time = 3;
+}

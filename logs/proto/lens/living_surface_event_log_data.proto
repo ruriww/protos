@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/lens_ios_enums.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message LivingSurfaceEventLogData {
+	LensIosEnums.LivingSurfaceType type = 1;
+}

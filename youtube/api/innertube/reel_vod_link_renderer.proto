@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelVodLinkRenderer {
+	FormattedString video_title = 1;
+	FormattedString channel_title = 2;
+	FormattedString duration_text = 3;
+	ThumbnailDetails thumbnail = 4;
+	Command navigation_endpoint = 5;
+	bytes tracking_params = 7;
+}
+
+extend Renderer {
+	ReelVodLinkRenderer reel_vod_link_renderer = 156440873;
+}

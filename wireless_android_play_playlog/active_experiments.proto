@@ -1,0 +1,13 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message ActiveExperiments {
+	repeated string client_altering_experiment = 1;
+	repeated string other_experiment = 2;
+	repeated int32 gws_experiment = 3 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int64 play_experiment = 4 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int64 unsupported_play_experiment = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

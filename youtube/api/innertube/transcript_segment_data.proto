@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TranscriptSegmentData {
+	string transcript_segment_entity_key = 1;
+	int64 start_ms = 2;
+	int64 end_ms = 3;
+	Command scroll_command = 4;
+}

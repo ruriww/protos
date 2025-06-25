@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/monthly_recurrence.proto";
+import "google/type/month.proto";
+
+option objc_class_prefix = "SGAP";
+
+message YearlyRecurrence {
+	MonthlyRecurrence monthly_pattern = 1;
+	repeated google.type.Month months = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

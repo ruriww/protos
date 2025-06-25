@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+option objc_class_prefix = "CHM";
+
+enum RemoveReason {
+	option features.enum_type = CLOSED;
+
+	REMOVE_REASON_UNKNOWN = 0;
+	CLICKED_IN_SYSTEM_TRAY = 1;
+	ACTION_CLICK_IN_SYSTEM_TRAY = 2;
+	DISMISSED_IN_SYSTEM_TRAY = 3;
+	CLICKED_IN_INBOX = 4;
+	ACTION_CLICK_IN_INBOX = 5;
+	DISMISSED_IN_INBOX = 6;
+	DISMISSED_REMOTE = 7;
+	DISMISSED_BY_API = 8;
+	EXPIRED = 9;
+	ACCOUNT_DATA_CLEANED = 10;
+	LIMIT_REACHED = 11;
+	USER_FEEDBACK_ACTION_CLICK = 12;
+}

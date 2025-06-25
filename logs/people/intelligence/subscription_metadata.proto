@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/subscription_log_type.proto";
+import "logs/people/intelligence/assistive_feature_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message SubscriptionMetadata {
+	SubscriptionLogType log_type = 1;
+	AssistiveFeatureType feature_type = 2;
+	int64 subscribed_lookup_id_count = 3;
+}

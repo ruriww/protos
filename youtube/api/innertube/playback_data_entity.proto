@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/playability_status_enum.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackDataEntity {
+	extend EntityMutationPayload {
+		PlaybackDataEntity playback_data = 119;
+	}
+
+	string key = 1;
+	bytes player_response_bytes = 2;
+	int64 player_response_timestamp = 3;
+	string transfer = 4;
+	repeated string ads_playback_data = 5;
+	string drm_license = 6;
+	string offline_video_policy = 7;
+	string player_response_json = 8;
+	int64 stream_download_timestamp_seconds = 9;
+	string video_download_context_entity = 10;
+	string player_params = 11;
+	PlayabilityStatusEnum.CanPlayStatus player_response_playability_can_play_status = 12;
+
+	extensions 1001 to 1003;
+}

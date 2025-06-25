@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/date.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ComputeDateTimeStringCommand {
+	extend elements.Command {
+		ComputeDateTimeStringCommand compute_date_time_string_command = 343298030;
+	}
+
+	oneof date_format {
+		uint64 timestamp_seconds = 1;
+		Date date = 5;
+	}
+
+	string timestamp_entity_key = 2;
+	bool include_date = 3;
+	bool include_time = 4;
+}

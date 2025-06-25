@@ -1,0 +1,10 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message Dimensions {
+	float width = 1;
+	float height = 2;
+}

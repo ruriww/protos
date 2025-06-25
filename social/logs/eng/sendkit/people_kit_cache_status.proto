@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum PeopleKitCacheStatus {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_CACHE_STATUS = 0;
+	FULL_PEOPLEKIT_CACHE = 1;
+	FULL_DATA_SOURCE_CACHE = 2;
+	PARTIAL_DATA_SOURCE_CACHE = 3;
+	EMPTY_DATA_SOURCE_CACHE = 4;
+}

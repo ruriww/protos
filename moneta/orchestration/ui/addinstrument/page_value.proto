@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addinstrument;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form_value.proto";
+import "moneta/orchestration/ui/common/components/encryption_form_value.proto";
+
+option objc_class_prefix = "AddInstrument";
+
+message PageValue {
+	oneof form_value {
+		common.components.instrument.InstrumentSelectorValue instrument_selector = 2;
+		common.components.instrument.InstrumentActivationFormValue instrument_activation_form_value = 3;
+	}
+
+	bytes dependency_graph_action_token = 4;
+	repeated string legal_doc_data = 5;
+	common.components.EncryptionFormValue encryption_form_value = 6;
+}

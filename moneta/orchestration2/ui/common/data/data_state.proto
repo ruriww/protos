@@ -1,0 +1,44 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+message DataState {
+	enum Enablement {
+		option features.enum_type = CLOSED;
+
+		ENABLEMENT_UNKNOWN = 0;
+		ENABLEMENT_ENABLED = 1;
+		ENABLEMENT_DISABLED = 2;
+	}
+
+	Enablement enablement = 1 [ default = ENABLEMENT_ENABLED ];
+
+	enum Validity {
+		option features.enum_type = CLOSED;
+
+		VALIDITY_UNKNOWN = 0;
+		VALIDITY_VALID = 1;
+		VALIDITY_INVALID = 2;
+		VALIDITY_PENDING = 3;
+		VALIDITY_NO_VALUE = 4;
+	}
+
+	Validity validity = 3 [ default = VALIDITY_NO_VALUE ];
+
+	enum FunctionalDataExecutionState {
+		option features.enum_type = CLOSED;
+
+		FUNCTIONAL_DATA_EXECUTION_STATE_UNKNOWN = 0;
+		FUNCTIONAL_DATA_EXECUTION_STATE_NOT_STARTED = 1;
+		FUNCTIONAL_DATA_EXECUTION_STATE_RUNNING = 2;
+		FUNCTIONAL_DATA_EXECUTION_STATE_CANCELLED = 3;
+		FUNCTIONAL_DATA_EXECUTION_STATE_COMPLETED = 4;
+		FUNCTIONAL_DATA_EXECUTION_STATE_FAILED = 5;
+	}
+
+	FunctionalDataExecutionState functional_data_execution_state = 4 [ default = FUNCTIONAL_DATA_EXECUTION_STATE_UNKNOWN ];
+	int32 functional_data_error_code = 5;
+	int32 functional_data_cancel_code = 6;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message ImageResource {
+	string url_1x = 1;
+	string url_2x = 2;
+}

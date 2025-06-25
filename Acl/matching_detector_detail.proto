@@ -1,0 +1,12 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/dlp_content_region.proto";
+
+option objc_class_prefix = "ACL";
+
+message MatchingDetectorDetail {
+	string matching_detector_id = 1;
+	DlpContentRegion matching_dlp_content_region = 2;
+}

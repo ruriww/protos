@@ -1,0 +1,13 @@
+edition = "2023";
+
+package peoplestack;
+
+import "social/discovery/connection_label.proto";
+import "peoplestack/mutate_action.proto";
+
+option objc_class_prefix = "PSK";
+
+message MutateOptions {
+	social.discovery.ConnectionLabel.Type label_type = 1;
+	MutateAction mutate_action = 2;
+}

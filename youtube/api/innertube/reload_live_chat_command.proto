@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reload_live_chat_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReloadLiveChatCommand {
+	ReloadLiveChatSupportedContinuations continuation = 1;
+	bool hack = 2;
+}
+
+extend Command {
+	ReloadLiveChatCommand reload_live_chat_command = 452396615;
+}

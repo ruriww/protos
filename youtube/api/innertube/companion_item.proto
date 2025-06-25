@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompanionItem {
+	ThumbnailDetails image = 1;
+	FormattedString description = 2;
+	FormattedString subtitle = 3;
+	bool show_border = 4;
+	uint32 border_color = 5;
+	bool show_side_metadata = 6;
+}

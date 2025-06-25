@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/automix_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutomixPlaylistVideoRenderer {
+	FormattedString title = 1;
+	FormattedString byline = 2;
+	ThumbnailDetails thumbnail = 3;
+	Command navigation_endpoint = 4;
+	bytes tracking_params = 6;
+	bool hide_top_separator = 7;
+	AutomixMode automix_mode = 8;
+}

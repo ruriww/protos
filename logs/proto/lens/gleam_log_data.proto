@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message GleamLogData {
+	int32 result_rank = 5;
+}

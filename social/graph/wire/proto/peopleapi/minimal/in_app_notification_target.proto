@@ -1,0 +1,39 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/person_field_metadata.proto";
+
+option objc_class_prefix = "SGWPPM";
+
+message InAppNotificationTarget {
+	PersonFieldMetadata metadata = 1;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_KEY_TYPE = 0;
+		PHONE = 1;
+		OBFUSCATED_GAIA_ID = 2;
+		EMAIL = 3;
+	}
+
+	Type type = 3;
+	string value = 4;
+
+	message OriginatingField {
+		enum FieldType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_FIELD_TYPE = 0;
+			PHONE = 1;
+			EMAIL = 2;
+		}
+
+		FieldType field_type = 1;
+		int32 field_index = 2;
+		string value = 3;
+	}
+
+	repeated OriginatingField originating_field = 5;
+}

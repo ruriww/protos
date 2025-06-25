@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DeepLinkThrottlingRule {
+	option features.enum_type = CLOSED;
+
+	DEEP_LINK_THROTTLING_RULE_UNKNOWN = 0;
+	DEEP_LINK_THROTTLING_RULE_NONE = 1;
+	DEEP_LINK_THROTTLING_RULE_ALL = 2;
+	DEEP_LINK_THROTTLING_RULE_WATCH_ONLY = 3;
+}

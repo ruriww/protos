@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetRegistry {
+	message AssetLocation {
+		message PathInfo {
+			string ios_relative_bundle_path = 1;
+			string android_relative_assets_path = 2;
+			string desktop_full_path = 3;
+		}
+
+		PathInfo path_info = 1;
+
+		message RemoteFileSet {
+			repeated string remote_urls = 1;
+		}
+
+		oneof remote_info {
+			string remote_url = 2;
+			RemoteFileSet remote_file_set = 3;
+		}
+	}
+
+	message AssetEntry {
+		string asset_id = 1;
+		AssetLocation asset_location = 2;
+	}
+
+	repeated AssetEntry entries = 1;
+}

@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "unknown/youtube/event_id_message.proto";
+import "youtube/api/innertube/key_value_pair.proto";
+import "youtube/api/innertube/consistency_token_jar.proto";
+import "youtube/api/innertube/reauth_request_info.proto";
+import "youtube/api/innertube/inner_tube_token_jar.proto";
+import "youtube/api/innertube/attestation_response_data.proto";
+import "youtube/api/innertube/request_qo_s.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RequestInfo {
+	unknown.youtube.EventIdMessage event_id = 5;
+	string third_party_digest = 6;
+	bool use_ssl = 7 [ default = true ];
+	bool return_error_detail = 9;
+	string if_none_match = 12;
+	bool return_log_entry = 13;
+	bool is_prefetch = 14;
+	repeated KeyValuePair internal_experiment_flags = 15;
+	bool return_debug_data = 16;
+	unknown.youtube.EventIdMessage parent_event_id = 17;
+	string innertubez = 18;
+	bool trace_proto = 23;
+	bool return_log_entry_json = 24;
+	string sherlog_username = 25;
+	repeated ConsistencyTokenJar consistency_token_jars = 26;
+	bool is_dark_launch = 27;
+	repeated int32 itg_experiment_ids = 28 [ features.repeated_field_encoding = EXPANDED ];
+	ReauthRequestInfo reauth_request_info = 29;
+	bool return_log_entry_proto = 31;
+	string external_prequest_context = 32;
+	InnerTubeTokenJar innertube_token_jar = 33;
+	AttestationResponseData attestation_response_data = 34;
+	bytes eats = 35;
+	RequestQoS request_qos = 36;
+}

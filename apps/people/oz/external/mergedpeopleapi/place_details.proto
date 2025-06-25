@@ -1,0 +1,17 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/opening_hours.proto";
+import "apps/people/oz/external/mergedpeopleapi/lat_lng.proto";
+
+option objc_class_prefix = "POEM";
+
+message PlaceDetails {
+	PersonFieldMetadata metadata = 1;
+	OpeningHours opening_hours = 2;
+	LatLng lat_lng = 3;
+	string google_url = 4;
+	string primary_type_name = 6;
+}

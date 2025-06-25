@@ -1,0 +1,46 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi;
+
+option objc_class_prefix = "SGWPP";
+
+message AffinityResponseContext {
+	enum DeviceFeatureType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		TIMES_CONTACTED = 1;
+		SECONDS_SINCE_LAST_TIME_CONTACTED = 2;
+		IS_SECONDARY_GOOGLE_ACCOUNT = 3;
+		FIELD_TIMES_USED = 4;
+		FIELD_SECONDS_SINCE_LAST_TIME_USED = 5;
+		IS_CONTACT_STARRED = 6;
+		HAS_POSTAL_ADDRESS = 7;
+		HAS_NICKNAME = 8;
+		HAS_BIRTHDAY = 9;
+		HAS_CUSTOM_RINGTONE = 10;
+		HAS_AVATAR = 11;
+		IS_SENT_TO_VOICEMAIL = 12;
+		IS_PINNED = 13;
+		PINNED_POSITION = 14;
+		NUM_COMMUNICATION_CHANNELS = 15;
+		NUM_RAW_CONTACTS = 16;
+		FIELD_IS_PRIMARY = 17;
+		FIELD_IS_SUPER_PRIMARY = 18;
+		DECAYED_ALL_INTERACTIONS_COUNT = 19;
+		FIELD_DECAYED_ALL_INTERACTIONS_COUNT = 20;
+	}
+
+	int32 affinity_version = 1;
+	double affinity_threshold = 2;
+
+	message DeviceScoringParam {
+		DeviceFeatureType feature_type = 1 [ default = UNKNOWN ];
+		double weight = 2 [ default = 0e0 ];
+		double exponent = 3 [ default = 1 ];
+	}
+
+	repeated DeviceScoringParam feature = 3;
+	string affinity_type = 4;
+	bool suggestion_confidence_enabled = 5 [ default = false ];
+}

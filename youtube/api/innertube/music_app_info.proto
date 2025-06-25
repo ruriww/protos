@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_background_refresh_status.proto";
+import "youtube/api/innertube/music_tier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicAppInfo {
+	bool offline_mixtape_enabled = 4;
+	bool auto_offline_enabled = 5;
+	IosBackgroundRefreshStatus ios_background_refresh_status = 6;
+	int32 smart_downloads_song_limit = 7;
+	bool transitioned_from_mixtape_to_smart_downloads = 8;
+	MusicTier music_tier = 11;
+	int64 smart_downloads_time_since_last_opt_out_sec = 13;
+	bool multi_player_entities_enabled = 14;
+}

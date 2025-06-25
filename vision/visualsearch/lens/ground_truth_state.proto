@@ -1,0 +1,18 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message GroundTruthState {
+	enum GroundTruthStatus {
+		option features.enum_type = CLOSED;
+
+		GT_STATUS_UNSPECIFIED = 0;
+		GT_STATUS_CORRECT = 1;
+		GT_STATUS_INCORRECT = 2;
+	}
+
+	GroundTruthStatus gt_status = 1;
+	string annotation_help = 2;
+}

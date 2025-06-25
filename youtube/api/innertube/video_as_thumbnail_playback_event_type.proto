@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum VideoAsThumbnailPlaybackEventType {
+	option features.enum_type = CLOSED;
+
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_UNKNOWN = 0;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_STARTED = 1;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_FINISHED = 2;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_HALTED = 3;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_RESUMED = 4;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_FAILED = 5;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_REBUFFERED = 6;
+	VIDEO_AS_THUMBNAIL_PLAYBACK_EVENT_TYPE_ABANDONED = 7;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum VideoQualitySetting {
+	option features.enum_type = CLOSED;
+
+	VIDEO_QUALITY_SETTING_UNKNOWN = 0;
+	VIDEO_QUALITY_SETTING_HIGHER_QUALITY = 1;
+	VIDEO_QUALITY_SETTING_DATA_SAVER = 2;
+	VIDEO_QUALITY_SETTING_ADVANCED_MENU = 3;
+}

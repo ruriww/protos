@@ -1,0 +1,25 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/background_media.proto";
+
+option objc_class_prefix = "TENOR";
+
+message DisplacementMap {
+	BackgroundMedia media = 1;
+
+	enum ColorChannel {
+		option features.enum_type = CLOSED;
+
+		COLOR_CHANNEL_UNSPECIFIED = 0;
+		COLOR_CHANNEL_RED = 1;
+		COLOR_CHANNEL_GREEN = 2;
+		COLOR_CHANNEL_BLUE = 3;
+		COLOR_CHANNEL_ALPHA = 4;
+	}
+
+	ColorChannel x_axis_color = 2;
+	ColorChannel y_axis_color = 3;
+	float scale = 4;
+}

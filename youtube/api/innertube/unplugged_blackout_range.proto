@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/unplugged_animation_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBlackoutRange {
+	int64 range_start_position_usec = 1;
+	int64 range_end_position_usec = 2;
+	ThumbnailDetails background = 3;
+	FormattedString blackout_reason = 4;
+	bool allow_chromecast = 5;
+	BadgeSupportedRenderers badge = 6;
+	Command navigation_endpoint = 7;
+	int64 range_start_position_media_usec = 8;
+	int64 range_end_position_media_usec = 9;
+	ButtonSupportedRenderers action_button = 10;
+	bool is_full_coverage_blackout = 11;
+	FormattedString title = 12;
+	ButtonSupportedRenderers secondary_button = 13;
+	ThumbnailDetails image = 14;
+	UnpluggedAnimationDetails animation = 15;
+}

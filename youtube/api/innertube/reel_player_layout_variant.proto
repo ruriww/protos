@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelPlayerLayoutVariant {
+	option features.enum_type = CLOSED;
+
+	REEL_PLAYER_LAYOUT_VARIANT_UNSPECIFIED = 0;
+	REEL_PLAYER_LAYOUT_VARIANT_A = 1;
+	REEL_PLAYER_LAYOUT_VARIANT_B = 2;
+}

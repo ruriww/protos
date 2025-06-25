@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_stream.proto";
+import "youtube/api/innertube/stream_activity_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveStreamState {
+	oneof delivery_stream {
+		MdxStream mdx_stream = 1;
+	}
+
+	StreamActivityState activity_state = 2;
+	int64 last_update_time_ms = 3;
+	int64 last_commit_time_ms = 4;
+}

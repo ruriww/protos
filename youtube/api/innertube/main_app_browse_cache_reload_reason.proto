@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MainAppBrowseCacheReloadReason {
+	option features.enum_type = CLOSED;
+
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_UNKNOWN = 0;
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_COLD_START = 1;
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_WOULD_BE_CACHED_IF_PERSISTENT = 2;
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_MAX_AGE_SECONDS = 3;
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_CLIENT_INVALIDATION = 4;
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_USER_FULL_REFRESH = 5;
+	MAIN_APP_BROWSE_CACHE_RELOAD_REASON_PERSISTENT_CACHE_EXPIRY = 7;
+}

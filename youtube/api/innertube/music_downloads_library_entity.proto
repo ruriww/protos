@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicDownloadsLibraryEntity {
+	extend EntityMutationPayload {
+		MusicDownloadsLibraryEntity music_downloads_library_entity = 257;
+	}
+
+	string id = 1;
+	repeated string downloaded_tracks = 2;
+	repeated string downloaded_album_releases = 3;
+	repeated string smart_downloaded_album_releases = 4;
+	repeated string downloaded_playlists = 5;
+	repeated string smart_downloaded_playlists = 6;
+	repeated string downloaded_episodes = 7;
+	repeated string smart_downloaded_tracks = 8;
+	repeated string metadata_only_tracks = 9;
+}

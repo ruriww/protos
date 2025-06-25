@@ -1,0 +1,22 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message RightOfPublicityState {
+	PersonFieldMetadata metadata = 1;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		STATE_UNSPECIFIED = 0;
+		NOT_OK_TO_DISPLAY = 1;
+		OK_TO_DISPLAY = 2;
+		OK_TO_DISPLAY_IN_NON_ADS_COMMERCIAL_CONTEXT = 3;
+	}
+
+	State state = 2 [ default = OK_TO_DISPLAY ];
+}

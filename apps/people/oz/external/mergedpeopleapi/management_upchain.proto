@@ -1,0 +1,29 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message ManagementUpchain {
+	PersonFieldMetadata metadata = 1;
+
+	message IndirectManager {
+		string email = 1;
+		string person_id = 2;
+	}
+
+	repeated IndirectManager indirect_manager = 2;
+
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OK = 1;
+		PARTIAL = 2;
+		LOOP = 3;
+	}
+
+	Status status = 3 [ default = UNKNOWN ];
+}

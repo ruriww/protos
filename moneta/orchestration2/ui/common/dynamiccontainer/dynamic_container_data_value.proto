@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dynamiccontainer;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DynamicContainerDataValue {
+	extend data.DataValue {
+		DynamicContainerDataValue dynamic_container_data_value_extension = 440798148;
+	}
+
+	repeated int64 active_dynamic_child_data_reference = 1;
+	repeated int64 dynamic_child_data_reference = 2;
+}

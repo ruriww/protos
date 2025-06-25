@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/reminder_id_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message ReminderIdentifier {
+	string unique_id = 1;
+	ReminderIdType id_type = 2;
+}

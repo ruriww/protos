@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_mdx_global_config.proto";
+import "youtube/api/innertube/client_mdx_global_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxGlobalPlatformSupportedConfigs {
+	IosMdxGlobalConfig ios_mdx_global_config = 81423232;
+	ClientMdxGlobalConfig client_mdx_global_config = 111456474;
+}

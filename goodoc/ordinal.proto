@@ -1,0 +1,50 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message Ordinal {
+	enum ImplicitType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_IMPLICIT = 0;
+		IMPLICIT = 1;
+		EXPLICIT = 2;
+	}
+
+	ImplicitType implicit = 1;
+
+	enum ValueType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_VALUE_TYPE = 0;
+		LEGACY_PRE_VALUE = 1;
+		ROMAN = 2;
+		ASCII = 3;
+		ALPHA = 4;
+		LEGACY_POST_VALUE = 5;
+		UNDEFINED_VALUE_TYPE = 6;
+		CHINESE = 7;
+		JAPANESE = 8;
+		KOREAN = 9;
+		ARABIC_ARABIC = 10;
+	}
+
+	ValueType value_type = 2;
+	int32 value = 3;
+
+	enum ValueDelta {
+		option features.enum_type = CLOSED;
+
+		DELTA_HALF = 0;
+		DELTA_ONE = 1;
+		DELTA_TWO = 2;
+	}
+
+	ValueDelta value_delta = 4;
+	string string_value = 5;
+	ValueType section_value_type = 6;
+	int32 section_value = 7;
+	string section_string_value = 8;
+}

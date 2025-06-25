@@ -1,0 +1,71 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/option_service_item_renderer.proto";
+import "youtube/api/innertube/option_navigation_item_renderer.proto";
+import "youtube/api/innertube/kids_popover_menu_renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/options_confirm_dialog_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OptionsRenderer {
+	repeated OptionItemSupportedRenderers items = 1;
+	FormattedString title = 2;
+	bytes tracking_params = 4;
+	ButtonSupportedRenderers submit_button = 5;
+	string key = 6;
+}
+
+message OptionItemSupportedRenderers {
+	OptionServiceItemRenderer service_item = 77615207;
+	OptionNavigationItemRenderer navigation_item = 77694497;
+	OptionsRenderer sub_options = 77875886;
+	OptionSelectableItemRenderer option_selectable_item_renderer = 111079109;
+	KidsPopoverMenuRenderer kids_popover_menu_renderer = 487031440;
+}
+
+message OptionSelectableItemRenderer {
+	FormattedString text = 1;
+	Icon icon = 2;
+	AccessibilitySupportedDatas accessibility = 4;
+	bytes tracking_params = 6;
+	repeated OptionItemSupportedRenderers sub_options = 8;
+	OptionsConfirmDialogSupportedRenderers confirm_dialog = 9;
+	bool disable_submit_button = 10;
+	Command submit_endpoint = 12;
+	Command submit_navigation_endpoint = 13;
+	repeated Command actions = 14;
+	repeated Command click_commands = 15;
+	AccessibilityData sub_options_accessibility = 16;
+	int32 preselected_index = 17;
+	FormattedString subtext = 18;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	OptionsRenderer options_renderer = 77875886;
+}
+
+extend Renderer {
+	OptionNavigationItemRenderer option_navigation_item_renderer = 77694497;
+}
+
+extend Renderer {
+	OptionServiceItemRenderer option_service_item_renderer = 77615207;
+}
+
+extend Renderer {
+	OptionSelectableItemRenderer option_selectable_item_renderer = 111079109;
+}

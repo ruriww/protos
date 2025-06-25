@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+import "moneta/orchestration2/ui/common/functionaldata/camera/flashlight_available_condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CameraCondition {
+	extend eventrules.condition.Condition {
+		CameraCondition camera_condition_extension = 311412650;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_FLASHLIGHT_AVAILABLE = 1;
+	}
+
+	ConditionType condition_type = 1;
+
+	oneof condition {
+		FlashlightAvailableCondition flashlight_available_condition = 2;
+	}
+}

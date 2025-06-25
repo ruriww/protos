@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/key_value_pair.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExperimentFlagsConfig {
+	repeated KeyValuePair flags = 1;
+	bool enable_pivot_bar = 2;
+	bool ios_enable_quick_actions = 3;
+	bool ios_always_show_statusbar_on_watch = 7;
+	bool ios_enable_personalized_suggest = 8;
+	bool ios_enable_high_quality_thumbnail_selection = 9;
+	bool show_pivot_bar_on_search = 10;
+	bool enable_full_version = 13;
+	bool use_account_panel = 15;
+	bool show_fab_in_actionbar = 16;
+	bool ios_enable_nerd_stats = 21;
+	bool use_expanded_searchbox = 24;
+	bool always_show_visit_advertiser = 26;
+	bool ios_enable_mixin_accessibility_custom_actions = 27;
+	bool search_icon_first_in_topbar = 29;
+	bool pivot_bar_library_icon_variation1 = 30;
+	bool pivot_bar_library_icon_variation2 = 31;
+	bool pivot_bar_library_icon_variation3 = 32;
+	bool pivot_bar_library_icon_variation4 = 33;
+	bool pivot_bar_library_icon_variation5 = 34;
+	bool ios_video_loader_early_player_request = 36;
+	bool enable_stateful_tabs = 39;
+	bool pivot_bar_prefetch_enabled = 40;
+	bool search_tabs_hidden = 41;
+}

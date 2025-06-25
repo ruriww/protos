@@ -1,0 +1,53 @@
+edition = "2023";
+
+package faceviewer;
+
+import "xeno/effect/effect_package_proto.proto";
+import "youtube/api/innertube/template_config_proto.proto";
+import "youtube/api/innertube/feature_control.proto";
+import "drishti/profiler_config.proto";
+
+option objc_class_prefix = "FVR";
+
+message ExperienceRequestProto {
+	message EffectIdList {
+		repeated string effect_ids = 1;
+	}
+
+	message EffectPackageBundle {
+		xeno.effect.EffectPackageProto effect_package = 1;
+		youtube.api.innertube.TemplateConfigProto template_config = 2;
+	}
+
+	oneof experience_param {
+		string experience_id = 1;
+		EffectIdList effect_ids = 6;
+		EffectPackageBundle effect_package_bundle = 11;
+	}
+
+	string name = 2;
+
+	enum Environment {
+		option features.enum_type = CLOSED;
+
+		DEV = 0;
+		STAGING = 1;
+		PROD = 2;
+	}
+
+	Environment env = 3;
+
+	message WebUIParam {
+		string web_template_url = 1;
+		youtube.api.innertube.FeatureControl feature_control = 2;
+	}
+
+	oneof ui_params {
+		WebUIParam web_param = 5;
+	}
+
+	string query = 7;
+	uint32 initial_item_index_override = 8;
+	drishti.ProfilerConfig mediapipe_profiler_config = 9;
+	string cta_url_override = 10;
+}

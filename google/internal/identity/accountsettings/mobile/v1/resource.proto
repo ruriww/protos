@@ -1,0 +1,51 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/screen_resource.proto";
+import "google/internal/identity/accountsettings/mobile/v1/welcome_header.proto";
+import "google/internal/identity/accountsettings/mobile/v1/top_nav.proto";
+import "google/internal/identity/accountsettings/mobile/v1/card_deck.proto";
+import "google/internal/identity/accountsettings/mobile/v1/bottom_nav.proto";
+import "google/internal/identity/accountsettings/mobile/v1/card.proto";
+import "google/internal/identity/accountsettings/mobile/v1/search_corpus.proto";
+import "google/internal/identity/accountsettings/mobile/v1/left_nav.proto";
+import "google/internal/identity/accountsettings/mobile/v1/welcome_screen_intro.proto";
+import "google/internal/identity/accountsettings/mobile/v1/footer.proto";
+import "google/internal/identity/accountsettings/mobile/v1/prompt_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/local.proto";
+import "google/internal/identity/accountsettings/mobile/v1/security_hub_prompt_item.proto";
+import "google/internal/identity/accountsettings/mobile/v1/account_menu_information.proto";
+import "google/internal/identity/accountsettings/mobile/v1/initial_search_screen_components.proto";
+import "google/internal/identity/accountsettings/mobile/v1/simple_header.proto";
+import "google/internal/identity/accountsettings/mobile/v1/placeholder.proto";
+
+option objc_class_prefix = "ASM";
+
+message Resource {
+	ResourceKey resource_key = 1;
+	bool is_stable = 2;
+
+	oneof resource_type {
+		ScreenResource screen = 3;
+		WelcomeHeader welcome_header = 4;
+		TopNav top_nav = 5;
+		CardDeck card_deck = 6;
+		BottomNav bottom_nav = 7;
+		Card card = 8;
+		SearchCorpus search_corpus = 9;
+		LeftNav left_nav = 10;
+		WelcomeScreenIntro welcome_screen_intro = 12;
+		Footer footer = 16;
+		PromptItem prompt_item = 17;
+		Local local = 19;
+		SecurityHubPromptItem security_hub_prompt_item = 21;
+		AccountMenuInformation account_menu_information = 25;
+		InitialSearchScreenComponents initial_search_screen_components = 26;
+		SimpleHeader simple_header = 27;
+		Placeholder placeholder = 1000;
+	}
+
+	bool is_dismissed = 18;
+}

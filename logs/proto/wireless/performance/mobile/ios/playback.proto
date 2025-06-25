@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "PRM";
+
+message Playback {
+	string cpn = 1;
+	google.protobuf.Timestamp timestamp = 2;
+}

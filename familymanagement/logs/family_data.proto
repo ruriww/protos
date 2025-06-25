@@ -1,0 +1,39 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+option objc_class_prefix = "FML";
+
+message FamilyData {
+	int64 family_id = 1;
+	int32 member_count = 2;
+	int32 invitation_count = 3;
+
+	message ProductCorrelationIdData {
+		enum Type {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_TYPE = 0;
+			PLAY = 1;
+			YOUTUBE = 2;
+			CLOUDCAST = 3;
+			P11 = 4;
+		}
+
+		Type type = 1;
+
+		enum State {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_STATE = 0;
+			NOT_SET_UP = 4;
+			PENDING = 1;
+			VALID = 2;
+			INVALID = 3;
+		}
+
+		State state = 2;
+	}
+
+	repeated ProductCorrelationIdData product_correlation_id = 4;
+}

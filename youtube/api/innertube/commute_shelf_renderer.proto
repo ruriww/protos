@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommuteShelfRenderer {
+	FormattedString title = 1;
+	Renderer badge = 2;
+	Renderer menu = 3;
+	bytes tracking_params = 5;
+	int32 max_items = 6 [ default = 12 ];
+	int32 min_items = 7 [ default = 3 ];
+}
+
+extend Renderer {
+	CommuteShelfRenderer commute_shelf_renderer = 217806814;
+}

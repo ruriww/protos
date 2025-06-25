@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.snackbar;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SnackbarData {
+	extend data.Data {
+		SnackbarData snackbar_data_extension = 272561448;
+	}
+
+	string text_label = 1;
+	string action_message = 2;
+
+	enum Duration {
+		option features.enum_type = CLOSED;
+
+		DURATION_UNKNOWN = 0;
+		DURATION_INDEFINITE = 1;
+		DURATION_LONG = 2;
+		DURATION_SHORT = 3;
+	}
+
+	Duration duration = 3;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/creation_page_fetch_instructions.proto";
+import "youtube/api/innertube/creation_page_presentation_instructions.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationPageCommand {
+	extend Command {
+		CreationPageCommand creation_page_command = 1478;
+	}
+
+	CreationPageFetchInstructions fetch_instructions = 1;
+	CreationPagePresentationInstructions presentation_instructions = 2;
+}

@@ -1,0 +1,48 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/product_specific_data_entry.proto";
+import "customer_support/help/mobile/proto/form_content.proto";
+import "customer_support/help/mobile/proto/click_to_call_data.proto";
+import "customer_support/help/mobile/proto/video_call_data.proto";
+import "customer_support/help/mobile/proto/chat_data.proto";
+import "customer_support/help/mobile/proto/configurations_data.proto";
+import "customer_support/help/mobile/proto/batched_metrics_data.proto";
+import "customer_support/help/mobile/proto/chat_conversation_request_data.proto";
+import "customer_support/help/mobile/proto/screenshare_issues.proto";
+import "customer_support/help/mobile/proto/screenshare_signals.proto";
+import "engage/api/shared/cms/configuration/field_relationship_descriptor_value.proto";
+import "customer_support/help/mobile/proto/iph_trails.proto";
+
+option objc_class_prefix = "CSHM";
+
+message RequestData {
+	string query = 1;
+	string deprecated_product_specific_data = 2 [ deprecated = true ];
+	string help_center_context = 3;
+	string session_id = 4;
+	repeated ProductSpecificDataEntry product_specific_data = 5;
+	FormContent form_content = 6;
+	ClickToCallData click_to_call_data = 7;
+	bool include_topics = 8;
+	VideoCallData video_call_data = 9;
+	ChatData chat_data = 10;
+	ConfigurationsData configurations_data = 11;
+	int32 googlehelp_version = 12;
+	string googlehelp_version_name = 13;
+	BatchedMetricsData batched_metrics_data = 14;
+	ChatConversationRequestData chat_conversation_request_data = 15;
+	string gcm_token = 16;
+	ScreenshareIssues screenshare_issues = 17;
+	ScreenshareSignals screenshare_signals = 18;
+	string signals_request_id = 19;
+	bool include_issue_resolution_results = 20;
+	string google_assistant_transcript = 21;
+	string screenshare_invitation_id = 22;
+	string country_code = 23;
+	repeated engage.api.shared.cms.configuration.FieldRelationshipDescriptorValue frd_psd = 24;
+	bool was_in_chat = 26;
+	IphTrails iph_trails = 27;
+	string support_journey_id = 28;
+}

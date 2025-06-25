@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/permission_metadata.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message StartupMetadata {
+	PermissionMetadata permission_metadata = 1;
+}

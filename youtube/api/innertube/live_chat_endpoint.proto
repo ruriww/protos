@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_chat_supported_continuations.proto";
+import "youtube/api/innertube/live_chat_presentation_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatEndpoint {
+	extend Command {
+		LiveChatEndpoint live_chat_endpoint = 132716540;
+	}
+
+	bytes params = 1;
+	LiveChatSupportedContinuations continuation = 2;
+	LiveChatPresentationStyle presentation_style = 3;
+}

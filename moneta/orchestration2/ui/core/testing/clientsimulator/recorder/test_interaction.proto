@@ -1,0 +1,135 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.core.testing.clientsimulator.recorder;
+
+import "moneta/serving/errors/public_payments_error.proto";
+import "moneta/orchestration2/ui/common/rpcmessage/initialize_request.proto";
+import "moneta/orchestration2/ui/common/rpcmessage/submit_request.proto";
+import "moneta/orchestration2/ui/common/rpcmessage/ui_response.proto";
+import "moneta/serving/errors/payments_error.proto";
+import "moneta/orchestration2/logging/testing/expected_logging.proto";
+import "moneta/orchestration2/ui/core/testing/clientsimulator/recorder/functional_data_state_change_action.proto";
+import "moneta/orchestration2/ui/common/rpcmessage/hydrated_lazy_data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TestInteraction {
+	message Action {
+		enum Operation {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_OPERATION = 0;
+			CLICK = 1;
+			INPUT = 2;
+			TOGGLE = 3;
+			BROWSE_URL = 4;
+			SELECT = 5;
+			SELECT_FILE = 6;
+			UPLOAD_DOCUMENT = 7;
+			ATTEMPT_GAIA_PASSWORD_CHALLENGE = 8;
+			ATTEMPT_BIOMETRIC_CHALLENGE = 9;
+			ATTEMPT_LOCK_SCREEN_CHALLENGE = 19;
+			ATTEMPT_URL_REDIRECT_CHALLENGE = 10;
+			P256_KEY_PAIR_GENERATION = 11;
+			INITIALIZE_WIDGET = 12;
+			SERVER_REQUEST = 13;
+			URL_REDIRECT_HIDDEN_IFRAME = 14;
+			COMPLETE_TAP_AND_PAY_CHALLENGE_IF_PROMPTED = 15;
+			INPUT_CARD_USING_DEVICE_BASED_INPUT = 16;
+			APP_REDIRECT = 17;
+			FIDO_SIGN = 18;
+			CLICK_CHIP_REMOVE_BUTTON = 20;
+			SCROLL_TO = 21;
+			FLUSH_LOGS = 22;
+			ASSERT_LOGS = 23;
+			COMPLETE_RECAPTCHA = 24;
+			CLICK_LINK = 25;
+			SCREENSHOT = 26;
+			BLUR = 27;
+			WAIT = 28;
+		}
+
+		Operation operation = 1;
+		int64 affected_node_reference = 2;
+		string input_value = 3;
+		string browsing_url = 4;
+		string label = 5;
+
+		message InitializeWidgetData {
+			bytes encrypted_parameters = 1;
+			bytes serialized_unencrypted_parameters = 2;
+		}
+
+		message ServerRequestData {
+			enum RequestType {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN_REQUEST_TYPE = 0;
+				INITIALIZE = 1;
+				SUBMIT = 2;
+			}
+
+			RequestType request_type = 1;
+
+			oneof request {
+				common.rpcmessage.InitializeRequest initialize_request = 4;
+				common.rpcmessage.SubmitRequest submit_request = 5;
+			}
+
+			message ErrorStatusDetails {
+				serving.errors.PublicPaymentsError public_payments_error = 1;
+			}
+
+			oneof response {
+				common.rpcmessage.UiResponse ui_response = 6;
+				serving.errors.PaymentsError payments_error = 7;
+				ErrorStatusDetails error_status_details = 8;
+			}
+
+			message SubmitRequestAssertionData {
+				bool force_enable_all_assertions = 1;
+				repeated int64 data_reference_to_suppress = 2;
+			}
+
+			SubmitRequestAssertionData submit_request_assertion_data = 9;
+		}
+
+		message ScreenshotData {
+			string tag = 1;
+		}
+
+		oneof operation_additonal_data {
+			InitializeWidgetData initialize_widget_data = 6;
+			ServerRequestData server_request_data = 7;
+			ScreenshotData screenshot_data = 16;
+		}
+
+		int32 affected_node_extension_field_number = 8;
+		bool enable_screenshot = 9;
+		int64 affected_data_reference = 10;
+		string accessibility_label = 11;
+		logging.testing.ExpectedLogging expected_logging = 12;
+		string link_text = 13;
+		int32 millisecond_delay = 17;
+
+		enum ExecutionState {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN = 0;
+			COMPLETED = 1;
+			CANCELLED = 2;
+			FAILED = 3;
+		}
+
+		ExecutionState execution_state = 18;
+		FunctionalDataStateChangeAction functional_data_state_change_action = 19;
+	}
+
+	repeated Action action = 1;
+
+	message LazyData {
+		repeated common.rpcmessage.HydratedLazyData hydrated_lazy_data = 1;
+	}
+
+	LazyData lazy_data = 2;
+}

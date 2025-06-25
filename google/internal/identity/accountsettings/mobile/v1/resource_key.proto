@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message ResourceKey {
+	int32 resource_id = 1;
+	map<string, string> resource_params = 2;
+}

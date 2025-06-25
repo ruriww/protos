@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui;
+
+option objc_class_prefix = "GIDLOG";
+
+enum ApiVersion {
+	option features.enum_type = CLOSED;
+
+	VERSION_UNSPECIFIED = 0;
+	VERSION_1 = 1;
+	VERSION_2 = 2;
+}

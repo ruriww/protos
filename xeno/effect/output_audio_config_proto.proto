@@ -1,0 +1,15 @@
+edition = "2023";
+
+package xeno.effect;
+
+option objc_class_prefix = "XNO";
+
+message OutputAudioConfigProto {
+	message Track {
+		string audio_output_stream_name = 1;
+		string audio_header_stream_name = 2;
+	}
+
+	Track canonical_output_track = 1;
+	repeated Track auxiliary_output_track = 2;
+}

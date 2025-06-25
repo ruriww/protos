@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/debug_tick_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CsiConfig {
+	LoggingUrl logging_url = 1;
+	bool csi_through_gel_enabled = 2;
+	bool csi_through_csi204_disabled = 3;
+	bool ios_home_action_through_csi204_enabled = 4;
+	bool browse_action_through_csi204_enabled = 5;
+	bool browse_action_through_gel_enabled = 6;
+	bool watch_action_through_csi204_enabled = 7;
+	bool watch_action_through_gel_enabled = 8;
+	bool ad_actions_through_csi204_enabled = 9;
+	bool ad_actions_through_gel_enabled = 10;
+	bool other_actions_through_csi204_enabled = 11;
+	bool other_actions_through_gel_enabled = 12;
+	bool ios_enable_encapsulated_csi_logging = 13;
+	bool android_drop_csi_request_with_process_action = 14;
+	bool android_csi204_priority_low = 15;
+	int32 debug_sample_weight = 16;
+	repeated DebugTickConfig debug_ticks = 17;
+}

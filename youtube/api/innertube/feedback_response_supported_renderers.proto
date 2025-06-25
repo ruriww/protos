@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/single_option_survey_renderer.proto";
+import "youtube/api/innertube/dismissal_follow_up_renderer.proto";
+import "youtube/api/innertube/kids_user_education_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FeedbackResponseSupportedRenderers {
+	oneof renderer {
+		SingleOptionSurveyRenderer single_option_survey_renderer = 84469086;
+		DismissalFollowUpRenderer dismissal_follow_up_renderer = 106646784;
+		KidsUserEducationRenderer kids_user_education_renderer = 512117178;
+	}
+}

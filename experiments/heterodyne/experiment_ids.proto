@@ -1,0 +1,12 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message ExperimentIds {
+	bytes clear_blob = 1;
+	repeated bytes encrypted_blob = 2;
+	bool users_match = 3;
+	string clear_blob_js = 4;
+}

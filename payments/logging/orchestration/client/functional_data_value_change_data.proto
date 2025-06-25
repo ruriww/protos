@@ -1,0 +1,11 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+option objc_class_prefix = "ORCH2";
+
+message FunctionalDataValueChangeData {
+	int32 previous_state = 1;
+	int32 new_state = 2;
+	int32 code = 3;
+}

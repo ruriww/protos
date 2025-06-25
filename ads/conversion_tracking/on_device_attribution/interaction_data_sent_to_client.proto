@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+import "ads/conversion_tracking/on_device_attribution/attributable_type.proto";
+
+option objc_class_prefix = "ADCO";
+
+message InteractionDataSentToClient {
+	string encrypted_gbraid = 1;
+	string encrypted_conversion_tracking_id = 2;
+	int64 click_occurrence_usec = 3;
+	int32 os = 4;
+	int32 browser = 5;
+	AttributableType attributable_type = 6;
+}

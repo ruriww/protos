@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+option objc_class_prefix = "TSL";
+
+message StepEvaluation {
+	string condition = 1;
+
+	oneof next {
+		int32 step_id = 2;
+		bool final_step = 3;
+	}
+}

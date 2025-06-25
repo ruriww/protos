@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/topic_picker_content_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TopicPickerItemRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	bool is_selected = 3;
+	string form_value = 4;
+	bytes tracking_params = 6;
+	repeated TopicPickerContentSupportedContinuations continuations = 7;
+	string feedback_token = 8;
+	Command on_selection = 9;
+	Command on_deselection = 10;
+
+	extensions 1000 to max;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/layer_bounds.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message SceneInfo {
+	repeated LayerBounds layer_bounds = 1;
+}

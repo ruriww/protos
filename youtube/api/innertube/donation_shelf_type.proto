@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DonationShelfType {
+	option features.enum_type = CLOSED;
+
+	DONATION_SHELF_TYPE_UNSPECIFIED = 0;
+	DONATION_SHELF_TYPE_COMPANION = 1;
+	DONATION_SHELF_TYPE_EXPANDED = 2;
+	DONATION_SHELF_TYPE_AMOUNT_PICKER = 3;
+}

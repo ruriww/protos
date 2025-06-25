@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "unknown/youtube/lse_log_source6159.proto";
+
+option objc_class_prefix = "CADP";
+
+message RetainImports {
+	unknown.youtube.LSELogSource6159.LSELogSource log_source = 1;
+}

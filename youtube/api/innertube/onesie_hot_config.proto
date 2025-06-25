@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_onesie_hot_config.proto";
+import "youtube/api/innertube/onesie_connection_prewarm_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OnesieHotConfig {
+	bytes client_key = 1;
+	bytes encrypted_client_key = 2;
+	int64 key_expires_in_seconds = 3;
+	int32 player_service_response_timeout_ms = 4;
+	string reverse_proxy_config = 5;
+	IosOnesieHotConfig ios_config = 6;
+	OnesieConnectionPrewarmConfig prewarm_config = 7;
+	bool use_last_media_part_flag = 8;
+	bool server_format_selection = 9;
+	repeated int32 audio_itag_whitelist = 10 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 video_itag_whitelist = 11 [ features.repeated_field_encoding = EXPANDED ];
+	bool respect_persisted_abr_cap = 14;
+	bool onesie_request_proto_in_post_body = 15;
+	bytes onesie_ustreamer_config = 16;
+	bool disable_host_replacement = 17;
+	bool use_client_abr_state_proto = 18;
+	bool use_ump = 19;
+	bool enable_user_features = 20;
+	bool use_ump_unique_content_value = 21;
+	bool retry_enabled = 22;
+	int64 max_retry_timeout_ms = 24;
+	string base_url = 25;
+	bool disable_fallback_to_innertube = 26;
+	bool send_client_info_to_ustreamer = 27;
+	bool enable_zero_rtt = 28;
+	bool send_media_capabilities = 29;
+	bool use_hot_config_to_create_onesie_request = 30;
+	bool use_hot_config_with_missing_playback_onesie_config = 31;
+	string fallback_hostname = 32;
+	string fallback_url_params = 33;
+	int32 live_onesie_ttl_ms = 34;
+	bool disable_init_segment = 35;
+	bool use_xplat_parser = 36;
+	bool enable_platypus_platform_onesie = 37;
+	bool always_redirect_prefetch = 38;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.grouping;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message GroupingData {
+	extend data.Data {
+		GroupingData grouping_data_extension = 223344555;
+	}
+
+	repeated int64 grouped_data_reference = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

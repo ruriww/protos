@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum StereoResolution {
+	option features.enum_type = CLOSED;
+
+	STEREO_RESOLUTION_UNKNOWN = 0;
+	STEREO_RESOLUTION_HALF = 1;
+	STEREO_RESOLUTION_FULL = 2;
+}

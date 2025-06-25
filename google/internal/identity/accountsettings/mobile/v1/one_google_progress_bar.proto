@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/type/color.proto";
+
+option objc_class_prefix = "ASM";
+
+message OneGoogleProgressBar {
+	float progress = 1;
+	string description = 2;
+	type.Color color = 3;
+}

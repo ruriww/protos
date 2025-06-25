@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/active_identity_supported_tokens.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SelectActiveIdentityEndpoint {
+	extend Command {
+		SelectActiveIdentityEndpoint select_active_identity_endpoint = 77196420;
+	}
+
+	repeated ActiveIdentitySupportedTokens supported_tokens = 1;
+	bytes token = 2;
+	Command next_navigation_endpoint = 3;
+	Command record_signin_service_endpoint = 4;
+}

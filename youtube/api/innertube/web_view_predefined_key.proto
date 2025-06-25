@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum WebViewPredefinedKey {
+	option features.enum_type = CLOSED;
+
+	WEB_VIEW_PREDEFINED_KEY_UNKNOWN = 0;
+	WEB_VIEW_PREDEFINED_KEY_LABEL = 1;
+	WEB_VIEW_PREDEFINED_KEY_NAVIGATION_URL = 2;
+	WEB_VIEW_PREDEFINED_KEY_GESTURE_COUNT = 3;
+}

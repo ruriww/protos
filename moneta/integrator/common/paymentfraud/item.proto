@@ -1,0 +1,50 @@
+edition = "2023";
+
+package moneta.integrator.common.paymentfraud;
+
+import "moneta/integrator/common/amount.proto";
+import "unknown/youtube/postal_address.proto";
+import "i18n/phonenumbers/phone_number.proto";
+import "google/type/latlng.proto";
+
+option objc_class_prefix = "OrchRisk";
+
+message Item {
+	Amount cost = 1;
+	string description = 2;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNKNOWN = 0;
+		TYPE_DIGITAL = 1;
+		TYPE_PHYSICAL_SHIPPING = 2;
+		TYPE_PHYSICAL_IN_STORE = 3;
+	}
+
+	Type type = 3 [ default = TYPE_UNKNOWN ];
+	unknown.youtube.PostalAddress shipping_address = 4;
+	string shipping_address_phone = 5;
+	int32 billable_service = 6;
+	int64 quantity = 7;
+	repeated string coupon_code = 10;
+	int64 product_code = 11;
+	repeated string gtin = 12;
+	string brand = 13;
+	string mpn = 14;
+	string sku = 15;
+	string purchase_local_store_id = 19;
+	unknown.youtube.PostalAddress purchase_address = 20;
+	string pickup_local_store_id = 21;
+	unknown.youtube.PostalAddress pickup_address = 22;
+	repeated string pickup_person_name = 23;
+	repeated i18n.phonenumbers.PhoneNumber pickup_person_phone_number = 24;
+	google.type.LatLng pickup_store_lat_lng = 27;
+	string application_id = 28;
+	repeated string item_category_raw = 30;
+	int64 first_publish_for_purchase_time_millis = 31;
+	int64 latest_publish_for_purchase_time_millis = 32;
+	string detailed_description = 33;
+	int64 estimated_warehouse_drop_time_millis = 36;
+	bool is_auto_top_up = 38;
+}

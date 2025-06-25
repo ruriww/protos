@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EndScreenPlaylistRenderer {
+	string playlist_id = 1;
+	FormattedString title = 2;
+	ThumbnailDetails thumbnail = 3;
+	int64 video_count = 4;
+	FormattedString view_playlist_text = 6;
+	FormattedString short_byline_text = 7;
+	FormattedString long_byline_text = 10;
+	FormattedString video_count_text = 11;
+	Command navigation_endpoint = 13;
+	bytes tracking_params = 14;
+}
+
+extend Renderer {
+	EndScreenPlaylistRenderer end_screen_playlist_renderer = 57128056;
+}

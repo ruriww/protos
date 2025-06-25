@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/live_chat_continuation_type.proto";
+import "youtube/api/innertube/live_chat_client_state.proto";
+import "youtube/api/innertube/live_chat_current_player_state.proto";
+import "youtube/api/innertube/live_chat_filter_mode.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetLiveChatRequest {
+	InnerTubeContext context = 1;
+	bytes params = 3;
+	string continuation = 4;
+	int64 latest_message_timestamp_usec = 5;
+	bool full_reload = 6;
+	LiveChatContinuationType continuation_type = 8;
+	LiveChatClientState client_state = 9;
+	int64 latest_message_cache_timestamp_usec = 10;
+	int64 cache_generation_timestamp_usec = 11;
+	LiveChatCurrentPlayerState current_player_state = 12;
+	LiveChatFilterMode filter_mode = 13;
+	bool is_invalidation_timeout_request = 14;
+	bool is_top_chat_currently_active = 15;
+	bool is_initial_load = 17;
+	bool is_client_reinitializing_chat = 18;
+	int64 continuation_created_timestamp_usec = 20;
+	bool reload_action_panel = 21;
+	string promo_request_referral_code = 22;
+	google.protobuf.Duration suggested_continuation_timeout_interval = 23;
+	int64 latest_qna_question_timestamp_usec = 24;
+
+	message ClientMutableData {
+		map<uint32, uint32> legal_disclaimer_counts = 1;
+	}
+
+	ClientMutableData client_mutable_data = 25;
+	int64 latest_reaction_bucket_second = 26;
+	int64 invalidation_payload_last_publish_at_usec = 27;
+	bool is_resumed_load = 28;
+}

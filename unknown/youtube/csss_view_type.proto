@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package unknown.youtube;
+
+enum CSSSViewType {
+	VIEW_TYPE_UNKNOWN = 0;
+	VIEW_TYPE_HELP_HOME = 1;
+	VIEW_TYPE_HELP_SEARCH_RESULTS = 2;
+	VIEW_TYPE_HELP_CONTENT = 3;
+	VIEW_TYPE_SMART_JOURNEY = 4;
+	VIEW_TYPE_COMMUNITY = 5;
+}

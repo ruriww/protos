@@ -1,0 +1,10 @@
+edition = "2023";
+
+package abuseiam;
+
+option objc_class_prefix = "AIA";
+
+message UserKey {
+	string service = 1;
+	string id = 2;
+}

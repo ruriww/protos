@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/format_stream.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosOfflineAsset {
+	repeated FormatStream format_streams = 1;
+	map<string, string> local_key_urls = 2;
+	string session_identifier = 3;
+	string local_path = 4;
+	int64 first_play_time_secs = 5;
+	string drm_params = 6;
+	string drm_session_id = 7;
+	bool media_downloaded = 8;
+	string cotn = 9;
+}

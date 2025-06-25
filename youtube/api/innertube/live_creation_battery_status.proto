@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveCreationBatteryStatus {
+	option features.enum_type = CLOSED;
+
+	LIVE_CREATION_BATTERY_STATUS_UNKNOWN = 0;
+	LIVE_CREATION_BATTERY_STATUS_CHARGING = 1;
+	LIVE_CREATION_BATTERY_STATUS_DISCHARGING = 2;
+	LIVE_CREATION_BATTERY_STATUS_FULL = 3;
+	LIVE_CREATION_BATTERY_STATUS_NOT_CHARGING = 4;
+}

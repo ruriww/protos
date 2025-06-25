@@ -1,0 +1,18 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message YetiClientInfo {
+	string build_label = 1;
+	string deployment_type = 2;
+	string environment = 3;
+	string location = 4;
+	string machine = 5;
+	string gamelet_id = 6;
+	string machine_shape = 7;
+	string metro = 8;
+	string vm_purpose = 9;
+	string release_stage = 10;
+}

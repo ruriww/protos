@@ -1,0 +1,19 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/liable_user.proto";
+import "Acl/domain.proto";
+import "Acl/abuse.proto";
+import "Acl/age_restriction.proto";
+import "Acl/dlp_info.proto";
+
+option objc_class_prefix = "ACL";
+
+message PolicyData {
+	LiableUser liable_user = 1;
+	Domain domain = 2;
+	Abuse abuse = 3;
+	AgeRestriction age_restriction = 4;
+	DlpInfo dlp_info = 5;
+}

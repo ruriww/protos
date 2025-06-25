@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/element.proto";
+import "youtube/api/innertube/element_logging_container.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DialogCommand {
+	extend elements.Command {
+		DialogCommand dialog_command = 183321338;
+	}
+
+	string title = 1;
+	string subtitle = 2;
+	string action_title = 3;
+	string cancel_title = 4;
+	elements.Command action_command = 5;
+	elements.Command cancel_command = 6;
+	elements.Element element = 7;
+	bool remove_default_padding = 8;
+	bool dismiss_on_background_tap = 9;
+	ElementLoggingContainer element_logging_container = 10;
+	bool clear_dialog_container_background = 12;
+}

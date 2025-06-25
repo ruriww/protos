@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+enum RecordingSeverityLevel {
+	RECORDING_SEVERITY_LEVEL_UNSPECIFIED = 0;
+	RECORDING_SEVERITY_LEVEL_DISCONNECT = 1;
+	RECORDING_SEVERITY_LEVEL_NONE = 2;
+}

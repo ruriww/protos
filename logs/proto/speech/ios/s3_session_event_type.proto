@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+option objc_class_prefix = "SPEECH";
+
+enum S3SessionEventType {
+	option features.enum_type = CLOSED;
+
+	S3_SESSION_UNKNOWN_EVENT = 0;
+	S3_SESSION_STARTED = 1;
+	S3_SESSION_REQUEST_SENT = 2;
+	S3_SESSION_RESPONSE_RECEIVED = 3;
+	S3_SESSION_FAILED = 4;
+	S3_SESSION_FINISHED = 5;
+}

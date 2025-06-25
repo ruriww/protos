@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum MouseWheelBehavior {
+	option features.enum_type = CLOSED;
+
+	MOUSE_WHEEL_ZOOMS = 1;
+	MOUSE_WHEEL_SCROLLS = 2;
+	MOUSE_WHEEL_ALWAYS_ZOOMS = 3;
+}

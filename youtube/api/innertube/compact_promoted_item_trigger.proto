@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactPromotedItemTrigger {
+	enum CompactPromo {
+		option features.enum_type = CLOSED;
+
+		COMPACT_PROMO_UNKNOWN = 0;
+		COMPACT_PROMO_NOTIFICATIONS_DISABLED = 1;
+	}
+
+	CompactPromo value = 1;
+}

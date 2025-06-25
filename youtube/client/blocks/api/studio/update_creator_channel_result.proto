@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/client/blocks/api/studio/update_creator_channel_block_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message UpdateCreatorChannelResult {
+	UpdateCreatorChannelBlockResponse response = 1;
+}

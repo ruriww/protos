@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_subscriptions_category_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/setting_category_id.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedSubscriptionsSettingCategoryRenderer {
+	FormattedString title = 1;
+	FormattedString tooltip = 2;
+	Command service_endpoint = 3;
+	repeated UnpluggedSubscriptionsCategorySupportedRenderers items = 4;
+	Icon icon = 5;
+	FormattedString summary_subscribed = 6;
+	FormattedString summary_cancelled = 7;
+	FormattedString summary_subtitle = 8;
+	bool is_active = 9;
+	bool is_cancelled = 10;
+	SettingCategoryId category_id = 12;
+	bytes tracking_params = 14;
+}

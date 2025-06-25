@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/renderer_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PageHeaderViewModel {
+	extend Renderer {
+		PageHeaderViewModel page_header_view_model = 508686415;
+	}
+
+	Renderer title = 2;
+
+	oneof image_oneof {
+		Renderer image = 3;
+		Renderer hero_image = 9;
+	}
+
+	Renderer metadata = 4;
+	Renderer actions = 5;
+	Renderer description = 6;
+	Renderer attribution = 7;
+	Renderer banner = 10;
+	Renderer background = 11;
+	string entity_key = 12;
+	float content_max_width = 14;
+	bool has_topbar_animation = 17;
+	Renderer animated_image = 18;
+	Renderer additional_metadata_flexible_container = 19;
+	Renderer bottom_metadata_flexible_container = 20;
+	bool enable_non_litho_text_node = 21;
+	bool enable_page_header_channels_description = 22;
+	bool enable_flexible_actions_buttons_wrapper = 23;
+	string channel_image_entity_key = 25;
+	RendererContext renderer_context = 997;
+}

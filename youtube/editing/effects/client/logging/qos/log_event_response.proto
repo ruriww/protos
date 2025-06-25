@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+option objc_class_prefix = "YTEE";
+
+message LogEventResponse {
+	bool success = 1;
+}

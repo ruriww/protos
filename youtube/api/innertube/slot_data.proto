@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/trigger_type.proto";
+import "youtube/api/innertube/trigger_data.proto";
+import "youtube/api/innertube/slot_type.proto";
+import "youtube/api/innertube/control_flow_manager_layer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SlotData {
+	SlotType type = 2;
+
+	message DebugData {
+		string slot_id = 1;
+		repeated TriggerType entry_trigger_types = 2 [ features.repeated_field_encoding = EXPANDED ];
+		bool unscheduled_due_to_error = 3;
+		repeated TriggerData entry_trigger_data = 4;
+		repeated TriggerData fulfillment_trigger_data = 5;
+		repeated TriggerData expiration_trigger_data = 6;
+		TriggerData slot_entry_trigger_data = 7;
+	}
+
+	DebugData debug_data = 3;
+	bool externally_managed = 4;
+	ControlFlowManagerLayer control_flow_manager_layer = 5;
+	TriggerType entry_trigger_type = 6;
+	int32 slot_physical_position = 8 [ default = 1 ];
+}

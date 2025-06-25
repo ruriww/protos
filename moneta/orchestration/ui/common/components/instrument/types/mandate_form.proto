@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/document/document_download.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message MandateForm {
+	FormHeader form_header = 1;
+	document.DocumentDownload mandate_document = 2;
+	legal.LegalMessage legal_message = 3;
+	repeated generic.InfoMessage instruction_list_item = 4;
+	string display_mandate_button_text = 5;
+	generic.InfoMessage document_not_seen_error_message = 6;
+	bool is_optional_to_view_mandate = 7;
+	string failed_to_load_text = 8;
+}

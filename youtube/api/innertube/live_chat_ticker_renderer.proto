@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/live_chat_ticker_sponsor_item_renderer.proto";
+import "youtube/api/innertube/live_chat_ticker_paid_message_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatTickerRenderer {
+	bool sentinel = 1;
+	Renderer creator_goal_ticker_chip = 2;
+}
+
+extend Renderer {
+	LiveChatTickerRenderer live_chat_ticker_renderer = 132596932;
+}
+
+extend Renderer {
+	LiveChatTickerSponsorItemRenderer live_chat_ticker_sponsor_item_renderer = 132600924;
+}
+
+extend Renderer {
+	LiveChatTickerPaidMessageItemRenderer live_chat_ticker_paid_message_item_renderer = 132600952;
+}

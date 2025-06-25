@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerServiceRetryConfig {
+	int32 max_total_retry_duration_seconds = 1;
+	int32 initial_retry_interval_seconds = 2;
+	int32 max_retry_interval_seconds = 3;
+	int32 max_retries_on_reachability_change = 4;
+}

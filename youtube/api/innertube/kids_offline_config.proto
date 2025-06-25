@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/kids_offline_minutes_to_mb_conversion.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsOfflineConfig {
+	int32 min_storage_limit_minutes = 1;
+	int32 default_storage_limit_minutes = 2;
+	int32 max_storage_limit_minutes = 3;
+	repeated KidsOfflineMinutesToMbConversion minutes_to_mb_conversions = 4;
+	float low_battery_cutoff = 5;
+	bool enable_offline_lock_promo = 6;
+	int32 num_offline_videos_visits_to_hide_lock_promo = 7;
+	bool enable_progress_thumbnails = 8;
+	int32 minimum_auto_offline_task_interval_seconds = 9;
+	bool enable_approved_only_auto_offline = 10;
+	string parent_user_education_feedback_token = 11;
+}

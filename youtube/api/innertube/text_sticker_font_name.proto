@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TextStickerFontName {
+	option features.enum_type = CLOSED;
+
+	TEXT_STICKER_FONT_NAME_UNKNOWN = 0;
+	TEXT_STICKER_FONT_NAME_CLASSIC = 1;
+	TEXT_STICKER_FONT_NAME_LIGHT = 2;
+	TEXT_STICKER_FONT_NAME_HEAVY = 3;
+	TEXT_STICKER_FONT_NAME_MARKER = 4;
+	TEXT_STICKER_FONT_NAME_BRUSH = 5;
+	TEXT_STICKER_FONT_NAME_TYPEWRITER = 6;
+	TEXT_STICKER_FONT_NAME_YOUTUBE_SANS = 7;
+	TEXT_STICKER_FONT_NAME_HANDWRITING = 8;
+	TEXT_STICKER_FONT_NAME_MEME = 9;
+	TEXT_STICKER_FONT_NAME_FUN = 10;
+	TEXT_STICKER_FONT_NAME_CLASSY = 11;
+}

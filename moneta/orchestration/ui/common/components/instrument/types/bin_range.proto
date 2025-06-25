@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+option objc_class_prefix = "Orch";
+
+message BinRange {
+	string start = 1;
+	string end = 2;
+	int32 card_number_length = 3;
+	repeated int32 digit_grouping = 4 [ features.repeated_field_encoding = EXPANDED ];
+	string error_message = 5;
+}

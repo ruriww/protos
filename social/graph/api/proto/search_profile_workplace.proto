@@ -1,0 +1,14 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/search_profile_entity.proto";
+import "google/type/date.proto";
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileWorkplace {
+	SearchProfileEntity company = 1;
+	google.type.Date start_time = 2;
+	google.type.Date end_time = 3;
+}

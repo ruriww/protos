@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedEpgHeaderRenderer {
+	Renderer live_shelf = 1;
+	Renderer chip_list = 2;
+	Renderer promo_banner = 3;
+}
+
+extend Renderer {
+	UnpluggedEpgHeaderRenderer unplugged_epg_header_renderer = 380650365;
+}

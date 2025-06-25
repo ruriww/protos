@@ -1,0 +1,42 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile;
+
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "PRMS";
+
+message CuiMetric {
+	int32 cui_id = 1;
+	google.protobuf.Duration duration = 2;
+	fixed64 trace_id = 3;
+
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		CANCELED = 3;
+		TIMEOUT = 4;
+		INTERRUPTED = 5;
+		INCOMPLETE = 6;
+	}
+
+	Status status = 4;
+
+	enum IncompleteReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INCOMPLETE_REASON = 0;
+		DUPLICATE_START = 1;
+		CUI_CONTEXT_DROPPED = 2;
+		MISMATCHED_CUI = 3;
+		DUPLICATE_END = 4;
+		NO_TRACE = 5;
+		NO_ACTIVE_CUI = 6;
+		NO_END = 7;
+	}
+
+	IncompleteReason incomplete_reason = 5;
+}

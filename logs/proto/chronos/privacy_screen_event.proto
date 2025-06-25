@@ -1,0 +1,34 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message PrivacyScreenEvent {
+	int32 timeout_threshold = 1;
+
+	enum AuthenticationType {
+		option features.enum_type = CLOSED;
+
+		AUTHENTICATION_TYPE_UNKNOWN = 0;
+		AUTHENTICATION_TYPE_NONE = 1;
+		AUTHENTICATION_TYPE_PASSCODE = 2;
+		AUTHENTICATION_TYPE_TOUCH_ID = 3;
+		AUTHENTICATION_TYPE_FACE_ID = 4;
+	}
+
+	AuthenticationType authentication_type = 2;
+
+	enum BiometryType {
+		option features.enum_type = CLOSED;
+
+		BIOMETRY_TYPE_UNKNOWN = 0;
+		BIOMETRY_TYPE_NONE = 1;
+		BIOMETRY_TYPE_TOUCH_ID = 2;
+		BIOMETRY_TYPE_FACE_ID = 3;
+	}
+
+	BiometryType biometry_available = 3;
+	int32 authenticate_error_code = 4;
+	int32 queued_actions_count = 5;
+}

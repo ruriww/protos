@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_interactivity_settings_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveInteractivitySettingsRenderer {
+	string video_id = 1;
+	bool chat_enabled = 2;
+	repeated LiveInteractivitySettingsSupportedRenderers contents = 3;
+}
+
+extend Renderer {
+	LiveInteractivitySettingsRenderer live_interactivity_settings_renderer = 85693137;
+}

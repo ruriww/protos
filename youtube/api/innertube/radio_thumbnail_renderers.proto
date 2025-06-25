@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/stack_radio_thumbnail_renderer.proto";
+import "youtube/api/innertube/thumbnail_sequence_renderer.proto";
+import "youtube/api/innertube/animated_thumbnail_renderer.proto";
+import "youtube/api/innertube/animated_thumbnail_frame_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	StackRadioThumbnailRenderer stack_radio_thumbnail_renderer = 90216736;
+}
+
+extend Renderer {
+	ThumbnailSequenceRenderer thumbnail_sequence_renderer = 101478481;
+}
+
+extend Renderer {
+	AnimatedThumbnailRenderer animated_thumbnail_renderer = 135279244;
+}
+
+extend Renderer {
+	AnimatedThumbnailFrameRenderer animated_thumbnail_frame_renderer = 135482798;
+}

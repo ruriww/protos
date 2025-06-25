@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.scenario.manager;
+
+import "moneta/testing/demoserver/teststudio/proto/test_scenario.proto";
+import "moneta/testing/demoserver/teststudio/proto/pagination_token.proto";
+
+option objc_class_prefix = "TSLSSM";
+
+message GetTestScenarioListResponse {
+	repeated TestScenario test_scenario = 1;
+	PaginationToken pagination_token = 2;
+}

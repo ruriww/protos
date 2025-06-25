@@ -1,0 +1,14 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+enum ParaStyleTextAlign {
+	option features.enum_type = CLOSED;
+
+	PARA_STYLE_TEXT_ALIGN_UNSPECIFIED = 0;
+	PARA_STYLE_TEXT_ALIGN_LEFT = 1;
+	PARA_STYLE_TEXT_ALIGN_RIGHT = 2;
+	PARA_STYLE_TEXT_ALIGN_CENTER = 3;
+}

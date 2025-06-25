@@ -1,0 +1,31 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message SignInBlock {
+	Image image = 1;
+	string description = 2;
+	string sign_in_cta_text = 3;
+
+	message AdditionalParagraph {
+		string text = 1;
+		string link_text = 2;
+		ResourceKey link_target = 3;
+		string link_accessibility_label = 4;
+		Link link = 5;
+		Image link_icon = 6;
+	}
+
+	repeated AdditionalParagraph additional_paragraphs = 4;
+	Image large_image = 5;
+	string title = 6;
+	repeated AdditionalParagraph description_paragraphs = 7;
+	ResourceKey button_target = 8;
+	Link link = 9;
+}

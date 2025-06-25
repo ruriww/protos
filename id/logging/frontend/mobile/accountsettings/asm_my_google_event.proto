@@ -1,0 +1,19 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+import "id/logging/frontend/mobile/accountsettings/launch.proto";
+import "id/logging/frontend/mobile/accountsettings/outbound.proto";
+import "id/logging/frontend/mobile/accountsettings/return_from_outbound.proto";
+import "id/logging/frontend/mobile/accountsettings/tapped.proto";
+import "id/logging/frontend/mobile/accountsettings/octarine_web_page_error.proto";
+
+option objc_class_prefix = "GIDLOGAS";
+
+message AsmMyGoogleEvent {
+	Launch launch = 1;
+	Outbound outbound = 2;
+	ReturnFromOutbound return_event = 3;
+	Tapped tapped = 4;
+	OctarineWebPageError octarine_web_page_error = 6;
+}

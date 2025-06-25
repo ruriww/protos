@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/text_location.proto";
+import "google/search/readaloud/v1/bounding_box.proto";
+
+option objc_class_prefix = "RAS";
+
+message PhraseVisualInfo {
+	TextLocation text_location = 1;
+	BoundingBox bounding_box = 2;
+}

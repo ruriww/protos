@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.billingaccount;
+
+import "moneta/orchestration/ui/common/generic/ui_field_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message BillingAccountFormValue {
+	generic.UiFieldValue invoicing_strategy_value = 1;
+}

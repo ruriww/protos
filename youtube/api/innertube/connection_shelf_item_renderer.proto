@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/data_sync_path.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConnectionShelfItemRenderer {
+	string connection_id = 1;
+	ThumbnailDetails avatar = 2;
+	Command contact_menu_endpoint = 3;
+	ButtonSupportedRenderers invite_button = 4;
+	FormattedString name = 6;
+	DataSyncPath data_sync_path = 7;
+	bytes tracking_params = 8;
+	FormattedString phone_number = 10;
+	FormattedString note = 12;
+	string invite_token = 13;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+option objc_class_prefix = "SPEECH";
+
+enum S3SessionHttpContentEncodingType {
+	option features.enum_type = CLOSED;
+
+	S3_SESSION_HTTP_CONTENT_ENCODING_DEFAULT = 1;
+	S3_SESSION_HTTP_CONTENT_ENCODING_GZIP = 2;
+	S3_SESSION_HTTP_CONTENT_ENCODING_BROTLI = 3;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui;
+
+import "logs/proto/identity_consent_ui/mobile_client_consent_flow_events.proto";
+import "privacy/consent/consent_session_id.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message TestMobileClientConsentFlowEventsList {
+	repeated MobileClientConsentFlowEvents events_list = 1;
+	repeated MobileClientConsentFlowEvents.Metadata common_metadata = 2;
+	repeated privacy.consent.ConsentSessionId common_session_ids = 3;
+}

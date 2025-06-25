@@ -1,0 +1,9 @@
+edition = "2023";
+
+package userfeedback.mobile;
+
+option objc_class_prefix = "UFM";
+
+message PlatformAttr {
+	int32 feedback_version = 3;
+}

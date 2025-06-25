@@ -1,0 +1,10 @@
+edition = "2023";
+
+package framework.consistency;
+
+option objc_class_prefix = "FRC";
+
+message ApiaryConsistencyTokenResponseHeader {
+	string new_consistency_token_jar = 1;
+	int32 max_age_secs = 2;
+}

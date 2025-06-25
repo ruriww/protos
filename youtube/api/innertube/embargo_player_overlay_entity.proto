@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EmbargoPlayerOverlayEntity {
+	extend EntityMutationPayload {
+		EmbargoPlayerOverlayEntity embargo_player_overlay_entity = 475;
+	}
+
+	string key = 1;
+	string background_image_url = 2;
+	string badge_icon_name = 3;
+	elements.AttributedString title = 4;
+	elements.AttributedString description = 5;
+	elements.Command tap_command = 8;
+	bool allow_chromecast = 9;
+	bool is_full_coverage_embargo = 10;
+	bool allow_player_controls = 11;
+	Renderer primary_button_view_model = 12;
+	Renderer secondary_button_view_model = 13;
+}

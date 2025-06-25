@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReloadContinuationSpinnerOverlayPosition {
+	option features.enum_type = CLOSED;
+
+	RELOAD_CONTINUATION_SPINNER_OVERLAY_POSITION_UNSPECIFIED = 0;
+	RELOAD_CONTINUATION_SPINNER_OVERLAY_POSITION_HIDDEN = 1;
+	RELOAD_CONTINUATION_SPINNER_OVERLAY_POSITION_FULL_SECTION_LIST = 2;
+	RELOAD_CONTINUATION_SPINNER_OVERLAY_POSITION_BELOW_SECTION_LIST_HEADER = 3;
+	RELOAD_CONTINUATION_SPINNER_OVERLAY_POSITION_BELOW_TOP_MUSIC_SHELF_SUBHEADERS = 4;
+}

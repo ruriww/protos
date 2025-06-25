@@ -1,0 +1,22 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message MemoryLabelEnum {
+	enum MemoryLabel {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		TOPN_CACHE_UPDATE_PROCESS = 1;
+		TOPN_DEVICE_CACHE_UPDATE_PROCESS = 2;
+		QUERY_PROCESS = 3;
+		EMPTY_QUERY_PROCESS = 4;
+		QUERY_PROCESS_TOPN = 5;
+		EMPTY_QUERY_PROCESS_TOPN = 6;
+		TOPN_CACHE_LOAD_FROM_DISK = 7;
+		QUERY_PROCESS_CANCELLED = 8;
+		EMPTY_QUERY_PROCESS_CANCELLED = 9;
+	}
+}

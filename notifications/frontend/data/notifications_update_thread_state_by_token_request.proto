@@ -1,0 +1,14 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/common/thread_state_update.proto";
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsUpdateThreadStateByTokenRequest {
+	string token = 1;
+	common.ThreadStateUpdate thread_state_update = 2;
+	google.protobuf.Any badge_count_payload = 6;
+}

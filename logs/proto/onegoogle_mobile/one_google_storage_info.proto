@@ -1,0 +1,24 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleStorageInfo {
+	float used_storage_gb = 1;
+	float total_storage_gb = 2;
+
+	enum StorageState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		REGULAR = 1;
+		ALMOST_FULL = 2;
+		FULL = 3;
+		UNLIMITED = 4;
+	}
+
+	StorageState storage_state = 3;
+	bool is_minimized = 4;
+	bool is_backend_driven_ui = 5;
+}

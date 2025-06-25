@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.navigation;
+
+option objc_class_prefix = "ORCH2";
+
+message ActiveOptionReference {
+	int64 one_of_data_reference = 1;
+	int32 previous_active_option_id = 2;
+	int32 new_active_option_id = 3;
+}

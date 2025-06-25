@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/player_attestation_renderer.proto";
+import "youtube/api/innertube/player_attestation_botguard_renderer.proto";
+import "youtube/api/innertube/player_attestation_dummy_renderer.proto";
+import "youtube/api/innertube/player_attestation_adblock_reporting_renderer.proto";
+import "youtube/api/innertube/player_attestation_iosguard_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AttestationSupportedRenderers {
+	oneof renderer {
+		PlayerAttestationRenderer player_attestation_renderer = 59961494;
+		PlayerAttestationBotguardRenderer player_attestation_botguard_renderer = 63290905;
+		PlayerAttestationDummyRenderer player_attestation_dummy_renderer = 63337038;
+		PlayerAttestationAdblockReportingRenderer player_attestation_adblock_reporting_renderer = 86954420;
+		PlayerAttestationIosguardRenderer player_attestation_iosguard_renderer = 129604219;
+	}
+}

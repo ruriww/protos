@@ -1,0 +1,17 @@
+edition = "2023";
+
+package peoplestack;
+
+import "social/graph/wire/proto/peopleapi/minimal/affinity.proto";
+import "peoplestack/client_information.proto";
+import "peoplestack/formatting_options.proto";
+
+option objc_class_prefix = "PSK";
+
+message AutocompleteRequest {
+	social.graph.wire.proto.peopleapi.minimal.Affinity.AffinityType affinity_type = 1;
+	string query = 2;
+	ClientInformation client_information = 3;
+	int32 max_results = 4;
+	FormattingOptions formatting_options = 5;
+}

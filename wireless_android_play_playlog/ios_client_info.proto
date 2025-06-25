@@ -1,0 +1,25 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/accessibility/ios_accessibility_state.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "CADP";
+
+message IosClientInfo {
+	string client_id = 1;
+	string logging_id = 2;
+	string os_major_version = 3;
+	string os_full_version = 4;
+	string application_build = 5;
+	string country = 6;
+	string model = 7;
+	string language_code = 8;
+	int64 application_build_cl = 9;
+	int32 clearcut_version = 10;
+	string application_bundle_id = 11;
+	string application_version = 12;
+	accessibility.IosAccessibilityState accessibility_state = 13;
+	google.protobuf.Timestamp application_build_timestamp = 14;
+}

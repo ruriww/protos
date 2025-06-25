@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/video_manager_icon_supported_accessibility_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoManagerThumbnailIcon {
+	Icon icon = 1;
+	ThumbnailDetails thumbnail = 2;
+	VideoManagerIconSupportedAccessibilityDatas accessibility = 3;
+}

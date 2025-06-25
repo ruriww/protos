@@ -1,0 +1,10 @@
+edition = "2023";
+
+package media.webrtc.server.chameleon.karma.push;
+
+option objc_class_prefix = "WRTCSMR";
+
+message RtpEncodedStream {
+	uint32 ssrc = 1;
+	uint32 rtx_ssrc = 2;
+}

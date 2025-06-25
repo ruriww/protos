@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+
+option objc_class_prefix = "Orch";
+
+message AccountOption {
+	int64 ui_reference = 1;
+	string label = 2;
+	generic.ImageWithCaption icon = 3;
+	string name = 4;
+}

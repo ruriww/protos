@@ -1,0 +1,25 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+import "familymanagement/logs/family_management_event_enum.proto";
+import "familymanagement/logs/family_invites_event.proto";
+
+option objc_class_prefix = "FML";
+
+message FamilyManagementEvent {
+	FamilyManagementEventEnum.FamilyManagementEventType event_type = 1;
+	FamilyInvitesEvent invites_event = 2;
+
+	message AndroidApiDeprecationStatus {
+		bool is_deprecated = 1;
+	}
+
+	AndroidApiDeprecationStatus android_api_deprecation_status = 3;
+
+	message EventDetails {
+		string intent_package = 1;
+	}
+
+	EventDetails event_details = 4;
+}

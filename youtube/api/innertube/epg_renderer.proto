@@ -1,0 +1,70 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/epg_supported_renderers.proto";
+import "youtube/api/innertube/epg_supported_continuations.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/epg_fab_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/epg_pagination_renderer.proto";
+import "youtube/api/innertube/epg_unavailable_row_renderer.proto";
+import "youtube/api/innertube/epg_row_renderer.proto";
+import "youtube/api/innertube/epg_station_renderer.proto";
+import "youtube/api/innertube/epg_airing_renderer.proto";
+import "youtube/api/innertube/epg_pagination_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgRenderer {
+	extend ContinuationSupportedRenderers {
+		EpgRenderer epg_continuation = 84078878;
+	}
+
+	int64 begin_time_ms = 1;
+	int64 end_time_ms = 2;
+	repeated EpgSupportedRenderers contents = 3;
+	bytes tracking_params = 4;
+	EpgSupportedContinuations continuation = 6;
+	Renderer pagination_renderer = 7;
+	Renderer sort_options = 8;
+	EpgFabSupportedRenderers fab = 9;
+	Renderer open_settings_button = 10;
+	FormattedString info_text = 11;
+	Renderer header_renderer = 12;
+	bool should_render_as_epg_3 = 13;
+	repeated EpgSupportedRenderers supplemental_contents = 14;
+	Renderer footer = 15;
+}
+
+extend Renderer {
+	EpgRenderer epg_renderer = 84078878;
+}
+
+extend Renderer {
+	EpgPaginationRenderer epg_pagination_renderer = 171740502;
+}
+
+extend Renderer {
+	EpgUnavailableRowRenderer epg_unavailable_row_renderer = 140064293;
+}
+
+extend Renderer {
+	EpgRowRenderer epg_row_renderer = 84080259;
+}
+
+extend Renderer {
+	EpgStationRenderer epg_station_header_renderer = 84080361;
+}
+
+extend Renderer {
+	EpgAiringRenderer epg_airing_renderer = 84080306;
+}
+
+extend Renderer {
+	EpgPaginationHeaderRenderer epg_pagination_header_renderer = 37062;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/carousel_item_supported_renderers.proto";
+import "youtube/api/innertube/carousel_overlapping_item_supported_renderers.proto";
+import "youtube/api/innertube/carousel_item_aspect_ratio.proto";
+import "youtube/api/innertube/carousel_item_renderer_layout_style.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CarouselItemRenderer {
+	repeated CarouselItemSupportedRenderers carousel_items = 1;
+	CarouselOverlappingItemSupportedRenderers overlapping_item = 2;
+	int32 auto_rotate_duration_ms = 3;
+	uint32 background_color = 4;
+	CarouselItemAspectRatio aspect_ratio = 5;
+	bytes tracking_params = 7;
+	bool is_visible = 8;
+	CarouselItemRendererLayoutStyle layout_style = 9;
+	Renderer dismiss_button = 10;
+	repeated ThumbnailDetails pagination_thumbnails = 11;
+	bool allow_translucent_header = 13;
+	float corner_radius_dp = 14;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	CarouselItemRenderer carousel_item_renderer = 144757704;
+}

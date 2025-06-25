@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+import "identity_consent/consent_flow_not_completed_reason.proto";
+
+option objc_class_prefix = "GIDLLE";
+
+message FlowNotCompleted {
+	identity_consent.ConsentFlowNotCompletedReason not_completed_reason = 1;
+}

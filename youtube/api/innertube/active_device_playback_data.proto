@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/attributed_string.proto";
+import "youtube/elements/image.proto";
+import "youtube/api/innertube/active_device_playback_player_state.proto";
+import "youtube/api/innertube/active_player_state_snapshot.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveDevicePlaybackData {
+	string video_id = 1;
+	elements.AttributedString video_title = 2;
+	elements.Image video_thumbnail_image = 3;
+	ActiveDevicePlaybackPlayerState player_state = 4;
+	elements.AttributedString channel_title = 5;
+	int64 last_update_time_ms = 6;
+	int64 last_commit_time_ms = 7;
+	ActivePlayerStateSnapshot player_state_snapshot = 12;
+	Command navigation_command = 13;
+}

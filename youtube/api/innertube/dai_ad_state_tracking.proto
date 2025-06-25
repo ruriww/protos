@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dai_ad_state_tracking_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DAIAdStateTracking {
+	DAIAdStateTrackingType event_type = 1;
+	string content_cpn = 2;
+	string external_channel_id = 3;
+	string ad_cpn = 4;
+	int64 ad_count = 5;
+	string msg = 6;
+}

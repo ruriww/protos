@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_header_renderer.proto";
+import "youtube/api/innertube/playlist_detail_header_renderer.proto";
+import "youtube/api/innertube/music_editable_playlist_detail_header_renderer.proto";
+import "youtube/api/innertube/music_element_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistEditHeaderSupportedRenderers {
+	oneof renderer {
+		PlaylistHeaderRenderer playlist_header_renderer = 53272665;
+		PlaylistDetailHeaderRenderer playlist_detail_header_renderer = 96706488;
+		MusicEditablePlaylistDetailHeaderRenderer music_editable_playlist_detail_header_renderer = 173690432;
+		MusicElementHeaderRenderer music_element_header_renderer = 361650780;
+	}
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+option objc_class_prefix = "GFM";
+
+enum ParentalConsentPurpose {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_PARENTAL_CONSENT_PURPOSE = 0;
+	CHILD_CREATION_CONSENT = 1;
+	YOUNG_TEEN_CREATION_CONSENT = 2;
+	GRIFFIN_TEEN_SUPERVISION_CONSENT = 3;
+	ULP_CREATION_CONSENT = 4;
+	ULP_UPGRADE_CONSENT = 5;
+}

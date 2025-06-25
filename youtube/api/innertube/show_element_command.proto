@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/element.proto";
+import "youtube/api/innertube/user_interface_theme.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowElementCommand {
+	elements.Element element = 1;
+	UserInterfaceTheme force_theme = 2;
+	uint32 background_color = 3;
+	uint32 vertical_offset = 4;
+	uint32 horizontal_offset = 5;
+	bool enable_android_anchor_positioning_fix = 6;
+	float max_width_override = 7;
+}

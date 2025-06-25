@@ -1,0 +1,16 @@
+edition = "2023";
+
+package af.data;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "AFD";
+
+message ClientInfo {
+	extend proto2.bridge.MessageSet {
+		ClientInfo client_info = 152421126;
+	}
+
+	string app_version = 1;
+	uint64 project_number = 2;
+}

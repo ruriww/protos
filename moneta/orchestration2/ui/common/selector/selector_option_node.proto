@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SelectorOptionNode {
+	extend node.Node {
+		SelectorOptionNode selector_option_node_extension = 62783159;
+	}
+
+	node.Node unselected_content = 1;
+	node.Node selected_content = 2;
+	bool is_first_selector_option = 3;
+}

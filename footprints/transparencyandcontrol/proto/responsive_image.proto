@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/image_resource.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ResponsiveImage {
+	ImageResource light_mode_variant = 1;
+	ImageResource dark_mode_variant = 2;
+}

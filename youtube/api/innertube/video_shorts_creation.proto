@@ -1,0 +1,69 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/span.proto";
+import "youtube/api/innertube/visual_source_type.proto";
+import "youtube/api/innertube/video_creation.proto";
+import "youtube/api/innertube/editing.proto";
+import "youtube/api/innertube/shorts_creation_deep_link_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoShortsCreation {
+	message Creation {
+		message AudioSource {
+			message Segment {
+				string source_external_video_id = 1;
+				Span range_in_source_video = 2;
+				Span range_in_derived_video = 3;
+				string source_clip_external_post_id = 4;
+				string id = 5;
+			}
+
+			Segment segment = 1;
+			float volume = 2;
+			bool is_source_video_purged = 3;
+			bool is_added_changed_in_editing = 4;
+		}
+
+		repeated AudioSource audio_sources = 1;
+
+		message VisualSource {
+			message Segment {
+				string source_external_video_id = 1;
+				Span range_in_source_video = 2;
+				Span range_in_derived_video = 3;
+				string source_clip_external_post_id = 4;
+			}
+
+			Segment segment = 1;
+			VisualSourceType visual_source_type = 2;
+			bool crop_applied = 3;
+		}
+
+		repeated VisualSource visual_sources = 3;
+
+		message GenerativeAudioSource {
+			message Segment {
+				bytes serialized_generative_media_params = 1;
+				Span range_in_source = 2;
+				Span range_in_derived_video = 3;
+			}
+
+			Segment segment = 1;
+			float volume = 2;
+		}
+
+		repeated GenerativeAudioSource generative_audio_sources = 4;
+	}
+
+	Creation creation = 4;
+	VideoCreation video_creation = 5;
+	Editing editing = 6;
+	ShortsCreationDeepLinkParams deep_link_params = 7;
+	bytes parent_template = 8;
+}

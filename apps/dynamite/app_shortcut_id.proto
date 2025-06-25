@@ -1,0 +1,16 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message AppShortcutId {
+	enum AppShortcutType {
+		option features.enum_type = CLOSED;
+
+		APP_SHORTCUT_TYPE_UNSPECIFIED = 0;
+		DUET = 1;
+	}
+
+	AppShortcutType app_shortcut_type = 1;
+}

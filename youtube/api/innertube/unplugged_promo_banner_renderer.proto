@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/screen_based_visibility_condition.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedPromoBannerRenderer {
+	ThumbnailDetails banner = 3;
+	Command endpoint = 4;
+	ScreenBasedVisibilityCondition visibility_condition = 5;
+}
+
+extend Renderer {
+	UnpluggedPromoBannerRenderer unplugged_promo_banner_renderer = 132644827;
+}

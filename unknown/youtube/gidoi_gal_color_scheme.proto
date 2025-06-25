@@ -1,0 +1,10 @@
+edition = "2023";
+
+package unknown.youtube;
+
+enum GIDOIGalColorScheme {
+	GAL_COLOR_SCHEME_UNSPECIFIED = 0;
+	GAL_COLOR_SCHEME_LIGHT = 1;
+	GAL_COLOR_SCHEME_DARK = 2;
+	GAL_COLOR_SCHEME_AUTO = 3;
+}

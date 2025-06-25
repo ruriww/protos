@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MiniAppAdRejectedReason {
+	option features.enum_type = CLOSED;
+
+	MINI_APP_AD_REJECTED_REASON_UNSPECIFIED = 0;
+	MINI_APP_AD_REJECTED_REASON_CLIENT_UNSUPPORTED = 1;
+	MINI_APP_AD_REJECTED_REASON_RATE_LIMITED = 2;
+	MINI_APP_AD_REJECTED_REASON_NO_AD_RETURNED = 3;
+}

@@ -1,0 +1,126 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/reel_player_header_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/video_reporting_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/reel_player_overlay_style.proto";
+import "youtube/api/innertube/player_overlay_video_interactions.proto";
+import "youtube/api/innertube/reel_player_like_options.proto";
+import "youtube/api/innertube/reel_player_navigation_model.proto";
+import "youtube/api/innertube/reel_player_overlay_variant.proto";
+import "youtube/api/innertube/swipeover_command_with_visual_element.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/reel_player_header_renderer.proto";
+import "youtube/api/innertube/reel_player_persistent_education_renderer.proto";
+import "youtube/api/innertube/pivot_button_renderer.proto";
+import "youtube/api/innertube/forced_mute_message_renderer.proto";
+import "youtube/api/innertube/reel_player_age_gate_renderer.proto";
+import "youtube/api/innertube/reel_player_contextual_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelPlayerOverlayRenderer {
+	LikeButtonSupportedRenderers like_button = 1;
+	FormattedString view_count_text = 2;
+	ReelPlayerHeaderSupportedRenderers reel_player_header_supported_renderers = 3;
+	MenuSupportedRenderers menu = 4;
+	VideoReportingSupportedRenderers video_reporting = 6;
+	Renderer vod_link_renderer = 7;
+	Renderer next_item_button = 8;
+	Renderer prev_item_button = 9;
+	Renderer autoplay_renderer = 10;
+	Renderer subscribe_button_renderer = 11;
+	ReelPlayerOverlayStyle style = 12;
+	Renderer view_comments_button = 13;
+	Renderer create_comment_button = 14;
+	PlayerOverlayVideoInteractions video_interactions = 15;
+	bytes tracking_params = 16;
+	ReelPlayerLikeOptions like_option = 18;
+	Renderer share_button = 19;
+	ReelPlayerNavigationModel reel_player_navigation_model = 20;
+	Renderer persistent_education_renderer = 21;
+	Renderer pivot_button = 22;
+	ReelPlayerOverlayVariant variant = 23;
+	LikeButtonSupportedRenderers double_tap_like_button = 24;
+
+	oneof navigation_right_button {
+		Renderer camera_button = 25;
+		Renderer search_button = 32;
+	}
+
+	Renderer forced_mute_message_renderer = 26;
+	Renderer badge = 27;
+	Renderer age_gate_renderer = 28;
+	Renderer analytics_button = 29;
+	Renderer featured_video_button = 30;
+	Renderer suggested_action = 31;
+	Renderer info_panel = 33;
+	Renderer paused_state = 34;
+	Renderer multimix_attribution_label = 35;
+	Renderer more_button = 36;
+	Renderer contextual_header = 37;
+	repeated Renderer navigation_buttons = 38;
+
+	oneof horizontal_swipe_oneof {
+		SwipeoverCommandWithVisualElement on_horizontal_swipe_command = 39;
+		Renderer on_horizontal_swipe_container = 40;
+	}
+
+	Renderer back_navigation_button = 41;
+	Renderer button_bar = 42;
+	Renderer channel_bar = 43;
+	Renderer remix_button = 44;
+	Command on_long_press = 45;
+	Renderer sound_metadata = 46;
+	Renderer comments_entry_point = 47;
+	Renderer scrubber = 48;
+	Renderer recs_debug_overlay = 49;
+	Renderer cta_button = 50;
+	Renderer video_title = 51;
+	Renderer multi_format_link = 52;
+	Renderer ad_info_button = 53;
+	Renderer metapanel = 54;
+	Renderer disclosure = 55;
+	Renderer shopping_upsell = 56;
+	repeated Renderer ad_slots = 58;
+	Command on_tap_pause_command = 59;
+	Renderer qr_code = 60;
+	Renderer player_overlay = 61;
+	Renderer subscribe_plus_button = 62;
+}
+
+extend Renderer {
+	ReelPlayerOverlayRenderer reel_player_overlay_renderer = 139970731;
+}
+
+extend Renderer {
+	ReelPlayerHeaderRenderer reel_player_header_renderer = 150475697;
+}
+
+extend Renderer {
+	ReelPlayerPersistentEducationRenderer reel_player_persistent_education_renderer = 303209365;
+}
+
+extend Renderer {
+	PivotButtonRenderer pivot_button_renderer = 309756362;
+}
+
+extend Renderer {
+	ForcedMuteMessageRenderer forced_mute_message_renderer = 346095969;
+}
+
+extend Renderer {
+	ReelPlayerAgeGateRenderer reel_player_age_gate_renderer = 370727981;
+}
+
+extend Renderer {
+	ReelPlayerContextualHeaderRenderer reel_player_contextual_header_renderer = 439944849;
+}

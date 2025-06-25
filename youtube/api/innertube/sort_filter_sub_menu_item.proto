@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sort_filter_sub_menu_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SortFilterSubMenuItem {
+	string title = 1;
+	bool selected = 2;
+
+	oneof item_result {
+		SortFilterSubMenuSupportedContinuations continuation = 3;
+		Command service_endpoint = 5;
+		Command navigation_endpoint = 6;
+	}
+
+	Icon icon = 4;
+	AccessibilitySupportedDatas accessibility = 7;
+	string subtitle = 8;
+	Renderer action_button = 9;
+	bool disabled = 10;
+	bool strikethrough = 11;
+	string tooltip = 12;
+	bytes tracking_params = 13;
+	bool show_beta_label = 15;
+	BadgeSupportedRenderers badge = 17;
+	string target_id = 18;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/microphone_permission_state.proto";
+import "youtube/api/innertube/voice_remote_state.proto";
+import "youtube/api/innertube/unplugged_multi_size_type.proto";
+import "youtube/api/innertube/unplugged_filter_mode_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedAppInfo {
+	bool enable_safety_mode = 1;
+	bool enable_filter_mode = 2;
+	bool ios_notification_permission = 3;
+	MicrophonePermissionState microphone_permission_state = 4;
+	VoiceRemoteState voice_remote_state = 5;
+	UnpluggedMultiSizeType multi_size_type = 6;
+	bool force_enable_epg_3 = 7;
+	UnpluggedFilterModeType filter_mode_type = 8;
+}

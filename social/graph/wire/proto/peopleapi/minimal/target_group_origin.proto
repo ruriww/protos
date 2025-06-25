@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/target_group_name.proto";
+
+option objc_class_prefix = "SGWPPM";
+
+message TargetGroupOrigin {
+	string type = 1;
+	TargetGroupName name = 2;
+}

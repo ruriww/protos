@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RecompositionFeatures {
+	message MediaPipeRect {
+		int32 x_center = 1;
+		int32 y_center = 2;
+		int32 height = 3;
+		int32 width = 4;
+		float rotation = 5 [ default = 0e0 ];
+		int64 rect_id = 6;
+	}
+
+	repeated MediaPipeRect source_crop_rects = 3;
+	repeated MediaPipeRect final_crop_rects = 4;
+}

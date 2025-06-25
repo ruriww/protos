@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+enum AdlDefaultValue {
+	option features.enum_type = CLOSED;
+
+	ADL_DEFAULT_VALUE_UNSPECIFIED = 0;
+	ADL_DEFAULT_VALUE_PROTO = 1;
+	ADL_DEFAULT_VALUE_FALSY = 2;
+}

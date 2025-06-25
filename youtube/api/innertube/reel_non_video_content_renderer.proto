@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/screen_logging_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/reel_non_video_content_custom_data.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelNonVideoContentRenderer {
+	ScreenLoggingData screen_logging_data = 1;
+	Renderer renderer = 2;
+	ReelNonVideoContentCustomData custom_data = 3;
+	string id = 4;
+	Renderer topbar = 5;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	ReelNonVideoContentRenderer reel_non_video_content_renderer = 396380317;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_playlist_supported_datas.proto";
+import "youtube/api/innertube/offline_video_selection_strategy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoOfflinePlaylistCommandData {
+	OfflinePlaylistSupportedDatas playlist = 1;
+	bool audio_only = 2;
+	bool update_playlist_interleaved = 3;
+	bool update_on_wifi_only = 4;
+	bool update_on_discounted_data_only = 5;
+	bool update_on_screen_off_only = 6;
+	float update_battery_level_threshold = 7;
+	OfflineVideoSelectionStrategy offline_video_selection_strategy = 8;
+	int32 ui_type = 9;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/slot_type.proto";
+import "youtube/api/innertube/ad_slot_logging_data.proto";
+import "youtube/api/innertube/slot_trigger_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdSlotMetadata {
+	string slot_id = 1;
+	SlotType slot_type = 2;
+	int32 slot_physical_position = 3 [ default = 1 ];
+	AdSlotLoggingData ad_slot_logging_data = 4;
+	SlotTriggerEvent trigger_event = 5;
+	string triggering_source_layout_id = 6;
+}

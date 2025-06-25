@@ -1,0 +1,16 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/rich_text.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message BulletedList {
+	message BulletedListItem {
+		RichText heading = 1;
+		RichText text = 2;
+	}
+
+	repeated BulletedListItem bulleted_list_item = 1;
+}

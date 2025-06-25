@@ -1,0 +1,26 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message PancettaClientInfo {
+	string device_id = 1;
+
+	enum OsType {
+		option features.enum_type = CLOSED;
+
+		OS_TYPE_UNKNOWN = 0;
+		OS_TYPE_MAC = 1;
+		OS_TYPE_WINDOWS = 2;
+		OS_TYPE_ANDROID = 3;
+		OS_TYPE_CROS = 4;
+		OS_TYPE_LINUX = 5;
+		OS_TYPE_OPENBSD = 6;
+	}
+
+	OsType os = 2;
+	string app_id = 3;
+	string app_version = 4;
+	string mcc_mnc = 5;
+}

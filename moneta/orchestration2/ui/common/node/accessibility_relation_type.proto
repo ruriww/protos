@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum AccessibilityRelationType {
+	option features.enum_type = CLOSED;
+
+	ACCESSIBILITY_RELATION_TYPE_UNKNOWN = 0;
+	ACCESSIBILITY_RELATION_TYPE_LABELLEDBY = 1;
+	ACCESSIBILITY_RELATION_TYPE_DESCRIBEDBY = 2;
+	ACCESSIBILITY_RELATION_TYPE_CONTROLS = 3;
+}

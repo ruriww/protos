@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/text.proto";
+import "moneta/testing/demoserver/teststudio/proto/select.proto";
+
+option objc_class_prefix = "TSL";
+
+message UserInputParameter {
+	string name = 1;
+	string description = 2;
+	string group_name = 3;
+
+	oneof input {
+		Text text = 4;
+		Select select = 5;
+	}
+
+	string field_name = 6;
+}

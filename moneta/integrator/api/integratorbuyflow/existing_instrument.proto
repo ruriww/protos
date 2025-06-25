@@ -1,0 +1,25 @@
+edition = "2023";
+
+package moneta.integrator.api.integratorbuyflow;
+
+import "moneta/integrator/common/instrument/instrument_description.proto";
+import "moneta/integrator/common/instrument/instrument_status.proto";
+import "moneta/integrator/common/product_correlation_id.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "IBuyFlow";
+
+message ExistingInstrument {
+	string checkout_instrument_id = 1;
+	common.instrument.InstrumentDescription instrument_description = 6;
+	common.instrument.InstrumentStatus instrument_status = 7;
+	common.ProductCorrelationId product_correlation_id = 8;
+	repeated string preferred_currency_code = 9;
+	bytes instrument_token = 12;
+	int64 instrument_id = 13;
+	string stored_value_account_id_migration_only = 15;
+	bool allowed_for_primary = 22;
+	bool allowed_for_backup = 23;
+	webutil.html.types.SafeHtmlProto alternate_usage_prompt = 32;
+	int64 default_recommended_usage_index = 33 [ default = -1 ];
+}

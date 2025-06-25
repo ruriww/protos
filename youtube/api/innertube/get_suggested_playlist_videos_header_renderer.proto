@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetSuggestedPlaylistVideosHeaderRenderer {
+	FormattedString title = 1;
+	Renderer next_button = 2;
+	Renderer exit_button = 3;
+}
+
+extend Renderer {
+	GetSuggestedPlaylistVideosHeaderRenderer get_suggested_playlist_videos_header_renderer = 222895468;
+}

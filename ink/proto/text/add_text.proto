@@ -1,0 +1,19 @@
+edition = "2023";
+
+package ink.proto.text;
+
+import "ink/proto/text/text.proto";
+import "ink/proto/rect.proto";
+import "ink/proto/rot_rect.proto";
+
+option objc_class_prefix = "INKPB";
+
+message AddText {
+	Text text = 1;
+	string group_uuid = 2;
+
+	oneof bounds {
+		Rect bounds_world = 3;
+		RotRect bounds_screen = 4;
+	}
+}

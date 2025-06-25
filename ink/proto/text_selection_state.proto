@@ -1,0 +1,9 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message TextSelectionState {
+	bool is_anything_selected = 1;
+}

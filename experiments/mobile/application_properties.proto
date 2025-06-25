@@ -1,0 +1,9 @@
+edition = "2023";
+
+package experiments.mobile;
+
+option objc_class_prefix = "PHT";
+
+message ApplicationProperties {
+	extensions 10000000 to max;
+}

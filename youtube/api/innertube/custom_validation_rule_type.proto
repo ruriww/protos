@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CustomValidationRuleType {
+	option features.enum_type = CLOSED;
+
+	CUSTOM_VALIDATION_RULE_TYPE_UNKNOWN = 0;
+	CUSTOM_VALIDATION_RULE_TYPE_EMAIL = 1;
+	CUSTOM_VALIDATION_RULE_TYPE_PHONE_NUMBER = 2;
+}

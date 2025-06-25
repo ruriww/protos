@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/help_info.proto";
+import "google/internal/identity/accountsettings/mobile/v1/section.proto";
+import "google/internal/identity/accountsettings/mobile/v1/ha_ts_survey.proto";
+
+option objc_class_prefix = "ASM";
+
+message MenuAlternative {
+	string title_text = 1;
+	HelpInfo help_info = 2;
+	repeated Section sections = 3;
+	bool show_logo = 4;
+	HaTSSurvey hats_survey = 5;
+}

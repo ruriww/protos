@@ -1,0 +1,20 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_app_data.proto";
+import "customer_support/help/mobile/proto/mobile_device_data.proto";
+import "customer_support/help/mobile/proto/request_data.proto";
+import "customer_support/help/mobile/proto/prefetch_options.proto";
+import "customer_support/help/mobile/proto/client_type.proto";
+
+option objc_class_prefix = "CSHM";
+
+message HelpMobileRequest {
+	MobileAppData app_data = 1;
+	MobileDeviceData device_data = 2;
+	RequestData request_data = 3;
+	string flow = 4;
+	PrefetchOptions prefetch_options = 5;
+	ClientType client_type = 6;
+}

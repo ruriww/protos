@@ -1,0 +1,10 @@
+edition = "2023";
+
+package focus_backend;
+
+option objc_class_prefix = "FSBKD";
+
+message DeviceId {
+	string Hash = 1;
+	int64 AndroidDeviceId = 2;
+}

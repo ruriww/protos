@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.dialog;
+
+import "moneta/orchestration2/ui/common/modal/modal_node_properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DialogNodeProperties {
+	modal.ModalNodeProperties modal_node_properties = 1;
+}

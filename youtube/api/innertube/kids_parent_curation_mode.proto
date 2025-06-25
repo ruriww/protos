@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum KidsParentCurationMode {
+	option features.enum_type = CLOSED;
+
+	KIDS_PARENT_CURATION_MODE_UNKNOWN = 0;
+	KIDS_PARENT_CURATION_MODE_NONE = 1;
+	KIDS_PARENT_CURATION_MODE_CURATING = 2;
+	KIDS_PARENT_CURATION_MODE_PREVIEW = 3;
+}

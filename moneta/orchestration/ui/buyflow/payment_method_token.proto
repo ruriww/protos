@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+option objc_class_prefix = "Buyflow";
+
+message PaymentMethodToken {
+	string token_value = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package tflite.task.processor;
+
+import "tflite/task/processor/feature_vector.proto";
+
+option objc_class_prefix = "TaskLib";
+
+message Embedding {
+	FeatureVector feature_vector = 1;
+	int32 output_index = 2;
+}

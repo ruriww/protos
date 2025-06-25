@@ -1,0 +1,14 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum ConsentEligibilityStatus {
+	option features.enum_type = CLOSED;
+
+	ELIGIBILITY_UNKNOWN = 0;
+	ELIGIBILITY_CAN_CONSENT = 1;
+	ELIGIBILITY_CANNOT_CONSENT = 2;
+	ELIGIBILITY_ALREADY_CONSENTED = 3;
+}

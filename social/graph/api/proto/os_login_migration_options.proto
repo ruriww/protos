@@ -1,0 +1,32 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message OsLoginMigrationOptions {
+	enum OsLoginBackendEnum {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED = 0;
+		FOCUS_BACKEND = 1;
+		ISS = 2;
+		SOT = 3;
+		NOTSOT = 4;
+	}
+
+	OsLoginBackendEnum OsLoginBackend = 1 [ default = UNSPECIFIED ];
+	string requester_cpi = 2;
+	bool sot_record_needed = 3;
+
+	enum OsLoginSoTFlipEnum {
+		option features.enum_type = CLOSED;
+
+		DIRECTION_UNSPECIFIED = 0;
+		TO_ISS = 1;
+		TO_FBS = 2;
+	}
+
+	OsLoginSoTFlipEnum os_login_sot_flip = 4;
+	bool force_flip = 5;
+}

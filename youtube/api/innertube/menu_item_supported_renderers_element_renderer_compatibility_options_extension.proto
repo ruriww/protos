@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/element_renderer_compatibility_options.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MenuItemSupportedRenderersElementRendererCompatibilityOptionsExtension {
+	extend ElementRendererCompatibilityOptions {
+		MenuItemSupportedRenderersElementRendererCompatibilityOptionsExtension menu_item_supported_renderers_element_renderer_compatibility_options_extension = 396644439;
+	}
+
+	string menu_item_identifier = 1;
+}

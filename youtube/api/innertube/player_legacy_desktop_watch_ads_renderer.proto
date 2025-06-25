@@ -1,0 +1,211 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerLegacyDesktopWatchAdsRenderer {
+	message PlayerAdParams {
+		int32 afv_instream_max = 2;
+		string ad_language_iso639_2 = 3;
+		string ad_tag = 6;
+		string afv_ad_tag_restricted_to_instream = 8;
+		int32 max_dynamic_allocation_ad_tag_length = 9;
+		string as_launched_in_country = 14;
+		int32 ad_flags = 16;
+		string ad_preroll = 17;
+		bool aftv = 20;
+		bool invideo = 21;
+		bool dclk = 22;
+		string dynamic_allocation_ad_tag = 25;
+		string gut_tag = 26;
+		string pyv_in_related_cafe_experiment_id = 29;
+		string afv_ad_tag = 30;
+		bool tag_for_child_directed = 31;
+		repeated int32 allowed_ads = 32 [ features.repeated_field_encoding = EXPANDED ];
+		string loeid = 33;
+		int32 ad_device = 34;
+		string cafe_experiment_id = 36;
+		string adsense_video_doc_id = 37;
+		string fw = 38;
+		string ad_slots = 42;
+		bool shortform = 44;
+		string tpas_partner_id = 45;
+		bool instream = 46;
+		bool trueview = 47;
+		float midroll_freqcap = 49;
+		string mpvid = 50;
+		bool mpu = 51;
+		bool afv = 52;
+		int32 tpas_ad_type_id = 54;
+		string tpas_video_id = 55;
+		bool sffb = 56;
+		string content_owner_name = 57;
+		bool afv_merge_enabled = 60;
+		string excluded_ads = 62;
+		int32 no_afv_instream = 63;
+		string ad_age = 64;
+		string ad_gender = 65;
+		string user_age = 68;
+		int32 ad_logging_flag = 69;
+		bool show_content_thumbnail = 70;
+		int32 cid = 71;
+		string afv_invideo_ad_tag = 72;
+		string pyv_ad_channel = 73;
+		bool show_pyv_in_related = 74;
+		int32 allow_html5_ads = 75;
+		int32 supported_without_ads = 76;
+		bool instream_long = 77;
+		string ad_breaks = 80;
+		string afc_rm_fallback = 81;
+		bool allow_ad_in_autoplay = 82;
+		uint32 c4 = 83;
+		string dbp = 84;
+		bool fqsf = 85;
+		uint32 gpt_migration = 86;
+		bool xfp = 87;
+		uint32 livestream = 88;
+		uint32 midroll_prefetch_size = 89;
+		uint32 trueview_lactt = 90;
+		string xfp_tag = 91;
+		string advideo = 93;
+		uint32 ad3_module = 96;
+		string vmap = 97;
+		string server_prefetched_vast = 98;
+		string ams_base_tag = 99;
+		int32 fade_out_start_milliseconds = 100;
+		int32 fade_out_duration_milliseconds = 101;
+		int32 fade_in_start_milliseconds = 102;
+		int32 fade_in_duration_milliseconds = 103;
+		bool apply_fade_on_midrolls = 104;
+		string ad_module = 105;
+		bool autoplay = 106;
+		bool pla = 107;
+		string pla_ad_tag = 108;
+		string vast_ads_module = 109;
+		int32 forced_skip_offset = 110;
+		string core_dbp = 111;
+		string enabled_engage_types = 112;
+		string freewheel_ad_tag = 113;
+		bool post_ad_requests = 114;
+		string independent_break_offsets = 115;
+		bool allow_ads_pay_creator = 116;
+		bool allow_below_the_player_companion = 117;
+		string encoded_ad_safety_reason = 118;
+	}
+
+	PlayerAdParams player_ad_params = 1;
+
+	message AfvParams {
+		string google_ad_block = 1;
+		string google_ad_channel = 2;
+		string google_ad_client = 3;
+		string google_ad_format = 4;
+		string google_ad_height = 5;
+		string google_ad_host = 6;
+		string google_ad_host_tier_id = 7;
+		string google_ad_type = 8;
+		string google_alternate_ad_url = 9;
+		string google_cust_age = 10;
+		string google_cust_gender = 11;
+		repeated string google_eids = 12;
+		string google_lact = 13;
+		string google_language = 14;
+		string google_loeid = 15;
+		string google_page_url = 16;
+		string google_scs = 17;
+		string google_tag_for_child_directed_treatment = 18;
+		string google_targeting = 19;
+		string google_video_doc_id = 20;
+		string google_yt_pt = 21;
+		string google_core_dbp = 22;
+		string google_pucrd = 23;
+	}
+
+	AfvParams afv_params = 2;
+
+	message AfcParams {
+		string ad_block = 1;
+		string ad_channel = 2;
+		string ad_client = 3;
+		string ad_host = 4;
+		string ad_host_tier_id = 5;
+		string ad_type = 6;
+		string format = 8;
+		string lact = 9;
+		string language = 10;
+		string tag_for_child_directed_treatment = 11;
+		string video_doc_id = 12;
+		string core_dbp = 13;
+		repeated string eids = 14;
+		string loeid = 15;
+		string scs = 16;
+		string targeting = 17;
+		string pucrd = 18;
+	}
+
+	AfcParams afc_params = 3;
+
+	message PyvParams {
+		string google_ad_block = 2;
+		string google_ad_channel = 3;
+		string google_ad_client = 4;
+		string google_ad_output = 5;
+		string google_ad_host = 6;
+		string google_ad_host_tier_id = 7;
+		string google_ad_type = 8;
+		string google_cust_age = 9;
+		string google_cust_gender = 10;
+		string google_eids = 11;
+		string google_lact = 12;
+		string google_language = 13;
+		string google_loeid = 14;
+		int32 google_max_num_ads = 15;
+		bool google_only_pyv_ads = 16;
+		string google_page_url = 17;
+		string google_tag_for_child_directed_treatment = 18;
+		string google_video_doc_id = 19;
+		string google_yt_pt = 20;
+		string google_core_dbp = 21;
+		string google_video_url_to_fetch = 22;
+		string google_scs = 23;
+		string google_targeting = 24;
+	}
+
+	PyvParams pyv_params = 4;
+
+	message GutParams {
+		string tag = 1;
+	}
+
+	GutParams gut_params = 5;
+	bool fetch_ads_fallback_in_page = 6;
+	bool fetch_ads_in_page = 7;
+	bool show_afc = 8;
+	bool show_afv = 9;
+	bool show_companion = 10;
+	bool show_instream = 11;
+	bool show_pyv = 12;
+	bool use_gut = 13;
+	string companion_legal_text = 14;
+	bool companion_legal_text_enable_autoscroll = 15;
+	int32 third_party_ad_type = 16;
+	bool monetized = 18;
+
+	message DisplayAds {
+		string pyv_ad_tag = 1;
+	}
+
+	DisplayAds display_ads = 19;
+	string ad_id = 20;
+	string ad_encrypted_video_id = 21;
+}
+
+extend Renderer {
+	PlayerLegacyDesktopWatchAdsRenderer player_legacy_desktop_watch_ads_renderer = 55860145;
+}

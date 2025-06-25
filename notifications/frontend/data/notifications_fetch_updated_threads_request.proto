@@ -1,0 +1,22 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/crb_rendering_behavior.proto";
+import "notifications/frontend/data/target_metadata.proto";
+import "notifications/frontend/data/render_context.proto";
+import "notifications/frontend/data/versioned_identifier.proto";
+import "notifications/frontend/data/notifications_fetch_latest_threads_request.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsFetchUpdatedThreadsRequest {
+	string client_id = 1;
+	int64 max_notification_threads = 4;
+	CRBRenderingBehavior rendering_behavior = 5;
+	int64 sync_version = 7;
+	TargetMetadata target_metadata = 8;
+	RenderContext render_context = 9;
+	repeated VersionedIdentifier known_threads = 10;
+	NotificationsFetchLatestThreadsRequest.CFRFetchReason fetch_reason = 11;
+}

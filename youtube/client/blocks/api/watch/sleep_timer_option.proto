@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/api/innertube/sleep_timer_option_type.proto";
+import "youtube/elements/command.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SleepTimerOption {
+	youtube.api.innertube.SleepTimerOptionType option_type = 1;
+	int64 option_duration_in_minutes = 2;
+	elements.Command on_sleep_timer_end_command_enable_reset_timer = 3;
+	elements.Command on_sleep_timer_end_command_disable_reset_timer = 4;
+	elements.Command redisplay_sleep_timer_sheet_content_command = 5;
+}

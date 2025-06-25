@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.numberinput;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NumberInputDataValue {
+	extend data.DataValue {
+		NumberInputDataValue number_input_data_value_extension = 346113746;
+	}
+
+	string integral_digits = 1;
+	string fractional_digits = 2;
+	bytes annotated_integral_digits = 3;
+	bytes annotated_fractional_digits = 4;
+}

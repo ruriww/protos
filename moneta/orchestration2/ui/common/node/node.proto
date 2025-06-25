@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/node_properties.proto";
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+import "moneta/orchestration2/ui/common/node/node_token.proto";
+import "moneta/orchestration2/ui/logging/visual_element_logging_info.proto";
+import "moneta/orchestration2/ui/common/node/accessibility_attributes.proto";
+import "moneta/orchestration2/ui/common/node/transition_properties.proto";
+import "moneta/orchestration2/ui/logging/logging_configuration.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Node {
+	int64 ui_reference = 1;
+	NodeProperties properties = 2;
+	int64 data_reference = 3;
+	repeated eventrules.trigger.Trigger node_trigger = 4;
+	int32 extension_field_number = 5;
+	NodeToken node_token = 6;
+	logging.VisualElementLoggingInfo visual_element_logging_info = 7;
+	AccessibilityAttributes accessibility_attributes = 8;
+	TransitionProperties transition_properties = 9;
+	repeated logging.LoggingConfiguration logging_configuration = 10;
+
+	extensions 1000 to max;
+}

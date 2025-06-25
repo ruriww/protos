@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TranscriptScrollStateEntity {
+	extend EntityMutationPayload {
+		TranscriptScrollStateEntity transcript_scroll_state_entity = 293;
+	}
+
+	string key = 1;
+	bool allow_auto_scroll = 2 [ default = true ];
+	int32 user_scroll_counter = 3;
+	bool user_scroll_in_progress = 4;
+}

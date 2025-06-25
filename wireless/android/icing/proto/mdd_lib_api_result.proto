@@ -1,0 +1,20 @@
+edition = "2023";
+
+package wireless.android.icing.proto;
+
+option objc_class_prefix = "ICN";
+
+message MddLibApiResult {
+	enum Code {
+		RESULT_UNKNOWN = 0;
+		RESULT_SUCCESS = 1;
+		RESULT_FAILURE = 2;
+		RESULT_CANCELLED = 3;
+		RESULT_INTERRUPTED = 4;
+		RESULT_IO_ERROR = 5;
+		RESULT_ILLEGAL_STATE = 6;
+		RESULT_ILLEGAL_ARGUMENT = 7;
+		RESULT_UNSUPPORTED_OPERATION = 8;
+		RESULT_DOWNLOAD_ERROR = 9;
+	}
+}

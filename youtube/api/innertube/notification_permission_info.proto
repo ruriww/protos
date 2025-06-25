@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/notifications_setting.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationPermissionInfo {
+	NotificationsSetting notifications_setting = 1;
+	int64 last_device_opt_in_change_time_ago_sec = 2;
+}

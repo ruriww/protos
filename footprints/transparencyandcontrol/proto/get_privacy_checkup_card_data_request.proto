@@ -1,0 +1,18 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/localization_info.proto";
+import "footprints/transparencyandcontrol/proto/get_privacy_checkup_cards_response.proto";
+import "footprints/transparencyandcontrol/proto/caller_info.proto";
+import "footprints/transparencyandcontrol/proto/utm_info.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetPrivacyCheckupCardDataRequest {
+	LocalizationInfo localization_info = 1;
+	bool is_webview = 2;
+	repeated GetPrivacyCheckupCardsResponse.PrivacyCheckupCard cards = 3;
+	CallerInfo caller_info = 4;
+	UtmInfo utm_info = 5;
+}

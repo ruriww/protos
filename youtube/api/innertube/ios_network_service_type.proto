@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosNetworkServiceType {
+	option features.enum_type = CLOSED;
+
+	IOS_NETWORK_SERVICE_TYPE_UNKNOWN = 0;
+	IOS_NETWORK_SERVICE_TYPE_DEFAULT = 1;
+	IOS_NETWORK_SERVICE_TYPE_VOIP = 2;
+	IOS_NETWORK_SERVICE_TYPE_VIDEO = 3;
+	IOS_NETWORK_SERVICE_TYPE_BACKGROUND = 4;
+	IOS_NETWORK_SERVICE_TYPE_VOICE = 5;
+}

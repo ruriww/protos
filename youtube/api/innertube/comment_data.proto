@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentData {
+	string create_comment_params = 1;
+	FormattedString comment_label_before = 2;
+	FormattedString comment_label_after = 3;
+	FormattedString viewer_name = 4;
+	FormattedString preview_text = 5;
+	FormattedString supported_text = 8;
+}

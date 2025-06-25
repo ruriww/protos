@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/searchable_browse_header_menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchableBrowseHeaderRenderer {
+	FormattedString title = 1;
+	bool is_results_page = 2;
+	FormattedString search_placeholder_text = 3;
+	string browse_id = 4;
+	FormattedString open_search_content_description = 5;
+	FormattedString perform_search_content_description = 6;
+	string existing_query = 7;
+	SearchableBrowseHeaderMenuSupportedRenderers menu = 8;
+	SearchableBrowseHeaderMenuSupportedRenderers actionbar_menu = 9;
+	Renderer existing_query_chip_list = 10;
+	Command on_search_button_tap = 11;
+	string params = 12;
+}
+
+extend Renderer {
+	SearchableBrowseHeaderRenderer searchable_browse_header_renderer = 84636745;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_average.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitMemoryMetric {
+	MetricKitAverage average_suspended_memory_bytes = 1;
+	int64 peak_memory_usage_bytes = 2;
+}

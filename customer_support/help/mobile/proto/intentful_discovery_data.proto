@@ -1,0 +1,11 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/intentful_discovery_icon_type.proto";
+
+option objc_class_prefix = "CSHM";
+
+message IntentfulDiscoveryData {
+	IntentfulDiscoveryIconType icon_enum_value = 1;
+}

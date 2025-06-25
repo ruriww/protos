@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message IntPackedColor {
+	uint32 argb = 1;
+	bool premultiplied = 2 [ default = false ];
+}

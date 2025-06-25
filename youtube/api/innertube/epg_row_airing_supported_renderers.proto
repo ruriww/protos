@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/epg_airing_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EpgRowAiringSupportedRenderers {
+	oneof renderer {
+		EpgAiringRenderer epg_airing_renderer = 84080306;
+		ElementRenderer element_renderer = 153515154;
+	}
+}

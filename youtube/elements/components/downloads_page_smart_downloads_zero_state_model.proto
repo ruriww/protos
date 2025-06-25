@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/button.proto";
+import "youtube/elements/environment_data.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageSmartDownloadsZeroStateModel {
+	extend Model {
+		DownloadsPageSmartDownloadsZeroStateModel downloads_page_smart_downloads_zero_state_model = 373468381;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	string future_update_message = 3;
+	Button primary_button = 4;
+	Button secondary_button = 5;
+	string update_now_button_text = 6;
+	string turn_off_button_text = 7;
+	string smart_downloads_list_entity_key = 8;
+	EnvironmentData environment_data = 9;
+	string offline_snackbar_message = 10;
+	repeated int32 update_now_retry_intervals_in_seconds = 11 [ features.repeated_field_encoding = EXPANDED ];
+	string main_downloads_library_entity_key = 12;
+	bool use_update_orchestration_action_type = 13;
+}

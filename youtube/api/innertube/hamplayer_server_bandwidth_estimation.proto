@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/server_bandwidth_condition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerServerBandwidthEstimation {
+	float bandwidth_tweak_scalar = 1;
+	int32 bandwidth_tweak_constant = 2;
+	string bandwidth_http_header = 3;
+	float quic_bandwidth_tweak_scalar = 4;
+	ServerBandwidthCondition condition = 5;
+	int32 sliding_median_num_samples = 6;
+}

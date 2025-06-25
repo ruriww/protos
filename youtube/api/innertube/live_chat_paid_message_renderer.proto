@@ -1,0 +1,72 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/live_chat_paid_message_input_field_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/currency_image.proto";
+import "youtube/api/innertube/live_chat_author_badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatPaidMessageRenderer {
+	string id = 1;
+	uint64 timestamp_usec = 2;
+	FormattedString author_name = 3;
+	ThumbnailDetails author_photo = 4;
+	FormattedString purchase_amount_text = 5;
+
+	oneof body {
+		bool empty = 6;
+		FormattedString message = 7;
+		LiveChatPaidMessageInputFieldSupportedRenderers input_field = 8;
+	}
+
+	uint32 header_background_color = 9;
+	uint32 header_text_color = 10;
+	uint32 body_background_color = 11;
+	uint32 body_text_color = 12;
+	string author_external_channel_id = 13;
+	uint32 author_name_text_color = 14;
+	Command context_menu_endpoint = 15;
+	uint32 timestamp_color = 16;
+	AccessibilitySupportedDatas context_menu_accessibility = 17;
+	FormattedString deleted_state_message = 18;
+	FormattedString show_original_content_message = 19;
+	repeated Renderer inline_action_buttons = 21;
+	FormattedString timestamp_text = 22;
+	Renderer footer = 23;
+	bytes tracking_params = 25;
+
+	message PaidMessageElements {
+		Renderer header_element_renderer = 1;
+		Renderer footer_element_renderer = 2;
+	}
+
+	PaidMessageElements paid_message_elements = 28;
+	Renderer help_button = 29;
+	Renderer buy_button = 30;
+	CurrencyImage currency_image = 31;
+	ThumbnailDetails header_overlay_image = 32;
+	repeated LiveChatAuthorBadgeSupportedRenderers author_badges = 33;
+	uint32 text_input_background_color = 34;
+	Renderer upper_bumper = 35;
+	Renderer lower_bumper = 36;
+	Renderer creator_heart_button = 37;
+	bool is_v2_style = 38;
+	Renderer pdg_like_button = 41;
+	Renderer reply_button = 42;
+	Renderer buy_flow_button = 43;
+	Renderer leaderboard_badge = 44;
+}
+
+extend Renderer {
+	LiveChatPaidMessageRenderer live_chat_paid_message_renderer = 132496275;
+}

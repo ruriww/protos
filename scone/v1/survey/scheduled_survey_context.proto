@@ -1,0 +1,9 @@
+edition = "2023";
+
+package scone.v1.survey;
+
+option objc_class_prefix = "UVSP";
+
+message ScheduledSurveyContext {
+	bool is_scheduled_survey = 1;
+}

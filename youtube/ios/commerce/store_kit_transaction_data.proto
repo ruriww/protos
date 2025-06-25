@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.ios.commerce;
+
+import "youtube/api/innertube/ypc_in_app_purchase_endpoint.proto";
+import "google/protobuf/timestamp.proto";
+import "youtube/ios/commerce/store_kit_transaction_origin.proto";
+import "youtube/ios/commerce/store_kit_transaction_type.proto";
+import "youtube/ios/commerce/store_kit_transaction_status.proto";
+
+option objc_class_prefix = "YTIAP";
+
+message StoreKitTransactionData {
+	api.innertube.YPCInAppPurchaseEndpoint ypc_in_app_purchase_endpoint = 1;
+	bytes click_tracking_params = 2;
+	google.protobuf.Timestamp creation_date_timestamp = 3;
+	google.protobuf.Timestamp offer_selection_date_timestamp = 4;
+	StoreKitTransactionOrigin store_kit_transaction_origin = 5;
+	StoreKitTransactionType store_kit_transaction_type = 6;
+	StoreKitTransactionStatus store_kit_transaction_status = 7;
+	int32 quantity = 8;
+	string app_version = 9;
+	string device_transaction_id = 10;
+	string apple_transaction_id = 11;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message StringPair {
+	string name = 1;
+	string value = 2;
+}

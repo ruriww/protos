@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/scene_info.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message GlSkiaStickersCalculatorRuntimeOutput {
+	SceneInfo scene_info = 1;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+option objc_class_prefix = "PIL";
+
+enum IdType {
+	ID_TYPE_UNSPECIFIED = 0;
+	EMAIL = 1;
+	PROFILE_ID = 2;
+	PERSON_ID = 3;
+}

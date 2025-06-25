@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/photo_upload_status.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/channel_creation_flow_state.proto";
+import "youtube/api/innertube/channel_creation_header_state.proto";
+import "youtube/api/innertube/obake_image_source_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelCreationFormStateEntity {
+	extend EntityMutationPayload {
+		ChannelCreationFormStateEntity channel_creation_form_state_entity = 218;
+	}
+
+	string key = 1;
+	bool is_create_channel_loading = 2;
+	string error_message = 3;
+	PhotoUploadStatus photo_upload_status = 4;
+	string client_photo_file_path = 5;
+	string blob_encryption_id = 6;
+	bool is_wait_message_on = 7;
+	bool is_name_too_long_message_on = 8;
+	bool is_edit_name_ontap_disabled = 9;
+	bool is_edit_handle_ontap_disabled = 10;
+	bool is_handle_too_long_message_on = 11;
+	bool is_handle_check_loading = 12;
+	FormattedString handle_unavailable_error_message = 13;
+	bool is_handle_invalid = 14;
+	string prev_recommended_handle = 15;
+	bool has_handle_changed = 16;
+	bool is_name_subpage_spinner_on = 17;
+	string generated_handle_from_name = 18;
+	bool is_handle_field_focused = 19;
+	ChannelCreationFlowState channel_creation_flow_state = 20;
+	ChannelCreationHeaderState channel_creation_header_state = 21;
+	ObakeImageSourceType obake_image_source_type = 22;
+	bool is_handle_checked = 23;
+}

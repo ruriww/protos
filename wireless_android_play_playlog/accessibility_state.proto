@@ -1,0 +1,23 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message AccessibilityState {
+	enum OnOff {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ON = 1;
+		OFF = 2;
+	}
+
+	OnOff talkback_enabled = 1;
+	OnOff brailleback_enabled = 2;
+	OnOff switchaccess_enabled = 3;
+	OnOff justspeak_enabled = 4;
+	OnOff large_text_enabled = 5;
+	OnOff magnification_enabled = 6;
+	OnOff high_contrast_text_enabled = 7;
+}

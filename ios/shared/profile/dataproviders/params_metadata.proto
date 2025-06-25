@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ios.shared.profile.dataproviders;
+
+import "ios/shared/profile/dataproviders/target_user_id.proto";
+
+option objc_class_prefix = "GSCP";
+
+message ParamsMetadata {
+	string target_person_id = 1;
+	TargetUserId target_user_id = 2;
+}

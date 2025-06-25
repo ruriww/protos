@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.bootstrap;
+
+option objc_class_prefix = "Orch";
+
+message ClientParameters {
+	string redirect_success_url = 1;
+	string redirect_failure_url = 2;
+
+	message IntegratorProcessedPaymentData {
+	}
+
+	IntegratorProcessedPaymentData integrator_processed_payments_data = 6;
+}

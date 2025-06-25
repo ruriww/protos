@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_chat_predefined_message_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SendLiveChatMessageEndpoint {
+	extend Command {
+		SendLiveChatMessageEndpoint send_live_chat_message_endpoint = 120929770;
+	}
+
+	bytes params = 1;
+	repeated Command actions = 2;
+	string client_id_prefix = 3;
+	LiveChatPredefinedMessageType predefined_message_type = 4;
+}

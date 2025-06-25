@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/rating_bar_style.proto";
+import "youtube/api/innertube/ad_video_end_transition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppPromotionVideoEndRenderer {
+	ThumbnailDetails icon = 1;
+	FormattedString title = 2;
+	FormattedString prerating_text = 3;
+	float rating = 4;
+	FormattedString postrating_text = 5;
+	FormattedString action_text = 6;
+	Command navigation_endpoint = 7;
+	float duration = 8;
+	repeated LoggingUrl impression_urls = 9;
+	bytes tracking_params = 11;
+	repeated Command impression_endpoints = 12;
+	ThumbnailDetails background_image = 13;
+	Renderer icon_click_command = 16;
+	Renderer title_click_command = 17;
+	Renderer rating_click_command = 18;
+	uint32 background_color = 19;
+	RatingBarStyle rating_bar_style = 20;
+	Renderer button_renderer = 21;
+	AdVideoEndTransition transition = 22;
+
+	extensions 1000 to max;
+}

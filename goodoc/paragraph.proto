@@ -1,0 +1,45 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/word.proto";
+import "goodoc/route_point.proto";
+import "goodoc/bounding_box.proto";
+import "goodoc/label.proto";
+import "goodoc/orientation_label.proto";
+import "goodoc/rotated_bounding_box.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message Paragraph {
+	BoundingBox Box = 1;
+	Label Label = 2;
+
+	message Route {
+		repeated Word Word = 4;
+		RoutePoint StartPoint = 5;
+		RoutePoint EndPoint = 6;
+		int32 Weight = 7 [ default = 100 ];
+	}
+
+	repeated Route route = 3 [ features.message_encoding = DELIMITED ];
+	int32 alignment = 8;
+	int32 LeftIndent = 9 [ default = 0 ];
+	int32 FirstLineIndent = 10 [ default = 0 ];
+	int32 Width = 11;
+	int32 RightIndent = 12 [ default = 0 ];
+	int32 SpaceBefore = 13 [ default = 0 ];
+	int32 SpaceAfter = 14 [ default = 0 ];
+	int32 LineSpacing = 15 [ default = 0 ];
+
+	message DroppedCap {
+		int32 LettersCount = 33;
+		BoundingBox Box = 34;
+	}
+
+	DroppedCap dropped_cap = 32 [ features.message_encoding = DELIMITED ];
+	repeated Paragraph SubsumedParagraphProperties = 35;
+	int32 TextConfidence = 36;
+	OrientationLabel OrientationLabel = 37;
+	RotatedBoundingBox RotatedBox = 38;
+}

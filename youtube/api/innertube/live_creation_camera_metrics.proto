@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_context.proto";
+import "youtube/api/innertube/live_creation_orientation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationCameraMetrics {
+	LiveCreationContext live_creation_context = 1;
+	LiveCreationOrientation device_orientation = 2;
+	LiveCreationOrientation transmitting_orientation = 3;
+}

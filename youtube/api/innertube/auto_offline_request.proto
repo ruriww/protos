@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/auto_offline_video_list_check.proto";
+import "youtube/api/innertube/offlined_content_supported_datas.proto";
+import "youtube/api/innertube/offline_candidate_check.proto";
+import "youtube/api/innertube/auto_offline_client_preferences.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoOfflineRequest {
+	InnerTubeContext context = 1;
+	uint64 current_offline_storage_bytes = 2;
+	uint64 total_offline_storage_bytes = 3;
+	uint32 time_since_last_offline_playback_seconds = 4;
+	float current_battery_level = 5;
+	uint32 current_device_time_seconds = 6;
+	repeated AutoOfflineVideoListCheck auto_offline_video_list_checks = 8;
+	repeated OfflinedContentSupportedDatas current_offlined_contents = 10;
+	repeated OfflineCandidateCheck offline_candidate_checks = 11;
+	AutoOfflineClientPreferences auto_offline_client_preferences = 13;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.legal;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "webutil/html/types/trusted_resource_url_proto.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message LegalMessage {
+	string viewer_url = 2;
+	string opaque_data = 3;
+	repeated string line_html = 4;
+	generic.InfoMessage message_text = 5;
+	bool explicit_acceptance_required = 6;
+	int64 ui_reference = 7;
+	generic.InfoMessage explicit_acceptance_error_message = 8;
+	bool show_full_document = 9;
+	generic.InfoMessage advisory_message = 10;
+	webutil.html.types.TrustedResourceUrlProto viewer_trusted_url = 12;
+	generic.InfoMessage contact_link = 13;
+	proto2.bridge.MessageSet private_extensions = 16;
+}

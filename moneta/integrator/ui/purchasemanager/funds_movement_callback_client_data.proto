@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.integrator.ui.purchasemanager;
+
+option objc_class_prefix = "IPurMan";
+
+message FundsMovementCallbackClientData {
+	enum FundsMovementReturnCode {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		OK = 1;
+	}
+
+	FundsMovementReturnCode return_code = 1;
+}

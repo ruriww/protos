@@ -1,0 +1,21 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.text;
+
+option objc_class_prefix = "MSP";
+
+message FontWeight {
+	enum Value {
+		option features.enum_type = CLOSED;
+
+		DEFAULT_WEIGHT = 0;
+		THIN = 1;
+		LIGHT = 2;
+		NORMAL = 3;
+		MEDIUM = 4;
+		BOLD = 5;
+		BLACK = 6;
+	}
+
+	Value value = 1;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apps.dynamite;
+
+import "apps/dynamite/shared/app_type.proto";
+import "apps/dynamite/shared/gsuite_app_type.proto";
+
+option objc_class_prefix = "DYNOProto";
+
+message AppId {
+	int64 id = 1;
+	shared.AppType app_type = 2;
+	shared.GsuiteAppType gsuite_app_type = 3;
+}

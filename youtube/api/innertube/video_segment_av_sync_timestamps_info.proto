@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoSegmentAVSyncTimestampsInfo {
+	uint64 user_start_recording_time_ms = 1;
+	uint64 remix_audio_output_start_time_ms = 2;
+	uint64 actual_start_recording_time_ms = 3;
+	uint64 first_input_camera_microphone_time_ms = 4;
+	uint64 first_input_camera_video_frame_time_ms = 5;
+	uint64 first_available_camera_microphone_audio_time_ms = 6;
+	uint64 first_available_camera_video_frame_time_ms = 7;
+	uint64 user_stop_recording_time_ms = 8;
+	uint64 last_input_camera_microphone_audio_time_ms = 9;
+	uint64 last_input_camera_video_frame_time_ms = 10;
+	uint64 actual_stop_recording_time_ms = 11;
+	uint64 last_input_camera_microphone_audio_ending_time_ms = 12;
+	uint64 last_input_camera_video_frame_ending_time_ms = 13;
+	uint64 remix_audio_playout_start_system_time_diff_ms = 14;
+	uint32 camera_frame_count = 15;
+	uint32 effect_process_input_frame_count = 16;
+	uint32 effect_processed_output_frame_count = 17;
+	uint32 encoded_frame_count = 18;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum Sentiment {
+	SENTIMENT_UNSPECIFIED = 0;
+	SENTIMENT_NEUTRAL = 1;
+	SENTIMENT_POSITIVE = 2;
+	SENTIMENT_NEGATIVE = 3;
+}

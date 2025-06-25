@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_client_state_request_data.proto";
+import "youtube/api/innertube/downloads_data_filter.proto";
+import "youtube/api/innertube/downloads_page_refresh_token_entity.proto";
+import "youtube/api/innertube/offline_feature_setting_state.proto";
+import "youtube/api/innertube/offline_client_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsBrowseParams {
+	OfflineClientStateRequestData client_state_request_data = 2;
+	DownloadsDataFilter downloads_data_filter = 3;
+	DownloadsPageRefreshTokenEntity downloads_refresh_token = 4;
+	OfflineFeatureSettingState offline_feature_setting_state = 5;
+	repeated string smart_downloads_video_entities = 6;
+	OfflineClientState offline_client_state = 7;
+}

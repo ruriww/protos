@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package unknown.youtube;
+
+enum OneGoogleMobileIntegrationEnvironmentCategory {
+	UNKNOWN_INTEGRATION_ENVIRONMENT = 0;
+	DIRECT_INTEGRATION_ENVIRONMENT = 1;
+	GSCORE_INTEGRATION_ENVIRONMENT = 2;
+	IDENTITYKIT_INTEGRATION_ENVIRONMENT = 3;
+}

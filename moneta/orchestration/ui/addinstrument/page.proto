@@ -1,0 +1,40 @@
+edition = "2023";
+
+package moneta.orchestration.ui.addinstrument;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+import "moneta/orchestration/ui/common/components/encryption_form.proto";
+
+option objc_class_prefix = "AddInstrument";
+
+message Page {
+	string title = 1;
+	common.generic.InfoMessage page_description = 2;
+	string submit_button_text = 3;
+
+	oneof form {
+		common.components.instrument.InstrumentSelector instrument_selector = 5;
+		common.components.instrument.InstrumentActivationForm instrument_activation_form = 6;
+	}
+
+	common.components.Button submit_button = 7;
+	common.components.Button cancel_button = 8;
+	common.generic.Tooltip tooltip = 9;
+	repeated common.components.legal.LegalMessage legal_message = 10;
+	common.generic.DependencyGraph dependency_graph = 11;
+	int64 ui_reference = 12;
+	repeated common.components.Button button = 13;
+	common.components.Link return_to_link = 14;
+	common.components.webview.WebViewComponent web_view_component = 16;
+	common.components.EncryptionForm encryption_form = 17;
+	common.generic.InfoMessage top_info_message = 18;
+	common.generic.InfoMessage permissions_information = 19;
+}

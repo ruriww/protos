@@ -1,0 +1,10 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message EmailSecurityInfo {
+	bool smtp_server_supports_tls = 1;
+	bool uses_confusing_characters = 2;
+}

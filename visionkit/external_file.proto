@@ -1,0 +1,13 @@
+edition = "2023";
+
+package visionkit;
+
+import "visionkit/file_descriptor_meta.proto";
+
+option objc_class_prefix = "VKS";
+
+message ExternalFile {
+	string file_name = 1;
+	bytes file_content = 2;
+	FileDescriptorMeta file_descriptor_meta = 4;
+}

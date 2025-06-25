@@ -1,0 +1,17 @@
+edition = "2023";
+
+package xeno.effect;
+
+import "drishti/calculator_graph_config.proto";
+import "xeno/effect/asset_registry_proto.proto";
+import "xeno/effect/graph_input_config_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message PreprocessingGraphProto {
+	drishti.CalculatorGraphConfig graph = 1;
+	string input_frame_stream_name = 2;
+	repeated string output_stream_name = 3;
+	AssetRegistryProto assets = 4;
+	GraphInputConfigProto inputs = 5;
+}

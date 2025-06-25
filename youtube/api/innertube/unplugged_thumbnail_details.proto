@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/thumbnail_presentation_style_enum.proto";
+import "youtube/api/innertube/image_scale_type.proto";
+import "youtube/api/innertube/padding_amount.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedThumbnailDetails {
+	ThumbnailDetails thumbnail = 1;
+	ThumbnailPresentationStyleEnum presentation_style = 2;
+	ImageScaleType scale_type = 3;
+	PaddingAmount padding_amount = 4;
+	string background_color = 5;
+	uint32 background_color_value = 6;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/full_screen_image.proto";
+
+option objc_class_prefix = "SGAP";
+
+message Backdrop {
+	oneof type {
+		FullScreenImage full_screen_image = 1;
+	}
+}

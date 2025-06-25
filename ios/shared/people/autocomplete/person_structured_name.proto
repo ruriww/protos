@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+option objc_class_prefix = "PDL";
+
+message PersonStructuredName {
+	string given_name = 4;
+	string family_name = 5;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message CloudCopyEventLogData {
+	enum CloudCopyEventContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CLOUD_COPY_EVENT_CONTEXT = 0;
+		COPY_REQUEST_SENT = 1;
+		COPY_REQUEST_SUCCESS = 2;
+		COPY_REQUEST_FAILURE = 3;
+	}
+
+	CloudCopyEventContext cloud_copy_event_context = 1;
+
+	enum CloudCopyMode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CLOUD_COPY_MODE = 0;
+		TEXT = 1;
+		IMAGE = 2;
+	}
+
+	CloudCopyMode cloud_copy_mode = 2;
+
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_REASON = 0;
+		UNAVAILABLE = 1;
+		TIMEOUT = 2;
+		OTHER = 3;
+	}
+
+	FailureReason failure_reason = 3;
+	int32 copy_request_latency_ms = 4;
+	int64 payload_size_bytes = 5;
+}

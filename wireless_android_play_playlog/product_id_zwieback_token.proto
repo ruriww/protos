@@ -1,0 +1,10 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message ProductIdZwiebackToken {
+	int32 product_id = 1;
+	string zwieback_token = 2;
+}

@@ -1,0 +1,41 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message FontInfo {
+	int32 font_size = 1;
+	double font_size_in_pixels = 2;
+	double letter_spacing = 3 [ default = 0e0 ];
+
+	enum FontTypeEnum {
+		option features.enum_type = CLOSED;
+
+		SERIF = 0;
+		SANS_SERIF = 1;
+		MONOSPACE = 2;
+		DECORATIVE = 3;
+	}
+
+	FontTypeEnum font_type = 4 [ default = SERIF ];
+	bool is_bold = 5;
+	bool is_italic = 6;
+	bool is_underlined = 7;
+	bool is_strikeout = 8;
+	bool is_subscript = 9;
+	bool is_superscript = 10;
+	bool is_smallcaps = 11;
+	int32 font_weight = 12;
+
+	message FontInfoPoint {
+		float x = 1;
+		float y = 2;
+	}
+
+	FontInfoPoint baseline_point = 13;
+	float baseline_height_percentage = 14;
+	FontInfoPoint xheight_point = 15;
+	float xheight_percentage = 16;
+	string font_name = 17;
+}

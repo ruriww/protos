@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/search_item.proto";
+
+option objc_class_prefix = "ASM";
+
+message SearchItemSection {
+	string title = 1;
+	repeated SearchItem search_items = 2;
+	SearchItem fallback_search_item = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentScreenDimensions {
+	uint32 width = 1;
+	uint32 height = 2;
+}

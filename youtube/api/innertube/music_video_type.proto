@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MusicVideoType {
+	option features.enum_type = CLOSED;
+
+	MUSIC_VIDEO_TYPE_UNKNOWN = 0;
+	MUSIC_VIDEO_TYPE_ATV = 1;
+	MUSIC_VIDEO_TYPE_OMV = 2;
+	MUSIC_VIDEO_TYPE_UGC = 3;
+	MUSIC_VIDEO_TYPE_SHOULDER = 4;
+	MUSIC_VIDEO_TYPE_OFFICIAL_SOURCE_MUSIC = 5;
+	MUSIC_VIDEO_TYPE_PRIVATELY_OWNED_TRACK = 6;
+	MUSIC_VIDEO_TYPE_LIVE_STREAM = 7;
+	MUSIC_VIDEO_TYPE_PODCAST_EPISODE = 8;
+}

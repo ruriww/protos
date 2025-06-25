@@ -1,0 +1,30 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.filterable;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FilterableResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		FilterableResultingAction filterable_resulting_action_extension = 440798150;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_SET_QUERY = 1;
+	}
+
+	ResultingActionType action_type = 1;
+
+	message SetQueryAction {
+		string query = 1;
+	}
+
+	oneof resulting_action {
+		SetQueryAction set_query_action = 2;
+	}
+}

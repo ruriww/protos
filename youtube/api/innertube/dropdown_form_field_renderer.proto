@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/dropdown_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DropdownFormFieldRenderer {
+	FormattedString label = 1;
+	string identifier = 2;
+	DropdownSupportedRenderers dropdown = 3;
+	bool disabled = 4;
+	string key = 5;
+	Command on_change = 6;
+	bool autosave = 7;
+}

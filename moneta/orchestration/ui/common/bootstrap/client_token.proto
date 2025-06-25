@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.bootstrap;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/common/bootstrap/client_parameters.proto";
+
+option objc_class_prefix = "Orch";
+
+message ClientToken {
+	RequestContext request_context = 1;
+	ClientParameters client_parameters = 2;
+	repeated RequestContext additional_context = 3;
+}

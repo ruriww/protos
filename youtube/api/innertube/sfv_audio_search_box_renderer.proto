@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvAudioSearchBoxRenderer {
+	FormattedString placeholder_text = 1;
+	Command on_tap = 2;
+	bytes tracking_params = 3;
+	bool auto_on_tap = 5;
+}
+
+extend Renderer {
+	SfvAudioSearchBoxRenderer sfv_audio_search_box_renderer = 321879467;
+}

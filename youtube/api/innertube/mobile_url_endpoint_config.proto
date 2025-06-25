@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileUrlEndpointConfig {
+	bool enable_native_tabs = 1;
+	bool warm_up_native_tabs_service = 2;
+	bool use_primary_app_color = 3;
+	repeated string blocklisted_domains = 4;
+}

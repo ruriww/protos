@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.integrator.ui.genericselector;
+
+option objc_class_prefix = "Orch";
+
+message GenericSelectorEnums {
+	enum Scenario {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ADDRESS_SELECTOR = 1;
+		CUSTOMER_SELECTOR = 2;
+		ADDRESS_COLLECTION = 3;
+		CUSTOMER_SELECTOR_UPDATE_DEFAULT = 4;
+	}
+}

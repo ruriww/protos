@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_button_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedAssistantSuggestionCardRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString reason = 2;
+	FormattedString call_to_action = 3;
+	repeated UnpluggedButtonSupportedRenderers buttons = 4;
+	bytes tracking_params = 5;
+	FormattedString primary_text = 7;
+	FormattedString secondary_text = 8;
+	FormattedString tertiary_text = 9;
+	UnpluggedButtonSupportedRenderers negative_button = 10;
+	UnpluggedButtonSupportedRenderers positive_button = 11;
+	Command thumbnail_navigation_endpoint = 12;
+	UnpluggedSubscribeButtonSupportedRenderers subscribe_button = 13;
+	string debug_string = 14;
+	MenuSupportedRenderers menu = 15;
+	UnpluggedButtonSupportedRenderers bell_follow_button = 16;
+}
+
+extend Renderer {
+	UnpluggedAssistantSuggestionCardRenderer unplugged_assistant_suggestion_card_renderer = 115613693;
+}

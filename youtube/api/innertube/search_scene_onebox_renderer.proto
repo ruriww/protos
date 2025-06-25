@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/search_scene_onebox_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchSceneOneboxRenderer {
+	FormattedString title = 1;
+	repeated SearchSceneOneboxSupportedRenderers contents = 2;
+	FormattedString scene_mode_text = 3;
+	Command scene_mode_endpoint = 4;
+	bytes tracking_params = 6;
+}
+
+extend Renderer {
+	SearchSceneOneboxRenderer search_scene_onebox_renderer = 67617204;
+}

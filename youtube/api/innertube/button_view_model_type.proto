@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ButtonViewModelType {
+	option features.enum_type = CLOSED;
+
+	BUTTON_VIEW_MODEL_TYPE_UNKNOWN = 0;
+	BUTTON_VIEW_MODEL_TYPE_FILLED = 1;
+	BUTTON_VIEW_MODEL_TYPE_OUTLINE = 2;
+	BUTTON_VIEW_MODEL_TYPE_TEXT = 3;
+	BUTTON_VIEW_MODEL_TYPE_TONAL = 5;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+message MdeImageInfo {
+	int32 resolution_width = 1;
+	int32 resolution_height = 2;
+	bool is_gif = 3;
+}

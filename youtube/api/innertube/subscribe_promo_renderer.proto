@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SubscribePromoRenderer {
+	FormattedString promo_headline = 1;
+	FormattedString promo_subtitle = 2;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	SubscribePromoRenderer subscribe_proto_renderer = 91635189;
+}

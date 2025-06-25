@@ -1,0 +1,12 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/android_font_manager.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message FontManagersParams {
+	AndroidFontManager android_font_manager = 1;
+	int64 dynamic_font_manager_native_handle = 2;
+}

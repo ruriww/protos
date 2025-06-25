@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ComputeDefaultDateTimePickerDateCommand {
+	extend elements.Command {
+		ComputeDefaultDateTimePickerDateCommand compute_default_date_time_picker_date_command = 296054159;
+	}
+
+	string privacy_picker_state_key = 1;
+	string result_entity_key = 2;
+}

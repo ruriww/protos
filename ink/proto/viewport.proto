@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/orientation.proto";
+import "ink/proto/vertical_flip.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Viewport {
+	uint32 width = 1;
+	uint32 height = 2;
+	float ppi = 3;
+	float num_hardware_px_per_virtual_px = 5 [ default = 1 ];
+	Orientation screen_orientation = 6 [ default = ORIENTATION_0 ];
+	VerticalFlip vertical_flip = 7;
+}

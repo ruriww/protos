@@ -1,0 +1,21 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/assistive_feature_type.proto";
+import "logs/people/intelligence/rpc_response_code_count.proto";
+
+option objc_class_prefix = "PIL";
+
+message RpcFeatureResponseMetadata {
+	AssistiveFeatureType feature_type = 1;
+	repeated string request_id = 2;
+	string response_id = 3;
+	repeated RpcResponseCodeCount rpc_code_count = 4;
+	int32 bad_data_count = 5;
+	int32 processed_count = 6;
+	int32 total_count = 7;
+	int32 missing_metadata_count = 8;
+	bool internal_error_occurred = 9;
+	int64 duration_usec = 10;
+}

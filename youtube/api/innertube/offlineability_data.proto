@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/offline_object_type.proto";
+import "youtube/api/innertube/download_quality_settings_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineabilityData {
+	OfflineabilityFormatType offlineability_format_type = 1;
+	bool is_default_format_type = 2;
+	OfflineModeType offline_mode_type = 3;
+	OfflineObjectType offline_object_type = 4;
+	string offline_id = 5;
+	DownloadQualitySettingsAction download_quality_settings_action = 6;
+}

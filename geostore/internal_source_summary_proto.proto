@@ -1,0 +1,12 @@
+edition = "2023";
+
+package geostore;
+
+import "geostore/data_source_provider.proto";
+
+option objc_class_prefix = "GS";
+
+message InternalSourceSummaryProto {
+	DataSourceProvider.Provider provider = 1 [ default = PROVIDER_UNKNOWN ];
+	string dataset = 2;
+}

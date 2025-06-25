@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/companion_ad_renderer.proto";
+import "youtube/api/innertube/app_promo_companion_ad_renderer.proto";
+import "youtube/api/innertube/shopping_companion_ad_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/multi_item_companion_ad_renderer.proto";
+import "youtube/api/innertube/below_player_ad_layout_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerCompanionAdsSupportedRenderers {
+	oneof renderer {
+		CompanionAdRenderer companion_ad_renderer = 55514441;
+		AppPromoCompanionAdRenderer app_promo_companion_ad_renderer = 65002523;
+		ShoppingCompanionAdRenderer shopping_companion_ad_renderer = 114449537;
+		ElementRenderer element_renderer = 153515154;
+		MultiItemCompanionAdRenderer multi_item_companion_ad_renderer = 156112846;
+		BelowPlayerAdLayoutRenderer below_player_ad_layout_renderer = 361588638;
+	}
+}

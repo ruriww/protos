@@ -1,0 +1,12 @@
+edition = "2023";
+
+package peoplestack.flexorgs.proto;
+
+option objc_class_prefix = "PSKFO";
+
+enum InternalExternalContextType {
+	option features.enum_type = CLOSED;
+
+	INTERNAL_EXTERNAL_CONTEXT_UNSPECIFIED = 0;
+	AUTOCOMPLETE = 1;
+}

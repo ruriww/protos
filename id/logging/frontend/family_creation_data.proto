@@ -1,0 +1,70 @@
+edition = "2023";
+
+package id.logging.frontend;
+
+import "kids/families/app_id.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message FamilyCreationData {
+	enum ActionType {
+		option features.enum_type = CLOSED;
+
+		ACTION_TYPE_UNSPECIFIED = 0;
+		EDUCATION_PAGE_VIEW = 1;
+		CONFIRMATION_PAGE_VIEW = 2;
+		CREATE_FAMILY_ERROR = 3;
+		CREATE_FAMILY_SUCCESS = 4;
+		TRIGGER_CREATION_FLOW_FROM_NATIVE = 5;
+		NATIVE_CREATION_FLOW_ENDED = 6;
+		FORM_OF_PAYMENTS_SET_UP_SUCCESSFUL = 7;
+		FORM_OF_PAYMENTS_SET_UP_FAILED = 8;
+		FORM_OF_PAYMENTS_LANDING_PAGE_VIEW = 9;
+		FORM_OF_PAYMENTS_CANCEL_BUTTON = 10;
+		FORM_OF_PAYMENTS_SET_UP_BUTTON = 11;
+		FORM_OF_PAYMENTS_CAN_UPGRADE_ERROR = 12;
+		TERMS_OF_SERVICE_PAGE_VIEW = 13;
+		TERMS_OF_SERVICE_PAGE_CANCEL_BUTTON = 14;
+		TERMS_OF_SERVICE_PAGE_CONTINUE_BUTTON = 15;
+		CONFIRMATION_PAGE_CANCEL_BUTTON = 16;
+	}
+
+	ActionType action_type = 1;
+
+	message ActionDetails {
+		message NativeResultStatusDetails {
+			enum NativeResultStatus {
+				option features.enum_type = CLOSED;
+
+				NATIVE_RESULT_STATUS_UNSPECIFIED = 0;
+				OK = 1;
+				CANCELED = 2;
+			}
+
+			NativeResultStatus native_result_status = 1;
+		}
+
+		NativeResultStatusDetails native_result_status_details = 2;
+		kids.families.AppId app_id = 4;
+		bool is_webview = 5;
+	}
+
+	ActionDetails action_details = 2;
+
+	message ClientInfo {
+		kids.families.AppId app_id = 1;
+		int32 version = 2;
+
+		enum Referrer {
+			option features.enum_type = CLOSED;
+
+			REFERRER_UNSPECIFIED = 0;
+			ANDROID = 1;
+			IOS = 2;
+		}
+
+		Referrer referrer = 3;
+	}
+
+	ClientInfo client_info = 3;
+}

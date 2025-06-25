@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum QueryType {
+	option features.enum_type = CLOSED;
+
+	UNSPECIFIED = 0;
+	TEXT = 1;
+	LATEX = 2;
+}

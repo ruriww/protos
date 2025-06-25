@@ -1,0 +1,29 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message VrClientInfo {
+	enum VrClientType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		ANDROID_CARDBOARD_SDK = 1;
+		IOS_CARDBOARD_SDK = 2;
+		ANDROID_UNITY_SDK = 3;
+		IOS_UNITY_SDK = 4;
+		WINDOWS = 5;
+	}
+
+	VrClientType vr_client_type = 1;
+	string sdk_version = 2;
+	string fingerprint = 3;
+	string gvr_version = 4;
+	string manufacturer = 5;
+	string model = 6;
+	string language = 7;
+	string country = 8;
+	string unity_version = 9;
+	string unity_sdk_version = 10;
+}

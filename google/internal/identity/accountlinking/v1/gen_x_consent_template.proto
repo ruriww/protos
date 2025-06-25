@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message GenXConsentTemplate {
+	string consent_template_key = 1;
+	string learn_more_template_key = 2;
+}

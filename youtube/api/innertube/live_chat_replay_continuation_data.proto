@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatReplayContinuationData {
+	extend ContinuationData {
+		LiveChatReplayContinuationData live_chat_replay_continuation_data = 145131358;
+	}
+
+	int32 time_until_last_message_msec = 1;
+	string continuation = 2;
+	bytes click_tracking_params = 3;
+}

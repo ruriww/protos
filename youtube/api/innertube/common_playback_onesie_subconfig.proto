@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommonPlaybackOnesieSubconfig {
+	string url = 1;
+	bool play_audio_only = 2;
+	string url_query_override = 3;
+	bytes ustreamer_config = 4;
+}

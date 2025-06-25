@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_music_playlist_data.proto";
+import "youtube/api/innertube/offline_bundle_item_playlist_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinePlaylistAdditionalSupportedDatas {
+	OfflineMusicPlaylistData offline_music_playlist_data = 138801204;
+	OfflineBundleItemPlaylistData offline_bundle_item_playlist_data = 223030221;
+}

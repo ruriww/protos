@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosNetworkStackType {
+	option features.enum_type = CLOSED;
+
+	IOS_NETWORK_STACK_TYPE_UNKNOWN = 0;
+	IOS_NETWORK_STACK_TYPE_CRONET_NATIVE = 1;
+	IOS_NETWORK_STACK_TYPE_NSURLSESSION = 2;
+	IOS_NETWORK_STACK_TYPE_ENVOY = 3;
+}

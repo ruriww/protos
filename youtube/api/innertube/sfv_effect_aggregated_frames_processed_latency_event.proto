@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sfv_effect_histogram_bucket.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvEffectAggregatedFramesProcessedLatencyEvent {
+	int64 initial_frame_event_time_ms = 1;
+	int32 frame_count = 2;
+	float frame_latency_standard_deviation_ms = 4;
+	repeated SfvEffectHistogramBucket frame_latency_histogram = 5;
+	float frame_latency_mean_float_ms = 6;
+	int64 initial_frame_monotonic_time_ms = 7;
+	int64 final_frame_monotonic_time_ms = 8;
+	SfvEffectPipelineData pipeline_data = 9;
+}

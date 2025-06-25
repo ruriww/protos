@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.common;
+
+option objc_class_prefix = "LNSAPI";
+
+enum WritingDirection {
+	DEFAULT_WRITING_DIRECTION_LEFT_TO_RIGHT = 0;
+	WRITING_DIRECTION_RIGHT_TO_LEFT = 1;
+	WRITING_DIRECTION_TOP_TO_BOTTOM = 2;
+}

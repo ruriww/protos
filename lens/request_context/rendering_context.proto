@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "lens/request_context/rendering_environment.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message RenderingContext {
+	string web_markup_script_nonce = 1;
+	RenderingEnvironment rendering_environment = 2;
+}

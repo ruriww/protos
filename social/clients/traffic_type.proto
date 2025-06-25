@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.clients;
+
+option objc_class_prefix = "SC";
+
+enum TrafficType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_TRAFFIC_TYPE = 110;
+	USER_INITIATED = 100;
+	USER_FACING_POLL = 90;
+	BACKGROUND_POLL = 50;
+	DARK_LAUNCH = 40;
+	MONITORING = 30;
+	INTERNAL_PROCESS = 20;
+}

@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/interactivity_widget_position.proto";
+import "youtube/api/innertube/interactivity_widget_animation_type.proto";
+import "youtube/api/innertube/interactivity_widget_preload_image.proto";
+import "youtube/api/innertube/interactivity_widget_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InteractivityWidgetRenderer {
+	extend Renderer {
+		InteractivityWidgetRenderer interactivity_widget_renderer = 1146;
+	}
+
+	string id = 1;
+	InteractivityWidgetPosition position = 2;
+	int32 timeout_ms = 3;
+	InteractivityWidgetAnimationType enter_animation = 4;
+	InteractivityWidgetAnimationType exit_animation = 5;
+	Renderer content = 6;
+	repeated InteractivityWidgetPreloadImage preload_images = 7;
+	InteractivityWidgetType type = 8;
+	Command update_widget_endpoint = 9;
+	Command remove_widget_endpoint = 10;
+	string queue_id = 11;
+	int32 priority = 12;
+}

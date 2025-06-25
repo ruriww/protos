@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/image_attachment_source.proto";
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImageAttachmentEntity {
+	string key = 1;
+	repeated ImageAttachmentSource sources = 2;
+	float aspect_ratio = 3;
+	string image_upload_failure_error_message = 4;
+	elements.Command retry_upload_command = 5;
+	string accessibility_text = 6;
+	bool set_animated_gif_hint = 7;
+	bool set_animated_webp_hint = 8;
+	repeated ImageAttachmentSource full_size_image_sources = 9;
+}

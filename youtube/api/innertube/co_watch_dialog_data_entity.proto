@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CoWatchDialogDataEntity {
+	extend EntityMutationPayload {
+		CoWatchDialogDataEntity co_watch_dialog_data_entity = 390;
+	}
+
+	string key = 1;
+	Icon icon = 2;
+	FormattedString title = 3;
+	FormattedString body = 4;
+	FormattedString confirm_text = 5;
+	FormattedString cancel_text = 6;
+}

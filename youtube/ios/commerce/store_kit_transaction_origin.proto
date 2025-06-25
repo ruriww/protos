@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.ios.commerce;
+
+option objc_class_prefix = "YTIAP";
+
+enum StoreKitTransactionOrigin {
+	option features.enum_type = CLOSED;
+
+	STORE_KIT_TRANSACTION_ORIGIN_UNSPECIFIED = 0;
+	STORE_KIT_TRANSACTION_ORIGIN_USER_INITIATED = 1;
+	STORE_KIT_TRANSACTION_ORIGIN_SYSTEM_INITIATED = 2;
+	STORE_KIT_TRANSACTION_ORIGIN_DESERIALIZED = 3;
+}

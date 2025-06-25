@@ -1,0 +1,122 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "speech/common/recognition_context.proto";
+import "speech/s3/hotword_metadata.proto";
+import "greco/diarization_params.proto";
+
+option objc_class_prefix = "S3";
+
+message RecognizerInfo {
+	extend Request {
+		RecognizerInfo recognizer_info = 294500;
+	}
+
+	common.RecognitionContext recognition_context = 1;
+	int32 max_nbest = 3 [ default = 1 ];
+	bool enable_partial_results = 5 [ default = false ];
+	bool enable_lattice = 6 [ default = false ];
+	int32 profanity_filter = 7 [ default = 2 ];
+	float confidence_threshold = 8 [ default = 0e0 ];
+	string condition = 10;
+	bool dictation_mode = 11 [ default = false ];
+	bool enable_semantic_results = 12 [ default = false ];
+	bool enable_alternates = 13 [ default = false ];
+	bool enable_combined_nbest = 14 [ default = false ];
+	bool greco2_compat_mode = 15 [ default = false ];
+	bool enable_personalization = 16 [ default = false ];
+	bool logging_data_requested = 17 [ default = false ];
+	bool log_features_only = 18 [ default = false ];
+	int32 reset_interval_ms = 19;
+	bool enable_endpointer_events = 20 [ default = false ];
+	bool enable_partial_nbest = 21;
+	bool enable_result_prefetch = 22;
+	bool enable_partial_confidence_scores = 23;
+	bool enable_audio_frame_count = 24;
+
+	message PreambleMetadata {
+		enum PreambleType {
+			option features.enum_type = CLOSED;
+
+			NO_PREAMBLE = 0;
+			HOTWORD = 1;
+			MICROPHONE_TAP = 2;
+			ENROLLMENT = 3;
+			SEAMLESS_HOTWORD = 4;
+			SEAMLESS_MICROPHONE_TAP = 5;
+			SEAMLESS_HOTWORD_BEEP = 6;
+			SEAMLESS_MICROPHONE_TAP_BEEP = 7;
+			MAGIC_MIC_PREAMBLE = 8;
+			SEAMLESS_TTS = 9;
+			INSTANT_SOUND_SEARCH_PREAMBLE = 12;
+			HOTWORD_BARGE_IN_ERASED_PREAMBLE = 13;
+			HOTWORD_BARGE_IN_PREAMBLE = 14;
+			HOTWORD_BARGE_IN_TTS = 15;
+			ENROLLMENT_GOOGLE_HOME = 16;
+			ENROLLMENT_INDIGO = 17;
+			HEY_ROBOT_PREAMBLE = 18;
+			HOTGAZE_PREAMBLE = 19;
+			ENROLLMENT_TISID = 20;
+			HOTQUERY = 21;
+		}
+
+		PreambleType preamble_type = 1 [ default = NO_PREAMBLE ];
+	}
+
+	PreambleMetadata preamble_metadata = 25;
+	bool enable_recognizer_deadlines = 26 [ default = true ];
+	bool enable_decoder_events = 27;
+	HotwordMetadata hotword_metadata = 28;
+	bool enable_predicted_recognition_events = 30;
+	bool enable_queued_audio_events = 32;
+	bool decode_and_drop_preamble_audio = 34;
+	float predicted_recognition_probability_threshold = 35 [ default = 1 ];
+	bool enable_audio_level_events = 36;
+	bool apply_preamble_based_dynamic_scale = 38;
+	bool allow_language_geo_override = 39 [ default = true ];
+	bool enable_automatic_punctuation = 40;
+	bool return_recognizer_metadata = 41;
+	bool enable_speaker_diarization = 42 [ default = false ];
+	greco.DiarizationParams speaker_diarization_params = 43;
+	string acoustic_cluster = 44;
+	bool enable_request_aware_recognition = 45;
+	bool enable_multi_lang_events = 46;
+	string previous_transcript = 48;
+	bool enable_utterance_id_event = 49;
+	string experiment_recognizer_routing_key = 50;
+	bool enable_speech_descriptor = 51 [ default = false ];
+	bool enable_spoken_punctuation = 52;
+	bool enable_spoken_emoji = 53;
+	bool is_googler_traffic = 54;
+	bool enable_partner_badwords = 55;
+	bool enable_recognizer_location_output = 56 [ default = false ];
+	bool enable_server_bail = 57;
+	bool enable_voice_filter = 58;
+	int32 multilang_recognizer_time_to_wait_override_ms = 59;
+	repeated string experiment_recognizer_routing_keys = 60;
+	int32 max_expansions_override = 61;
+	bool enable_word_alignment = 62;
+	string partner_recognizer_routing_key = 63;
+	string secondary_routing_key = 64;
+	bool first_result_only = 65;
+	bool force_disable_cleanformer = 68;
+
+	oneof dma_setting {
+		bool enable_dma_explicit_early_enforcement = 69;
+		bool enable_dma_enforcement_discovery = 74;
+	}
+
+	repeated string append_additional_languages = 70;
+	bool allow_canonicalization = 71 [ default = true ];
+	bool force_disable_nes = 72;
+	bool enable_nonstreaming_optimizations = 75;
+	int64 predicted_recognition_partner_id = 76;
+	bool enable_eou_on_tts_finished_for_nonspeech = 77;
+	bool return_preprocessed_audio = 78;
+	bool enable_token_outputs = 79;
+	bool enable_signal_quality_metrics = 80;
+	bool enable_speech_detection_events = 81;
+	bool enable_audio_query_embedding = 82;
+}

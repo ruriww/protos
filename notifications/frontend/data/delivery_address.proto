@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/apple_push_address.proto";
+
+option objc_class_prefix = "NFD";
+
+message DeliveryAddress {
+	oneof address {
+		ApplePushAddress apple_address = 3;
+	}
+}

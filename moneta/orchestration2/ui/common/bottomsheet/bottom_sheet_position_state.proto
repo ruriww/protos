@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+option objc_class_prefix = "ORCH2";
+
+enum BottomSheetPositionState {
+	option features.enum_type = CLOSED;
+
+	BOTTOM_SHEET_POSITION_STATE_UNKNOWN = 0;
+	BOTTOM_SHEET_POSITION_STATE_COLLAPSED = 1;
+	BOTTOM_SHEET_POSITION_STATE_PARTIALLY_EXPANDED = 2;
+	BOTTOM_SHEET_POSITION_STATE_EXPANDED = 3;
+	BOTTOM_SHEET_POSITION_STATE_HIDDEN = 4;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package drishti;
+
+import "xeno/effect/runtime_options_proto.proto";
+import "drishti/affine_transform_data.proto";
+
+option objc_class_prefix = "Drishti";
+
+message AffineTransformRuntimeOptions {
+	extend xeno.effect.RuntimeOptionsProto {
+		AffineTransformRuntimeOptions affine_transform_runtime_options = 392045369;
+	}
+
+	AffineTransformData transform_data = 1;
+}

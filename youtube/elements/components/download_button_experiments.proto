@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadButtonExperiments {
+	bool enable_new_icon = 2;
+	bool enable_new_static_icon_only = 3;
+	bool use_static_icon_color = 4;
+	bool use_text_disabled_icon_color = 5;
+	bool handle_ve_logging_in_child_component = 6;
+}

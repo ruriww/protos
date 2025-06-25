@@ -1,0 +1,26 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message Nickname {
+	PersonFieldMetadata metadata = 1;
+	string value = 2;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		NICKNAME_UNKNOWN = 6;
+		DEFAULT = 0;
+		OTHER_NAME = 1;
+		MAIDEN_NAME = 2;
+		SHORT_NAME = 3;
+		INITIALS = 4;
+		ALTERNATE_NAME = 5;
+	}
+
+	Type type = 3 [ default = DEFAULT ];
+}

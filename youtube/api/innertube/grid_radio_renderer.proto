@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/main_app_grid_renderer_style.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridRadioRenderer {
+	string playlist_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	ThumbnailDetails overlay_image = 4;
+	Command navigation_endpoint = 5;
+	string debug_html = 6;
+	FormattedString video_count_text = 7;
+	Command secondary_navigation_endpoint = 9;
+	FormattedString short_byline_text = 10;
+	FormattedString long_byline_text = 11;
+	bytes tracking_params = 12;
+	repeated Command service_endpoints = 13;
+	FormattedString thumbnail_text = 14;
+	FormattedString video_count_short_text = 15;
+	MenuSupportedRenderers menu = 16;
+	string share_url = 17;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 18;
+	MainAppGridRendererStyle main_app_style = 19;
+	Command inline_playback_endpoint = 20;
+}
+
+extend Renderer {
+	GridRadioRenderer grid_radio_renderer = 60373578;
+}

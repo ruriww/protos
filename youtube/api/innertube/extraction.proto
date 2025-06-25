@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/extraction_type.proto";
+import "youtube/api/innertube/extraction_input.proto";
+import "youtube/api/innertube/extraction_output.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Extraction {
+	ExtractionType extraction_type = 1;
+	repeated ExtractionInput input = 2;
+	repeated ExtractionOutput output = 3;
+}

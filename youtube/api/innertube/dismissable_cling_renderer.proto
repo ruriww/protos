@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/dismissable_cling_type.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DismissableClingRenderer {
+	FormattedString message_text = 1;
+	ButtonSupportedRenderers dismiss_button = 2;
+	bytes tracking_params = 4;
+	DismissableClingType cling_type = 5;
+	repeated Command impression_endpoints = 6;
+	FormattedString title_text = 7;
+}
+
+extend Renderer {
+	DismissableClingRenderer dismissable_cling_renderer = 102365781;
+}

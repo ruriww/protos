@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/info_card_image.proto";
+import "youtube/api/innertube/info_card_tracking_event.proto";
+import "youtube/api/innertube/sk_ad_network_yt_parameters.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InfoCardAction {
+	string id = 2;
+	string link_url = 3;
+	string title = 4;
+	InfoCardImage image = 5;
+	repeated InfoCardTrackingEvent event = 6;
+	string target = 7;
+	string priority = 8;
+	SkAdNetworkYTParameters sk_ad_network_parameters = 9;
+	string play_store_url = 10;
+	bool is_panel_action = 11;
+	bool clickthrough_interstitial_required = 12;
+	bool log_ve_based_ad_click_termination = 13;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/downloads_search_document.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsSearchIndexSnapshot {
+	int64 database_size_kbytes = 1;
+	int64 num_alive_documents = 2;
+	int64 num_alive_namespaces = 3;
+	repeated DownloadsSearchDocument documents = 4;
+}

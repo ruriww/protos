@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.chip;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/image/image_url_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ChipNode {
+	extend node.Node {
+		ChipNode chip_node_extension = 340762285;
+	}
+
+	image.ImageUrlOptions leading_icon_fife_option = 1;
+}

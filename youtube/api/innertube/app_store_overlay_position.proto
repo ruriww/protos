@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum AppStoreOverlayPosition {
+	option features.enum_type = CLOSED;
+
+	APP_STORE_OVERLAY_POSITION_UNKNOWN = 0;
+	APP_STORE_OVERLAY_POSITION_BOTTOM = 1;
+	APP_STORE_OVERLAY_POSITION_BOTTOM_RAISED = 2;
+}

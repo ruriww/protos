@@ -1,0 +1,17 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/rs_read_state.proto";
+import "notifications/frontend/data/common/ds_deletion_status.proto";
+import "notifications/frontend/data/common/cb_count_behavior.proto";
+import "notifications/frontend/data/common/stb_system_tray_behavior.proto";
+
+option objc_class_prefix = "NFDC";
+
+message ThreadState {
+	RSReadState read_state = 1;
+	DSDeletionStatus deletion_status = 2;
+	CBCountBehavior count_behavior = 3;
+	STBSystemTrayBehavior system_tray_behavior = 4;
+}

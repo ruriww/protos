@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_orchestration_action_metadata.proto";
+import "youtube/api/innertube/browse_request_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtMainDownloadsListEntityActionMetadata {
+	extend OfflineOrchestrationActionMetadata {
+		YtMainDownloadsListEntityActionMetadata yt_main_downloads_list_entity_action_metadata = 407110990;
+	}
+
+	BrowseRequestContext browse_request_context = 1;
+	bool should_not_refresh_content = 2;
+	bool should_do_offline_refresh = 3;
+}

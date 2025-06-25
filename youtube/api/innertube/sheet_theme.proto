@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SheetTheme {
+	option features.enum_type = CLOSED;
+
+	SHEET_THEME_UNSPECIFIED = 0;
+	SHEET_THEME_ADOPT_PARENT_PAGE = 1;
+	SHEET_THEME_APP_WIDE = 2;
+	SHEET_THEME_FORCE_DARK = 3;
+}

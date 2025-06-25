@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TrendIndicator {
+	FormattedString display_value = 1;
+
+	enum TrendType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TREND = 0;
+		HORIZONTAL_TREND = 1;
+		UP_TREND = 2;
+		DOWN_TREND = 3;
+		BELOW_TYPICAL = 4;
+		ABOVE_TYPICAL = 5;
+		TYPICAL = 6;
+	}
+
+	TrendType trend_type = 2;
+}

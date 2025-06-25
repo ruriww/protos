@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/header.proto";
+import "youtube/api/innertube/macro.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LoggingUrl {
+	string base_url = 1;
+	repeated Header headers = 2;
+	repeated Macro macros = 3;
+}

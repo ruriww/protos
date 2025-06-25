@@ -1,0 +1,8 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+message ReportAppFlipOutcomeResponse {
+}

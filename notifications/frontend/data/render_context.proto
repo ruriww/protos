@@ -1,0 +1,135 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/common/internal_features.proto";
+import "notifications/frontend/data/common/supported_features.proto";
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "NFD";
+
+message RenderContext {
+	string language_code = 1;
+
+	message DeviceInfo {
+		float device_pixel_ratio = 2;
+		string app_version = 3;
+		string os_version = 4;
+		string os_build_id = 5;
+		string os_model = 6;
+		int32 android_sdk_version = 7;
+		string device_manufacturer = 8;
+
+		enum SdkType {
+			option features.enum_type = CLOSED;
+
+			SDK_TYPE_UNSPECIFIED = 0;
+			CUSTOM = 1;
+			GUNS = 2;
+			CHIME = 3;
+			GUNS_GMSCORE = 4;
+			RAW_FCM_GMSCORE = 5;
+		}
+
+		SdkType sdk_type = 9;
+		string sdk_version = 10;
+		string device_name = 11;
+
+		enum AppBlockState {
+			option features.enum_type = CLOSED;
+
+			APP_BLOCK_STATE_UNKNOWN = 0;
+			ALLOWED = 1;
+			BANNED = 2;
+		}
+
+		AppBlockState app_block_state = 14;
+		string country_code = 15;
+		common.InternalFeatures internal_features = 16;
+		common.SupportedFeatures supported_features = 17;
+
+		enum IosAuthorizationStatus {
+			option features.enum_type = CLOSED;
+
+			IOS_AUTHORIZATION_STATUS_UNSPECIFIED = 0;
+			NOT_DETERMINED = 1;
+			DENIED = 2;
+			AUTHORIZED = 3;
+			PROVISIONAL = 4;
+		}
+
+		IosAuthorizationStatus ios_authorization_status = 19;
+
+		message IosNotificationPermissions {
+			enum NotificationSetting {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN_NOTIFICATION_SETTING = 0;
+				NOT_SUPPORTED = 1;
+				DISABLED = 2;
+				ENABLED = 3;
+			}
+
+			NotificationSetting sound_setting = 1;
+			NotificationSetting badge_setting = 2;
+			NotificationSetting alert_setting = 3;
+			NotificationSetting notification_center_setting = 4;
+			NotificationSetting lock_screen_setting = 5;
+			NotificationSetting car_play_setting = 6;
+
+			enum AlertStyle {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN_ALERT_STYLE = 0;
+				NONE = 1;
+				BANNER = 2;
+				ALERT = 3;
+			}
+
+			AlertStyle alert_style = 7;
+
+			enum ShowPreviewsSetting {
+				option features.enum_type = CLOSED;
+
+				UNKNOWN_SHOW_PREVIEWS_SETTING = 0;
+				NEVER = 1;
+				ALWAYS = 2;
+				WHEN_AUTHENTICATED = 3;
+			}
+
+			ShowPreviewsSetting show_previews_setting = 8;
+			NotificationSetting critical_alert_setting = 9;
+			NotificationSetting scheduled_delivery_setting = 10;
+			NotificationSetting time_sensitive_setting = 11;
+			NotificationSetting announcement_setting = 12;
+			NotificationSetting ai_summarization_setting = 13;
+			NotificationSetting ai_prioritization_setting = 14;
+		}
+
+		IosNotificationPermissions ios_notification_permissions = 20;
+
+		message IosContext {
+			string live_activity_id = 1;
+		}
+
+		IosContext ios_context = 21;
+
+		enum IosSdkGeneration {
+			option features.enum_type = CLOSED;
+
+			IOS_SDK_GENERATION_UNSPECIFIED = 0;
+			CHIME_LEGACY = 1;
+			GNP_SRL = 2;
+		}
+
+		IosSdkGeneration ios_sdk_generation = 23;
+		string app_version_code = 24;
+	}
+
+	DeviceInfo device_info = 3;
+	string time_zone = 4;
+	string app_language_code = 5;
+	string user_language_code = 6;
+	string user_time_zone = 7;
+	google.protobuf.Any device_payload = 30;
+}

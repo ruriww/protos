@@ -1,0 +1,22 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+import "lens/lens_disambiguation_request.proto";
+import "lens/lens_refinement_actions.proto";
+import "lens/multimodal_text_query.proto";
+
+option objc_class_prefix = "LNSAE";
+
+message QueryRequestMetadata {
+	repeated lens.LensDisambiguationRequest disambiguation_request = 1;
+	lens.LensRefinementActions refinement_action = 2;
+	lens.MultimodalTextQuery multimodal_text_query = 4;
+
+	message UddChipMetadata {
+		int32 udm = 1;
+		string udf = 2;
+	}
+
+	UddChipMetadata udd_chip_metadata = 6;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.integrator.common;
+
+option objc_class_prefix = "Orch";
+
+message PurchaseOrderId {
+	int32 billable_service = 1;
+	string request_id = 2;
+}

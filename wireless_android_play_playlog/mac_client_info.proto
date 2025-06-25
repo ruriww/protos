@@ -1,0 +1,15 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message MacClientInfo {
+	string os_major_version = 1;
+	string os_full_version = 2;
+	string application_build = 3;
+	string country = 4;
+	int64 application_build_cl = 5;
+	int32 clearcut_version = 6;
+	string application_bundle_id = 7;
+}

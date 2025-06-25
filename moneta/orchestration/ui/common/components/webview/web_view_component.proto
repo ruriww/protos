@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.webview;
+
+import "moneta/orchestration/ui/common/components/redirect/redirect_form.proto";
+
+option objc_class_prefix = "Orch";
+
+message WebViewComponent {
+	redirect.RedirectForm redirect_form = 1;
+	string title = 2;
+}

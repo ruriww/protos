@@ -1,0 +1,12 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+option objc_class_prefix = "GCKOC";
+
+enum DeviceCapability {
+	option features.enum_type = CLOSED;
+
+	AUDIO_OUT_SUPPORTED = 1;
+	VIDEO_OUT_SUPPORTED = 2;
+}

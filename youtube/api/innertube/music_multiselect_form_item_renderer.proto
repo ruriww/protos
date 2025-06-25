@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicMultiselectFormItemRenderer {
+	FormattedString name = 1;
+	bool is_preselected = 2;
+	string selection_form_value = 3;
+	string impression_form_value = 4;
+	bytes tracking_params = 6;
+}

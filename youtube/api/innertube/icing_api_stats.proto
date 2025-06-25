@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icing_search_stats.proto";
+import "youtube/api/innertube/icing_initialize_stats.proto";
+import "youtube/api/innertube/icing_put_document_stats.proto";
+import "youtube/api/innertube/icing_delete_document_stats.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IcingApiStats {
+	oneof stats {
+		IcingSearchStats search_stats = 2;
+		IcingInitializeStats initialize_stats = 3;
+		IcingPutDocumentStats put_stats = 4;
+		IcingDeleteDocumentStats delete_stats = 5;
+	}
+}

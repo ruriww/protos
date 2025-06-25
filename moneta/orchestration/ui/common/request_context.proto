@@ -1,0 +1,51 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+import "moneta/orchestration/ui/common/native_client_context.proto";
+import "moneta/api/experiment_context_pb.proto";
+import "moneta/orchestration2/ui/common/request_context.proto";
+
+option objc_class_prefix = "Orch";
+
+message RequestContext {
+	bytes session_data = 2;
+	string language_code = 7;
+
+	enum ClientType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WEB = 1;
+		ANDROID = 2;
+		IOS = 3;
+		ASSISTANT_DEVICE = 4;
+	}
+
+	ClientType client_type = 8;
+	int64 client_version = 9;
+
+	oneof client_context {
+		NativeClientContext native_context = 10;
+	}
+
+	string request_id = 11;
+	api.ExperimentContextPb experiment_context = 12;
+	bool is_prefetch_request = 13;
+	repeated string accounts = 19;
+
+	message AuthContext {
+		repeated string signature_based_authentication_key_id = 1;
+		bool is_device_fido_compatible = 2;
+		bytes product_auth_token = 3;
+	}
+
+	AuthContext auth_context = 21;
+	string client_session_id = 22;
+	orchestration2.ui.common.RequestContext.IntegratorStyleParameters o2_integrator_style_parameters = 23;
+	orchestration2.ui.common.RequestContext.IntegratorControlledSubmit integrator_controlled_submit = 24;
+	int32 account_count = 25;
+	int32 current_account_index = 26;
+	repeated int32 client_test_code = 28;
+	string csesidx = 29;
+}

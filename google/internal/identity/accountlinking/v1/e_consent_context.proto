@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum EConsentContext {
+	CONSENT_CONTEXT_UNSPECIFIED = 0;
+	WEB_CONSENT = 1;
+	VOICE = 2;
+	SMART_DISPLAY = 3;
+	LINK_MANAGEMENT = 4;
+}

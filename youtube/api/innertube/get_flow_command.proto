@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/flow_state_passing_spec.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetFlowCommand {
+	extend Command {
+		GetFlowCommand get_flow_command = 371825303;
+	}
+
+	string flow_id = 1;
+	string target_id = 2;
+	string continuation = 3;
+	FlowStatePassingSpec flow_state_passing_spec = 4;
+	Command on_network_error = 5;
+	string flow_state_entity_key = 6;
+	Command on_failure_command = 7;
+}

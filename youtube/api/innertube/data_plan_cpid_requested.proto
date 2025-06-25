@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/data_plan_cpid_request_finish_reason.proto";
+import "youtube/api/innertube/data_plan_cpid_request_fail_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DataPlanCpidRequested {
+	string endpoint_uri = 1;
+	int32 retry_count = 2;
+	int32 http_status_code = 3;
+	DataPlanCpidRequestFinishReason finish_reason = 4;
+	DataPlanCpidRequestFailReason fail_reason = 5;
+	int32 time_to_response_completed_ms = 6;
+	int32 gtaf_carrier_id = 7;
+	int32 mcc = 8;
+	int32 mnc = 9;
+	bool dual_sim = 10;
+	int32 error_cause = 11;
+	int32 ttl_seconds = 12;
+}

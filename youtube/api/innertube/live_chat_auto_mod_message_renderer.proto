@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatAutoModMessageRenderer {
+	string id = 1;
+	uint64 timestamp_usec = 2;
+	Renderer auto_moderated_item = 3;
+	FormattedString header_text = 4;
+	Renderer info_dialog_button = 5;
+	Renderer start_moderation_button = 6;
+	Renderer end_moderation_button = 7;
+	repeated Renderer moderation_buttons = 8;
+	string author_external_channel_id = 9;
+	repeated Renderer inline_action_buttons = 10;
+	repeated Renderer additional_inline_action_buttons = 12;
+	FormattedString timestamp_text = 13;
+}

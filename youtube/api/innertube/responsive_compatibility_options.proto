@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/element_renderer_compatibility_options.proto";
+import "youtube/api/innertube/reflow_type.proto";
+import "youtube/api/innertube/rematerialization_options.proto";
+import "youtube/api/innertube/layout_configuration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ResponsiveCompatibilityOptions {
+	extend ElementRendererCompatibilityOptions {
+		ResponsiveCompatibilityOptions responsive_compatibility_options = 523554294;
+	}
+
+	ReflowType reflow_type = 1;
+	RematerializationOptions rematerialization_options = 2;
+	LayoutConfiguration layout_configuration = 3;
+	string collection_key = 4;
+}

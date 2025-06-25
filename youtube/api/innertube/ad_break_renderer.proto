@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_break_supported_renderers.proto";
+import "youtube/api/innertube/ping.proto";
+import "youtube/api/innertube/ad_slot_logging_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdBreakRenderer {
+	uint32 offset_milliseconds = 1;
+	repeated AdBreakSupportedRenderers ads = 2;
+
+	enum BreakType {
+		option features.enum_type = CLOSED;
+
+		BREAK_UNKNOWN = 0;
+		BREAK_PREROLL = 1;
+		BREAK_MIDROLL = 2;
+		BREAK_POSTROLL = 3;
+		DEPRECATED_BREAK_INFEED_POSTROLL = 4;
+		BREAK_INDEPENDENT = 5;
+		BREAK_CUE_POINT = 6;
+		BREAK_PAUSE = 7;
+		BREAK_POSTLOOP = 8;
+		BREAK_INLINE_MUTED_PLAYBACK = 9;
+	}
+
+	BreakType break_type = 3;
+	string ad_break_params = 4;
+	string get_midroll_info_url = 5;
+	repeated Ping break_start_pings = 6;
+	repeated Ping break_end_pings = 7;
+	int64 drift_recovery_ms = 8;
+	bool ad_pod_choice_eligible = 11;
+	int64 max_duration_ms = 12;
+	int64 offset_ms = 13;
+	AdSlotLoggingData ad_slot_logging_data = 14;
+	int32 prefetch_interval_ms = 15;
+	int32 loop_count = 16;
+}
+
+extend Renderer {
+	AdBreakRenderer ad_break_renderer = 84813246;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/instrument/types/verification_option_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/challenge_deposit_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/yodlee_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message BankAccountVerificationValue {
+	oneof value {
+		VerificationOptionFormValue verification_option_form = 1;
+		ChallengeDepositFormValue challenge_deposit_form = 2;
+		YodleeFormValue yodlee_form = 3;
+	}
+}

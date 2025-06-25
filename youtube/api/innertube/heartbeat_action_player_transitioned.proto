@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/heartbeat_action_transition_reason.proto";
+import "youtube/api/innertube/heartbeat_action_trigger.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeartbeatActionPlayerTransitioned {
+	HeartbeatActionTransitionReason reason = 1;
+	HeartbeatActionTrigger trigger = 2;
+	bytes serialized_server_context = 3;
+}

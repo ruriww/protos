@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdsEngagementPanelTitleHeaderRenderer {
+	FormattedString title = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString subtitle = 3;
+	Renderer overflow_menu = 4;
+}
+
+extend Renderer {
+	AdsEngagementPanelTitleHeaderRenderer ads_engagement_panel_title_renderer = 184740635;
+}

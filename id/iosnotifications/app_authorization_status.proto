@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+option objc_class_prefix = "RCH";
+
+enum AppAuthorizationStatus {
+	option features.enum_type = CLOSED;
+
+	AUTHORIZATION_STATUS_UNSPECIFIED = 0;
+	NOT_DETERMINED = 1;
+	AUTHORIZATION_DENIED = 2;
+	AUTHORIZED = 3;
+	AUTHORIZATION_PROVISIONAL = 4;
+}

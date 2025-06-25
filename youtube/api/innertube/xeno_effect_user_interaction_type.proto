@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum XenoEffectUserInteractionType {
+	option features.enum_type = CLOSED;
+
+	XENO_EFFECT_USER_INTERACTION_TYPE_UNKNOWN = 0;
+	XENO_EFFECT_USER_INTERACTION_TYPE_TOUCHES = 1;
+	XENO_EFFECT_USER_INTERACTION_TYPE_GESTURES = 2;
+}

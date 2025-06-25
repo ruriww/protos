@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ContactState {
+	option features.enum_type = CLOSED;
+
+	CONTACT_STATE_UNKNOWN = 0;
+	CONTACT_STATE_CONNECTED = 1;
+	CONTACT_STATE_UNCONNECTED = 2;
+	CONTACT_STATE_INVITE_SENT = 3;
+	CONTACT_STATE_INVITE_RECEIVED = 4;
+	CONTACT_STATE_BLOCKED = 5;
+	CONTACT_STATE_BLOCKER = 7;
+	CONTACT_STATE_INVITE_HIDDEN = 6;
+}

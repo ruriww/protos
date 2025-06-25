@@ -1,0 +1,14 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/display_info.proto";
+import "peoplestack/contact_method.proto";
+
+option objc_class_prefix = "PSK";
+
+message ContactLabel {
+	DisplayInfo display_info = 1;
+	repeated ContactMethod members = 2;
+	string label_id = 3;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+option objc_class_prefix = "YTBA";
+
+enum ThreadAffinity {
+	option features.enum_type = CLOSED;
+
+	THREAD_AFFINITY_UNSPECIFIED = 0;
+	THREAD_AFFINITY_MAIN = 1;
+	THREAD_AFFINITY_BACKGROUND = 2;
+}

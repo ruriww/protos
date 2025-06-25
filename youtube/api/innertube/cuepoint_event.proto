@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum CuepointEvent {
+	option features.enum_type = CLOSED;
+
+	CUEPOINT_EVENT_UNKNOWN = 0;
+	CUEPOINT_EVENT_START = 1;
+	CUEPOINT_EVENT_CONTINUE = 2;
+	CUEPOINT_EVENT_STOP = 3;
+	CUEPOINT_EVENT_INSERTION = 4;
+	CUEPOINT_EVENT_PREDICT_START = 5;
+}

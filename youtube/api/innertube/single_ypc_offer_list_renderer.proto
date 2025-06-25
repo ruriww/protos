@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/single_ypc_offer_list_supported_renderers.proto";
+import "youtube/api/innertube/single_ypc_offer_list_supported_continuations.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SingleYpcOfferListRenderer {
+	repeated SingleYpcOfferListSupportedRenderers single_ypc_offer_supported_renderers = 1;
+	repeated SingleYpcOfferListSupportedContinuations continuations = 2;
+}

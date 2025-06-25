@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+import "youtube/api/innertube/inline_playback_player_descriptor.proto";
+import "youtube/elements/extensions/elements_inline_muted_state_new.proto";
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message InlinePlaybackCommand {
+	api.innertube.InlinePlaybackPlayerDescriptor player_descriptor = 1;
+	ElementsInlineMutedStateNew playback_state = 2;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ypc_offers_list_renderer.proto";
+import "youtube/api/innertube/membership_offer_renderer.proto";
+import "youtube/api/innertube/tvfilm_offers_renderer.proto";
+import "youtube/api/innertube/tvfilm_rich_offers_renderer.proto";
+import "youtube/api/innertube/sponsorships_offer_list_renderer.proto";
+import "youtube/api/innertube/ypc_transaction_error_message_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TransactionOffersSupportedRenderers {
+	oneof renderer {
+		YpcOffersListRenderer ypc_offers_list_renderer = 58521717;
+		MembershipOfferRenderer membership_offer_renderer = 94946882;
+		TvfilmOffersRenderer tvfilm_offers_renderer = 161497951;
+		TvfilmRichOffersRenderer tvfilm_rich_offers_renderer = 196832279;
+		SponsorshipsOfferListRenderer sponsorships_offer_list_renderer = 204280949;
+	}
+
+	YPCTransactionErrorMessageRenderer error_message_renderer = 65500215;
+}

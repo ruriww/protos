@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens.common;
+
+import "lens/common/text_layout.proto";
+import "vision/visualsearch/lens/text_doctype_info.proto";
+import "lens/common/salient_text.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message DetectedText {
+	TextLayout text_layout = 1;
+	string content_language = 2;
+	vision.visualsearch.lens.TextDoctypeInfo doctype_info = 3;
+	SalientText salient_text = 4;
+}

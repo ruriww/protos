@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/xeno_effect_asset_registry_value.proto";
+import "youtube/api/innertube/xeno_effect_dynamic_input.proto";
+import "youtube/api/innertube/xeno_effect_imu_value.proto";
+import "youtube/api/innertube/xeno_effect_user_interaction_value.proto";
+import "youtube/api/innertube/xeno_effect_events_value.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectInput {
+	string name = 1;
+
+	oneof input {
+		int32 int_value = 2;
+		float float_value = 3;
+		bool bool_value = 4;
+		string string_value = 5;
+		bytes options_value = 6;
+		XenoEffectAssetRegistryValue asset_registry_value = 7;
+		XenoEffectDynamicInput dynamic_input_value = 8;
+		XenoEffectIMUValue imu_value = 9;
+		XenoEffectUserInteractionValue user_interaction_value = 10;
+		XenoEffectEventsValue events_value = 11;
+		int64 int64_value = 12;
+	}
+}

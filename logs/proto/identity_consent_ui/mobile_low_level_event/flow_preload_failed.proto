@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui.mobile_low_level_event;
+
+option objc_class_prefix = "GIDLLE";
+
+message FlowPreloadFailed {
+	enum ErrorReason {
+		option features.enum_type = CLOSED;
+
+		ERROR_REASON_UNSPECIFIED = 0;
+		TIMEOUT = 1;
+		ABORTED = 2;
+		INTERNAL_ERROR = 3;
+	}
+
+	ErrorReason error_reason = 1;
+}

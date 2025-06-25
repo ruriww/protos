@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/privacy_badge_renderer.proto";
+import "youtube/api/innertube/boolean_form_field_renderer.proto";
+import "youtube/api/innertube/icon_link_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShelfPrivacySupportedRenderers {
+	PrivacyBadgeRenderer privacy_badge_renderer = 63824300;
+	BooleanFormFieldRenderer boolean_form_field_renderer = 80310945;
+	IconLinkRenderer icon_link_renderer = 88842852;
+}

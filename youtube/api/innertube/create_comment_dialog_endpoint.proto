@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/comment_dialog_supported_renderers.proto";
+import "youtube/api/innertube/zero_step_channel_creation_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateCommentDialogEndpoint {
+	extend Command {
+		CreateCommentDialogEndpoint create_comment_dialog_endpoint = 122289677;
+	}
+
+	CommentDialogSupportedRenderers dialog = 1;
+	ZeroStepChannelCreationSupportedRenderers zero_step = 2;
+	bool should_publish_successful_adds = 3;
+	bool from_civility_reminder_dialog = 4;
+	string aadc_guidelines_state_entity_key = 5;
+}

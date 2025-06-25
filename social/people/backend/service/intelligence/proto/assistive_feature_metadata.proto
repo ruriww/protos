@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "google/rpc/code.proto";
+
+option objc_class_prefix = "PIL";
+
+message AssistiveFeatureMetadata {
+	google.rpc.Code feature_status = 1;
+	string feature_id = 2;
+}

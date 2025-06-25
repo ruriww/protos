@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosLocationAccuracy {
+	option features.enum_type = CLOSED;
+
+	IOS_LOCATION_ACCURACY_UNKNOWN = 0;
+	IOS_LOCATION_ACCURACY_BEST_FOR_NAVIGATION = 1;
+	IOS_LOCATION_ACCURACY_BEST = 2;
+	IOS_LOCATION_ACCURACY_NEAREST_TEN_METERS = 3;
+	IOS_LOCATION_ACCURACY_NEAREST_HUNDRED_METERS = 4;
+	IOS_LOCATION_ACCURACY_KILOMETER = 5;
+	IOS_LOCATION_ACCURACY_THREE_KILOMETER = 6;
+}

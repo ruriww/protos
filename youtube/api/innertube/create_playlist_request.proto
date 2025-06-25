@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/playlist_image.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatePlaylistRequest {
+	InnerTubeContext context = 1;
+	string title = 2;
+	repeated string video_ids = 3;
+	PrivacyStatus privacy_status = 4;
+	string description = 5;
+	string source_playlist_id = 6;
+	string params = 7;
+	PlaylistImage custom_thumbnail = 10;
+	uint32 video_order = 12;
+	string language_id = 13;
+	repeated PlaylistImage custom_artworks = 15;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+option objc_class_prefix = "RCH";
+
+enum AppAuthorizationOption {
+	option features.enum_type = CLOSED;
+
+	AUTHORIZATION_OPTION_UNSPECIFIED = 0;
+	BADGE = 1;
+	SOUND = 2;
+	ALERT = 3;
+	CAR_PLAY = 4;
+	CRITICAL_ALERT = 5;
+	PROVIDES_APP_NOTIFICATION_SETTINGS = 6;
+	PROVISIONAL = 7;
+	ANNOUNCEMENT = 8;
+}

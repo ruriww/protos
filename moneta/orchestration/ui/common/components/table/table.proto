@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.table;
+
+import "moneta/orchestration/ui/common/components/table/row.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+
+option objc_class_prefix = "OrchTable";
+
+message Table {
+	repeated Row row = 1;
+	generic.InfoMessage title = 2;
+	int64 ui_reference = 3;
+	repeated generic.ImageWithCaption header_icon = 4;
+	bytes data_token = 7;
+}

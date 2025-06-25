@@ -1,0 +1,21 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/shader_type.proto";
+import "ink/proto/lod.proto";
+import "ink/proto/transform.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Stroke {
+	ShaderType shader_type = 1;
+	repeated LOD lod = 3;
+	uint32 abgr = 4;
+	repeated sint32 point_x = 5;
+	repeated sint32 point_y = 6;
+	repeated uint32 point_t_ms = 7;
+	Transform deprecated_transform = 8 [ deprecated = true ];
+	uint64 start_time_ms = 9;
+	float u_animation_duration_seconds = 10;
+}

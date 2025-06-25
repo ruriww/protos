@@ -1,0 +1,14 @@
+edition = "2023";
+
+package datapol;
+
+import "datapol/semantic_type.proto";
+import "datapol/annotations_details.proto";
+
+option objc_class_prefix = "GCDP";
+
+message FieldDetails {
+	repeated SemanticType semantic_type = 1 [ features.repeated_field_encoding = EXPANDED ];
+	AnnotationsDetails key_annotations = 2;
+	AnnotationsDetails value_annotations = 3;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message DelegatedGroupId {
+	string id = 1;
+}

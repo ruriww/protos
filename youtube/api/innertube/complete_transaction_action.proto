@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/post_transaction_supported_renderers.proto";
+import "youtube/api/innertube/ypc_transaction_message_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompleteTransactionAction {
+	extend Command {
+		CompleteTransactionAction complete_transaction_action = 165983090;
+	}
+
+	PostTransactionSupportedRenderers post_transaction = 1;
+	YPCTransactionMessageSupportedRenderers message_renderer = 2;
+	repeated Command actions = 3;
+	repeated string gtm_data = 4;
+	bool enable_post_txn_controller_for_post_txn_renders = 5;
+}

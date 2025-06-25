@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/element_update_command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TemplateUpdate {
+	extend ElementUpdateCommand {
+		TemplateUpdate template_update = 196886555;
+	}
+
+	string identifier = 1;
+
+	oneof template {
+		bytes serialized_template_config = 2;
+		bool use_cold_app_bundle = 3;
+	}
+
+	int64 resource_tag = 4;
+	repeated string dependencies = 5;
+}

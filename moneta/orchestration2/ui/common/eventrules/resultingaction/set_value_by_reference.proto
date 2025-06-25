@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.resultingaction;
+
+import "moneta/orchestration2/ui/common/data/data_value_field_reference.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message SetValueByReference {
+	int64 data_reference = 1;
+	int32 source_data_field_number = 2;
+	int32 target_data_field_number = 3;
+	int32 source_data_sub_field_id = 4;
+	data.DataValueFieldReference source_data_value_field_reference = 5;
+	repeated int32 target_data_field_path = 6;
+}

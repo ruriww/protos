@@ -1,0 +1,23 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/page_properties.proto";
+import "ink/proto/element_bundle.proto";
+import "ink/proto/storage_action.proto";
+import "ink/proto/element_state.proto";
+import "ink/proto/per_page_properties.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Snapshot {
+	PageProperties page_properties = 1;
+	repeated ElementBundle element = 2;
+	repeated ElementBundle dead_element = 3;
+	repeated StorageAction undo_action = 4;
+	repeated StorageAction redo_action = 5;
+	repeated ElementState element_state_index = 6 [ features.repeated_field_encoding = EXPANDED ];
+	uint64 fingerprint = 7;
+	repeated PerPageProperties per_page_properties = 8;
+	string active_layer_uuid = 9;
+}

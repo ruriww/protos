@@ -1,0 +1,63 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+import "google/protobuf/any.proto";
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "OGADS";
+
+message CardInfo {
+	enum Color {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_COLOR = 0;
+		PRIMARY_COLOR = 1;
+		ERROR_COLOR = 2;
+	}
+
+	string title = 1;
+
+	enum IconType {
+		option features.enum_type = CLOSED;
+
+		ICON_TYPE_UNSPECIFIED = 0;
+		CLOUD = 1;
+		WARNING = 2;
+		CRITICAL = 3;
+	}
+
+	IconType icon_type = 2;
+
+	message ProgressBar {
+		float usage_percentage = 1;
+		string title = 2;
+	}
+
+	ProgressBar progress_bar = 3;
+
+	oneof card_cta {
+		webutil.html.types.SafeUrlProto action_url = 4;
+		protobuf.Any storage_cta = 6;
+	}
+
+	message StorageActionExtension {
+		protobuf.Any primary_call_to_action = 1;
+		protobuf.Any secondary_call_to_action = 2;
+		bool is_trailing_primary_action = 3;
+		Color action_color = 4;
+	}
+
+	oneof card_actions_extension {
+		StorageActionExtension storage_extension = 5;
+	}
+
+	enum CardType {
+		option features.enum_type = CLOSED;
+
+		CARD_TYPE_UNSPECIFIED = 0;
+		STORAGE = 1;
+	}
+
+	CardType card_type = 7;
+}

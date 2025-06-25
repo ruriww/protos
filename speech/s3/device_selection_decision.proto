@@ -1,0 +1,19 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/response.proto";
+
+option objc_class_prefix = "S3";
+
+message DeviceSelectionDecision {
+	extend Response {
+		DeviceSelectionDecision device_selection_decision = 124211619;
+	}
+
+	bool selected = 1;
+	bool is_final = 2 [ default = true ];
+	string multi_device_ducking_uuid = 5;
+	int32 ducking_timeout_ms = 7;
+	string arbiter_log_string = 8;
+}

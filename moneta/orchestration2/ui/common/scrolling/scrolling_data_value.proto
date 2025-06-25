@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.scrolling;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ScrollingDataValue {
+	extend data.DataValue {
+		ScrollingDataValue scrolling_data_value_extension = 241991458;
+	}
+
+	enum ScrollingState {
+		option features.enum_type = CLOSED;
+
+		SCROLLING_STATE_UNKNOWN = 0;
+		SCROLLING_STATE_UNSCROLLED = 1;
+		SCROLLING_STATE_SCROLLED_TO_BOTTOM = 2;
+	}
+
+	ScrollingState scrolling_state = 1 [ default = SCROLLING_STATE_UNSCROLLED ];
+}

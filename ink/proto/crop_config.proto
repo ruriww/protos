@@ -1,0 +1,18 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/int_packed_color.proto";
+
+option objc_class_prefix = "INKPB";
+
+message CropConfig {
+	oneof crop_box_handle {
+		IntPackedColor handle_color = 1;
+		string nine_patch_texture_uri = 4;
+	}
+
+	IntPackedColor cropped_area_color = 2;
+	IntPackedColor rule_of_threes_grid_color = 3;
+	double transition_animation_duration_seconds = 5 [ default = 0e0 ];
+}

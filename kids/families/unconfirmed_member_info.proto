@@ -1,0 +1,10 @@
+edition = "2023";
+
+package kids.families;
+
+option objc_class_prefix = "FAM";
+
+message UnconfirmedMemberInfo {
+	int64 direct_added_timestamp_millis = 1;
+	string url = 2;
+}

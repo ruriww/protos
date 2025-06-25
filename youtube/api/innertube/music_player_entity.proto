@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/music_playback_state.proto";
+import "youtube/api/innertube/now_playing_item.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPlayerEntity {
+	extend EntityMutationPayload {
+		MusicPlayerEntity music_player_entity = 295;
+	}
+
+	string key = 1;
+	MusicPlaybackState playback_state = 2;
+	NowPlayingItem now_playing_item = 3;
+}

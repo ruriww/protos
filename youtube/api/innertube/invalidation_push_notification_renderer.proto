@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/invalidation.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InvalidationPushNotificationRenderer {
+	Invalidation invalidation = 1;
+}
+
+extend Renderer {
+	InvalidationPushNotificationRenderer invalidation_push_notification_renderer = 109268428;
+}

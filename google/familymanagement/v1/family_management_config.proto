@@ -1,0 +1,21 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/app_upgrade_status.proto";
+import "google/familymanagement/v1/management_capabilities.proto";
+import "google/familymanagement/v1/fixit_state.proto";
+import "google/familymanagement/v1/family_role.proto";
+import "google/familymanagement/v1/page.proto";
+import "google/familymanagement/v1/invitation_config.proto";
+
+option objc_class_prefix = "GFM";
+
+message FamilyManagementConfig {
+	AppUpgradeStatus upgrade_status = 1;
+	ManagementCapabilities management_capabilities = 2;
+	FixitState fixit_state = 3;
+	repeated FamilyRole invitee_role = 4;
+	repeated Page management_features = 5;
+	InvitationConfig invitation_config = 6;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/client/blocks/js_block_creation_config.proto";
+
+option objc_class_prefix = "YTB";
+
+message ContainerManifest {
+	uint32 identifier = 1;
+	uint64 version = 2;
+	repeated JsBlockCreationConfig js_creation_configs = 3;
+	map<int32, int32> default_impl_overrides = 4;
+
+	message FallbackJsModule {
+		string identifier = 1;
+		string contents = 2;
+		repeated string module_dependencies = 3;
+	}
+
+	repeated FallbackJsModule fallback_js_modules = 5;
+}

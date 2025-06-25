@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+import "moneta/orchestration/ui/common/form_field_reference.proto";
+
+option objc_class_prefix = "Orch";
+
+message FormFieldMessage {
+	string form_id = 1;
+	string message = 3;
+	FormFieldReference form_field_reference = 5;
+	int64 form_field_ui_reference = 6;
+}

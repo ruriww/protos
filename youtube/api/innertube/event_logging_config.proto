@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/payload_policy.proto";
+import "youtube/api/innertube/event_logging_retry_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EventLoggingConfig {
+	bool enabled = 1;
+	repeated PayloadPolicy payload_policies = 2;
+	int32 max_age_hours = 3;
+	bool request_retry_enabled = 4;
+	bool payload_retry_enabled = 5;
+	EventLoggingRetryConfig retry_config = 6;
+	bool serial_executor_enabled = 7;
+	bool ios_experimental_controller_enabled = 8;
+	bool ios_new_account_change_logging_enabled = 9;
+	bool should_force_set_all_payloads_to_immediate_tier = 10;
+	bool ios_make_request_with_nil_as_signed_out = 11;
+	bool ios_background_dispatch_enabled = 12;
+}

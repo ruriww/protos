@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/show_modify_channel_notification_options_supported_renderers.proto";
+import "youtube/api/innertube/command_executor_command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowModifyChannelNotificationOptionsEndpoint {
+	extend Command {
+		ShowModifyChannelNotificationOptionsEndpoint show_modify_channel_notification_options_endpoint = 144153690;
+	}
+
+	ShowModifyChannelNotificationOptionsSupportedRenderers dialog = 1;
+	CommandExecutorCommand desktop_command = 2;
+}

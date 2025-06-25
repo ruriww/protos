@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message AddressIntegratorData {
+	int64 ui_reference = 1;
+	common.IntegratorCallbackData callback_data = 2;
+}

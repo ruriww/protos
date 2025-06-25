@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+import "youtube/api/innertube/watch_break_type.proto";
+
+option objc_class_prefix = "YTBA";
+
+message WatchBreakSettings {
+	int64 watch_break_frequency_minutes = 1;
+	string watch_break_frequency_detail_string = 2;
+	bool watch_break_enabled = 3;
+	youtube.api.innertube.WatchBreakType watch_break_type = 4;
+}

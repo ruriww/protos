@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+option objc_class_prefix = "YTBA";
+
+enum CreatorPlayerInstance {
+	option features.enum_type = CLOSED;
+
+	CREATOR_PLAYER_INSTANCE_UNSPECIFIED = 0;
+	CREATOR_PLAYER_INSTANCE_VOICE_REPLIES = 1;
+}

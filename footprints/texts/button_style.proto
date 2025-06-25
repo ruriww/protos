@@ -1,0 +1,13 @@
+edition = "2023";
+
+package footprints.texts;
+
+option objc_class_prefix = "FOOTC";
+
+enum ButtonStyle {
+	option features.enum_type = CLOSED;
+
+	BUTTON_STYLE_UNSPECIFIED = 0;
+	BUTTON_STYLE_UNFILLED = 1;
+	BUTTON_STYLE_FILLED = 2;
+}

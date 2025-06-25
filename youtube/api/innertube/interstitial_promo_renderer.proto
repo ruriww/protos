@@ -1,0 +1,69 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/dismissable_cling_renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/themed_thumbnail.proto";
+import "youtube/api/innertube/interstitial_promo_color_supported_datas.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/interstitial_promo_supported_icons.proto";
+import "youtube/api/innertube/interstitial_promo_renderer_layout_style.proto";
+import "youtube/api/innertube/client_frequency_cap_config.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InterstitialPromoRenderer {
+	FormattedString title = 1;
+	FormattedString body_text = 2;
+	ButtonSupportedRenderers action_button = 3;
+	FormattedString dismiss_text = 4;
+
+	oneof foreground_thumbnail {
+		ThumbnailDetails foreground_image = 5;
+		ThemedThumbnail themed_foreground_image = 24;
+	}
+
+	ThumbnailDetails background_image = 6;
+
+	oneof coloring {
+		string background_color = 7;
+		InterstitialPromoColorSupportedDatas interstitial_color_palette = 20;
+	}
+
+	bytes tracking_params = 9;
+	ButtonSupportedRenderers dismiss_button = 10;
+	Command impression_endpoint = 11;
+	repeated Command impression_endpoints = 12;
+
+	oneof background_content {
+		ThumbnailSupportedRenderers background_thumbnail = 14;
+		InterstitialPromoSupportedIcons background_icon = 21;
+	}
+
+	bool is_visible = 13;
+
+	message InterstitialPromoClingSupportedRenderers {
+		DismissableClingRenderer dismissable_cling_renderer = 102365781;
+	}
+
+	InterstitialPromoClingSupportedRenderers cling_renderer = 15;
+	string analytics_tag = 16;
+	repeated Command actions = 19;
+	InterstitialPromoRendererLayoutStyle layout_style = 22;
+	bool use_interstitial_parent_responder = 23;
+	repeated ClientFrequencyCapConfig client_frequency_cap_configs = 25;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	InterstitialPromoRenderer interstitial_promo_renderer = 86135402;
+}

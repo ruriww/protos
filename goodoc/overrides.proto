@@ -1,0 +1,31 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message Overrides {
+	message Style {
+		string name = 2;
+		string value = 3;
+	}
+
+	repeated Style style = 1 [ features.message_encoding = DELIMITED ];
+	string word_html = 4;
+
+	enum OverrideEnum {
+		option features.enum_type = CLOSED;
+
+		LEAVE_ALONE = 0;
+		FORCE_TRUE = 1;
+		FORCE_FALSE = 2;
+	}
+
+	OverrideEnum block_imagination = 5;
+	OverrideEnum full_page_as_image = 6;
+	OverrideEnum full_page_lineated = 7;
+	OverrideEnum page_break_before = 8;
+	bool do_not_expand_graphic_box = 9;
+	bool need_not_suppress_photo = 10;
+	OverrideEnum full_page_skipped = 11;
+}

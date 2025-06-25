@@ -1,0 +1,132 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/offline_promo_renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/share_data.proto";
+import "youtube/api/innertube/playlist_header_channel_header_supported_renderers.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/privacy_status.proto";
+import "youtube/api/innertube/editable_details.proto";
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_banner_supported_renderers.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_save_button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_share_button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_notification_supported_renderers.proto";
+import "youtube/api/innertube/playlist_collection_playlist_picker_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_fab_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_add_to_playlist_button_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_menu_supported_renderers.proto";
+import "youtube/api/innertube/playlist_header_more_actions_supported_renderers.proto";
+import "youtube/api/innertube/lightsource_color_palette_data.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistHeaderRenderer {
+	string playlist_id = 1;
+
+	oneof play {
+		Command play_endpoint = 2;
+		Renderer play_button = 63;
+	}
+
+	FormattedString title = 3;
+	ThumbnailDetails thumbnail = 4;
+	FormattedString num_videos_text = 5;
+	FormattedString description_text = 6;
+	FormattedString owner_text = 7;
+	FormattedString view_count_text = 8;
+	FormattedString total_length_text = 9;
+	ShareData share_data = 11;
+	bool is_editable = 12;
+	PlaylistHeaderChannelHeaderSupportedRenderers channel_header = 13;
+	bool is_private = 14;
+	LikeButtonSupportedRenderers like_button = 15;
+	PrivacyStatus privacy = 16;
+	Command owner_endpoint = 17;
+	EditableDetails editable_details = 18;
+	Command edit_endpoint = 19;
+
+	message PlaylistHeaderOfflineabilitySupportedRenderers {
+		oneof renderer {
+			OfflineabilityRenderer offlineability_renderer = 60572968;
+			ButtonRenderer button_renderer = 65153809;
+			OfflinePromoRenderer offline_promo_renderer = 131899791;
+		}
+	}
+
+	PlaylistHeaderOfflineabilitySupportedRenderers offlineability = 21;
+	Command copy_endpoint = 22;
+	bytes tracking_params = 23;
+	repeated Command service_endpoints = 24;
+	FormattedString short_view_count_text = 25;
+	FormattedString likes_count_with_like_text = 26;
+	FormattedString likes_count_without_like_text = 27;
+
+	oneof shuffle {
+		Command shuffle_play_endpoint = 28;
+		Renderer shuffle_play_button = 64;
+	}
+
+	FormattedString play_button_text = 29;
+	string flagging_action = 30;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 31;
+	repeated FormattedString stats = 32;
+	repeated FormattedString brief_stats = 33;
+	Command playlist_info_navigation_endpoint = 40;
+	Command translation_editor_endpoint = 41;
+	Command editor_endpoint = 42;
+	bool should_color_sample_thumbnail = 43;
+	PlaylistHeaderBannerSupportedRenderers playlist_header_banner = 44;
+	ButtonSupportedRenderers notification_preference_toggle_button = 45;
+	PlaylistSaveButtonSupportedRenderers save_button = 46;
+	PlaylistHeaderShareButtonSupportedRenderers share_button = 47;
+	repeated PlaylistHeaderNotificationSupportedRenderers notifications = 48;
+	PlaylistCollectionPlaylistPickerSupportedRenderers collection = 49;
+	PlaylistHeaderFabSupportedRenderers fab = 50;
+	PlaylistHeaderAddToPlaylistButtonSupportedRenderers add_to_playlist_button = 51;
+	bool should_float_title = 52;
+	PlaylistHeaderMenuSupportedRenderers sort_filter_menu = 53;
+	Command edit_season_endpoint = 54;
+	PlaylistHeaderMoreActionsSupportedRenderers more_actions_menu = 55;
+	LightsourceColorPaletteData color_palette = 56;
+	ButtonSupportedRenderers action_button = 57;
+	FormattedString subtitle = 58;
+	FormattedString metadata = 59;
+	repeated FormattedString expandable_metadatas = 60;
+	ThumbnailDetails avatar = 61;
+	bool should_hide_title_on_translucent_header = 62;
+	Renderer delete_button = 65;
+	Renderer edit_button = 66;
+	repeated BadgeSupportedRenderers badges = 67;
+	Renderer primary_button = 68;
+	Renderer secondary_button = 69;
+	repeated Renderer playlist_badges = 70;
+	Command on_description_tap = 71;
+	ThumbnailDetails channel_avatar = 72;
+	Renderer cinematic_container = 73;
+	repeated Renderer byline = 74;
+	Renderer shorts_creation_button = 75;
+	Renderer title_form = 76;
+	Renderer description_form = 77;
+	Renderer privacy_form = 78;
+	FormattedString description_tap_text = 79;
+	Renderer more_actions_button = 80;
+	Renderer add_videos_button = 81;
+	Renderer collaborator_avatar = 82;
+}
+
+extend Renderer {
+	PlaylistHeaderRenderer playlist_header_renderer = 53272665;
+}

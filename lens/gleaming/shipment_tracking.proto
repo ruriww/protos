@@ -1,0 +1,11 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+message ShipmentTracking {
+	string shipper_name = 2;
+	string tracking_number = 4;
+	string tracking_url = 5;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/create_adstube_account_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message CreateAdstubeAccountResult {
+	youtube.api.innertube.CreateAdstubeAccountResponse response = 1;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/family_role.proto";
+import "google/familymanagement/v1/family_member_profile.proto";
+import "google/familymanagement/v1/member_supervision_info.proto";
+import "google/familymanagement/v1/unconfirmed_member_info.proto";
+import "google/familymanagement/v1/member_attributes.proto";
+import "apps/people/oz/external/mergedpeopleapi/person.proto";
+import "google/familymanagement/v1/member_subscription_info.proto";
+
+option objc_class_prefix = "GFM";
+
+message FamilyMember {
+	string user_id = 1;
+	int64 joined_timestamp_millis = 2;
+	FamilyRole role = 3;
+	FamilyMemberProfile profile = 4;
+
+	enum State {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_STATE = 0;
+		REGULAR = 1;
+		DELETED = 2;
+	}
+
+	State state = 5;
+	string member_role_label = 6;
+	repeated FamilyRole possible_role = 7 [ features.repeated_field_encoding = EXPANDED ];
+	MemberSupervisionInfo member_supervision_info = 8;
+	UnconfirmedMemberInfo unconfirmed_member_info = 10;
+	MemberAttributes member_attributes = 11;
+	apps.people.oz.external.mergedpeopleapi.Person person = 12;
+
+	message DirectAddIdentifier {
+		string email = 1;
+		string phone_number = 2;
+		string public_id = 3;
+	}
+
+	DirectAddIdentifier direct_add_identifier = 13;
+	MemberSubscriptionInfo member_subscription_info = 14;
+}

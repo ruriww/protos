@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_icon.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unplugged_thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBannerRenderer {
+	FormattedString text = 1;
+	Renderer action_button = 2;
+	Renderer dismiss_button = 3;
+	UnpluggedIcon icon = 4;
+	bytes tracking_params = 5;
+	Renderer secondary_action_button = 7;
+	Renderer secondary_button = 8;
+	FormattedString header = 9;
+	Icon yt_icon = 10;
+	string banner_id = 11;
+	Command impression_endpoint = 12;
+	uint32 icon_color = 13;
+	UnpluggedThumbnailDetails thumbnail_details = 14;
+	FormattedString accessibility_text = 15;
+}
+
+extend Renderer {
+	UnpluggedBannerRenderer unplugged_banner_renderer = 224687714;
+}

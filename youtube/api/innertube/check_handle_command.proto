@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+import "youtube/api/innertube/handle_edit_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CheckHandleCommand {
+	extend elements.Command {
+		CheckHandleCommand check_handle_command = 398019128;
+	}
+
+	string handle = 1;
+	string external_channel_id = 2;
+	string channel_creation_form_state_entity_key = 3;
+	string channel_handle_entity_key = 4;
+	HandleEditSource handle_edit_source = 5;
+}

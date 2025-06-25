@@ -1,0 +1,29 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/instrument_option.proto";
+import "moneta/orchestration/ui/common/components/instrument/additional_option.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "Orch";
+
+message InstrumentSelector {
+	repeated InstrumentOption instrument_option = 1;
+	repeated AdditionalOption additional_option = 3;
+	int64 ui_reference = 4;
+	int32 preselect_instrument_option_index = 6 [ default = -1 ];
+	int32 preselect_additional_option_index = 7 [ default = -1 ];
+	bool expand_by_default = 8;
+	string header = 9;
+	string title = 11;
+	int64 preselected_option_reference = 12;
+	int64 unselected_ui_reference = 13;
+	bool should_hide_selector = 14;
+	generic.InfoMessage description = 16;
+	generic.ImageWithCaption header_icon = 17;
+	int64 backup_preselected_option_reference = 18;
+	proto2.bridge.MessageSet private_extensions = 19;
+}

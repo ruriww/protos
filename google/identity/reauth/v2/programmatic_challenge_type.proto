@@ -1,0 +1,24 @@
+edition = "2023";
+
+package google.identity.reauth.v2;
+
+option objc_class_prefix = "GIDRA";
+
+enum ProgrammaticChallengeType {
+	CHALLENGE_TYPE_UNSPECIFIED = 0;
+	PASSWORD = 1;
+	SECURITY_KEY = 2;
+	PIN = 3;
+	TOTP = 4;
+	IDV_PREREGISTERED_PHONE = 5;
+	AUTHZEN = 6;
+	INTERNAL_TWO_FACTOR = 7;
+	DEVICE_PROMPT = 8;
+	SAML = 9;
+	SECURITY_KEY_OTP = 10;
+	OFFLINE_OTP = 11;
+	OIDC = 12;
+	PASSKEY = 13;
+	IDV_ANY_PHONE = 14;
+	PARENT_AUTH = 15;
+}

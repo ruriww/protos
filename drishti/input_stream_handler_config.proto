@@ -1,0 +1,12 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/options.proto";
+
+option objc_class_prefix = "Drishti";
+
+message InputStreamHandlerConfig {
+	string input_stream_handler = 1 [ default = "DefaultInputStreamHandler" ];
+	Options options = 3;
+}

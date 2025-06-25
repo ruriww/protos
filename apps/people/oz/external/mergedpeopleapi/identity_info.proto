@@ -1,0 +1,13 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/source_identity.proto";
+
+option objc_class_prefix = "POEM";
+
+message IdentityInfo {
+	repeated string previous_person_id = 1;
+	repeated string original_lookup_token = 2;
+	repeated SourceIdentity source_ids = 3;
+}

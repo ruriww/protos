@@ -1,0 +1,17 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+option objc_class_prefix = "GNPC";
+
+message ButtonAction {
+	enum UserAction {
+		option features.enum_type = CLOSED;
+
+		USER_ACTION_UNSPECIFIED = 0;
+		USER_ACTION_POSITIVE = 1;
+		USER_ACTION_NEGATIVE = 2;
+		USER_ACTION_DISMISS = 3;
+		USER_ACTION_ACKNOWLEDGE = 4;
+	}
+}

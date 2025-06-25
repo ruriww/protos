@@ -1,0 +1,37 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.extension;
+
+option objc_class_prefix = "SGWPPE";
+
+message PeopleStackTags {
+	enum SuggestionConfidence {
+		option features.enum_type = CLOSED;
+
+		CONFIDENCE_UNSPECIFIED = 0;
+		CONFIDENCE_LOW = 1;
+		CONFIDENCE_MEDIUM = 2;
+		CONFIDENCE_HIGH = 3;
+	}
+
+	enum HideType {
+		option features.enum_type = CLOSED;
+
+		HIDE_TYPE_UNSPECIFIED = 0;
+		HIDDEN = 1;
+	}
+
+	enum FamilyStatus {
+		option features.enum_type = CLOSED;
+
+		FAMILY_STATUS_UNSPECIFIED = 0;
+		FAMILY_MEMBER = 1;
+	}
+
+	enum BirthdayStatus {
+		option features.enum_type = CLOSED;
+
+		BIRTHDAY_STATUS_UNSPECIFIED = 0;
+		HAS_BIRTHDAY = 1;
+	}
+}

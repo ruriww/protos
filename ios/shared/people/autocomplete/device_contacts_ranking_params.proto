@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/device_contacts_ranking_bool_feature.proto";
+import "ios/shared/people/autocomplete/device_contacts_ranking_int_feature.proto";
+
+option objc_class_prefix = "PDL";
+
+message DeviceContactsRankingParams {
+	map<int32, DeviceContactsRankingBoolFeature> bool_features = 1;
+	map<int32, DeviceContactsRankingIntFeature> int_features = 2;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_context.proto";
+import "youtube/api/innertube/live_creation_visible_health_state.proto";
+import "youtube/api/innertube/live_creation_battery_status.proto";
+import "youtube/api/innertube/ios_thermal_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationHealthMetrics {
+	LiveCreationContext live_creation_context = 1;
+	int32 speed_test_kbps = 3;
+	LiveCreationVisibleHealthState visible_health_state = 4;
+	LiveCreationBatteryStatus battery_status = 5;
+	int32 battery_percent = 6;
+	IosThermalStatus ios_thermal_status = 8;
+}

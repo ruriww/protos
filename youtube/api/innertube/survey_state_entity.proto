@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SurveyStateEntity {
+	extend EntityMutationPayload {
+		SurveyStateEntity survey_state_entity = 159;
+	}
+
+	string key = 1;
+	int64 display_time = 2;
+	repeated bool is_selected = 3 [ features.repeated_field_encoding = EXPANDED ];
+	bool is_none_of_the_above_selected = 4;
+	float num_selected = 5;
+}

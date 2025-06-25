@@ -1,0 +1,40 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+option objc_class_prefix = "CHM";
+
+message RenderContextLog {
+	string language_code = 1;
+
+	oneof timezone_info {
+		int32 time_zone = 2;
+		string time_zone_name = 4;
+	}
+
+	message DeviceInfoLog {
+		float device_pixel_ratio = 2;
+		string sdk_version = 4;
+		string app_version = 5;
+		string os_version = 6;
+		string os_build_id = 7;
+		string os_model = 8;
+		int32 android_sdk_version = 9;
+		string device_manufacturer = 10;
+		string device_name = 11;
+		string country_code = 15;
+
+		enum IosSdkGeneration {
+			option features.enum_type = CLOSED;
+
+			IOS_SDK_GENERATION_UNSPECIFIED = 0;
+			CHIME_LEGACY = 1;
+			GNP_SRL = 2;
+		}
+
+		IosSdkGeneration ios_sdk_generation = 20;
+		string app_version_code = 21;
+	}
+
+	DeviceInfoLog device_info = 3;
+}

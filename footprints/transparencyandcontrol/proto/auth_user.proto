@@ -1,0 +1,10 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+message AuthUser {
+	int32 session_index = 1;
+	string page_id = 2;
+}

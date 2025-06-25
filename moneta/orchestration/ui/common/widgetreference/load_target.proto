@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.widgetreference;
+
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+
+option objc_class_prefix = "Orch";
+
+message LoadTarget {
+	oneof target_location {
+		WidgetReference widget_reference = 2;
+		string web_fallback_url = 3;
+	}
+}

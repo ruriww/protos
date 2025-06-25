@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_list_item_renderer.proto";
+import "youtube/api/innertube/item_section_renderer.proto";
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/menu_navigation_item_renderer.proto";
+import "youtube/api/innertube/menu_service_item_renderer.proto";
+import "youtube/api/innertube/notification_text_renderer.proto";
+import "youtube/api/innertube/horizontal_card_list_renderer.proto";
+import "youtube/api/innertube/dismissal_follow_up_renderer.proto";
+import "youtube/api/innertube/notification_multi_action_renderer.proto";
+import "youtube/api/innertube/inline_survey_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/reel_dismissal_action_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReplaceEnclosingActionSupportedRenderers {
+	ChannelListItemRenderer channel_list_item_renderer = 48694381;
+	ItemSectionRenderer item_section_renderer = 50195462;
+	MessageRenderer message_renderer = 58508690;
+	MenuNavigationItemRenderer menu_navigation_item_renderer = 66441108;
+	MenuServiceItemRenderer menu_service_item_renderer = 66441155;
+	NotificationTextRenderer notification_text_renderer = 73850394;
+	HorizontalCardListRenderer horizontal_card_list_renderer = 88962895;
+	DismissalFollowUpRenderer dismissal_follow_up_renderer = 106646784;
+	NotificationMultiActionRenderer notification_multi_action_renderer = 122645542;
+	InlineSurveyRenderer inline_survey_renderer = 125105119;
+	ElementRenderer element_renderer = 153515154;
+	ReelDismissalActionRenderer reel_dismissal_action_renderer = 368038759;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/info_card_action.proto";
+import "youtube/api/innertube/info_card_tracking_event.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InfoCardProductOffer {
+	string merchant = 1;
+	string price = 2;
+	string shipping = 3;
+	string shipping_tax = 4;
+	string condition = 6;
+	string unit_price = 7;
+	string energy_label = 8;
+	string description = 9;
+	float rating = 10;
+	string review_text = 11;
+	repeated InfoCardAction action = 12;
+	repeated InfoCardTrackingEvent event = 13;
+	string doc_id = 14;
+	string catalog_id = 15;
+	string original_price = 16;
+}

@@ -1,0 +1,58 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/playlist_settings_editor_section_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_basic_settings_section_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_auto_add_settings_section_renderer.proto";
+import "youtube/api/innertube/dropdown_form_field_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_collaboration_section_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_create_invite_link_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_casual_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistSettingsEditorRenderer {
+	FormattedString title = 1;
+	Command update_settings_endpoint = 2;
+	Command delete_endpoint = 3;
+	repeated PlaylistSettingsEditorSectionSupportedRenderers sections = 4;
+	bytes tracking_params = 6;
+	FormattedString delete_button_text = 7;
+	FormattedString delete_confirmation_text = 8;
+	bool is_delete_button_disabled = 9;
+}
+
+extend Renderer {
+	PlaylistSettingsEditorRenderer playlist_settings_editor_renderer = 78398567;
+}
+
+extend Renderer {
+	PlaylistSettingsEditorBasicSettingsSectionRenderer playlist_settings_editor_basic_settings_section_renderer = 78957456;
+}
+
+extend Renderer {
+	PlaylistSettingsEditorAutoAddSettingsSectionRenderer playlist_settings_editor_auto_add_settings_section_renderer = 81812911;
+}
+
+extend Renderer {
+	DropdownFormFieldRenderer dropdown_form_field_renderer = 80162164;
+}
+
+extend Renderer {
+	PlaylistSettingsEditorCollaborationSectionRenderer playlist_settings_editor_collaboration_section_renderer = 91613400;
+}
+
+extend Renderer {
+	PlaylistSettingsEditorCreateInviteLinkRenderer playlist_settings_editor_create_invite_link_renderer = 94388831;
+}
+
+extend Renderer {
+	PlaylistSettingsEditorCasualSectionRenderer playlist_settings_editor_casual_section_renderer = 91347533;
+}

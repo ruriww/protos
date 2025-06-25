@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/create_comment_request.proto";
+import "youtube/api/innertube/transaction_product_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCCompleteTransactionRequest {
+	InnerTubeContext context = 1;
+	string order_code = 2;
+	string offer_params = 3;
+	string tip_params = 4;
+	CreateCommentRequest create_comment_request = 5;
+	bytes serialized_backend_analytics_event = 7;
+	bytes payments_payload = 8;
+	string client_location_context = 9;
+	string transaction_params = 11;
+	TransactionProductData product_data = 13;
+	repeated bytes entity_mutation_payload_params = 14;
+}

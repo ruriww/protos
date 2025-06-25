@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.textinfo;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextInfoNodeTrigger {
+	extend eventrules.trigger.Trigger {
+		TextInfoNodeTrigger text_info_node_trigger_extension = 329387974;
+	}
+
+	int32 trigger_id = 1;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/query_executor_log_data.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message FrameProcessorLogData {
+	QueryExecutorLogData.QueryType query_type = 1;
+
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_REASON = 0;
+		CANCELLED = 1;
+		GRPC = 2;
+		NSURL_ERROR = 3;
+		HTTP_RQUEST_ERROR = 4;
+		RECOGNIZER_ERROR = 5;
+	}
+
+	FailureReason failure_reason = 2;
+	string error_domain = 3;
+	int64 error_code = 4;
+}

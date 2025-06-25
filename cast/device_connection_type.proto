@@ -1,0 +1,15 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum DeviceConnectionType {
+	option features.enum_type = CLOSED;
+
+	DEVICE_CONNECTION_TYPE_UNKNOWN = 0;
+	DEVICE_CONNECTION_TYPE_LOCAL = 1;
+	DEVICE_CONNECTION_TYPE_OPENCAST = 2;
+	DEVICE_CONNECTION_TYPE_RELAY = 3;
+	DEVICE_CONNECTION_TYPE_REMOTE_CASTING = 4;
+}

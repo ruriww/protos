@@ -1,0 +1,13 @@
+edition = "2023";
+
+package gws.mothership.api.v1.common.text;
+
+option objc_class_prefix = "MSP";
+
+enum BaselineOffset {
+	option features.enum_type = CLOSED;
+
+	NONE = 0;
+	SUPERSCRIPT = 1;
+	SUBSCRIPT = 2;
+}

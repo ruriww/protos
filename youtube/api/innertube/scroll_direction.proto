@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ScrollDirection {
+	option features.enum_type = CLOSED;
+
+	SCROLL_DIRECTION_UNKNOWN = 0;
+	SCROLL_DIRECTION_FORWARD = 1;
+	SCROLL_DIRECTION_BACKWARDS = 2;
+}

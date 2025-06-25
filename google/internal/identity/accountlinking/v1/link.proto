@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/token.proto";
+import "google/internal/identity/accountlinking/v1/profile.proto";
+
+option objc_class_prefix = "ALK";
+
+message Link {
+	string service_id = 1;
+	Token token = 2;
+	string consistency_key = 3;
+	Profile profile = 4;
+	bool invalidated = 5;
+	string name = 6;
+	bytes token_lookup_params = 7;
+}

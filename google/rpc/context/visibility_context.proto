@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.rpc.context;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "RPC";
+
+message VisibilityContext {
+	repeated string labels = 1;
+	protobuf.Timestamp read_time = 2;
+}

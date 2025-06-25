@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/frame_fit.proto";
+import "youtube/api/innertube/rect.proto";
+import "youtube/api/innertube/vector2.proto";
+import "youtube/api/innertube/video_composition_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoCompositionProperties {
+	int32 z_index = 1;
+	float opacity = 2 [ default = 1 ];
+	FrameFit fit = 3 [ default = FRAME_FIT_NORMALIZED ];
+	Rect crop = 4;
+	Vector2 pivot = 5;
+	Vector2 scale = 6;
+	double rotation = 7;
+	Vector2 translation = 8;
+	VideoCompositionConfig config = 9;
+}

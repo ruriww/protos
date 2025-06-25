@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImageUploadElementsCompatibility {
+	bool is_retry = 1;
+	string attachment_state_key = 2;
+	string image_attachment_creation_key = 3;
+	bytes initial_attachment_state_bytes = 4;
+	bytes succeeded_attachment_state_bytes = 5;
+	string image_attachment_key = 6;
+}

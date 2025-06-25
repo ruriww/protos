@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+option objc_class_prefix = "OGADS";
+
+message Context {
+	message AndroidClientVersion {
+		int32 android_os_sdk = 1;
+		int32 gmscore_version_code = 2;
+		string calling_android_app = 3;
+	}
+
+	message IOSClientVersion {
+		string ios_build_changelist = 1;
+		string ios_app_bundle_id = 2;
+		string ios_app_version = 3;
+	}
+
+	oneof client_version {
+		AndroidClientVersion android_client_version = 1;
+		IOSClientVersion ios_client_version = 2;
+	}
+
+	enum TriggeringEvent {
+		option features.enum_type = CLOSED;
+
+		ONE_GOOGLE_TRIGGERING_EVENT_REASON_UNSPECIFIED = 0;
+		ACCOUNT_MENU_OPENED = 1;
+		ACCOUNT_SWITCHED = 2;
+		PERIODIC_POLL = 3;
+		TICKLE_RECEIVED = 4;
+		COLD_START = 5;
+		WARM_START = 6;
+	}
+
+	TriggeringEvent triggering_event = 3;
+}

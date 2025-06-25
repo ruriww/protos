@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/tap_selection_region.proto";
+
+option objc_class_prefix = "LFE";
+
+message TextSelectionRange {
+	TapSelectionRegion first_tap_selection_region = 1;
+	TapSelectionRegion last_tap_selection_region = 2;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "POEM";
+
+message ContactInteractionStats {
+	PersonFieldMetadata metadata = 1;
+	int32 outbound_count = 2;
+	int32 inbound_count = 3;
+	google.protobuf.Timestamp last_outbound_interaction_time = 4;
+}

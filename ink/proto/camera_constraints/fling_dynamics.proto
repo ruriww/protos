@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto.camera_constraints;
+
+option objc_class_prefix = "INKPB";
+
+message FlingDynamics {
+	float minimum_start_speed_cm_s = 1 [ default = 10 ];
+	float stopping_speed_cm_s = 2 [ default = 0.1 ];
+	float decay_factor_per_second = 3 [ default = 0.025 ];
+}

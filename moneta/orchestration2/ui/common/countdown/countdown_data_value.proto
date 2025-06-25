@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.countdown;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CountdownDataValue {
+	extend data.DataValue {
+		CountdownDataValue countdown_data_value_extension = 265162537;
+	}
+
+	string formatted_value = 1;
+	int32 millis_until_finished = 2;
+}

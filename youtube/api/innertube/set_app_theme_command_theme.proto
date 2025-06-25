@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SetAppThemeCommandTheme {
+	option features.enum_type = CLOSED;
+
+	SET_APP_THEME_COMMAND_THEME_UNKNOWN = 0;
+	SET_APP_THEME_COMMAND_THEME_LIGHT = 1;
+	SET_APP_THEME_COMMAND_THEME_DARK = 2;
+	SET_APP_THEME_COMMAND_THEME_DEVICE = 3;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/image.proto";
+import "notifications/frontend/data/common/inbox_action.proto";
+
+option objc_class_prefix = "NFDC";
+
+message InboxButton {
+	Image icon = 1;
+	string text = 2;
+	InboxAction action = 3;
+}

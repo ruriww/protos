@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.integrator.api.creditcard;
+
+import "moneta/integrator/common/api_error.proto";
+import "moneta/integrator/api/creditcard/credit_card.proto";
+import "moneta/integrator/common/instrument/new_instrument.proto";
+
+option objc_class_prefix = "Orch";
+
+message GetMaskedCardAndCustomerDataResponse {
+	common.ApiError error = 1;
+	int64 customer_id = 2;
+	bytes common_token = 3;
+	repeated CreditCard credit_card = 4;
+	common.instrument.NewInstrument new_credit_card = 5;
+	int64 customer_creation_timestamp = 9;
+	int64 billing_customer_number = 10;
+}

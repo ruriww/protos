@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TooltipTargetEffect {
+	enum TooltipTargetEffectType {
+		option features.enum_type = CLOSED;
+
+		TOOLTIP_TARGET_EFFECT_TYPE_UNKNOWN = 0;
+		TOOLTIP_TARGET_EFFECT_TYPE_CLING = 1;
+		TOOLTIP_TARGET_EFFECT_TYPE_TAP = 2;
+	}
+
+	TooltipTargetEffectType type = 1;
+}

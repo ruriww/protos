@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/analytics_chart_dimension.proto";
+import "youtube/api/innertube/analytics_named_color.proto";
+import "youtube/api/innertube/analytics_chart_values_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsBarChartRenderer {
+	extend Renderer {
+		AnalyticsBarChartRenderer analytics_bar_chart_renderer = 278825308;
+	}
+
+	repeated int64 times_msec = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated double values = 2 [ features.repeated_field_encoding = EXPANDED ];
+	AnalyticsChartDimension dimension = 3;
+	AnalyticsNamedColor bar_color = 4;
+	AnalyticsChartValuesType chart_values_type = 5;
+	bool highlight_last_bar = 6;
+}

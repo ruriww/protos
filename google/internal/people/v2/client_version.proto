@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.people.v2;
+
+option objc_class_prefix = "GIPR";
+
+message ClientVersion {
+	string client_type = 1;
+	string client_version = 2;
+
+	enum ClientAgent {
+		CLIENT_AGENT_UNSPECIFIED = 0;
+		CONTACT_STORE = 1;
+		POPULOUS = 2;
+	}
+
+	ClientAgent client_agent = 3;
+}

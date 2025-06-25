@@ -1,0 +1,46 @@
+edition = "2023";
+
+package lens.api.command;
+
+option objc_class_prefix = "LNSAPI";
+
+message AddContactCommand {
+	string name = 1;
+
+	message PhoneNumber {
+		string phone_number = 1;
+
+		enum PhoneNumberType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_PHONE_NUMBER_TYPE = 0;
+			HOME = 1;
+			MOBILE = 2;
+			WORK = 3;
+			FAX = 4;
+		}
+
+		PhoneNumberType phone_number_type = 2;
+	}
+
+	repeated PhoneNumber phone_number = 2;
+
+	message Email {
+		string email = 1;
+
+		enum EmailType {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_EMAIL_TYPE = 0;
+			HOME = 1;
+			WORK = 2;
+		}
+
+		EmailType email_type = 2;
+	}
+
+	repeated Email email = 3;
+	string title = 4;
+	string organization = 5;
+	string address = 6;
+}

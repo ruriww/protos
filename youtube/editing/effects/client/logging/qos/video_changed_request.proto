@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+import "youtube/api/innertube/mde_video_info.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTEE";
+
+message VideoChangedRequest {
+	repeated api.innertube.MdeVideoInfo video_info = 1;
+	google.protobuf.Timestamp request_time = 2;
+	int64 pipeline_reference_id = 3;
+}

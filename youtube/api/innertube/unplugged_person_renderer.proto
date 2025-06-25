@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedPersonRenderer {
+	bytes tracking_params = 1;
+	ThumbnailDetails thumbnail = 3;
+	FormattedString name = 4;
+	Command navigation_endpoint = 5;
+	FormattedString role = 6;
+	FormattedString number = 7;
+}
+
+extend Renderer {
+	UnpluggedPersonRenderer unplugged_person_renderer = 97273257;
+}

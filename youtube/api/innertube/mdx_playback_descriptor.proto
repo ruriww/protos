@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_device.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxPlaybackDescriptor {
+	MdxDevice mdx_device = 1;
+	string video_id = 2;
+	int32 video_start_position_ms = 3;
+	string playlist_id = 4;
+	int32 playlist_index = 5;
+	string player_params = 6;
+	bool force_reload_playback = 7;
+	repeated string video_ids = 8;
+	string active_source_video_id = 9;
+}

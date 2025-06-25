@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridStyle {
+	enum GridStyleType {
+		option features.enum_type = CLOSED;
+
+		GRID_STYLE_TYPE_UNKNOWN = 0;
+		GRID_STYLE_TYPE_NORMAL = 1;
+		GRID_STYLE_TYPE_ADDITIONAL_SPACING = 2;
+		GRID_STYLE_TYPE_DETAILS_PAGE = 3;
+	}
+
+	GridStyleType type = 1;
+}

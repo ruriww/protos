@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.client.forms;
+
+import "youtube/client/forms/state.proto";
+import "youtube/client/forms/post_ephemerality_settings_form_field.proto";
+import "youtube/client/forms/timestamp_form_field.proto";
+import "youtube/client/forms/string_form_field.proto";
+import "youtube/client/forms/post_video_host_creation_data_form_field.proto";
+
+option objc_class_prefix = "YTFA";
+
+message PostsCreationMetadataForm {
+	string id = 1;
+	State state = 2;
+	PostEphemeralitySettingsFormField ephemerality_settings = 3;
+	TimestampFormField scheduling_timestamp = 4;
+	StringFormField visibility = 5;
+	PostVideoHostCreationDataFormField video_host = 6;
+}

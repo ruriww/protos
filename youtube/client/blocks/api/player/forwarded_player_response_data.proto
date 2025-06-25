@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/api/innertube/manifestless_windowed_live_config.proto";
+
+option objc_class_prefix = "YTBA";
+
+message ForwardedPlayerResponseData {
+	bool is_live_head_playable = 1;
+	youtube.api.innertube.ManifestlessWindowedLiveConfig manifestless_windowed_live_config = 2;
+	bool is_post_live_dvr = 3;
+	uint64 length_seconds = 4;
+}

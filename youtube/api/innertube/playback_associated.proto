@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visual_element.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackAssociated {
+	string cpn = 1;
+	VisualElement playback_ve = 2;
+	string csn = 3;
+
+	message QueueInfo {
+		VisualElement enqueueing_ve = 1;
+		string enqueueing_csn = 2;
+		int64 client_enqueueing_time_ms = 3;
+	}
+
+	QueueInfo queue_info = 4;
+}

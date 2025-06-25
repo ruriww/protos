@@ -1,0 +1,21 @@
+edition = "2023";
+
+package image_base;
+
+import "image_base/thumbnail_type.proto";
+
+option objc_class_prefix = "IMB";
+
+message ThumbnailMetadata {
+	ThumbnailType type = 1 [ default = THUMBNAIL_TYPE_DEFAULT ];
+	int32 width = 2;
+	int32 height = 3;
+	int32 byte_size = 4;
+	fixed64 fprint = 5;
+	fixed64 docid = 6;
+	string mime_type = 9 [ default = "image/jpeg" ];
+	int32 original_width = 10;
+	int32 original_height = 11;
+	string encrypted_docid = 13;
+	int64 expiration_timestamp_micros = 15;
+}

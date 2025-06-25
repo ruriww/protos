@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicOmuColdConfig {
+	bool music_android_use_omu_compat_layer_for_tracks = 1;
+	bool music_android_enable_single_videos_orchestration_phase_2 = 2;
+	bool ios_use_omu_compat_layer_for_tracks = 3;
+	bool music_android_use_omu_compat_layer_for_track_library_surfaces = 4;
+	bool music_android_use_omu_compat_layer_for_track_library_integrations = 5;
+	bool music_android_use_omu_compat_layer_for_downloaded_songs_page = 6;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.integrator.api.tapandpay;
+
+import "moneta/integrator/common/instrument/credit_card_details.proto";
+
+option objc_class_prefix = "ITapAndPay";
+
+message Card {
+	int64 instrument_id = 1;
+	int64 billing_address_id = 2;
+	bytes edit_token = 4;
+	common.instrument.CreditCardDetails card_details = 5;
+	string pan_secure_data_id = 7;
+}

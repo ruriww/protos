@@ -1,0 +1,17 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+import "video/youtube/editing/effects/client/events/image_to_image_params.proto";
+import "video/youtube/editing/effects/client/events/image_to_video_params.proto";
+
+option objc_class_prefix = "YTEE";
+
+message DynamicAssetParams {
+	oneof params {
+		ImageToImageParams image_to_image_params = 1;
+		ImageToVideoParams image_to_video_params = 2;
+	}
+
+	string dynamic_asset_id = 3;
+}

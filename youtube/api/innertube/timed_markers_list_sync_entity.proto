@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/timed_list_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TimedMarkersListSyncEntity {
+	extend EntityMutationPayload {
+		TimedMarkersListSyncEntity timed_markers_list_sync_entity = 254;
+	}
+
+	string key = 1;
+	bytes model_version = 2;
+	TimedListData timed_list_data = 3;
+}

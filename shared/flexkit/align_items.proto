@@ -1,0 +1,14 @@
+edition = "2023";
+
+package shared.flexkit;
+
+option objc_class_prefix = "FLX";
+
+enum AlignItems {
+	option features.enum_type = CLOSED;
+
+	AI_FLEX_START = 0;
+	AI_FLEX_END = 1;
+	AI_CENTER = 2;
+	AI_STRETCH = 3;
+}

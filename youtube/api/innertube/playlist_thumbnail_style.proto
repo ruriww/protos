@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlaylistThumbnailStyle {
+	option features.enum_type = CLOSED;
+
+	PLAYLIST_THUMBNAIL_STYLE_UNKNOWN = 0;
+	PLAYLIST_THUMBNAIL_STYLE_FIRST_VIDEO = 1;
+	PLAYLIST_THUMBNAIL_STYLE_TWO_BY_TWO = 2;
+	PLAYLIST_THUMBNAIL_STYLE_ONE_AND_TWO_AVATAR = 3;
+	PLAYLIST_THUMBNAIL_STYLE_ONE_AND_TWO = 4;
+}

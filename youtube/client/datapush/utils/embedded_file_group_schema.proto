@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+import "com/google/android/libraries/mdi/download/client_file_group.proto";
+
+option objc_class_prefix = "YTI";
+
+message EmbeddedFileGroupSchema {
+	repeated com.google.android.libraries.mdi.download.ClientFileGroup filegroups = 1;
+}

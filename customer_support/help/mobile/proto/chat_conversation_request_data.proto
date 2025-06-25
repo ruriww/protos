@@ -1,0 +1,15 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_update_conversation_request.proto";
+import "customer_support/help/mobile/proto/mobile_list_conversation_events_request.proto";
+import "customer_support/help/mobile/proto/mobile_update_typing_status_request.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ChatConversationRequestData {
+	MobileUpdateConversationRequest update_conversation_request = 1;
+	MobileListConversationEventsRequest events_request = 2;
+	MobileUpdateTypingStatusRequest update_typing_status_request = 3;
+}

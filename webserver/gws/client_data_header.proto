@@ -1,0 +1,19 @@
+edition = "2023";
+
+package webserver.gws;
+
+import "webserver/gws/device_properties.proto";
+import "experiments/heterodyne/experiment_ids.proto";
+
+option objc_class_prefix = "GWS";
+
+message ClientDataHeader {
+	repeated int32 experiment_id = 1;
+	int64 config_time_usec = 2;
+	repeated int32 trigger_experiment_id = 3;
+	string override_zwieback_nid = 7;
+	DeviceProperties device_properties = 9;
+	repeated string server_token = 10;
+	bytes gzip_compressed = 13;
+	experiments.heterodyne.ExperimentIds external_client_experiment_ids = 15;
+}

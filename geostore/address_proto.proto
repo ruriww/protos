@@ -1,0 +1,24 @@
+edition = "2023";
+
+package geostore;
+
+import "proto2/bridge/message_set.proto";
+import "geostore/address_component_proto.proto";
+import "geostore/address_lines_proto.proto";
+import "geostore/field_metadata_proto.proto";
+
+option objc_class_prefix = "GS";
+
+message AddressProto {
+	extend proto2.bridge.MessageSet {
+		AddressProto message_set_extension = 12208774;
+	}
+
+	repeated AddressComponentProto component = 2;
+	repeated AddressComponentProto cross_street = 5;
+	repeated AddressLinesProto address_lines = 6;
+	proto2.bridge.MessageSet temporary_data = 8;
+	string template_id = 10;
+	AddressProto partial_denormalization = 11;
+	FieldMetadataProto metadata = 500;
+}

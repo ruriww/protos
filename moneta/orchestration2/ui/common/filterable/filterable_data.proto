@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.filterable;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FilterableData {
+	extend data.Data {
+		FilterableData filterable_data_extension = 440798150;
+	}
+
+	message FilterOption {
+		int64 data_reference = 1;
+		string comparable_value_regex = 2;
+	}
+
+	repeated FilterOption filter_option = 1;
+}

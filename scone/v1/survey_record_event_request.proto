@@ -1,0 +1,13 @@
+edition = "2023";
+
+package scone.v1;
+
+import "scone/v1/survey/event.proto";
+import "scone/v1/survey/session.proto";
+
+option objc_class_prefix = "UVSP";
+
+message SurveyRecordEventRequest {
+	survey.Event event = 1;
+	survey.Session session = 2;
+}

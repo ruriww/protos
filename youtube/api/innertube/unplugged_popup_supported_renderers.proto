@@ -1,0 +1,34 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/setting_category_collection_renderer.proto";
+import "youtube/api/innertube/mealbar_promo_renderer.proto";
+import "youtube/api/innertube/hint_renderer.proto";
+import "youtube/api/innertube/unplugged_location_resolution_renderer.proto";
+import "youtube/api/innertube/unplugged_promo_renderer.proto";
+import "youtube/api/innertube/unplugged_alert_renderer.proto";
+import "youtube/api/innertube/unplugged_multiselect_popup_renderer.proto";
+import "youtube/api/innertube/unplugged_overflow_menu_popup_renderer.proto";
+import "youtube/api/innertube/unplugged_selection_menu_dialog_renderer.proto";
+import "youtube/api/innertube/unplugged_onboarding_location_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedPopupSupportedRenderers {
+	oneof renderer {
+		SettingCategoryCollectionRenderer setting_category_collection_renderer = 66930374;
+		MealbarPromoRenderer mealbar_promo_renderer = 96907215;
+		HintRenderer hint_renderer = 102716411;
+		UnpluggedLocationResolutionRenderer unplugged_location_resolution_renderer = 133553674;
+		UnpluggedPromoRenderer unplugged_promo_renderer = 144754891;
+		UnpluggedAlertRenderer unplugged_alert_renderer = 156478231;
+		UnpluggedMultiselectPopupRenderer unplugged_multiselect_popup_renderer = 162683875;
+		UnpluggedOverflowMenuPopupRenderer unplugged_overflow_menu_popup_renderer = 209930811;
+		UnpluggedSelectionMenuDialogRenderer unplugged_selection_menu_dialog_renderer = 220170735;
+		UnpluggedOnboardingLocationRenderer unplugged_onboarding_location_renderer = 250730390;
+	}
+}

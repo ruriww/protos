@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/feedback_params.proto";
+import "google/internal/identity/accountsettings/mobile/v1/profile_picture_picker_params.proto";
+import "google/internal/identity/accountsettings/mobile/v1/anchor_navigation_params.proto";
+import "google/internal/identity/accountsettings/mobile/v1/help_params.proto";
+
+option objc_class_prefix = "ASM";
+
+message NativeAlternative {
+	int32 native_action_id = 1;
+	FeedbackParams feedback_params = 2;
+	ProfilePicturePickerParams profile_picture_picker_params = 3;
+	AnchorNavigationParams anchor_navigation_params = 5;
+	HelpParams help_params = 6;
+}

@@ -1,0 +1,29 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+option objc_class_prefix = "ORCH2";
+
+message EMoneyStoredValueInfo {
+	string secure_element_id = 1;
+
+	enum ServiceProvider {
+		option features.enum_type = CLOSED;
+
+		SERVICE_PROVIDER_UNKNOWN = 0;
+		SERVICE_PROVIDER_EDY = 1;
+		SERVICE_PROVIDER_NANACO = 2;
+		SERVICE_PROVIDER_WAON = 3;
+		SERVICE_PROVIDER_SUICA = 4;
+		SERVICE_PROVIDER_ID = 5;
+		SERVICE_PROVIDER_QUICPAY = 6;
+	}
+
+	ServiceProvider service_provider = 2;
+	string service_provider_card_id = 3;
+	string balance = 4;
+	string currency_code = 5;
+	string operation_limit = 6;
+	string balance_limit = 7;
+	string online_nonce = 8;
+}

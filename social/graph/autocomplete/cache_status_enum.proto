@@ -1,0 +1,18 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message CacheStatusEnum {
+	enum CacheStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		EMPTY = 1;
+		PARTIAL = 2;
+		FULL = 3;
+		ON_DISK = 4;
+		STALE = 5;
+	}
+}

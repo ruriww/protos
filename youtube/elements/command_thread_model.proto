@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/command_thread.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message CommandThreadModel {
+	CommandThread thread = 1 [ default = COMMAND_THREAD_ANY ];
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AVSyncFixInfo {
+	uint32 av_sync_fix_version = 1;
+	bool is_fix_fallback = 2;
+	int64 unexpected_video_timestamp_diff_ms = 3;
+	int64 unexpected_audio_timestamp_diff_ms = 4;
+	bool is_timestamp_offset_set_in_effect_pipeline = 5;
+	string fix_version = 6;
+	uint32 av_sync_camera_fix_version = 7;
+	uint32 remix_camera_video_sync_fix_version = 8;
+	bool is_xeno_processor_available = 9;
+	bool is_audio_record_get_timestamp_failed = 10;
+	int64 first_audio_capture_frame_count = 11;
+	int64 first_audio_recorder_frame_count = 12;
+	int64 last_audio_capture_frame_count = 13;
+	int64 last_audio_recorder_frame_count = 14;
+	bool is_input_fix_fallback = 15;
+	int64 unexpected_camera_input_timestamp_diff_ms = 16;
+	int64 unexpected_microphone_input_timestamp_diff_ms = 17;
+}

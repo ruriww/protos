@@ -1,0 +1,59 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/target.proto";
+import "abuseiam/abuse_type.proto";
+import "abuseiam/name_value_pair.proto";
+import "abuseiam/region.proto";
+import "abuseiam/user_restriction.proto";
+
+option objc_class_prefix = "AIA";
+
+message Evaluation {
+	enum Backend {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = -1;
+		ADMIN = 0;
+		OCELOT = 2;
+		SPAMIAM = 3;
+		MANUAL_REVIEW = 4;
+		PORN_CLASSIFIER = 8;
+		GIBBERISH_DETECTOR = 9;
+		BADWORD = 16;
+		IMAGE_PORN_CLASSIFIER = 31;
+		FIFE_IMAGE_FETCHER = 33;
+		RULE = 40;
+		FOCUS = 41;
+		PATTERNLIST = 43;
+		WIGGUM = 48;
+		BINARY_EXPLORATION = 49;
+		QUOTASERVER = 58;
+		YOUTUBE = 59;
+		POLICY = 80;
+		PHOTO_SERVICE = 84;
+		ARES = 108;
+	}
+
+	Backend backend = 1 [ default = UNKNOWN ];
+	string version = 2;
+	int64 timestamp_micros = 3;
+
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		OK = 0;
+		ERROR = 1;
+	}
+
+	Status status = 5;
+	Target target = 6;
+	AbuseType abuse_type = 7;
+	double score = 8;
+	string comment = 9;
+	int64 processed_micros = 10;
+	repeated NameValuePair misc_data = 11;
+	repeated Region region = 13;
+	UserRestriction user_restriction = 16;
+}

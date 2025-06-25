@@ -1,0 +1,10 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message MonthlyDayRecurrence {
+	repeated int32 month_day = 1 [ features.repeated_field_encoding = EXPANDED ];
+	bool use_last_day_if_month_day_past_end = 2;
+}

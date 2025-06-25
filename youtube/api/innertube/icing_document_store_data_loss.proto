@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IcingDocumentStoreDataLoss {
+	option features.enum_type = CLOSED;
+
+	ICING_DOCUMENT_STORE_DATA_LOSS_UNKNOWN = 0;
+	ICING_DOCUMENT_STORE_DATA_LOSS_NONE = 1;
+	ICING_DOCUMENT_STORE_DATA_LOSS_PARTIAL = 2;
+	ICING_DOCUMENT_STORE_DATA_LOSS_COMPLETE = 3;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package notifications.frontend.data.common.display_surface;
+
+option objc_class_prefix = "NFDCDS";
+
+message NotificationDisplaySurface {
+	enum Enum {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SYSTEM_TRAY = 1;
+		IN_APP = 2;
+	}
+}

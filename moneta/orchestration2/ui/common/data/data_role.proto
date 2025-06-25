@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+enum DataRole {
+	option features.enum_type = CLOSED;
+
+	DATA_ROLE_UNKNOWN = 0;
+	DATA_ROLE_TEMPLATE = 1;
+}

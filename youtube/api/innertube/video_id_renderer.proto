@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/registration_failure_reason.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoIdRenderer {
+	enum RegistrationStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		FAILED = 2;
+	}
+
+	RegistrationStatus registration_status = 1;
+	string video_id = 2;
+	RegistrationFailureReason failure_reason = 3;
+}
+
+extend Renderer {
+	VideoIdRenderer video_id_renderer = 78753760;
+}

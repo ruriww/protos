@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DragAndDropSectionScope {
+	option features.enum_type = CLOSED;
+
+	DRAG_AND_DROP_SECTION_SCOPE_UNKNOWN = 0;
+	DRAG_AND_DROP_SECTION_SCOPE_SAME_SECTION = 1;
+	DRAG_AND_DROP_SECTION_SCOPE_ACROSS_SECTIONS = 2;
+}

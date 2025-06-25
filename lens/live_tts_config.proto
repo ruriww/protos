@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens;
+
+import "speech/s3/request.proto";
+import "speech/s3/tts_service_request.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message LiveTtsConfig {
+	speech.s3.Request initial_s3_request = 1;
+	speech.s3.TtsServiceRequest tts_service_request = 2;
+}

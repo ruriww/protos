@@ -1,0 +1,14 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum ErrorDomain {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN = 0;
+	POSIX = 1;
+	OSSTATUS = 2;
+	COCOA = 3;
+}

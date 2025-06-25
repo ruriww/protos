@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatClientState {
+	bool is_slow_mode_enabled = 1;
+	bool is_blocked_from_chat = 2;
+	bool is_member = 3;
+	bool is_moderator = 4;
+	string emoji_checksum = 5;
+	bool was_top_chat_ever_enabled_this_session = 6;
+	bool is_super_chat_for_good_enabled = 8;
+	int64 full_load_timestamp_usec = 10;
+	string active_poll_id = 12;
+	string undelivered_merch_id = 13;
+	int64 undelivered_merch_expiry_time_usec = 14;
+	bool has_active_donations_campaign = 15;
+	int64 tango_auth_token_expiration_timestamp_usec = 16;
+	bool is_approved_user = 17;
+	Timestamp is_subscribed_since_timestamp = 18;
+	google.protobuf.Duration subscribers_only_mode_minimum_duration = 19;
+	bool is_owner = 22;
+	bool was_moderator_education_dialog_ever_shown = 23;
+	bool should_verify_user_roles = 24;
+	int64 last_user_role_fetch_timestamp_usec = 25;
+	string active_qna_action_id = 26;
+	Timestamp last_report_presence_timestamp = 27;
+	Timestamp initial_load_timestamp = 28;
+	bool is_stream_ineligible_for_qna = 29;
+	bool is_stream_ineligible_for_poll = 30;
+	bool is_managing_moderator = 31;
+	bool was_managing_moderator_education_dialog_ever_shown = 32;
+	bool is_members_only_mode_enabled = 33;
+	bool is_invite_only_mode_enabled = 34;
+	Timestamp last_comment_like_data_fetch_timestamp = 35;
+	bool is_goal_status_active = 38;
+	uint64 goal_tally = 39;
+	bool is_fanzone_active = 41;
+	bool is_eligible_for_gift_prompt = 43;
+}

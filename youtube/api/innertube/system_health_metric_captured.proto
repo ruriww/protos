@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/yt_system_health_metric.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SystemHealthMetricCaptured {
+	YtSystemHealthMetric metric = 1;
+	string csn = 2;
+}

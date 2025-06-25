@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistPanelVideoOfflineabilitySupportedRenderers {
+	oneof renderer {
+		OfflineabilityRenderer offlineability_renderer = 60572968;
+		ButtonRenderer button_renderer = 65153809;
+	}
+}

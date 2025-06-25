@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message VideoCallData {
+	string pool_id = 1;
+	int64 version = 2;
+	bool cancel_request = 3;
+	string issue_description = 4;
+}

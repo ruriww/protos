@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/dismissal_follow_up_renderer.proto";
+import "youtube/api/innertube/dismissal_reason_text_renderer.proto";
+import "youtube/api/innertube/dismissal_reason_video_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	DismissalFollowUpRenderer dismissal_follow_up_renderer = 106646784;
+}
+
+extend Renderer {
+	DismissalReasonTextRenderer dismissal_reason_text_renderer = 106353983;
+}
+
+extend Renderer {
+	DismissalReasonVideoRenderer dismissal_reason_video_renderer = 106118680;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/delayed_event_retry_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DelayedEventConfigSet {
+	int32 max_age_hours = 2;
+	int32 batch_size = 3;
+	DelayedEventRetryConfig retry_config = 4;
+	bool use_logging_dispatch_queue = 5;
+}

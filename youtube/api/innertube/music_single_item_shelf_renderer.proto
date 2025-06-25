@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/music_background_overlay_style.proto";
+import "youtube/api/innertube/music_image_aspect_ratio.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicSingleItemShelfRenderer {
+	FormattedString title = 1;
+	FormattedString strapline = 2;
+	FormattedString item_title = 3;
+	FormattedString item_subtitle = 4;
+	Renderer background_image = 5;
+	Command navigation_endpoint = 6;
+	bytes tracking_params = 8;
+	AccessibilitySupportedDatas accessibility_data = 9;
+	MusicBackgroundOverlayStyle background_overlay = 10;
+	Renderer menu = 11;
+	Command double_tap_navigation_endpoint = 12;
+	repeated Renderer potential_thumbnail_overlays = 13;
+	repeated Renderer subtitle_badges = 14;
+	FormattedString item_companion_text = 15;
+	Renderer thumbnail_renderer = 16;
+	MusicImageAspectRatio aspect_ratio = 17;
+	repeated Renderer companion_text_buttons = 18;
+}
+
+extend Renderer {
+	MusicSingleItemShelfRenderer music_single_item_shelf_renderer = 161233442;
+}

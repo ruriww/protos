@@ -1,0 +1,33 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "speech/s3/device_selection_device_type.proto";
+
+option objc_class_prefix = "S3";
+
+message DeviceSelectionInput {
+	extend Request {
+		DeviceSelectionInput device_selection_input = 124183122;
+	}
+
+	float hotword_power = 1;
+	float background_power = 2;
+
+	enum BiasedDecisionType {
+		option features.enum_type = CLOSED;
+
+		NO_BIAS = 0;
+		MUST_WIN = 1;
+		SHOULD_WIN = 2;
+		ON_DEVICE_ARBITER = 3;
+	}
+
+	BiasedDecisionType biased_decision = 3;
+	DeviceSelectionDeviceType device_selection_device_type = 4;
+	bool can_handle_early_loss = 5;
+	bool is_reopening_mic = 6;
+	float hotword_power_v2 = 8;
+	float background_power_v2 = 9;
+}

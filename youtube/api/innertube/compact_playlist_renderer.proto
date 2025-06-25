@@ -1,0 +1,67 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/like_button_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/playlist_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/associated_game_supported_renderers.proto";
+import "youtube/api/innertube/playlist_endpoint_supported_datas.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/playlist_client_binding_data.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactPlaylistRenderer {
+	string playlist_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString short_byline_text = 4;
+	FormattedString video_count_text = 5;
+	Command navigation_endpoint = 6;
+	string debug_html = 7;
+	FormattedString published_time_text = 8;
+	FormattedString video_count_short_text = 9;
+	LikeButtonSupportedRenderers like_button = 11;
+	bytes tracking_params = 12;
+	repeated ThumbnailDetails sidebar_thumbnails = 13;
+	repeated Command service_endpoints = 14;
+	FormattedString thumbnail_text = 15;
+	repeated BadgeSupportedRenderers owner_badges = 16;
+
+	message CompactPlaylistOfflineabilitySupportedRenderers {
+		OfflineabilityRenderer offlineability_renderer = 60572968;
+	}
+
+	CompactPlaylistOfflineabilitySupportedRenderers offlineability = 17;
+	MenuSupportedRenderers menu = 18;
+	string share_url = 19;
+	PlaylistThumbnailSupportedRenderers thumbnail_renderer = 20;
+	FormattedString long_byline_text = 21;
+	repeated BadgeSupportedRenderers badges = 22;
+	AssociatedGameSupportedRenderers associated_game = 23;
+	PlaylistEndpointSupportedDatas secondary_endpoints = 24;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 25;
+	MainAppCompactRendererStyle main_app_style = 26;
+	PlaylistClientBindingData playlist_client_binding_data = 27;
+	ChannelThumbnailSupportedRenderers channel_thumbnail = 29;
+	bool display_as_large = 30;
+	Command inline_playback_endpoint = 31;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	CompactPlaylistRenderer compact_playlist_renderer = 50742631;
+}

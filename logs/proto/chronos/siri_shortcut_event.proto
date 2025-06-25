@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message SiriShortcutEvent {
+	int32 total_shortcuts = 1;
+	string shortcut_type = 2;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/response.proto";
+import "speech/s3/tts_timepoint.proto";
+
+option objc_class_prefix = "S3";
+
+message TtsServiceEvent {
+	extend Response {
+		TtsServiceEvent tts_event = 28599812;
+	}
+
+	bytes audio = 1;
+	bool end_of_data = 2;
+	TtsTimepoint timepoint = 5;
+}

@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.pageheader;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+
+option objc_class_prefix = "Orch";
+
+message PageHeader {
+	int64 ui_reference = 1;
+
+	enum DisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TITLE_DISPLAY_TYPE = 0;
+		BAR = 1;
+		HEADER_WITH_IMAGE_ON_TOP = 2;
+		BAR_AND_HEADER_WITH_IMAGE_ON_TOP = 3;
+	}
+
+	DisplayType display_type = 2;
+	string title = 3;
+	generic.InfoMessage subtitle = 4;
+	generic.ImageWithCaption image = 5;
+
+	enum DividerDisplayType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_DIVIDER_DISPLAY_TYPE = 0;
+		SHOW_DIVIDER = 1;
+		HIDE_DIVIDER = 2;
+	}
+
+	DividerDisplayType divider_display_type = 6;
+	generic.InfoMessage title_message = 8;
+}

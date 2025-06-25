@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SlotTriggerEvent {
+	option features.enum_type = CLOSED;
+
+	SLOT_TRIGGER_EVENT_UNSPECIFIED = 0;
+	SLOT_TRIGGER_EVENT_BEFORE_CONTENT = 1;
+	SLOT_TRIGGER_EVENT_CONTENT_OFFSET = 2;
+	SLOT_TRIGGER_EVENT_AFTER_CONTENT = 3;
+	SLOT_TRIGGER_EVENT_PRIMARY_AD_OFFSET = 4;
+	SLOT_TRIGGER_EVENT_CUE_POINT = 5;
+	SLOT_TRIGGER_EVENT_MINI_APP_AD_BEFORE = 9;
+	SLOT_TRIGGER_EVENT_MINI_APP_AD_WITHIN = 10;
+	SLOT_TRIGGER_EVENT_MINI_APP_AD_REWARD = 11;
+	SLOT_TRIGGER_EVENT_CONTENT_PAUSED = 6;
+	SLOT_TRIGGER_EVENT_LAYOUT_ID_ENTERED = 7;
+	SLOT_TRIGGER_EVENT_LAYOUT_ID_EXITED_NORMAL = 8;
+}

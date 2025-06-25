@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/storyboard_flags.proto";
+import "youtube/api/innertube/single_video_media_time_context.proto";
+import "youtube/api/innertube/upcoming_viewport_size_provider.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosPlayerConfig {
+	bool continue_playback_on_inactive = 1;
+	bool use_innertube_default_captions = 2;
+	bool enable_prefetch_for_playlist = 3;
+	bool display_captions_above_player_bar = 4;
+	bool perform_active_logic_on_foreground = 5;
+	bool vss_prevent_duplicate_playback_pause = 6;
+	StoryboardFlags storyboard_flags = 7;
+	bool enlarge_captions_in_fullscreen = 8;
+	bool disable_stats_for_nerds = 9;
+	float playlist_prefetch_window = 11;
+	bool prevent_ads_captions_overlap = 12;
+	bool log_background_with_uiapplicationstate = 13;
+	bool enlarge_ads_captions_in_fullscreen = 14;
+	bool enable_quality_selection_on_cellular = 15;
+	int32 sticky_ceiling_duration_ms = 16;
+	int32 dtts_tolerance_before_ms = 17;
+	int32 dtts_tolerance_after_ms = 18;
+	bool vss_treat_seek_as_pause = 19;
+	int32 scrub_min_seek_interval_ms = 22;
+	bool use_innertube_drm_service = 23;
+	bool request_iosguard_data_after_playback_starts = 24;
+	bool media_should_download_licenses = 25;
+	SingleVideoMediaTimeContext single_video_media_time_context = 26;
+	bool use_ancillary_stream_state_to_finish_live_streams = 27;
+	bool enable_watch_endpoint_ustreamer_config = 28;
+	bool use_new_media_player_for_next_playback = 29;
+	bool heartbeat_policy_error_is_non_fatal = 30;
+	int64 minimum_buffered_media_time_seconds_to_prefetch_upcoming_transition = 31;
+	bool use_no_op_ads_coordinator = 32;
+	UpcomingViewportSizeProvider upcoming_viewport_size_provider = 33;
+	bool force_gapless_sequencer_compatibility = 34;
+}

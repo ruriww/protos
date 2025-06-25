@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+option objc_class_prefix = "ORCH2";
+
+message RenderingModeHeightProperties {
+	enum BottomSheetHeight {
+		option features.enum_type = CLOSED;
+
+		BOTTOM_SHEET_HEIGHT_UNKNOWN = 0;
+		BOTTOM_SHEET_HEIGHT_SIZED_TO_CONTENT = 1;
+		BOTTOM_SHEET_HEIGHT_FILLS_SPACE = 2;
+	}
+
+	BottomSheetHeight height = 1;
+}

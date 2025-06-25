@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ConfigurationValue {
+	oneof configuration_value_data {
+		string string_value = 1;
+		bool bool_value = 2;
+	}
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.utils.crypto.mobile;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "YTCRYPT";
+
+message SignedKeyset {
+	string identifier = 1;
+	bytes keyset = 2;
+	google.protobuf.Timestamp valid_before = 3;
+	google.protobuf.Timestamp valid_after = 4;
+}

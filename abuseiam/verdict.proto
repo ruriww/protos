@@ -1,0 +1,96 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/target.proto";
+import "abuseiam/evaluation.proto";
+import "abuseiam/region.proto";
+import "abuseiam/name_value_pair.proto";
+import "abuseiam/verdict_restriction.proto";
+import "abuseiam/client.proto";
+import "abuseiam/user_notification.proto";
+import "abuseiam/hash.proto";
+import "abuseiam/abuse_type.proto";
+
+option objc_class_prefix = "AIA";
+
+message Verdict {
+	Target target = 1;
+
+	enum Decision {
+		option features.enum_type = CLOSED;
+
+		ERROR = 0;
+		NO_ACTION = 2;
+		GOOD = 3;
+		DELETE = 4;
+		INTERSTITIAL = 5;
+		HIDE = 6;
+		BLACK_LIST = 7;
+		MARK_AS_SPAM = 8;
+		REWRITE_LINKS = 9;
+		HIDE_AND_NOTIFY = 10;
+		FREEZE_SERVICE = 11;
+		SUSPEND_SERVICE = 12;
+		SMS_DISABLE = 13;
+		NOTIFY = 14;
+	}
+
+	Decision decision = 2;
+	repeated Evaluation evaluation = 3;
+	string reason_code = 4;
+	string version = 5;
+	int64 timestamp_micros = 6;
+	bool is_legal_issued = 7 [ default = false ];
+	repeated Region region = 8;
+	int32 duration_mins = 10;
+	string comment = 11;
+	repeated NameValuePair misc_scores = 12;
+	int64 target_timestamp_micros = 13;
+	repeated VerdictRestriction restriction = 14;
+	Client client = 15;
+	StrikeRule.Category strike_category = 16;
+	repeated UserNotification user_notification = 17;
+	repeated Hash hashes = 18;
+}
+
+message MessageQualifier {
+	string name = 1;
+	Client client = 2;
+	repeated AbuseType abuse_type = 3;
+	repeated Evaluation.Backend verdict_backend = 4 [ features.repeated_field_encoding = EXPANDED ];
+	repeated Verdict.Decision verdict_decision = 5 [ features.repeated_field_encoding = EXPANDED ];
+	repeated NameValuePair misc_data = 6;
+}
+
+message StrikeRule {
+	string name = 1;
+
+	enum Category {
+		option features.enum_type = CLOSED;
+
+		ES = 1;
+		CP = 2;
+		COPYRIGHT = 3;
+		BLOGGER = 4;
+		GRANDCENTRAL = 5;
+		DRIVE = 6;
+		CLOUD = 7;
+		SITES = 8;
+	}
+
+	Category category = 2 [ default = ES ];
+	repeated MessageQualifier qualifier = 3;
+	Verdict.Decision strike = 4;
+	int32 duration_mins = 5;
+	Client target_client = 6;
+	repeated int32 service_id = 7 [ features.repeated_field_encoding = EXPANDED ];
+	Verdict.Decision prior_strike = 8;
+	int32 threshold = 9;
+	int64 timewindow_mins = 10;
+	bool is_test = 11;
+	bool ignore_message_timestamp = 12;
+	repeated UserNotification user_notification = 13;
+	int32 backend_threshold = 14 [ default = 1 ];
+	int32 grace_period = 15;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+import "moneta/orchestration2/ui/common/eventrules/resultingaction/resulting_action.proto";
+import "moneta/orchestration2/ui/common/input/textinput/text_input_new_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextInputResultingAction {
+	extend eventrules.resultingaction.ResultingAction {
+		TextInputResultingAction text_input_resulting_action_extension = 231698332;
+	}
+
+	enum ResultingActionType {
+		option features.enum_type = CLOSED;
+
+		RESULTING_ACTION_TYPE_UNKNOWN = 0;
+		RESULTING_ACTION_TYPE_NEW_VALUE = 1;
+	}
+
+	ResultingActionType resulting_action_type = 1;
+
+	oneof resulting_action {
+		TextInputNewValue new_value = 2;
+	}
+}

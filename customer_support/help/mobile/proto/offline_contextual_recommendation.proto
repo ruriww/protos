@@ -1,0 +1,12 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/offline_content_descriptor.proto";
+
+option objc_class_prefix = "CSHM";
+
+message OfflineContextualRecommendation {
+	string context = 1;
+	repeated OfflineContentDescriptor content_descriptor = 2;
+}

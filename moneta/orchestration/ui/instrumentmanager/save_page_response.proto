@@ -1,0 +1,33 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/instrumentmanager/page.proto";
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+
+option objc_class_prefix = "IManager";
+
+message SavePageResponse {
+	string instrument_id = 1;
+
+	oneof deprecated_result_type {
+		Page next_page = 2;
+		bool stay_on_current_page = 6;
+	}
+
+	common.UiError error = 3;
+	common.ResponseContext context = 4;
+	bool flow_complete = 5;
+	int64 f1_instrument_id = 7;
+	common.SecureDataHeader secure_header = 8;
+	common.generic.FlowInstruction flow_instruction = 9;
+	bytes instrument_token = 10;
+	bytes cvn_token = 11;
+	common.IntegratorCallbackData integrator_data = 12;
+	int64 billing_customer_number = 13;
+	string success_message = 14;
+}

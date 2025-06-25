@@ -1,0 +1,24 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message AndroidAppFlip {
+	string app_package_name = 1;
+	string app_signature = 2;
+
+	message AppLink {
+		string app_url = 1;
+		int64 min_app_version_code = 2;
+		int64 min_sdk_version_code = 3;
+	}
+
+	oneof linking_mechanism {
+		string app_flip_intent = 3;
+		AppLink app_link = 6;
+	}
+
+	string redirect_uri = 4;
+	repeated string scopes = 5;
+}

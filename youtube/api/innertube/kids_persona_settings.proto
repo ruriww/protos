@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/yt_kids_age_up_mode.proto";
+import "youtube/api/innertube/kids_corpus_preference.proto";
+import "youtube/api/innertube/kids_background_music_preference.proto";
+import "youtube/api/innertube/kids_sound_fx_preference.proto";
+import "youtube/api/innertube/yt_kids_no_search_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsPersonaSettings {
+	oneof corpus_selection {
+		YTKidsAgeUpMode age_up_mode = 3;
+		KidsCorpusPreference corpus_preference = 7;
+	}
+
+	KidsBackgroundMusicPreference background_music_preference = 4;
+	KidsSoundFxPreference sound_fx_preference = 5;
+	YTKidsNoSearchMode no_search_mode = 6;
+}

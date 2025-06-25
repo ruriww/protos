@@ -1,0 +1,67 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message AboutMeExtendedData {
+	message ProfileNameModificationHistory {
+		int64 name_last_modified = 1;
+		int32 name_changes_remaining = 2;
+		int64 nickname_last_modified = 3;
+		int32 nickname_changes_remaining = 4;
+
+		enum QuotaEnforcementStatus {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_QUOTA_ENFORCEMENT_STATUS = 0;
+			ENFORCED = 1;
+			NOT_ENFORCED = 2;
+			NOT_APPLICABLE = 3;
+		}
+
+		QuotaEnforcementStatus quota_enforcement_status = 5;
+		int32 computed_name_changes_remaining = 6;
+		int32 computed_nickname_changes_remaining = 7;
+	}
+
+	ProfileNameModificationHistory profile_name_modification_history = 1;
+
+	message NameDisplayOptions {
+		enum NicknameOption {
+			option features.enum_type = CLOSED;
+
+			UNKNOWN_NICKNAME_OPTION = 0;
+			QUOTED_NICKNAME = 1;
+			PAREN_NICKNAME = 2;
+		}
+
+		NicknameOption nickname_option = 1;
+	}
+
+	NameDisplayOptions name_display_options = 2;
+
+	message ProfileEditability {
+		repeated string locked_field = 1;
+	}
+
+	ProfileEditability profile_editability = 3;
+
+	message PhotosCompareData {
+		message DiffData {
+			float red_diff = 1;
+			float green_diff = 2;
+			float blue_diff = 3;
+		}
+
+		DiffData diff_data = 1;
+		string low_res_url = 2;
+		string high_res_url = 3;
+		bool private_low_res_acl = 4;
+		bytes low_res_data = 5;
+		bool inconsistent_photo = 6;
+		string monogram_url = 7;
+	}
+
+	PhotosCompareData photos_compare_data = 4;
+}

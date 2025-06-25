@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_field_mask_merge_options.proto";
+import "gtasks/utils/x_field_mask_proto.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EntityFieldMask {
+	EntityFieldMaskMergeOptions merge_options = 1;
+	gtasks.utils.XFieldMaskProto xfield_mask = 2;
+}

@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/clarification_renderer_style.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClarificationRenderer {
+	FormattedString text = 1;
+
+	oneof image_oneof {
+		ThumbnailDetails image = 2;
+		Icon icon = 12;
+	}
+
+	Command endpoint = 3;
+	MenuSupportedRenderers menu = 4;
+	FormattedString source = 5;
+	Icon source_icon = 6;
+	bytes tracking_params = 7;
+	ClarificationRendererStyle style = 9;
+	FormattedString content_title = 10;
+	FormattedString section_title = 11;
+	FormattedString timestamp = 13;
+	Command secondary_endpoint = 14;
+	Icon secondary_icon = 15;
+	ButtonSupportedRenderers action_button = 16;
+	FormattedString secondary_source = 18;
+	bool cta_has_bottom_section = 19;
+	FormattedString disclaimer = 20;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	ClarificationRenderer clarification_renderer = 154900756;
+}

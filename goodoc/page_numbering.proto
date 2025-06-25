@@ -1,0 +1,22 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/ordinal.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message PageNumbering {
+	Ordinal page_ordinal = 1;
+
+	message OtherPageOrdinal {
+		string name = 1;
+		Ordinal page_ordinal = 2;
+	}
+
+	repeated OtherPageOrdinal other_page_ordinals = 2;
+	bool two_consecutive_ordinals_per_page = 3;
+	int32 insert = 4;
+	bool rolled_over_begin = 5;
+	bool rolled_over_end = 6;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinedVideoAd {
+	enum OfflinedVideoAdState {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		INCOMPLETE_VAST = 1;
+		FORECASTING = 2;
+		INCOMPLETE_ASSET = 3;
+		COMPLETE = 4;
+	}
+
+	OfflinedVideoAdState state = 1;
+	string asset_video_id = 2;
+	uint32 expires_in_seconds = 3;
+	uint32 remaining_asset_playbacks = 4;
+}

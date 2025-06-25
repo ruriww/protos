@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_endpoint_promo_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineEndpoint {
+	bool hack = 1;
+	string offline_id = 2;
+	bool has_access_to_offline = 3;
+	OfflineEndpointPromoSupportedRenderers promo = 4;
+}
+
+extend Command {
+	OfflineEndpoint offline_endpoint = 51958981;
+}

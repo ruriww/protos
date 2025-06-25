@@ -1,0 +1,34 @@
+edition = "2023";
+
+package social.graph.autocomplete;
+
+option objc_class_prefix = "SGAC";
+
+message ErrorCauseTypeEnum {
+	enum ErrorCauseType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		UNCAUGHT_EXCEPTION = 1;
+		AUTH_ERROR = 2;
+		INTERRUPTED = 3;
+		TIMEOUT = 4;
+		CACHE_UNAVAILABLE = 5;
+		GAPI_NOT_INIT = 6;
+		PARSE_ERROR = 7;
+		REMOTE = 8;
+		CORRUPT_CACHE = 9;
+		INDEX_ERROR = 10;
+		CLIENT_EXCEPTION = 11;
+		SESSION_CLOSED = 12;
+		CACHE_READ_ERROR = 13;
+		CACHE_FETCH_ERROR = 14;
+		CACHE_FLUSH_ERROR = 15;
+		GOOGLE_ACCOUNT_LOCAL_AUTH_ERROR = 16;
+		OTHER_LOCAL_AUTH_ERROR = 17;
+		EXCHANGE_ACCOUNT_LOCAL_AUTH_ERROR = 18;
+		MULTIPLE_IS_FIRST = 19;
+		MULTIPLE_IS_LAST = 20;
+		LAC_CONTAINS_PARTIAL_RESULTS = 21;
+	}
+}

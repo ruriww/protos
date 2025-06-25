@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EngagementPanelTitleHeaderHybridElementRenderer {
+	extend Renderer {
+		EngagementPanelTitleHeaderHybridElementRenderer engagement_panel_title_header_hybrid_element_renderer = 1342;
+	}
+
+	Renderer header = 1;
+	Renderer subheader = 2;
+}

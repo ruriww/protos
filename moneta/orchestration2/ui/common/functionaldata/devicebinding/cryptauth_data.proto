@@ -1,0 +1,37 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.devicebinding;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CryptauthData {
+	extend data.Data {
+		CryptauthData cryptauth_data_extension = 333616473;
+	}
+
+	string client_name = 1;
+
+	message KeyConfiguration {
+		string key_name = 1;
+		bool strong_auth = 2;
+
+		enum KeyType {
+			option features.enum_type = CLOSED;
+
+			KEY_TYPE_UNKNOWN = 0;
+			KEY_TYPE_REGULAR = 1;
+			KEY_TYPE_STRONGAUTH = 2;
+			KEY_TYPE_STRONGBOX = 3;
+			KEY_TYPE_STRONGAUTH_STRONGBOX = 4;
+		}
+
+		KeyType key_type = 3;
+	}
+
+	repeated KeyConfiguration key_configuration = 2;
+	int32 timeout_millis = 3;
+	bool allows_key_fallback = 4;
+	int32 max_retry_attempts = 5;
+}

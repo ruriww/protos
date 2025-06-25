@@ -1,0 +1,24 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/texts/footprints_consent_flow_texts.proto";
+import "footprints/texts/linked_services_consent.proto";
+import "footprints/texts/primitiveconsent/primitive_consent.proto";
+import "footprints/transparencyandcontrol/proto/opaque_consent_token.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "footprints/texts/text_extra_information.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentScreen {
+	oneof content {
+		texts.FootprintsConsentFlowTexts footprints_consent_texts = 1;
+		texts.LinkedServicesConsent linked_services_consent = 7;
+		texts.primitiveconsent.PrimitiveConsent primitive_consent = 12;
+	}
+
+	OpaqueConsentToken opaque_consent_token = 2;
+	repeated ConsentSetting settings = 3;
+	texts.TextExtraInformation text_extra_information = 4;
+}

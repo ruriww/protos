@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelYpcOfferRenderer {
+	FormattedString header = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString subtitle = 4;
+	FormattedString prices = 5;
+	FormattedString additional_info = 6;
+	Command endpoint = 7;
+}
+
+extend Renderer {
+	ChannelYpcOfferRenderer channel_ypc_offer_renderer = 51250726;
+}

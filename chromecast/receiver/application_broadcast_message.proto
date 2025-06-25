@@ -1,0 +1,15 @@
+edition = "2023";
+
+package chromecast.receiver;
+
+option objc_class_prefix = "GCRE";
+
+message ApplicationBroadcastMessage {
+	repeated string app_ids = 1;
+	string message_namespace = 2;
+
+	oneof payload {
+		string payload_utf8 = 3;
+		bytes payload_binary = 4;
+	}
+}

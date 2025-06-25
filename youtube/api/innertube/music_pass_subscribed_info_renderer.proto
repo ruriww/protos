@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/music_pass_subscribe_button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicPassSubscribedInfoRenderer {
+	message SubscribedInfoCell {
+		FormattedString header = 1;
+		repeated FormattedString descriptions = 2;
+		MusicPassSubscribeButtonSupportedRenderers purchase_button = 3;
+	}
+
+	repeated SubscribedInfoCell cells = 1;
+	bytes tracking_params = 3;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedVoiceRemoteDialogRenderer {
+	FormattedString primary_instruction = 1;
+	FormattedString error_message_primary_string = 2;
+	FormattedString error_message_secondary_string = 3;
+	repeated FormattedString voice_remote_command_tips = 4;
+	UnpluggedButtonSupportedRenderers send_feedback_button = 5;
+	UnpluggedButtonSupportedRenderers learn_more_button = 6;
+	bytes opaque_voice_remote_context_token = 7;
+	string accessibility_label = 8;
+	bytes tracking_params = 9;
+}
+
+extend Renderer {
+	UnpluggedVoiceRemoteDialogRenderer unplugged_voice_remote_dialog_renderer = 173734140;
+}

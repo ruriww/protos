@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.datapush.utils;
+
+import "youtube/client/datapush/utils/data_push_manifest.proto";
+import "youtube/client/datapush/utils/validation_config.proto";
+import "youtube/client/datapush/utils/version_reporting.proto";
+
+option objc_class_prefix = "YTI";
+
+message DataPushFileGroupMetadata {
+	DataPushManifest manifest = 1;
+	ValidationConfig validation_config = 2;
+	VersionReporting version_reporting = 3;
+}

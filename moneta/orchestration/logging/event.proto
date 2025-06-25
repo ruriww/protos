@@ -1,0 +1,28 @@
+edition = "2023";
+
+package moneta.orchestration.logging;
+
+import "moneta/orchestration/logging/client_log_enums.proto";
+import "moneta/orchestration/logging/api_request_data.proto";
+import "moneta/orchestration/logging/session_data.proto";
+import "moneta/orchestration/logging/test_code_data.proto";
+
+option objc_class_prefix = "Orch";
+
+message Event {
+	string session_id = 1;
+	int32 context_start_event_id = 2;
+	repeated int64 context_ui_reference = 3;
+	ClientLogEnums.EventName name = 4;
+	int32 event_id = 5;
+	int32 timed_start_event_id = 6;
+	int64 ui_reference = 7;
+	ClientLogEnums.Result result = 8;
+	int32 result_code = 9;
+
+	oneof data {
+		ApiRequestData api_request_data = 12;
+		SessionData session_data = 17;
+		TestCodeData test_code_data = 21;
+	}
+}

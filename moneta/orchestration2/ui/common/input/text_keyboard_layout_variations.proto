@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input;
+
+option objc_class_prefix = "ORCH2";
+
+message TextKeyboardLayoutVariations {
+	bool capitalize_characters = 1;
+	bool capitalize_sentences = 2;
+	bool capitalize_words = 3;
+	bool email_address = 4;
+	bool person_name = 5;
+	bool postal_address = 6;
+	bool uri = 7;
+	bool no_suggestions = 8;
+	bool password = 9;
+}

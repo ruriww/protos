@@ -1,0 +1,59 @@
+edition = "2023";
+
+package contentads.visibility;
+
+option objc_class_prefix = "CAVIS";
+
+message OmidInfo {
+	string partner_name = 1;
+	string partner_version = 2;
+
+	enum AdSessionType {
+		option features.enum_type = CLOSED;
+
+		AD_SESSION_TYPE_UNKNOWN = 0;
+		HTML = 1;
+		NATIVE = 2;
+		JAVASCRIPT = 3;
+	}
+
+	AdSessionType ad_session_type = 3;
+
+	enum AccessMode {
+		option features.enum_type = CLOSED;
+
+		ACCESS_MODE_UNKNOWN = 0;
+		LIMITED = 1;
+		FULL = 2;
+	}
+
+	AccessMode access_mode = 4;
+
+	enum CreativeType {
+		option features.enum_type = CLOSED;
+
+		CREATIVE_TYPE_UNKNOWN = 0;
+		HTML_DISPLAY = 1;
+		NATIVE_DISPLAY = 2;
+		VIDEO = 3;
+		AUDIO = 4;
+	}
+
+	CreativeType creative_type = 5;
+	string app_id = 6;
+
+	enum DeviceCategory {
+		option features.enum_type = CLOSED;
+
+		DEVICE_CATEGORY_UNKNOWN = 0;
+		CTV = 1;
+		DESKTOP = 2;
+		MOBILE = 3;
+		OTHER = 4;
+	}
+
+	DeviceCategory device_category = 7;
+	int64 last_activity_timestamp_msecs = 8;
+	int64 device_idle_time_sec = 9;
+	uint64 occlusion_reasons = 10 [ default = 0 ];
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+enum RecordingState {
+	MEETING_RECORDING_STATE_UNSPECIFIED = 0;
+	MEETING_RECORDING_STATE_NOT_RECORDING = 1;
+	MEETING_RECORDING_STATE_RECORDING = 2;
+}

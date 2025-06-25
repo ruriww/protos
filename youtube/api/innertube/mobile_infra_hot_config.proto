@@ -1,0 +1,56 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/network_active_controller_hot_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileInfraHotConfig {
+	bool enable_retry_failed_requests = 1;
+	bool enable_retry_failed_player_requests = 2;
+
+	enum InnerTubeClientNetworkStack {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		SESSION_WITH_UNIFIED_RETRIES = 4;
+	}
+
+	InnerTubeClientNetworkStack client_network_stack = 3;
+	InnerTubeClientNetworkStack client_network_stack_for_getconfig = 4;
+	bool ios_cached_responses_callback_async = 9;
+	bool ios_lact_use_audio_session_volume = 10;
+	bool android_innertube_drop_response_when_identity_mismatch = 11;
+	bool ios_cleanup_scheduler_background_task = 12;
+	bool enable_attaching_retry_param_to_innertube_retries = 13;
+	repeated int32 android_metrics_logging_experiment_ids = 15 [ features.repeated_field_encoding = EXPANDED ];
+	repeated string ios_blacklisted_client_streamz_metrics = 17;
+	bool android_use_browse_async_apis = 18;
+	bool ios_should_drop_ping_if_auth_fails = 20;
+	bool ios_use_identity_provider_for_visitordata = 21;
+	bool ios_nonnull_active_identity_enabled = 22;
+	bool include_language_in_browse_cache_key = 23;
+	bool android_remove_tracking_params_from_cache_key = 25;
+	bool android_reuse_bytes_when_parsing_innertube_responses = 26;
+	bool ios_enable_smart_webp_decoding = 29;
+	bool ios_reset_lact_for_screenshots = 30;
+	bool android_add_spatula_v1_header_in_innertube_all_requests = 31;
+	bool android_add_spatula_v1_header_in_innertube_player_requests = 32;
+	bool ios_disable_brotli_compression = 33;
+	bool android_enable_reload_continuation_spinner_fix = 36;
+	repeated int32 android_allowed_unmetered_carrier_ids = 37 [ features.repeated_field_encoding = EXPANDED ];
+	NetworkActiveControllerHotConfig network_active_controller_config = 38;
+	bool disable_device_auth = 40;
+	bool ios_14_allow_idfa_access = 41;
+	bool ios_nonnull_identity_event_logging_service_send_failed_identity_lookup_as_signed_out = 42;
+	InnerTubeClientNetworkStack client_network_stack_for_watch_next = 44;
+	bool ios_enable_attaching_page_id_to_ping_requests = 49;
+	repeated string image_service_authorization_needed_urls = 50;
+	bool ios_objectivec_unified_retries = 51;
+	bool preserve_android_section_list_target_id_restore_from_transient_state = 52;
+	bool android_disable_update_continuation_click_logging = 54;
+}

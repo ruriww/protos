@@ -1,0 +1,14 @@
+edition = "2023";
+
+package search.rendering.xuikit.elements;
+
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "XUI";
+
+message DataStoreMutationPayload {
+	google.protobuf.Any payload = 1;
+
+	extensions 2 to 7;
+	extensions 9;
+}

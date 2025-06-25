@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SleepTimerOptionType {
+	option features.enum_type = CLOSED;
+
+	SLEEP_TIMER_OPTION_TYPE_UNKNOWN = 0;
+	SLEEP_TIMER_OPTION_TYPE_OFF = 1;
+	SLEEP_TIMER_OPTION_TYPE_FIXED_MINUTES_DURATION = 10;
+	SLEEP_TIMER_OPTION_TYPE_END_OF_VIDEO = 8;
+	SLEEP_TIMER_OPTION_TYPE_END_OF_PLAYLIST = 9;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCarpetPosterSize {
+	enum PosterSizeType {
+		option features.enum_type = CLOSED;
+
+		POSTER_SIZE_TYPE_UNKNOWN = 0;
+		POSTER_SIZE_TYPE_LARGE = 1;
+	}
+
+	PosterSizeType size_type = 1;
+}

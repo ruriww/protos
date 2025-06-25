@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicVisualHeaderRenderer {
+	FormattedString title = 1;
+	Renderer subscription_button = 2;
+	Renderer thumbnail = 3;
+	bytes tracking_params = 5;
+	Renderer play_button = 6;
+	Renderer start_radio_button = 7;
+	Command share_endpoint = 8;
+	Renderer menu = 9;
+	Renderer foreground_thumbnail = 10;
+	Renderer primary_button = 11;
+	Renderer secondary_button = 12;
+	FormattedString pronouns = 13;
+	bool pronouns_visible_to_subscribers_only = 14;
+}
+
+extend Renderer {
+	MusicVisualHeaderRenderer music_visual_header_renderer = 225413481;
+}

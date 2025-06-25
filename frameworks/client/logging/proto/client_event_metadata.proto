@@ -1,0 +1,13 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+import "frameworks/client/logging/proto/client_info.proto";
+import "frameworks/client/logging/proto/client_release.proto";
+
+option objc_class_prefix = "CLI";
+
+message ClientEventMetadata {
+	ClientInfo client_info = 2;
+	ClientRelease release_type = 6;
+}

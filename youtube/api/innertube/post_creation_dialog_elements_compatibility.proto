@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PostCreationDialogElementsCompatibility {
+	string post_creation_dialog_state_key = 1;
+	string post_creation_dialog_content_text_key = 2;
+	string attachment_state_key = 3;
+	string image_attachment_key = 4;
+	string image_attachment_creation_key = 5;
+	string video_attachment_creation_key = 6;
+	string poll_attachment_option_1_key = 7;
+	string poll_attachment_option_2_key = 8;
+	string poll_attachment_option_3_key = 9;
+	string poll_attachment_option_4_key = 10;
+	string poll_attachment_option_5_key = 11;
+}

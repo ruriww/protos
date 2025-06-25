@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/xeno_effect_output_audio_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message XenoEffectGraphVersion {
+	string graph_id = 1;
+	string graph_version_id = 2;
+	string input_frame_stream_name = 3;
+	string output_frame_stream_name = 4;
+	int32 max_frames_in_flight = 5;
+	bytes graph = 6;
+	string input_audio_stream_name = 7;
+	string output_audio_stream_name = 8;
+	repeated string auxiliary_output_stream_names = 9;
+	XenoEffectOutputAudioConfig output_audio_config = 10;
+	string input_frame_presentation_timestamp_stream_name = 11;
+	string input_audio_presentation_timestamp_stream_name = 12;
+}

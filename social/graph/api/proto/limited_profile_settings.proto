@@ -1,0 +1,40 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "social/graph/api/proto/limited_profile_name_settings.proto";
+import "social/graph/api/proto/limited_profile_picture_settings.proto";
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "SGAP";
+
+message LimitedProfileSettings {
+	LimitedProfileNameSettings name_settings = 1;
+	LimitedProfilePictureSettings profile_picture_settings = 2;
+	google.protobuf.Timestamp last_update_time = 4;
+
+	enum DisableReason {
+		option features.enum_type = CLOSED;
+
+		DISABLE_REASON_UNSPECIFIED = 0;
+		INCOMPATIBLE_NAME_ONLY_MUTATION = 1;
+		NAME_ABUSE_VIOLATION = 2;
+	}
+
+	DisableReason disable_reason = 5;
+
+	enum AutogenStatus {
+		option features.enum_type = CLOSED;
+
+		AUTOGEN_STATUS_UNSPECIFIED = 0;
+		AUTOGEN_UNCONFIRMED = 1;
+		AUTOGEN_CONFIRMED = 2;
+	}
+
+	oneof provenance {
+		AutogenStatus legacy_discoverability = 6;
+		bool gpay_oobe = 7;
+		bool my_account = 8;
+		bool android_messages = 9;
+	}
+}

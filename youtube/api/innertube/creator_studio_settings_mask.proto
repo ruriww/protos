@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorStudioSettingsMask {
+	bool all = 1;
+
+	message CreatorAppSettingsMask {
+		bool all = 1;
+		bool warm_welcome_state = 2;
+		bool video_list_page_size = 3;
+		bool dismissed_guided_tours = 4;
+		bool warm_welcome_v2_state = 6;
+		bool acknowledged_aadc_warning = 7;
+		bool acknowledged_aadc_upload_default_privacy_override = 8;
+		bool prechecks_notification_opt_in_default = 9;
+		bool acknowledged_ips_warning = 10;
+		bool collapsable_rank_setting = 11;
+		bool collapsable_rank_setting_web = 12;
+		bool shorts_view_layout_setting = 13;
+	}
+
+	CreatorAppSettingsMask creator_app = 2;
+}

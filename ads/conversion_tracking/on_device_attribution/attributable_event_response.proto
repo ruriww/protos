@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+import "ads/conversion_tracking/on_device_attribution/interaction_data_sent_to_client.proto";
+import "ads/conversion_tracking/on_device_attribution/status.proto";
+
+option objc_class_prefix = "ADCO";
+
+message AttributableEventResponse {
+	int32 api_version = 1;
+	repeated InteractionDataSentToClient interaction_data = 2;
+	Status status = 3;
+	map<string, bytes> serialized_interaction_data = 4;
+}

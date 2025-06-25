@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message PaymentEvent {
+	bool requires_shipping = 1;
+	string country_code = 2;
+	string currency_code = 3;
+}

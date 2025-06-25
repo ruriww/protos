@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+option objc_class_prefix = "Orch";
+
+message PartialUpdateData {
+	int64 component_ui_reference = 1;
+
+	enum PartialUpdateType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		REFRESH = 1;
+		ADD = 2;
+		MODIFY = 3;
+	}
+
+	PartialUpdateType update_type = 2;
+	int64 component_container_ui_reference = 3;
+	int32 component_container_component_index = 4;
+}

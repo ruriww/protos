@@ -1,0 +1,14 @@
+edition = "2023";
+
+package googledata.experiments.mobile.gnp_ios;
+
+option objc_class_prefix = "GNPP";
+
+message EventTrackingConfig {
+	message ClearcutEvent {
+		int32 event_code = 1;
+		int32 log_source = 2;
+	}
+
+	repeated ClearcutEvent allowlisted_events = 1;
+}

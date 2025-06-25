@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/async_activity_style.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AsyncActivityRenderer {
+	FormattedString message_text = 1;
+	AsyncActivityStyle activity_style = 2;
+
+	oneof header_image {
+		Icon icon = 3;
+		ThumbnailDetails thumbnail = 4;
+	}
+
+	string tint_color = 5;
+	bool is_fullscreen = 6;
+	bytes tracking_params = 8;
+}
+
+extend Renderer {
+	AsyncActivityRenderer async_activity_renderer = 130350563;
+}

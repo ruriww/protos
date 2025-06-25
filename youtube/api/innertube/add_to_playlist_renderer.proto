@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/add_to_playlist_option_supported_renderers.proto";
+import "youtube/api/innertube/add_to_playlist_action_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddToPlaylistRenderer {
+	repeated AddToPlaylistOptionSupportedRenderers playlists = 1;
+	repeated AddToPlaylistActionSupportedRenderers actions = 2;
+	repeated Renderer top_playlists = 3;
+	Renderer top_shelf = 4;
+	FormattedString title = 5;
+	FormattedString top_playlists_title = 6;
+	FormattedString playlists_title = 7;
+}
+
+extend Renderer {
+	AddToPlaylistRenderer add_to_playlist_renderer = 88978004;
+}

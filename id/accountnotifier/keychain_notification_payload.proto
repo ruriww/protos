@@ -1,0 +1,25 @@
+edition = "2023";
+
+package id.accountnotifier;
+
+option objc_class_prefix = "RCH";
+
+message KeychainNotificationPayload {
+	enum Source {
+		option features.enum_type = CLOSED;
+
+		SOURCE_UNSPECIFIED = 0;
+		SECURITY_DOMAIN_SERVICE = 1;
+	}
+
+	Source source = 1;
+
+	enum Topic {
+		option features.enum_type = CLOSED;
+
+		TOPIC_UNSPECIFIED = 0;
+		DEGRADED_RECOVERABILITY_UPDATED = 1;
+	}
+
+	Topic topic = 2;
+}

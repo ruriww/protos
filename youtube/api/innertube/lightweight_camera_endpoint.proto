@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/reel_edit_screen_type.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LightweightCameraEndpoint {
+	extend Command {
+		LightweightCameraEndpoint lightweight_camera_endpoint = 139979438;
+	}
+
+	bool hack = 1;
+	int32 time_limit = 2;
+	Command destination_endpoint = 3;
+	ReelEditScreenType reel_edit_screen_type = 4;
+	repeated Renderer overlay_renderers = 5;
+	string params = 6;
+}

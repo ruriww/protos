@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DynamicTextPresetConfiguration {
+	repeated uint32 font_size_candidates = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

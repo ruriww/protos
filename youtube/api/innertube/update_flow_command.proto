@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateFlowCommand {
+	extend Command {
+		UpdateFlowCommand update_flow_command = 371825304;
+	}
+
+	string target_id = 1;
+	repeated Renderer steps = 2;
+	Command entity_update_command = 3;
+	Command flow_continuation_command = 4;
+}

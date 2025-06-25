@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SpacingConfiguration {
+	int32 column_gap = 1;
+	int32 row_gap = 2;
+	int32 container_margin_top = 3;
+	int32 container_margin_bottom = 4;
+	int32 container_margin_start = 5;
+	int32 container_margin_end = 6;
+}

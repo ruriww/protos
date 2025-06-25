@@ -1,0 +1,9 @@
+edition = "2023";
+
+package ads.video.viral;
+
+option objc_class_prefix = "AVV";
+
+message TextValue {
+	string text = 1;
+}

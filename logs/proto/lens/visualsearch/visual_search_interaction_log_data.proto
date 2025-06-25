@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.proto.lens.visualsearch;
+
+import "logs/proto/lens/visualsearch/filter_data.proto";
+import "logs/proto/lens/visualsearch/user_selection_data.proto";
+import "logs/proto/lens/visualsearch/client_platform.proto";
+
+option objc_class_prefix = "LLOGVS";
+
+message VisualSearchInteractionLogData {
+	FilterData filter_data = 1;
+	UserSelectionData user_selection_data = 2;
+	bool is_parent_query = 3;
+	ClientPlatform client_platform = 4;
+}

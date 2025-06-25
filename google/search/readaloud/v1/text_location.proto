@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message TextLocation {
+	int32 offset = 1;
+	int32 length = 2;
+	int32 paragraph_text_offset = 3;
+}

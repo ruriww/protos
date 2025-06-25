@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InDisplayAd {
+	string url = 1;
+	string masthead_keyword = 2;
+	string ad_group_id = 3;
+	int64 viral_campaign_id = 4;
+	string viral_ad_response = 5;
+	string viral_ad_response_url = 6;
+	string preset_ad = 7;
+	string afs_ad_response_url = 8;
+	int64 viral_ad_group_id = 9;
+	int64 force_slot_index = 10;
+	string biblioteca_ad_id = 11;
+}

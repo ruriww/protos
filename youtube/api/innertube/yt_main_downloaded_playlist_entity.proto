@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YtMainDownloadedPlaylistEntity {
+	extend EntityMutationPayload {
+		YtMainDownloadedPlaylistEntity yt_main_downloaded_playlist_entity = 156;
+	}
+
+	string id = 1;
+	bytes downloaded_playlist_version = 2;
+	string playlist = 3;
+	repeated string videos = 4;
+	int64 added_timestamp_millis = 5;
+	int64 last_synced_timestamp_millis = 6;
+}

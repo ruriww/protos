@@ -1,0 +1,49 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/search_navigation_supported_configs.proto";
+import "youtube/api/innertube/search_endpoint_supported_prefetch_config.proto";
+import "youtube/api/innertube/search_shorts_context.proto";
+import "youtube/api/innertube/access_point_type.proto";
+import "youtube/api/innertube/suggestion_search_params.proto";
+import "youtube/api/innertube/search_input_params.proto";
+import "youtube/api/innertube/add_to_playlist_search_context.proto";
+import "youtube/api/innertube/search_page_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchEndpoint {
+	string query = 1;
+	string params = 2;
+	SearchNavigationSupportedConfigs navigation_config = 3;
+	string conversation_id = 4;
+	SearchEndpointSupportedPrefetchConfig prefetch_config = 5;
+	bool hack = 6;
+	bytes query_intent = 7;
+	string cowatch_server_params = 8;
+	string original_voice_query = 9;
+	bool is_watch_action_with_escape_hatch = 10;
+	bool default_to_voice_search = 11;
+	string uuld = 12;
+	string original_chip_query = 14;
+	SearchShortsContext shorts_context = 15;
+	string suggestion_thumbnail_video_id = 16;
+	AccessPointType access_point_type = 17;
+	string prefixed_suggestion = 18;
+	SuggestionSearchParams suggestion_search_params = 19;
+	SearchInputParams search_input_params = 20;
+	AddToPlaylistSearchContext add_to_playlist_search_context = 21;
+	SearchPageType page_type = 22;
+	string starburst_v6 = 23;
+
+	extensions 1000 to max;
+}
+
+extend Command {
+	SearchEndpoint search_endpoint = 48687709;
+}

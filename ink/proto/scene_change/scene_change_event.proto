@@ -1,0 +1,45 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+import "ink/proto/scene_change/layer_order_updated.proto";
+import "ink/proto/scene_change/layer_opacity_updated.proto";
+import "ink/proto/scene_change/layer_visibility_updated.proto";
+import "ink/proto/scene_change/active_layer_updated.proto";
+import "ink/proto/scene_change/layer_added.proto";
+import "ink/proto/scene_change/layer_removed.proto";
+import "ink/proto/scene_change/element_added.proto";
+import "ink/proto/scene_change/element_modified.proto";
+import "ink/proto/scene_change/element_removed.proto";
+import "ink/proto/scene_change/undo_redo_state_updated.proto";
+import "ink/proto/scene_change/empty_state_updated.proto";
+import "ink/proto/scene_change/serialized_size_changed.proto";
+import "ink/proto/scene_change/document_loaded.proto";
+import "ink/proto/scene_change/page_bounds_changed.proto";
+import "ink/proto/scene_change/group_added.proto";
+import "ink/proto/scene_change/group_removed.proto";
+import "ink/proto/scene_change/group_order_changed.proto";
+
+option objc_class_prefix = "INKPB";
+
+message SceneChangeEvent {
+	oneof event {
+		LayerOrderUpdated order_updated = 1;
+		LayerOpacityUpdated opacity_updated = 2;
+		LayerVisibilityUpdated visibility_updated = 3;
+		ActiveLayerUpdated active_layer_updated = 4;
+		LayerAdded layer_added = 5;
+		LayerRemoved layer_removed = 6;
+		ElementAdded element_added = 7;
+		ElementModified element_modified = 8;
+		ElementRemoved element_removed = 9;
+		UndoRedoStateUpdated undo_redo_state_updated = 10;
+		EmptyStateUpdated empty_state_updated = 11;
+		SerializedSizeChanged serialized_size_changed = 12;
+		DocumentLoaded document_loaded = 13;
+		PageBoundsChanged page_bounds_changed = 14;
+		GroupAdded group_added = 15;
+		GroupRemoved group_removed = 16;
+		GroupOrderChanged group_order_changed = 17;
+	}
+}

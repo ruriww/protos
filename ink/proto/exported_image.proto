@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ExportedImage {
+	int32 id = 1;
+	uint32 width_px = 2;
+	uint32 height_px = 3;
+	bytes img_bytes = 4;
+	fixed64 fingerprint = 5;
+	string error_message = 6;
+	int32 total_frames = 7;
+	int32 frame_index = 8;
+}

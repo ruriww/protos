@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/paygated_quality_details.proto";
+import "youtube/api/innertube/format_stream.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PaygatedQualitiesMetadata {
+	map<string, PaygatedQualityDetails> quality_details = 1;
+	repeated FormatStream restricted_adaptive_formats = 2;
+}

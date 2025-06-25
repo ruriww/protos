@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StallDetectorSettings {
+	float stall_logging_threshold_ms = 1;
+	bool stall_enable_uploading_breakpad_reports = 4;
+	float stall_fraction_of_runs_to_upload_breakpad_reports = 5;
+	string stall_breakpad_upload_product_id = 6;
+	bool stall_delete_minidump_on_recovery = 7;
+	float stall_timer_interval_ms = 8;
+	float stall_timer_leeway_ms = 9;
+	bool stall_enable_new_detector = 10;
+	float stall_timer_background_delay_threshold_ms = 11;
+	bool stall_enable_uploading_lightpad_reports = 12;
+	bool stall_enable_lightpad_multiple_stacktraces = 13;
+	int32 stall_cooldown_threshold = 14;
+	int32 early_stall_threshold = 15;
+	int32 recovered_events_allowed = 16;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConfigGroupsClientInfo {
+	string cold_config_data = 1;
+	string cold_hash_data = 3;
+	string hot_hash_data = 5;
+	string app_install_data = 6;
+	string active_account_static_config_data = 7;
+	string account_static_hash_data = 8;
+	string account_dynamic_hash_data = 9;
+	string active_finch_static_config_data = 13;
+	string finch_static_hash_data = 14;
+}

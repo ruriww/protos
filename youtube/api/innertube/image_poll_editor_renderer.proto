@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/image_poll_editor_cell_template.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ImagePollEditorRenderer {
+	extend Renderer {
+		ImagePollEditorRenderer image_poll_editor_renderer = 411621223;
+	}
+
+	ImagePollEditorCellTemplate cell_template = 1;
+	FormattedString add_option_button_text = 2;
+	FormattedString remove_option_button_text = 3;
+	FormattedString reposition_images_button_label = 4;
+	FormattedString invalid_file_size_error = 5;
+	FormattedString invalid_aspect_ratio_error = 6;
+	FormattedString invalid_file_type_error = 7;
+}

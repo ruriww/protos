@@ -1,0 +1,13 @@
+edition = "2023";
+
+package notifications.frontend.data.common.thread_state_filters;
+
+import "notifications/frontend/data/common/rs_read_state.proto";
+import "notifications/frontend/data/common/ds_deletion_status.proto";
+
+option objc_class_prefix = "NFDCTSF";
+
+message ThreadStateFilters {
+	repeated RSReadState read_states = 1;
+	repeated DSDeletionStatus deletion_statuses = 2;
+}

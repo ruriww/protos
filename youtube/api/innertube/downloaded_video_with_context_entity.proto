@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/playlist_thumbnail_style.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/badge_info.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadedVideoWithContextEntity {
+	extend EntityMutationPayload {
+		DownloadedVideoWithContextEntity downloaded_video_with_context_entity = 284;
+	}
+
+	string key = 1;
+	string video_id = 2;
+	string title = 3;
+	string channel_owner = 4;
+	int32 video_length_seconds = 5;
+	string video_length_accessibility_text = 6;
+	int32 playback_position_seconds = 7;
+
+	message CollageThumbnail {
+		repeated ThumbnailDetails first_column_thumbnails = 1;
+		repeated ThumbnailDetails second_column_thumbnails = 2;
+		PlaylistThumbnailStyle style = 3;
+		uint32 first_column_cover_thumbnail_background_color = 4;
+	}
+
+	oneof one_of_thumbnail {
+		ThumbnailDetails thumbnail = 8;
+		CollageThumbnail playlist_collage_thumbnail = 19;
+	}
+
+	int32 ui_type = 9;
+	string view_count_text = 10;
+	string published_time_text = 11;
+	repeated BadgeInfo badges = 12;
+	ThumbnailDetails channel_avatar = 13;
+	bool is_playlist = 14;
+	string playlist_id = 15;
+	string playlist_video_count_text = 16;
+	int32 playlist_video_count = 17;
+	string last_synced_time_text = 20;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchTimeMetadata {
+	bool is_final = 1;
+	int32 segment_jitter_sec = 2;
+	int32 scheduled_segment_maximum_length_secs = 3;
+	int32 next_scheduled_segment_maximum_length_secs = 4;
+	int32 sequence_id = 5;
+	int64 segment_wall_length_ms = 6;
+	bool is_double_logged = 7;
+}

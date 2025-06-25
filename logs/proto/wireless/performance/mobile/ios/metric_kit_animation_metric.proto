@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitAnimationMetric {
+	double scroll_hitch_time_ratio_ms_per_s = 1;
+}

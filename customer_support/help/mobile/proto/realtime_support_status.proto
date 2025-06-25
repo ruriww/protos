@@ -1,0 +1,19 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/status.proto";
+import "customer_support/help/mobile/proto/unavailability_reason.proto";
+
+option objc_class_prefix = "CSHM";
+
+message RealtimeSupportStatus {
+	Status chat_status = 1;
+	UnavailabilityReason chat_unavailable_reason = 2;
+	Status video_status = 3;
+	UnavailabilityReason video_unavailable_reason = 4;
+	string customer_id = 5;
+	string chat_conversation_id = 6;
+	int32 chat_queue_position = 7;
+	string chat_case_id = 8;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_stream_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedInfo {
+	bool is_prefetched_response = 1;
+	string upg_voice_action_string = 2;
+	repeated int64 upg_chip_ids = 3 [ features.repeated_field_encoding = EXPANDED ];
+	VideoStreamType video_stream_type = 4;
+	string upg_chip_ids_string = 5;
+	string query = 6;
+}

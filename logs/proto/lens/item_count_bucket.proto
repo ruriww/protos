@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+enum ItemCountBucket {
+	option features.enum_type = CLOSED;
+
+	ITEMS_COUNT_BUCKET_UNKNOWN = 0;
+	ITEMS_COUNT_BUCKET_NONE = 1;
+	ITEMS_COUNT_BUCKET_ONE = 2;
+	ITEMS_COUNT_BUCKET_FEW = 3;
+	ITEMS_COUNT_BUCKET_SEVERAL = 4;
+	ITEMS_COUNT_BUCKET_MANY = 5;
+	ITEMS_COUNT_BUCKET_LOTS = 6;
+}

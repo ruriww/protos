@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/player_overlay_feature_gesture_state_enum.proto";
+import "youtube/api/innertube/player_overlay_feature_gesture_target_enum.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SpeedmasterStateEntity {
+	extend EntityMutationPayload {
+		SpeedmasterStateEntity speedmaster_state_entity = 437;
+	}
+
+	string key = 1;
+	PlayerOverlayFeatureGestureStateEnum state = 2;
+	PlayerOverlayFeatureGestureTargetEnum target = 3;
+}

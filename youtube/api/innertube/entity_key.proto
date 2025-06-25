@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EntityKey {
+	bytes entity_id = 2;
+	int64 entity_type = 4;
+
+	enum IdNamespace {
+		option features.enum_type = CLOSED;
+
+		ID_NAMESPACE_UNKNOWN = 0;
+		ID_NAMESPACE_SERVER = 1;
+		ID_NAMESPACE_CLIENT = 2;
+	}
+
+	IdNamespace entity_id_namespace = 5;
+	bytes entity_scope_token = 6;
+}

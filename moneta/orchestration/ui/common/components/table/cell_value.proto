@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.table;
+
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+
+option objc_class_prefix = "OrchTable";
+
+message CellValue {
+	int64 ui_reference = 1;
+	repeated SimpleFormValue simple_form_value = 2;
+}

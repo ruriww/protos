@@ -1,0 +1,14 @@
+edition = "2023";
+
+package paymentfraud.proto;
+
+import "paymentfraud/mobile/device_fingerprinting.proto";
+import "paymentfraud/proto/browser_fingerprinting.proto";
+
+option objc_class_prefix = "PF";
+
+message RiskAdvisoryData {
+	mobile.DeviceFingerprinting device_fingerprinting = 1;
+	BrowserFingerprinting browser_fingerprinting = 2;
+	mobile.DeviceFingerprinting payee_device_fingerprinting = 7;
+}

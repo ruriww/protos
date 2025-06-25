@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.suggest;
+
+import "youtube/suggest/you_tube_thumbnail_details.proto";
+
+option objc_class_prefix = "YTS";
+
+message YouTubeSuggestionParameters {
+	repeated YouTubeThumbnailDetails thumbnails = 1;
+
+	enum DisplayStyle {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		TEXT_ONLY = 1;
+		INLINE_THUMBNAIL = 2;
+		GRID_THUMBNAIL = 3;
+		WATCH_RECALL = 4;
+	}
+
+	DisplayStyle display_style = 2;
+	bool new_videos_available = 7;
+	string entity_subtitle = 11;
+	string entity_thumbnail = 12;
+	string entity_thumbnail_attribution = 13;
+	string entity_name = 14;
+	string entity_mid = 15;
+	string external_channel_id = 16;
+}

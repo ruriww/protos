@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.integrator.ui.purchasemanager;
+
+option objc_class_prefix = "IPurMan";
+
+message GetRealPanCallbackClientData {
+	string verification_method = 3;
+}

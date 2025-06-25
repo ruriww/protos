@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PromotedNativeTextClickLocation {
+	option features.enum_type = CLOSED;
+
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_UNKNOWN = 0;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_TITLE = 1;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_AD_BADGE = 2;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_URL = 3;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_DESCRIPTION = 4;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_ICON = 5;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_THUMBNAIL = 6;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_BACKGROUND = 7;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_ACTION_LABEL = 8;
+	PROMOTED_NATIVE_TEXT_CLICK_LOCATION_BORDER = 9;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+option objc_class_prefix = "Orch";
+
+message Layout {
+	enum MarginType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_MARGIN_TYPE = 0;
+		COMPACT = 1;
+		EXTRA_SMALL = 2;
+		EXTRA_SMALL_START_ONLY = 3;
+		EXTRA_SMALL_END_ONLY = 4;
+		SMALL = 5;
+		SMALL_START_ONLY = 6;
+		SMALL_END_ONLY = 7;
+		MEDIUM = 8;
+		MEDIUM_START_ONLY = 9;
+		MEDIUM_END_ONLY = 10;
+		LARGE = 11;
+		LARGE_START_ONLY = 12;
+		LARGE_END_ONLY = 13;
+		X_LARGE = 14;
+		X_LARGE_START_ONLY = 15;
+		X_LARGE_END_ONLY = 16;
+		XX_LARGE = 17;
+		XX_LARGE_START_ONLY = 18;
+		XX_LARGE_END_ONLY = 19;
+		CUSTOM = 20;
+	}
+
+	MarginType vertical_margin_type = 1;
+	MarginType horizontal_margin_type = 2;
+	int32 custom_margin_top_dp = 3;
+	int32 custom_margin_bottom_dp = 4;
+	int32 custom_margin_start_dp = 5;
+	int32 custom_margin_end_dp = 6;
+}

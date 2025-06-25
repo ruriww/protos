@@ -1,0 +1,12 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message Rectangle {
+	int32 left = 1;
+	int32 right = 2;
+	int32 top = 3;
+	int32 bottom = 4;
+}

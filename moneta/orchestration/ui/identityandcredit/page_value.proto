@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration.ui.identityandcredit;
+
+import "moneta/orchestration/ui/common/components/country_selector_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/document/document_upload_form_value.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form_value.proto";
+import "moneta/orchestration/ui/common/generic/selectable_ui_field_group_form_value.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector_value.proto";
+
+option objc_class_prefix = "IDV";
+
+message PageValue {
+	common.components.CountrySelectorValue country_selector_value = 3;
+	repeated common.components.SimpleFormValue attribute_form_value = 4;
+	repeated common.components.document.DocumentUploadFormValue document_upload_form_value = 5;
+	repeated string legal_doc_data = 6;
+	common.components.tax.TaxInfoFormValue tax_info_form_value = 7;
+	repeated common.generic.SelectableUiFieldGroupFormValue multiple_choices_questions_answer = 8;
+	bytes dependency_graph_action_token = 9;
+	common.components.customerselector.CustomerSelectorValue customer_selector_value = 11;
+}

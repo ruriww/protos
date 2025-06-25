@@ -1,0 +1,8 @@
+edition = "2023";
+
+package unknown.youtube;
+
+enum GIDOIClientAttribute {
+	ATTRIBUTE_UNKNOWN = 0;
+	ATTRIBUTE_ACCOUNT_CREATION_HAS_PHONE = 1;
+}

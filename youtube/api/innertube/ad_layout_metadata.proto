@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/layout_type.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdLayoutMetadata {
+	string layout_id = 1;
+	LayoutType layout_type = 2;
+	AdLayoutLoggingData ad_layout_logging_data = 3;
+}

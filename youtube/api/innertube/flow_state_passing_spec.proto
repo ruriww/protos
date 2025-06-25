@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FlowStatePassingSpec {
+	option features.enum_type = CLOSED;
+
+	FLOW_STATE_PASSING_SPEC_UNSPECIFIED = 0;
+	FLOW_STATE_PASSING_SPEC_DONT_PASS = 1;
+	FLOW_STATE_PASSING_SPEC_FULL_STATE = 2;
+}

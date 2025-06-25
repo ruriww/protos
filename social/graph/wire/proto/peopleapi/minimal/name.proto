@@ -1,0 +1,28 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+import "social/graph/wire/proto/peopleapi/minimal/person_field_metadata.proto";
+import "social/graph/api/proto/display_name_source.proto";
+
+option objc_class_prefix = "SGWPPM";
+
+message Name {
+	PersonFieldMetadata metadata = 1;
+	string display_name = 2;
+	string formatted_name = 3;
+	string given_name = 4;
+	string family_name = 5;
+	string middle_name = 6;
+	string honorific_prefix = 7;
+	string honorific_suffix = 8;
+	string yomi_given_name = 9;
+	string yomi_family_name = 10;
+	string yomi_honorific_prefix = 11;
+	string yomi_honorific_suffix = 12;
+	string display_name_last_first = 13;
+	string yomi_full_name = 14;
+	string yomi_middle_name = 15;
+	string unstructured_name = 16;
+	api.proto.DisplayNameSource display_name_source = 20;
+}

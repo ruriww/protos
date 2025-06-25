@@ -1,0 +1,15 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+
+option objc_class_prefix = "S3";
+
+message LoggingInfo {
+	extend Request {
+		LoggingInfo logging_info = 77499489;
+	}
+
+	bool gaia_logging_allowed = 1;
+}

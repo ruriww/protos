@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/user_mention_auto_complete_box_event_type.proto";
+import "youtube/api/innertube/user_mention_auto_complete_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UserMentionAutoCompleteBoxEvent {
+	string flow_nonce = 1;
+	UserMentionAutoCompleteBoxEventType event_type = 2;
+
+	message SuggestionSelectedPayload {
+		int32 suggestion_index = 1;
+		bool is_zero_prefix = 2;
+	}
+
+	oneof payload {
+		SuggestionSelectedPayload suggestion_selected = 3;
+	}
+
+	UserMentionAutoCompleteSource source = 4;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveChatDisplayState {
+	option features.enum_type = CLOSED;
+
+	LIVE_CHAT_DISPLAY_STATE_UNKNOWN = 0;
+	LIVE_CHAT_DISPLAY_STATE_COLLAPSED = 1;
+	LIVE_CHAT_DISPLAY_STATE_EXPANDED = 2;
+	LIVE_CHAT_DISPLAY_STATE_HIDDEN = 3;
+}

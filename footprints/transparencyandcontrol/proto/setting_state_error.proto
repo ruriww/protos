@@ -1,0 +1,19 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/setting_spec.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message SettingStateError {
+	enum SettingStateErrorReason {
+		option features.enum_type = CLOSED;
+
+		SETTING_STATE_ERROR_REASON_UNSPECIFIED = 0;
+		SETTING_HIDDEN_FOR_ACCOUNT = 1;
+	}
+
+	SettingStateErrorReason reason = 2;
+	SettingSpec setting_spec = 3;
+}

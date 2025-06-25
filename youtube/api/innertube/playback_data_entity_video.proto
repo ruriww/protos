@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlined_video_refresh_data.proto";
+import "youtube/api/innertube/user_specified_download_parameters.proto";
+import "youtube/api/innertube/offline_source_data.proto";
+import "youtube/api/innertube/service_integrity_dimensions.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaybackDataEntityVideo {
+	string entity_key = 1;
+
+	oneof additional_data {
+		OfflinedVideoRefreshData refresh_data = 2;
+	}
+
+	UserSpecifiedDownloadParameters download_parameters = 3;
+	bool is_expired_stream_url_refetch = 4;
+	int32 transfer_entity_action_priority = 5;
+	OfflineSourceData offline_source_data = 6;
+	bool racy_check_ok = 7;
+	bool content_check_ok = 8;
+	bytes player_params = 9;
+	ServiceIntegrityDimensions service_integrity_dimensions = 10;
+}

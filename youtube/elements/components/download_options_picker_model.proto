@@ -1,0 +1,103 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/command.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/api/innertube/download_format.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/components/download_options_picker_experiments.proto";
+import "youtube/elements/components/download_options_selected_values.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/download_options_a11y_strings.proto";
+import "youtube/api/innertube/download_audio_track.proto";
+import "youtube/elements/components/download_options_picker_body_data.proto";
+import "youtube/elements/components/download_options_picker_footer_data.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadOptionsPickerModel {
+	enum FormatHeaderType {
+		option features.enum_type = CLOSED;
+
+		FORMAT_HEADER_TYPE_UNKNOWN = 0;
+		FORMAT_HEADER_TYPE_DIVIDER = 1;
+		FORMAT_HEADER_TYPE_PREMIUM = 2;
+	}
+
+	extend Model {
+		DownloadOptionsPickerModel download_options_picker_model = 355246692;
+	}
+
+	string remember_settings_text = 2;
+	string subscription_id = 3;
+	string cancel_button_title = 4;
+	string format_picker_id = 5;
+	Command dismiss_command = 6;
+
+	enum DownloadOptionsLayoutStyle {
+		option features.enum_type = CLOSED;
+
+		LAYOUT_STYLE_UNKNOWN = 0;
+		LAYOUT_STYLE_DIALOG = 1;
+		LAYOUT_STYLE_BOTTOM_SHEET = 2;
+	}
+
+	DownloadOptionsLayoutStyle layout_style = 7;
+	string hint_for_1080p = 8;
+	Theme theme = 9;
+	repeated api.innertube.DownloadFormat formats = 10;
+	string upsell_text = 11;
+	string download_cta_button_title = 12;
+	string upsell_cta_button_title = 13;
+	EnvironmentData environment_data = 14;
+	DownloadOptionsPickerExperiments experiments = 15;
+	string selected_values_id = 16;
+	DownloadOptionsSelectedValues selected_values = 17;
+
+	oneof video_or_playlist_id {
+		string video_id = 18;
+		string playlist_id = 19;
+	}
+
+	string expiring_remember_settings_text = 20;
+	int32 upsell_format_divider_index = 21;
+
+	oneof offlineability_click_tracking {
+		bytes offlineability_click_tracking_params = 23;
+		int32 offlineability_ve_counter = 33;
+	}
+
+	bool show_upsell = 22;
+	Context context = 24;
+
+	message FormatHeader {
+		FormatHeaderType type = 1;
+		int32 index = 2;
+	}
+
+	repeated FormatHeader format_headers = 25;
+	DownloadOptionsA11yStrings a11y_strings = 26;
+	bool display_remember_settings_checkbox = 27;
+
+	message PickerHeader {
+		string title = 1;
+		string subtitle = 2;
+	}
+
+	PickerHeader format_picker_header = 28;
+	repeated api.innertube.DownloadAudioTrack audio_tracks = 29;
+	string audio_track_picker_id = 30;
+	PickerHeader audio_track_picker_header = 31;
+	DownloadOptionsPickerBodyData download_options_picker_body_data = 35;
+	DownloadOptionsPickerFooterData download_options_picker_footer_data = 36;
+	bytes tracking_params = 38;
+	api.innertube.OfflineModeType offline_mode_type = 39;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

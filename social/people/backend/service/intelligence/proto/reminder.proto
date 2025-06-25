@@ -1,0 +1,35 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/lookup_id.proto";
+import "social/people/backend/service/intelligence/proto/reminder_identifier.proto";
+
+option objc_class_prefix = "PIL";
+
+message Reminder {
+	enum Purpose {
+		UNKNOWN_PURPOSE = 0;
+		BIRTHDAY = 1;
+	}
+
+	Purpose purpose = 1;
+
+	oneof id {
+		LookupId client_lookup_id = 3;
+		ReminderIdentifier reminder_id = 6;
+	}
+
+	string title = 4;
+
+	message Trigger {
+		message RecurringDate {
+			repeated int32 day_of_month = 1;
+			repeated int32 month_of_year = 2;
+		}
+
+		RecurringDate recurring_date = 1;
+	}
+
+	Trigger trigger = 5;
+}

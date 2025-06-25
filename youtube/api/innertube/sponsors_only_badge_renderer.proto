@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/comment_badge_color_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SponsorsOnlyBadgeRenderer {
+	Icon icon = 1;
+	FormattedString label = 2;
+	CommentBadgeColorSupportedDatas icon_color = 3;
+	FormattedString tooltip = 4;
+}

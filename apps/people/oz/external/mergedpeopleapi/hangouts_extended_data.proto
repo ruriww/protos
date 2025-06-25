@@ -1,0 +1,47 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message HangoutsExtendedData {
+	bool is_pinned = 1;
+	bool is_favorite = 2;
+	bool is_dismissed = 3;
+
+	enum HadPastHangoutState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PAST_HANGOUT_STATE = 0;
+		HAD_PAST_HANGOUT = 1;
+		NO_PAST_HANGOUT = 2;
+	}
+
+	HadPastHangoutState had_past_hangout_state = 5;
+
+	enum InvitationStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INVITATION_STATUS = 0;
+		PENDING_INVITATION = 1;
+		ACCEPTED_INVITATION = 2;
+		INVITATION_NEEDED = 3;
+	}
+
+	InvitationStatus invitation_status = 6;
+
+	enum UserType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_USER_TYPE = 0;
+		INVALID = 1;
+		GAIA = 2;
+		OFF_NETWORK_PHONE = 3;
+		MALFORMED_PHONE_NUMBER = 4;
+		UNKNOWN_PHONE_NUMBER = 5;
+		ANONYMOUS_PHONE_NUMBER = 6;
+	}
+
+	UserType user_type = 7;
+	bool is_bot = 8;
+}

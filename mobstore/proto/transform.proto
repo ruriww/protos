@@ -1,0 +1,15 @@
+edition = "2023";
+
+package mobstore.proto;
+
+import "mobstore/proto/compress_transform.proto";
+import "mobstore/proto/encrypt_transform.proto";
+
+option objc_class_prefix = "MOB";
+
+message Transform {
+	oneof transform {
+		CompressTransform compress = 1;
+		EncryptTransform encrypt = 2;
+	}
+}

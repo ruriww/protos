@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "youtube/client/blocks/api/player/main_app_player_instance.proto";
+import "youtube/client/blocks/api/player/music_player_instance.proto";
+import "youtube/client/blocks/api/player/creator_player_instance.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerBlockArgs {
+	oneof player_instance {
+		MainAppPlayerInstance main_app_player_instance = 1;
+		MusicPlayerInstance music_player_instance = 2;
+		CreatorPlayerInstance creator_player_instance = 3;
+	}
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message MetricKitAppRunTimeMetric {
+	int64 cumulative_foreground_time_ms = 1;
+	int64 cumulative_background_time_ms = 2;
+	int64 cumulative_background_audio_time_ms = 3;
+}

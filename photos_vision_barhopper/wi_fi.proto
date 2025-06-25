@@ -1,0 +1,23 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+option objc_class_prefix = "BAR";
+
+message WiFi {
+	string ssid = 1;
+
+	enum EncryptionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OPEN = 1;
+		WPA = 2;
+		WEP = 3;
+		SAE = 4;
+	}
+
+	EncryptionType encryption_type = 2 [ default = UNKNOWN ];
+	string password = 3;
+	bool is_hidden = 4 [ default = false ];
+}

@@ -1,0 +1,30 @@
+edition = "2023";
+
+package moneta.integrator.ui.buyflow;
+
+option objc_class_prefix = "Orch";
+
+message BuyFlowParameterEnums {
+	enum BuyFlowScenario {
+		option features.enum_type = CLOSED;
+
+		NONE = 0;
+		FUNDS_GUARANTEE = 1;
+		FUNDS_GUARANTEE_CLIENT = 16;
+		BILLING_SIGNUP = 2;
+		CHECKOUT_PURCHASE = 3;
+		CREDIT_CHECK_DEPRECATED = 4;
+		CHECKOUT_PURCHASE_CLIENT = 5;
+		MAKE_A_PAYMENT = 6;
+		MERCHANT_SIGNUP = 7;
+		BILLING_SIGNUP_WITH_FUNDS_GUARANTEE = 8;
+		INSTANT_BUY = 9;
+		TERMS_CUSTOMER_CREATION = 10;
+		STANDALONE_CUSTOMER_CREATION = 11;
+		INTEGRATOR_PROCESSED_PAYMENT = 12;
+		PAYMENTS_MANAGED_PURCHASE = 13;
+		INITIATE_PRE_RENDER = 14;
+		TOP_UP = 15;
+		FUNDS_MOVEMENT = 17;
+	}
+}

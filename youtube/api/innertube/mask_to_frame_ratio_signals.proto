@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MaskToFrameRatioSignals {
+	int32 frames_per_signal = 1;
+	repeated float mask_to_frame_ratio = 2;
+}

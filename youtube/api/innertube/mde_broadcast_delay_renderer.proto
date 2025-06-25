@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mde_broadcast_delay_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeBroadcastDelayRenderer {
+	repeated MdeBroadcastDelaySupportedRenderers contents = 1;
+	FormattedString label = 2;
+	FormattedString help_text = 3;
+}
+
+extend Renderer {
+	MdeBroadcastDelayRenderer mde_broadcast_delay_renderer = 91809583;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/js_vm_statistics.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MemoryUsageProto {
+	int64 total_memory_usage_bytes = 1;
+	int64 process_uptime_ms = 4;
+	int32 entity_store_count = 6;
+	int64 entity_store_bytes = 7;
+	int64 foreground_uptime_ms = 8;
+	repeated JsVmStatistics js_vm_statistics = 9;
+	int64 eml_template_store_bytes = 10;
+}

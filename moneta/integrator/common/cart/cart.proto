@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.integrator.common.cart;
+
+import "moneta/integrator/common/cart/line_item.proto";
+import "unknown/youtube/postal_address.proto";
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "OrchCart";
+
+message Cart {
+	repeated LineItem line_item = 1;
+
+	oneof shipping_address {
+		unknown.youtube.PostalAddress new_address = 2;
+		int64 existing_address_id = 3;
+	}
+
+	string user_facing_transaction_id = 4;
+	string cart_description = 5;
+	LineItem proposed_deduction = 6;
+	repeated LineItem summary_line_item = 7;
+	webutil.html.types.SafeHtmlProto localized_total_amount_title = 12;
+
+	extensions 10000 to max;
+}

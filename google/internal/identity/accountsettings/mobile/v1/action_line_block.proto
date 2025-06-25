@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message ActionLineBlock {
+	string text = 1;
+	Image icon = 3;
+	string expansion_unit_label = 4;
+	Image stack_item_image = 5;
+	bool forced_conversion_to_stack_item = 6;
+}

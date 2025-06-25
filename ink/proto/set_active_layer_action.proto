@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message SetActiveLayerAction {
+	string from_uuid = 1;
+	string to_uuid = 2;
+}

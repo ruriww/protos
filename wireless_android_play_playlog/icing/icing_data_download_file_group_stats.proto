@@ -1,0 +1,17 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+option objc_class_prefix = "ICING";
+
+message IcingDataDownloadFileGroupStats {
+	string file_group_name = 1;
+	int32 file_group_version_number = 2;
+	string owner_package = 3;
+	int32 file_count = 4;
+	bool has_account = 5;
+	int64 build_id = 6;
+	string variant_id = 7;
+	int32 inline_file_count = 8;
+	bool is_multivariant = 9;
+}

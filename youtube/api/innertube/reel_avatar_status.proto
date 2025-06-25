@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ReelAvatarStatus {
+	option features.enum_type = CLOSED;
+
+	REEL_AVATAR_STATUS_UNKNOWN = 0;
+	REEL_AVATAR_STATUS_READ = 1;
+	REEL_AVATAR_STATUS_EMPTY = 2;
+}

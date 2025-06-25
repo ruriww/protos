@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum SharedPdgBuyFlowEntryPoint {
+	option features.enum_type = CLOSED;
+
+	SHARED_PDG_BUY_FLOW_ENTRY_POINT_UNSPECIFIED = 0;
+	SHARED_PDG_BUY_FLOW_ENTRY_POINT_LIVE_CHAT_MONEY_BUTTON = 1;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FadeInTransition {
+	int32 animation_duration_ms = 1;
+	int32 animation_delay_ms = 2;
+	float origin_percent_x = 3;
+	float origin_percent_y = 4;
+	float start_alpha = 5;
+	float end_alpha = 6;
+	bool keep_end_alpha = 7;
+}

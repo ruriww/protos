@@ -1,0 +1,15 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message UserinfoParsingDetails {
+	string userid_json_path = 1;
+	string given_name_json_path = 2;
+	string family_name_json_path = 3;
+	string full_name_json_path = 4;
+	string email_json_path = 5;
+	string profile_picture_json_path = 6;
+	string username_json_path = 7;
+}

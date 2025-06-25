@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/filter_options.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/search_page_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SfvAudioSearchCommand {
+	extend Command {
+		SfvAudioSearchCommand sfv_audio_search_command = 321865519;
+	}
+
+	string params = 1;
+	string suggest_params = 2;
+	string query = 3;
+	FilterOptions filter_options = 4;
+	bool should_reload = 5 [ default = true ];
+	Renderer header_renderer = 6;
+	SearchPageType search_page_type = 7;
+	bool use_search_results_cache = 8;
+}

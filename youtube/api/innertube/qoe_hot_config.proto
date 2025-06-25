@@ -1,0 +1,53 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/tracking_url.proto";
+import "youtube/api/innertube/ios_qoe_hot_config.proto";
+import "youtube/api/innertube/clock_strategy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message QoeHotConfig {
+	bool early_construction = 1;
+	bool player_service_failure_logging = 2;
+	TrackingUrl url = 3;
+	IosQoeHotConfig ios_config = 4;
+	ClockStrategy clock_strategy = 5;
+	bool use_post = 6;
+	int32 flush_interval = 7;
+	bool request_logging = 8;
+	string request_logging_cpn_regex = 9;
+	bool high_resolution_request_logging = 10;
+	string high_resolution_request_logging_cpn_regex = 11;
+	bool new_end_to_end_latency_format = 12;
+	int64 high_resolution_reporting_interval = 13;
+	bool new_bandwidth_reporting = 14;
+	int32 min_bandwidth_ms_for_upload = 15;
+	int32 min_bandwidth_bytes_for_upload = 16;
+	bool reset_bandwidth_accumulators = 17;
+	bool log_carrier = 18;
+	bool log_previous_manual_quality_selection = 19;
+	bool report_rebuffer_observations = 20;
+	bool report_hpn = 21;
+	int32 rebuffer_report_interval_secs = 22;
+	float rebuffer_sampling_rate = 23;
+	int32 rebuffer_count_per_report_threshold = 24;
+	float rebuffer_rate_per_playback_threshold = 25;
+	int32 rebuffer_elapsed_time_secs_threshold = 26;
+	bool log_device_display_dimensions = 27;
+	bool enable_herrevad = 28;
+	bool log_client_device_name = 29;
+	bool async_initial_measurements = 30;
+	bool force_periodic_flush = 31;
+	bool use_post_method = 32;
+	bool send_ping_on_playback_start = 33;
+	bool log_is_offline = 35;
+	bool log_partial_playback = 36;
+	bool remove_experiment_ids_after_first_ping = 38;
+	bool disable_ecatcher_pings = 40;
+	bool use_sequential_executor_for_qoe_client = 41;
+}

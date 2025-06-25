@@ -1,0 +1,61 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "google/type/date.proto";
+
+option objc_class_prefix = "POEM";
+
+message Organization {
+	PersonFieldMetadata metadata = 1;
+	string name = 2;
+	string department = 3;
+	string title = 4;
+	string symbol = 5;
+	string yomi_name = 6;
+	string location = 7;
+	string description = 8;
+	string domain = 9;
+
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WORK = 1;
+		SCHOOL = 2;
+		DOMAIN_ONLY = 3;
+	}
+
+	Type type = 10;
+	int64 start_ms = 11;
+	int64 end_ms = 12;
+	bool current = 13;
+	int64 start_ms_as_number = 14;
+	int64 end_ms_as_number = 15;
+	string string_type = 16;
+	string formatted_string_type = 17;
+	string cost_center = 18;
+	int32 fte_milli_percent = 22 [ default = 100000 ];
+	float importance = 23;
+
+	message Assignment {
+		string name = 1;
+		string url = 2;
+	}
+
+	repeated Assignment assignment = 24;
+	string certification = 25;
+
+	message Project {
+		string name = 1;
+		string role = 2;
+		string description = 3;
+		string url = 4;
+		string type = 5;
+	}
+
+	repeated Project project = 26;
+	google.type.Date start_calendar_day = 27;
+	google.type.Date end_calendar_day = 28;
+}

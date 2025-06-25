@@ -1,0 +1,75 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "webutil/html/types/trusted_resource_url_proto.proto";
+import "id/accountlinking/partner/app_flip_config.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "webutil/html/types/safe_url_proto.proto";
+import "google/internal/identity/accountlinking/v1/e_data_usage_notice_type.proto";
+
+option objc_class_prefix = "ALK";
+
+message LinkingSession {
+	message DataUsageNoticeUrl {
+		EDataUsageNoticeType type = 1;
+		string url = 2;
+		webutil.html.types.TrustedResourceUrlProto trusted_url = 3;
+	}
+
+	message OauthDetails {
+		string authorization_url = 1;
+		bool need_one_time_auth_code_support = 2;
+	}
+
+	OauthDetails oauth_details = 1;
+
+	message GsiLinkingFlowDetails {
+		string consent_url = 1;
+	}
+
+	GsiLinkingFlowDetails gsi_linking_flow_details = 2;
+
+	message GsiCreationFlowDetails {
+		string consent_url = 1;
+	}
+
+	GsiCreationFlowDetails gsi_creation_flow_details = 3;
+
+	message AppFlipDetails {
+		id.accountlinking.partner.AppFlipConfig app_flip_config = 1;
+		repeated string scopes = 2;
+		string third_party_oauth_client_id = 3;
+	}
+
+	AppFlipDetails app_flip_details = 4;
+
+	message UiResource {
+		oneof resource {
+			webutil.html.types.SafeHtmlProto html = 1;
+			webutil.html.types.SafeUrlProto image = 2;
+			webutil.html.types.SafeUrlProto link = 3;
+		}
+	}
+
+	map<string, UiResource> ui_resources = 5;
+
+	message GsiWebFlowDetails {
+		string flow_url = 1;
+		webutil.html.types.TrustedResourceUrlProto trusted_flow_url = 2;
+	}
+
+	GsiWebFlowDetails gsi_web_flow_details = 6;
+
+	message DataUsageNotice {
+		repeated DataUsageNoticeUrl data_usage_notice_urls = 1;
+	}
+
+	DataUsageNotice data_usage_notice_details = 7;
+
+	message ThirdPartyInitiatedLinkingDetails {
+		bool allowed = 1;
+	}
+
+	ThirdPartyInitiatedLinkingDetails third_party_initiated_linking_details = 8;
+}

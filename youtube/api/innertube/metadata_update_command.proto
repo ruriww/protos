@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/metadata_update_request.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MetadataUpdateCommand {
+	extend Command {
+		MetadataUpdateCommand metadata_update_command = 247401431;
+	}
+
+	oneof request {
+		MetadataUpdateRequest metadata_update_request = 1;
+	}
+
+	string confirm_broadcast_setup_params = 2;
+	bool should_go_live_on_update = 3;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/inferred_email.proto";
+import "social/people/backend/service/intelligence/proto/inferred_phone.proto";
+import "social/people/backend/service/intelligence/proto/inferred_address.proto";
+
+option objc_class_prefix = "PIL";
+
+message InferredContact {
+	string sender_email = 1;
+	repeated InferredEmail extracted_emails = 2;
+	repeated InferredPhone extracted_phones = 3;
+	repeated InferredAddress extracted_addresses = 4;
+}

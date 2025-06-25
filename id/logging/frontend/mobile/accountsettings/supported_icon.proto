@@ -1,0 +1,9 @@
+edition = "2023";
+
+package id.logging.frontend.mobile.accountsettings;
+
+option objc_class_prefix = "GIDLOGAS";
+
+message SupportedIcon {
+	int32 icon_id = 1;
+}

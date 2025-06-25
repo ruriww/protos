@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/url_endpoint.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/music_asset_data.proto";
+import "youtube/api/innertube/producer_asset_font_params.proto";
+import "youtube/api/innertube/producer_asset_category.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AssetBrowseData {
+	string asset_id = 1;
+	FormattedString title = 2;
+	ThumbnailDetails thumbnail = 3;
+	UrlEndpoint preview_url = 4;
+	string mime_type = 5;
+	int64 file_size = 6;
+	google.protobuf.Duration duration = 7;
+	MusicAssetData music_asset_data = 8;
+	ProducerAssetFontParams font_params = 9;
+	ProducerAssetCategory asset_category = 10;
+}

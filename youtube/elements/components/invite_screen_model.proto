@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/components/invite_screen_data.proto";
+import "youtube/api/innertube/video_thumbnail_data.proto";
+import "youtube/api/innertube/invite_link_entity.proto";
+import "youtube/elements/environment_data.proto";
+import "youtube/elements/components/invite_screen_button_enabled.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message InviteScreenModel {
+	extend Model {
+		InviteScreenModel invite_screen_model = 406207899;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	InviteScreenData invite_screen_data = 3;
+	api.innertube.VideoThumbnailData video_thumbnail_data = 4;
+	string video_thumbnail_data_key = 5;
+	api.innertube.InviteLinkEntity invite_link_entity = 8;
+	string invite_link_entity_key = 9;
+	EnvironmentData environment = 10;
+	string next_button_enabled_key = 12;
+	string done_button_enabled_key = 14;
+	InviteScreenButtonEnabled next_button_enabled = 15;
+	InviteScreenButtonEnabled done_button_enabled = 16;
+	string channel_avatar_url = 17;
+	api.innertube.LoggingDirectives logging_directives = 999;
+}

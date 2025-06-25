@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerGestureConfig {
+	bool down_and_out_landscape_allowed = 1;
+	bool down_and_out_portrait_allowed = 2;
+}

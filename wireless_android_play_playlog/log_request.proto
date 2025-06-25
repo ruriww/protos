@@ -1,0 +1,49 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/client_info.proto";
+import "unknown/youtube/lse_log_source6159.proto";
+import "wireless_android_play_playlog/log_event.proto";
+import "wireless_android_play_playlog/qos_tier_configuration.proto";
+import "wireless_android_play_playlog/device_status.proto";
+import "wireless_android_play_playlog/external_timestamp.proto";
+import "wireless_android_play_playlog/collect_for_debug.proto";
+import "wireless_android_play_playlog/compliance_data.proto";
+
+option objc_class_prefix = "CADP";
+
+message LogRequest {
+	ClientInfo client_info = 1;
+	unknown.youtube.LSELogSource6159.LSELogSource log_source = 2 [ default = UNKNOWN ];
+	repeated LogEvent log_event = 3;
+	int64 request_time_ms = 4;
+	repeated bytes serialized_log_events = 5;
+	string log_source_name = 6;
+	string zwieback_cookie = 7;
+	int64 request_uptime_ms = 8;
+	QosTierConfiguration.QosTier qos_tier = 9 [ default = DEFAULT ];
+
+	enum SchedulerType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SCHEDULER = 0;
+		ASAP = 1;
+		DEFAULT_PERIODIC = 2;
+		QOS_FAST_ONEOFF = 3;
+		QOS_DEFAULT_PERIODIC = 4;
+		QOS_UNMETERED_PERIODIC = 5;
+		BACKSTOP_PERIODIC = 6;
+	}
+
+	SchedulerType scheduler = 10;
+	DeviceStatus device_status = 11;
+	ExternalTimestamp external_timestamp = 12;
+	CollectForDebug collect_for_debug = 13;
+	int64 log_event_dropped_count = 14;
+	uint32 app_mobilespec_id = 16;
+	ComplianceData compliance_data = 18;
+
+	extensions 17;
+	extensions 1000 to max;
+}

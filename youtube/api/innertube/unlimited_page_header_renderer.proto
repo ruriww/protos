@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/unlimited_page_dialog_supported_renderers.proto";
+import "youtube/api/innertube/ypc_promotion_supported_renderers.proto";
+import "youtube/api/innertube/unlimited_page_header_color_supported_datas.proto";
+import "youtube/api/innertube/unlimited_header_v2_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnlimitedPageHeaderRenderer {
+	ThumbnailDetails background_image = 1;
+	FormattedString title = 2;
+	FormattedString sub_title = 3;
+	ButtonSupportedRenderers manage_subscription_button = 4;
+	bytes tracking_params = 6;
+	ThumbnailDetails unlimited_logo_image = 7;
+	FormattedString pre_subscribe_button_text = 8;
+	FormattedString offer_details_link_text = 9;
+	UnlimitedPageDialogSupportedRenderers dialog = 10;
+	repeated FormattedString metadatas = 11;
+	YpcPromotionSupportedRenderers promotion = 12;
+	UnlimitedPageHeaderColorSupportedDatas color_data = 14;
+	UnlimitedHeaderV2SupportedDatas unlimited_header_v2_data = 15;
+	string gtm_id = 17;
+	string page_title = 18;
+	FormattedString additional_billing_info = 19;
+}

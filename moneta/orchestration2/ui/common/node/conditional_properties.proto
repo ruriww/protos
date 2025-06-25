@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/device_state_condition.proto";
+import "moneta/orchestration2/ui/common/node/node_state.proto";
+import "moneta/orchestration2/ui/common/node/properties.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ConditionalProperties {
+	repeated DeviceStateCondition device_state_condition = 1;
+	repeated NodeState node_state = 2;
+	Properties properties = 3;
+}

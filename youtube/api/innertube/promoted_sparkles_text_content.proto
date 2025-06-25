@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/border_misclick_protection_info.proto";
+import "youtube/api/innertube/promoted_sparkles_background_color.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromotedSparklesTextContent {
+	ThumbnailDetails thumbnail = 1;
+	Renderer badge = 2;
+	Icon icon = 3;
+	FormattedString title = 4;
+	FormattedString description_text = 5;
+	FormattedString action_text = 6;
+	FormattedString website_text = 7;
+	Command navigation_endpoint = 8;
+	repeated Command impression_endpoints = 9;
+	Renderer close_button = 10;
+	int64 click_target_delay_ms = 11;
+	BorderMisclickProtectionInfo border_info = 12;
+	repeated Command noop_tap_endpoints = 13;
+	bool show_bottom_separator = 14;
+	Renderer cta_button = 15;
+	bool use_prominent_thumbnail = 16;
+	PromotedSparklesBackgroundColor background_color = 17;
+	bool larger_close_button = 19;
+	bool has_square_thumbnail = 20;
+	Renderer dwell_cta_button = 22;
+	int64 dwell_time_ms = 23;
+	bool enable_persistent_dwell_cta = 24;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_stream_configuration_issue.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveStreamHealthStatus {
+	enum StatusCode {
+		option features.enum_type = CLOSED;
+
+		STATUS_UNKNOWN = 0;
+		STATUS_GOOD = 100;
+		STATUS_OK = 200;
+		STATUS_BAD = 300;
+		STATUS_NO_DATA = 400;
+		STATUS_REVOKED = 500;
+	}
+
+	StatusCode status = 1;
+	uint64 last_update_time_seconds = 2;
+	repeated LiveStreamConfigurationIssue configuration_issues = 3;
+}

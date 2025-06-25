@@ -1,0 +1,53 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/mobile_stream_button_supported_renderers.proto";
+import "youtube/api/innertube/mobile_stream_tray_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/participant_layout.proto";
+import "youtube/api/innertube/mobile_stream_tray_renderer.proto";
+import "youtube/api/innertube/mobile_stream_tray_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileStreamScreenRenderer {
+	FormattedString stream_started_label = 1;
+	MobileStreamButtonSupportedRenderers end_stream_button = 2;
+	MobileStreamButtonSupportedRenderers reconnect_button = 3;
+	MobileStreamTraySupportedRenderers options_tray = 4;
+	Command live_chat_endpoint = 5;
+	repeated Renderer stream_preview_placeholder = 6;
+	Command on_stream_end_command = 7;
+	string external_video_id = 8;
+	Command poll_get_broadcast_conference_command = 9;
+	Renderer go_live_button = 10;
+	bool should_manage_broadast_lifecycle = 11;
+	Renderer enter_preview_tooltip = 12;
+	string enter_preview_target_id = 13;
+	ParticipantLayout participant_layout = 14;
+	MobileStreamTraySupportedRenderers i11y_tray = 15;
+	Renderer pts_tooltip = 16;
+	repeated Renderer panels = 17;
+	bool should_keep_stream_alive_on_background = 20;
+	Renderer top_banner = 21;
+	bool save_thumbnail_stream_previews = 22;
+	MobileStreamTraySupportedRenderers playable_controls_tray = 23;
+}
+
+extend Renderer {
+	MobileStreamScreenRenderer mobile_stream_screen_renderer = 141258672;
+}
+
+extend Renderer {
+	MobileStreamTrayRenderer mobile_stream_tray_renderer = 141932492;
+}
+
+extend Renderer {
+	MobileStreamTrayItemRenderer mobile_stream_tray_item_renderer = 141934375;
+}

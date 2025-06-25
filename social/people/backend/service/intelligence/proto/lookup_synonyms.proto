@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/lookup_id.proto";
+
+option objc_class_prefix = "PIL";
+
+message LookupSynonyms {
+	LookupId lookup_id = 1;
+	repeated LookupId synonyms = 2;
+}

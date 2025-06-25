@@ -1,0 +1,43 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_interaction_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoInteractions {
+	message Interaction {
+		VideoInteractionType interaction_type = 1;
+
+		message Region {
+			repeated float transformation_matrix = 1 [ features.repeated_field_encoding = EXPANDED ];
+		}
+
+		repeated Region regions = 2;
+
+		message ChannelMentionContent {
+			string external_channel_id = 1;
+		}
+
+		message VideoLinkContent {
+			string external_video_id = 1;
+		}
+
+		message WebLinkContent {
+			string url = 1;
+		}
+
+		oneof interaction_content {
+			ChannelMentionContent channel_mention = 3;
+			VideoLinkContent video_link = 4;
+			WebLinkContent web_link = 5;
+		}
+	}
+
+	repeated Interaction interactions = 1;
+	string external_video_id = 2;
+}

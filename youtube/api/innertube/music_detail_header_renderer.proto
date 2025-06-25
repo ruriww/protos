@@ -1,0 +1,44 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/music_detail_header_byline_renderer.proto";
+import "youtube/api/innertube/music_detail_header_buttons_byline_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicDetailHeaderRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	Renderer byline = 3;
+	Renderer menu = 4;
+	Renderer thumbnail = 5;
+	Renderer fab = 6;
+	bytes tracking_params = 8;
+	FormattedString description = 9;
+	Renderer more_button = 10;
+	repeated Renderer subtitle_badges = 11;
+	repeated Renderer potential_thumbnail_overlays = 12;
+	FormattedString second_title = 13;
+	Command share_endpoint = 14;
+	FormattedString second_subtitle = 15;
+	Renderer banner = 16;
+}
+
+extend Renderer {
+	MusicDetailHeaderBylineRenderer music_detail_header_byline_renderer = 172933242;
+}
+
+extend Renderer {
+	MusicDetailHeaderRenderer music_detail_header_renderer = 173602558;
+}
+
+extend Renderer {
+	MusicDetailHeaderButtonsBylineRenderer music_detail_header_buttons_byline_renderer = 203012210;
+}

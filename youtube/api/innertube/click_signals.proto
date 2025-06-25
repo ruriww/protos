@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/device_orientation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClickSignals {
+	int32 click_x_coordinate = 1 [ default = -1 ];
+	int32 click_y_coordinate = 2 [ default = -1 ];
+	int32 view_width = 3;
+	int32 view_height = 4;
+	int32 coordinate_x_on_container = 5;
+	int32 coordinate_y_on_container = 6;
+	int32 container_view_width = 7;
+	int32 container_view_height = 8;
+	int32 coordinate_x_on_screen = 9;
+	int32 coordinate_y_on_screen = 10;
+	bool is_orientation_landscape = 11;
+	DeviceOrientation device_orientation = 12;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package Acl;
+
+option objc_class_prefix = "ACL";
+
+message Abuse {
+	repeated int32 abuse_type = 1 [ features.repeated_field_encoding = EXPANDED ];
+}

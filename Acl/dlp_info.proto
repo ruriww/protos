@@ -1,0 +1,15 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/matching_dlp_rule.proto";
+
+option objc_class_prefix = "ACL";
+
+message DlpInfo {
+	uint64 timestamp_millis = 1;
+	repeated int64 OBSOLETE_2 = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated MatchingDlpRule matching_dlp_rule = 3;
+	repeated int64 OBSOLETE_4 = 4 [ features.repeated_field_encoding = EXPANDED ];
+	bool matched_atleast_once = 5;
+}

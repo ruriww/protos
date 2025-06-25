@@ -1,0 +1,25 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "logs/proto/contacts/common/ui_view_event_metadata.proto";
+import "logs/proto/contacts/common/rpc_call_event_metadata.proto";
+import "logs/proto/contacts/common/card_event_metadata.proto";
+import "logs/proto/contacts/common/alternate_profiles_event_metadata.proto";
+import "logs/proto/contacts/common/error_status.proto";
+
+option objc_class_prefix = "CTC";
+
+message Event {
+	oneof metadata {
+		UiViewEventMetadata view = 1;
+		RpcCallEventMetadata rpc_call = 2;
+		CardEventMetadata card = 8;
+		AlternateProfilesEventMetadata alternate_profiles = 13;
+	}
+
+	int64 latency = 3;
+	ErrorStatus error_status = 4;
+	int64 count = 5;
+	int64 memory_allocated_delta = 6;
+}

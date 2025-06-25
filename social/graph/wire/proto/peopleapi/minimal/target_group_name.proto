@@ -1,0 +1,9 @@
+edition = "2023";
+
+package social.graph.wire.proto.peopleapi.minimal;
+
+option objc_class_prefix = "SGWPPM";
+
+message TargetGroupName {
+	string display_name = 2;
+}

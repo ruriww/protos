@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.infrastructure;
+
+option objc_class_prefix = "ORCH2";
+
+message SubmitActionReferenceMatchCondition {
+	int32 submit_action_reference = 1;
+}

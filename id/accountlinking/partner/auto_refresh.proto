@@ -1,0 +1,11 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "ALKP";
+
+message AutoRefresh {
+	google.protobuf.Duration refresh_token_expiry = 1;
+}

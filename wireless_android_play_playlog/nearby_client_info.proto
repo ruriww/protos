@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message NearbyClientInfo {
+	enum UsageType {
+		option features.enum_type = CLOSED;
+
+		USAGE_UNKNOWN = 0;
+		PHENOTYPE = 1;
+	}
+
+	UsageType usage_type = 1;
+}

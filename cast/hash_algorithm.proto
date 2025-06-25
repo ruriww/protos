@@ -1,0 +1,12 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum HashAlgorithm {
+	option features.enum_type = CLOSED;
+
+	SHA1 = 0;
+	SHA256 = 1;
+}

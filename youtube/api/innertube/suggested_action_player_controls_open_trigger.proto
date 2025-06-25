@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/suggested_action_trigger.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestedActionPlayerControlsOpenTrigger {
+	extend SuggestedActionTrigger {
+		SuggestedActionPlayerControlsOpenTrigger suggested_action_player_controls_open_trigger = 343899489;
+	}
+
+	repeated string engagement_panel_suppress_ids = 1;
+	repeated EngagementPanelIdentifier suppress_ids = 2;
+	bool hide_in_fullscreen = 3;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+import "logs/proto/wireless/performance/mobile/ios/inner_tube_request_info.proto";
+import "logs/proto/wireless/performance/mobile/ios/crash_context.proto";
+
+option objc_class_prefix = "PRM";
+
+message YouTubeExtension {
+	extend MetricExtension {
+		YouTubeExtension metric_extension = 2;
+	}
+
+	InnerTubeRequestInfo innertube_request_info = 1;
+	CrashContext crash_context = 3;
+	string last_page_ve = 5;
+	string session_seeker_url = 6;
+}

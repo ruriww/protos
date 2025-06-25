@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message SelectedTable {
+	repeated int32 index_lookup = 1 [ features.repeated_field_encoding = EXPANDED ];
+	repeated bool item_selected = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 variants_selected = 3 [ features.repeated_field_encoding = EXPANDED ];
+	map<string, bool> items_selected_by_id = 4;
+	map<string, int32> variants_selected_by_id = 5;
+}

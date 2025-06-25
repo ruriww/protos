@@ -1,0 +1,11 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+option objc_class_prefix = "YTEE";
+
+enum ImageDataFormat {
+	IMAGE_DATA_FORMAT_INVALID = 0;
+	IMAGE_DATA_FORMAT_RAW = 1;
+	IMAGE_DATA_FORMAT_JPEG = 2;
+}

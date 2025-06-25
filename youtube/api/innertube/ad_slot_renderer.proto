@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ad_slot_metadata.proto";
+import "youtube/api/innertube/fulfillment_content.proto";
+import "youtube/api/innertube/ads_control_flow_trigger.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdSlotRenderer {
+	AdSlotMetadata ad_slot_metadata = 1;
+	FulfillmentContent fulfillment_content = 2;
+	bool enable_pacf_logging_web = 3;
+	AdsControlFlowTrigger slot_entry_trigger = 4;
+	repeated AdsControlFlowTrigger slot_fulfillment_triggers = 5;
+	repeated AdsControlFlowTrigger slot_expiration_triggers = 6;
+	bytes tracking_params = 8;
+}
+
+extend Renderer {
+	AdSlotRenderer ad_slot_renderer = 424701016;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.navigation;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+import "moneta/orchestration2/ui/common/functionaldata/navigation/multi_active_option_reference.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message NavigationDataValue {
+	extend data.DataValue {
+		NavigationDataValue navigation_data_value_extension = 264984587;
+	}
+
+	repeated MultiActiveOptionReference active_option_reference_history = 1;
+	int32 current_history_index = 2;
+}

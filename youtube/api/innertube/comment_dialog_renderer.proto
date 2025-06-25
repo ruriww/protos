@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentDialogRenderer {
+	FormattedString editable_text = 1;
+	ThumbnailDetails author_thumbnail = 2;
+	ButtonSupportedRenderers submit_button = 3;
+	ButtonSupportedRenderers cancel_button = 4;
+	FormattedString placeholder_text = 5;
+	FormattedString error_message = 6;
+	ButtonSupportedRenderers emoji_button = 7;
+	Renderer emoji_picker = 9;
+	string emoji_entity_key = 11;
+	Renderer timestamp_hint = 12;
+	bool should_remove_scrim = 13;
+	string super_thanks_editable_comment_entity_key = 14;
+}
+
+extend Renderer {
+	CommentDialogRenderer comment_dialog_renderer = 122274699;
+}

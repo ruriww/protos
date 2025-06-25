@@ -1,0 +1,26 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message SocialLinkTypeContainer {
+	enum SocialLinkType {
+		option features.enum_type = CLOSED;
+
+		SOCIAL_LINK_TYPE_UNKNOWN = 0;
+		FACEBOOK = 1;
+		INSTAGRAM = 2;
+		LINKEDIN = 3;
+		PINTERIST = 4;
+		SOUNDCLOUD = 5;
+		TWITTER = 6;
+		YOUTUBE = 7;
+		PINTEREST = 8;
+		JUMPROPE = 9;
+		TIKTOK = 10;
+		WORDPRESS = 11;
+		FIREWORK = 12;
+		SNAPCHAT = 13;
+	}
+}

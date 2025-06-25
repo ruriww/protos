@@ -1,0 +1,14 @@
+edition = "2023";
+
+package identity_consent;
+
+import "google/protobuf/timestamp.proto";
+import "identity_consent/verification_token.proto";
+
+option objc_class_prefix = "IDC";
+
+message PrefetchedConsentScreen {
+	bytes serialized_consent_screen = 1;
+	google.protobuf.Timestamp screen_fetch_time = 2;
+	VerificationToken verification_token = 3;
+}

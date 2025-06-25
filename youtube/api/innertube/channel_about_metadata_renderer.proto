@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/about_tab_link.proto";
+import "youtube/api/innertube/channel_about_metadata_flagging_menu_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/channel_about_metadata_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/channel_country_supported_renderers.proto";
+import "youtube/api/innertube/channel_about_metadata_action_button_supported_renderers.proto";
+import "youtube/api/innertube/channel_about_metadata_gallery_photo.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/channel_about_full_metadata_renderer.proto";
+import "youtube/api/innertube/channel_about_metadata_flagging_menu_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelAboutMetadataRenderer {
+	FormattedString description = 1;
+	repeated AboutTabLink primary_links = 2;
+	FormattedString subscriber_count_text = 4;
+	FormattedString view_count_text = 5;
+	FormattedString joined_date_text = 6;
+	ChannelAboutMetadataFlaggingMenuSupportedRenderers flagging_menu = 10;
+	Command help_endpoint = 12;
+	string canonical_channel_url = 13;
+	string business_email = 14;
+	bool bypass_business_email_captcha = 15;
+	repeated Command service_endpoints = 16;
+	string merged_gplus_url = 17;
+	ChannelAboutMetadataSubscribeButtonSupportedRenderers subscribe_button = 18;
+	FormattedString title = 19;
+	ThumbnailDetails avatar = 20;
+	FormattedString country = 21;
+	ChannelCountrySupportedRenderers country_dropdown = 22;
+	bool show_description = 23;
+	FormattedString artist_bio = 24;
+	repeated ChannelAboutMetadataActionButtonSupportedRenderers action_buttons = 25;
+	repeated ChannelAboutMetadataGalleryPhoto artist_gallery_photos = 26;
+	FormattedString short_view_count_text = 28;
+	Command on_business_email_reveal_click_command = 30;
+	FormattedString phone_verified_text = 31;
+	repeated Renderer links = 32;
+}
+
+extend Renderer {
+	ChannelAboutMetadataRenderer channel_about_metadata_renderer = 52191200;
+}
+
+extend Renderer {
+	ChannelAboutFullMetadataRenderer channel_about_full_metadata_renderer = 111159722;
+}
+
+extend Renderer {
+	ChannelAboutMetadataFlaggingMenuRenderer channel_about_metadata_flagging_menu_renderer = 58777408;
+}

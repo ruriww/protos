@@ -1,0 +1,11 @@
+edition = "2023";
+
+package synckit;
+
+option objc_class_prefix = "GSYP";
+
+enum StreamUpdatesRequestType {
+	STREAM_UPDATES_REQUEST_TYPE_UNSPECIFIED = 0;
+	STREAM_UPDATES_REQUEST_TYPE_PUSH = 1;
+	STREAM_UPDATES_REQUEST_TYPE_PULL = 2;
+}

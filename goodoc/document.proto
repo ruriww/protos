@@ -1,0 +1,74 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/bounding_box.proto";
+import "goodoc/label.proto";
+import "goodoc/paragraph.proto";
+import "goodoc/orientation_label.proto";
+import "goodoc/rotated_bounding_box.proto";
+import "goodoc/summary_stats.proto";
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message Document {
+	extend proto2.bridge.MessageSet {
+		Document message_set_extension = 6638155;
+	}
+
+	message Header {
+		string OcrEngineId = 2;
+		string OcrEngineVersion = 3;
+
+		message Font {
+			int32 FontId = 5;
+			string FontName = 6;
+		}
+
+		repeated Font font = 4 [ features.message_encoding = DELIMITED ];
+	}
+
+	Header header = 1 [ features.message_encoding = DELIMITED ];
+
+	message Page {
+		Label Label = 8;
+
+		message Block {
+			BoundingBox Box = 10;
+			Label Label = 11;
+			int32 BlockType = 12;
+			repeated Paragraph Paragraph = 13;
+			int32 TextConfidence = 23;
+			OrientationLabel OrientationLabel = 31;
+			RotatedBoundingBox RotatedBox = 32;
+		}
+
+		repeated Block block = 9 [ features.message_encoding = DELIMITED ];
+		int32 Width = 14;
+		int32 Height = 15;
+		int32 HorizontalDpi = 16;
+		int32 VerticalDpi = 17;
+		int32 TextConfidence = 24;
+		int32 GarbageDetectorChangeList = 25 [ default = -1 ];
+		bool GarbageDetectorWasProduction = 26 [ default = false ];
+
+		message MergedPageInfo {
+			string OcrEngineId = 28;
+			string OcrEngineVersion = 29;
+		}
+
+		repeated MergedPageInfo merged_page_info = 27 [ features.message_encoding = DELIMITED ];
+		SummaryStats stats = 30;
+		double PornScore = 33;
+		bool post_ocr_confidence = 34;
+	}
+
+	repeated Page page = 7 [ features.message_encoding = DELIMITED ];
+	repeated Document SubDocuments = 18;
+	repeated bytes LogicalEntity = 19;
+	repeated string LogicalEntityMessageName = 20;
+	repeated string EditingHistory = 22;
+
+	extensions 10000 to max;
+}

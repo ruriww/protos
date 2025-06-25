@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_playback_position.proto";
+import "youtube/api/innertube/playback_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetAdBreakContext {
+	bool is_sabr = 1;
+	bytes ad_break_heartbeat_params = 2;
+	VideoPlaybackPosition live_playback_position = 3;
+	PlaybackContext playback_context = 4;
+}

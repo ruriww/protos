@@ -1,0 +1,16 @@
+edition = "2023";
+
+package experiments.phenotype.ios;
+
+import "experiments/heterodyne/experiment_ids.proto";
+
+option objc_class_prefix = "EPI";
+
+message LogSourceMapping {
+	message Entry {
+		repeated string config_package = 1;
+		map<string, heterodyne.ExperimentIds> external_experiment_ids = 2;
+	}
+
+	map<int32, Entry> entry = 1;
+}

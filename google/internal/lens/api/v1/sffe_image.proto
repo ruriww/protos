@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "image_base/thumbnail_type_values.proto";
+
+option objc_class_prefix = "LFE";
+
+message SFFEImage {
+	string encrypted_doc_id = 1;
+	image_base.ThumbnailTypeValues thumbnail_type = 2;
+	string encrypted_referrer_doc_id = 3;
+}

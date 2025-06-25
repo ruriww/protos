@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/iap_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCHandleIapRequest {
+	InnerTubeContext context = 1;
+	IapData iap_data = 2;
+	string offer_params = 3;
+	string client_location_context = 4;
+	bool system_initiated_request = 5;
+	string device_transaction_id = 6;
+	string transaction_params = 7;
+}

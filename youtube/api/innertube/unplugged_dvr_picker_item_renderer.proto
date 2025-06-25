@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedDvrPickerItemRenderer {
+	ThumbnailDetails thumbnail = 1;
+	FormattedString primary_text = 2;
+	bool selected = 3;
+	Command on_select_command = 4;
+	Command on_unselect_command = 5;
+	bytes tracking_params = 6;
+	AccessibilitySupportedDatas selected_accessibility = 10;
+	AccessibilitySupportedDatas unselected_accessibility = 11;
+	FormattedString secondary_text = 12;
+}
+
+extend Renderer {
+	UnpluggedDvrPickerItemRenderer unplugged_dvr_picker_item_renderer = 220023542;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow;
+
+import "moneta/orchestration/ui/common/components/customer/customer_form_value.proto";
+import "moneta/orchestration/ui/common/components/billingaccount/billing_account_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_selector_value.proto";
+import "moneta/orchestration/ui/common/generic/selectable_ui_field_group_form_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/instrument/instrument_activation_form_value.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector_value.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/dynamic_list_value.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form_value.proto";
+import "moneta/orchestration/ui/common/components/encryption_form_value.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message PageValue {
+	common.components.customer.CustomerFormValue new_customer = 1;
+	common.components.billingaccount.BillingAccountFormValue new_billing_account = 2;
+	string selected_instrument_id = 3;
+	common.components.instrument.InstrumentFormValue new_instrument = 4;
+	repeated string legal_doc_data = 5;
+	bytes page_token = 6;
+	common.components.instrument.InstrumentSelectorValue instrument_selector_value = 7;
+	common.generic.SelectableUiFieldGroupFormValue amount_input_value = 8;
+	common.components.SimpleFormValue storefront = 9;
+	repeated common.components.SimpleFormValue simple_form_value = 10;
+	bytes dependency_graph_action_token = 11;
+	common.components.instrument.InstrumentActivationFormValue instrument_activation_form_value = 12;
+	common.components.customerselector.CustomerSelectorValue customer_selector_value = 13;
+	repeated common.components.dynamiclist.DynamicListValue dynamic_list_value = 15;
+	repeated common.components.tax.TaxInfoFormValue tax_info_form_value = 16;
+	repeated common.components.instrument.InstrumentSelectorValue instrument_selector_values = 17;
+	repeated common.generic.SelectableUiFieldGroupFormValue amount_input_values = 18;
+	common.generic.SelectableUiFieldGroupFormValue shipping_options_value = 19;
+	common.generic.SelectableUiFieldGroupFormValue pick_up_options_value = 22;
+	common.components.EncryptionFormValue encryption_form_value = 23;
+}

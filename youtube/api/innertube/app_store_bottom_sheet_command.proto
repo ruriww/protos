@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/bottom_sheet_dimensions.proto";
+import "youtube/api/innertube/sk_ad_network_yt_parameters.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AppStoreBottomSheetCommand {
+	string app_id = 1;
+	string ios_app_url = 2;
+	Command cancelled_action = 3;
+	Command termination_command = 4;
+	BottomSheetDimensions portrait_dimensions = 5;
+	BottomSheetDimensions landscape_dimensions = 6;
+	SkAdNetworkYTParameters sk_ad_parameters = 7;
+	string play_store_url = 8;
+}
+
+extend Command {
+	AppStoreBottomSheetCommand app_store_bottom_sheet_command = 229597391;
+}

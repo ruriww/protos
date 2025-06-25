@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.lens.frontend.api.v1;
+
+import "google/internal/lens/frontend/api/v1/objects_response.proto";
+import "google/internal/lens/frontend/api/v1/interaction_response.proto";
+
+option objc_class_prefix = "LFEV1";
+
+message ObjectsInteractionResponse {
+	ObjectsResponse objects_response = 2;
+	InteractionResponse interaction_response = 3;
+}

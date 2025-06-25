@@ -1,0 +1,17 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+option objc_class_prefix = "GHCC";
+
+enum MetadataType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_METADATA_TYPE = 0;
+	GENERIC = 1;
+	MOVIE = 2;
+	TV_SHOW = 3;
+	MUSIC_TRACK = 4;
+	PHOTO = 5;
+	AUDIOBOOK_CHAPTER = 6;
+}

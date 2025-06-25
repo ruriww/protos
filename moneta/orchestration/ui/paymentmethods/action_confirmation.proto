@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.paymentmethods;
+
+import "moneta/orchestration/ui/common/components/instrument/action_type.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+
+option objc_class_prefix = "PaymentMethods";
+
+message ActionConfirmation {
+	common.components.instrument.ActionType action_type = 1;
+	bytes action_token = 2;
+	string url = 3;
+	common.components.ConfirmationDialog confirmation_dialog = 5;
+}

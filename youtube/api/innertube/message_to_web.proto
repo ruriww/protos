@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/web_config.proto";
+import "youtube/api/innertube/web_context.proto";
+import "youtube/api/innertube/set_active_item.proto";
+import "youtube/api/innertube/navigate_to_live_camera.proto";
+import "youtube/api/innertube/navigate_to_ar_forward.proto";
+import "youtube/api/innertube/navigate_to_permission_denied.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MessageToWeb {
+	oneof command {
+		WebConfig config = 1;
+		WebContext context = 2;
+		SetActiveItem active_item = 9;
+		NavigateToLiveCamera navigate_to_live_camera = 12;
+		NavigateToArForward navigate_to_ar_forward = 13;
+		NavigateToPermissionDenied navigate_to_permission_denied = 16;
+	}
+}

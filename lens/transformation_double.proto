@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens;
+
+import "lens/vector3_double.proto";
+import "lens/quaternion_double.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message TransformationDouble {
+	Vector3Double p = 1;
+	QuaternionDouble q = 2;
+}

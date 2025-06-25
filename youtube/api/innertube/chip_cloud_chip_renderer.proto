@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/chip_cloud_chip_style.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/hint_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/chip_selection_behavior.proto";
+import "youtube/api/innertube/chip_location.proto";
+import "youtube/api/innertube/mdx_screen.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChipCloudChipRenderer {
+	ChipCloudChipStyle style = 1;
+	FormattedString text = 2;
+	Command navigation_endpoint = 3;
+	bytes tracking_params = 5;
+
+	oneof image {
+		ThumbnailDetails channel_thumbnail = 6;
+		Icon icon = 7;
+		string asset_key = 18;
+	}
+
+	AccessibilitySupportedDatas accessibility_data = 8;
+	bool is_selected = 9;
+	HintSupportedRenderers hint = 10;
+	string target_id = 11;
+	Renderer content = 12;
+	Command on_deselected_command = 13;
+	ChipSelectionBehavior selection_behavior = 14;
+	string unique_id = 15;
+	ChipLocation location = 16;
+	MdxScreen target_mdx_device = 17;
+	bool not_selectable = 19;
+	string emoji_utf8 = 20;
+	LoggingDirectives logging_directives = 999;
+}

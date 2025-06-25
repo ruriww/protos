@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BottomSheetNode {
+	extend node.Node {
+		BottomSheetNode bottom_sheet_node_extension = 260216775;
+	}
+
+	node.Node content = 1;
+	int32 partially_expanded_percentage = 3;
+	int32 collapsed_percentage = 4;
+	int32 expanded_percentage = 5;
+}

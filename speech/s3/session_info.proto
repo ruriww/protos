@@ -1,0 +1,31 @@
+edition = "2023";
+
+package speech.s3;
+
+import "speech/s3/request.proto";
+import "unknown/youtube/event_id_message.proto";
+
+option objc_class_prefix = "S3";
+
+message SessionInfo {
+	extend Request {
+		SessionInfo session_info = 27423252;
+	}
+
+	string session_id = 1;
+	bool is_regionalized = 2;
+
+	enum RegionalizationType {
+		option features.enum_type = CLOSED;
+
+		UNSPECIFIED_REGIONALIZATION_TYPE = 2;
+		DEFAULT_CONTINENTAL = 0;
+		OLYMPUS_REGION = 1;
+	}
+
+	RegionalizationType regionalization_type = 3 [ default = DEFAULT_CONTINENTAL ];
+	bool is_batch_request = 4 [ default = false ];
+	string cross_session_id = 5;
+	unknown.youtube.EventIdMessage log_linking_session_id = 6;
+	int64 session_start_offset_usec = 7;
+}

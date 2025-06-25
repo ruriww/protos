@@ -1,0 +1,26 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+message TransitionProperties {
+	message ConditionalTransitionProperties {
+		int32 transition_id = 1;
+		repeated int64 triggering_event_rule_id = 2 [ features.repeated_field_encoding = EXPANDED ];
+		int32 shared_element_identifier = 3;
+
+		enum NodeStateChange {
+			option features.enum_type = CLOSED;
+
+			NODE_STATE_CHANGE_UNKNOWN = 0;
+			NODE_STATE_CHANGE_APPEARING = 1;
+			NODE_STATE_CHANGE_DISAPPEARING = 2;
+			NODE_STATE_CHANGE_UNCHANGED = 3;
+		}
+
+		NodeStateChange node_state_change = 4;
+	}
+
+	repeated ConditionalTransitionProperties conditional_transition = 1;
+}

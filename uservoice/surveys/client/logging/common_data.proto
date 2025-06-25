@@ -1,0 +1,21 @@
+edition = "2023";
+
+package uservoice.surveys.client.logging;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "uservoice/surveys/client/logging/user_data.proto";
+import "uservoice/surveys/client/logging/client_state.proto";
+import "uservoice/surveys/client/logging/survey_context.proto";
+import "uservoice/surveys/client/logging/client_context.proto";
+
+option objc_class_prefix = "UVSLP";
+
+message CommonData {
+	google.protobuf.Timestamp event_start = 1;
+	google.protobuf.Duration event_duration = 2;
+	UserData user_data = 4;
+	ClientState client_info = 5;
+	SurveyContext survey_context = 6;
+	ClientContext client_context = 7;
+}

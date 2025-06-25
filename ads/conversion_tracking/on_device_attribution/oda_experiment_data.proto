@@ -1,0 +1,12 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+option objc_class_prefix = "ADCO";
+
+message OdaExperimentData {
+	int64 exp_id_1 = 1;
+	int64 exp_id_2 = 2;
+	int64 exp_id_3 = 3;
+	bool enable_on_device_attribution_experimentation_support = 4;
+}

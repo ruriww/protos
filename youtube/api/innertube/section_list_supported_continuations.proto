@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/next_continuation_data.proto";
+import "youtube/api/innertube/previous_continuation_data.proto";
+import "youtube/api/innertube/reload_continuation_data.proto";
+import "youtube/api/innertube/timed_continuation_data.proto";
+import "youtube/api/innertube/invalidation_continuation_data.proto";
+import "youtube/api/innertube/section_list_mutation_continuation_data.proto";
+import "youtube/api/innertube/triggered_continuation_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SectionListSupportedContinuations {
+	NextContinuationData next_continuation_data = 52047593;
+	PreviousContinuationData previous_continuation_data = 52047597;
+	ReloadContinuationData reload_continuation_data = 60487319;
+	TimedContinuationData timed_continuation_data = 70339736;
+	InvalidationContinuationData invalidation_continuation_data = 77894792;
+	SectionListMutationContinuationData section_list_mutation_continuation_data = 525000005;
+	TriggeredContinuationData triggered_continuation_data = 525000006;
+}

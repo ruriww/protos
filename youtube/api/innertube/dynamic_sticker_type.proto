@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum DynamicStickerType {
+	option features.enum_type = CLOSED;
+
+	DYNAMIC_STICKER_TYPE_UNKNOWN = 0;
+	DYNAMIC_STICKER_TYPE_LOCATION = 1;
+	DYNAMIC_STICKER_TYPE_MENTION = 2;
+	DYNAMIC_STICKER_TYPE_UNICODE_EMOJI = 3;
+	DYNAMIC_STICKER_TYPE_DATE = 4;
+	DYNAMIC_STICKER_TYPE_TIME = 5;
+	DYNAMIC_STICKER_TYPE_TEMPERATURE = 6;
+	DYNAMIC_STICKER_TYPE_WATCH_LATER = 7;
+	DYNAMIC_STICKER_TYPE_DAY_OF_WEEK = 8;
+	DYNAMIC_STICKER_TYPE_LINK = 9;
+}

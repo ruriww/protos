@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/custom_thumbnail_image_name.proto";
+import "youtube/api/innertube/custom_thumbnail_image_format.proto";
+import "youtube/api/innertube/custom_thumbnail_composition.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CustomThumbnailImage {
+	oneof image_data {
+		bytes raw_bytes = 1;
+		string data_uri = 2;
+		string encrypted_scotty_resource_id = 8;
+	}
+
+	int64 frame_timestamp_us = 4;
+	bool is_vertical = 5;
+	CustomThumbnailImageName name = 6;
+	CustomThumbnailImageFormat format = 7;
+	CustomThumbnailComposition thumbnail_composition = 9;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/red_carpet_shelf_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RedCarpetShelfRenderer {
+	FormattedString title = 1;
+	FormattedString subtitle = 2;
+	repeated RedCarpetShelfSupportedRenderers contents = 3;
+	bytes tracking_params = 5;
+	AccessibilitySupportedDatas accessibility = 6;
+	Renderer button = 7;
+}
+
+extend Renderer {
+	RedCarpetShelfRenderer red_carpet_shelf_renderer = 138457959;
+}

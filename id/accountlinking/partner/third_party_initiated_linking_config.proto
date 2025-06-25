@@ -1,0 +1,11 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+option objc_class_prefix = "ALKP";
+
+message ThirdPartyInitiatedLinkingConfig {
+	repeated string allowed_domains = 1;
+	bool enable_third_party_initiated_linking = 2;
+	bool use_singlepage_data_usage_notice = 3;
+}

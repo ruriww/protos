@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/thumbnail_overlay_toggle_button_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ThumbnailOverlayToggleButtonRenderer {
+	bool is_toggled = 1;
+	Icon untoggled_icon = 2;
+	Icon toggled_icon = 3;
+	string untoggled_tooltip = 4;
+	string toggled_tooltip = 5;
+	Command untoggled_service_endpoint = 6;
+	Command toggled_service_endpoint = 7;
+	AccessibilitySupportedDatas untoggled_accessibility = 8;
+	AccessibilitySupportedDatas toggled_accessibility = 9;
+	ThumbnailOverlayToggleButtonSupportedDatas supported_datas = 10;
+	bytes tracking_params = 12;
+	Icon untoggled_icon_on_hover = 13;
+}

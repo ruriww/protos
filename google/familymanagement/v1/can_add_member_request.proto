@@ -1,0 +1,17 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_request_header.proto";
+import "google/familymanagement/v1/family_role.proto";
+
+option objc_class_prefix = "GFM";
+
+message CanAddMemberRequest {
+	ApiRequestHeader api_header = 1;
+	FamilyRole role = 2;
+	bytes payments_client_token = 3;
+	bool requires_ulp_parental_consent = 4;
+	bool requires_supervised_account_check = 5;
+	bool skip_cvn_challenge = 6;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message LogEventKeyValues {
+	string key = 1;
+	string value = 2;
+}

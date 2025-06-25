@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "RAS";
+
+message TimeLocation {
+	protobuf.Duration time_offset = 3;
+	protobuf.Duration duration = 4;
+}

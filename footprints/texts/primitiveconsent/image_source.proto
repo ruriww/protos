@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/transparencyandcontrol/proto/image_source_format.proto";
+import "footprints/transparencyandcontrol/proto/image_source_density.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message ImageSource {
+	string image_url = 1;
+	string image_url_dark = 2;
+	transparencyandcontrol.proto.ImageSourceFormat format = 3;
+	transparencyandcontrol.proto.ImageSourceDensity density = 4;
+	uint32 width = 5;
+	uint32 height = 6;
+}

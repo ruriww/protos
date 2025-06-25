@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_context.proto";
+import "youtube/api/innertube/live_creation_stage_type.proto";
+import "youtube/api/innertube/live_creation_error_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationStage {
+	LiveCreationContext live_creation_context = 1;
+	LiveCreationStageType live_creation_stage_type = 2;
+	LiveCreationErrorStatus error = 3;
+}

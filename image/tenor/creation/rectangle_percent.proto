@@ -1,0 +1,12 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message RectanglePercent {
+	float left_percent = 1;
+	float right_percent = 2;
+	float top_percent = 3;
+	float bottom_percent = 4;
+}

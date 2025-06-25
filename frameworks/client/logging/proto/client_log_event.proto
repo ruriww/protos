@@ -1,0 +1,22 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+import "frameworks/client/logging/proto/client_event_metadata.proto";
+import "unknown/youtube/log_record_proto.proto";
+import "frameworks/client/logging/proto/parameter.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+
+option objc_class_prefix = "CLI";
+
+message ClientLogEvent {
+	ClientEventMetadata metadata = 2;
+	unknown.youtube.LogRecordProto log_record = 3;
+	bytes custom_data = 8;
+	repeated Parameter allowed_parameters = 9;
+	string component_id = 10;
+	double sampling_rate = 11;
+	int64 count = 13;
+	logs.proto.wireless.performance.mobile.ios.MetricExtension ios_metric_extension = 15;
+	repeated int64 active_cui_ids = 17;
+}

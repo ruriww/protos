@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum BorderStyle {
+	option features.enum_type = CLOSED;
+
+	BORDER_STYLE_UNKNOWN = 0;
+	BORDER_STYLE_DASHED = 1;
+	BORDER_STYLE_SOLID = 2;
+}

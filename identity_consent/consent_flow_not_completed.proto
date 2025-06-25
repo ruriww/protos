@@ -1,0 +1,14 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/consent_flow_not_completed_reason.proto";
+import "identity_consent/dismiss_method.proto";
+
+option objc_class_prefix = "IDC";
+
+message ConsentFlowNotCompleted {
+	ConsentFlowNotCompletedReason reason = 1;
+	string error_message = 2;
+	DismissMethod dismiss_method = 3;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/api/innertube/stream_endscreen_renderer.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/environment_data.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message StreamEndModel {
+	extend Model {
+		StreamEndModel stream_end_model = 354640716;
+	}
+
+	api.innertube.StreamEndscreenRenderer renderer = 1;
+	Theme theme = 2;
+	Context context = 3;
+	EnvironmentData environment = 4;
+}

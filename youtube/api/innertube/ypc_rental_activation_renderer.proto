@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YpcRentalActivationRenderer {
+	FormattedString title = 1;
+	FormattedString duration_message = 2;
+	ButtonSupportedRenderers activation_button = 3;
+	bytes tracking_params = 5;
+	ButtonSupportedRenderers cancel_button = 6;
+	ThumbnailDetails image = 7;
+}
+
+extend Renderer {
+	YpcRentalActivationRenderer ypc_rental_activation_renderer = 86428467;
+}

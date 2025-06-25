@@ -1,0 +1,32 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/target_metadata.proto";
+import "notifications/frontend/data/common/thread_state_update.proto";
+import "notifications/frontend/data/versioned_identifier.proto";
+import "google/protobuf/any.proto";
+import "notifications/frontend/data/render_context.proto";
+import "notifications/frontend/data/notifications_fetch_latest_threads_request.proto";
+import "notifications/frontend/data/common/display_surface/notification_display_surface.proto";
+import "notifications/frontend/data/crb_rendering_behavior.proto";
+import "notifications/frontend/data/common/thread_state_filters/thread_state_filters.proto";
+import "notifications/frontend/data/thread_interaction_update.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsUpdateAndFetchThreadsRequest {
+	string client_id = 1;
+	TargetMetadata target_metadata = 3;
+	common.ThreadStateUpdate thread_state_update = 4;
+	repeated VersionedIdentifier versioned_identifier = 5;
+	google.protobuf.Any badge_count_payload = 7;
+	RenderContext render_context = 8;
+	NotificationsFetchLatestThreadsRequest.CFRFetchReason fetch_reason = 9;
+	repeated common.display_surface.NotificationDisplaySurface.Enum notification_display_surface = 11;
+	string westeros_app_version_code = 12;
+	CRBRenderingBehavior rendering_behavior = 15;
+	repeated VersionedIdentifier known_threads = 16;
+	common.thread_state_filters.ThreadStateFilters thread_state_filters = 17;
+	repeated ThreadInteractionUpdate thread_interaction_update = 18;
+}

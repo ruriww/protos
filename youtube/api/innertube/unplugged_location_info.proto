@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedLocationInfo {
+	int32 latitude_e7 = 1;
+	int32 longitude_e7 = 2;
+	int64 local_timestamp_ms = 3;
+	string ip_address = 4;
+	string timezone = 5;
+	bool prefer_24_hour_time = 6;
+	int32 location_radius_meters = 7;
+	bool is_initial_load = 8;
+	bool browser_permission_granted = 9;
+	int32 client_permission_state = 10;
+	string location_override_token = 11;
+}

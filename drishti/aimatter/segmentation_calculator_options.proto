@@ -1,0 +1,19 @@
+edition = "2023";
+
+package drishti.aimatter;
+
+import "drishti/calculator_options.proto";
+
+option objc_class_prefix = "DrishtiXeno";
+
+message SegmentationCalculatorOptions {
+	extend CalculatorOptions {
+		SegmentationCalculatorOptions ext = 169643925;
+	}
+
+	string model_path = 1;
+	float combine_with_previous_ratio = 3;
+	bool enable_duo_temporary_fix = 4;
+	int32 slowdown_factor_for_test = 5;
+	bool use_optimal_output_mask_size = 6 [ default = false ];
+}

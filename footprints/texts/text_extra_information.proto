@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts;
+
+option objc_class_prefix = "FOOTC";
+
+message TextExtraInformation {
+	string text_language = 1;
+	string text_build_label = 2;
+	string legal_region_code = 3;
+	int64 text_build_cl = 4;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/live_chat_action_panel_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatEngagementPanelInputRenderer {
+	extend Renderer {
+		LiveChatEngagementPanelInputRenderer live_chat_engagement_panel_input_renderer = 1341;
+	}
+
+	LiveChatActionPanelSupportedRenderers action_panel = 1;
+}

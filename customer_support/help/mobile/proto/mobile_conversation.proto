@@ -1,0 +1,16 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_participant.proto";
+import "google/protobuf/wrappers.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileConversation {
+	string id = 1;
+	uint64 last_event_id = 2;
+	string title = 3;
+	repeated MobileParticipant participants = 4;
+	google.protobuf.UInt64Value end_time_millis = 5;
+}

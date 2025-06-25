@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+import "google/internal/feedback/v1/trigger_context.proto";
+import "google/internal/feedback/v1/client_context.proto";
+import "google/internal/feedback/v1/scheduled_survey_context.proto";
+
+option objc_class_prefix = "PUDUI";
+
+message SurveyTriggerRequest {
+	TriggerContext trigger_context = 1;
+	ClientContext client_context = 2;
+	ScheduledSurveyContext scheduled_survey_context = 3;
+}

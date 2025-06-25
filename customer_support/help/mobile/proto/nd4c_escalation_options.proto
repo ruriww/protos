@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/nd4c_email_option.proto";
+import "customer_support/help/mobile/proto/nd4c_phone_option.proto";
+import "customer_support/help/mobile/proto/nd4c_chat_option.proto";
+import "customer_support/help/mobile/proto/contact_mode_type.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ND4CEscalationOptions {
+	ND4CEmailOption email_option = 1;
+	ND4CPhoneOption phone_option = 2;
+	ND4CChatOption chat_option = 3;
+	ContactModeType recommended_contact_mode = 4;
+}

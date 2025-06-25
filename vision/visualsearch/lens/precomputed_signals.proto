@@ -1,0 +1,11 @@
+edition = "2023";
+
+package vision.visualsearch.lens;
+
+import "vision/visualsearch/lens/precomputed_signal.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message PrecomputedSignals {
+	repeated PrecomputedSignal signal = 1;
+}

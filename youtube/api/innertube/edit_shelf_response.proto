@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/shelf_editor_supported_renderers.proto";
+import "youtube/api/innertube/shelf_editor_error_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EditShelfResponse {
+	ResponseContext response_context = 1;
+	ShelfEditorSupportedRenderers shelf_editor = 2;
+	repeated ShelfEditorErrorSupportedRenderers errors = 4;
+}

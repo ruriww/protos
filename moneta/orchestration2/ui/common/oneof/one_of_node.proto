@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.oneof;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message OneOfNode {
+	extend node.Node {
+		OneOfNode one_of_node_extension = 231420908;
+	}
+
+	int32 option_id = 1;
+	repeated node.Node child = 2;
+}

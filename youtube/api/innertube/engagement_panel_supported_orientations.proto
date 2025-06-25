@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EngagementPanelSupportedOrientations {
+	option features.enum_type = CLOSED;
+
+	ENGAGEMENT_PANEL_SUPPORTED_ORIENTATIONS_UNKNOWN = 0;
+	ENGAGEMENT_PANEL_SUPPORTED_ORIENTATIONS_PORTRAIT_AND_LANDSCAPE = 1;
+	ENGAGEMENT_PANEL_SUPPORTED_ORIENTATIONS_PORTRAIT_ONLY = 2;
+	ENGAGEMENT_PANEL_SUPPORTED_ORIENTATIONS_LANDSCAPE_ONLY = 3;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package id.common.metrics;
+
+import "id/logging/frontend/user_interaction.proto";
+
+option objc_class_prefix = "IDME";
+
+message IdentityClearcutRequest {
+	logging.frontend.UserInteraction interaction = 1;
+	int64 apps_framework_session_id = 2;
+
+	enum AuthenticationStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		AUTHENTICATED = 1;
+		UNAUTHENTICATED = 2;
+		IN_GAIA_FE_IGNORE_COOKIES = 3;
+	}
+
+	AuthenticationStatus expected_authentication_status = 3;
+}

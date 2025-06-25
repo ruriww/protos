@@ -1,0 +1,22 @@
+edition = "2023";
+
+package greco;
+
+option objc_class_prefix = "GRC";
+
+message SpeakerAlign {
+	message Segment {
+		oneof indication {
+			string name = 1;
+			bool speaker_change = 2;
+		}
+
+		float score = 3;
+		int32 start_time_ms = 4;
+		int32 end_time_ms = 5;
+		string left_context_str = 6;
+		string right_context_str = 7;
+	}
+
+	repeated Segment segment = 1;
+}

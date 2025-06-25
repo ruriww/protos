@@ -1,0 +1,89 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/compact_video_jump_to_scene_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/associated_game_supported_renderers.proto";
+import "youtube/api/innertube/renderer_presentation_style_enum.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/video_preview_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/compact_video_rich_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/compact_video_style.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/offline_refresh_supported_renderers.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString long_byline_text = 4;
+	FormattedString published_time_text = 5;
+	FormattedString view_count_text = 6;
+	FormattedString length_text = 7;
+	Command navigation_endpoint = 8;
+	string debug_html = 9;
+	FormattedString short_byline_text = 10;
+	UpcomingEventData upcoming_event_data = 12;
+	repeated BadgeSupportedRenderers badges = 13;
+	ThumbnailDetails channel_thumbnail = 14;
+	repeated BadgeSupportedRenderers owner_badges = 15;
+
+	message CompactVideoOfflineabilitySupportedRenderers {
+		OfflineabilityRenderer offlineability_renderer = 60572968;
+	}
+
+	CompactVideoOfflineabilitySupportedRenderers offlineability = 17;
+	bytes tracking_params = 18;
+	string channel_id = 19;
+	repeated ThumbnailBadgeSupportedRenderers thumbnail_badges = 20;
+	bool is_owned_by_viewer = 21;
+	repeated Command service_endpoints = 22;
+	FormattedString short_view_count_text = 23;
+	Command edit_metadata_endpoint = 24;
+	MenuSupportedRenderers menu = 25;
+	CompactVideoJumpToSceneSupportedRenderers jump_to_scene = 26;
+	bool is_watched = 27;
+	StandaloneBadgeSupportedRenderers standalone_badge = 28;
+	AssociatedGameSupportedRenderers associated_game = 29;
+	RendererPresentationStyleEnum.PresentationStyle presentation_style = 31;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 32;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 33;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 34;
+	VideoPreviewSupportedRenderers video_preview = 35;
+	AccessibilitySupportedDatas accessibility = 36;
+	CompactVideoRichThumbnailSupportedRenderers rich_thumbnail = 38;
+	CompactVideoStyle style = 39;
+	MainAppCompactRendererStyle main_app_style = 40;
+	OfflineRefreshSupportedRenderers offline_refresh_info = 41;
+	Command tapped_action = 43;
+	StandaloneBadgeSupportedRenderers inline_standalone_badge = 44;
+	VideoClientBindingData video_client_binding_data = 45;
+	Renderer rejected_video_button = 46;
+	repeated Renderer end_swipe_contents = 48;
+	repeated Command added_to_up_next_actions = 49;
+	repeated Renderer buttons = 50;
+	Command inline_playback_endpoint = 51;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	CompactVideoRenderer compact_video_renderer = 50630979;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "id/accountlinking/partner/android_app_flip.proto";
+import "id/accountlinking/partner/ios_app_flip.proto";
+
+option objc_class_prefix = "ALKP";
+
+message AppFlipConfig {
+	repeated AndroidAppFlip android_app_flip = 1;
+	repeated IosAppFlip ios_app_flip = 2;
+}

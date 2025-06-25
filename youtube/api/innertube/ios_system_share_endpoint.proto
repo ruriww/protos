@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosSystemShareEndpoint {
+	extend Command {
+		IosSystemShareEndpoint ios_system_share_endpoint = 76910004;
+	}
+
+	string share_string = 1;
+	FormattedString share_attributed_string = 2;
+	ThumbnailDetails share_image = 3;
+	string share_url = 4;
+	string share_subject = 5;
+	string serialized_share_entity = 6;
+}

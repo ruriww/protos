@@ -1,0 +1,19 @@
+edition = "2023";
+
+package google.internal.mothership.suggest.v1;
+
+import "search/rendering/xuikit/elements/elements_output.proto";
+
+option objc_class_prefix = "MSP";
+
+message SuggestResponse {
+	string original_query = 1;
+
+	message SuggestResult {
+		string suggestion = 1;
+		search.rendering.xuikit.elements.ElementsOutput elements_output = 32;
+		search.rendering.xuikit.elements.ElementsOutput counterfactual_elements_output = 35;
+	}
+
+	repeated SuggestResult suggest_result = 2;
+}

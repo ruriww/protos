@@ -1,0 +1,38 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message WelcomeScreenIntro {
+	Image profile_picture_image = 1;
+	string title = 2;
+	string primary_email = 3;
+	string description = 4;
+
+	message AdditionalDescription {
+		Image image = 1;
+		string main_text = 2;
+		string link_text = 3;
+		ResourceKey link_target = 4;
+		string link_accessibility_label = 5;
+		Link link = 6;
+		Image link_icon = 7;
+	}
+
+	AdditionalDescription additional_description = 5;
+	ResourceKey profile_picture_target = 6;
+	bool is_google_one_member = 7;
+	string link_text = 8;
+	string link_accessibility_label = 9;
+	ResourceKey link_target = 10;
+	Link link = 11;
+	Link profile_picture_link = 13;
+	string profile_picture_accessibility_label = 14;
+	string display_name = 15;
+	Image link_icon = 16;
+}

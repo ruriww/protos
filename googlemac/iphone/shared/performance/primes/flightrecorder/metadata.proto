@@ -1,0 +1,22 @@
+edition = "2023";
+
+package googlemac.iphone.shared.performance.primes.flightrecorder;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+import "googlemac/iphone/shared/performance/primes/flightrecorder/trace_container.proto";
+
+option objc_class_prefix = "PFR";
+
+message Metadata {
+	enum MetadataType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		METRIC_EXTENSION = 1;
+		IN_FLIGHT_TRACE = 3;
+	}
+
+	MetadataType type = 1;
+	logs.proto.wireless.performance.mobile.ios.MetricExtension metric_extension = 2;
+	repeated TraceContainer traces = 3;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum LAppFlipResult {
+	APP_FLIP_RESULT_UNSPECIFIED = 0;
+	APP_FLIP_SUCCESS = 1;
+	APP_FLIP_CANCELED = 2;
+	APP_FLIP_ERROR = 3;
+}

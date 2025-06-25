@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/proto/contacts/contact_sheet_visual_element_entry.proto";
+import "logs/proto/contacts/contact_sheet_dimensions.proto";
+import "logs/proto/contacts/contact_sheet_metric_entry.proto";
+
+option objc_class_prefix = "CST";
+
+message ContactSheetExtension {
+	ContactSheetVisualElementEntry visual_element_entry = 1;
+	ContactSheetDimensions dimension = 2;
+	ContactSheetMetricEntry metric_entry = 3;
+}

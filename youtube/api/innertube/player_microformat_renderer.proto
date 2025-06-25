@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/player_embed_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerMicroformatRenderer {
+	ThumbnailDetails thumbnail = 1;
+	PlayerEmbedDetails embed = 2;
+	FormattedString title = 3;
+	FormattedString description = 4;
+	uint64 length_seconds = 5;
+	string owner_profile_url = 6;
+	string owner_gplus_profile_url = 7;
+	string external_channel_id = 8;
+	bool is_family_safe = 9;
+	repeated string available_countries = 10;
+	bool is_unlisted = 11;
+	bool has_ypc_metadata = 12;
+	string view_count = 14;
+	string category = 15;
+	string publish_date = 16;
+	string owner_channel_name = 17;
+	string upload_date = 19;
+	bool is_shorts_eligible = 22;
+	string external_video_id = 23;
+	string like_count = 24;
+	string canonical_url = 25;
+}
+
+extend Renderer {
+	PlayerMicroformatRenderer player_microformat_renderer = 58514816;
+}

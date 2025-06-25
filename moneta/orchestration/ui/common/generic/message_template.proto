@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+option objc_class_prefix = "Orch";
+
+message MessageTemplate {
+	string template = 1;
+	repeated int64 component_reference = 2;
+	bool use_component_value = 3;
+}

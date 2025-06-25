@@ -1,0 +1,75 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_text_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_hover_text_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_side_panel_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_bottom_panel_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_resume_playback_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_bottom_gradient_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_playback_status_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_time_status_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_toggle_button_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_inline_unplayable_renderer.proto";
+import "youtube/api/innertube/premiere_trailer_badge_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_icon_renderer.proto";
+import "youtube/api/innertube/thumbnail_overlay_equalizer_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+extend Renderer {
+	ThumbnailOverlayTextRenderer thumbnail_overlay_text_renderer = 103313378;
+}
+
+extend Renderer {
+	ThumbnailOverlayHoverTextRenderer thumbnail_overlay_hover_text_renderer = 107250266;
+}
+
+extend Renderer {
+	ThumbnailOverlaySidePanelRenderer thumbnail_overlay_side_panel_renderer = 107164415;
+}
+
+extend Renderer {
+	ThumbnailOverlayBottomPanelRenderer thumbnail_overlay_bottom_panel_renderer = 109635582;
+}
+
+extend Renderer {
+	ThumbnailOverlayResumePlaybackRenderer thumbnail_overlay_resume_playback_renderer = 110282477;
+}
+
+extend Renderer {
+	ThumbnailOverlayBottomGradientRenderer thumbnail_overlay_bottom_gradient_renderer = 115279480;
+}
+
+extend Renderer {
+	ThumbnailOverlayPlaybackStatusRenderer thumbnail_overlay_playback_status_renderer = 121717534;
+}
+
+extend Renderer {
+	ThumbnailOverlayTimeStatusRenderer thumbnail_overlay_time_status_renderer = 121720768;
+}
+
+extend Renderer {
+	ThumbnailOverlayToggleButtonRenderer thumbnail_overlay_toggle_button_renderer = 128231774;
+}
+
+extend Renderer {
+	ThumbnailOverlayInlineUnplayableRenderer thumbnail_overlay_inline_unplayable_renderer = 164529395;
+}
+
+extend Renderer {
+	PremiereTrailerBadgeRenderer premiere_trailer_badge_renderer = 8169;
+}
+
+extend Renderer {
+	ThumbnailOverlayIconRenderer thumbnail_overlay_icon_renderer = 387448098;
+}
+
+extend Renderer {
+	ThumbnailOverlayEqualizerRenderer thumbnail_overlay_equalizer_renderer = 1005;
+}

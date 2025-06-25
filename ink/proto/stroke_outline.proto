@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message StrokeOutline {
+	repeated float x = 1;
+	repeated float y = 2;
+	uint32 rgba = 3;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "youtube/elements/context.proto";
+import "youtube/elements/environment_data.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageZeroStateModel {
+	extend Model {
+		DownloadsPageZeroStateModel downloads_page_zero_state_model = 361046472;
+	}
+
+	Theme theme = 1;
+	Context context = 2;
+	string title = 3;
+	string subtitle = 4;
+	EnvironmentData environment_data = 5;
+	bool should_extend_to_full_screen = 6;
+}

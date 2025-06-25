@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+
+option objc_class_prefix = "ASM";
+
+message LegendItem {
+	Image icon = 1;
+	string label = 2;
+	string accessibility_label = 3;
+	string delineator = 4;
+	Image stack_footer_image = 5;
+}

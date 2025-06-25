@@ -1,0 +1,16 @@
+edition = "2023";
+
+package privacy.consent;
+
+import "privacy/consent/event_id_message.proto";
+import "privacy/consent/uuid.proto";
+
+option objc_class_prefix = "PCO";
+
+message SharedConsentSessionId {
+	oneof id {
+		EventIdMessage event_id = 1;
+		UUID uuid = 2;
+		string uuid_string = 3;
+	}
+}

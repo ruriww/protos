@@ -1,0 +1,15 @@
+edition = "2023";
+
+package greco;
+
+import "greco/loggable.proto";
+
+option objc_class_prefix = "GRC";
+
+message Params {
+	extend Loggable {
+		Params log_id = 29829655;
+	}
+
+	extensions 98173 to max;
+}

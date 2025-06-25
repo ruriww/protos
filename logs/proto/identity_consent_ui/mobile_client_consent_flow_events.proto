@@ -1,0 +1,283 @@
+edition = "2023";
+
+package logs.proto.identity_consent_ui;
+
+import "unknown/youtube/one_google_mobile_consent_kit_ios_error_code.proto";
+import "unknown/youtube/one_google_mobile_ios_error_domain.proto";
+import "identity_consent/ui_interaction.proto";
+import "identity_consent/consent_flow_not_completed_reason.proto";
+import "identity_consent/dismiss_method.proto";
+import "unknown/youtube/ccs_core_platform_service.proto";
+import "unknown/youtube/one_google_mobile_consent_event_category.proto";
+import "google/protobuf/timestamp.proto";
+import "footprints/texts/consent_screen_id.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_completed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_not_completed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_preload_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_preload_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_preload_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_prewarm_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_prewarm_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/flow_prewarm_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/load_app_provided_screen_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/load_app_provided_screen_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/native_container_visible.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/native_container_hidden.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/native_first_screen_fetch_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/native_first_screen_fetch_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/native_first_screen_fetch_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/native_first_screen_visible.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/record_decision_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/record_decision_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/record_decision_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/record_entry_point_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/record_entry_point_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/record_entry_point_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/token_fetch_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/token_fetch_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/token_fetch_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_page_load_start.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_page_load_successful.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_page_load_failed.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_view_present.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_view_hidden.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_view_precaching_hit.proto";
+import "logs/proto/identity_consent_ui/mobile_low_level_event/web_view_precaching_miss.proto";
+import "identity_consent/consent_flow_id.proto";
+import "privacy/consent/consent_purpose.proto";
+import "privacy/consent/product_surface.proto";
+import "identity_consent/ui_parameters.proto";
+import "identity_consent/launch_mode.proto";
+import "privacy/consent/feature_id.proto";
+import "logs/proto/identity_consent_ui/api_version.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "privacy/consent/consent_session_id.proto";
+
+option objc_class_prefix = "GIDLOG";
+
+message MobileClientConsentFlowEvents {
+	message ConsentSetting {
+		oneof setting_id {
+			unknown.youtube.CCSCorePlatformService cps = 1;
+			footprints.transparencyandcontrol.proto.ConsentSetting.ConsentSettingId consent_id = 2;
+		}
+	}
+
+	message Event {
+		unknown.youtube.OneGoogleMobileConsentEventCategory category = 1;
+		google.protobuf.Timestamp timestamp = 2;
+
+		message FlowCompletedEventMetadata {
+			identity_consent.UiInteraction completion_user_interaction = 1;
+		}
+
+		message FlowNotCompletedEventMetadata {
+			identity_consent.ConsentFlowNotCompletedReason not_completed_reason = 1;
+		}
+
+		message DismissEventMetadata {
+			identity_consent.DismissMethod user_initiated_dismiss_method = 1;
+		}
+
+		message FirstNativeScreenPresentedEventMetadata {
+			repeated unknown.youtube.CCSCorePlatformService cps = 1;
+			repeated ConsentSetting consent_settings = 2;
+		}
+
+		oneof event_metadata {
+			FlowCompletedEventMetadata flow_completed_event_metadata = 3;
+			FlowNotCompletedEventMetadata flow_not_completed_event_metadata = 4;
+			DismissEventMetadata dismiss_event_metadata = 5;
+			FirstNativeScreenPresentedEventMetadata first_native_screen_presented_event_metadata = 6;
+		}
+
+		message ErrorInformation {
+			message IosErrorInformation {
+				unknown.youtube.OneGoogleMobileConsentKitIOSErrorCode error_code = 1;
+				int32 root_cause_error_code = 2;
+				unknown.youtube.OneGoogleMobileIOSErrorDomain root_cause_error_domain = 3;
+			}
+
+			oneof mobile_error_information {
+				IosErrorInformation ios_error_information = 1;
+			}
+		}
+
+		ErrorInformation error_information = 8;
+	}
+
+	repeated Event consent_events = 1;
+	privacy.consent.ConsentSessionId consent_session_id = 2;
+
+	message Metadata {
+		identity_consent.ConsentFlowId flow_id = 1;
+		privacy.consent.ConsentPurpose consent_purpose = 2;
+		int32 product_id = 3;
+		privacy.consent.ProductSurface product_surface = 4;
+		identity_consent.ConsentFlowNotCompletedReason flow_not_completed_reason = 5;
+
+		enum ConsentRenderType {
+			option features.enum_type = CLOSED;
+
+			CONSENT_RENDER_TYPE_UNSPECIFIED = 0;
+			OCTARINE = 1;
+			CUSTOM_WEBVIEW = 2;
+			NATIVE_UI = 3;
+		}
+
+		ConsentRenderType consent_render_type = 6;
+		identity_consent.DismissMethod dismiss_method = 7;
+		string locale = 8;
+
+		enum ColorTheme {
+			option features.enum_type = CLOSED;
+
+			COLOR_THEME_UNSPECIFIED = 0;
+			LIGHT = 1;
+			DARK = 2;
+		}
+
+		ColorTheme color_theme = 9;
+
+		enum Dismissibility {
+			option features.enum_type = CLOSED;
+
+			DISMISSIBILITY_UNSPECIFIED = 0;
+			DISMISSIBLE = 1;
+			NOT_DISMISSIBLE = 2;
+		}
+
+		Dismissibility dismissibility = 10;
+		string client_event_id = 11;
+		string entrypoint_id = 12;
+		identity_consent.UiParameters.InitialLoadingStrategy initial_loading_strategy = 13;
+		identity_consent.LaunchMode launch_mode = 14;
+		privacy.consent.FeatureId feature_id = 15;
+		bool is_dark_launch = 16;
+		ApiVersion api_version = 17;
+	}
+
+	Metadata metadata = 3;
+
+	message HighLevelSemanticEvent {
+		message ConsentScreenMetadata {
+			footprints.texts.ConsentScreenId screen_id = 1;
+			repeated ConsentSettingState consent_settings_states = 2;
+		}
+
+		message ConsentSettingState {
+			ConsentSetting setting = 1;
+
+			enum State {
+				option features.enum_type = CLOSED;
+
+				STATE_UNSPECIFIED = 0;
+				ENABLED = 1;
+				DISABLED = 2;
+			}
+
+			State state = 2;
+		}
+
+		message ConsentUiRequested {
+		}
+
+		message ConsentUiContainerVisible {
+		}
+
+		message ConsentUiLoadingIndicatorsVisible {
+		}
+
+		message ConsentScreenVisible {
+			ConsentScreenMetadata consent_screen_metadata = 1;
+		}
+
+		message ConsentScreenHidden {
+			ConsentScreenMetadata consent_screen_metadata = 1;
+		}
+
+		message FlowEnded {
+			message FlowEndedByUser {
+				identity_consent.UiInteraction completion_user_interaction = 1;
+				repeated ConsentSettingState consent_settings_states = 2;
+			}
+
+			message FlowEndedByError {
+				identity_consent.ConsentFlowNotCompletedReason not_completed_reason = 1;
+			}
+
+			oneof flow_outcome {
+				FlowEndedByUser flow_ended_by_user = 1;
+				FlowEndedByError flow_ended_by_error = 2;
+			}
+		}
+
+		message DismissAttempted {
+			identity_consent.DismissMethod dismiss_method = 1;
+			ConsentScreenMetadata consent_screen_metadata = 2;
+		}
+
+		oneof event {
+			ConsentUiRequested consent_ui_requested = 1;
+			ConsentUiContainerVisible consent_ui_container_visible = 2;
+			ConsentUiLoadingIndicatorsVisible consent_ui_loading_indicators_visible = 3;
+			ConsentScreenVisible consent_screen_visible = 5;
+			ConsentScreenHidden consent_screen_hidden = 6;
+			FlowEnded flow_terminated = 8;
+			DismissAttempted dismiss_attempted = 10;
+		}
+
+		google.protobuf.Timestamp timestamp = 9;
+	}
+
+	HighLevelSemanticEvent high_level_event = 5;
+
+	message LowLevelSemanticEvent {
+		message LowLevelIosEvent {
+			oneof ios_event {
+				mobile_low_level_event.FlowStart flow_start = 1;
+				mobile_low_level_event.FlowCompleted flow_completed = 2;
+				mobile_low_level_event.FlowNotCompleted flow_not_completed = 3;
+				mobile_low_level_event.FlowPreloadStart flow_preload_start = 4;
+				mobile_low_level_event.FlowPreloadSuccessful flow_preload_successful = 5;
+				mobile_low_level_event.FlowPreloadFailed flow_preload_failed = 6;
+				mobile_low_level_event.FlowPrewarmStart flow_prewarm_start = 7;
+				mobile_low_level_event.FlowPrewarmSuccessful flow_prewarm_successful = 8;
+				mobile_low_level_event.FlowPrewarmFailed flow_prewarm_failed = 9;
+				mobile_low_level_event.LoadAppProvidedScreenSuccessful load_app_provided_screen_successful = 10;
+				mobile_low_level_event.LoadAppProvidedScreenFailed load_app_provided_screen_failed = 11;
+				mobile_low_level_event.NativeContainerVisible native_container_visible = 12;
+				mobile_low_level_event.NativeContainerHidden native_container_hidden = 13;
+				mobile_low_level_event.NativeFirstScreenFetchStart native_first_screen_fetch_start = 14;
+				mobile_low_level_event.NativeFirstScreenFetchSuccessful native_first_screen_fetch_successful = 15;
+				mobile_low_level_event.NativeFirstScreenFetchFailed native_first_screen_fetch_failed = 16;
+				mobile_low_level_event.NativeFirstScreenVisible native_first_screen_visible = 17;
+				mobile_low_level_event.RecordDecisionStart record_decision_start = 18;
+				mobile_low_level_event.RecordDecisionSuccessful record_decision_successful = 19;
+				mobile_low_level_event.RecordDecisionFailed record_decision_failed = 20;
+				mobile_low_level_event.RecordEntryPointStart record_entry_point_start = 21;
+				mobile_low_level_event.RecordEntryPointSuccessful record_entry_point_successful = 22;
+				mobile_low_level_event.RecordEntryPointFailed record_entry_point_failed = 23;
+				mobile_low_level_event.TokenFetchStart token_fetch_start = 24;
+				mobile_low_level_event.TokenFetchSuccessful token_fetch_successful = 25;
+				mobile_low_level_event.TokenFetchFailed token_fetch_failed = 26;
+				mobile_low_level_event.WebPageLoadStart web_page_load_start = 27;
+				mobile_low_level_event.WebPageLoadSuccessful web_page_load_successful = 28;
+				mobile_low_level_event.WebPageLoadFailed web_page_load_failed = 29;
+				mobile_low_level_event.WebViewPresent web_view_present = 30;
+				mobile_low_level_event.WebViewHidden web_view_hidden = 31;
+				mobile_low_level_event.WebViewPrecachingHit web_view_precaching_hit = 32;
+				mobile_low_level_event.WebViewPrecachingMiss web_view_precaching_miss = 33;
+			}
+		}
+
+		oneof event {
+			LowLevelIosEvent ios_event = 2;
+		}
+
+		google.protobuf.Timestamp timestamp = 3;
+	}
+
+	LowLevelSemanticEvent low_level_event = 6;
+}

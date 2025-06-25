@@ -1,0 +1,13 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_affinity.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonMetadata {
+	string owner_id = 4;
+	repeated PersonAffinity affinity = 17;
+	string device_contact_id = 99;
+}

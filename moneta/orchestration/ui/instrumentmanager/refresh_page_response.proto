@@ -1,0 +1,19 @@
+edition = "2023";
+
+package moneta.orchestration.ui.instrumentmanager;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/instrumentmanager/page.proto";
+import "moneta/orchestration/ui/common/secure_data_header.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+
+option objc_class_prefix = "IManager";
+
+message RefreshPageResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	Page next_page = 3;
+	common.SecureDataHeader secure_header = 4;
+	common.generic.FlowInstruction flow_instruction = 5;
+}

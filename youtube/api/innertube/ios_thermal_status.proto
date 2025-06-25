@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum IosThermalStatus {
+	option features.enum_type = CLOSED;
+
+	IOS_THERMAL_STATUS_UNKNOWN = 0;
+	IOS_THERMAL_STATUS_NOMINAL = 1;
+	IOS_THERMAL_STATUS_FAIR = 2;
+	IOS_THERMAL_STATUS_SERIOUS = 3;
+	IOS_THERMAL_STATUS_CRITICAL = 4;
+}

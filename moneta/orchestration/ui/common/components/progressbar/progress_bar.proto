@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.progressbar;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+
+option objc_class_prefix = "Orch";
+
+message ProgressBar {
+	int64 ui_reference = 1;
+	generic.InfoMessage completion_condition = 2;
+	generic.InfoMessage status_description = 3;
+	int32 completion_percentage = 4;
+	SimpleForm status_simple_form = 5;
+}

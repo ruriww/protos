@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.filepicker;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FilePickerDataValue {
+	extend data.DataValue {
+		FilePickerDataValue file_picker_data_value_extension = 280087160;
+	}
+
+	repeated string file_paths = 1;
+}

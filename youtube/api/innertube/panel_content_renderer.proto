@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PanelContentRenderer {
+	extend Renderer {
+		PanelContentRenderer panel_content_renderer = 441573002;
+	}
+
+	Renderer header = 1;
+	Renderer content = 2;
+	Renderer footer = 3;
+	repeated Renderer legacy_contents_list = 4;
+	Renderer background = 5;
+}

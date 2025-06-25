@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CaptionTrackEntry {
+	string base_url = 1;
+	FormattedString name = 2;
+	string vss_id = 3;
+	string language_code = 4;
+	string kind = 5;
+	bool rtl = 6;
+	bool is_translatable = 7;
+	string track_name = 11;
+}

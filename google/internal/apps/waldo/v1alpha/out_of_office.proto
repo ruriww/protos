@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/protobuf/timestamp.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message OutOfOffice {
+	protobuf.Timestamp come_back_time = 1;
+	string event_summary = 2;
+	protobuf.Timestamp committed_until = 3;
+}

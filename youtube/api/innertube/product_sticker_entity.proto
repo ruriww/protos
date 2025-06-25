@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/matrix_data.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ProductStickerEntity {
+	message Rectangle {
+		double width = 1;
+		double height = 2;
+	}
+
+	extend EntityMutationPayload {
+		ProductStickerEntity product_sticker_entity = 566;
+	}
+
+	string key = 1;
+
+	message CreatorStickerMetadata {
+		MatrixData video_relative_matrix = 1;
+		Rectangle unscaled_body_rectangle = 2;
+	}
+
+	message StickerChangesUncommitted {
+	}
+
+	oneof sticker_data {
+		CreatorStickerMetadata sticker_metadata = 5;
+		StickerChangesUncommitted sticker_changes_uncommitted = 7;
+	}
+}

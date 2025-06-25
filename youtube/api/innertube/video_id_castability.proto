@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum VideoIdCastability {
+	option features.enum_type = CLOSED;
+
+	VIDEO_ID_CASTABILITY_UNSPECIFIED = 0;
+	VIDEO_ID_CASTABILITY_CASTABLE = 1;
+	VIDEO_ID_CASTABILITY_CASTABLE_BUT_NOT_PLAYABLE = 2;
+}

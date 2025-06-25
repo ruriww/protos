@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.bottomsheet;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message BottomSheetData {
+	extend data.Data {
+		BottomSheetData bottom_sheet_data_extension = 260216776;
+	}
+}

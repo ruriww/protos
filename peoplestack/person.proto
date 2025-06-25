@@ -1,0 +1,19 @@
+edition = "2023";
+
+package peoplestack;
+
+import "peoplestack/contact_method.proto";
+import "peoplestack/affinity.proto";
+import "peoplestack/client_specific_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_person_extended_data.proto";
+
+option objc_class_prefix = "PSK";
+
+message Person {
+	repeated ContactMethod contact_methods = 1;
+	Affinity affinity = 2;
+	ClientSpecificData client_specific_data = 3;
+	social.graph.wire.proto.peopleapi.extension.PeopleStackExtendedData people_stack_extended_data = 4;
+	social.graph.wire.proto.peopleapi.extension.PeopleStackPersonExtendedData people_stack_person_extended_data = 5;
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/activity_spec.proto";
+import "footprints/transparencyandcontrol/proto/activity_item.proto";
+import "footprints/transparencyandcontrol/proto/call_to_action.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message SampleActivityItems {
+	ActivitySpec activity_spec = 1;
+	repeated ActivityItem activity_item = 2;
+	CallToAction manage_activity_cta = 3;
+	string formatted_activity_header_text = 4;
+	string formatted_no_items_text = 5;
+}

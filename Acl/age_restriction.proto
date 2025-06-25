@@ -1,0 +1,13 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/global_age_restriction.proto";
+import "Acl/location_based_age_restriction.proto";
+
+option objc_class_prefix = "ACL";
+
+message AgeRestriction {
+	GlobalAgeRestriction global_age_restriction = 1;
+	repeated LocationBasedAgeRestriction location_based_age_restriction = 2;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_caller.proto";
+import "footprints/transparencyandcontrol/proto/consent_flow_id.proto";
+import "footprints/transparencyandcontrol/proto/consent_setting.proto";
+import "privacy/consent/consent_session_id.proto";
+import "footprints/transparencyandcontrol/proto/promo_event_type.proto";
+import "footprints/transparencyandcontrol/proto/consent_promo_metadata.proto";
+import "privacy/consent/shared_consent_session_id.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message RecordConsentPromoRequest {
+	ConsentCaller caller = 1;
+	ConsentFlowId consent_flow = 2;
+	repeated ConsentSetting settings = 3;
+	privacy.consent.ConsentSessionId session_id = 4;
+	PromoEventType event_type = 5;
+	ConsentPromoMetadata consent_promo_metadata = 6;
+	privacy.consent.SharedConsentSessionId shared_session_id = 8;
+}

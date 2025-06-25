@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+option objc_class_prefix = "FOOTCP";
+
+message ConsentHeader {
+	enum HeaderVariant {
+		option features.enum_type = CLOSED;
+
+		HEADER_VARIANT_UNSPECIFIED = 0;
+		GOOGLE_ACCOUNT_BAR = 1;
+		MME_HEADER = 2;
+	}
+
+	HeaderVariant header_variant = 1;
+}

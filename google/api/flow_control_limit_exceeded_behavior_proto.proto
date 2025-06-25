@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+enum FlowControlLimitExceededBehaviorProto {
+	UNSET_BEHAVIOR = 0;
+	THROW_EXCEPTION = 1;
+	BLOCK = 2;
+	IGNORE = 3;
+}

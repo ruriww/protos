@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.core.testing.clientsimulator.recorder;
+
+import "moneta/orchestration2/ui/core/testing/clientsimulator/recorder/selector_subregions_data_result_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message FunctionalDataStateChangeAction {
+	oneof result_value {
+		SelectorSubregionsDataResultValue selector_subregions_data_result_value = 3;
+	}
+}

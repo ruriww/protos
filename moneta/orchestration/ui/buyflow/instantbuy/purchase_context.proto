@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration.ui.buyflow.instantbuy;
+
+import "moneta/orchestration/ui/buyflow/instantbuy/initialize_intent_enums.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message PurchaseContext {
+	InitializeIntentEnums.InitializeIntent initialize_intent = 2;
+	bool contact_number_required = 3;
+	bool is_preauthorized = 5;
+	string selected_client_instrument_id = 6;
+	bytes selected_address_token = 7;
+	bool is_test_mode = 10;
+	bool shipping_required = 11;
+	string payment_request_merchant_origin = 12;
+	string payment_request_parameters = 13;
+	bool use_template_requirements_scheme = 14;
+	bool disable_template_match = 15;
+	bool support_pay_with_google_theme = 16;
+	bool use_google_pay_brand = 17;
+}

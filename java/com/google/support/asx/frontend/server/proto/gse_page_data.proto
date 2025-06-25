@@ -1,0 +1,13 @@
+edition = "2023";
+
+package java.com.google.support.asx.frontend.server.proto;
+
+import "engage/ui/support/guidance/chat/shared/embedproto/gse_session_options.proto";
+import "customer_support/content/guidance/chat/v1/starting_flow.proto";
+
+option objc_class_prefix = "ASX";
+
+message GsePageData {
+	engage.ui.support.guidance.chat.shared.embedproto.GseSessionOptions gse_session_options = 1;
+	customer_support.content.guidance.chat.v1.StartingFlow starting_flow = 2;
+}

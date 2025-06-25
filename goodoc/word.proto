@@ -1,0 +1,44 @@
+edition = "2023";
+
+package goodoc;
+
+import "goodoc/bounding_box.proto";
+import "goodoc/label.proto";
+import "goodoc/symbol.proto";
+import "goodoc/box_partitions.proto";
+import "goodoc/rotated_bounding_box.proto";
+import "goodoc/writing_direction.proto";
+
+option objc_class_prefix = "GOODOC";
+
+message Word {
+	BoundingBox Box = 1;
+	Label Label = 2;
+	repeated Symbol Symbol = 3;
+	int32 Confidence = 4;
+	int32 Penalty = 5;
+	bool IsFromDictionary = 6;
+	bool IsNumeric = 7 [ default = false ];
+	bool IsIdentifier = 8 [ default = false ];
+	bool IsLastInSentence = 9 [ default = false ];
+	int32 Baseline = 10 [ default = 0 ];
+	int32 Capline = 11 [ default = 0 ];
+
+	message Alternates {
+		int32 ErrorProbability = 17;
+
+		message Alternate {
+			string OcrEngineId = 19;
+			string OcrEngineVersion = 20;
+			Word Word = 21;
+		}
+
+		repeated Alternate alternate = 18 [ features.message_encoding = DELIMITED ];
+	}
+
+	Alternates alternates = 16 [ features.message_encoding = DELIMITED ];
+	string text = 22;
+	BoxPartitions CompactSymbolBoxes = 23;
+	RotatedBoundingBox RotatedBox = 24;
+	WritingDirection writing_direction = 25 [ default = WRITING_DIRECTION_LEFT_TO_RIGHT ];
+}

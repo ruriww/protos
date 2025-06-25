@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum Dimension {
+	option features.enum_type = CLOSED;
+
+	DIMENSION_NONE = 0;
+	DIMENSION_TOP = 1;
+	DIMENSION_BOTTOM = 2;
+	DIMENSION_START = 4;
+	DIMENSION_END = 8;
+}

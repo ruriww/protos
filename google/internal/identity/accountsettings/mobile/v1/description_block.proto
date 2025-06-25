@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message DescriptionBlock {
+	string title = 1;
+	string description_text = 2;
+	Image image = 3;
+	string link_text = 4;
+	ResourceKey link_target = 5;
+	Image large_image = 6;
+	string link_accessibility_label = 7;
+	Link link = 8;
+	Image link_icon = 9;
+	Image stack_item_image = 10;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package google.identity.reauth.v2;
+
+option objc_class_prefix = "GIDRA";
+
+message ClientProposalReply {
+	string credential = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message DeviceRestriction {
+	enum Id {
+		option features.enum_type = CLOSED;
+
+		NO_RESTRICTION = 0;
+		SIDEWINDER_DEVICE = 1;
+		LATCHSKY_DEVICE = 2;
+	}
+}

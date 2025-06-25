@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MembershipOfferRenderer {
+	FormattedString header = 1;
+	repeated FormattedString metadatas = 2;
+	ThumbnailDetails viewer_thumbnail = 3;
+	ThumbnailDetails channel_thumbnail = 4;
+	Icon icon = 5;
+	FormattedString price_text = 6;
+	ButtonSupportedRenderers transaction_button = 7;
+	bytes tracking_params = 9;
+	ButtonSupportedRenderers dismiss_button = 10;
+	repeated FormattedString alerts = 11;
+	repeated FormattedString payment_clauses = 12;
+	ThumbnailDetails header_image = 13;
+	Renderer yt_perks = 14;
+	Renderer custom_perks = 15;
+	Command on_app_return_command = 16;
+}
+
+extend Renderer {
+	MembershipOfferRenderer membership_offer_renderer = 94946882;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package unknown.youtube;
+
+import "unknown/youtube/event_id_message.proto";
+import "unknown/youtube/code_module_proto.proto";
+
+option objc_class_prefix = "LJLR";
+
+message LogRecordProto {
+	EventIdMessage EventId = 1;
+	string ThreadName = 2;
+	int32 Level = 3;
+	string SourceClassName = 4;
+	string SourceMethodName = 5;
+	string Message = 6;
+	repeated string Parameter = 7;
+	int64 MessageHash = 9;
+	repeated string IosCallStackSymbols = 10;
+	repeated CodeModuleProto IosCodeModules = 11;
+	string MessageFormat = 12;
+	int32 line_number = 13;
+	string file_name = 14;
+}

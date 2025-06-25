@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StaticContext {
+	int32 display_density_dpi = 1;
+	int32 height_pixels = 2;
+	int32 width_pixels = 3;
+	int64 memory_total_kbytes = 4;
+	int32 os_sdk_version = 5;
+	string os_incremental_version = 6;
+	string hardware_architecture = 7;
+	int32 app_version_code = 8;
+	float device_pixel_ratio = 9;
+	string build_fingerprint = 10;
+	string soc_manufacturer = 11;
+	string soc_model = 12;
+	int32 available_processors = 13;
+	int32 cpu_cores = 14;
+	int32 height_points = 15;
+	int32 width_points = 16;
+	int32 android_media_performance_class = 17;
+}

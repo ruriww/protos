@@ -1,0 +1,14 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+enum MobileAppsRenderer {
+	option features.enum_type = CLOSED;
+
+	MOBILE_APPS_RENDERER_UNSPECIFIED = 0;
+	WEBVIEW = 1;
+	NATIVE = 2;
+	NATIVE_WITH_WEBVIEW_FALLBACK = 3;
+}

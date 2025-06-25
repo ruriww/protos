@@ -1,0 +1,17 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ClickToCallOptions {
+	bool available_now = 1;
+	string form_id = 2;
+	string group_name = 3;
+	repeated string days = 4;
+	repeated string hours = 5;
+	string timezone = 6;
+	string cases_product = 7;
+	string cases_category = 8;
+	string estimated_wait_time_id = 9;
+}

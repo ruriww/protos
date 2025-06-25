@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum EntityStoreActionType {
+	option features.enum_type = CLOSED;
+
+	ENTITY_STORE_ACTION_TYPE_UNKNOWN = 0;
+	ENTITY_STORE_ACTION_TYPE_OPEN = 1;
+	ENTITY_STORE_ACTION_TYPE_QUERY = 2;
+	ENTITY_STORE_ACTION_TYPE_EDIT = 3;
+	ENTITY_STORE_ACTION_TYPE_USER_DELETION = 4;
+	ENTITY_STORE_ACTION_TYPE_OPEN_SQLITE_RECOVERY = 5;
+	ENTITY_STORE_ACTION_TYPE_OBSERVER = 6;
+	ENTITY_STORE_ACTION_TYPE_QUERY_TABLE_MIGRATION = 7;
+	ENTITY_STORE_ACTION_TYPE_QUERY_TABLE_UPDATE = 8;
+	ENTITY_STORE_ACTION_TYPE_EVICTION = 9;
+	ENTITY_STORE_ACTION_TYPE_USER_CHANGED = 10;
+}

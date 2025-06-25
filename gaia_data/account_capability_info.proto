@@ -1,0 +1,9 @@
+edition = "2023";
+
+package gaia_data;
+
+option objc_class_prefix = "GAIA";
+
+message AccountCapabilityInfo {
+	repeated int32 account_trait_id = 1;
+}

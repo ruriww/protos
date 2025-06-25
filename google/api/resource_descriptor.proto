@@ -1,0 +1,42 @@
+edition = "2023";
+
+package google.api;
+
+option objc_class_prefix = "GAPI";
+
+/* protogen: source file = google/api/resource.proto */
+message ResourceDescriptor {
+	string type = 1;
+	repeated string pattern = 2;
+	string name_field = 3;
+
+	/* protogen: source file = google/api/resource.proto */
+	enum History {
+		HISTORY_UNSPECIFIED = 0;
+		ORIGINALLY_SINGLE_PATTERN = 1;
+		FUTURE_MULTI_PATTERN = 2;
+	}
+
+	History history = 4;
+	string plural = 5;
+	string singular = 6;
+
+	/* protogen: source file = google/api/resource.proto */
+	message ResourceNameDescriptor {
+		string pattern = 1;
+		string parent_type = 2;
+		string parent_name_extractor = 3;
+		string location_extractor = 4;
+	}
+
+	repeated ResourceNameDescriptor name_descriptor = 7;
+
+	/* protogen: source file = google/api/resource.proto */
+	enum Style {
+		STYLE_UNSPECIFIED = 0;
+		DECLARATIVE_FRIENDLY = 1;
+		KRM = 2;
+	}
+
+	repeated Style style = 10;
+}

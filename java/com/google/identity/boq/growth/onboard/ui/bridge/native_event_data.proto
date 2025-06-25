@@ -1,0 +1,30 @@
+edition = "2023";
+
+package java.com.google.identity.boq.growth.onboard.ui.bridge;
+
+option objc_class_prefix = "PRD";
+
+message NativeEventData {
+	message CloseWebViewData {
+		enum CloseTrigger {
+			UNKNOWN = 0;
+			CLOSE_BUTTON = 1;
+		}
+
+		CloseTrigger close_trigger = 1;
+	}
+
+	message ContinueFlowData {
+		enum ContinueFlowTrigger {
+			UNKNOWN = 0;
+			APP_STORE_CLOSED = 1;
+		}
+
+		ContinueFlowTrigger continue_flow_trigger = 1;
+	}
+
+	oneof event_data {
+		CloseWebViewData close_web_view_data = 1;
+		ContinueFlowData continue_flow_data = 2;
+	}
+}

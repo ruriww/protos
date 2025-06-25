@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package google.android.gsf.checkin;
+
+option java_package = "com.google.android.gsf.checkin.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message AndroidIntentProto {
+	optional string action = 1;
+	optional string data_uri = 2;
+	optional string mime_type = 3;
+
+	optional group Extra = 5 {
+		optional string name = 6;
+		optional string value = 7;
+	};
+
+	optional string unnamed_field_8 = 8;
+}

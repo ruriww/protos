@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/image_source.proto";
+import "youtube/elements/content_mode.proto";
+import "youtube/elements/image_processor.proto";
+import "youtube/elements/image_format_hint.proto";
+import "youtube/elements/caching_policy.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message Image {
+	repeated ImageSource sources = 1;
+	ContentMode content_mode = 2;
+	ImageProcessor processor = 3;
+	bool flip_for_rtl_layout = 4;
+	ImageFormatHint image_format_hint = 5;
+	CachingPolicy caching_policy = 6;
+	bytes image_classification_hint = 7;
+}

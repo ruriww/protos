@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/reel_player_layout_variant.proto";
+import "youtube/api/innertube/reel_player_icon_variant.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelPlayerOverlayVariant {
+	ReelPlayerLayoutVariant layout_variant = 1;
+	ReelPlayerIconVariant icon_variant = 2;
+}

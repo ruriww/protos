@@ -1,0 +1,10 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+option objc_class_prefix = "TENOR";
+
+message ClipInterval {
+	int64 start_ms = 1;
+	int64 duration_ms = 2;
+}

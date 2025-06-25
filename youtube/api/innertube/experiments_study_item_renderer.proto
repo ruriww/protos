@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/experiments_flags_supported_renderers.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExperimentsStudyItemRenderer {
+	FormattedString id = 1;
+	FormattedString label = 2;
+	FormattedString traffic_fraction = 3;
+	FormattedString description = 4;
+	ButtonSupportedRenderers opt_in_button = 5;
+	FormattedString rasta = 6;
+	FormattedString csi = 7;
+	FormattedString wpt = 8;
+	FormattedString early_stats = 9;
+	FormattedString qoe = 10;
+	ExperimentsFlagsSupportedRenderers experiment_flags = 11;
+	BadgeSupportedRenderers disabled_by_variant_badge = 12;
+	BadgeSupportedRenderers ineligible_badge = 13;
+	ButtonSupportedRenderers absolutely_opt_in_button = 14;
+	FormattedString qr_code = 15;
+	FormattedString qoe_rasta = 16;
+}

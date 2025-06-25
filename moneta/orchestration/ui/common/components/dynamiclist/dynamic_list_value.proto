@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.dynamiclist;
+
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/item_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message DynamicListValue {
+	int64 ui_reference = 1;
+	bytes data_token = 2;
+	repeated SimpleFormValue item_value_deprecated = 3;
+	repeated ItemValue item_value = 5;
+}

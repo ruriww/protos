@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto;
+
+import "moneta/testing/demoserver/teststudio/proto/instrument_manager_params.proto";
+
+option objc_class_prefix = "TSL";
+
+message InstrumentManager {
+	oneof params {
+		InstrumentManagerParams instrument_manager_parameters = 1;
+	}
+}

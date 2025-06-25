@@ -1,0 +1,20 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message MobileUpdateTypingStatusRequest {
+	string conversation_id = 1;
+
+	enum TypingStatus {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_TYPING_STATUS = 0;
+		TYPING = 1;
+		TEXT_ENTERED = 2;
+		NO_TEXT_ENTERED = 3;
+	}
+
+	TypingStatus status = 2;
+}

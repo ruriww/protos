@@ -1,0 +1,11 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/consent_eligibility.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ShouldShowFlowResult {
+	ConsentEligibility eligibility = 1;
+}

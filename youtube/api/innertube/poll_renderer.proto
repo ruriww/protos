@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/poll_choice.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/confirm_comment_delete_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/poll_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PollRenderer {
+	FormattedString question = 1;
+	repeated PollChoice choices = 2;
+	repeated LoggingUrl impression_logging_urls_v2s = 4;
+	bytes tracking_params = 5;
+	FormattedString total_votes = 6;
+	FormattedString voting_status = 7;
+	ConfirmCommentDeleteSupportedRenderers comment_delete = 9;
+	int64 proto_creation_ms = 10;
+	string voted_comment_id = 11;
+	AccessibilitySupportedDatas accessibility_data = 12;
+
+	oneof id {
+		string live_chat_poll_id = 13;
+	}
+
+	Renderer header = 14;
+	bool display_vote_results = 15;
+	Renderer button = 16;
+	string author_external_channel_id = 17;
+	string poll_state_entity_key = 18;
+}
+
+extend Renderer {
+	PollRenderer poll_renderer = 99391126;
+}
+
+extend Renderer {
+	PollHeaderRenderer poll_header_renderer = 248233615;
+}

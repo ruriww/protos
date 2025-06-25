@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/suggested_action_trigger.proto";
+import "youtube/api/innertube/suggested_action_horizontal_alignment.proto";
+import "youtube/api/innertube/suggested_action_on_tap_dismiss_behavior.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SuggestedActionRenderer {
+	FormattedString title = 1;
+
+	oneof image {
+		Icon icon = 2;
+		ThumbnailDetails thumbnail = 13;
+	}
+
+	Command tap_command = 3;
+	SuggestedActionTrigger trigger = 4;
+	bytes tracking_params = 7;
+	SuggestedActionHorizontalAlignment horizontal_alignment = 11;
+	SuggestedActionOnTapDismissBehavior on_tap_dismiss_behavior = 12;
+	string identifier = 14;
+}

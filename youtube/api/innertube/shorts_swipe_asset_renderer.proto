@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsSwipeAssetRenderer {
+	message SwipeCommand {
+		string asset_id = 1;
+		Command asset_swipe_command = 2;
+	}
+
+	repeated SwipeCommand swipe_commands = 1;
+}
+
+extend Renderer {
+	ShortsSwipeAssetRenderer shorts_swipe_asset_renderer = 486789248;
+}

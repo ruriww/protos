@@ -1,0 +1,17 @@
+edition = "2023";
+
+package lens.request_context;
+
+import "google/type/latlng.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "LNSRC";
+
+message LocationContext {
+	google.type.LatLng lat_lng = 1;
+	float accuracy_meters = 2;
+	string location_name = 3;
+	string region = 4;
+	google.protobuf.Duration age = 5;
+	string geo_place_id = 6;
+}

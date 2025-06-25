@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message IgnoreAclCondition {
+	enum IgnoreAclConditionType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		OWNER_HAS_GOOGLE_ME = 1;
+		OWNER_HAD_GOOGLE_ME = 2;
+	}
+
+	IgnoreAclConditionType ignore_acl_condition_type = 1;
+}

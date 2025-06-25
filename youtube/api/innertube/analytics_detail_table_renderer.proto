@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/analytics_named_color.proto";
+import "youtube/api/innertube/analytics_header_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AnalyticsDetailTableRenderer {
+	AnalyticsHeaderSupportedRenderers header = 1;
+
+	message Row {
+		FormattedString label = 1;
+		FormattedString display_value = 2;
+		Command details_endpoint = 3;
+		AnalyticsNamedColor icon_color = 4;
+	}
+
+	repeated Row rows = 2;
+	bytes tracking_params = 4;
+}
+
+extend Renderer {
+	AnalyticsDetailTableRenderer analytics_detail_table_renderer = 90792362;
+}

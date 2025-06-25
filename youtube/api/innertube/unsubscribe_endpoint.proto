@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unsubscribe_confirm_dialog_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnsubscribeEndpoint {
+	extend Command {
+		UnsubscribeEndpoint unsubscribe_endpoint = 68997401;
+	}
+
+	repeated string channel_ids = 1;
+	string silo_name = 2;
+	string params = 4;
+	UnsubscribeConfirmDialogSupportedRenderers unsubscribe_dialog = 5;
+}

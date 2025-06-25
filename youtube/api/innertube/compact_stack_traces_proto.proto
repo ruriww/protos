@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/stack_trace_sample_proto.proto";
+import "youtube/api/innertube/module_proto.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompactStackTracesProto {
+	repeated StackTraceSampleProto stack_traces = 1;
+	repeated ModuleProto all_modules = 2;
+	int32 app_version_code = 3;
+}

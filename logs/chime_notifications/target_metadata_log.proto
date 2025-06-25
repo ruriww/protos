@@ -1,0 +1,16 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+import "logs/chime_notifications/target_log.proto";
+
+option objc_class_prefix = "CHM";
+
+message TargetMetadataLog {
+	oneof target_info {
+		TargetLog target = 1;
+	}
+
+	repeated string selection_token = 3;
+	string application_id = 4;
+}

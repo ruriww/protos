@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ireach.ios.models;
+
+import "ireach/ios/models/notification_info.proto";
+
+option objc_class_prefix = "RCH";
+
+message AccountNotificationData {
+	repeated NotificationInfo notification_info = 1;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package identity_oauth;
+
+option objc_class_prefix = "SSO";
+
+message LocalAttenuationCaveat {
+	repeated int32 scopes = 1;
+	int32 expires_at_offset_seconds = 2;
+}

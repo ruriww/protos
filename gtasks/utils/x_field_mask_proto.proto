@@ -1,0 +1,16 @@
+edition = "2023";
+
+package gtasks.utils;
+
+option objc_class_prefix = "TSK";
+
+message XFieldMaskProto {
+	message XFieldMaskEntry {
+		int32 key = 1;
+		XFieldMaskProto value = 2;
+	}
+
+	repeated XFieldMaskEntry field_mask = 1;
+	repeated int32 field = 2;
+	bool inverted = 3;
+}

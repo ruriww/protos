@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/get_broadcast_schedule_filter_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetScheduledBroadcastsEndpoint {
+	extend Command {
+		GetScheduledBroadcastsEndpoint get_scheduled_broadcasts_endpoint = 147074744;
+	}
+
+	bool hack = 1;
+	repeated Command actions = 2;
+	string selected_video_id = 3;
+	GetBroadcastScheduleFilterType filter_type = 4;
+}

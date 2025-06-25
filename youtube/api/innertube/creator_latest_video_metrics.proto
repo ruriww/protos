@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/creator_latest_video_metric.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorLatestVideoMetrics {
+	CreatorLatestVideoMetric view_count = 7;
+	CreatorLatestVideoMetric watch_time = 8;
+	CreatorLatestVideoMetric avg_view_duration = 9;
+}

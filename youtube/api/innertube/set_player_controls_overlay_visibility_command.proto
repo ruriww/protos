@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SetPlayerControlsOverlayVisibilityCommand {
+	extend Command {
+		SetPlayerControlsOverlayVisibilityCommand set_player_controls_overlay_visibility_command = 344144775;
+	}
+
+	bool should_show = 1;
+	bool is_composite_video = 2;
+}

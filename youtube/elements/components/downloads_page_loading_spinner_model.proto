@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+import "youtube/elements/model.proto";
+import "youtube/elements/components/theme.proto";
+import "google/protobuf/wrappers.proto";
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message DownloadsPageLoadingSpinnerModel {
+	extend Model {
+		DownloadsPageLoadingSpinnerModel downloads_page_loading_spinner_model = 380917126;
+	}
+
+	Theme theme = 1;
+	string details_text = 2;
+	google.protobuf.BoolValue details_text_delay_passed = 3;
+}

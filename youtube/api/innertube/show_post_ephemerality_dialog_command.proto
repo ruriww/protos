@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowPostEphemeralityDialogCommand {
+	extend Command {
+		ShowPostEphemeralityDialogCommand show_post_ephemerality_dialog_command = 475419882;
+	}
+
+	Renderer post_ephemerality_dialog_renderer = 1;
+}

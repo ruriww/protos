@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.grouping;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message MergeableContainerNode {
+	extend node.Node {
+		MergeableContainerNode mergeable_container_node_extension = 261261518;
+	}
+
+	repeated node.Node child = 1;
+}

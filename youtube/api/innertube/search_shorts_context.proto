@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchShortsContext {
+	bool is_shorts_tab_selected = 1;
+	bool is_shorts_context = 2;
+	bool should_keep_all_chip_selected = 3;
+	bool should_select_shorts_chip = 4 [ default = true ];
+}

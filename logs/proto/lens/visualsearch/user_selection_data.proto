@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens.visualsearch;
+
+import "wireless_android_play_playlog/lens_user_selection.proto";
+
+option objc_class_prefix = "LLOGVS";
+
+message UserSelectionData {
+	wireless_android_play_playlog.LensUserSelection.SelectionType selection_type = 1;
+}

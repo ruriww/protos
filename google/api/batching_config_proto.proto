@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.api;
+
+import "google/api/batching_settings_proto.proto";
+import "google/api/batching_descriptor_proto.proto";
+
+option objc_class_prefix = "GAPI";
+
+message BatchingConfigProto {
+	BatchingSettingsProto thresholds = 1;
+	BatchingDescriptorProto batch_descriptor = 2;
+}

@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/cinematic_container_gradient_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CinematicContainerGradientConfig {
+	CinematicContainerGradientType gradient_type = 1;
+
+	message CinematicContainerGradientColorConfig {
+		uint32 light_theme_color = 1;
+		uint32 dark_theme_color = 2;
+		float start_location = 3;
+	}
+
+	repeated CinematicContainerGradientColorConfig gradient_colors = 2;
+	float gradient_start_point_x = 3;
+	float gradient_start_point_y = 4;
+	float gradient_end_point_x = 5;
+	float gradient_end_point_y = 6;
+}

@@ -1,0 +1,13 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_error_type.proto";
+import "logs/proto/contacts/common/error_status.proto";
+
+option objc_class_prefix = "CTC";
+
+message ErrorEntry {
+	customer_support.content.guidance.chat.v1.AErrorType type = 1;
+	ErrorStatus status = 2;
+}

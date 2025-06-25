@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_playback_position.proto";
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/cue_range_action.proto";
+import "youtube/api/innertube/video_playback_relative_position.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerCueRange {
+	VideoPlaybackPosition playback_position = 1;
+	google.protobuf.Duration duration = 2;
+	bool use_flattened_timeline = 4;
+	bool remove_on_triggered = 5;
+	repeated CueRangeAction on_enter = 6;
+	string id = 7;
+	VideoPlaybackRelativePosition playback_relative_position = 8;
+	repeated CueRangeAction on_exit = 9;
+}

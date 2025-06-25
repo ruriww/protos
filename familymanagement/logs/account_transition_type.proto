@@ -1,0 +1,13 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+option objc_class_prefix = "FML";
+
+enum AccountTransitionType {
+	option features.enum_type = CLOSED;
+
+	ACCOUNT_TRANSITION_TYPE_UNSPECIFIED = 0;
+	ACCOUNT_TRANSITION_TYPE_GRIFFIN_OPT_OUT_SUPERVISION = 1;
+	ACCOUNT_TRANSITION_TYPE_GELLER_OPT_OUT_SUPERVISION = 2;
+}

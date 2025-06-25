@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/type.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message SharedComponentType {
+	extend Type {
+		SharedComponentType shared_component_type = 484616221;
+	}
+
+	int64 element_proto_ptr = 1;
+	bytes element_proto_hash = 2;
+	bytes element_proto = 3;
+	bool has_environment_subscription = 4;
+	repeated int32 environment_data_filter = 5 [ features.repeated_field_encoding = EXPANDED ];
+	string template_name = 6;
+	bool enable_css_styling = 8;
+}

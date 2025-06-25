@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.feedback.v1;
+
+option objc_class_prefix = "PUDUI";
+
+message OpenText {
+	string subtitle = 1;
+	string placeholder = 2;
+	string footer = 3;
+}

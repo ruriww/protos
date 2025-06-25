@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DevicePlaybackCapabilities {
+	bool supports_vp9_encoding = 1;
+	bool supports_h264_encoding = 2;
+	bool supports_av1_encoding = 3;
+	bool support_xhr = 4;
+}

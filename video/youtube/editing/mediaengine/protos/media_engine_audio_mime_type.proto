@@ -1,0 +1,14 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+option objc_class_prefix = "MDE";
+
+enum MediaEngineAudioMimeType {
+	option features.enum_type = CLOSED;
+
+	MEDIA_ENGINE_AUDIO_MIME_TYPE_UNKNOWN = 0;
+	MEDIA_ENGINE_AUDIO_MIME_TYPE_NONE = 1;
+	MEDIA_ENGINE_AUDIO_MIME_TYPE_MP4 = 2;
+	MEDIA_ENGINE_AUDIO_MIME_TYPE_AAC = 3;
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message NotificationOptOutEndpoint {
+	extend Command {
+		NotificationOptOutEndpoint notification_opt_out_endpoint = 65091333;
+	}
+
+	bool undo = 2;
+	FormattedString reason_for_notification = 3;
+	FormattedString opt_out_text = 4;
+	bytes serialized_opt_out = 5;
+	repeated bytes serialized_opt_outs = 7;
+	bytes serialized_record_interactions_request = 8;
+	repeated Command actions = 9;
+}

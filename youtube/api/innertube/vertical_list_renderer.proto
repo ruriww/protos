@@ -1,0 +1,41 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/vertical_list_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/vertical_list_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/vertical_list_expand_button_style.proto";
+import "youtube/api/innertube/vertical_list_expand_button_color.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VerticalListRenderer {
+	repeated VerticalListSupportedRenderers items = 1;
+	int32 collapsed_item_count = 2;
+	FormattedString collapsed_state_button_text = 3;
+	FormattedString expanded_state_button_text = 4;
+	repeated VerticalListSupportedContinuations continuations = 5;
+	bytes tracking_params = 7;
+	Command expanded_state_button_endpoint = 8;
+	int32 auto_scroll_index = 9;
+	VerticalListExpandButtonStyle expand_button_style = 10;
+	bool collapse_shelf = 11;
+	VerticalListExpandButtonColor expand_button_color = 14;
+	uint32 light_theme_background_color = 15;
+	uint32 dark_theme_background_color = 16;
+}
+
+extend Renderer {
+	VerticalListRenderer vertical_list_renderer = 57988071;
+}
+
+extend ContinuationSupportedRenderers {
+	VerticalListRenderer vertical_list_continuation = 57988071;
+}

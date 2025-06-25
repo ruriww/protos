@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/connection_shelf_item_supported_renderers.proto";
+import "youtube/api/innertube/data_sync_path.proto";
+import "youtube/api/innertube/contact_state.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConnectionShelfRenderer {
+	FormattedString title = 1;
+	FormattedString link = 2;
+	Icon dismiss_shelf_button_icon = 3;
+	Command dismiss_shelf_button_endpoint = 4;
+	repeated ConnectionShelfItemSupportedRenderers connections = 5;
+	string unique_id = 6;
+	int64 server_timestamp_ms = 7;
+	DataSyncPath data_sync_path = 8;
+	bytes tracking_params = 9;
+	repeated ContactState allowed_states = 11 [ features.repeated_field_encoding = EXPANDED ];
+	Renderer empty_renderer = 12;
+}

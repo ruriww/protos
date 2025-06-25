@@ -1,0 +1,25 @@
+edition = "2023";
+
+package footprints.texts;
+
+import "footprints/texts/semantic_tag.proto";
+import "webutil/html/types/safe_html_proto.proto";
+import "footprints/texts/consent_visual.proto";
+import "footprints/texts/list_item.proto";
+import "footprints/texts/separator.proto";
+import "footprints/texts/list.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ConsentPrimitive {
+	SemanticTag semantic_tag = 1;
+
+	oneof consent_primitive {
+		webutil.html.types.SafeHtmlProto heading = 2;
+		webutil.html.types.SafeHtmlProto text = 3;
+		ConsentVisual visual = 4;
+		ListItem list_item = 5;
+		Separator separator = 6;
+		List list = 7;
+	}
+}

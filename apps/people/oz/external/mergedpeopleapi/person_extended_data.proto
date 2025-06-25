@@ -1,0 +1,40 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/hangouts_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/about_me_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/dynamite_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/web_contacts_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/gplus_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/caller_id_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/apps_waldo_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/paisa_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/play_games_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/maps_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/youtube_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/g_pay_extended_data.proto";
+import "social/graph/wire/proto/peopleapi/extension/people_stack_person_extended_data.proto";
+
+option objc_class_prefix = "POEM";
+
+message PersonExtendedData {
+	repeated string domain_name = 1;
+	HangoutsExtendedData hangouts_extended_data = 2;
+	AboutMeExtendedData about_me_extended_data = 3;
+	bool tls_is_placeholder = 4;
+	social.graph.wire.proto.peopleapi.extension.DynamiteExtendedData dynamite_extended_data = 5;
+	bool is_placeholder = 6;
+	WebContactsExtendedData contacts_extended_data = 7;
+	GplusExtendedData gplus_extended_data = 8;
+	CallerIdExtendedData caller_id_extended_data = 9;
+	social.graph.wire.proto.peopleapi.extension.AppsWaldoExtendedData apps_waldo_extended_data = 10;
+	social.graph.wire.proto.peopleapi.extension.PaisaExtendedData paisa_extended_data = 11;
+	PlayGamesExtendedData play_games_extended_data = 12;
+	MapsExtendedData maps_extended_data = 13;
+	YoutubeExtendedData youtube_extended_data = 15;
+	social.graph.wire.proto.peopleapi.extension.PeopleStackExtendedData people_stack_extended_data = 16;
+	GPayExtendedData gpay_extended_data = 17;
+	social.graph.wire.proto.peopleapi.extension.PeopleStackPersonExtendedData people_stack_person_extended_data = 18;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration.ui.identityandcredit;
+
+import "moneta/integrator/common/identityandcredit/identity_and_credit_enums.proto";
+import "moneta/integrator/ui/common/common_parameters.proto";
+
+option objc_class_prefix = "IDV";
+
+message InternalIdentityAndCreditParameters {
+	integrator.common.identityandcredit.IdentityAndCreditEnums.CreditCheckType credit_check_type = 1;
+	integrator.common.identityandcredit.IdentityAndCreditEnums.IdentityVerificationType verification_type = 3;
+	integrator.common.identityandcredit.IdentityAndCreditEnums.IdentityAndCreditScenario identity_and_credit_scenario = 4;
+	bool load_in_review_mode = 6;
+	repeated int32 identity_attribute_type = 8 [ features.repeated_field_encoding = EXPANDED ];
+	integrator.ui.common.CommonParameters common_parameters = 9;
+	int64 change_request_id = 10;
+	int64 review_id = 13;
+	int64 data_attribute_id_for_transient_tax_number = 14;
+	bool suppress_change_request_id_during_submit = 15;
+}

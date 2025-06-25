@@ -1,0 +1,64 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "google/protobuf/duration.proto";
+import "youtube/api/innertube/media_engine_operation_type.proto";
+import "youtube/api/innertube/media_engine_update_level.proto";
+import "youtube/api/innertube/mde_media_composition.proto";
+import "youtube/api/innertube/sfv_effect_pipeline_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeQosEvent {
+	message PlaybackUnderrun {
+		google.protobuf.Duration audio = 1;
+		google.protobuf.Duration video = 2;
+	}
+
+	message MediaEngineOperation {
+		MediaEngineOperationType type = 1;
+		UpdateOperationMetadata update_metadata = 2;
+	}
+
+	message UpdateOperationMetadata {
+		MediaEngineUpdateLevel video_update = 1;
+		MediaEngineUpdateLevel audio_update = 2;
+		PositionUpdate position_update = 3;
+	}
+
+	message PositionUpdate {
+		google.protobuf.Duration from_position = 1;
+		google.protobuf.Duration to_position = 2;
+	}
+
+	int64 monotonic_time_ms = 1;
+	SfvEffectPipelineData pipeline_data = 2;
+
+	message OperationLatencyEvent {
+		MediaEngineOperation operation = 1;
+		google.protobuf.Duration latency = 2;
+		google.protobuf.Duration video_latency = 3;
+		google.protobuf.Duration audio_latency = 4;
+	}
+
+	repeated OperationLatencyEvent operation_latency = 3;
+
+	message PlaybackIntervalMetrics {
+		google.protobuf.Duration start_playback_position = 1;
+		google.protobuf.Duration end_playback_position = 2;
+		google.protobuf.Duration duration = 3;
+		repeated PlaybackUnderrun underruns = 4;
+	}
+
+	repeated PlaybackIntervalMetrics playback_interval_metrics = 4;
+
+	message CompositionChangedEvent {
+		MdeMediaComposition new_media_composition = 1;
+	}
+
+	CompositionChangedEvent composition_changed_event = 5;
+}

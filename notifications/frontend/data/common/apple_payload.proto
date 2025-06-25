@@ -1,0 +1,19 @@
+edition = "2023";
+
+package notifications.frontend.data.common;
+
+import "notifications/frontend/data/common/frontend_notification_thread.proto";
+import "notifications/frontend/data/common/sync_instruction.proto";
+import "notifications/frontend/data/common/recipient_info.proto";
+import "notifications/frontend/data/common/aps_payload.proto";
+
+option objc_class_prefix = "NFDC";
+
+message ApplePayload {
+	FrontendNotificationThread notification_thread = 1;
+	SyncInstruction sync_instruction = 2;
+	RecipientInfo recipient_info = 3;
+	ApsPayload aps_payload = 4;
+	string logging_id = 5;
+	bool handle_local_notification = 6;
+}

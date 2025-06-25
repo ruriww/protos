@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message SearchProfileEntity {
+	string entity = 1;
+	repeated string name = 2;
+	string country_code = 3;
+}

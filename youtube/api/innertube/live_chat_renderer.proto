@@ -1,0 +1,61 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_supported_continuations.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/live_chat_action_panel_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_item_list_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_header_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_ticker_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_participants_list_supported_renderers.proto";
+import "youtube/api/innertube/live_chat_popout_message_supported_renderers.proto";
+import "youtube/api/innertube/emoji.proto";
+import "youtube/api/innertube/live_chat_renderer_client_messages.proto";
+import "youtube/api/innertube/live_chat_display_state.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/live_chat_filter_mode.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatRenderer {
+	extend ContinuationSupportedRenderers {
+		LiveChatRenderer live_chat_continuation = 117294427;
+	}
+
+	repeated LiveChatSupportedContinuations continuations = 1;
+	repeated Command actions = 2;
+	LiveChatActionPanelSupportedRenderers action_panel = 3;
+	LiveChatItemListSupportedRenderers item_list = 5;
+	LiveChatHeaderSupportedRenderers header = 6;
+	LiveChatTickerSupportedRenderers ticker = 7;
+	bytes tracking_params = 9;
+	LiveChatParticipantsListSupportedRenderers participants_list = 10;
+	LiveChatPopoutMessageSupportedRenderers popout_message = 11;
+	repeated Emoji emojis = 12;
+	LiveChatRendererClientMessages client_messages = 14;
+	string viewer_name = 15;
+	bool is_replay = 16;
+	LiveChatDisplayState initial_display_state = 17;
+	Renderer promotion = 18;
+	Renderer show_hide_button = 19;
+	Renderer reaction_control_panel_overlay = 20;
+	string live_chat_toggle_entity_key = 21;
+	Renderer show_button = 22;
+	string live_chat_admin_sheet_entry_point_entity_key = 23;
+	LiveChatFilterMode live_chat_current_filter = 24;
+	repeated Renderer engagement_panel = 25;
+	string creator_goal_entity_key = 26;
+	Renderer live_widget_creation_metadata = 27;
+	string live_chat_client_state_entity_key = 28;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	LiveChatRenderer live_chat_renderer = 117294427;
+}

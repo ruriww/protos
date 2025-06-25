@@ -1,0 +1,24 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/experiment_id_list.proto";
+import "wireless_android_play_playlog/qos_tiers_override.proto";
+import "wireless_android_play_playlog/log_source_batching_denylist.proto";
+import "wireless_android_play_playlog/log_response_details.proto";
+import "wireless_android_play_playlog/product_id_zwieback_token.proto";
+import "wireless_android_play_playlog/session_zwieback.proto";
+
+option objc_class_prefix = "CADP";
+
+message LogResponse {
+	int64 next_request_wait_millis = 1 [ default = -1 ];
+	ExperimentIdList experiments = 2;
+	QosTiersOverride qos_tier = 3;
+	LogSourceBatchingDenylist log_source_batching_denylist = 4;
+	repeated LogResponseDetails log_response_details = 5;
+	repeated ProductIdZwiebackToken product_id_zwieback_tokens = 6;
+	repeated SessionZwieback session_zwiebacks = 7;
+
+	extensions 1000 to max;
+}

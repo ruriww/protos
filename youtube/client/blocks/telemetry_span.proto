@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks;
+
+import "youtube/client/blocks/telemetry_span_metadata.proto";
+
+option objc_class_prefix = "YTB";
+
+message TelemetrySpan {
+	int32 id = 1;
+	int32 parent_id = 2;
+	int64 begin_time_us = 3;
+	int64 duration_us = 4;
+	TelemetrySpanMetadata metadata = 5;
+	string span_name = 6;
+}

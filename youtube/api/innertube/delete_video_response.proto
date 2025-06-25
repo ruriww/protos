@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/error_details.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DeleteVideoResponse {
+	ResponseContext response_context = 1;
+	bool success = 2;
+	ErrorDetails error_details = 5;
+	FrameworkUpdateTransport framework_updates = 777;
+}

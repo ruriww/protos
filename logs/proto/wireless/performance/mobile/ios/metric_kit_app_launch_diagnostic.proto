@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_diagnostic_metadata.proto";
+import "logs/proto/wireless/performance/mobile/ios/metric_kit_call_stack_tree.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "PRM";
+
+message MetricKitAppLaunchDiagnostic {
+	MetricKitDiagnosticMetadata metadata = 1;
+	MetricKitCallStackTree call_stack_tree = 2;
+	google.protobuf.Duration launch_duration = 3;
+}

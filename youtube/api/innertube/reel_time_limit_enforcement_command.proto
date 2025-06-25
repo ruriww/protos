@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ReelTimeLimitEnforcementCommand {
+	extend Command {
+		ReelTimeLimitEnforcementCommand reel_time_limit_enforcement_command = 1831;
+	}
+
+	Command show_engagement_panel_command = 1;
+}

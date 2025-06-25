@@ -1,0 +1,52 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/button_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetPhotoEndpoint {
+	extend Command {
+		GetPhotoEndpoint get_photo_endpoint = 99404607;
+	}
+
+	enum PhotoAction {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PHOTO_ACTION = 0;
+		TAKE_PHOTO = 1;
+		CHOOSE_PHOTO = 2;
+		CHOOSE_FROM_CHANNEL_ART_GALLERY = 3;
+		OBAKE_PROFILE_IMAGE_PICKER = 4;
+	}
+
+	PhotoAction photo_action = 1;
+	ButtonSupportedRenderers confirm_button = 2;
+
+	message CropParams {
+		int32 width_ratio = 6;
+		int32 height_ratio = 7;
+		int32 min_width = 8;
+		int32 min_height = 9;
+		int32 visual_width_ratio = 10;
+		int32 visual_height_ratio = 11;
+		int32 visual_extra_width_ratio = 12;
+		FormattedString crop_image_label = 13;
+		FormattedString crop_boundary_label = 14;
+		FormattedString double_crop_boundary_label = 15;
+		int32 min_output_width = 16;
+		int32 min_output_height = 17;
+		string image_too_small_error_message = 18;
+	}
+
+	CropParams crop_params = 3;
+	FormattedString crop_info = 4;
+	string creator_image_upload_entity_key = 5;
+	bool keep_png = 6;
+}

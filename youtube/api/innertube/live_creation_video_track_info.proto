@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_media_channel_direction.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationVideoTrackInfo {
+	int64 sent_bytes = 1;
+	int32 frame_height = 2;
+	int32 frame_width = 3;
+	int64 frames_encoded = 4;
+	int64 frames_sent = 5;
+	int32 nack_count = 6;
+	int64 packets_sent = 7;
+	int32 pli_count = 8;
+	int64 qp_sum = 9;
+	LiveCreationMediaChannelDirection channel_direction = 10;
+	string ssrc = 11;
+	string codec_name = 12;
+	int64 received_bytes = 13;
+	int64 packets_received = 14;
+	int64 packets_lost = 15;
+	int32 frame_height_received = 16;
+	int32 frame_width_received = 17;
+	int32 frame_rate = 18;
+	int32 frame_rate_received = 19;
+	int32 frame_rate_input = 20;
+	int32 frame_rate_output = 21;
+	int32 frame_height_input = 22;
+	int32 frame_width_input = 23;
+	int32 frame_rate_decoded = 24;
+	int64 frames_decoded = 25;
+}

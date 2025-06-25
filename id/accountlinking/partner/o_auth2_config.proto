@@ -1,0 +1,32 @@
+edition = "2023";
+
+package id.accountlinking.partner;
+
+import "id/accountlinking/partner/userinfo_parsing_details.proto";
+import "id/accountlinking/partner/o_auth2_client_config.proto";
+import "id/accountlinking/partner/token_exchange_parsing_info.proto";
+import "id/accountlinking/partner/auto_refresh.proto";
+import "google/protobuf/duration.proto";
+
+option objc_class_prefix = "ALKP";
+
+message OAuth2Config {
+	string auth_endpoint = 1;
+	string token_endpoint = 2;
+	string revocation_endpoint = 3;
+	string userinfo_endpoint = 4;
+	UserinfoParsingDetails userinfo_parsing_details = 5;
+	string query_param_name_for_access_token = 7;
+	string auth_header_prefix_for_access_token = 8;
+	bool token_as_query_param_for_userinfo = 10;
+	bool basic_auth_header_for_token_endpoint = 12;
+	repeated OAuth2ClientConfig client_configs = 13;
+	bool basic_auth_header_for_token_revocation = 14;
+	TokenExchangeParsingInfo token_exchange_parsing_info = 15;
+	AutoRefresh auto_refresh = 16;
+	bool use_post_for_user_info = 17;
+	int32 max_length_of_auth_url = 18;
+	bool token_response_contains_user_id = 20;
+	google.protobuf.Duration access_token_expiry = 21;
+	bool ignore_expiry_from_partner_response = 22;
+}

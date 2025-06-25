@@ -1,0 +1,13 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ResponsiveGridsReflowConfiguration {
+	int32 minimum_rows_of_items_at_start = 1;
+	int32 minimum_rows_of_items_between_sections = 2;
+}

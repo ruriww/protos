@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflineVideoPendingState {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_VIDEO_PENDING_STATE_UNKNOWN = 0;
+	OFFLINE_VIDEO_PENDING_STATE_AUTHORIZATION = 1;
+	OFFLINE_VIDEO_PENDING_STATE_WIFI = 2;
+	OFFLINE_VIDEO_PENDING_STATE_TOOTHFAIRY = 4;
+	OFFLINE_VIDEO_PENDING_STATE_NETWORK = 8;
+	OFFLINE_VIDEO_PENDING_STATE_MEDIA = 16;
+	OFFLINE_VIDEO_PENDING_STATE_CHARGER = 32;
+	OFFLINE_VIDEO_PENDING_STATE_PAUSED_BY_USER = 64;
+	OFFLINE_VIDEO_PENDING_STATE_BATTERY_LEVEL_OR_CHARGER = 128;
+	OFFLINE_VIDEO_PENDING_STATE_STORAGE = 256;
+}

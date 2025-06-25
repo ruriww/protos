@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.product;
+
+import "moneta/orchestration/ui/common/components/product/line_item.proto";
+import "moneta/orchestration/ui/common/generic/separator.proto";
+
+option objc_class_prefix = "Orch";
+
+message LineItemBundle {
+	int64 ui_reference = 1;
+	repeated LineItem collapsed_item = 3;
+	repeated LineItem expanded_item = 4;
+	bool collapse_by_default = 5;
+	string expand_label = 6;
+	LineItem hero_item = 7;
+	generic.Separator separator = 8;
+}

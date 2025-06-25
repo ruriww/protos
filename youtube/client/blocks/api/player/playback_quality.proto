@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.player;
+
+import "video_streaming/quality_ordinal.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlaybackQuality {
+	string quality_label = 1;
+	int32 quality = 2;
+	bool is_local = 3;
+	repeated int32 itags = 4;
+	video_streaming.QualityOrdinal quality_ordinal = 5;
+}

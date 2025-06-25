@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/custom_thumbnail_image.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeVideoStillRequestParams {
+	enum Operation {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SET_AUTOGEN_STILL = 1;
+		SET_CUSTOM_STILL = 2;
+		UPLOAD_CUSTOM_THUMBNAIL = 3;
+		EXPERIMENT_CREATE = 4;
+		EXPERIMENT_STOP = 5;
+		EXPERIMENT_CHANGE_IMAGE = 6;
+		EXPERIMENT_DELETE = 7;
+		EXPERIMENT_RESULTS_DISPLAYED = 8;
+	}
+
+	Operation operation = 1 [ default = UNKNOWN ];
+	int32 new_still_id = 2;
+	CustomThumbnailImage image = 3;
+	repeated CustomThumbnailImage test_image = 4;
+	int32 new_experimentally_selected_image_id = 5;
+}

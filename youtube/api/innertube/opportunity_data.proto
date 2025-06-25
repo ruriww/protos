@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/slot_data.proto";
+import "youtube/api/innertube/opportunity_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OpportunityData {
+	message DebugData {
+		repeated SlotData slots = 1;
+		string associated_slot_id = 2;
+	}
+
+	DebugData debug_data = 2;
+	OpportunityType opportunity_type = 3;
+}

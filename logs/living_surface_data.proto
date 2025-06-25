@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs;
+
+import "logs/visual_element_lite_proto.proto";
+
+option objc_class_prefix = "LOG";
+
+message LivingSurfaceData {
+	extend VisualElementLiteProto {
+		LivingSurfaceData living_surface_data = 463;
+	}
+
+	string source_url = 1;
+}

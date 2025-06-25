@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+option objc_class_prefix = "ALK";
+
+enum EReadMode {
+	READ_MODE_UNSPECIFIED = 0;
+	LAZY = 1;
+	STRONG = 2;
+	CONSISTENCY_KEY = 3;
+}

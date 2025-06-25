@@ -1,0 +1,54 @@
+edition = "2023";
+
+package identity_consent;
+
+option objc_class_prefix = "IDC";
+
+message UiParameters {
+	string locale = 1;
+
+	enum ColorTheme {
+		option features.enum_type = CLOSED;
+
+		COLOR_THEME_UNSPECIFIED = 0;
+		LIGHT = 1;
+		DARK = 2;
+	}
+
+	ColorTheme color_theme = 2;
+
+	enum InitialLoadingStrategy {
+		option features.enum_type = CLOSED;
+
+		INITIAL_LOADING_STRATEGY_UNSPECIFIED = 0;
+		NO_LOADING_INDICATORS = 1;
+		WITH_LOADING_INDICATOR_INSIDE_THE_DIALOG = 2;
+		WITH_LOADING_BAR_AND_LOADING_INDICATOR_INSIDE_THE_DIALOG = 3;
+	}
+
+	InitialLoadingStrategy initial_loading_strategy = 4;
+	int32 iframe_load_timeout_ms = 5;
+
+	enum Dismissibility {
+		option features.enum_type = CLOSED;
+
+		DISMISSIBILITY_UNSPECIFIED = 0;
+		DISMISSIBLE = 1;
+		NOT_DISMISSIBLE = 2;
+	}
+
+	Dismissibility dismissibility = 6;
+	int32 mobile_app_consent_load_timeout_ms = 7;
+
+	enum MobileAppsRenderer {
+		option features.enum_type = CLOSED;
+
+		MOBILE_APPS_RENDERER_UNSPECIFIED = 0;
+		WEBVIEW = 1;
+		NATIVE = 2;
+		NATIVE_WITH_WEBVIEW_FALLBACK = 3;
+	}
+
+	MobileAppsRenderer mobile_apps_renderer = 8;
+	bool enable_idling_optimisations = 12;
+}

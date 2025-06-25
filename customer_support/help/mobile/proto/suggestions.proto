@@ -1,0 +1,15 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/suggestion.proto";
+import "customer_support/help/mobile/proto/recommendation_kind.proto";
+
+option objc_class_prefix = "CSHM";
+
+message Suggestions {
+	repeated Suggestion suggestion = 1;
+	RecommendationKind kind = 2;
+	string request_id = 3;
+	string promoted_product_link_section_name = 4;
+}

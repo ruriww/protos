@@ -1,0 +1,30 @@
+edition = "2023";
+
+package video_streaming;
+
+option java_package = "com.google.android.apps.youtube.proto.streaming";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTVS";
+
+enum QualityOrdinal {
+	option features.enum_type = CLOSED;
+
+	QUALITY_ORDINAL_UNKNOWN = 0;
+	QUALITY_ORDINAL_144P_SAVER = 124;
+	QUALITY_ORDINAL_144P = 144;
+	QUALITY_ORDINAL_240P_SAVER = 220;
+	QUALITY_ORDINAL_240P = 240;
+	QUALITY_ORDINAL_360P_SAVER = 340;
+	QUALITY_ORDINAL_360P = 360;
+	QUALITY_ORDINAL_480P = 480;
+	QUALITY_ORDINAL_608P_SAVER = 588;
+	QUALITY_ORDINAL_608P = 608;
+	QUALITY_ORDINAL_720P = 720;
+	QUALITY_ORDINAL_720P_ENHANCED = 740;
+	QUALITY_ORDINAL_1080P = 1080;
+	QUALITY_ORDINAL_1080P_ENHANCED = 1100;
+	QUALITY_ORDINAL_1440P = 1440;
+	QUALITY_ORDINAL_2160P = 2160;
+	QUALITY_ORDINAL_HIGHRES = 9999;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message TextExtractionStrategy {
+	enum TextExtractionType {
+		TEXT_EXTRACTION_TYPE_UNSPECIFIED = 0;
+		IMPLICIT = 1;
+		EXPLICIT_SPEAKABLE = 2;
+	}
+
+	TextExtractionType type = 1;
+}

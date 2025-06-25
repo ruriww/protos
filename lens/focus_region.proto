@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens;
+
+import "lens/geometry.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message FocusRegion {
+	string unique_id = 1;
+	Geometry geometry = 2;
+}

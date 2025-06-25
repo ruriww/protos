@@ -1,0 +1,11 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message LocalNetworkId {
+	fixed64 lnid = 1;
+	repeated fixed64 lnid_w = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated fixed64 shredded_ip_address = 3 [ features.repeated_field_encoding = EXPANDED ];
+}

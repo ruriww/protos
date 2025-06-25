@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/shorts_time_range.proto";
+import "youtube/api/innertube/expressive_caption_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ExpressiveCaption {
+	string text = 1;
+	ShortsTimeRange time_range = 2;
+	ExpressiveCaptionType type = 3;
+}

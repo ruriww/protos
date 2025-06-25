@@ -1,0 +1,55 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+import "paymentfraud/mobile/device_fingerprinting.proto";
+
+option objc_class_prefix = "Orch";
+
+message NativeClientContext {
+	string imsi_hash = 1;
+	string mcc_mnc = 2;
+	string os_version = 3;
+	string device = 4;
+	int32 screen_width_px = 5;
+	int32 screen_height_px = 6;
+	float screen_x_dpi = 7;
+	float screen_y_dpi = 8;
+	string package_name = 9;
+	string package_version_code = 10;
+	string package_version_name = 11;
+	paymentfraud.mobile.DeviceFingerprinting.Parsed risk_data = 12;
+	string integrator_package_name = 13;
+	string market_client_id = 14;
+
+	enum PermissionState {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PERMISSION_STATE = 0;
+		GRANTED = 1;
+		NO_PERMISSION = 2;
+	}
+
+	PermissionState read_phone_state_permission_state = 16;
+	string sim_operator_name = 17;
+	string gid_1 = 18;
+	int64 rounded_imsi = 19;
+	int64 module_version = 20;
+	PermissionState camera_permission_state = 22;
+	int64 network_download_rate_bps = 23;
+	int64 network_upload_rate_bps = 24;
+	bool network_metered = 25;
+	int32 logical_dpi = 28;
+	string access_point_name = 30;
+	bool subscription_supports_sms_transmission = 31;
+	int32 subscription_count = 32;
+	repeated string heterodyne_server_token = 33;
+	int64 device_uptime_millis = 35;
+	string timezone_name = 36;
+	int64 android_id = 39;
+	string integrator_package_version_code = 41;
+	bool supports_ocr_module = 44;
+	string gmscore_version_code = 45;
+	bool supports_reauth_ios = 46;
+	string model_name = 52;
+}

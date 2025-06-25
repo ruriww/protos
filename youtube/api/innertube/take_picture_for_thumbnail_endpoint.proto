@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message TakePictureForThumbnailEndpoint {
+	extend Command {
+		TakePictureForThumbnailEndpoint take_picture_for_thumbnail_endpoint = 124581055;
+	}
+
+	bool hack = 1;
+	string video_id = 2;
+}

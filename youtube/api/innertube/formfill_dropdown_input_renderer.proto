@@ -1,0 +1,33 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FormfillDropdownInputRenderer {
+	FormattedString label = 1;
+
+	message FormfillDropdownInputItem {
+		string value = 1;
+		string label = 2;
+		bool selected = 3;
+		bool disabled = 4;
+	}
+
+	repeated FormfillDropdownInputItem items = 2;
+	FormattedString helper_text = 3;
+	FormattedString error_text = 4;
+	Command error_command = 5;
+	bytes tracking_params = 8;
+}
+
+extend Renderer {
+	FormfillDropdownInputRenderer formfill_dropdown_input_renderer = 258810642;
+}

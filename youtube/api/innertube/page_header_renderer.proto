@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/page_header_title_animation.proto";
+import "youtube/api/innertube/page_header_top_bar_animation.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PageHeaderRenderer {
+	string page_title = 1;
+	Renderer content = 2;
+	PageHeaderTitleAnimation title_animation = 3;
+	string pre_scroll_id = 4;
+	PageHeaderTopBarAnimation top_bar_animation = 5;
+	bool enable_sidebar_view = 6;
+	string page_header_entity_key = 7;
+	Renderer sidebar_content = 8;
+	string tag_manager_id = 9;
+}

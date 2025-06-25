@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.legal;
+
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message LegalMessageByCountry {
+	string country = 1;
+	LegalMessage message = 2;
+}

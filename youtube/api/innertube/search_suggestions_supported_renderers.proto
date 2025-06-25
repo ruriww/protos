@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/section_list_renderer.proto";
+import "youtube/api/innertube/shelf_renderer.proto";
+import "youtube/api/innertube/search_suggestions_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchSuggestionsSupportedRenderers {
+	oneof renderer {
+		SectionListRenderer section_list_renderer = 49399797;
+		ShelfRenderer shelf_renderer = 51845067;
+		SearchSuggestionsSectionRenderer search_suggestions_section_renderer = 87359530;
+	}
+}

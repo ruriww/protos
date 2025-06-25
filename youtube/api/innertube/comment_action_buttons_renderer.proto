@@ -1,0 +1,38 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_supported_renderers.proto";
+import "youtube/api/innertube/comment_action_confirm_dialog_supported_renderers.proto";
+import "youtube/api/innertube/creator_heart_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CommentActionButtonsRenderer {
+	ButtonSupportedRenderers like_button = 1;
+	ButtonSupportedRenderers reply_button = 2;
+	ButtonSupportedRenderers report_button = 3;
+	ButtonSupportedRenderers approve_button = 4;
+	ButtonSupportedRenderers remove_button = 5;
+	ButtonSupportedRenderers ban_button = 6;
+	ButtonSupportedRenderers dislike_button = 7;
+	bytes tracking_params = 8;
+	CommentActionConfirmDialogSupportedRenderers approve_button_dialog = 10;
+	CommentActionConfirmDialogSupportedRenderers remove_button_dialog = 11;
+	CommentActionConfirmDialogSupportedRenderers report_button_dialog = 12;
+	CommentActionConfirmDialogSupportedRenderers ban_button_dialog = 13;
+	CommentActionConfirmDialogSupportedRenderers discard_reply_dialog = 14;
+	CreatorHeartSupportedRenderers creator_heart = 15;
+	int64 proto_creation_ms = 16;
+	Renderer show_replies_button = 17;
+	Renderer share_button = 19;
+	Renderer create_story_button = 20;
+}
+
+extend Renderer {
+	CommentActionButtonsRenderer comment_action_buttons_renderer = 66744747;
+}

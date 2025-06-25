@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.speech.ios;
+
+import "logs/proto/speech/ios/s3_session_http_content_encoding_type.proto";
+
+option objc_class_prefix = "SPEECH";
+
+message S3SessionHTTPConnectionMetadata {
+	bool use_pair_connections = 1;
+	bool allow_up_connection_to_receive_results = 2;
+	string base_path = 3;
+	S3SessionHttpContentEncodingType content_encoding_type = 4;
+}

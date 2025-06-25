@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.dateinput;
+
+import "moneta/orchestration2/ui/common/input/dateinput/date_range.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DateInputValidation {
+	DateRange date_range = 1;
+	string error_text = 2;
+	int32 validation_id = 3;
+}

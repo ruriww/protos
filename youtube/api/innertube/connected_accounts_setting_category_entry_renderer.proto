@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ConnectedAccountsSettingCategoryEntryRenderer {
+	Command navigation_endpoint = 1;
+	FormattedString title = 2;
+	bytes tracking_params = 4;
+	Icon icon = 5;
+}

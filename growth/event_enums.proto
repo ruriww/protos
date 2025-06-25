@@ -1,0 +1,33 @@
+edition = "2023";
+
+package growth;
+
+option objc_class_prefix = "GRW";
+
+message EventEnums {
+	enum IntentType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_INTENT = 0;
+		MAIL = 1;
+		MAPS = 2;
+		BROWSER = 3;
+		TEXT = 4;
+		SYSTEM = 5;
+		CALENDAR = 6;
+		SINGLE_LOCATION = 7;
+		DUAL_LOCATION = 8;
+	}
+
+	enum LinkType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_LINK = 0;
+		WEB = 1;
+		EMAIL = 2;
+		ADDRESS = 3;
+		PLAIN_TEXT = 4;
+		SYSTEM_LINK = 5;
+		DATE = 6;
+	}
+}

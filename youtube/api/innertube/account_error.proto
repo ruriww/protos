@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/account_error_type.proto";
+import "youtube/api/innertube/account_capabilities_fetch_error.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AccountError {
+	AccountErrorType account_error_type = 1;
+	string nil_identity_request_sanitized_url = 2;
+	bool nil_identity_lookup_valid_uuid_format = 3;
+	int64 last_hot_config_change_ms = 4;
+	AccountCapabilitiesFetchError capabilities_fetch_error = 5;
+}

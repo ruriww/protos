@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ChannelCreationFlowState {
+	option features.enum_type = CLOSED;
+
+	CHANNEL_CREATION_FLOW_STATE_UNSPECIFIED = 0;
+	CHANNEL_CREATION_FLOW_STATE_SAFETY_PAGE = 1;
+	CHANNEL_CREATION_FLOW_STATE_YOUTH_HANDLE_PAGE = 2;
+	CHANNEL_CREATION_FLOW_STATE_MAIN_PAGE = 3;
+	CHANNEL_CREATION_FLOW_STATE_PROFILE_PICTURE_PAGE = 4;
+	CHANNEL_CREATION_FLOW_STATE_PROFILE_PICTURE_SUMMARY_PAGE = 5;
+}

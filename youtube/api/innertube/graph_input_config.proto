@@ -1,0 +1,67 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GraphInputConfig {
+	message Input {
+		string name = 1;
+
+		oneof input {
+			int32 int_value = 2;
+			float float_value = 3;
+			bool bool_value = 4;
+			string string_value = 5;
+			bytes options_value = 6;
+		}
+	}
+
+	repeated Input inputs = 1;
+
+	message ControlInput {
+		string name = 1;
+
+		message FloatSetting {
+			float default_value = 1;
+			float min_value = 2;
+			float max_value = 3;
+		}
+
+		message StringSetting {
+			string default_value = 1;
+			repeated string possible_value = 2;
+		}
+
+		message BoolSetting {
+			bool default_value = 1;
+		}
+
+		message GpuBufferSetting {
+		}
+
+		message RuntimeOptionsSetting {
+			bytes default_value = 1;
+		}
+
+		message IntSetting {
+			int32 default_value = 1;
+			int32 min_value = 2;
+			int32 max_value = 3;
+		}
+
+		oneof setting {
+			FloatSetting float_setting = 2;
+			StringSetting string_setting = 3;
+			BoolSetting bool_setting = 4;
+			GpuBufferSetting gpu_buffer_setting = 5;
+			RuntimeOptionsSetting runtime_options_setting = 6;
+			IntSetting int_setting = 7;
+		}
+	}
+
+	repeated ControlInput control_inputs = 2;
+}

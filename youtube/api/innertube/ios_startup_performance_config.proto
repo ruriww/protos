@@ -1,0 +1,50 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/ios_startup_prewarming_mode.proto";
+import "youtube/api/innertube/noncritical_allowlist_label_type.proto";
+import "youtube/api/innertube/latency_action_type.proto";
+import "youtube/api/innertube/ios_startup_pin_remote_image_prewarming_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosStartupPerformanceConfig {
+	bool enable_critical_request_prefetching_rurl = 1;
+	bool enable_critical_request_prefetching_browse = 2;
+	bool enable_noncritical_startup_scheduler = 4;
+	int64 noncritical_startup_scheduler_timeout_ms = 5;
+	bool startup_performance_instrumentation_enabled = 7;
+	bool startup_performance_instrumentation_through_gel_enabled = 8;
+	IosStartupPrewarmingMode startup_prewarming_mode = 9;
+	bool noncritical_startup_scheduler_foreground_only = 10;
+	bool startup_prewarming_foreground_only = 11;
+	int64 startup_performance_instrumentation_watch_shim_timeout_ms = 12;
+	bool startup_performance_instrumentation_watch_shim_suppress_legacy = 13;
+	repeated NoncriticalAllowlistLabelType noncritical_startup_allowlist_labels = 14 [ features.repeated_field_encoding = EXPANDED ];
+	bool enable_noncritical_startup_scheduler_staggering = 15;
+	int64 noncritical_startup_scheduler_stagger_ms = 16;
+	repeated string startup_prewarming_ads_hostnames = 17;
+	repeated string startup_prewarming_data_hostnames = 18;
+	repeated string startup_prewarming_image_hostnames = 19;
+	repeated string home_nav_latency_browse_ids = 20;
+	repeated LatencyActionType home_nav_latency_action_types = 21 [ features.repeated_field_encoding = EXPANDED ];
+	repeated uint32 report_nth_thumbnail_loads = 22 [ features.repeated_field_encoding = EXPANDED ];
+	uint32 nth_thumbnail_min_width = 23;
+	uint32 nth_thumbnail_min_height = 24;
+	string startup_performance_instrumentation_final_home_tick = 26;
+	int64 startup_performance_instrumentation_final_home_tick_timeout_ms = 27;
+	bool log_thumbnail_loads_to_home_timeline = 29;
+	repeated string startup_performance_instrumentation_final_home_ticks = 31;
+	bool enable_smart_noncritical_startup_scheduler = 33;
+	int64 smart_noncritical_startup_scheduler_timeout_ms = 34;
+	string smart_noncritical_startup_scheduler_tick = 35;
+	repeated string smart_noncritical_startup_scheduler_ticks = 38;
+	bool startup_prewarming_pin_remote_image = 41;
+	bool ios_startup_telemetry = 43;
+	float startup_telemetry_sampling_rate = 44;
+	IosStartupPINRemoteImagePrewarmingMode startup_prewarming_mode_pin_remote_image = 45;
+}

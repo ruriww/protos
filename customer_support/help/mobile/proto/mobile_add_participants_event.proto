@@ -1,0 +1,13 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/mobile_participant.proto";
+
+option objc_class_prefix = "CSHM";
+
+message MobileAddParticipantsEvent {
+	string actor_participant_id = 1;
+	string actor_participant_display_name = 2;
+	repeated MobileParticipant new_participants = 3;
+}

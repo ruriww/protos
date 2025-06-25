@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LightsourceColorPaletteData {
+	extend Datas {
+		LightsourceColorPaletteData lightsource_color_palette_data = 131084815;
+	}
+
+	uint32 section_1_color = 1;
+	uint32 section_2_color = 2;
+	uint32 section_3_color = 3;
+	uint32 nav_bar_color = 4;
+	uint32 primary_title_color = 5;
+	uint32 secondary_title_color = 6;
+	uint32 body_text_color = 7;
+	uint32 icon_activated_color = 8;
+	uint32 icon_inactive_color = 9;
+	uint32 section_4_color = 10;
+	uint32 surge_color = 11;
+	uint32 icon_disabled_color = 12;
+}

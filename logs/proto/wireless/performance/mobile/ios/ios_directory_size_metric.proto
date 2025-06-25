@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message IosDirectorySizeMetric {
+	string directory_name = 1;
+	int64 size = 2;
+	int64 backed_up_size = 3;
+}

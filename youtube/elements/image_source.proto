@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.elements;
+
+import "youtube/elements/client_resource.proto";
+import "youtube/elements/custom_image_source.proto";
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ImageSource {
+	oneof source {
+		string url = 1;
+		bytes image_data = 2;
+		ClientResource client_resource = 3;
+		CustomImageSource custom_image_source = 6;
+	}
+
+	uint32 width = 4;
+	uint32 height = 5;
+}

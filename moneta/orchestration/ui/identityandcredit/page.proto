@@ -1,0 +1,50 @@
+edition = "2023";
+
+package moneta.orchestration.ui.identityandcredit;
+
+import "moneta/orchestration/ui/common/form_field_reference.proto";
+import "moneta/orchestration/ui/common/generic/dependency_graph.proto";
+import "moneta/orchestration/ui/common/components/country_selector.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/document/document_upload_form.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message_set.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form.proto";
+import "moneta/orchestration/ui/common/generic/selectable_ui_field_group_form.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/separator.proto";
+import "moneta/orchestration/ui/common/generic/component_group.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/generic/overflow_menu.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/components/webview/web_view_component.proto";
+
+option objc_class_prefix = "IDV";
+
+message Page {
+	string title = 1;
+	repeated common.FormFieldReference refresh_trigger_field = 3;
+	common.generic.DependencyGraph dependency_graph = 4;
+	common.components.CountrySelector country_selector = 5;
+	repeated common.components.SimpleForm attribute_form = 6;
+	repeated common.components.document.DocumentUploadForm document_upload_form = 7;
+	repeated common.generic.InfoMessage bottom_info_message = 8;
+	common.components.legal.LegalMessageSet legal_message = 9;
+	repeated common.components.tax.TaxInfoForm tax_info_form = 10;
+	repeated common.generic.SelectableUiFieldGroupForm multiple_choices_question = 11;
+	repeated common.components.Button button = 12;
+	common.generic.Separator separator = 13;
+	repeated common.generic.ComponentGroup component_group = 14;
+	bool one_component_group_per_screen = 15;
+	repeated common.generic.InfoMessage section_info_message = 16;
+	string progress_dialog_text = 18;
+	repeated common.generic.InfoMessage top_info_message = 19;
+	int64 ui_reference = 20;
+	repeated common.generic.ImageWithCaption image = 21;
+	common.generic.OverflowMenu overflow_menu = 22;
+	common.components.customerselector.CustomerSelector customer_selector = 23;
+	repeated common.components.legal.LegalMessage legal_message2 = 24;
+	common.components.legal.LegalMessageSet legal_message_set = 25;
+	common.components.webview.WebViewComponent web_view_component = 26;
+}

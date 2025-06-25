@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/type/date.proto";
+
+option objc_class_prefix = "SGAP";
+
+message SingleRecurrence {
+	google.type.Date date = 1;
+}

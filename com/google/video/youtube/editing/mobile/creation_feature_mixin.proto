@@ -1,0 +1,9 @@
+edition = "2023";
+
+package com.google.video.youtube.editing.mobile;
+
+option objc_class_prefix = "YTEM";
+
+message CreationFeatureMixin {
+	extensions 1000 to 9999;
+}

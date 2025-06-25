@@ -1,0 +1,95 @@
+edition = "2023";
+
+package xeno.effect.input;
+
+import "xeno/effect/vec2_proto.proto";
+
+option objc_class_prefix = "XNO";
+
+message GestureInputProto {
+	message Swipe {
+		enum Direction {
+			INVALID = 0;
+			RIGHT = 1;
+			LEFT = 2;
+			UP = 3;
+			DOWN = 4;
+		}
+
+		Direction direction = 1;
+		int32 touch_count = 2;
+		repeated Vec2Proto origins = 3;
+		Vec2Proto origin = 4;
+		int64 timestamp_us = 5;
+	}
+
+	enum Phase {
+		GESTURE_INVALID = 0;
+		GESTURE_BEGAN = 1;
+		GESTURE_CHANGED = 2;
+		GESTURE_ENDED = 3;
+	}
+
+	message Pinch {
+		double scale = 1;
+		double velocity = 2;
+		Vec2Proto location = 3;
+		Phase phase = 4;
+		int64 timestamp_us = 5;
+	}
+
+	message Rotation {
+		double rotation = 1;
+		double velocity = 2;
+		Vec2Proto location = 3;
+		Phase phase = 4;
+		int64 timestamp_us = 5;
+	}
+
+	message Tap {
+		int32 touch_count = 1;
+		repeated Vec2Proto locations = 2;
+		Vec2Proto location = 3;
+		Phase phase = 4;
+		int64 timestamp_us = 5;
+	}
+
+	message DoubleTap {
+		int32 touch_count = 1;
+		repeated Vec2Proto locations = 2;
+		Vec2Proto location = 3;
+		Phase phase = 4;
+		int64 timestamp_us = 5;
+	}
+
+	message LongPress {
+		int32 touch_count = 1;
+		repeated Vec2Proto locations = 2;
+		Vec2Proto location = 3;
+		Phase phase = 4;
+		int64 timestamp_us = 5;
+	}
+
+	message Pan {
+		int32 touch_count = 1;
+		repeated Vec2Proto locations = 2;
+		Vec2Proto translation = 3;
+		Vec2Proto velocity = 4;
+		Phase phase = 5;
+		int64 timestamp_us = 6;
+	}
+
+	message Gesture {
+		oneof gesture {
+			Swipe swipe = 1;
+			Pinch pinch = 2;
+			Rotation rotation = 3;
+			Tap tap = 4;
+			DoubleTap double_tap = 5;
+			LongPress long_press = 6;
+			Pan pan = 7;
+		}
+	}
+
+	repeated Gesture gestures = 1;
+}

@@ -1,0 +1,34 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+
+option objc_class_prefix = "POEM";
+
+message CustomSchemaField {
+	PersonFieldMetadata metadata = 1;
+	string type = 2;
+	string formatted_type = 3;
+
+	enum CustomFieldType {
+		option features.enum_type = CLOSED;
+
+		CUSTOM_FIELD_TYPE_UNKNOWN = 0;
+		STRING = 1;
+		INT64 = 2;
+		BOOL = 3;
+		DOUBLE = 4;
+		EMAIL = 5;
+		PHONE = 6;
+		DATE = 7;
+	}
+
+	CustomFieldType field_type = 4;
+	string schema_id = 5;
+	string schema_display_name = 6;
+	string field_id = 7;
+	string field_display_name = 8;
+	bool multi_valued = 9 [ default = false ];
+	string value = 10;
+}

@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/visual_element.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinePlaybackTracking {
+	string cpn = 1;
+	OfflineModeType selected_offline_mode = 2;
+	bool is_main_app_auto_offline = 4;
+	VisualElement offline_source_visual_element = 5;
+	int32 audio_fmt = 6;
+	int32 video_fmt = 7;
+	bool is_partial_playback = 9;
+}

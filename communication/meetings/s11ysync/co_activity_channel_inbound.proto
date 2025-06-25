@@ -1,0 +1,11 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "communication/meetings/s11ysync/activity_state_update.proto";
+
+option objc_class_prefix = "GHM";
+
+message CoActivityChannelInbound {
+	ActivityStateUpdate update = 1;
+}

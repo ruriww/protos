@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.common;
+
+option objc_class_prefix = "YTBA";
+
+message FeedContent {
+	int32 index = 1;
+	bool is_feed_section = 2;
+	string content_id = 3;
+}

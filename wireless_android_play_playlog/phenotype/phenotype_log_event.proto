@@ -1,0 +1,22 @@
+edition = "2023";
+
+package wireless_android_play_playlog.phenotype;
+
+import "wireless_android_play_playlog/phenotype/application_info.proto";
+import "wireless_android_play_playlog/phenotype/phenotype_info.proto";
+import "wireless_android_play_playlog/phenotype/phenotype_api_error_info.proto";
+import "wireless_android_play_playlog/phenotype/heterodyne_sync_info.proto";
+import "wireless_android_play_playlog/phenotype/periodic_task_info.proto";
+
+option objc_class_prefix = "PHT";
+
+message PhenotypeLogEvent {
+	ApplicationInfo application_info = 1;
+	PhenotypeInfo phenotype_info = 2;
+	repeated ApplicationInfo bulk_application_info = 4;
+	PhenotypeApiErrorInfo phenotype_api_error_info = 7;
+	HeterodyneSyncInfo heterodyne_sync_info = 8;
+	PeriodicTaskInfo periodic_task_info = 9;
+	int32 module_version = 10;
+	bool in_oobe_mode = 15;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateLiveChatItemEntity {
+	string key = 1;
+	string deleted_status_message = 2;
+	string show_original_content_message = 3;
+	bool should_show_original_content = 4;
+	string hide_original_content_message = 5;
+	uint32 deleted_status_message_utf16_length = 6;
+	uint32 show_original_content_message_utf16_length = 7;
+	uint32 hide_original_content_message_utf16_length = 8;
+}

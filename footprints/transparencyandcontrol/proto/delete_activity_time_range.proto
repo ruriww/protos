@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+option objc_class_prefix = "FOOTC";
+
+enum DeleteActivityTimeRange {
+	option features.enum_type = CLOSED;
+
+	DELETE_ACTIVITY_TIME_RANGE_UNSPECIFIED = 0;
+	DELETE_ACTIVITY_TIME_RANGE_LAST_15_MIN = 1;
+}

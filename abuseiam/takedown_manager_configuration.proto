@@ -1,0 +1,13 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/special_restriction_definition.proto";
+import "abuseiam/age_policy.proto";
+
+option objc_class_prefix = "AIA";
+
+message TakedownManagerConfiguration {
+	repeated SpecialRestrictionDefinition special_restriction_definition = 1;
+	AgePolicy age_policy = 2;
+}

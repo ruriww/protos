@@ -1,0 +1,57 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlining_status_type.proto";
+import "youtube/api/innertube/offlining_failure_reason.proto";
+import "youtube/api/innertube/yt_system_health_metric.proto";
+import "youtube/api/innertube/detailed_network_type.proto";
+import "youtube/api/innertube/offline_mode_type.proto";
+import "youtube/api/innertube/offlineability_format_type.proto";
+import "youtube/api/innertube/offline_video_pending_state.proto";
+import "youtube/api/innertube/app_lifecycle_status.proto";
+import "youtube/api/innertube/transfer_status_type.proto";
+import "youtube/api/innertube/transfer_failure_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflineTransferStatusChanged {
+	string encrypted_video_id = 1;
+	OffliningStatusType status_type = 2;
+	OffliningFailureReason failure_reason = 3;
+	int64 total_fetched_kbytes = 4;
+	int64 disk_available_kbytes = 5;
+	YtSystemHealthMetric system_health = 6;
+	DetailedNetworkType detailed_network_type = 7;
+	bool is_ad = 8;
+	OfflineModeType offline_mode_type = 9;
+	string list_id = 10;
+	OfflineabilityFormatType offlineability_format_type = 11;
+	int32 soft_error_count = 12;
+	uint32 pending_state_flags = 13;
+	OfflineVideoPendingState unused_offline_video_pending_state = 14;
+	bool is_refresh = 15;
+	bool is_new_player_response = 16;
+	bool is_offline_shareable = 17;
+	bool has_content_verification_signature = 18;
+	bool is_offline_interleaving = 19;
+	string cotn = 20;
+	int64 total_content_kbytes = 21;
+	int64 already_downloaded_kbytes = 22;
+	int64 fetched_from_cache_kbytes = 23;
+	int32 block_size_bytes = 25;
+	string cpn = 30;
+	int32 offline_source_ve_type = 32;
+	bool only_download_on_wifi = 34;
+	AppLifecycleStatus app_lifecycle_status = 35;
+	bool is_default_download_to_sd_card = 36;
+	string failure_exception_type = 37;
+	TransferStatusType transfer_status_type = 38;
+	bytes serialized_logging_params = 39;
+	bool transfer_service_started_from_background = 40;
+	TransferFailureReason transfer_failure_reason = 41;
+	bool transfer_first_started = 42;
+}

@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinePlaylistSyncCheck {
+	string playlist_id = 1;
+	int64 offline_last_modified_timestamp = 2;
+	repeated string video_ids = 3;
+	bool auto_sync = 4;
+	int64 offline_date_added_timestamp = 5;
+	int64 client_last_invalidation_timestamp = 6;
+	bytes offline_playlist_token = 13;
+}

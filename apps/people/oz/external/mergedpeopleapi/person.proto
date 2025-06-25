@@ -1,0 +1,202 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "proto2/bridge/message_set.proto";
+import "apps/people/oz/external/mergedpeopleapi/person_metadata.proto";
+import "apps/people/oz/external/mergedpeopleapi/name.proto";
+import "apps/people/oz/external/mergedpeopleapi/photo.proto";
+import "apps/people/oz/external/mergedpeopleapi/tagline.proto";
+import "apps/people/oz/external/mergedpeopleapi/about.proto";
+import "apps/people/oz/external/mergedpeopleapi/website.proto";
+import "apps/people/oz/external/mergedpeopleapi/birthday.proto";
+import "apps/people/oz/external/mergedpeopleapi/gender.proto";
+import "apps/people/oz/external/mergedpeopleapi/email.proto";
+import "apps/people/oz/external/mergedpeopleapi/nickname.proto";
+import "apps/people/oz/external/mergedpeopleapi/phone.proto";
+import "apps/people/oz/external/mergedpeopleapi/organization.proto";
+import "apps/people/oz/external/mergedpeopleapi/location.proto";
+import "apps/people/oz/external/mergedpeopleapi/address.proto";
+import "apps/people/oz/external/mergedpeopleapi/relationship_status.proto";
+import "apps/people/oz/external/mergedpeopleapi/relation.proto";
+import "apps/people/oz/external/mergedpeopleapi/im.proto";
+import "apps/people/oz/external/mergedpeopleapi/event.proto";
+import "apps/people/oz/external/mergedpeopleapi/user_defined.proto";
+import "apps/people/oz/external/mergedpeopleapi/sort_keys.proto";
+import "apps/people/oz/external/mergedpeopleapi/occupation.proto";
+import "apps/people/oz/external/mergedpeopleapi/skills.proto";
+import "apps/people/oz/external/mergedpeopleapi/bragging_rights.proto";
+import "apps/people/oz/external/mergedpeopleapi/relationship_interest.proto";
+import "apps/people/oz/external/mergedpeopleapi/cover_photo.proto";
+import "apps/people/oz/external/mergedpeopleapi/membership.proto";
+import "apps/people/oz/external/mergedpeopleapi/interaction_settings.proto";
+import "apps/people/oz/external/mergedpeopleapi/file_as.proto";
+import "apps/people/oz/external/mergedpeopleapi/in_app_reachability.proto";
+import "apps/people/oz/external/mergedpeopleapi/sip_address.proto";
+import "apps/people/oz/external/mergedpeopleapi/person_extended_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/interest.proto";
+import "apps/people/oz/external/mergedpeopleapi/other_keyword.proto";
+import "apps/people/oz/external/mergedpeopleapi/calendar.proto";
+import "apps/people/oz/external/mergedpeopleapi/language.proto";
+import "apps/people/oz/external/mergedpeopleapi/external_id.proto";
+import "apps/people/oz/external/mergedpeopleapi/client_data.proto";
+import "apps/people/oz/external/mergedpeopleapi/place_details.proto";
+import "apps/people/oz/external/mergedpeopleapi/in_app_notification_target.proto";
+import "apps/people/oz/external/mergedpeopleapi/social_connection.proto";
+import "apps/people/oz/external/mergedpeopleapi/read_only_profile_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/profile_url.proto";
+import "apps/people/oz/external/mergedpeopleapi/age_range_type.proto";
+import "apps/people/oz/external/mergedpeopleapi/custom_schema_field.proto";
+import "apps/people/oz/external/mergedpeopleapi/mission.proto";
+import "apps/people/oz/external/mergedpeopleapi/person_attribute.proto";
+import "apps/people/oz/external/mergedpeopleapi/right_of_publicity_state.proto";
+import "apps/people/oz/external/mergedpeopleapi/plus_page_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/posix_account.proto";
+import "apps/people/oz/external/mergedpeopleapi/legacy_fields.proto";
+import "apps/people/oz/external/mergedpeopleapi/management_upchain.proto";
+import "apps/people/oz/external/mergedpeopleapi/ssh_public_key.proto";
+import "apps/people/oz/external/mergedpeopleapi/circle_membership.proto";
+import "apps/people/oz/external/mergedpeopleapi/contact_group_membership.proto";
+import "apps/people/oz/external/mergedpeopleapi/certified_born_before.proto";
+import "apps/people/oz/external/mergedpeopleapi/communication_email.proto";
+import "apps/people/oz/external/mergedpeopleapi/maps_profile.proto";
+import "apps/people/oz/external/mergedpeopleapi/emergency_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/contact_state_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/visible_to_guests.proto";
+import "apps/people/oz/external/mergedpeopleapi/search_profile.proto";
+import "apps/people/oz/external/mergedpeopleapi/limited_profile_settings_field.proto";
+import "apps/people/oz/external/mergedpeopleapi/roster_details.proto";
+import "apps/people/oz/external/mergedpeopleapi/pronoun.proto";
+import "apps/people/oz/external/mergedpeopleapi/connection_reminder.proto";
+import "apps/people/oz/external/mergedpeopleapi/contact_edit_context_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/contact_create_context_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/name_pronunciation_audio_metadata_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/contact_prompt_settings_info.proto";
+import "apps/people/oz/external/mergedpeopleapi/contact_interaction_stats.proto";
+import "apps/people/oz/external/mergedpeopleapi/calling_card.proto";
+
+option objc_class_prefix = "POEM";
+
+message Person {
+	extend proto2.bridge.MessageSet {
+		Person message_set_extension = 102014857;
+	}
+
+	string person_id = 1;
+	PersonMetadata metadata = 2;
+	repeated Name name = 3;
+	repeated Photo photo = 4;
+	repeated Tagline tagline = 5;
+	repeated About about = 6;
+	repeated Website website = 7;
+	repeated Birthday birthday = 8;
+	repeated Gender gender = 9;
+	repeated Email email = 10;
+	repeated Nickname nickname = 11;
+	repeated Phone phone = 12;
+	repeated Organization organization = 13;
+	repeated Location location = 14;
+	repeated Address address = 15;
+	repeated RelationshipStatus relationship_status = 16;
+	repeated Relation relation = 17;
+	repeated Im im = 18;
+	repeated Event event = 19;
+	repeated UserDefined user_defined = 20;
+	string profile_url = 21;
+
+	enum AgeRange {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 1;
+		LESS_THAN_EIGHTEEN = 2;
+		TWENTY_ONE_OR_OLDER = 3;
+		EIGHTEEN_TO_TWENTY = 4;
+	}
+
+	AgeRange age_range = 22 [ default = UNKNOWN ];
+	repeated Person linked_person = 23;
+	SortKeys sort_keys = 25;
+	string fingerprint = 26;
+	repeated Occupation occupation = 27;
+	repeated Skills skills = 28;
+	repeated BraggingRights bragging_rights = 29;
+	repeated RelationshipInterest relationship_interest = 30;
+	repeated CoverPhoto cover_photo = 31;
+	repeated Membership membership = 32;
+	repeated Person people_in_common = 33;
+	repeated InteractionSettings interaction_settings = 34;
+	repeated FileAs file_as = 35;
+	repeated InAppReachability in_app_reachability = 36;
+	repeated SipAddress sip_address = 37;
+	PersonExtendedData extended_data = 38;
+	repeated Interest interest = 39;
+	repeated OtherKeyword other_keyword = 40;
+	repeated Calendar calendar = 41;
+	repeated Language language = 42;
+	repeated ExternalId external_id = 43;
+	repeated ClientData client_data = 44;
+	repeated PlaceDetails place_details = 45;
+	repeated InAppNotificationTarget in_app_notification_target = 46;
+	repeated SocialConnection social_connection = 47;
+	repeated ReadOnlyProfileInfo read_only_profile_info = 48;
+	repeated ProfileUrl profile_url_repeated = 49;
+	repeated AgeRangeType age_range_repeated = 50;
+	repeated CustomSchemaField custom_schema_field = 51;
+	repeated Mission mission = 53;
+	repeated PersonAttribute person_attribute = 54;
+	repeated RightOfPublicityState right_of_publicity_state = 64;
+	repeated PlusPageInfo plus_page_info = 69;
+	repeated PosixAccount posix_account = 73;
+	LegacyFields legacy_fields = 100;
+	repeated ManagementUpchain management_upchain = 101;
+	repeated SshPublicKey ssh_public_key = 102;
+	repeated CircleMembership circle_membership = 103;
+	repeated ContactGroupMembership contact_group_membership = 104;
+	repeated CertifiedBornBefore certified_born_before = 107;
+	repeated CommunicationEmail communication_email = 110;
+	TeamsExtendedData teams_extended_data = 112;
+	repeated MapsProfile maps_profile = 114;
+	repeated EmergencyInfo emergency_info = 115;
+	repeated ContactStateInfo contact_state_info = 116;
+	repeated VisibleToGuests visible_to_guests = 117;
+	repeated SearchProfile search_profile = 120;
+	repeated LimitedProfileSettingsField limited_profile_settings = 125;
+	repeated RosterDetails roster_details = 133;
+	repeated Pronoun pronoun = 135;
+	repeated ConnectionReminder connection_reminder = 138;
+	repeated ContactEditContextInfo contact_edit_context_info = 139;
+	repeated ContactCreateContextInfo contact_create_context_info = 140;
+	repeated NamePronunciationAudioMetadataInfo name_pronunciation_audio_metadata_info = 141;
+	repeated ContactPromptSettingsInfo contact_prompt_settings_info = 142;
+	repeated ContactInteractionStats contact_interaction_stats = 143;
+	repeated CallingCard calling_card = 145;
+	repeated Photo background_photo = 147;
+}
+
+message PersonListWithTotalNumber {
+	repeated Person people = 1;
+	int32 total_number = 2;
+}
+
+message TeamsExtendedData {
+	repeated Person management_chain = 1;
+	PersonListWithTotalNumber reports = 2;
+	PersonListWithTotalNumber dotted_line_reports = 3;
+	repeated Person dotted_line_managers = 4;
+	repeated Person admins = 5;
+	repeated Person admin_to = 6;
+
+	enum Failure {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE = 0;
+		MANAGEMENT_CHAIN = 1;
+		REPORTS = 2;
+		DOTTED_LINE_REPORTS = 3;
+		DOTTED_LINE_MANAGERS = 4;
+		ADMINS = 5;
+		ADMIN_TO = 6;
+	}
+
+	repeated Failure failures = 7 [ features.repeated_field_encoding = EXPANDED ];
+}

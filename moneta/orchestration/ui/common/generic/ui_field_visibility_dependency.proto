@@ -1,0 +1,11 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/form_field_reference.proto";
+
+option objc_class_prefix = "Orch";
+
+message UiFieldVisibilityDependency {
+	FormFieldReference primary_field = 1;
+}

@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/expressive_caption.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetExpressiveCaptionsResponse {
+	ResponseContext response_context = 1;
+	repeated ExpressiveCaption captions = 2;
+	Renderer expressive_captions_panel = 3;
+	string caption_language = 5;
+}

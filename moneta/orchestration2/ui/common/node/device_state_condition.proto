@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+message DeviceStateCondition {
+	enum DeviceState {
+		option features.enum_type = CLOSED;
+
+		DEVICE_STATE_UNKNOWN = 0;
+		DEVICE_STATE_LANDSCAPE = 1;
+		DEVICE_STATE_DARKMODE = 2;
+		DEVICE_STATE_PRINTMODE = 3;
+		DEVICE_STATE_SCREEN_SIZE_CATEGORY = 4;
+	}
+
+	DeviceState device_state = 1;
+	int32 device_screen_size_category_id = 2;
+}

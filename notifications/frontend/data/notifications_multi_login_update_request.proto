@@ -1,0 +1,51 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/render_context.proto";
+import "notifications/frontend/data/user_id.proto";
+import "notifications/frontend/data/target.proto";
+import "notifications/frontend/data/encryption_key.proto";
+
+option objc_class_prefix = "NFD";
+
+message NotificationsMultiLoginUpdateRequest {
+	string client_id = 1;
+	Target target = 2;
+
+	message UserRegistration {
+		string oauth_token = 1;
+		repeated string selection_token = 2;
+		RenderContext render_context = 3;
+		int32 time_to_live_secs = 4;
+		string representative_target_id = 5;
+		UserId user_id = 6;
+		string user_registration_id = 7;
+	}
+
+	repeated UserRegistration registrations = 3;
+
+	enum CRRRegistrationReason {
+		option features.enum_type = CLOSED;
+
+		REGISTRATION_REASON_UNSPECIFIED = 0;
+		DEVICE_START = 1;
+		APP_UPDATED = 2;
+		ACCOUNT_CHANGED = 3;
+		SERVER_SYNC_INSTRUCTION = 4;
+		LOCALE_CHANGED = 5;
+		TIMEZONE_CHANGED = 6;
+		COLLABORATOR_API_CALL = 7;
+		GUNS_MIGRATION = 8;
+		REGISTRATION_ID_CHANGED = 9;
+		APP_BLOCK_STATE_CHANGED = 14;
+		CHANNEL_BLOCK_STATE_CHANGED = 10;
+		GROWTHKIT_PERIODIC_REGISTRATION = 11;
+		PERIODIC_REGISTRATION = 12;
+		GMSCORE_DEBUG = 13;
+	}
+
+	CRRRegistrationReason registration_reason = 5;
+	EncryptionKey encryption_key = 6;
+	string internal_target_id = 7;
+}

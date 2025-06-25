@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+import "google/internal/support/intelligence/moltron/v1/logging/bootstrap_type.proto";
+
+option objc_class_prefix = "SIML";
+
+message BootstrapId {
+	BootstrapType type = 1;
+	string id = 2;
+}

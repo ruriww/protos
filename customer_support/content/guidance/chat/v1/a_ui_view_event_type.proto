@@ -1,0 +1,21 @@
+edition = "2023";
+
+package customer_support.content.guidance.chat.v1;
+
+option objc_class_prefix = "SGC";
+
+enum AUiViewEventType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_UI_EVENT_TYPE = 0;
+	COMPONENT_EXIT = 1;
+	COMPONENT_MINIMIZE = 2;
+	LANDING_PAGE_RENDERED = 3;
+	VIEW_EXIT = 4;
+	FIRST_USER_INTERACTION = 5;
+	RENDER = 6;
+	OBAKE_PHOTO_PICKING_SESSION_FINISHED = 7;
+	BUTTON_ACTION_URL_CREATION = 8;
+	BUTTON_ACTION_URL_HANDLING = 9;
+	OBAKE_WEBVIEW_PHOTO_PICKING_SESSION_FINISHED = 10;
+}

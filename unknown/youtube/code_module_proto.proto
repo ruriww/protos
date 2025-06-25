@@ -1,0 +1,17 @@
+edition = "2023";
+
+package unknown.youtube;
+
+option objc_class_prefix = "LJLR";
+
+message CodeModuleProto {
+	int64 BaseAddress = 1;
+	int64 Size = 2;
+	string CodeFile = 3;
+	string CodeIdentifier = 4;
+	string DebugFile = 5;
+	string DebugIdentifier = 6;
+	string Version = 7;
+	int64 shrink_down_delta = 8;
+	bool is_unloaded = 9;
+}

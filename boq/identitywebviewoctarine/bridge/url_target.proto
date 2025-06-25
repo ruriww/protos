@@ -1,0 +1,10 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+option objc_class_prefix = "OCT";
+
+message UrlTarget {
+	string url = 1;
+	bool open_in_new = 2;
+}

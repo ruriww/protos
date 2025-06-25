@@ -1,0 +1,12 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+import "customer_support/content/guidance/chat/v1/a_error_type.proto";
+
+option objc_class_prefix = "CTC";
+
+message RawErrorCode {
+	customer_support.content.guidance.chat.v1.AErrorType type = 1;
+	int64 code = 2;
+}

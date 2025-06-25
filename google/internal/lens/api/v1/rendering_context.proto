@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/rendering_environment.proto";
+
+option objc_class_prefix = "LFE";
+
+message RenderingContext {
+	string web_markup_script_nonce = 1;
+	RenderingEnvironment rendering_environment = 2;
+}

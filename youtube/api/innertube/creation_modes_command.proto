@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/creation_load_instructions.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreationModesCommand {
+	extend Command {
+		CreationModesCommand creation_modes_command = 469274066;
+	}
+
+	Renderer creation_modes_controls_renderer = 1;
+	CreationLoadInstructions creation_load_instructions = 2;
+}

@@ -1,0 +1,31 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/icon.proto";
+import "google/internal/lens/api/v1/action.proto";
+import "google/internal/lens/api/v1/visual_element_metadata.proto";
+
+option objc_class_prefix = "LFE";
+
+message Chip {
+	string text = 1;
+	Icon icon = 2;
+	Action action = 3;
+	VisualElementMetadata ve_metadata = 4;
+	string result_id = 5;
+
+	message ChipStateAssets {
+		int32 state_id = 1;
+		string text = 2;
+		Icon icon = 3;
+		Action action = 4;
+		string loading_state_text = 5;
+		string content_description = 6;
+	}
+
+	repeated ChipStateAssets chip_states = 7;
+	int32 default_chip_state_id = 8;
+	string chip_id = 9;
+	string content_description = 10;
+}

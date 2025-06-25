@@ -1,0 +1,15 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "experiments/heterodyne/device_account.proto";
+
+option objc_class_prefix = "EXH";
+
+message Scope {
+	string config_package = 1;
+	int64 version_code = 2;
+	DeviceAccount device_account = 3;
+	sfixed64 baseline_cl = 4;
+	string host_application_identifier = 5;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_cache_key_token.proto";
+import "youtube/api/innertube/page_id_token.proto";
+import "youtube/api/innertube/account_state_token.proto";
+import "youtube/api/innertube/kids_signin_token.proto";
+import "youtube/api/innertube/parent_id_token.proto";
+import "youtube/api/innertube/was_unicorn_token.proto";
+import "youtube/api/innertube/persona_id_token.proto";
+import "youtube/api/innertube/data_sync_id_token.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveIdentitySupportedTokens {
+	OfflineCacheKeyToken offline_cache_key_token = 77196997;
+	PageIdToken page_id_token = 77197073;
+	AccountStateToken account_state_token = 86274336;
+	KidsSigninToken kids_signin_token = 117383107;
+	ParentIdToken parent_id_token = 141229392;
+	WasUnicornToken was_unicorn_token = 145456914;
+	PersonaIdToken persona_id_token = 149087161;
+	DataSyncIdToken datasync_id_token = 153880528;
+}

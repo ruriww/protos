@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.onegoogle_mobile;
+
+option objc_class_prefix = "OGL";
+
+message OneGoogleDiscAnimationInfo {
+	enum DiscAnimationType {
+		option features.enum_type = CLOSED;
+
+		DISC_ANIMATION_NONE = 0;
+		DISC_ANIMATION_UNKNOWN = 1;
+		DISC_ANIMATION_CRITICAL_ALERT_PULSING = 2;
+		DISC_ANIMATION_FAUXBAKE_PULSING = 3;
+		APP_CUSTOM = 4;
+	}
+
+	DiscAnimationType disc_animation_type = 1;
+}

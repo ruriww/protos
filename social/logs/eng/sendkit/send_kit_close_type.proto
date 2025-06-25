@@ -1,0 +1,12 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum SendKitCloseType {
+	option features.enum_type = CLOSED;
+
+	CLOSE_UNKNOWN = 0;
+	CLOSE_PROCEED = 1;
+}

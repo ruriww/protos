@@ -1,0 +1,16 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/image.proto";
+import "google/internal/identity/accountsettings/mobile/v1/progress_bar.proto";
+
+option objc_class_prefix = "ASM";
+
+message ProgressBarListItemBlock {
+	Image image = 1;
+	string title = 2;
+	ProgressBar progress_bar = 3;
+	Image icon = 4;
+	Image trailing_image = 5;
+}

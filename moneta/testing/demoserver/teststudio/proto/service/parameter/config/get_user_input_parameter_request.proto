@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.testing.demoserver.teststudio.proto.service.parameter.config;
+
+import "moneta/testing/demoserver/teststudio/proto/test_scenario_type.proto";
+
+option objc_class_prefix = "TSLSPC";
+
+message GetUserInputParameterRequest {
+	TestScenarioType scenario_type = 1;
+	bytes scenario_type_in_wire = 2;
+}

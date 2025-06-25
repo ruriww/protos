@@ -1,0 +1,9 @@
+edition = "2023";
+
+package apps.dynamite;
+
+option objc_class_prefix = "DYNOProto";
+
+message SpaceId {
+	string space_id = 1;
+}

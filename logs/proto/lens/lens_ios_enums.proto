@@ -1,0 +1,120 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message LensIosEnums {
+	enum ApplicationMode {
+		option features.enum_type = CLOSED;
+
+		APPLICATION_MODE_UNKNOWN = 0;
+		APPLICATION_MODE_LIVE_VIEW_FINDER = 1;
+		APPLICATION_MODE_POST_CAPTURE = 2;
+		APPLICATION_MODE_HOME = 3;
+	}
+
+	enum PanelContentType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_PANEL_CONTENT_TYPE = 0;
+		CARDS = 1;
+		HTML = 2;
+	}
+
+	enum LensIosErrorCode {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_LENS_IOS_ERROR_CODE = 0;
+		MISSING_DETECTION_IMAGE = 1;
+	}
+
+	enum ImageSource {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_IMAGE_SOURCE = 0;
+		LIVE_VIDEO = 1;
+		STATIC_IMAGE = 2;
+		CAMERA_ROLL = 3;
+		PHOTOS_MEDIA_KEY = 4;
+		HISTORY = 5;
+	}
+
+	enum ImageFormat {
+		option features.enum_type = CLOSED;
+
+		IMAGE_FORMAT_UNKNOWN = 0;
+		IMAGE_FORMAT_JPEG_SD = 1;
+		IMAGE_FORMAT_JPEG_HD = 2;
+		IMAGE_FORMAT_HEIF_SD = 3;
+		IMAGE_FORMAT_HEIF_HD = 4;
+	}
+
+	enum ImageUploadQuality {
+		option features.enum_type = CLOSED;
+
+		IMAGE_UPLOAD_QUALITY_UNKNOWN = 0;
+		IMAGE_UPLOAD_QUALITY_BASELINE = 1;
+		IMAGE_UPLOAD_QUALITY_HI_RES = 2;
+		IMAGE_UPLOAD_QUALITY_UPGRADED_TO_HI_RES = 3;
+		IMAGE_UPLOAD_QUALITY_UPGRADED_TO_HIGH_COMPRESSION_QUALITY = 4;
+		IMAGE_UPLOAD_QUALITY_UPGRADED_TO_HI_RES_WITH_HIGH_COMPRESSION_QUALITY = 5;
+		IMAGE_UPLOAD_QUALITY_COUNTER_FACTUAL_UPGRADE = 6;
+	}
+
+	enum FrameSelectionReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FRAME_SELECTION_REASON = 0;
+		INITIAL_FRAME_SELECTION = 1;
+		CAMERA_MOTION = 2;
+		DEVICE_MOTION = 3;
+		LOST_TRACKING_BOX = 4;
+		TRACKING_BOX_SCENE_CHANGE = 5;
+		UNPAUSE = 6;
+		SESSION_RESUME = 7;
+		EXPLICIT_REQUEST = 8;
+		HOVER = 9;
+		SCENE_CHANGE_BYPASS = 10;
+	}
+
+	enum PursuitTrackingErrorType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		STUCK_TRACKER = 1;
+	}
+
+	enum NetworkReachabilityStatus {
+		option features.enum_type = CLOSED;
+
+		REACHABILITY_UNKNOWN = 0;
+		REACHABILITY_NOT_REACHABLE = 1;
+		REACHABILITY_WIFI = 2;
+		REACHABILITY_WWAN = 3;
+	}
+
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		FAILURE_REASON_UNKNOWN = 0;
+		FAILURE_REASON_GSK_ERROR_NETWORK = 1;
+		FAILURE_REASON_GSK_ERROR_SERVER = 2;
+		FAILURE_REASON_GSK_ERROR_OTHER = 3;
+		FAILURE_REASON_LNS_ERROR_TIMEOUT = 4;
+		FAILURE_REASON_OTHER = 5;
+		FAILURE_REASON_LNS_ERROR_SESSION_NOT_AVAILABLE = 6;
+		FAILURE_REASON_LNS_ERROR_REQUEST_CANCELLED = 7;
+		FAILURE_REASON_GRPC = 8;
+		FAILURE_REASON_PREFETCH_RESET = 9;
+		FAILURE_REASON_HTTP = 10;
+	}
+
+	enum LivingSurfaceType {
+		option features.enum_type = CLOSED;
+
+		LIVING_SURFACE_TYPE_NONE = 0;
+		LIVING_SURFACE_TYPE_AV_PLAYER = 1;
+		LIVING_SURFACE_TYPE_YOUTUBE = 2;
+	}
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message SlurpEventLogData {
+	int32 cached_srp_count_in_final_response = 1;
+	int32 cached_srp_count_in_prefetch = 2;
+	int32 srp_cache_hit_count = 3;
+
+	enum SlurpEventContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_SLURP_EVENT_CONTEXT = 0;
+		INITIAL_REQUEST_SENT = 1;
+		FOLLOW_ON_REQUEST_SENT = 2;
+		REQUEST_SUCCESS = 3;
+		REQUEST_FAILURE = 4;
+	}
+
+	SlurpEventContext slurp_event_context = 4;
+}

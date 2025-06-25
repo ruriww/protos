@@ -1,0 +1,16 @@
+edition = "2023";
+
+package notifications.platform.common.proto;
+
+option objc_class_prefix = "GNPC";
+
+message IosCustomAction {
+	message InAppBrowserRedirect {
+		string uri = 1;
+		bool is_authenticated = 2;
+	}
+
+	oneof action_data {
+		InAppBrowserRedirect in_app_browser_redirect = 1;
+	}
+}

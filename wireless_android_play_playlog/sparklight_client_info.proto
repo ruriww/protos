@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message SparklightClientInfo {
+	enum MachineClass {
+		option features.enum_type = CLOSED;
+
+		MACHINE_CLASS_UNKNOWN = 0;
+		TEAMFOOD = 1;
+	}
+
+	MachineClass machine_class = 1;
+}

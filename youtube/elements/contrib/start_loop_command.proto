@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.elements.contrib;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.elements.contrib";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message StartLoopCommand {
+	extend Command {
+		StartLoopCommand start_loop_command = 315253727;
+	}
+
+	string loop_id = 1;
+}

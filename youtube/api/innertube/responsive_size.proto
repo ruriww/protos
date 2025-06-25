@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum ResponsiveSize {
+	option features.enum_type = CLOSED;
+
+	RESPONSIVE_SIZE_UNSPECIFIED = 0;
+	RESPONSIVE_SIZE_STANDARD = 1;
+	RESPONSIVE_SIZE_COMPACT = 2;
+	RESPONSIVE_SIZE_EXTRA_COMPACT = 3;
+	RESPONSIVE_SIZE_TINY = 4;
+}

@@ -1,0 +1,49 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/screen_density.proto";
+
+option objc_class_prefix = "IDC";
+
+message MobileMetadata {
+	message ConsentKitLibVersion {
+		string version = 1;
+		int64 baseline_cl = 2;
+	}
+
+	ConsentKitLibVersion consent_kit_version = 1;
+
+	message Platform {
+		enum PlatformOS {
+			option features.enum_type = CLOSED;
+
+			PLATFORM_OS_UNSPECIFIED = 0;
+			ANDROID = 1;
+			IOS = 2;
+		}
+
+		PlatformOS platform_os = 1;
+
+		oneof platform_version {
+			string ios_version = 2;
+			int32 android_api_level = 4;
+		}
+	}
+
+	Platform platform = 3;
+
+	message HostClientMetadata {
+		message IOSAppMetadata {
+			string app_bundle_id = 1;
+			string app_version = 2;
+		}
+
+		oneof app_metadata {
+			IOSAppMetadata ios_app_metadata = 1;
+		}
+	}
+
+	HostClientMetadata host_client_metadata = 4;
+	ScreenDensity screen_density = 5;
+}

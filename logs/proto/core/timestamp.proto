@@ -1,0 +1,9 @@
+edition = "2023";
+
+package logs.proto.core;
+
+option objc_class_prefix = "CORE";
+
+message Timestamp {
+	int64 client_wall_clock_timestamp = 1;
+}

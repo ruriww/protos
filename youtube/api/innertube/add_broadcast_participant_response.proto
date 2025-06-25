@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AddBroadcastParticipantResponse {
+	ResponseContext response_context = 1;
+	repeated Renderer errors = 2;
+	Command command = 3;
+	string participant_id = 4;
+	Renderer stream_screen_renderer = 5;
+	Renderer livestream_ingestion_settings_renderer = 6;
+	Command rejoin_command = 7;
+	FrameworkUpdateTransport framework_updates = 777;
+}

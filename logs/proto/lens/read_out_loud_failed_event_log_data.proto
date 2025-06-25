@@ -1,0 +1,19 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message ReadOutLoudFailedEventLogData {
+	enum FailureReason {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_FAILURE_REASON = 0;
+		UNAVAILABLE = 1;
+		TIMEOUT = 2;
+		UNSUPPORTED_LANGUAGE = 3;
+		OTHER = 4;
+	}
+
+	FailureReason failure_reason = 1;
+}

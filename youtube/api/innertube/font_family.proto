@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FontFamily {
+	option features.enum_type = CLOSED;
+
+	FONT_FAMILY_UNSPECIFIED = 0;
+	FONT_FAMILY_CLASSIC = 1;
+	FONT_FAMILY_LIGHT = 2;
+	FONT_FAMILY_HEAVY = 3;
+	FONT_FAMILY_MARKER = 4;
+	FONT_FAMILY_BRUSH = 5;
+	FONT_FAMILY_TYPEWRITER = 6;
+	FONT_FAMILY_YOUTUBE_SANS = 7;
+	FONT_FAMILY_HANDWRITING = 8;
+	FONT_FAMILY_MEME = 9;
+	FONT_FAMILY_FUN = 10;
+	FONT_FAMILY_CLASSY = 11;
+}

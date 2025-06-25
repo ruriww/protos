@@ -1,0 +1,14 @@
+edition = "2023";
+
+package support.asx.common.proto;
+
+option objc_class_prefix = "ASX";
+
+message MobileDeviceData {
+	string device_locale = 1;
+	string device_model_name = 2;
+	string device_release_version = 3;
+	string device_carrier_name = 4;
+	string device_name = 5;
+	string device_time_zone = 6;
+}

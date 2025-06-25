@@ -1,0 +1,18 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "logs/click_tracking_cgi.proto";
+
+option objc_class_prefix = "LFE";
+
+message ClientLoggingData {
+	int32 web_entry_point = 1;
+	int32 ios_entry_point = 2;
+	logs.ClickTrackingCGI parent_ved = 3;
+	uint64 web_zwieback_uid = 4;
+	string client_zwieback_cookie = 5;
+	bool is_history_eligible = 6;
+	int32 ve_context_id = 7;
+	int32 ve_user_action_id = 8;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package goodoc;
+
+option objc_class_prefix = "GOODOC";
+
+message AnchorLabel {
+	string Anchor = 1;
+	int32 anchor_scope = 2 [ default = 0 ];
+}

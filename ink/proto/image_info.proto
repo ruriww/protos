@@ -1,0 +1,25 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message ImageInfo {
+	string uri = 1;
+
+	enum AssetType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		BORDER = 1;
+		STICKER = 2;
+		GRID = 3;
+		BRUSH_TEXTURE = 4;
+		BACKGROUND = 5;
+		PHOTO = 6;
+		WINDING_BRUSH_TEXTURE = 7;
+		BRUSH_TEXTURE_NO_MIPMAP = 8;
+	}
+
+	AssetType asset_type = 2 [ default = DEFAULT ];
+}

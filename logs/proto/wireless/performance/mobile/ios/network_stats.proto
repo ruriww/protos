@@ -1,0 +1,22 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/metric_extension.proto";
+import "logs/proto/wireless/performance/mobile/ios/request_status.proto";
+import "logs/proto/wireless/performance/mobile/ios/request_failed_reason.proto";
+
+option objc_class_prefix = "PRM";
+
+message NetworkStats {
+	int64 request_size = 1;
+	int64 response_size = 2;
+	string end_url = 3;
+	int32 status_code = 4;
+	string content_type = 5;
+	int32 round_trip_time = 6;
+	MetricExtension metric_extension = 7;
+	RequestStatus request_status = 8;
+	RequestFailedReason request_failed_reason = 9;
+	int32 retry_count = 10;
+}

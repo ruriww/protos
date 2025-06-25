@@ -1,0 +1,15 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+message SendKitMetricsDataDisplay {
+	int32 result_count = 1;
+	int64 latency_usec = 2;
+	int32 query_length = 3;
+	bool is_contacts_permissions_granted = 4;
+	bool is_show_device_contacts_displayed = 5;
+	int64 memory_allocated_delta = 6;
+	int32 in_app_result_count = 7;
+}

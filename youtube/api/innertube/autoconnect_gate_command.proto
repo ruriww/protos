@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/handoff_lr_device.proto";
+import "youtube/api/innertube/mdx_session_source.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AutoconnectGateCommand {
+	extend Command {
+		AutoconnectGateCommand autoconnect_gate_command = 469554171;
+	}
+
+	Command on_success = 1;
+	Command on_failure = 2;
+	bool require_same_network = 3;
+	bool require_no_local_playback = 4;
+	HandoffLrDevice lr_device = 5;
+	bool force_mdx_connection_over_wifi = 6;
+	MdxSessionSource session_source = 7;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package footprints.texts;
+
+option objc_class_prefix = "FOOTC";
+
+enum SemanticTag {
+	option features.enum_type = CLOSED;
+
+	TAG_UNSPECIFIED = 0;
+	TAG_DISCLAIMER = 1;
+}

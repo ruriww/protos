@@ -1,0 +1,40 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/card_subform.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/camera_input_ui_preference.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/pan_category.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/excluded_pan_category.proto";
+
+option objc_class_prefix = "Orch";
+
+message CardForm {
+	FormHeader form_header = 1;
+	repeated CardSubform card_subform = 3;
+	repeated generic.ImageWithCaption logo = 4;
+	repeated generic.ImageWithCaption undetermined_logo = 5;
+	repeated CameraInputUiPreference camera_input_ui_preference = 6 [ features.repeated_field_encoding = EXPANDED ];
+	repeated PanCategory allowed_pan_category = 7;
+	string invalid_pan_message = 8;
+	repeated ExcludedPanCategory excluded_pan_category = 9;
+	int64 primary_account_number_ui_reference = 10;
+
+	enum LogoUiPreference {
+		option features.enum_type = CLOSED;
+
+		LOGO_UI_PREFERENCE_UNKNOWN = 0;
+		ALL_LOGOS = 1;
+		SINGLE_LOGO = 2;
+		SINGLE_LOGO_WITH_LINK = 3;
+	}
+
+	LogoUiPreference logo_ui_preference = 13;
+	string no_match_pan_message = 14;
+	int32 resolved_only_logo_starting_index = 15 [ default = -1 ];
+	generic.ImageWithCaption unresolved_generic_logo = 17;
+	bool restore_unsaved_data_after_reload = 18;
+	repeated int32 default_card_subform_index = 20;
+}

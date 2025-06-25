@@ -1,0 +1,30 @@
+edition = "2023";
+
+package logs;
+
+import "proto2/bridge/message_set.proto";
+import "unknown/youtube/client_event_id_message.proto";
+import "logs/ve_offset_identifier.proto";
+
+option objc_class_prefix = "LOG";
+
+message ClickTrackingCGI {
+	extend proto2.bridge.MessageSet {
+		ClickTrackingCGI message_set_extension = 15872052;
+	}
+
+	int32 ve_index = 1 [ default = -1 ];
+	int32 ve_type = 2;
+	int32 element_index = 5 [ default = -1 ];
+	int32 result_index = 6 [ default = -1 ];
+	int32 page_start = 7;
+	int32 odelay_se_linker = 8;
+	int32 result_group_element_index = 9 [ default = -1 ];
+	bool do_not_log_url = 10 [ default = false ];
+	int32 non_archival_ve_index = 11 [ default = -1 ];
+	fixed64 result_fprint = 12;
+	unknown.youtube.ClientEventIdMessage ve_event_id = 13;
+	int32 youtube_ve_counter = 14 [ default = -1 ];
+	VeOffsetIdentifier ve_offset_identifier = 15;
+	int32 youtube_ve_identifier = 16;
+}

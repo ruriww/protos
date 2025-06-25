@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IcingSearchStats {
+	int32 latency_ms = 1;
+	int32 num_terms = 2;
+	int32 query_length = 3;
+	bool is_first_page = 4;
+	int32 current_page_result_count = 5;
+}

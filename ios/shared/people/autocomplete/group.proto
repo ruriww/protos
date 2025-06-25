@@ -1,0 +1,16 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/group_metadata.proto";
+import "ios/shared/people/autocomplete/group_member.proto";
+import "ios/shared/people/autocomplete/group_origin.proto";
+
+option objc_class_prefix = "PDL";
+
+message Group {
+	GroupMetadata metadata = 1;
+	string group_id = 2;
+	repeated GroupMember member = 3;
+	repeated GroupOrigin origin = 6;
+}

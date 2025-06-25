@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.comment;
+
+import "youtube/api/innertube/voice_reply_state.proto";
+
+option objc_class_prefix = "YTBA";
+
+message StateUpdateEvent {
+	youtube.api.innertube.VoiceReplyState current_state = 1;
+}

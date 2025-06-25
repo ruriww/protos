@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/browse_header_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdatePlaylistHeaderAction {
+	extend Command {
+		UpdatePlaylistHeaderAction update_playlist_header_action = 78462227;
+	}
+
+	BrowseHeaderSupportedRenderers updated_header = 1;
+}

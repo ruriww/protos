@@ -1,0 +1,13 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+import "video/youtube/editing/mediaengine/protos/mde_segment.proto";
+import "video/youtube/editing/mediaengine/protos/mde_transition.proto";
+
+option objc_class_prefix = "MDE";
+
+message MdeMediaComposition {
+	repeated MdeSegment segments = 1;
+	repeated MdeTransition transitions = 2;
+}

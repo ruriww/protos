@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/genericselector/parameters.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message InitializeRequest {
+	common.RequestContext context = 1;
+
+	oneof params {
+		Parameters parameters = 2;
+		bytes serialized_parameters = 3;
+		bytes encrypted_parameters = 4;
+	}
+}

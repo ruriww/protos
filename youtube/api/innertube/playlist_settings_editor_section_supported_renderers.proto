@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/playlist_settings_editor_basic_settings_section_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_auto_add_settings_section_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_casual_section_renderer.proto";
+import "youtube/api/innertube/playlist_settings_editor_collaboration_section_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistSettingsEditorSectionSupportedRenderers {
+	PlaylistSettingsEditorBasicSettingsSectionRenderer playlist_settings_editor_basic_settings_section_renderer = 78957456;
+	PlaylistSettingsEditorAutoAddSettingsSectionRenderer playlist_settings_editor_auto_add_settings_section_renderer = 81812911;
+	PlaylistSettingsEditorCasualSectionRenderer playlist_settings_editor_casual_section_renderer = 91347533;
+	PlaylistSettingsEditorCollaborationSectionRenderer playlist_settings_editor_collaboration_section_renderer = 91613400;
+}

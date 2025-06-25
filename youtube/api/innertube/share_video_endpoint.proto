@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShareVideoEndpoint {
+	extend Command {
+		ShareVideoEndpoint share_video_endpoint = 73844178;
+	}
+
+	string video_id = 1;
+	string video_share_url = 2;
+	string video_title = 3;
+	bool is_live_stream = 4;
+	bool hack = 5;
+}

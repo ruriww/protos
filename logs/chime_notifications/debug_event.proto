@@ -1,0 +1,27 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+option objc_class_prefix = "CHM";
+
+message DebugEvent {
+	enum DebugEventType {
+		option features.enum_type = CLOSED;
+
+		DEBUG_EVENT_UNSPECIFIED = 0;
+		DEBUG_EVENT_BACKGROUND_REFRESH = 1;
+		DEBUG_EVENT_JOB_EXCEPTION = 2;
+	}
+
+	DebugEventType debug_event_type = 1;
+
+	enum RefreshReason {
+		option features.enum_type = CLOSED;
+
+		REFRESH_REASON_UNSPECIFIED = 0;
+		REFRESH_REASON_BACKGROUND_TASK = 1;
+		REFRESH_REASON_SILENT_PUSH = 2;
+	}
+
+	RefreshReason refresh_reason = 2;
+}

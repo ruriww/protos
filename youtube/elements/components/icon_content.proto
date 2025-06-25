@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.elements.components;
+
+option java_package = "com.google.protos.youtube.elements.components";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message IconContent {
+	string icon_name = 1;
+	uint32 icon_color = 2;
+	string bundle_id = 3;
+	string icon_url = 4;
+	bool disable_circular_mask = 5;
+	bool icon_image_flip_for_rtl = 6;
+	bool is_hidden = 7;
+	bool disable_icon_tinting = 8;
+}

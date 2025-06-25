@@ -1,0 +1,11 @@
+edition = "2023";
+
+package search.frontend.silk.runtime;
+
+option objc_class_prefix = "SLKRTM";
+
+message SilkService {
+	string name = 1;
+	repeated int32 capabilities = 2 [ features.repeated_field_encoding = EXPANDED ];
+	int32 service_id = 3;
+}

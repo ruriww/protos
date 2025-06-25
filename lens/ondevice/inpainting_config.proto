@@ -1,0 +1,28 @@
+edition = "2023";
+
+package lens.ondevice;
+
+import "lens/text/portable/inpainting/inpainting_image_file_config.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message InpaintingConfig {
+	string model_path = 1;
+	int32 num_of_threads = 2 [ default = 4 ];
+	bool use_xnn_pack = 3 [ default = true ];
+	int32 batch_size = 6 [ default = 8 ];
+	float height_relative_vertical_padding = 7 [ default = 0e0 ];
+	int32 min_line_height = 8 [ default = 24 ];
+	int32 max_line_height = 9 [ default = 40 ];
+	int32 line_height_divisible_by = 10 [ default = 8 ];
+	int32 target_image_height = 11 [ default = 600 ];
+	float chunk_width_to_height_ratio = 12 [ default = 4 ];
+	float chunk_unpadded_to_total_width_ratio = 13 [ default = 0.8 ];
+	float height_relative_horizontal_padding = 14 [ default = 0.3 ];
+	bool text_masks_enabled = 22 [ default = true ];
+	float output_appended_vertical_padding = 24 [ default = 0.14 ];
+	float output_appended_horizontal_padding = 25 [ default = 0.28 ];
+	int32 max_allowed_chunk_count = 26;
+	float mask_threshold = 27;
+	text.portable.inpainting.InpaintingImageFileConfig file_config = 28;
+}

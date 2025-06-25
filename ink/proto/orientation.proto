@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+enum Orientation {
+	option features.enum_type = CLOSED;
+
+	ORIENTATION_UNSPECIFIED = 0;
+	ORIENTATION_0 = 1;
+	ORIENTATION_90_CCW = 2;
+	ORIENTATION_180_CCW = 3;
+	ORIENTATION_270_CCW = 4;
+}

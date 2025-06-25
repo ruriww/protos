@@ -1,0 +1,17 @@
+edition = "2023";
+
+package photos_vision_barhopper;
+
+option objc_class_prefix = "BAR";
+
+message FlightSegment {
+	string pnr_code = 1;
+	string origin = 2;
+	string destination = 3;
+	string carrier = 4;
+	string flight_number = 5;
+	string date_of_flight_julian = 6;
+	string compartment_code = 7;
+	string seat_number = 8;
+	string selectee_indicator = 9;
+}

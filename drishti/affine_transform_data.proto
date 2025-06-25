@@ -1,0 +1,14 @@
+edition = "2023";
+
+package drishti;
+
+import "drishti/vector2_data.proto";
+
+option objc_class_prefix = "Drishti";
+
+message AffineTransformData {
+	Vector2Data translation = 1;
+	Vector2Data scale = 2;
+	Vector2Data shear = 3;
+	float rotation = 4;
+}

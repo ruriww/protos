@@ -1,0 +1,13 @@
+edition = "2023";
+
+package identity_consent;
+
+import "footprints/transparencyandcontrol/proto/opaque_verification_token.proto";
+
+option objc_class_prefix = "IDC";
+
+message PrefetchedConsentScreenInfo {
+	bytes serialized_consent_screen = 1;
+	int64 screen_timestamp_epoch_millis = 2;
+	footprints.transparencyandcontrol.proto.OpaqueVerificationToken opaque_verification_token = 3;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/button_renderer.proto";
+import "youtube/api/innertube/multi_page_menu_renderer.proto";
+import "youtube/api/innertube/topbar_button_renderer.proto";
+import "youtube/api/innertube/topbar_cast_button_renderer.proto";
+import "youtube/api/innertube/icon_badge_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileTopbarButtonSupportedRenderers {
+	oneof topbar_button {
+		ButtonRenderer button_renderer = 65153809;
+		TopbarMenuButtonRenderer topbar_menu_button_renderer = 120823052;
+		TopbarButtonRenderer topbar_button_renderer = 322055134;
+		TopbarCastButtonRenderer topbar_cast_button_renderer = 330817827;
+		IconBadgeRenderer icon_badge_renderer = 358874198;
+	}
+}

@@ -1,0 +1,25 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/latency_debug_data.proto";
+import "google/protobuf/any.proto";
+
+option objc_class_prefix = "LFE";
+
+message DebugMetadata {
+	string sherlog_debug_url = 2;
+	LatencyDebugData latency_debug_data = 3;
+	string llm_model_name = 4;
+	protobuf.Any eval_data = 6;
+
+	message PrefetchDebugData {
+		string final_query = 1;
+		bool prefetch_hit = 2;
+		int64 prefetch_message_id = 3;
+		int64 final_message_id = 4;
+		int64 prefetch_to_final_timestamp_delta_ms = 5;
+	}
+
+	PrefetchDebugData prefetch_debug_data = 7;
+}

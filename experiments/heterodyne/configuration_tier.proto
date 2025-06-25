@@ -1,0 +1,17 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+option objc_class_prefix = "EXH";
+
+message ConfigurationTier {
+	enum Tier {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		USER = 1;
+		DEVICE = 2;
+	}
+
+	Tier tier = 1;
+}

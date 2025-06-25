@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatProductButtonRenderer {
+	FormattedString text = 1;
+	FormattedString subtext = 2;
+	Icon icon = 3;
+	bool is_disabled = 5;
+	Command command = 6;
+	string icon_badge_text = 8;
+	bytes tracking_params = 10;
+	string disabled_tooltip = 11;
+}
+
+extend Renderer {
+	LiveChatProductButtonRenderer live_chat_product_button_renderer = 189624769;
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_manager_video_title.proto";
+import "youtube/api/innertube/video_manager_privacy_display.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/video_manager_video_metrics.proto";
+import "youtube/api/innertube/video_manager_notification.proto";
+import "youtube/api/innertube/video_manager_thumbnail_icon.proto";
+import "youtube/api/innertube/video_list_badge_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/video_list_notification_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoListEntryRenderer {
+	string video_id = 1;
+	VideoManagerVideoTitle title = 2;
+	VideoManagerPrivacyDisplay privacy = 3;
+	FormattedString length_string = 4;
+	ThumbnailDetails thumbnail = 5;
+	VideoManagerVideoMetrics metrics = 6;
+	repeated VideoManagerNotification notifications = 7;
+	bool can_edit = 8;
+	repeated VideoManagerThumbnailIcon thumbnail_icons = 9;
+	repeated VideoListBadgeSupportedRenderers badges = 10;
+	Command video_detail_endpoint = 11;
+	FormattedString channel_title = 12;
+	Command play_video_endpoint = 13;
+	repeated VideoListNotificationSupportedRenderers video_notifications = 14;
+	bytes tracking_params = 16;
+	repeated Renderer central_column_attributes = 17;
+	repeated Renderer last_column_attributes = 18;
+	bool use_refreshed_layout = 19;
+}
+
+extend Renderer {
+	VideoListEntryRenderer video_list_entry_renderer = 64370300;
+}

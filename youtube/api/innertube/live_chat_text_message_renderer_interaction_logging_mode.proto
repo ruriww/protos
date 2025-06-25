@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum LiveChatTextMessageRendererInteractionLoggingMode {
+	option features.enum_type = CLOSED;
+
+	LIVE_CHAT_TEXT_MESSAGE_RENDERER_INTERACTION_LOGGING_MODE_UNSPECIFIED = 0;
+	LIVE_CHAT_TEXT_MESSAGE_RENDERER_INTERACTION_LOGGING_MODE_SHOW_AND_CLICKS = 1;
+}

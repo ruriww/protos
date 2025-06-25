@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/types/credit_card_form.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/bank_account_form.proto";
+import "moneta/orchestration/ui/common/components/instrument/types/card_form.proto";
+import "moneta/orchestration/ui/common/components/redirect/redirect_form.proto";
+
+option objc_class_prefix = "Orch";
+
+message InstrumentForm {
+	types.CreditCardForm credit_card = 2;
+	generic.UiField instrument_rank = 9;
+	SimpleForm simple_form = 11;
+	types.BankAccountForm bank_account = 12;
+	types.CardForm card = 14;
+	redirect.RedirectForm redirect = 15;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/repeat_chapter_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RepeatChapterCommand {
+	extend Command {
+		RepeatChapterCommand repeat_chapter_command = 412940936;
+	}
+
+	RepeatChapterType repeat = 1;
+	int64 start_time_ms = 2;
+	int64 end_time_ms = 3;
+	string repeat_state_entity_key = 4;
+}

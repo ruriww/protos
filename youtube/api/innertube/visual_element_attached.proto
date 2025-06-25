@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visual_element.proto";
+import "youtube/api/innertube/attach_logging_expectations.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VisualElementAttached {
+	string csn = 1;
+	VisualElement parent_ve = 2;
+	repeated VisualElement child_ves = 3;
+	AttachLoggingExpectations attach_logging_expectations = 4;
+	bool mark_shown = 5;
+}

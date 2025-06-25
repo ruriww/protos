@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common;
+
+option objc_class_prefix = "Orch";
+
+message IntegratorCallbackData {
+	oneof callback_data {
+		string integrator_data = 1;
+		bytes integrator_data_token = 2;
+	}
+}

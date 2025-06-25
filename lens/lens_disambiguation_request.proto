@@ -1,0 +1,9 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message LensDisambiguationRequest {
+	repeated string lens_result_id = 1;
+}

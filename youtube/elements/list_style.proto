@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ListStyle {
+	enum ListType {
+		option features.enum_type = CLOSED;
+
+		LIST_TYPE_UNKNOWN = 0;
+		LIST_TYPE_BULLET = 1;
+	}
+
+	ListType list_type = 1;
+	uint32 start_index = 2;
+	uint32 length = 3;
+}

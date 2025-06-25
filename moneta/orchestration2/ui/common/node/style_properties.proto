@@ -1,0 +1,32 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+import "moneta/orchestration2/ui/common/node/border_style.proto";
+import "moneta/orchestration2/ui/common/node/font.proto";
+import "moneta/orchestration2/ui/common/node/material_elevation.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message StyleProperties {
+	uint32 background_color_argb = 1;
+
+	oneof corner_radius {
+		UnitSize border_corner_radius = 2;
+	}
+
+	uint32 border_color_argb = 3;
+	BorderStyle border_style = 4;
+	UnitSize border_width = 5;
+	float opacity = 6;
+	Font primary_text_font = 8;
+	Font error_text_font = 9;
+	Font label_text_font = 10;
+	Font helper_text_font = 11;
+	uint32 tint_color_argb = 12;
+	MaterialElevation material_elevation = 13;
+	uint32 scrim_color_argb = 14;
+	Font link_text_font = 15;
+	UnitSize scalar_elevation = 16;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/point.proto";
+
+option objc_class_prefix = "INKPB";
+
+message GridInfo {
+	string uri = 1;
+	uint32 rgba_multiplier = 2 [ default = 4294967295 ];
+	float size_world = 3 [ default = 50 ];
+	Point origin = 4;
+}

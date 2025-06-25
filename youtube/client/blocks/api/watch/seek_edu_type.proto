@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+option objc_class_prefix = "YTBA";
+
+enum SeekEduType {
+	option features.enum_type = CLOSED;
+
+	SEEK_EDU_TYPE_UNKNOWN = 0;
+	SEEK_EDU_TYPE_SEEK_ANYWHERE = 1;
+	SEEK_EDU_TYPE_SPEEDMASTER = 2;
+	SEEK_EDU_TYPE_FINE_SCRUB = 3;
+	SEEK_EDU_TYPE_SEEK_CANCELLATION = 4;
+}

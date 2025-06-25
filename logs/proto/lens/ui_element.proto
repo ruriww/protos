@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/recognition_result.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message UiElement {
+	int32 presentation_type = 1;
+	RecognitionResult recognition_result = 2;
+	int32 ve_id = 3;
+	int32 card_position = 4;
+	int32 num_images = 5;
+	repeated UiElement interleaved_card = 6;
+	bool is_iu_grid = 7;
+}

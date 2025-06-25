@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveDashboardSharingRenderer {
+	string video_id = 1;
+	string url = 2;
+	FormattedString title = 3;
+}
+
+extend Renderer {
+	LiveDashboardSharingRenderer live_dashboard_sharing_renderer = 86294750;
+}

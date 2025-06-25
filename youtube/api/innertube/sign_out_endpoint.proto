@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/incognito_token.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/unauthenticated_identity.proto";
+import "youtube/api/innertube/sign_out_child_endpoint.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SignOutEndpoint {
+	IncognitoToken incognito_token = 1;
+	Command next_endpoint = 2;
+	UnauthenticatedIdentity direct_signout_identity = 3;
+	bool hack = 998;
+}
+
+extend Command {
+	SignOutEndpoint sign_out_endpoint = 54240896;
+}
+
+extend Command {
+	SignOutChildEndpoint sign_out_child_endpoint = 110373422;
+}

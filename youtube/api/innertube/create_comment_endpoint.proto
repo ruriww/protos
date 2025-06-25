@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreateCommentEndpoint {
+	extend Command {
+		CreateCommentEndpoint create_comment_endpoint = 68212148;
+	}
+
+	string create_comment_params = 1;
+	FormattedString comment_text = 2;
+	bool from_civility_reminder_dialog = 3;
+	string text_entity_key = 4;
+	string button_entity_key = 5;
+	int64 commented_at_ms = 6;
+	int32 rating = 7;
+	string video_position_mention = 8;
+	repeated string sources = 9;
+}

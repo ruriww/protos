@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offline_client_state_download_recs_video.proto";
+import "youtube/api/innertube/offline_client_state_smart_download_video.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MainAppAdditionalOfflineClientState {
+	repeated OfflineClientStateDownloadRecsVideo download_recs_videos = 1;
+	repeated OfflineClientStateSmartDownloadVideo smart_download_videos = 2;
+}

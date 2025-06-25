@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.elements.i18n;
+
+option java_package = "com.google.protos.youtube.elements.i18n";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message GetLegacyTranslatedStringRequest {
+	int64 message_id = 1;
+	repeated string substitutions = 2;
+	string fallback_string = 3;
+}

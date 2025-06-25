@@ -1,0 +1,21 @@
+edition = "2023";
+
+package photos_vision;
+
+import "geostore/address_proto.proto";
+
+option objc_class_prefix = "MVC";
+
+message Address {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		WORK = 1;
+		HOME = 2;
+	}
+
+	Type type = 1 [ default = UNKNOWN ];
+	repeated string address_line = 2;
+	geostore.AddressProto address = 3;
+}

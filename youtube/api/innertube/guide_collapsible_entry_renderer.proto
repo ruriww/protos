@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/guide_collapsible_entry_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GuideCollapsibleEntryRenderer {
+	GuideCollapsibleEntrySupportedRenderers expander_item = 1;
+	repeated GuideCollapsibleEntrySupportedRenderers expandable_items = 2;
+	GuideCollapsibleEntrySupportedRenderers collapser_item = 3;
+	Command auto_expand_command = 4;
+}
+
+extend Renderer {
+	GuideCollapsibleEntryRenderer guide_collapsible_entry_renderer = 51663374;
+}

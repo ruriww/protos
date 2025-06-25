@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.home.cloud.castsdk.v1;
+
+import "home/cloud/common/relay_access_token.proto";
+
+option objc_class_prefix = "GCC";
+
+message CreateRelaycastSessionRequest {
+	string device_id = 1;
+	bytes tls_client_pk_hash = 2;
+	.home.cloud.common.RelayAccessToken relay_access_token = 3;
+}

@@ -1,0 +1,10 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message Affinity {
+	bytes logging_id = 1;
+	double value = 2;
+}

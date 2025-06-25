@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+package google.android.gsf.checkin;
+
+import "google/android/gsf/checkin/android_build_proto.proto";
+import "google/android/gsf/checkin/android_event_proto.proto";
+
+option java_package = "com.google.android.gsf.checkin.proto";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+
+message AndroidCheckinProto {
+	optional AndroidBuildProto build = 1;
+	optional int64 last_checkin_msec = 2;
+	optional AndroidEventProto event = 3;
+	optional string requested_group = 5;
+	optional string cell_operator = 6;
+	optional string sim_operator = 7;
+	optional string roaming = 8;
+	optional int32 user_number = 9;
+	optional int32 unnamed_field_14 = 14;
+	optional bytes unnamed_field_15 = 15;
+	optional bytes unnamed_field_16 = 16;
+	optional bool unnamed_field_18 = 18;
+	optional string unnamed_field_19 = 19;
+	optional int32 unnamed_field_20 = 20;
+	optional int32 unnamed_field_21 = 21;
+}

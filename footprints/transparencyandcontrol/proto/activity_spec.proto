@@ -1,0 +1,15 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/product.proto";
+import "footprints/transparencyandcontrol/proto/activity_controls_setting.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message ActivitySpec {
+	oneof value {
+		Product product_activity = 1;
+		ActivityControlsSetting setting_activity = 2;
+	}
+}

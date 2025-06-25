@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/channel_metadata_renderer.proto";
+import "youtube/api/innertube/playlist_metadata_renderer.proto";
+import "youtube/api/innertube/home_metadata_renderer.proto";
+import "youtube/api/innertube/music_app_metadata_renderer.proto";
+import "youtube/api/innertube/replaylist_metadata_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message BrowseMetadataSupportedRenderers {
+	oneof renderer {
+		ChannelMetadataRenderer channel_metadata_renderer = 57075253;
+		PlaylistMetadataRenderer playlist_metadata_renderer = 63173126;
+		HomeMetadataRenderer home_metadata_renderer = 85175861;
+		MusicAppMetadataRenderer music_app_metadata_renderer = 100625508;
+		ReplaylistMetadataRenderer replaylist_metadata_renderer = 206848708;
+	}
+}

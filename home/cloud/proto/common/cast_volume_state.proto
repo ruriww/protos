@@ -1,0 +1,10 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+option objc_class_prefix = "GHCC";
+
+message CastVolumeState {
+	bool is_muted = 1;
+	double level = 2;
+}

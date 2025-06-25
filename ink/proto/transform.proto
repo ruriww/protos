@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ink.proto;
+
+option objc_class_prefix = "INKPB";
+
+message Transform {
+	float c = 1 [ default = 0e0 ];
+	float f = 2 [ default = 0e0 ];
+	float a = 3 [ default = 1 ];
+	float e = 4 [ default = 1 ];
+	float b = 6 [ default = 0e0 ];
+	float d = 7 [ default = 0e0 ];
+	float g = 8 [ default = 0e0 ];
+	float h = 9 [ default = 0e0 ];
+	float i = 10 [ default = 1 ];
+}

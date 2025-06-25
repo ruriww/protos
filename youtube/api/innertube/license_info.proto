@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LicenseInfo {
+	enum DrmFamily {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		FLASHACCESS = 1;
+		WIDEVINE_CLASSIC = 2;
+		FAIRPLAY = 6;
+		CLEARKEY = 3;
+		WIDEVINE = 4;
+		PLAYREADY = 5;
+	}
+
+	DrmFamily drm_family = 1;
+	string url = 2;
+	string drm_params = 3;
+}

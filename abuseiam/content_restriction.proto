@@ -1,0 +1,12 @@
+edition = "2023";
+
+package abuseiam;
+
+import "abuseiam/verdict.proto";
+
+option objc_class_prefix = "AIA";
+
+message ContentRestriction {
+	repeated Verdict admin_verdict = 1;
+	repeated Verdict user_verdict = 2;
+}

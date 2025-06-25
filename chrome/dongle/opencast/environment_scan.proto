@@ -1,0 +1,13 @@
+edition = "2023";
+
+package chrome.dongle.opencast;
+
+import "chrome/dongle/opencast/wifi_access_point.proto";
+import "chrome/dongle/opencast/visible_ble_token.proto";
+
+option objc_class_prefix = "GCKOC";
+
+message EnvironmentScan {
+	repeated WifiAccessPoint wifi_access_point = 2;
+	repeated VisibleBleToken ble_tokens = 3;
+}

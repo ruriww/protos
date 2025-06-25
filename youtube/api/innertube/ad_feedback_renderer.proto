@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/ad_feedback_reason.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdFeedbackRenderer {
+	FormattedString title = 1;
+	FormattedString confirm_label = 2;
+	FormattedString cancel_label = 3;
+	repeated AdFeedbackReason reasons = 4;
+	FormattedString completion_message = 5;
+	bytes tracking_params = 6;
+	Command cancel_endpoint = 7;
+	Command impression_endpoint = 8;
+	Renderer cancel_renderer = 10;
+	Renderer undo_renderer = 12;
+	FormattedString reasons_title = 13;
+}
+
+extend Renderer {
+	AdFeedbackRenderer ad_feedback_renderer = 79214810;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package moneta.orchestration.ui.genericselector;
+
+import "moneta/orchestration/ui/common/ui_error.proto";
+import "moneta/orchestration/ui/common/response_context.proto";
+import "moneta/orchestration/ui/common/generic/flow_instruction.proto";
+import "moneta/orchestration/ui/genericselector/page.proto";
+import "moneta/orchestration/ui/common/integrator_callback_data.proto";
+
+option objc_class_prefix = "GenericSelector";
+
+message SubmitResponse {
+	common.UiError error = 1;
+	common.ResponseContext context = 2;
+	common.generic.FlowInstruction flow_instruction = 3;
+	int64 address_id = 4;
+	Page next_page = 5;
+	common.IntegratorCallbackData callback_data = 6;
+}

@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "video_streaming/format_id.proto";
+import "youtube/api/innertube/transfer_state.proto";
+import "youtube/api/innertube/transfer_failure_reason.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message OfflinedVideoRefreshData {
+	int64 last_player_response_timestamp_seconds = 1;
+	string offline_token = 2;
+	int64 last_stream_download_timestamp_seconds = 3;
+	bool missing_media = 4;
+	repeated video_streaming.FormatId format_ids = 5;
+	bool is_missing_transfer_entity = 6;
+	TransferState transfer_state = 7;
+	TransferFailureReason transfer_failure_reason = 8;
+}

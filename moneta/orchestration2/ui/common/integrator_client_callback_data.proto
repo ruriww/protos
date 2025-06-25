@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+option objc_class_prefix = "ORCH2";
+
+message IntegratorClientCallbackData {
+	oneof callback_data {
+		bytes proto = 1;
+		string jspb = 3;
+		string base64_encoded = 5;
+	}
+
+	int32 extension_field_number = 4;
+
+	extensions 10 to max;
+}

@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.collapsible;
+
+import "moneta/orchestration2/ui/common/data/data.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CollapsibleGroupingData {
+	extend data.Data {
+		CollapsibleGroupingData collapsible_grouping_data_extension = 248595894;
+	}
+
+	enum CollapsingBehavior {
+		option features.enum_type = CLOSED;
+
+		COLLAPSING_BEHAVIOR_UNKNOWN = 0;
+		COLLAPSING_BEHAVIOR_ALL_TOGETHER = 1;
+		COLLAPSING_BEHAVIOR_ONE_EXPANDED_UNLESS_INVALID = 2;
+	}
+
+	CollapsingBehavior collapsing_behavior = 1;
+	repeated int64 child_data_reference = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

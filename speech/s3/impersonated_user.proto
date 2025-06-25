@@ -1,0 +1,20 @@
+edition = "2023";
+
+package speech.s3;
+
+option objc_class_prefix = "S3";
+
+message ImpersonatedUser {
+	enum ImpersonationType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_IMPERSONATION_TYPE = 0;
+		CHILD_IMPERSONATION = 1;
+		PLUS_PAGE = 2;
+		SUPERVISED_ACCOUNT_IMPERSONATION = 3;
+	}
+
+	ImpersonationType impersonation_type = 1;
+	bool force_primary = 2;
+	string impersonated_gaia_id = 3;
+}

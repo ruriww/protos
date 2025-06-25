@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/creator_heart_color_supported_datas.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/creator_heart_hint_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CreatorHeartRenderer {
+	ThumbnailDetails creator_thumbnail = 1;
+	Icon heart_icon = 2;
+	CreatorHeartColorSupportedDatas heart_color = 3;
+	string hearted_tooltip = 4;
+	bool is_hearted = 5;
+	bool is_enabled = 6;
+	Command heart_endpoint = 7;
+	Command unheart_endpoint = 8;
+	AccessibilitySupportedDatas hearted_accessibility = 9;
+	AccessibilitySupportedDatas unhearted_accessibility = 10;
+	string kennedy_heart_color_string = 11;
+	CreatorHeartHintSupportedRenderers hint = 12;
+	string unhearted_tooltip = 13;
+	FormattedString hearted_label = 14;
+	FormattedString unhearted_label = 15;
+	Command disabled_endpoint = 17;
+}
+
+extend Renderer {
+	CreatorHeartRenderer creator_heart_renderer = 128905810;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+enum PoseCoordinateSpace {
+	option features.enum_type = CLOSED;
+
+	PARENT_DEFAULT = 0;
+	PARENT_Y_GRAVITY_ALIGNED = 1;
+}

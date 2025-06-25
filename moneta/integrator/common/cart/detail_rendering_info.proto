@@ -1,0 +1,21 @@
+edition = "2023";
+
+package moneta.integrator.common.cart;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "OrchCart";
+
+message DetailRenderingInfo {
+	string localized_description = 1;
+
+	oneof amount_description {
+		string alternative_display_amount = 2;
+	}
+
+	int64 start_date_millis = 4;
+	webutil.html.types.SafeHtmlProto localized_description_html = 5;
+	bool render_subscriptions_as_multiple_line_items = 9;
+
+	extensions 10000 to max;
+}

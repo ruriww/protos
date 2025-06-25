@@ -1,0 +1,39 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ad_video_progress_command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoInteractionsAndProgressCommands {
+	repeated Command impression_commands = 1;
+	repeated Command error_commands = 2;
+	repeated Command mute_commands = 3;
+	repeated Command unmute_commands = 4;
+	repeated Command pause_commands = 5;
+	repeated Command rewind_commands = 6;
+	repeated Command resume_commands = 7;
+	repeated Command skip_commands = 8;
+	repeated Command close_commands = 9;
+	repeated AdVideoProgressCommand progress_commands = 10;
+	repeated Command clickthrough_commands = 11;
+	repeated Command fullscreen_commands = 12;
+	repeated Command active_view_viewable_commands = 13;
+	repeated Command active_view_measurable_commands = 14;
+	repeated Command active_view_fully_viewable_audible_half_duration_commands = 15;
+	repeated Command end_fullscreen_commands = 16;
+	repeated Command channel_clickthrough_commands = 17;
+	repeated Command abandon_commands = 18;
+	repeated Command instream_ad_complete_commands = 19;
+	repeated Command enters_player_state_normal_commands = 20;
+	repeated Command enters_player_state_mini_commands = 21;
+	repeated Command survey_video_dismiss_commands = 22;
+	repeated Command fullscreen_skip_commands = 24;
+	repeated Command default_player_skip_commands = 25;
+	repeated Command default_player_instream_ad_complete_commands = 26;
+}

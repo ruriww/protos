@@ -1,0 +1,47 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HamplayerABRConfig {
+	float downshift_scalar = 1;
+	float downshift_constant = 2;
+	float upshift_scalar = 3;
+	float upshift_constant = 4;
+	float oversend_factor = 5;
+	repeated int32 auto_quality_excluded_itags = 6 [ features.repeated_field_encoding = EXPANDED ];
+	int32 max_downshift_readahead_ms = 7;
+	int32 min_upshift_readahead_ms = 8;
+	bool upshift_replace_media = 9;
+	int32 local_max_bitrate_readahead = 10;
+	int32 buffer_target_readahead = 11;
+	int64 buffer_max_size_bytes = 12;
+	int32 buffer_trim_behind = 13;
+	int32 buffer_trim_ahead = 14;
+	int32 max_chunks_per_request = 15;
+	int32 min_readahead_for_average_bitrate = 16;
+	bool load_extra_formats = 17;
+	int32 sync_readahead = 18;
+	int32 stun_duration = 19;
+	bool use_high_replication_formats_while_stunned = 20;
+	int32 max_consecutive_errors = 21;
+	bool upshift_replace_chunks_in_place = 22;
+	int32 min_upshift_replace_chunks_readahead_ms = 23;
+	bool sticky_ceiling_overrides_viewport_size = 24;
+	int32 max_media_seconds_per_request = 25;
+	bool enforce_min_upshift_readahead = 26;
+	bool fix_min_upshift_time = 27;
+	bool enable_hfr_filtering = 28;
+	int64 low_memory_warn_buffer_size_bytes = 29;
+	int64 low_memory_critical_buffer_size_bytes = 30;
+	int64 low_memory_buffer_size_cool_down_ms = 31;
+	bool enable_client_abr_state = 32;
+	bool disable_hdr_in_low_power_mode = 33;
+	float hpq_oversend_factor = 34;
+	bool observe_network_active_controller = 36;
+	bool enable_onesie_media_promise = 37;
+}

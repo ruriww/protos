@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+option objc_class_prefix = "ORCH2";
+
+enum FlexJustification {
+	option features.enum_type = CLOSED;
+
+	FLEX_JUSTIFICATION_UNKNOWN = 0;
+	FLEX_JUSTIFICATION_AUTO = 1;
+	FLEX_JUSTIFICATION_START = 2;
+	FLEX_JUSTIFICATION_END = 3;
+	FLEX_JUSTIFICATION_CENTER = 4;
+	FLEX_JUSTIFICATION_STRETCH = 5;
+	FLEX_JUSTIFICATION_SPACE_AROUND = 6;
+	FLEX_JUSTIFICATION_SPACE_BETWEEN = 7;
+}

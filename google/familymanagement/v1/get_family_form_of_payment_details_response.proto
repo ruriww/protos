@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyFormOfPaymentDetailsResponse {
+	ApiResponseHeader api_header = 1;
+	bool has_family_form_of_payment = 2;
+	string description = 3;
+	string logo_url = 4;
+}

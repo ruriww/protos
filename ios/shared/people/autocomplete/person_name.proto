@@ -1,0 +1,17 @@
+edition = "2023";
+
+package ios.shared.people.autocomplete;
+
+import "ios/shared/people/autocomplete/person_field_metadata.proto";
+import "ios/shared/people/autocomplete/string_token.proto";
+import "ios/shared/people/autocomplete/person_structured_name.proto";
+
+option objc_class_prefix = "PDL";
+
+message PersonName {
+	PersonFieldMetadata metadata = 1;
+	string display_name = 2;
+	repeated StringToken value_subtokens = 100;
+	PersonStructuredName structured_display_name = 101;
+	PersonStructuredName structured_yomi_name = 102;
+}

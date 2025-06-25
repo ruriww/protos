@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message IosOnesieHotConfig {
+	bool parse_init_data = 1;
+	bool early_codec_init = 2;
+	bool log_bandwidth_to_qoe = 6;
+	bool use_context_viewport_size = 7;
+	bool disable_player_service_fallback = 8;
+	bool allow_flexible_viewport = 9;
+	bool disable_min_viewport = 10;
+	bool bypass_onesie_for_offlined_videos = 11;
+	int32 prewarm_connection_ack_count = 12;
+	int32 prewarm_connection_media_server_hostname_count = 13;
+	bool use_server_audio_quality_filtering = 14;
+	bool no_send_network_parameters = 15;
+	bool register_host_provider_as_network_completion_observer = 16;
+	bool use_new_connection_opener = 17;
+	bool prepare_audio_decoder = 18;
+	bool prepare_video_decoder = 19;
+	bool allow_multiple_media_chunks = 20;
+	bool onesie_use_format_selection_config = 21;
+	bool use_enabled_track_types = 22;
+	bool record_onesie_csi_pings = 23;
+	bool support_multiple_onesie_data = 24;
+	int32 max_onesie_data_count = 25;
+	bool skip_sending_itag_allowlists = 26;
+	bool cancel_prev_onesie_request_for_non_prebuffer = 27;
+	bool deprecate_media_header_format_fields_use_format_id = 28;
+}

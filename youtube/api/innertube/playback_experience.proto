@@ -1,0 +1,25 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PlaybackExperience {
+	option features.enum_type = CLOSED;
+
+	VIS_DEFAULT = 0;
+	VIS_MINIMIZED = 1;
+	VIS_FULLSCREEN = 2;
+	VIS_BACKGROUND = 3;
+	VIS_AIRPLAY = 4;
+	VIS_INLINE = 5;
+	VIS_VR = 6;
+	VIS_PICTURE_IN_PICTURE = 7;
+	VIS_IMMERSIVE_PREVIEW = 8;
+	VIS_SQUEEZEBACK = 9;
+	VIS_THEATER = 10;
+	VIS_INVALID = 31;
+}

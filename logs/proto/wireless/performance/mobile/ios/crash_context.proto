@@ -1,0 +1,30 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+import "logs/proto/wireless/performance/mobile/ios/playback.proto";
+import "logs/proto/wireless/performance/mobile/ios/elements.proto";
+import "logs/proto/wireless/performance/mobile/ios/data_push.proto";
+import "logs/proto/wireless/performance/mobile/ios/offline.proto";
+import "logs/proto/wireless/performance/mobile/ios/stall.proto";
+import "logs/proto/wireless/performance/mobile/ios/effect.proto";
+import "logs/proto/wireless/performance/mobile/ios/feeds_ui.proto";
+import "logs/proto/wireless/performance/mobile/ios/interaction_logging.proto";
+import "youtube/api/innertube/mini_app_context.proto";
+
+option objc_class_prefix = "PRM";
+
+message CrashContext {
+	uint64 cj = 1;
+	string last_innertube_response = 2;
+	Playback playback = 3;
+	Elements elements = 4;
+	DataPush data_push = 5;
+	Offline offline = 6;
+	Stall stall = 7;
+	Effect effect = 8;
+	FeedsUI feeds_ui = 9;
+	InteractionLogging interaction_logging = 10;
+	youtube.api.innertube.MiniAppContext mini_app_context = 11;
+	bool app_launched_in_background = 12;
+}

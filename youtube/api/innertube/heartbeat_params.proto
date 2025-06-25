@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/heartbeat_attestation_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HeartbeatParams {
+	string heartbeat_token = 1;
+	int64 interval_milliseconds = 2;
+	int64 max_retries = 3;
+	string drm_session_id = 5;
+	bool soft_fail_on_error = 6;
+	bool use_innertube_heartbeats_for_drm = 7;
+	bytes heartbeat_server_data = 8;
+	HeartbeatAttestationConfig heartbeat_attestation_config = 9;
+}

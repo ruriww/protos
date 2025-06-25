@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.integrator.common.buyflow;
+
+import "moneta/integrator/common/buyflow/evaluated_promo_code_params.proto";
+import "moneta/integrator/common/buyflow/promo_code_ui_customization.proto";
+
+option objc_class_prefix = "Buyflow";
+
+message PromoCodeParameters {
+	repeated EvaluatedPromoCodeParams evaluated_promo_code_params = 1;
+	PromoCodeUiCustomization promo_code_ui_customization = 4;
+}

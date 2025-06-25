@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PrivacyTosFooterRenderer {
+	FormattedString privacy_title = 1;
+	FormattedString tos_title = 2;
+	Renderer footer = 3;
+	Command privacy_command = 4;
+	Command tos_command = 5;
+}
+
+extend Renderer {
+	PrivacyTosFooterRenderer privacy_tos_footer_renderer = 242554289;
+}

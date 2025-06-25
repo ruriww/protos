@@ -1,0 +1,20 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/ui_element.proto";
+import "quality_genie/eyes/filter_type.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message PresentationLogData {
+	int32 page_vertical = 1;
+	repeated UiElement ui_element = 2;
+	bool is_failure_response = 4;
+	quality_genie.eyes.FilterType filter_type = 5;
+	string app_id = 7;
+	repeated int32 image_lvs_category = 10 [ features.repeated_field_encoding = EXPANDED ];
+	bytes client_lens_query_id = 11;
+	bool can_onelrp_trigger = 13;
+	bool is_ads_counterfactual = 15;
+}

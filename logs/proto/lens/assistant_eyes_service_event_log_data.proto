@@ -1,0 +1,61 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/image.proto";
+import "logs/proto/lens/vertical.proto";
+import "logs/proto/lens/text_recognition_log_data.proto";
+import "logs/proto/lens/lens_ios_enums.proto";
+import "logs/proto/lens/presentation_log_data.proto";
+import "logs/proto/lens/server_latency_log_data.proto";
+import "wireless_android_play_playlog/lens_user_selection.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message AssistantEyesServiceEventLogData {
+	enum AssistantEyesServiceEventContext {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ASSISTANT_EYES_SERVICE_EVENT_CONTEXT = 0;
+		IMAGE_UPLOAD = 1;
+		FIRST_RESPONSE = 2;
+		COMPLETION_RESPONSE = 3;
+		PREFETCH_REQUEST_SUCCESS = 4;
+		PREFETCH_REQUEST_FAILURE = 5;
+		FINAL_REQUEST_SUCCESS = 6;
+		FINAL_REQUEST_FAILURE = 7;
+		PREFETCH_REQUEST_SENT = 8;
+		FINAL_REQUEST_SENT = 9;
+		VIDEO_FRAME_UPLOAD_REQUEST_SENT = 10;
+		VIDEO_FRAME_UPLOAD_REQUEST_SUCCESS = 11;
+		VIDEO_FRAME_UPLOAD_REQUEST_FAILURE = 12;
+		VISUAL_SUGGEST_PREFETCH_REQUEST_SENT = 13;
+		VISUAL_SUGGEST_PREFETCH_REQUEST_SUCCESS = 14;
+		VISUAL_SUGGEST_PREFETCH_REQUEST_FAILURE = 15;
+		MEDIA_STREAMING_REQUEST_SENT = 16;
+		MEDIA_STREAMING_REQUEST_SUCCESS = 17;
+		MEDIA_STREAMING_REQUEST_FAILURE = 18;
+	}
+
+	AssistantEyesServiceEventContext assistant_eyes_service_event_context = 1;
+	Image source_image = 2;
+	int32 first_response_time_ms = 3;
+	int32 total_response_time_ms = 4;
+	int32 first_detection_time_ms = 5;
+	int32 first_text_detection_time_ms = 6;
+	repeated Vertical lens_result_verticals = 7 [ features.repeated_field_encoding = EXPANDED ];
+	TextRecognitionLogData text_recognition_log_data = 8;
+	int32 detected_objects_count = 9;
+	int32 gleaming_objects_count = 10;
+	LensIosEnums.NetworkReachabilityStatus reachability_status = 11;
+	int32 full_request_size = 12;
+	LensIosEnums.FailureReason failure_reason = 13;
+	int32 menu_item_objects_count = 14;
+	PresentationLogData presentation_log_data = 15;
+	ServerLatencyLogData server_latency_log_data = 16;
+	int32 image_encoding_latency_ms = 17;
+	int32 prefetch_index = 18;
+	int32 grpc_error_code = 19;
+	wireless_android_play_playlog.LensUserSelection user_selection = 20;
+	int32 http_error_code = 21;
+}

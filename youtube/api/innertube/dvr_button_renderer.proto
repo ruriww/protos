@@ -1,0 +1,51 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/hint_supported_renderers.proto";
+import "youtube/api/innertube/undvr_button_type.proto";
+import "youtube/api/innertube/dvr_button_style.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DvrButtonRenderer {
+	bool dvr_on = 1;
+	Icon dvr_on_icon = 2;
+	Icon dvr_off_icon = 3;
+	repeated Command service_endpoints = 4;
+	bytes tracking_params = 6;
+	bool dvr_on_and_recording = 7;
+	MenuSupportedRenderers stop_dvr_menu = 8;
+	FormattedString dvr_toast_text = 9;
+	FormattedString undvr_toast_text = 10;
+	HintSupportedRenderers hint = 11;
+	UndvrButtonType undvr_button_type = 12;
+	bool is_disabled = 14;
+	FormattedString dvr_on_text = 15;
+	Command sports_dvr_endpoint = 16;
+	FormattedString dvr_off_text = 17;
+	Command disabled_endpoint = 18;
+
+	message ClientStateSyncData {
+		repeated string entity_ids_for_state_sync = 1;
+		repeated string entity_keys_for_state_sync = 2;
+	}
+
+	ClientStateSyncData client_state_sync_data = 19;
+	DvrButtonStyle dvr_button_style = 20;
+	AccessibilitySupportedDatas dvr_on_accessibility = 21;
+	AccessibilitySupportedDatas dvr_off_accessibility = 22;
+}
+
+extend Renderer {
+	DvrButtonRenderer dvr_button_renderer = 121336944;
+}

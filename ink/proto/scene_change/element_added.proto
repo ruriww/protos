@@ -1,0 +1,26 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+import "ink/proto/stroke_outline.proto";
+import "ink/proto/element_mesh.proto";
+import "ink/proto/tool_params.proto";
+import "ink/proto/element_attributes.proto";
+import "ink/proto/rect.proto";
+import "ink/proto/coded_stroke_input_batch.proto";
+
+option objc_class_prefix = "INKPB";
+
+message ElementAdded {
+	string uuid = 1;
+	string layer_uuid = 2;
+	repeated float stroke_x = 3;
+	repeated float stroke_y = 4;
+	repeated float stroke_t_sec = 5;
+	StrokeOutline outline = 6;
+	ElementMesh mesh = 7;
+	ToolParams tool_params = 8;
+	ElementAttributes attributes = 9;
+	Rect world_bounds = 10;
+	CodedStrokeInputBatch coded_stroke_input_batch = 11;
+}

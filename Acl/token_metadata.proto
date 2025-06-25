@@ -1,0 +1,12 @@
+edition = "2023";
+
+package Acl;
+
+import "Acl/keystore_wrapped_key.proto";
+
+option objc_class_prefix = "ACL";
+
+message TokenMetadata {
+	bytes HmacSha1 = 1;
+	repeated KeystoreWrappedKey WrappedKey = 2;
+}

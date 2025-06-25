@@ -1,0 +1,21 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message DeviceStatus {
+	bool is_unmetered = 1;
+	bool is_charging = 2;
+
+	enum AutomaticTime {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		AUTO_TIME_OFF = 1;
+		AUTO_TIME_ON = 2;
+	}
+
+	AutomaticTime auto_time_status = 3;
+	bool is_googler_device = 4;
+}

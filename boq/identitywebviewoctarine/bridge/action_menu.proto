@@ -1,0 +1,11 @@
+edition = "2023";
+
+package boq.identitywebviewoctarine.bridge;
+
+import "boq/identitywebviewoctarine/bridge/action_item.proto";
+
+option objc_class_prefix = "OCT";
+
+message ActionMenu {
+	repeated ActionItem items = 1;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.watch;
+
+import "youtube/api/innertube/player_layout_state.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlayerLayoutStateResult {
+	youtube.api.innertube.PlayerLayoutState player_layout_state = 1;
+}

@@ -1,0 +1,20 @@
+edition = "2023";
+
+package assistant.api.core_types;
+
+option objc_class_prefix = "ASTCT";
+
+message CastDevice {
+	enum CastDeviceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		CHROMECAST = 1;
+		AUDIOCAST = 2;
+		CHIRP = 3;
+	}
+
+	CastDeviceType cast_device_type = 1;
+	string human_friendly_name = 2;
+	string device_id = 3;
+}

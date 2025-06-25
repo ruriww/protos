@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.utils.visibility;
+
+import "youtube/utils/visibility/visibility_conditions.proto";
+
+option objc_class_prefix = "YTIV";
+
+message VisibilityDimensionCondition {
+	extend VisibilityConditions {
+		VisibilityDimensionCondition visibility_dimension_condition = 2;
+	}
+
+	uint32 horizontal_percentage = 1;
+	uint32 vertical_percentage = 2;
+}

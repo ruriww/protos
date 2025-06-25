@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.elements.queries;
+
+import "youtube/elements/queries/field_value_edge.proto";
+import "youtube/elements/queries/error.proto";
+
+option java_package = "com.google.protos.youtube.elements.queries";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMQY";
+
+message GetPaginatedDataResponse {
+	repeated FieldValueEdge response = 1;
+	repeated Error errors = 3;
+}

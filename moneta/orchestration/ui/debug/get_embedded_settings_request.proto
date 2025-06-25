@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.debug;
+
+import "moneta/orchestration/ui/common/request_context.proto";
+import "moneta/orchestration/ui/embeddedsettings/internal_embedded_settings_parameters.proto";
+
+option objc_class_prefix = "OrchDebug";
+
+message GetEmbeddedSettingsRequest {
+	common.RequestContext context = 1;
+	embeddedsettings.InternalEmbeddedSettingsParameters parameters = 2;
+}

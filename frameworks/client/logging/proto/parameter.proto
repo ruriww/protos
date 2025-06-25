@@ -1,0 +1,10 @@
+edition = "2023";
+
+package frameworks.client.logging.proto;
+
+option objc_class_prefix = "CLI";
+
+message Parameter {
+	uint32 index = 1;
+	string value = 2;
+}

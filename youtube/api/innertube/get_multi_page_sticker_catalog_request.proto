@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/video_effects_request_client_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetMultiPageStickerCatalogRequest {
+	InnerTubeContext context = 1;
+	uint32 sticker_page_number = 2;
+	string continuation = 3;
+	bool get_default_page = 5;
+	VideoEffectsRequestClientType client_type = 6;
+}

@@ -1,0 +1,36 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/sfv_effect_client.proto";
+import "youtube/api/innertube/media_engine_error_type.proto";
+import "youtube/api/innertube/mde_media_composition.proto";
+import "youtube/api/innertube/mde_player.proto";
+import "youtube/api/innertube/mde_exporter.proto";
+import "youtube/api/innertube/mde_device_info.proto";
+import "youtube/api/innertube/mde_preprocessor.proto";
+import "youtube/api/innertube/sfv_effect_surface.proto";
+import "youtube/api/innertube/mde_memory_pressure_stats.proto";
+import "youtube/api/innertube/mde_debug_info.proto";
+import "youtube/api/innertube/mde_cache_downloader.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MediaEngineMetadata {
+	SfvEffectClient client = 1;
+	MediaEngineErrorType mde_error_type = 2;
+	string upload_id = 3;
+	repeated MdeMediaComposition composition = 4;
+	MdePlayer player = 5;
+	MdeExporter exporter = 6;
+	string project_id = 7;
+	MdeDeviceInfo device_info = 8;
+	MdePreprocessor preprocessor = 9;
+	SfvEffectSurface client_surface = 10;
+	MdeMemoryPressureStats memory_pressure_stats = 11;
+	MdeDebugInfo debug_info = 12;
+	MdeCacheDownloader cache_downloader = 13;
+}

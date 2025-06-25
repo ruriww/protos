@@ -1,0 +1,16 @@
+edition = "2023";
+
+package lens.text.portable.inpainting;
+
+import "lens/center_rotated_box.proto";
+import "lens/text/portable/inpainting/line_background.proto";
+
+option objc_class_prefix = "LNSINP";
+
+message InpaintedLine {
+	uint32 paragraph_index = 1;
+	uint32 line_in_paragraph_index = 2;
+	CenterRotatedBox annotated_bounding_box = 3;
+	LineBackground line_background = 4;
+	uint64 line_id = 5;
+}

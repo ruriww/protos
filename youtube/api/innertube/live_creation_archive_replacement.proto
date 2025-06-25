@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/live_creation_context.proto";
+import "youtube/api/innertube/live_creation_archive_replacement_status.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveCreationArchiveReplacement {
+	LiveCreationContext live_creation_context = 1;
+	uint64 live_archive_duration_ms = 2;
+	uint64 local_archive_duration_ms = 3;
+	LiveCreationArchiveReplacementStatus status = 4;
+	uint64 live_archive_size_bytes = 5;
+	uint64 local_archive_size_bytes = 6;
+	uint64 free_storage_bytes = 7;
+	uint32 continuous_video_segments = 8;
+	uint32 local_archive_bitrate = 9;
+	uint32 local_archive_width = 10;
+	uint32 local_archive_height = 11;
+	uint64 initial_free_storage_bytes = 12;
+}

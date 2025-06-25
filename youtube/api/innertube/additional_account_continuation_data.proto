@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/continuation_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdditionalAccountContinuationData {
+	extend ContinuationData {
+		AdditionalAccountContinuationData additional_account_continuation_data = 76807672;
+	}
+
+	bool hack = 1;
+	string token = 2;
+	bytes tracking_params = 3;
+	string continuation = 4;
+}

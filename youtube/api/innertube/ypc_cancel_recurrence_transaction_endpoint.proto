@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/ypc_survey_feedback_data.proto";
+import "youtube/api/innertube/command_life_cycle_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message YPCCancelRecurrenceTransactionEndpoint {
+	extend Command {
+		YPCCancelRecurrenceTransactionEndpoint ypc_cancel_recurrence_endpoint = 88642421;
+	}
+
+	string params = 1;
+	YPCSurveyFeedbackData feedback_data = 2;
+	bytes serialized_ypc_cancel_flow_logging_params = 3;
+	string cancel_params = 4;
+	CommandLifeCycleConfig command_life_cycle_config = 5;
+}

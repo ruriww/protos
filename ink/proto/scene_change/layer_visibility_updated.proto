@@ -1,0 +1,10 @@
+edition = "2023";
+
+package ink.proto.scene_change;
+
+option objc_class_prefix = "INKPB";
+
+message LayerVisibilityUpdated {
+	string uuid = 1;
+	bool visible = 2;
+}

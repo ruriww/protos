@@ -1,0 +1,33 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/widgetreference/widget_reference.proto";
+import "moneta/orchestration/ui/common/widgetreference/place_name_enum.proto";
+import "moneta/orchestration/ui/common/widgetreference/load_target.proto";
+
+option objc_class_prefix = "Orch";
+
+message Link {
+	int64 ui_reference = 1;
+	generic.InfoMessage display_text = 2;
+	widgetreference.WidgetReference widget_reference = 3;
+	widgetreference.PlaceNameEnum.PlaceName place_name = 7;
+	bool disabled = 8;
+
+	enum LinkType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_LINK_TYPE = 0;
+		PRIMARY_BUTTON = 1;
+		SECONDARY_BUTTON = 2;
+		ACTION_BAR_LINK = 3;
+		TEXT_LINK = 4;
+		INLINE_BUTTON = 5;
+	}
+
+	LinkType link_type = 9;
+	widgetreference.LoadTarget load_target = 10;
+	string log_key = 11;
+}

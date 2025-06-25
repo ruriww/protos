@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum OfflinePlayerRequestBehavior {
+	option features.enum_type = CLOSED;
+
+	OFFLINE_PLAYER_REQUEST_BEHAVIOR_UNKNOWN = 0;
+	OFFLINE_PLAYER_REQUEST_BEHAVIOR_ONLINE_ONLY = 1;
+	OFFLINE_PLAYER_REQUEST_BEHAVIOR_ONLINE_PRIORITIZED = 2;
+	OFFLINE_PLAYER_REQUEST_BEHAVIOR_OFFLINE_PRIORITIZED = 3;
+	OFFLINE_PLAYER_REQUEST_BEHAVIOR_OFFLINE_ONLY = 4;
+}

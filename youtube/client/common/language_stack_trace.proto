@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.client.common;
+
+import "youtube/client/common/js_stack.proto";
+import "youtube/client/common/cc_stack.proto";
+
+option objc_class_prefix = "YTC";
+
+message LanguageStackTrace {
+	oneof stack_trace {
+		JsStack js_stack = 1;
+		CcStack cc_stack = 3;
+	}
+}

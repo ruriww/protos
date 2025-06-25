@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/show_interstitial_action_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowInterstitialAction {
+	extend Command {
+		ShowInterstitialAction show_interstitial_action = 152165632;
+	}
+
+	ShowInterstitialActionSupportedRenderers item = 1;
+	bool enable_client_impression_throttling = 2;
+	bool disable_client_impression_throttling = 3;
+}

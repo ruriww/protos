@@ -1,0 +1,38 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/input/textinput/keyboard_layout.proto";
+import "moneta/orchestration2/ui/common/input/textinput/input_node_material_type.proto";
+import "moneta/orchestration2/ui/common/input/text_keyboard_layout_variations.proto";
+import "moneta/orchestration2/ui/common/input/number_keyboard_layout_variations.proto";
+import "moneta/orchestration2/ui/common/image/image_url_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TextInputNode {
+	extend node.Node {
+		TextInputNode text_input_node_extension = 64497341;
+	}
+
+	KeyboardLayout keyboard_layout = 1;
+	InputNodeMaterialType input_node_material_type = 3;
+
+	oneof keyboard_layout_variations {
+		TextKeyboardLayoutVariations text_keyboard_layout_variations = 4;
+		NumberKeyboardLayoutVariations number_keyboard_layout_variations = 5;
+	}
+
+	enum ContentType {
+		option features.enum_type = CLOSED;
+
+		CONTENT_TYPE_UNKNOWN = 0;
+		CONTENT_TYPE_ONE_TIME_CODE = 1;
+	}
+
+	ContentType content_type = 6;
+	node.Node autocomplete_template_node = 7;
+	image.ImageUrlOptions start_icon_fife_option = 8;
+	image.ImageUrlOptions end_icon_fife_option = 9;
+}

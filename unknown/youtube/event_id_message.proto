@@ -1,0 +1,17 @@
+edition = "2023";
+
+package unknown.youtube;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "EID";
+
+message EventIdMessage {
+	extend proto2.bridge.MessageSet {
+		EventIdMessage message_set_extension = 4156379;
+	}
+
+	int64 time_usec = 1;
+	fixed32 server_ip = 2;
+	fixed32 process_id = 3;
+}

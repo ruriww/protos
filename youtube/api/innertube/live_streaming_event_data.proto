@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/web_rtc_handshake_offer_event_data.proto";
+import "youtube/api/innertube/web_rtc_handshake_answer_event_data.proto";
+import "youtube/api/innertube/web_rtc_handshake_error_event_data.proto";
+import "youtube/api/innertube/costream_start_notification_event_data.proto";
+import "youtube/api/innertube/remote_participant_event_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveStreamingEventData {
+	WebRTCHandshakeOfferEventData webrtc_handshake_offer = 1;
+	WebRTCHandshakeAnswerEventData webrtc_handshake_answer = 2;
+	WebRTCHandshakeErrorEventData webrtc_handshake_error = 3;
+	CostreamStartNotificationEventData costream_start_notification = 4;
+	RemoteParticipantEventData remote_participant = 5;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package video.youtube.editing.mediaengine.protos;
+
+import "video/youtube/editing/mediaengine/protos/media_engine_player_state.proto";
+
+option objc_class_prefix = "MDE";
+
+message MdePlayer {
+	MediaEnginePlayerState state = 1;
+	int64 playback_position_time_ms = 2;
+}

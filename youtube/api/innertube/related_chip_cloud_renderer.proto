@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/related_chip_continuation_strategy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RelatedChipCloudRenderer {
+	Renderer content = 1;
+	RelatedChipContinuationStrategy continuation_strategy = 2;
+	string chip_selection_entity_key = 3;
+	bool show_prominent_chips = 4;
+}
+
+extend Renderer {
+	RelatedChipCloudRenderer related_chip_cloud_renderer = 188360221;
+}

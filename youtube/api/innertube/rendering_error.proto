@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/visual_element.proto";
+import "youtube/api/innertube/rendering_error_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RenderingError {
+	VisualElement visual_element = 1;
+	string client_screen_nonce = 2;
+	RenderingErrorType error_type = 3;
+	string model_type = 4;
+	int32 requested_index = 5;
+	int32 available_items = 6;
+	string view_hierarchy = 7;
+	string texture_error = 8;
+	string texture_description = 9;
+	string caller_details = 10;
+}

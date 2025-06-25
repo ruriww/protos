@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/with_google_plus_content_renderer.proto";
+import "youtube/api/innertube/create_channel_and_plus_profile_content_renderer.proto";
+import "youtube/api/innertube/create_core_identity_channel_content_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelCreationFormContentSupportedRenderers {
+	WithGooglePlusContentRenderer with_google_plus = 75328637;
+	CreateChannelAndPlusProfileContentRenderer create_channel_and_plus_profile = 86209186;
+	CreateCoreIdentityChannelContentRenderer create_core_identity_channel_content_renderer = 91428091;
+}

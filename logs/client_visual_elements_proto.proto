@@ -1,0 +1,24 @@
+edition = "2023";
+
+package logs;
+
+import "unknown/youtube/client_event_id_message.proto";
+import "logs/visual_element_lite_proto.proto";
+import "logs/client_request_context.proto";
+import "logs/visual_element_graft.proto";
+import "logs/visual_element_grafts.proto";
+import "logs/proto/core/core_event_metadata.proto";
+
+option objc_class_prefix = "LOG";
+
+message ClientVisualElementsProto {
+	unknown.youtube.ClientEventIdMessage event_id = 1;
+	repeated VisualElementLiteProto visual_elements = 2;
+	unknown.youtube.ClientEventIdMessage parent_event_id = 3;
+	ClientRequestContext request_context = 4;
+	VisualElementGraft.GraftType graft_type = 5;
+	string ephemeral_parent_event_id = 6;
+	VisualElementGrafts grafts = 7;
+	unknown.youtube.ClientEventIdMessage snapshot_parent_event_id = 8;
+	proto.core.CoreEventMetadata core_event_metadata = 9;
+}

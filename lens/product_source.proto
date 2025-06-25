@@ -1,0 +1,26 @@
+edition = "2023";
+
+package lens;
+
+option objc_class_prefix = "LNSAPI";
+
+message ProductSource {
+	enum ProductType {
+		UNKNOWN_PRODUCT_TYPE = 0;
+		PRODUCT_TYPE_BOOKS = 1;
+		PRODUCT_TYPE_GROCERY = 2;
+	}
+
+	ProductType type = 1;
+
+	enum EmbeddingSignalIdentifier {
+		UNKNOWN_EMBEDDING_SIGNAL = 0;
+		STARBURST_V5 = 1;
+	}
+
+	EmbeddingSignalIdentifier embedding_signal_identifier = 2;
+	string index_identifier = 3;
+	int32 top_matched_products_num = 4;
+	float embedding_distance_threshold_max = 5;
+	bool keep_all_if_any_thresholded_item = 6;
+}

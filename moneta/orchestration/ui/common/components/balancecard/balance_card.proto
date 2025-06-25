@@ -1,0 +1,34 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.balancecard;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/progressbar/progress_bar.proto";
+import "moneta/orchestration/ui/common/components/simple_form.proto";
+import "moneta/orchestration/ui/common/components/confirmation_dialog.proto";
+import "moneta/orchestration/ui/common/components/link.proto";
+import "moneta/orchestration/ui/common/generic/ui_field_grouping.proto";
+import "moneta/orchestration/ui/common/components/actionbar/action_bar.proto";
+
+option objc_class_prefix = "Orch";
+
+message BalanceCard {
+	int64 ui_reference = 1;
+	generic.InfoMessage title = 2;
+	generic.InfoMessage subtitle = 3;
+	string balance = 4;
+	repeated generic.InfoMessage account_detail = 5;
+	progressbar.ProgressBar progress_bar = 7;
+	repeated SimpleForm simple_form = 8;
+	repeated ConfirmationDialog confirmation_dialog = 9;
+	Link call_to_action = 10;
+	Link subtitle_link = 11;
+	generic.UiFieldGrouping subtitle_ui_field_grouping = 12;
+	repeated generic.InfoMessage additional_info = 13;
+	string balance_hint = 14;
+	generic.InfoMessage hint_for_balance = 15;
+	generic.InfoMessage threshold_payment_info = 16;
+	bool wrap_balance_text = 17;
+	generic.InfoMessage payment_warning_message = 19;
+	actionbar.ActionBar action_bar = 20;
+}

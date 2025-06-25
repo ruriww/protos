@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.embeddedsettings;
+
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+import "moneta/orchestration/ui/common/components/tax/tax_info_form_value.proto";
+import "moneta/orchestration/ui/common/components/dynamiclist/dynamic_list_value.proto";
+import "moneta/orchestration/ui/common/components/customerselector/customer_selector_value.proto";
+
+option objc_class_prefix = "EmbeddedSettings";
+
+message PageValue {
+	repeated common.components.SimpleFormValue simple_form_value = 1;
+	repeated common.components.tax.TaxInfoFormValue tax_info_value = 2;
+	bytes dependency_graph_action_token = 3;
+	repeated common.components.dynamiclist.DynamicListValue dynamic_list_value = 4;
+	repeated common.components.customerselector.CustomerSelectorValue customer_selector_value = 5;
+}

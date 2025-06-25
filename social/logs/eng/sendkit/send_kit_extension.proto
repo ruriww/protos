@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+import "social/logs/eng/sendkit/send_kit_visual_element_entry.proto";
+import "social/logs/eng/sendkit/send_kit_metrics_data_entry.proto";
+import "social/logs/eng/sendkit/send_kit_client_interface.proto";
+import "logs/proto/people_primitives/metadata.proto";
+
+option objc_class_prefix = "SLES";
+
+message SendKitExtension {
+	SendKitVisualElementEntry visual_element_entry = 1;
+	SendKitMetricsDataEntry metrics_data_entry = 2;
+	SendKitClientInterface client_interface = 3;
+	.logs.proto.people_primitives.Metadata metadata = 4;
+}

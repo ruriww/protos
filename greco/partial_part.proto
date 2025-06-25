@@ -1,0 +1,10 @@
+edition = "2023";
+
+package greco;
+
+option objc_class_prefix = "GRC";
+
+message PartialPart {
+	string text = 1;
+	double stability = 2;
+}

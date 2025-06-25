@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+option objc_class_prefix = "ORCH2";
+
+message SegmentedInputNodeProperties {
+	uint32 populated_underline_color_argb = 2;
+	uint32 empty_underline_color_argb = 3;
+}

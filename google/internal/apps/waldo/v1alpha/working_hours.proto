@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.apps.waldo.v1alpha;
+
+import "google/internal/apps/waldo/v1alpha/availability_period.proto";
+
+option objc_class_prefix = "APPSWALDO";
+
+message WorkingHours {
+	repeated AvailabilityPeriod available_time = 1;
+}

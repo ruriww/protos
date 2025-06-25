@@ -1,0 +1,21 @@
+edition = "2023";
+
+package google.internal.support.intelligence.moltron.v1.logging;
+
+option objc_class_prefix = "SIML";
+
+enum InteractionType {
+	option features.enum_type = CLOSED;
+
+	INTERACTION_TYPE_UNKNOWN = 0;
+	INTERACTION_TYPE_SHOWN = 1;
+	INTERACTION_TYPE_DISMISSED = 2;
+	INTERACTION_TYPE_CLICKED = 3;
+	INTERACTION_TYPE_VIEW_DURATION = 4;
+	INTERACTION_TYPE_SENTIMENT = 5;
+	INTERACTION_TYPE_CONTENT = 6;
+	INTERACTION_TYPE_APPROVED = 7;
+	INTERACTION_TYPE_DEMOTED = 8;
+	INTERACTION_TYPE_INPUT = 9;
+	INTERACTION_TYPE_HATS_SURVEY = 10;
+}

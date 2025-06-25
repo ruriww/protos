@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/container_signaling_aggregation_config.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GenericContainerEventTrackingHotConfig {
+	bool should_enable_generic_container_tracking = 1;
+	repeated ContainerSignalingAggregationConfig container_signaling_aggregation_config = 2;
+	int64 max_total_aggregation_size = 3;
+	int64 flush_total_size_percentage = 4;
+	bool should_enable_container_flush_per_request = 5;
+	bool should_enable_background_processing = 6;
+	bool should_enable_flush_all_containers = 7;
+}

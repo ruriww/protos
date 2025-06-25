@@ -1,0 +1,33 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+import "moneta/orchestration2/ui/common/eventrules/condition/condition.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/authorization_state_match_condition.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/loading_state_match_condition.proto";
+import "moneta/orchestration2/ui/common/functionaldata/redirect/intercepted_url_match_condition.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PaymentsWebDataCondition {
+	extend eventrules.condition.Condition {
+		PaymentsWebDataCondition payments_web_data_condition_extension = 370403088;
+	}
+
+	enum ConditionType {
+		option features.enum_type = CLOSED;
+
+		CONDITION_TYPE_UNKNOWN = 0;
+		CONDITION_TYPE_AUTHORIZATION_STATE_MATCH = 1;
+		CONDITION_TYPE_LOADING_STATE_MATCH = 2;
+		CONDITION_TYPE_INTERCEPTED_URL_MATCH = 3;
+	}
+
+	ConditionType condition_type = 1;
+
+	oneof condition {
+		AuthorizationStateMatchCondition authorization_state_match_condition = 4;
+		LoadingStateMatchCondition loading_state_match_condition = 5;
+		InterceptedUrlMatchCondition intercepted_url_match_condition = 6;
+	}
+}

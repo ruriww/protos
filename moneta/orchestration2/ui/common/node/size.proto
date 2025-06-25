@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/unit_size.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message Size {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		TYPE_UNKNOWN = 0;
+		TYPE_UNIT_BASED = 1;
+		TYPE_MATCH_PARENT = 2;
+		TYPE_WRAP_CONTENT = 3;
+		TYPE_CONTEXTUAL_AUTO = 4;
+	}
+
+	Type type = 1;
+	UnitSize unit_size = 2;
+}

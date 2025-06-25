@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/mobile_topbar_button_supported_renderers.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/topbar_logo_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MobileTopbarRenderer {
+	FormattedString placeholder_text = 1;
+	bytes tracking_params = 3;
+	repeated MobileTopbarButtonSupportedRenderers buttons = 4;
+	Icon logo = 5;
+	bool controls_cast_button = 6;
+	Command search_command = 7;
+	Renderer voice_search_button = 8;
+	TopbarLogoSupportedRenderers topbar_logo = 9;
+}
+
+extend Renderer {
+	MobileTopbarRenderer mobile_topbar_renderer = 123267149;
+}

@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message CorroborationLink {
+	string snippet = 1;
+	string title = 2;
+	string url = 3;
+	string favicon_url = 4;
+
+	message Thumbnail {
+		string image_src = 1;
+		string video_duration = 2;
+	}
+
+	Thumbnail thumbnail = 5;
+	int32 citation_index = 6;
+	string citation_key = 7;
+	string site_display_name = 8;
+}

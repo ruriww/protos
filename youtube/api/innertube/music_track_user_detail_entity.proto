@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/music_entity_like_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicTrackUserDetailEntity {
+	extend EntityMutationPayload {
+		MusicTrackUserDetailEntity music_track_user_detail = 30;
+	}
+
+	string id = 1;
+	string parent_track = 2;
+	bool in_library = 3;
+	MusicEntityLikeState like_state = 4;
+	bool allows_library_edit = 5;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum AudioQuality {
+	AUDIO_QUALITY_UNSPECIFIED = 0;
+	AUDIO_QUALITY_LOW = 1;
+	AUDIO_QUALITY_MEDIUM = 2;
+	AUDIO_QUALITY_HIGH = 3;
+}

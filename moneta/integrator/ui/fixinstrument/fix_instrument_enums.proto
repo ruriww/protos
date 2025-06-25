@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.integrator.ui.fixinstrument;
+
+option objc_class_prefix = "Orch";
+
+message FixInstrumentEnums {
+	enum FixInstrumentScenario {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		EDIT = 1;
+		EDIT_INSTRUMENT_NICKNAME = 10;
+		FIX_BILLING_ACCOUNT = 2;
+		FIX_INSTRUMENT = 3;
+		REFUND = 4;
+		REFUND_ADD_BANK_ACCOUNT = 11;
+		FIX_FUNDS_GUARANTEE = 6;
+		FIX_CUSTOMER_INFO = 7;
+		FIX_TERMS_AND_CONDITIONS = 8;
+		REMOVE_INSTRUMENT = 9;
+	}
+}

@@ -1,0 +1,17 @@
+edition = "2023";
+
+package footprints.transparencyandcontrol.proto;
+
+import "footprints/transparencyandcontrol/proto/setting_state.proto";
+import "footprints/transparencyandcontrol/proto/sample_activity_items.proto";
+import "footprints/transparencyandcontrol/proto/call_to_action.proto";
+import "footprints/transparencyandcontrol/proto/setting_state_error.proto";
+
+option objc_class_prefix = "FOOTC";
+
+message GetUserVisibleDataResponse {
+	repeated SettingState setting_state = 1;
+	repeated SampleActivityItems sample_activity_items = 2;
+	CallToAction visit_myactivity_cta = 3;
+	repeated SettingStateError setting_state_error = 4;
+}

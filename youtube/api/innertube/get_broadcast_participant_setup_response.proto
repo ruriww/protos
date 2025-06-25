@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/participant_join_state.proto";
+import "youtube/api/innertube/video_effects_settings.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetBroadcastParticipantSetupResponse {
+	ResponseContext response_context = 1;
+	repeated Renderer errors = 3;
+	Renderer join_screen = 4;
+	ParticipantJoinState new_state = 6;
+	Renderer stream_screen_renderer = 7;
+	Renderer livestream_ingestion_settings_renderer = 8;
+	string external_video_id = 9;
+	double pre_join_participant_scale = 10;
+	VideoEffectsSettings effects_settings = 11;
+	ThumbnailDetails avatar_thumbnail = 12;
+	FrameworkUpdateTransport framework_updates = 777;
+}

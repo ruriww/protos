@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message KidsAccountsSnapshot {
+	int32 valid_account_count = 1;
+	int32 red_account_count = 2;
+	int32 consented_account_count = 3;
+	int32 consented_red_account_count = 4;
+	bool is_parent_signed_in = 5;
+	bool is_red_signed_in = 6;
+	int32 unicorn_account_count = 7;
+	bool is_unicorn_signed_in = 8;
+	bool is_persona_signed_in = 9;
+	int32 active_profile_count = 10;
+	int32 griffin_account_count = 11;
+	bool is_griffin_signed_in = 12;
+	bool is_unicorn_light_profile_signed_in = 13;
+}

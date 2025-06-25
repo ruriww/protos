@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_effect_interface.proto";
+import "youtube/api/innertube/video_effects_config.proto";
+import "youtube/api/innertube/effect_subpackage.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoEffectsSettings {
+	repeated VideoEffectInterface effects = 1;
+	bytes kazoo_supergraph = 2;
+	repeated string new_asset_urls = 3;
+	repeated string obsolete_assets = 4;
+	VideoEffectsConfig video_effects_config = 6;
+	repeated string asset_base_urls = 7;
+	repeated EffectSubpackage effect_subpackages = 8;
+}

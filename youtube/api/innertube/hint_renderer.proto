@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/hint_content_supported_renderers.proto";
+import "youtube/api/innertube/hint_dismiss.proto";
+import "youtube/api/innertube/hint_suggested_position.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/hint_condition.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/bubble_hint_renderer.proto";
+import "youtube/api/innertube/hint_button_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message HintRenderer {
+	string hint_id = 1;
+	HintContentSupportedRenderers content = 2;
+	HintDismiss dismiss_strategy = 3;
+	int64 dwell_time_ms = 4;
+
+	message HintCap {
+		int64 frequency_cap_sec = 1;
+		int64 impression_cap = 2;
+	}
+
+	HintCap hint_cap = 5;
+	HintSuggestedPosition suggested_position = 6;
+	repeated Command impression_endpoints = 7;
+	HintCondition hint_condition = 8;
+	string promo_id = 9;
+	bytes tracking_params = 11;
+}
+
+extend Renderer {
+	HintRenderer hint_renderer = 102716411;
+}
+
+extend Renderer {
+	BubbleHintRenderer bubble_hint_renderer = 106514900;
+}
+
+extend Renderer {
+	HintButtonRenderer hint_button_renderer = 47244396;
+}

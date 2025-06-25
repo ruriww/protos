@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum MdxDialDeviceCacheMethod {
+	option features.enum_type = CLOSED;
+
+	MDX_DIAL_DEVICE_CACHE_METHOD_UNKNOWN = 0;
+	MDX_DIAL_DEVICE_CACHE_METHOD_SSID = 1;
+	MDX_DIAL_DEVICE_CACHE_METHOD_IP_V4_ADDRESS = 2;
+}

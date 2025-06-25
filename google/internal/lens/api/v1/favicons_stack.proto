@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+option objc_class_prefix = "LFE";
+
+message FaviconsStack {
+	int32 count = 1;
+	repeated string favicon_urls = 2;
+}

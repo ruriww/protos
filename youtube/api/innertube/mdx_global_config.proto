@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_global_platform_supported_configs.proto";
+import "youtube/api/innertube/mdx_whitelisting_supported_configs.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxGlobalConfig {
+	uint32 api_version = 1;
+	string cast_app_id = 2;
+	bool cast_enabled = 3;
+	repeated string capabilities = 5;
+	MdxGlobalPlatformSupportedConfigs platform_config = 6;
+	MdxWhitelistingSupportedConfigs whitelisting = 7;
+	repeated string experiments = 8;
+}

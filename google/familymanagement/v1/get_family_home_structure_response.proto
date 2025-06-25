@@ -1,0 +1,22 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/family_home_structure.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyHomeStructureResponse {
+	enum Status {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		SUCCESS = 1;
+		NOT_LINKED = 2;
+		UNAUTHORIZED = 3;
+	}
+
+	Status status = 1;
+	FamilyHomeStructure linked_structure = 3;
+	repeated FamilyHomeStructure structure_list = 4;
+}

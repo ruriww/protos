@@ -1,0 +1,74 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/playlist_panel_video_offlineability_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_badge_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/playlist_panel_video_swipe_to_reveal_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/main_app_compact_renderer_style.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/lightsource_color_palette_data.proto";
+import "youtube/api/innertube/custom_click_behavior.proto";
+import "youtube/api/innertube/custom_row_action.proto";
+import "youtube/api/innertube/video_music_attributes.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistPanelVideoRenderer {
+	FormattedString title = 1;
+	FormattedString long_byline_text = 2;
+	ThumbnailDetails thumbnail = 3;
+	FormattedString length_text = 4;
+	FormattedString index_text = 5;
+	bool selected = 6;
+	Command navigation_endpoint = 7;
+	FormattedString view_count_text = 8;
+	FormattedString unplayable_text = 9;
+	string video_id = 10;
+	FormattedString short_byline_text = 12;
+	repeated BadgeSupportedRenderers badges = 13;
+	PlaylistPanelVideoOfflineabilitySupportedRenderers offlineability = 14;
+	bytes tracking_params = 15;
+	repeated ThumbnailBadgeSupportedRenderers thumbnail_badges = 16;
+	repeated Command service_endpoints = 17;
+	FormattedString short_view_count_text = 18;
+	MenuSupportedRenderers menu = 19;
+	StandaloneBadgeSupportedRenderers standalone_badge = 20;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 21;
+	repeated PlaylistPanelVideoSwipeToRevealButtonSupportedRenderers swipe_buttons = 22;
+	string debug_html = 23;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 24;
+	string playlist_set_video_id = 26;
+	MainAppCompactRendererStyle main_app_style = 27;
+	VideoClientBindingData video_client_binding_data = 28;
+	AccessibilitySupportedDatas accessibility = 29;
+	Renderer info_button = 30;
+	FormattedString video_info = 31;
+	repeated Renderer action_buttons = 32;
+	ThumbnailDetails channel_avatar = 33;
+	LightsourceColorPaletteData light_color_palette = 34;
+	LightsourceColorPaletteData dark_color_palette = 35;
+	bool can_reorder = 36;
+	string playlist_edit_params = 37;
+	Command on_swipe_left_command = 38;
+	Command queue_navigation_endpoint = 40;
+	CustomClickBehavior custom_click_behavior = 41;
+	CustomRowAction custom_row_action = 42;
+	bool disable_swipe_left = 43;
+	Renderer quick_action_button = 44;
+	VideoMusicAttributes music_attributes = 45;
+
+	extensions 1000 to max;
+}

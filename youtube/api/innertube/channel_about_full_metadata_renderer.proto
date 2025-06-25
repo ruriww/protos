@@ -1,0 +1,59 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/about_tab_link.proto";
+import "youtube/api/innertube/channel_about_metadata_flagging_menu_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/channel_about_metadata_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/channel_country_supported_renderers.proto";
+import "youtube/api/innertube/channel_about_metadata_business_email_button_supported_renderers.proto";
+import "youtube/api/innertube/channel_about_metadata_action_button_supported_renderers.proto";
+import "youtube/api/innertube/channel_about_metadata_gallery_photo.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ChannelAboutFullMetadataRenderer {
+	FormattedString description = 1;
+	repeated AboutTabLink primary_links = 2;
+	FormattedString subscriber_count_text = 4;
+	FormattedString view_count_text = 5;
+	FormattedString joined_date_text = 6;
+	ChannelAboutMetadataFlaggingMenuSupportedRenderers flagging_menu = 10;
+	Command help_endpoint = 12;
+	string canonical_channel_url = 13;
+	string business_email = 14;
+	bool bypass_business_email_captcha = 15;
+	repeated Command service_endpoints = 16;
+	string merged_gplus_url = 17;
+	ChannelAboutMetadataSubscribeButtonSupportedRenderers subscribe_button = 18;
+	FormattedString title = 19;
+	ThumbnailDetails avatar = 20;
+	FormattedString country = 21;
+	ChannelCountrySupportedRenderers country_dropdown = 22;
+	bool show_description = 23;
+	ChannelAboutMetadataBusinessEmailButtonSupportedRenderers business_email_button = 24;
+	FormattedString business_email_label = 25;
+	FormattedString description_label = 26;
+	FormattedString details_label = 27;
+	FormattedString primary_links_label = 28;
+	FormattedString stats_label = 29;
+	FormattedString country_label = 30;
+	FormattedString artist_bio = 31;
+	FormattedString artist_bio_label = 32;
+	repeated ChannelAboutMetadataActionButtonSupportedRenderers action_buttons = 33;
+	repeated ChannelAboutMetadataGalleryPhoto artist_gallery_photos = 34;
+	string channel_id = 35;
+	FormattedString artist_gallery_label = 37;
+	FormattedString sign_in_for_business_email = 38;
+	Command on_business_email_reveal_click_command = 39;
+	FormattedString business_email_reveal_submit_button_label = 40;
+	FormattedString phone_verified_text = 41;
+	repeated Renderer links = 42;
+}

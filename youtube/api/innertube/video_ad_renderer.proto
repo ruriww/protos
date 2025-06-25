@@ -1,0 +1,65 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/external_ad_stream_data.proto";
+import "youtube/api/innertube/video_ad_tracking.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/offline_frequency_cap.proto";
+import "youtube/api/innertube/key_value_pair.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/video_ad_overlay_supported_renderers.proto";
+import "youtube/api/innertube/ad_video_progress_command.proto";
+import "youtube/api/innertube/video_interactions_and_progress_commands.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/companion_persistence.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoAdRenderer {
+	bytes player_response = 1;
+	ExternalAdStreamData external = 2;
+	int32 skip_offset_milliseconds = 3;
+	VideoAdTracking pings = 4;
+	bytes serialized_player_request = 5;
+	float navigation_confidence = 6;
+	Command clickthrough_endpoint = 8;
+	OfflineFrequencyCap offline_frequency_cap = 9;
+	repeated KeyValuePair csi_parameters = 10;
+	string player_vars = 11;
+	FormattedString clickthrough_label = 12;
+	VideoAdOverlaySupportedRenderers player_overlay = 13;
+	string ad_next_params = 14;
+	repeated AdVideoProgressCommand ad_video_progress_commands = 15;
+	VideoInteractionsAndProgressCommands playback_commands = 16;
+	Renderer player_underlay = 17;
+	int64 trimmed_max_non_skippable_ad_duration_ms = 18;
+	AdLayoutLoggingData ad_layout_logging_data = 19;
+
+	oneof accompanied_by {
+		bool is_survey_accompanying_video = 20;
+		bool is_immersive_survey_with_ad_playback = 23;
+		bool is_survey_with_thank_you_screen_accompanying_video = 28;
+	}
+
+	bytes tracking_params = 22;
+	bool is_critical = 24;
+	bool use_server_renderers_on_mobile = 25;
+	string layout_id = 26;
+	int32 ad_pod_skip_target = 27;
+	bool supports_instant_skippable = 29;
+	string associated_player_bytes_layout_id = 30;
+	int32 ad_duration_ms = 32;
+	bool exp_ad_is_eligible_for_ablation_learning = 33;
+	bool exp_disable_companion_persist = 34;
+	CompanionPersistence companion_persistence = 35;
+	int64 companion_timeout_duration_ms = 36;
+}
+
+extend Renderer {
+	VideoAdRenderer video_ad_renderer = 61554017;
+}

@@ -1,0 +1,8 @@
+edition = "2023";
+
+package abuse.hades.transparency.proto;
+
+option objc_class_prefix = "CSOD";
+
+message FileGroupInclusionProof {
+}

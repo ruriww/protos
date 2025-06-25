@@ -1,0 +1,16 @@
+edition = "2023";
+
+package payments.logging.orchestration.client;
+
+import "payments/logging/orchestration/client/client_log_enums.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ApiRequestData {
+	ClientLogEnums.Endpoint endpoint = 1;
+	ClientLogEnums.TemplateUsage template_usage = 2;
+	int64 client_request_id = 3;
+	bytes client_log_token = 4;
+	bytes client_rendering_log_token = 5;
+	int32 http_status_code = 6;
+}

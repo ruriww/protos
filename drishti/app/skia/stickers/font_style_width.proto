@@ -1,0 +1,13 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+option objc_class_prefix = "DrishtiSkia";
+
+enum FontStyleWidth {
+	option features.enum_type = CLOSED;
+
+	FONT_STYLE_WIDTH_UNSPECIFIED = 0;
+	FONT_STYLE_WIDTH_NORMAL = 1;
+	FONT_STYLE_WIDTH_EXPANDED = 2;
+}

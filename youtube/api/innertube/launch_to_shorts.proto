@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LaunchToShorts {
+	Command resume_to_shorts = 1;
+	Command start_to_shorts = 2;
+	string shorts_first_eligibility_entity_key = 6;
+}

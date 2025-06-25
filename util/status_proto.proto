@@ -1,0 +1,19 @@
+edition = "2023";
+
+package util;
+
+import "proto2/bridge/message_set.proto";
+
+option objc_class_prefix = "UTIL";
+
+message StatusProto {
+	extend proto2.bridge.MessageSet {
+		StatusProto message_set_extension = 10071;
+	}
+
+	int32 code = 1;
+	string space = 2;
+	string message = 3;
+	proto2.bridge.MessageSet message_set = 5;
+	int32 canonical_code = 6;
+}

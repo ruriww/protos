@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.data;
+
+option objc_class_prefix = "ORCH2";
+
+enum SnapshotMode {
+	option features.enum_type = CLOSED;
+
+	SNAPSHOT_MODE_UNKNOWN = 0;
+	SNAPSHOT_MODE_DISABLED = 1;
+	SNAPSHOT_MODE_ENABLED = 2;
+	SNAPSHOT_MODE_PERSIST_EXISTING_SNAPSHOT_ON_PARTIAL_PAGE_UPDATE = 3;
+}

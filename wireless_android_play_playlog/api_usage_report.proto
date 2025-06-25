@@ -1,0 +1,15 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+import "wireless_android_play_playlog/ios_client_app_info.proto";
+import "wireless_android_play_playlog/feature_usage_counters.proto";
+import "cast/uncounted_features.proto";
+
+option objc_class_prefix = "CADP";
+
+message APIUsageReport {
+	IOSClientAppInfo ios_client_app_info = 2;
+	repeated FeatureUsageCounters feature_usage_counters = 3;
+	repeated cast.UncountedFeatures uncounted_features = 4 [ features.repeated_field_encoding = EXPANDED ];
+}

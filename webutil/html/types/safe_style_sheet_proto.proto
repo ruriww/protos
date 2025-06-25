@@ -1,0 +1,9 @@
+edition = "2023";
+
+package webutil.html.types;
+
+option objc_class_prefix = "WHT";
+
+message SafeStyleSheetProto {
+	string private_do_not_access_or_else_safe_style_sheet_wrapped_value = 7;
+}

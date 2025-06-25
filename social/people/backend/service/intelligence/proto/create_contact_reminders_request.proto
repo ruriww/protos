@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.people.backend.service.intelligence.proto;
+
+import "social/people/backend/service/intelligence/proto/reminder.proto";
+
+option objc_class_prefix = "PIL";
+
+message CreateContactRemindersRequest {
+	repeated Reminder reminders = 1;
+}

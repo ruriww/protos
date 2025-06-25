@@ -1,0 +1,14 @@
+edition = "2023";
+
+package apiserving.proto;
+
+option objc_class_prefix = "API";
+
+enum LocationType {
+	option features.enum_type = CLOSED;
+
+	PARAMETER = 0;
+	HEADER = 1;
+	ENTITY = 2;
+	OTHER = 3;
+}

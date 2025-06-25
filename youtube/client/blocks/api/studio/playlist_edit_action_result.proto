@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/api/innertube/playlist_edit_action_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlaylistEditActionResult {
+	youtube.api.innertube.PlaylistEditActionResponse response = 1;
+}

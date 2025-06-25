@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LiveChatPollStateEntity {
+	extend EntityMutationPayload {
+		LiveChatPollStateEntity live_chat_poll_state_entity = 217;
+	}
+
+	string key = 1;
+	FormattedString metadata_text = 2;
+	FormattedString collapsed_metadata_text = 3;
+
+	message LiveChatPollChoiceState {
+		double vote_ratio = 1;
+		FormattedString vote_percentage = 2;
+	}
+
+	map<int32, LiveChatPollChoiceState> poll_choice_states = 4;
+	string pre_vote_count_text = 5;
+	string post_vote_count_text = 6;
+	int32 total_vote_count = 7;
+}

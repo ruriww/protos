@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ViewData {
+	int32 origin_x_points = 1;
+	int32 origin_y_points = 2;
+	int32 width_points = 3;
+	int32 height_points = 4;
+	int32 content_offset_x_points = 5;
+	int32 content_offset_y_points = 6;
+}

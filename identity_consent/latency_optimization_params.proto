@@ -1,0 +1,11 @@
+edition = "2023";
+
+package identity_consent;
+
+import "identity_consent/prefetched_consent_screen.proto";
+
+option objc_class_prefix = "IDC";
+
+message LatencyOptimizationParams {
+	PrefetchedConsentScreen prefetched_consent_screen = 1;
+}

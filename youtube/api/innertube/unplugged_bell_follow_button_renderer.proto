@@ -1,0 +1,45 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_bell_follow_button_state.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/hint_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/unplugged_bell_follow_button_style.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedBellFollowButtonRenderer {
+	UnpluggedBellFollowButtonState bell_follow_state = 1;
+	Command start_bell_follow_endpoint = 2;
+	FormattedString start_bell_follow_toast_text = 3;
+	MenuSupportedRenderers stop_bell_follow_menu = 4;
+	bytes tracking_params = 6;
+	Command sports_bell_follow_endpoint = 7;
+	HintSupportedRenderers hint = 8;
+	Renderer ios_zero_state_permission_dialog = 9;
+	Renderer disabled_state_permission_dialog = 10;
+	bool is_disabled = 11;
+	FormattedString text = 12;
+	Command disabled_endpoint = 13;
+
+	message ClientStateSyncData {
+		repeated string entity_ids_for_state_sync = 1;
+		repeated string entity_keys_for_state_sync = 2;
+	}
+
+	ClientStateSyncData client_state_sync_data = 14;
+	UnpluggedBellFollowButtonStyle bell_follow_style = 15;
+	FormattedString enabled_text = 16;
+	Command stop_bell_follow_endpoint = 17;
+}
+
+extend Renderer {
+	UnpluggedBellFollowButtonRenderer unplugged_bell_follow_button_renderer = 159985495;
+}

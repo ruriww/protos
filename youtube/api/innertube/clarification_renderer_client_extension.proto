@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/clarification_renderer.proto";
+import "youtube/api/innertube/ios_client_metadata_panel_data.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClarificationRendererClientExtension {
+	extend ClarificationRenderer {
+		IosClientMetadataPanelData ios_client_metadata_panel_data = 245504685;
+	}
+}

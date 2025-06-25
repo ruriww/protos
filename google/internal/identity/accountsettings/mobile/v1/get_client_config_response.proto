@@ -1,0 +1,28 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/protobuf/duration.proto";
+import "google/internal/identity/accountsettings/mobile/v1/att_signal_config.proto";
+
+option objc_class_prefix = "ASM";
+
+message GetClientConfigResponse {
+	protobuf.Duration screen_max_lifetime = 1;
+	protobuf.Duration stable_screen_stale_time = 2;
+	protobuf.Duration unstable_screen_stale_time = 3;
+	bool prefetching_enabled = 4;
+	repeated string webview_whitelisted_url_patterns = 5;
+	repeated string webview_blacklisted_url_patterns = 6;
+	repeated string webview_browser_auth_whitelisted_url_patterns = 7;
+	repeated string webview_browser_auth_blacklisted_url_patterns = 8;
+	repeated string webview_default_js_bridge_whitelisted_url_patterns = 9;
+	repeated string webview_default_js_bridge_blacklisted_url_patterns = 10;
+	repeated string webview_udc_js_bridge_whitelisted_url_patterns = 11;
+	repeated string webview_udc_js_bridge_blacklisted_url_patterns = 12;
+	bool can_use_people_api_for_profile_picture_uploading = 13;
+	repeated int32 heartbeat_times_s = 14 [ features.repeated_field_encoding = EXPANDED ];
+	bool use_system_default_browser_to_open_urls = 17;
+	repeated int32 clearcut_denylisted_screen_ids = 18;
+	repeated ATTSignalConfig att_signal_configs = 19;
+}

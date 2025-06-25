@@ -1,0 +1,11 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+option objc_class_prefix = "SGAP";
+
+message FullScreenImage {
+	float scale = 1;
+	float translation_x = 2;
+	float translation_y = 3;
+}

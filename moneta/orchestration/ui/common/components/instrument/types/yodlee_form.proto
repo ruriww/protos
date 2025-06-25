@@ -1,0 +1,24 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument.types;
+
+import "moneta/orchestration/ui/common/components/form_header.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+import "moneta/orchestration/ui/common/generic/image_with_caption.proto";
+import "moneta/orchestration/ui/common/components/legal/legal_message.proto";
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+
+option objc_class_prefix = "Orch";
+
+message YodleeForm {
+	FormHeader form_header = 1;
+	repeated generic.UiField challenge_question = 2;
+	generic.ImageWithCaption completed_image = 3;
+	legal.LegalMessage yodlee_legal_message = 4;
+	generic.InfoMessage footer_message = 5;
+	int64 submit_after_timeout_millis = 6;
+	generic.ImageWithCaption in_progress_image = 7;
+	repeated Button button = 9;
+	repeated generic.ImageWithCaption image = 10;
+}

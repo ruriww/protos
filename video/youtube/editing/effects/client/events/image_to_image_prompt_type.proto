@@ -1,0 +1,14 @@
+edition = "2023";
+
+package video.youtube.editing.effects.client.events;
+
+option objc_class_prefix = "YTEE";
+
+enum ImageToImagePromptType {
+	IMAGE_TO_IMAGE_PROMPT_TYPE_UNSPECIFIED = 0;
+	IMAGE_TO_IMAGE_PROMPT_TYPE_MVP = 1;
+	IMAGE_TO_IMAGE_PROMPT_TYPE_VECTOR_ART = 2;
+	IMAGE_TO_IMAGE_PROMPT_TYPE_COLLAGE = 3;
+	IMAGE_TO_IMAGE_PROMPT_TYPE_IMPRESSIONIST = 4;
+	IMAGE_TO_IMAGE_PROMPT_TYPE_CARNIVAL_CARICATURE = 5;
+}

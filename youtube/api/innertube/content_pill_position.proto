@@ -1,0 +1,24 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ContentPillPosition {
+	enum PillPosition {
+		option features.enum_type = CLOSED;
+
+		PILL_POSITION_UNKNOWN = 0;
+		PILL_POSITION_TOP = 1;
+		PILL_POSITION_BOTTOM = 2;
+		PILL_POSITION_BETWEEN_FIRST_AND_SECOND_VIDEO = 3;
+		PILL_POSITION_STICK_TO_TOP = 4;
+		PILL_POSITION_STICK_TO_BOTTOM = 5;
+		PILL_POSITION_STICK_TO_CONTAINER = 6;
+	}
+
+	PillPosition value = 1;
+}

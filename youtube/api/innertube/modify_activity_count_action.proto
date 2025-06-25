@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/activity_count_type.proto";
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ModifyActivityCountAction {
+	extend Command {
+		ModifyActivityCountAction modify_activity_count_action = 143505435;
+	}
+
+	message ActivityCount {
+		ActivityCountType count_type = 1;
+		bool is_absolute = 2;
+		int32 value = 3;
+	}
+
+	repeated ActivityCount activity_counts = 1;
+	int64 timestamp_sec = 4;
+	bool allow_update_when_notifications_disabled = 5;
+}

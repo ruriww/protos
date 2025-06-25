@@ -1,0 +1,32 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/message_renderer.proto";
+import "youtube/api/innertube/comment_thread_renderer.proto";
+import "youtube/api/innertube/video_list_entry_renderer.proto";
+import "youtube/api/innertube/analytics_error_renderer.proto";
+import "youtube/api/innertube/analytics_actionable_message_card_renderer.proto";
+import "youtube/api/innertube/analytics_item_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/channel_summary_renderer.proto";
+import "youtube/api/innertube/video_snapshot_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DashboardContentsSupportedRenderers {
+	oneof renderer {
+		MessageRenderer message_renderer = 58508690;
+		CommentThreadRenderer comment_thread_renderer = 62285833;
+		VideoListEntryRenderer video_list_entry_renderer = 64370300;
+		AnalyticsErrorRenderer error = 65826161;
+		AnalyticsActionableMessageCardRenderer actionable_message = 78746151;
+		AnalyticsItemRenderer analytics_item_renderer = 89112680;
+		ElementRenderer element_renderer = 153515154;
+		ChannelSummaryRenderer channel_summary_renderer = 160275081;
+		VideoSnapshotRenderer video_snapshot_renderer = 248317177;
+	}
+}

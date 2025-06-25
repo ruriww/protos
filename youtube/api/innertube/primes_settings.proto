@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PrimesSettings {
+	bool enabled = 1;
+	bool memory_capture_enabled = 2;
+	bool network_capture_enabled = 3;
+	int32 network_capture_batch_size = 4;
+	bool crash_capture_enabled = 5;
+	bool disk_capture_enabled = 6;
+	float startup_sample_percentage = 7 [ default = 1 ];
+	bool network_capture_use_yt_sanitizer = 8;
+	bool cpu_capture_enabled = 9;
+	bool network_capture_instrument_innertube_requests = 10;
+	bool network_capture_include_onesie = 11;
+	bool battery_capture_enabled = 12;
+	bool startup_latency_capture_enabled = 13;
+	bool network_capture_instrument_page_ve = 16;
+	bool network_capture_all_errors_enable = 17;
+	int32 network_capture_batch_size_all_errors = 18;
+	bool network_capture_include_all_media = 19;
+	bool native_crash_capture_enabled = 22;
+	bool android_network_capture_instrument_innertube_detailed_timing = 23;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.eventrules.resultingaction;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message ResultingAction {
+	repeated int64 event_rule_id = 1 [ features.repeated_field_encoding = EXPANDED ];
+	int32 extension_field_number = 2;
+	bool allow_value_change_event_chaining = 4;
+	trigger.Trigger post_action_trigger = 5;
+
+	extensions 1000 to max;
+}

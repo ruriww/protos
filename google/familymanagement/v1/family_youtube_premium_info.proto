@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/youtube_family_subscription_type.proto";
+
+option objc_class_prefix = "GFM";
+
+message FamilyYoutubePremiumInfo {
+	YoutubeFamilySubscriptionType youtube_family_subscription_type = 1;
+}

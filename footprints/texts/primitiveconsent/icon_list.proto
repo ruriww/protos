@@ -1,0 +1,18 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/rich_text.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message IconList {
+	message IconListItem {
+		string image_url = 1;
+		RichText heading = 2;
+		RichText text = 3;
+		string image_url_dark = 4;
+	}
+
+	repeated IconListItem icon_list_item = 1;
+}

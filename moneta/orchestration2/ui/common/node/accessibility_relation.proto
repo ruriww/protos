@@ -1,0 +1,12 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.node;
+
+import "moneta/orchestration2/ui/common/node/accessibility_relation_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AccessibilityRelation {
+	AccessibilityRelationType type = 1;
+	repeated int64 target_node_ui_reference = 2 [ features.repeated_field_encoding = EXPANDED ];
+}

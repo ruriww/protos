@@ -1,0 +1,16 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless/android/icing/proto/mdd_api_call_stats_api_name.proto";
+import "wireless/android/icing/proto/mdd_api_call_stats_result.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddApiCallStats {
+	wireless.android.icing.proto.MddApiCallStatsApiName.Code api_name = 1;
+	string calling_package = 2;
+	wireless.android.icing.proto.MddApiCallStatsResult.Code result_status = 3;
+	int32 api_execution_start_latency_ms = 5;
+	int32 api_execution_finish_latency_ms = 6;
+}

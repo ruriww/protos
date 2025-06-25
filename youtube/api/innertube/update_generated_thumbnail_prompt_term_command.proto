@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UpdateGeneratedThumbnailPromptTermCommand {
+	extend Command {
+		UpdateGeneratedThumbnailPromptTermCommand update_generated_thumbnail_prompt_term_command = 1071;
+	}
+
+	int32 prompt_term_position = 1;
+	string text = 2;
+	int32 displayed_term_position = 3;
+	int32 replacement_term_id = 4;
+}

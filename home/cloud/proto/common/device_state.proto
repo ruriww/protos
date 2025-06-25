@@ -1,0 +1,20 @@
+edition = "2023";
+
+package home.cloud.proto.common;
+
+import "home/cloud/proto/common/connectivity_state.proto";
+import "home/cloud/proto/common/cast_application_session_state.proto";
+import "home/cloud/proto/common/cast_media_session_state.proto";
+import "home/cloud/common/device_mic_state.proto";
+import "home/cloud/proto/common/cast_volume_state.proto";
+
+option objc_class_prefix = "GHCC";
+
+message DeviceState {
+	string device_id = 1;
+	ConnectivityState connectivity_state = 2;
+	CastApplicationSessionState application_state = 3;
+	CastMediaSessionState media_state = 4;
+	cloud.common.DeviceMicState mic_state = 5;
+	CastVolumeState volume_state = 6;
+}

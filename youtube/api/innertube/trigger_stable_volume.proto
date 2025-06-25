@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TriggerStableVolume {
+	option features.enum_type = CLOSED;
+
+	TRIGGER_STABLE_VOLUME_UNKNOWN = 0;
+	TRIGGER_STABLE_VOLUME_PLAYER_SETTINGS = 1;
+	TRIGGER_STABLE_VOLUME_LISTENING_CONTROLS = 2;
+}

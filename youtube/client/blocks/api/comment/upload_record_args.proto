@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.comment;
+
+option objc_class_prefix = "YTBA";
+
+message UploadRecordArgs {
+	string create_comment_params = 1;
+	string comment_action = 2;
+	string title = 3;
+}

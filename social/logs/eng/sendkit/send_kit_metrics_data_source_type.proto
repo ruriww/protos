@@ -1,0 +1,26 @@
+edition = "2023";
+
+package social.logs.eng.sendkit;
+
+option objc_class_prefix = "SLES";
+
+enum SendKitMetricsDataSourceType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_DATA_SOURCE_TYPE = 0;
+	SUGGESTIONS = 1;
+	AUTOCOMPLETIONS = 2;
+	ALL_CONTACTS = 3;
+	THIRD_PARTY_APP_SUGGESTIONS = 4;
+	THIRD_PARTY_MORE_BUTTON = 5;
+	LOOKUP = 6;
+	PREPOPULATED = 7;
+	CONTEXTUAL_SUGGESTIONS = 8;
+	HIDE = 9;
+	UNHIDE = 10;
+	CUSTOM_ACTION_CHIPS = 11;
+	PASTE = 12;
+	UNDO_REDO = 13;
+	MANUAL = 14;
+	DRAG_DROP = 15;
+}

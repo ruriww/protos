@@ -1,0 +1,19 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+option objc_class_prefix = "POEM";
+
+message GplusExtendedData {
+	enum ContentRestrictionPolicy {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		PUBLIC = 1;
+		DISCOVERY = 2;
+		WALLED_GARDEN = 3;
+	}
+
+	ContentRestrictionPolicy content_restriction = 1;
+	bool is_enterprise_user = 2;
+}

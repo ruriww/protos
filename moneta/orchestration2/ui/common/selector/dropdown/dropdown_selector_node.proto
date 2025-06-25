@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.dropdown;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/input/textinput/input_node_material_type.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message DropdownSelectorNode {
+	extend node.Node {
+		DropdownSelectorNode dropdown_selector_node_extension = 228982939;
+	}
+
+	repeated node.Node content = 1;
+	input.textinput.InputNodeMaterialType input_node_material_type = 2;
+}

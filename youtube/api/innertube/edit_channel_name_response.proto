@@ -1,0 +1,31 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/response_context.proto";
+import "youtube/api/innertube/channel_name_error_supported_renderers.proto";
+import "youtube/api/innertube/channel_name_editor_footer_supported_renderers.proto";
+import "youtube/api/innertube/framework_update_transport.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EditChannelNameResponse {
+	ResponseContext response_context = 1;
+	ChannelNameErrorSupportedRenderers error = 3;
+
+	enum ErrorFieldIdentifier {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ERROR_FIELD = 0;
+		GIVEN_NAME = 1;
+		FAMILY_NAME = 2;
+	}
+
+	ErrorFieldIdentifier error_field_identifier = 4;
+	string display_name = 5;
+	ChannelNameEditorFooterSupportedRenderers name_editor_footer = 6;
+	FrameworkUpdateTransport framework_updates = 777;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package notifications.frontend.data;
+
+import "notifications/frontend/data/versioned_identifier.proto";
+import "notifications/frontend/data/common/thread_state_update.proto";
+import "notifications/frontend/data/analytics_info.proto";
+
+option objc_class_prefix = "NFD";
+
+message ThreadInteractionUpdate {
+	repeated VersionedIdentifier versioned_identifier = 1;
+	common.ThreadStateUpdate thread_state_update = 2;
+	AnalyticsInfo analytics_info = 3;
+}

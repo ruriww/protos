@@ -1,0 +1,10 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+option objc_class_prefix = "CSHM";
+
+message ND4CEmailOption {
+	string email_address = 1;
+	string subtext_snippet = 2;
+}

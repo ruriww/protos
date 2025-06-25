@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.elements.extensions;
+
+import "youtube/elements/command.proto";
+import "youtube/elements/element.proto";
+import "youtube/api/innertube/sheet_theme.proto";
+
+option java_package = "com.google.protos.youtube.elements.extensions";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ShowActionSheetCommand {
+	extend Command {
+		ShowActionSheetCommand show_action_sheet_command = 278463287;
+	}
+
+	Element header = 1;
+	Element footer = 2;
+	repeated Element list_option = 3;
+	string sheet_id = 4;
+	Command on_appear = 5;
+
+	enum ActionSheetHeightCap {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		HEADER = 1;
+	}
+
+	ActionSheetHeightCap height_cap = 6;
+	bool should_log_as_new_screen = 7;
+	bool force_bottom_sheet_ui = 8;
+	int32 duration_disable_cancel_while_loading_milliseconds = 10;
+	Element single_content_element = 11;
+	bool skip_collapsed_state = 12;
+	api.innertube.SheetTheme sheet_theme = 13;
+	bool allow_multiple_action_sheets = 14;
+
+	extensions 9;
+}

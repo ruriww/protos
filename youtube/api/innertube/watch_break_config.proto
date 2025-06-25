@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WatchBreakConfig {
+	bool enabled = 1;
+	int32 pause_duration_secs = 2;
+	bool use_debug_options = 5;
+	bool default_enabled = 6;
+	int32 default_frequency_mins = 7;
+	bool custom_frequency_picker_enabled = 8;
+}

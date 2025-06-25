@@ -1,0 +1,15 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+import "logs/proto/contacts/common/contacts_ui_type.proto";
+import "logs/proto/contacts/common/contacts_host.proto";
+import "logs/proto/contacts/common/contacts_client.proto";
+
+option objc_class_prefix = "CST";
+
+message ProfilePrimitivesDimensions {
+	common.ContactsUIType ui_type = 1;
+	common.ContactsHost host_app = 2;
+	common.ContactsClient client = 3;
+}

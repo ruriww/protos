@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShortsHandleImportedMediaCommand {
+	extend Command {
+		ShortsHandleImportedMediaCommand shorts_handle_imported_media_command = 333422638;
+	}
+
+	bool is_shorts = 1;
+
+	enum ExportType {
+		option features.enum_type = CLOSED;
+
+		NON_SHORTS = 0;
+		SHORTS_FULL = 1;
+		SHORTS_SEGMENT = 2;
+	}
+
+	ExportType export_type = 2;
+}

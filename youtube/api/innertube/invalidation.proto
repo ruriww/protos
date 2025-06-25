@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/invalidation_id.proto";
+import "youtube/api/innertube/invalidation_payload_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/legacy_bytes_invalidation_payload_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message Invalidation {
+	InvalidationId invalidation_id = 1;
+	InvalidationPayloadSupportedRenderers invalidation_payload_supported_renderers = 2;
+}
+
+extend Renderer {
+	LegacyBytesInvalidationPayloadRenderer legacy_bytes_invalidation_payload_renderer = 110577257;
+}

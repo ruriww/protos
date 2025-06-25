@@ -1,0 +1,18 @@
+edition = "2023";
+
+package logs.proto.wireless.android.apps.search;
+
+import "logs/proto/wireless/android/apps/search/event_type.proto";
+import "slo/event.proto";
+import "logs/proto/wireless/android/apps/search/app_event_extension.proto";
+
+option objc_class_prefix = "SAFP";
+
+message AppEvent {
+	EventType type = 1;
+	slo.Event.Result result = 2;
+	AppEventExtension details = 4;
+	fixed64 tiktok_trace_uuid_most_significant_bits = 5;
+	fixed64 tiktok_trace_uuid_least_significant_bits = 6;
+	int32 tiktok_trace_span_id = 7;
+}

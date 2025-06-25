@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/elements/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PromoTooltipCommand {
+	extend elements.Command {
+		PromoTooltipCommand promo_tooltip_command = 314223858;
+	}
+
+	string target_id = 1;
+	uint32 delay_in_ms = 2;
+}

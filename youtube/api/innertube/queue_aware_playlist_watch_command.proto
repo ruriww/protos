@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message QueueAwarePlaylistWatchCommand {
+	extend Command {
+		QueueAwarePlaylistWatchCommand queue_aware_playlist_watch_command = 471082452;
+	}
+
+	Command is_queuing_command = 1;
+	Command is_not_queuing_command = 2;
+}

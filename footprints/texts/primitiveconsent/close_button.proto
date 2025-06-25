@@ -1,0 +1,11 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/close_action.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message CloseButton {
+	CloseAction close_action = 1;
+}

@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlaylistThumbnailEditsEntity {
+	extend EntityMutationPayload {
+		PlaylistThumbnailEditsEntity playlist_thumbnail_edits_entity = 539;
+	}
+
+	string key = 1;
+
+	oneof image_resource_id {
+		string uploaded_image_resource_id = 2;
+		string generated_image_resource_id = 3;
+		string deleted_thumbnail_name = 6;
+	}
+
+	string playlist_image_name = 4;
+	string pending_thumbnail_uri = 5;
+	string encoded_playlist_image_generation_provenance = 7;
+}

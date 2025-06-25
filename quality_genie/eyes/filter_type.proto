@@ -1,0 +1,23 @@
+edition = "2023";
+
+package quality_genie.eyes;
+
+option objc_class_prefix = "LNSAE";
+
+enum FilterType {
+	option features.enum_type = CLOSED;
+
+	UNKNOWN_FILTER_TYPE = 0;
+	AUTO_FILTER = 7;
+	DEPRECATED_DOCUMENT_SCANNER = 1;
+	TRANSLATE = 2;
+	SHOPPING = 3;
+	DINING = 4;
+	TEXT = 5;
+	OUTDOOR = 6;
+	LANGUAGE_LEARNING = 8;
+	LOOKOUT = 9;
+	EDUCATION = 10;
+	VIDEO = 12;
+	PHOTOMATH = 13;
+}

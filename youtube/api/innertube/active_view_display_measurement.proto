@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/regex_uri_macro_validator.proto";
+import "youtube/api/innertube/active_view_display_ad_placement.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ActiveViewDisplayMeasurement {
+	repeated Command viewable_commands = 1;
+	repeated Command end_of_session_commands = 2;
+	RegexUriMacroValidator regex_uri_macro_validator = 3;
+	string identifier = 4;
+	ActiveViewDisplayAdPlacement unused = 5;
+}

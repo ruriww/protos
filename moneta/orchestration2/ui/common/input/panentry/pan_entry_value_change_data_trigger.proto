@@ -1,0 +1,22 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.panentry;
+
+import "moneta/orchestration2/ui/common/eventrules/trigger/trigger.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message PanEntryValueChangeDataTrigger {
+	extend eventrules.trigger.Trigger {
+		PanEntryValueChangeDataTrigger pan_entry_value_change_data_trigger_extension = 209228584;
+	}
+
+	enum TriggerType {
+		option features.enum_type = CLOSED;
+
+		TRIGGER_TYPE_UNKNOWN = 0;
+		TRIGGER_TYPE_PAN_CATEGORY_RESOLVED = 1;
+	}
+
+	TriggerType trigger_type = 1;
+}

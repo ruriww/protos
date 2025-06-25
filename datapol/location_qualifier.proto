@@ -1,0 +1,13 @@
+edition = "2023";
+
+package datapol;
+
+option objc_class_prefix = "GCDP";
+
+message LocationQualifier {
+	bool non_user_location = 1 [ default = false ];
+	bool precise_location = 2 [ default = false ];
+	bool country_level_location = 3 [ default = false ];
+	bool user_indirect_location = 4 [ default = false ];
+	bool user_place_of_interest = 5 [ default = false ];
+}

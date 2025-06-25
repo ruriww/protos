@@ -1,0 +1,14 @@
+edition = "2023";
+
+package cast;
+
+option objc_class_prefix = "GCKPB";
+
+enum CastState {
+	option features.enum_type = CLOSED;
+
+	CAST_STATE_NO_DEVICE_AVAILABLE = 0;
+	CAST_STATE_NOT_CONNECTED = 1;
+	CAST_STATE_CONNECTING = 2;
+	CAST_STATE_CONNECTED = 3;
+}

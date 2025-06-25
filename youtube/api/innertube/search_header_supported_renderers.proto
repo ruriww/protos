@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/music_header_renderer.proto";
+import "youtube/api/innertube/search_mobile_header_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SearchHeaderSupportedRenderers {
+	oneof renderer {
+		MusicHeaderRenderer music_header_renderer = 99965204;
+		SearchMobileHeaderRenderer search_mobile_header_renderer = 188186167;
+	}
+}

@@ -1,0 +1,45 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common;
+
+option objc_class_prefix = "ORCH2";
+
+message TextProperties {
+	enum TextCategory {
+		option features.enum_type = CLOSED;
+
+		TEXT_CATEGORY_UNKNOWN = 0;
+		TEXT_CATEGORY_H1 = 1;
+		TEXT_CATEGORY_H2 = 2;
+		TEXT_CATEGORY_H3 = 3;
+		TEXT_CATEGORY_H4 = 4;
+		TEXT_CATEGORY_H5 = 5;
+		TEXT_CATEGORY_H6 = 6;
+		TEXT_CATEGORY_SUBHEADER_1 = 7;
+		TEXT_CATEGORY_SUBHEADER_2 = 8;
+		TEXT_CATEGORY_SUBTITLE_1 = 9;
+		TEXT_CATEGORY_SUBTITLE_2 = 10;
+		TEXT_CATEGORY_BODY_1 = 11;
+		TEXT_CATEGORY_BODY_2 = 12;
+		TEXT_CATEGORY_CAPTION = 14;
+		TEXT_CATEGORY_OVERLINE = 15;
+	}
+
+	int32 max_lines = 2;
+
+	enum LineBreakMode {
+		option features.enum_type = CLOSED;
+
+		LINE_BREAK_MODE_UNKNOWN = 0;
+		LINE_BREAK_MODE_WRAP = 1;
+		LINE_BREAK_MODE_END = 2;
+	}
+
+	LineBreakMode text_line_break_mode = 4;
+
+	message TextAccessibility {
+		TextCategory text_category = 1;
+	}
+
+	TextAccessibility text_accessibility = 5;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/downloads_page_feature_visibility.proto";
+import "youtube/elements/attributed_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message DownloadsPageSmartDownloadsErrorMessageParams {
+	extend DownloadsPageFeatureVisibility {
+		DownloadsPageSmartDownloadsErrorMessageParams downloads_page_smart_downloads_error_message_params = 492256907;
+	}
+
+	oneof detailed_error_message_oneof {
+		string localized_detailed_error_message = 1;
+		elements.AttributedString formatted_localized_detailed_error_message = 2;
+	}
+
+	oneof error_message_title_oneof {
+		string localized_error_message_title = 3;
+		elements.AttributedString formatted_localized_error_message_title = 4;
+	}
+}

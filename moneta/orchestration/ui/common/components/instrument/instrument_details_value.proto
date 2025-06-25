@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.instrument;
+
+import "moneta/orchestration/ui/common/components/instrument/action_value.proto";
+import "moneta/orchestration/ui/common/components/simple_form_value.proto";
+
+option objc_class_prefix = "Orch";
+
+message InstrumentDetailsValue {
+	repeated ActionValue action_value = 1;
+	SimpleFormValue simple_form_value = 2;
+}

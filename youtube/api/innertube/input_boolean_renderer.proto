@@ -1,0 +1,26 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InputBooleanRenderer {
+	FormattedString label = 2;
+	Icon enabled_icon = 3;
+	Icon disabled_icon = 4;
+	bool is_enabled = 5;
+	AccessibilitySupportedDatas accessibility = 6;
+	FormattedString disabled_label = 7;
+}
+
+extend Renderer {
+	InputBooleanRenderer input_boolean_renderer = 123905736;
+}

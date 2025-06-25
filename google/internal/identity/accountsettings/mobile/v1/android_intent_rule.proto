@@ -1,0 +1,13 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+option objc_class_prefix = "ASM";
+
+message AndroidIntentRule {
+	string package_name = 1;
+	int32 min_version_code = 2;
+	int32 max_version_code = 3;
+	repeated int32 min_version_info = 4 [ features.repeated_field_encoding = EXPANDED ];
+	repeated int32 max_version_info = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

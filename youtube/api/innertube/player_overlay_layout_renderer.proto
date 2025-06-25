@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/ad_layout_logging_data.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerOverlayLayoutRenderer {
+	Renderer skip_or_preview = 2;
+	Renderer player_ad_card = 3;
+	Renderer visit_advertiser_link = 4;
+	Renderer ad_badge_renderer = 5;
+	Renderer ad_duration_remaining = 6;
+	Renderer ad_info_renderer = 7;
+	AdLayoutLoggingData ad_layout_logging_data = 8;
+	string layout_id = 9;
+	string in_player_slot_id = 10;
+	string in_player_layout_id = 11;
+	Renderer ad_disclosure_banner = 12;
+	Renderer ad_pod_index = 13;
+	LoggingDirectives logging_directives = 999;
+}

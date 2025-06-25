@@ -1,0 +1,26 @@
+edition = "2023";
+
+package communication.meetings.s11ysync;
+
+import "google/protobuf/duration.proto";
+import "communication/meetings/s11ysync/co_watching_queue.proto";
+
+option objc_class_prefix = "GHM";
+
+message CoWatchingState {
+	string media_id = 1;
+	google.protobuf.Duration media_playout_position = 2;
+
+	enum PlaybackState {
+		INVALID = 0;
+		BUFFERING = 1;
+		PLAY = 2;
+		PAUSE = 3;
+		ENDED = 4;
+	}
+
+	PlaybackState playback_state = 3;
+	double media_playout_rate = 4;
+	google.protobuf.Duration actual_media_playout_position = 5;
+	CoWatchingQueue co_watching_queue = 6;
+}

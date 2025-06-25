@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum UploadShortsAudioDeviceFunction {
+	option features.enum_type = CLOSED;
+
+	UPLOAD_SHORTS_AUDIO_DEVICE_FUNCTION_UNKNOWN = 0;
+	UPLOAD_SHORTS_AUDIO_DEVICE_FUNCTION_INPUT = 1;
+	UPLOAD_SHORTS_AUDIO_DEVICE_FUNCTION_OUTPUT = 2;
+}

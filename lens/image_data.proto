@@ -1,0 +1,18 @@
+edition = "2023";
+
+package lens;
+
+import "lens/image_payload.proto";
+import "lens/image_metadata.proto";
+import "lens/geometry.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message ImageData {
+	oneof type {
+		ImagePayload payload = 1;
+	}
+
+	ImageMetadata image_metadata = 3;
+	repeated Geometry significant_regions = 4;
+}

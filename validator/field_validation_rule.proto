@@ -1,0 +1,18 @@
+edition = "2023";
+
+package validator;
+
+option objc_class_prefix = "PBV";
+
+message FieldValidationRule {
+	oneof field_presence_predicate {
+		string is_required = 1;
+		string present_iff = 5;
+	}
+
+	repeated string predicate = 2;
+	repeated string element_predicate = 3;
+	string one_of = 4;
+	bool skip_message_validation = 6;
+	bool can_report_all_predicate_violations = 7;
+}

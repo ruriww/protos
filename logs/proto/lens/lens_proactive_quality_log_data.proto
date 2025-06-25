@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+import "logs/proto/lens/image.proto";
+
+option objc_class_prefix = "LNSLOG";
+
+message LensProactiveQualityLogData {
+	Image image_information = 1;
+}

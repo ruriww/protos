@@ -1,0 +1,10 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+message PrepareAudioBytesStreamRequest {
+	string url = 1;
+	string voice = 2;
+}

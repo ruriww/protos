@@ -1,0 +1,26 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/family_role.proto";
+import "google/familymanagement/v1/family.proto";
+import "google/familymanagement/v1/page.proto";
+import "google/familymanagement/v1/family_member.proto";
+import "google/familymanagement/v1/invitation.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilyResponse {
+	ApiResponseHeader api_header = 1;
+	string requester_user_id = 2;
+	bool has_family = 3;
+	FamilyRole role = 4;
+	Family.FamilyState family_state = 5;
+	Page family_state_description = 6;
+	int32 max_family_size = 7;
+	repeated FamilyMember members = 8;
+	repeated Invitation invitations = 9;
+	string obfuscated_family_id = 10;
+	int32 free_slots_count = 11;
+}

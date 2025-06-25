@@ -1,0 +1,13 @@
+edition = "2023";
+
+package lens.common;
+
+import "lens/common/continuous_text_range.proto";
+import "lens/gleaming/detected_actionable_text_data.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message SalientTextInstance {
+	ContinuousTextRange text_range = 1;
+	gleaming.DetectedActionableTextData metadata = 2;
+}

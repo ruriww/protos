@@ -1,0 +1,28 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicMenuTitleRenderer {
+	FormattedString primary_text = 1;
+	FormattedString secondary_text = 2;
+	Renderer thumbnail = 3;
+	Command command = 4;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 7;
+	repeated Renderer end_buttons = 8;
+	AccessibilitySupportedDatas accessibility_data = 9;
+}
+
+extend Renderer {
+	MusicMenuTitleRenderer music_menu_title_renderer = 72399185;
+}

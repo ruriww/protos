@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.proto.lens;
+
+option objc_class_prefix = "LNSLOG";
+
+message HistoryAvailabilityLogData {
+	bool history_available = 1;
+	bool history_consent_given = 2;
+	bool history_donation_consent_given = 3;
+}

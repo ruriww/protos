@@ -1,0 +1,48 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/grid_promoted_video_cta_supported_renderers.proto";
+import "youtube/api/innertube/main_app_grid_renderer_style.proto";
+import "youtube/api/innertube/active_view_display_measurement.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GridPromotedVideoRenderer {
+	string video_id = 1;
+	ThumbnailDetails thumbnail = 2;
+	FormattedString title = 3;
+	FormattedString long_byline_text = 4;
+	FormattedString short_byline_text = 5;
+	ThumbnailDetails channel_thumbnail = 6;
+	FormattedString view_count_text = 7;
+	FormattedString short_view_count_text = 8;
+	FormattedString length_text = 9;
+	Command navigation_endpoint = 10;
+	bytes tracking_params = 11;
+	Command channel_endpoint = 12;
+	repeated string impression_urls = 13;
+	MenuSupportedRenderers menu = 14;
+	string debug_html = 16;
+	GridPromotedVideoCTASupportedRenderers cta_renderer = 18;
+	string debug_ad_tag = 19;
+	MainAppGridRendererStyle main_app_style = 20;
+	ActiveViewDisplayMeasurement active_view = 21;
+	string identifier = 22;
+	string ad_playback_context_params = 23;
+	bool render_full_bleed = 24;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	GridPromotedVideoRenderer grid_promoted_video_renderer = 82182324;
+}

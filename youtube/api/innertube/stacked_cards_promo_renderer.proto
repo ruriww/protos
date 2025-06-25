@@ -1,0 +1,35 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/swipeover_command_with_visual_element.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/video_reporting_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message StackedCardsPromoRenderer {
+	extend Renderer {
+		StackedCardsPromoRenderer stacked_cards_promo_renderer = 481628963;
+	}
+
+	Renderer background = 1;
+	Command custom_player_endpoint = 2;
+	Renderer overlay_decoration = 3;
+
+	oneof horizontal_swipe_oneof {
+		SwipeoverCommandWithVisualElement on_horizontal_swipe_command = 4;
+		Renderer on_horizontal_swipe_container = 5;
+	}
+
+	repeated Renderer navigation_buttons = 6;
+	bytes tracking_params = 8;
+	ThumbnailDetails left_thumbnail = 9;
+	ThumbnailDetails right_thumbnail = 10;
+	VideoReportingSupportedRenderers video_reporting = 11;
+}

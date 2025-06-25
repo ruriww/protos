@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.people.intelligence;
+
+import "logs/people/intelligence/assistive_feature_type.proto";
+
+option objc_class_prefix = "PIL";
+
+message RequestMetadata {
+	string request_id = 1;
+	int64 duration_usec = 2;
+	int32 lookup_id_count = 3;
+	repeated AssistiveFeatureType feature_type = 6;
+}

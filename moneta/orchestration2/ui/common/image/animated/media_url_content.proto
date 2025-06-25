@@ -1,0 +1,23 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "webutil/html/types/safe_url_proto.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message MediaUrlContent {
+	enum Format {
+		option features.enum_type = CLOSED;
+
+		FORMAT_UNKNOWN = 0;
+		FORMAT_GIF = 1;
+	}
+
+	Format format = 1;
+
+	oneof url {
+		string media_url = 2;
+		webutil.html.types.SafeUrlProto media_safe_url = 3;
+	}
+}

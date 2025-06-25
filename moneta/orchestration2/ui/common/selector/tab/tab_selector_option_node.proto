@@ -1,0 +1,17 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.selector.tab;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/image/image_url_options.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message TabSelectorOptionNode {
+	extend node.Node {
+		TabSelectorOptionNode tab_selector_option_node_extension = 345527679;
+	}
+
+	image.ImageUrlOptions icon_fife_option = 1;
+	bool is_inline_icon = 2;
+}

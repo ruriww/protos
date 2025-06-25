@@ -1,0 +1,17 @@
+edition = "2023";
+
+package social.clients;
+
+import "social/clients/device.proto";
+import "social/clients/application.proto";
+import "social/clients/platform.proto";
+import "social/clients/traffic_type.proto";
+
+option objc_class_prefix = "SC";
+
+message SocialClient {
+	Device device = 1;
+	Application application = 2;
+	Platform platform = 3;
+	TrafficType traffic_type = 4;
+}

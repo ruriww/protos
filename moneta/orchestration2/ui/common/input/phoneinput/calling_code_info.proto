@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.phoneinput;
+
+option objc_class_prefix = "ORCH2";
+
+message CallingCodeInfo {
+	string calling_code = 1;
+	repeated string region_code = 2;
+}

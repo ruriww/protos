@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum PixelFormatId {
+	option features.enum_type = CLOSED;
+
+	PIXEL_FORMAT_ID_UNKNOWN = 0;
+	PIXEL_FORMAT_ID_YUV420P = 1;
+	PIXEL_FORMAT_ID_YUYV422 = 2;
+	PIXEL_FORMAT_ID_RGB24 = 3;
+	PIXEL_FORMAT_ID_BGR24 = 4;
+}

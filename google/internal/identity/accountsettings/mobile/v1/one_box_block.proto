@@ -1,0 +1,43 @@
+edition = "2023";
+
+package google.internal.identity.accountsettings.mobile.v1;
+
+import "google/internal/identity/accountsettings/mobile/v1/description_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/divider_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/list_item_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_line_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/action_chip_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/one_box_signed_out_buttons_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/activity_list_item_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/onebox_disclaimer_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/onebox_custom_gws_block.proto";
+import "google/internal/identity/accountsettings/mobile/v1/resource_key.proto";
+import "google/internal/identity/accountsettings/mobile/v1/link.proto";
+
+option objc_class_prefix = "ASM";
+
+message OneBoxBlock {
+	oneof block_type {
+		DescriptionBlock description_block = 1;
+		DividerBlock divider_block = 3;
+		ListItemBlock list_item_block = 5;
+		ActionLineBlock action_line_block = 8;
+		ActionChipBlock action_chip_block = 9;
+		CollapsableBlock collapsable_block = 22;
+		OneBoxSignedOutButtonsBlock one_box_signed_out_buttons_block = 24;
+		ActivityListItemBlock activity_list_item_block = 26;
+		OneboxDisclaimerBlock onebox_disclaimer_block = 28;
+		OneboxCustomGwsBlock onebox_custom_gws_block = 34;
+	}
+
+	ResourceKey target = 11;
+	Link link = 31;
+}
+
+message CollapsableBlock {
+	string collapsed_action_label = 1;
+	bool initially_expanded = 2;
+	repeated OneBoxBlock content = 3;
+	string expanded_content_title = 4;
+	string expanded_content_description = 6;
+}

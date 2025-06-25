@@ -1,0 +1,81 @@
+edition = "2023";
+
+package wireless_android_play_playlog;
+
+option objc_class_prefix = "CADP";
+
+message JsClientInfo {
+	string os = 1;
+	string os_version = 2;
+
+	enum DeviceType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		MOBILE = 1;
+		TABLET = 2;
+		DESKTOP = 3;
+		GOOGLE_HOME = 4;
+	}
+
+	DeviceType device_type = 3;
+	string country = 4;
+	string locale = 5;
+
+	enum OsType {
+		option features.enum_type = CLOSED;
+
+		OS_UNKNOWN = 0;
+		MAC = 1;
+		WINDOWS = 2;
+		ANDROID = 3;
+		LINUX = 4;
+		CHROME_OS = 5;
+		IPAD = 6;
+		IPHONE = 7;
+		IPOD = 8;
+		CHROMECAST = 9;
+	}
+
+	OsType os_type = 6;
+	string build_label = 7;
+	string continent = 8;
+
+	message UserAgentClientHints {
+		message BrandAndVersion {
+			string brand = 1;
+			string version = 2;
+		}
+
+		repeated BrandAndVersion ua_list = 1;
+		bool mobile = 2;
+		string platform = 3;
+		string platform_version = 4;
+		string architecture = 5;
+		string model = 6;
+		string ua_full_version = 7;
+		string bitness = 8;
+	}
+
+	UserAgentClientHints client_hints = 9;
+
+	message FlushInfo {
+		enum TransmissionType {
+			option features.enum_type = CLOSED;
+
+			TRANSMISSION_TYPE_UNKNOWN = 0;
+			XHR_POST = 1;
+			IMAGE_GET = 2;
+			SEND_BEACON = 3;
+			FETCH = 4;
+		}
+
+		TransmissionType transmission_type = 1;
+		bool is_final = 2;
+		int32 retry_count = 3;
+		int32 persisted_log_recovered_count = 4;
+		int32 persisted_log_expired_count = 5;
+	}
+
+	FlushInfo flush_info = 10;
+}

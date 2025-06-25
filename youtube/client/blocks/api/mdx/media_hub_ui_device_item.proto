@@ -1,0 +1,14 @@
+edition = "2023";
+
+package youtube.client.blocks.api.mdx;
+
+import "youtube/client/blocks/api/mdx/media_hub_ui_device_control_params.proto";
+import "youtube/client/blocks/api/mdx/media_hub_ui_device_display_params.proto";
+
+option objc_class_prefix = "YTBA";
+
+message MediaHubUiDeviceItem {
+	string discovery_device_id = 1;
+	MediaHubUiDeviceControlParams control_params = 2;
+	MediaHubUiDeviceDisplayParams display_params = 3;
+}

@@ -1,0 +1,40 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/engagement_panel_identifier.proto";
+import "youtube/api/innertube/engagement_panel_supported_renderers.proto";
+import "youtube/api/innertube/engagement_panel_surface_configs.proto";
+import "youtube/api/innertube/engagement_panel_extras.proto";
+import "youtube/api/innertube/global_panel_configuration.proto";
+import "youtube/api/innertube/panel_loading_strategy.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ShowEngagementPanelEndpoint {
+	extend Command {
+		ShowEngagementPanelEndpoint show_engagement_panel_endpoint = 138681778;
+	}
+
+	oneof identifier_oneof {
+		string panel_identifier = 1;
+		EngagementPanelIdentifier identifier = 10;
+	}
+
+	EngagementPanelSupportedRenderers engagement_panel = 2;
+	string source_panel_identifier = 3;
+	bool force_portrait = 5;
+	bool block_if_actively_engaging = 6;
+	Command on_blocked_command = 7;
+	EngagementPanelSurfaceConfigs engagement_panel_surface_configs = 8;
+	EngagementPanelExtras engagement_panel_extras = 9;
+	GlobalPanelConfiguration global_configuration = 11;
+	PanelLoadingStrategy panel_loading_strategy = 13;
+	bytes serialized_panel_response = 14;
+	bool is_animated = 15 [ default = true ];
+	bool block_if_panel_open = 16;
+}

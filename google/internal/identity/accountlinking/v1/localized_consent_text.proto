@@ -1,0 +1,12 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "webutil/html/types/safe_html_proto.proto";
+
+option objc_class_prefix = "ALK";
+
+message LocalizedConsentText {
+	string consent_text = 1;
+	webutil.html.types.SafeHtmlProto consent_detail_text = 2;
+}

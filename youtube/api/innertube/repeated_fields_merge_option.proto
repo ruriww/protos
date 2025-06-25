@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum RepeatedFieldsMergeOption {
+	option features.enum_type = CLOSED;
+
+	REPEATED_FIELDS_MERGE_OPTION_UNKNOWN = 0;
+	REPEATED_FIELDS_MERGE_OPTION_REPLACE = 1;
+	REPEATED_FIELDS_MERGE_OPTION_APPEND = 2;
+}

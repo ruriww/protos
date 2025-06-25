@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message InfoCardCueRange {
+	uint64 start_card_active_ms = 1;
+	uint64 end_card_active_ms = 2;
+	uint64 teaser_duration_ms = 3;
+	uint64 icon_after_teaser_ms = 4;
+}

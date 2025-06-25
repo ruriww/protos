@@ -1,0 +1,16 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+import "youtube/api/innertube/bedtime_reminder_notification_ui_type.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/client/blocks/api/reminders/snooze_type.proto";
+
+option objc_class_prefix = "YTBA";
+
+message SnoozeArgs {
+	youtube.api.innertube.BedtimeReminderNotificationUiType snooze_source = 1;
+	youtube.api.innertube.Command toast_action_command = 2;
+	SnoozeType snooze_type = 3;
+	bool navigate_to_settings = 4;
+}

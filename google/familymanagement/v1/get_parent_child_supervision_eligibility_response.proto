@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+import "google/familymanagement/v1/unmet_precondition.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetParentChildSupervisionEligibilityResponse {
+	ApiResponseHeader api_header = 1;
+	bool parent_child_are_eligible_for_supervision = 2;
+	repeated UnmetPrecondition unmet_precondition = 3;
+	int32 required_minimum_age_in_years = 4;
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package wireless_android_play_playlog.icing;
+
+import "wireless/android/icing/proto/mdd_file_expiration_sub_event.proto";
+
+option objc_class_prefix = "ICING";
+
+message MddFileExpirationLog {
+	wireless.android.icing.proto.MddFileExpirationSubEvent.Code sub_event_code = 1;
+	int32 num_files_processed = 2;
+}

@@ -1,0 +1,9 @@
+edition = "2023";
+
+package googledata.experiments.mobile.growthkit_ios;
+
+option objc_class_prefix = "GRWP";
+
+message ApplicationProperties {
+	int64 growthkit_version = 1;
+}

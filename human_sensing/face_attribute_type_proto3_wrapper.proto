@@ -1,0 +1,11 @@
+edition = "2023";
+
+package human_sensing;
+
+import "human_sensing/face.proto";
+
+option objc_class_prefix = "MVHS";
+
+message FaceAttributeTypeProto3Wrapper {
+	Face.Attribute.Type type = 1;
+}

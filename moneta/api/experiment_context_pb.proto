@@ -1,0 +1,9 @@
+edition = "2023";
+
+package moneta.api;
+
+option objc_class_prefix = "MOC";
+
+message ExperimentContextPb {
+	repeated int32 experiment_id = 1;
+}

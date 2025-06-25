@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MonetizationMetadata {
+	bool has_paid_product_placement = 1;
+	bool enable_default_usage_policy = 2;
+	string usage_policy_id = 3;
+	bool enable_content_id = 4;
+	string match_policy_id = 5;
+	bool show_paid_product_placement_overlay = 6;
+	bool is_paid_product_placement_self_declared_definitive = 7;
+}

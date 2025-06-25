@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/drm_system.proto";
+import "youtube/api/innertube/license_request_type.proto";
+import "youtube/api/innertube/drm_video_feature.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message LicenseRequest {
+	InnerTubeContext context = 1;
+	string video_id = 2;
+	DrmSystem drm_system = 3;
+	bytes license_request = 4;
+	string session_id = 5;
+	string cpn = 6;
+	string drm_params = 7;
+	bool is_key_rotated = 8;
+	uint32 crypto_period_index = 9;
+	bytes fairplay_key_id = 10;
+	bool for_offline = 11;
+	LicenseRequestType request_type = 12;
+	int64 playback_start_seconds = 13;
+	DrmVideoFeature drm_video_feature = 14;
+}

@@ -1,0 +1,16 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.devicebinding;
+
+import "moneta/orchestration2/ui/common/data/data_value.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message CryptauthDataValue {
+	extend data.DataValue {
+		CryptauthDataValue cryptauth_data_value_extension = 333375469;
+	}
+
+	string enrolled_key_name = 1;
+	bytes credential_id = 2;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package ink.proto.text;
+
+import "ink/proto/point.proto";
+import "ink/proto/text/font.proto";
+
+option objc_class_prefix = "INKPB";
+
+message Line {
+	string text = 1;
+	Point origin_fraction = 2;
+	Font font = 3;
+}

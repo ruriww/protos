@@ -1,0 +1,25 @@
+edition = "2023";
+
+package logs.proto.chronos;
+
+option objc_class_prefix = "CHR";
+
+message WidgetEvent {
+	string kind = 1;
+
+	enum Family {
+		option features.enum_type = CLOSED;
+
+		FAMILY_UNKNOWN = 0;
+		FAMILY_SMALL = 1;
+		FAMILY_MEDIUM = 2;
+		FAMILY_LARGE = 3;
+		FAMILY_EXTRA_LARGE = 4;
+		FAMILY_ACCESSORY_CIRCULAR = 5;
+		FAMILY_ACCESSORY_RECTANGULAR = 6;
+		FAMILY_ACCESSORY_INLINE = 7;
+	}
+
+	Family family = 2;
+	string view_tag = 3;
+}

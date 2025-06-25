@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/companion_ad_call_to_action_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/companion_completion_action.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message CompanionAdRenderer {
+	bool hack = 1;
+	FormattedString title = 2;
+	FormattedString description_text = 3;
+	ThumbnailDetails thumbnail = 4;
+	Command navigation_endpoint = 5;
+	bool autohide = 6 [ default = true ];
+	MenuSupportedRenderers menu = 7;
+	bytes tracking_params = 9;
+	CompanionAdCallToActionSupportedRenderers call_to_action = 10;
+	bool use_round_thumbnail = 11;
+	repeated Command impression_commands = 12;
+	Renderer companion_extension = 13;
+	CompanionCompletionAction completion_action = 14;
+	Renderer title_click_command = 15;
+	Renderer description_click_command = 16;
+	Renderer icon_click_command = 17;
+	uint32 background_color = 19;
+	Renderer secondary_button = 20;
+	Command ad_complete_command = 21;
+}
+
+extend Renderer {
+	CompanionAdRenderer companion_ad_renderer = 55514441;
+}

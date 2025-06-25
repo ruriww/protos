@@ -1,0 +1,19 @@
+edition = "2023";
+
+package experiments.heterodyne;
+
+import "experiments/heterodyne/scope.proto";
+import "experiments/heterodyne/param_partition_tag.proto";
+
+option objc_class_prefix = "EXH";
+
+message ApplicationRequest {
+	Scope scope = 1;
+	bytes application_properties = 2;
+	repeated ParamPartitionTag param_partition_tag = 3;
+	bytes tokens_tag = 4;
+	bool silence_response = 5;
+	bytes registration_info = 6;
+	bool can_process_configuration_tier = 7;
+	bytes runtime_properties = 8;
+}

@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.internal.identity.accountlinking.v1;
+
+import "google/internal/identity/accountlinking/v1/request_header.proto";
+import "google/internal/identity/accountlinking/v1/app_flip_outcome.proto";
+
+option objc_class_prefix = "ALK";
+
+message ReportAppFlipOutcomeRequest {
+	RequestHeader header = 1;
+	string service_id = 2;
+	AppFlipOutcome app_flip_outcome = 3;
+}

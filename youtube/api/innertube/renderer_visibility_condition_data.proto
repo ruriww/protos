@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/renderer_visibility_condition.proto";
+import "youtube/api/innertube/visibility_condition_mode.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RendererVisibilityConditionData {
+	RendererVisibilityCondition.VisibilityConditionType show_if = 1;
+	repeated RendererVisibilityCondition.VisibilityConditionType show_if_any = 2 [ features.repeated_field_encoding = EXPANDED ];
+	repeated string entity_keys_to_observe = 3;
+	VisibilityConditionMode mode = 4;
+	repeated RendererVisibilityCondition.VisibilityConditionType show_if_all = 5 [ features.repeated_field_encoding = EXPANDED ];
+}

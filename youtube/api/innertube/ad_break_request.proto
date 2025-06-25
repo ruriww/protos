@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/playback_context.proto";
+import "youtube/api/innertube/autonav_settings_state.proto";
+import "youtube/api/innertube/get_ad_break_context.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message AdBreakRequest {
+	InnerTubeContext context = 1;
+	string params = 2;
+	int64 break_position_ms = 3;
+	int32 break_index = 4;
+	PlaybackContext override_playback_context = 5;
+	string client_playback_nonce = 6;
+	int32 ad_block = 7;
+	string top_level_domain = 10;
+	string video_id = 14;
+	string live_targeting_params = 15;
+	uint64 break_length_ms = 16;
+	string encoded_ad_safety_reason = 17;
+	AutonavSettingsState autonav_state = 18;
+	string encoded_parent_event_id = 19;
+	int64 drift_from_head_ms = 20;
+	bool is_proxy_ad_tag_request = 21;
+	int64 current_media_time_ms = 22;
+	GetAdBreakContext get_ad_break_context = 24;
+	int64 cue_processed_ms = 26;
+	string cuepoint_id = 27;
+	bool is_watch_while = 28;
+}

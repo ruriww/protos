@@ -1,0 +1,60 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/logging_url.proto";
+import "youtube/api/innertube/endscreen_button_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message EndscreenElementRenderer {
+	enum EndscreenElementStyle {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		VIDEO = 1;
+		PLAYLIST = 2;
+		CHANNEL = 3;
+		WEBSITE = 4;
+		CREATOR_MERCHANDISE = 5;
+	}
+
+	EndscreenElementStyle style = 1;
+	ThumbnailDetails image = 2;
+	ThumbnailDetails icon = 3;
+	FormattedString video_duration = 4;
+	FormattedString playlist_length = 5;
+	float left = 6;
+	float width = 7;
+	float top = 8;
+	float aspect_ratio = 9;
+	int64 start_ms = 10;
+	int64 end_ms = 11;
+	FormattedString title = 12;
+	FormattedString metadata = 13;
+	FormattedString call_to_action = 14;
+	FormattedString dismiss = 15;
+	Command endpoint = 16;
+	repeated LoggingUrl impression_urls = 17;
+	repeated LoggingUrl hovercard_show_urls = 18;
+	repeated LoggingUrl hovercard_dismiss_urls = 19;
+	EndscreenButtonSupportedRenderers hovercard_button = 20;
+	ThumbnailDetails animated_image = 21;
+	FormattedString subscribers_text = 22;
+	bytes tracking_params = 24;
+	string html_blob = 25;
+	bool is_subscribe = 26;
+	Command signin_endpoint = 27;
+	bool use_classic_subscribe_button = 28;
+	FormattedString product_price = 29;
+	FormattedString additional_fees_text = 30;
+	string id = 31;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 32;
+}

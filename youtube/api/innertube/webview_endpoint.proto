@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message WebviewEndpoint {
+	extend Command {
+		WebviewEndpoint webview_endpoint = 77364463;
+	}
+
+	string url = 1;
+	string end_base_url = 2;
+	Command end_navigation_endpoint = 3;
+	bool authenticate_with_google_account = 4;
+	bool disable_back_forward_navigation_gestures = 5;
+	bool is_download_url = 6;
+}

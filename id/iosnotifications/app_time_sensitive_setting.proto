@@ -1,0 +1,14 @@
+edition = "2023";
+
+package id.iosnotifications;
+
+option objc_class_prefix = "RCH";
+
+enum AppTimeSensitiveSetting {
+	option features.enum_type = CLOSED;
+
+	TIME_SENSITIVE_UNSPECIFIED = 0;
+	TIME_SENSITIVE_NOT_SUPPORTED = 1;
+	TIME_SENSITIVE_DISABLED = 2;
+	TIME_SENSITIVE_ENABLED = 3;
+}

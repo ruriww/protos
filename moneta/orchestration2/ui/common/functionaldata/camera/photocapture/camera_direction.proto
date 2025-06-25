@@ -1,0 +1,13 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.camera.photocapture;
+
+option objc_class_prefix = "ORCH2";
+
+enum CameraDirection {
+	option features.enum_type = CLOSED;
+
+	CAMERA_DIRECTION_UNKNOWN = 0;
+	CAMERA_DIRECTION_FACING_BACK = 1;
+	CAMERA_DIRECTION_FACING_FRONT = 2;
+}

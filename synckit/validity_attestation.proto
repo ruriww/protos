@@ -1,0 +1,15 @@
+edition = "2023";
+
+package synckit;
+
+import "synckit/attestation_ceremony.proto";
+import "synckit/public_key.proto";
+
+option objc_class_prefix = "GSYP";
+
+message ValidityAttestation {
+	bytes data = 1;
+	string key_id = 2;
+	AttestationCeremony ceremony = 3;
+	PublicKey public_key = 4;
+}

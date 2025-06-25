@@ -1,0 +1,27 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/generic/info_message.proto";
+
+option objc_class_prefix = "Orch";
+
+message ConfirmationDialog {
+	string title = 1;
+	generic.InfoMessage extra_warning_text = 3;
+	string confirm_button_text = 4;
+	string cancel_button_text = 5;
+	repeated generic.InfoMessage message = 6;
+	int64 ui_reference = 7;
+
+	enum DisplayType {
+		option features.enum_type = CLOSED;
+
+		DEFAULT = 0;
+		SNACKBAR = 1;
+	}
+
+	DisplayType display_type = 8;
+	int64 ok_button_ui_reference = 9;
+	int64 cancel_button_ui_reference = 10;
+}

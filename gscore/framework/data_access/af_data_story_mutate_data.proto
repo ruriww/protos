@@ -1,0 +1,15 @@
+edition = "2023";
+
+package gscore.framework.data_access;
+
+import "gscore/framework/data_access/mutate_data.proto";
+
+option objc_class_prefix = "GSC";
+
+message AFDataStoryMutateData {
+	extend MutateData {
+		AFDataStoryMutateData data = 94121747;
+	}
+
+	bytes mutate_operation = 1;
+}

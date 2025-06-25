@@ -1,0 +1,22 @@
+edition = "2023";
+
+package apps.people.oz.external.mergedpeopleapi;
+
+import "apps/people/oz/external/mergedpeopleapi/person_field_metadata.proto";
+import "social/graph/api/proto/decoration_overlay.proto";
+
+option objc_class_prefix = "POEM";
+
+message Photo {
+	PersonFieldMetadata metadata = 1;
+	string url = 2;
+	bool is_default = 3;
+	string photo_token = 4;
+	repeated string html_attribution = 5;
+	string viewer_url = 6;
+	bool is_monogram = 7;
+	string monogram_background = 8;
+	string emoji_avatar_url = 16;
+	string glyph = 17;
+	repeated social.graph.api.proto.DecorationOverlay decoration = 20;
+}

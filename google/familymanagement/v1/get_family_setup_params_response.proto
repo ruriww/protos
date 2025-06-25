@@ -1,0 +1,14 @@
+edition = "2023";
+
+package google.familymanagement.v1;
+
+import "google/familymanagement/v1/api_response_header.proto";
+
+option objc_class_prefix = "GFM";
+
+message GetFamilySetupParamsResponse {
+	ApiResponseHeader api_header = 1;
+	string encrypted_billing_signup_params = 2;
+	string headless_encrypted_billing_signup_params = 3;
+	string encrypted_family_creation_params = 4;
+}

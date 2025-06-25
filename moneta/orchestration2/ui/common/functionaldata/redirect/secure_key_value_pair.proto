@@ -1,0 +1,10 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.functionaldata.redirect;
+
+option objc_class_prefix = "ORCH2";
+
+message SecureKeyValuePair {
+	string key = 1;
+	string secure_string_value = 2;
+}

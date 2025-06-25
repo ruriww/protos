@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.editing.effects.client.logging.qos;
+
+option objc_class_prefix = "YTEE";
+
+message QosMonitorBlockWeakRef {
+	string block_instance_id = 1;
+}

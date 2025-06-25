@@ -1,0 +1,14 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.input.textinput;
+
+option objc_class_prefix = "ORCH2";
+
+enum KeyboardLayout {
+	option features.enum_type = CLOSED;
+
+	KEYBOARD_LAYOUT_UNKNOWN = 0;
+	KEYBOARD_LAYOUT_TEXT = 1;
+	KEYBOARD_LAYOUT_NUMBER = 2;
+	KEYBOARD_LAYOUT_PHONE = 3;
+}

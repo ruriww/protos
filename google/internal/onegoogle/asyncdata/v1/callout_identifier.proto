@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.internal.onegoogle.asyncdata.v1;
+
+option objc_class_prefix = "OGADS";
+
+message CalloutIdentifier {
+	int32 promo_id = 1;
+	int32 group_id = 2;
+	string criteria_fingerprint = 3;
+}

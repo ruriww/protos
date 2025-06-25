@@ -1,0 +1,20 @@
+edition = "2023";
+
+package photos_vision;
+
+import "photos_vision/person_name.proto";
+import "photos_vision/phone.proto";
+import "photos_vision/email.proto";
+import "photos_vision/address.proto";
+
+option objc_class_prefix = "MVC";
+
+message ContactInfo {
+	PersonName name = 1;
+	string organization = 2;
+	string title = 3;
+	repeated Phone phone = 4;
+	repeated Email email = 5;
+	repeated string url = 6;
+	repeated Address address = 7;
+}

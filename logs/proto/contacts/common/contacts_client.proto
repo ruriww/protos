@@ -1,0 +1,10 @@
+edition = "2023";
+
+package logs.proto.contacts.common;
+
+option objc_class_prefix = "CTC";
+
+message ContactsClient {
+	string version_name = 1;
+	int64 baseline_cl = 2;
+}

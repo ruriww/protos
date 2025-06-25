@@ -1,0 +1,11 @@
+edition = "2023";
+
+package googledata.experiments.mobile.moneta_ios.proto;
+
+import "googledata/experiments/mobile/moneta_ios/proto/client_parameters_group.proto";
+
+option objc_class_prefix = "GWA";
+
+message ClientParametersPredicate {
+	repeated ClientParametersGroup enabled_parameters = 1;
+}

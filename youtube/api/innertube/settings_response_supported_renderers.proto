@@ -1,0 +1,46 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/video_quality_setting_category_collection_renderer.proto";
+import "youtube/api/innertube/setting_category_entry_renderer.proto";
+import "youtube/api/innertube/setting_category_collection_renderer.proto";
+import "youtube/api/innertube/background_offline_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/notification_setting_category_collection_renderer.proto";
+import "youtube/api/innertube/unlimited_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/blocked_contact_setting_category_renderer.proto";
+import "youtube/api/innertube/unplugged_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/gaming_third_party_setting_renderer.proto";
+import "youtube/api/innertube/subscription_products_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/music_shortcuts_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/connected_accounts_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/history_setting_category_entry_renderer.proto";
+import "youtube/api/innertube/premium_early_access_setting_category_entry_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message SettingsResponseSupportedRenderers {
+	oneof renderer {
+		VideoQualitySettingCategoryCollectionRenderer video_quality_setting_category_collection_renderer = 1806;
+		SettingCategoryEntryRenderer setting_category_entry_renderer = 61520386;
+		SettingCategoryCollectionRenderer setting_category_collection_renderer = 66930374;
+		SettingCategorySectionRenderer setting_category_section_renderer = 75120871;
+		CaptionSettingCategoryRenderer caption_setting_category_renderer = 85446662;
+		BackgroundOfflineSettingCategoryEntryRenderer background_offline_setting_category_entry_renderer = 88478200;
+		NotificationSettingCategoryCollectionRenderer notification_setting_category_collection_renderer = 93763033;
+		UnlimitedSettingCategoryEntryRenderer unlimited_setting_category_entry_renderer = 94214034;
+		BlockedContactSettingCategoryRenderer blocked_contact_setting_category_renderer = 124189785;
+		UnpluggedSettingCategoryEntryRenderer unplugged_setting_category_entry_renderer = 144484052;
+		ElementRenderer element_renderer = 153515154;
+		GamingThirdPartySettingRenderer gaming_third_party_setting_renderer = 155905127;
+		SubscriptionProductsSettingCategoryEntryRenderer subscription_products_setting_category_entry_renderer = 173548507;
+		MusicShortcutsSettingCategoryEntryRenderer music_shortcuts_setting_category_entry_renderer = 230577543;
+		ConnectedAccountsSettingCategoryEntryRenderer connected_accounts_setting_category_entry_renderer = 324886099;
+		HistorySettingCategoryEntryRenderer history_setting_category_entry_renderer = 359641852;
+		PremiumEarlyAccessSettingCategoryEntryRenderer premium_early_access_setting_category_entry_renderer = 369870935;
+	}
+}

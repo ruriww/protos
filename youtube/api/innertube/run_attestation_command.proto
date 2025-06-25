@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/attestation_object_id.proto";
+import "youtube/api/innertube/engagement_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message RunAttestationCommand {
+	extend Command {
+		RunAttestationCommand run_attestation_command = 272487492;
+	}
+
+	repeated AttestationObjectId ids = 1;
+	EngagementType engagement_type = 2;
+}

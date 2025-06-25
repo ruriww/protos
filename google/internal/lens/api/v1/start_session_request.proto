@@ -1,0 +1,26 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "google/internal/lens/api/v1/state_token.proto";
+import "google/internal/lens/api/v1/live_history.proto";
+import "google/internal/lens/api/v1/image_request.proto";
+
+option objc_class_prefix = "LFE";
+
+message StartSessionRequest {
+	StateToken state_token = 1;
+	LiveHistory initial_history = 2;
+	ImageRequest image_request = 3;
+	bool initiate_conversation = 4;
+
+	enum Entrypoint {
+		ENTRYPOINT_UNSPECIFIED = 0;
+		ENTRYPOINT_VOICE_LIVE = 1;
+		ENTRYPOINT_MULTIMODAL_LIVE = 2;
+		ENTRYPOINT_PODCAST = 3;
+		ENTRYPOINT_AIO = 4;
+	}
+
+	Entrypoint entrypoint = 5;
+}

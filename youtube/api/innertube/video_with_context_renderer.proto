@@ -1,0 +1,76 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/offlineability_renderer.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/thumbnail_overlay_supported_renderers.proto";
+import "youtube/api/innertube/channel_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/standalone_badge_supported_renderers.proto";
+import "youtube/api/innertube/video_with_context_rich_thumbnail_supported_renderers.proto";
+import "youtube/api/innertube/upcoming_event_data.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/badge_supported_renderers.proto";
+import "youtube/api/innertube/video_with_context_style.proto";
+import "youtube/api/innertube/video_client_binding_data.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message VideoWithContextRenderer {
+	FormattedString headline = 1;
+	FormattedString secondary_headline = 2;
+	ThumbnailDetails thumbnail = 3;
+	FormattedString short_byline_text = 4;
+	FormattedString length_text = 5;
+	FormattedString short_view_count_text = 6;
+	Command navigation_endpoint = 7;
+
+	message VideoWithContextOfflineabilitySupportedRenderers {
+		OfflineabilityRenderer offlineability_renderer = 60572968;
+	}
+
+	VideoWithContextOfflineabilitySupportedRenderers offlineability = 8;
+	MenuSupportedRenderers menu = 9;
+	bool is_watched = 10;
+	string debug_html = 11;
+	bytes tracking_params = 13;
+	string video_id = 14;
+	repeated ThumbnailOverlaySupportedRenderers thumbnail_overlays = 15;
+	ChannelThumbnailSupportedRenderers channel_thumbnail = 16;
+	StandaloneBadgeSupportedRenderers top_standalone_badge = 17;
+	StandaloneBadgeSupportedRenderers standalone_badge = 18;
+	StandaloneBadgeSupportedRenderers bottom_standalone_badge = 19;
+	FormattedString recommendation_text = 20;
+	FormattedString published_time_text = 21;
+	VideoWithContextRichThumbnailSupportedRenderers rich_thumbnail = 22;
+	UpcomingEventData upcoming_event_data = 23;
+	AccessibilitySupportedDatas accessibility = 24;
+	repeated BadgeSupportedRenderers badges = 25;
+	VideoWithContextStyle style = 26;
+	VideoClientBindingData video_client_binding_data = 27;
+	Renderer subscribe_renderer = 29;
+	bool should_support_transition_to_horizontal_shelf = 30;
+	Command on_minimize_player = 31;
+	Renderer endorsement_renderer = 32;
+	repeated BadgeSupportedRenderers owner_badges = 33;
+	Command inline_playback_endpoint = 34;
+	bool should_display_as_big_shorts_singleton = 35;
+	Renderer inline_playback_multi_markers_player_bar = 36;
+	Renderer attached_chips_shelf = 37;
+	int64 attached_chips_shelf_delay_time_ms = 38;
+	LoggingDirectives logging_directives = 999;
+
+	extensions 1000 to max;
+}
+
+extend Renderer {
+	VideoWithContextRenderer video_with_context_renderer = 89018663;
+}

@@ -1,0 +1,27 @@
+edition = "2023";
+
+package lens;
+
+import "lens/coordinate_type.proto";
+
+option objc_class_prefix = "LNSAPI";
+
+message CurvedBox {
+	message CurvePoint {
+		float x = 1;
+		float y = 2;
+	}
+
+	repeated CurvePoint center_curve = 1;
+
+	enum CurveType {
+		option features.enum_type = CLOSED;
+
+		CURVE_TYPE_UNSPECIFIED = 0;
+		PIECEWISE_LINEAR = 1;
+	}
+
+	CurveType curve_type = 2;
+	float thickness = 3;
+	CoordinateType coordinate_type = 4;
+}

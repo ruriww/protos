@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+option objc_class_prefix = "RAS";
+
+enum TextType {
+	TEXT_TYPE_UNSPECIFIED = 0;
+	TEXT_TYPE_NORMAL = 1;
+	TEXT_TYPE_TITLE = 2;
+	TEXT_TYPE_PUBLISHER_AND_AUTHOR = 3;
+	TEXT_TYPE_PUBLISHER = 4;
+	TEXT_TYPE_AUTHOR = 5;
+	TEXT_TYPE_DISCLAIMER = 6;
+}

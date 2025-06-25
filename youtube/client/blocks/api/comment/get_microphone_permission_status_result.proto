@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.comment;
+
+import "youtube/api/innertube/permission_status.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GetMicrophonePermissionStatusResult {
+	youtube.api.innertube.PermissionStatus status = 1;
+}

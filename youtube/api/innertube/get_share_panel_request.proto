@@ -1,0 +1,22 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/inner_tube_context.proto";
+import "youtube/api/innertube/share_panel_type.proto";
+import "youtube/api/innertube/share_client_params.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message GetSharePanelRequest {
+	InnerTubeContext context = 1;
+	string serialized_shared_entity = 2;
+	repeated int32 installed_sharing_service_ids = 4 [ features.repeated_field_encoding = EXPANDED ];
+	bool is_prefetch = 5;
+	SharePanelType share_panel_type = 6 [ default = SHARE_PANEL_TYPE_UNIFIED_SHARE_PANEL ];
+	string sheet_id = 7;
+	ShareClientParams client_params = 10;
+}

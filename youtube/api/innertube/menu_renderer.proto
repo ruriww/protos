@@ -1,0 +1,94 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/entity_mutation_payload.proto";
+import "youtube/api/innertube/menu_item_supported_renderers.proto";
+import "youtube/api/innertube/menu_title_supported_renderers.proto";
+import "youtube/api/innertube/menu_top_level_supported_renderers.proto";
+import "youtube/api/innertube/menu_cancel_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_hint_supported_renderers.proto";
+import "youtube/api/innertube/accessibility_supported_datas.proto";
+import "youtube/api/innertube/menu_top_level_display_type.proto";
+import "youtube/api/innertube/accessibility_data.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/renderer.proto";
+import "youtube/api/innertube/logging_directives.proto";
+import "youtube/api/innertube/menu_navigation_item_renderer.proto";
+import "youtube/api/innertube/menu_service_item_renderer.proto";
+import "youtube/api/innertube/toggle_menu_service_item_renderer.proto";
+import "youtube/api/innertube/menu_conditional_navigation_item_renderer.proto";
+import "youtube/api/innertube/menu_conditional_service_item_renderer.proto";
+import "youtube/api/innertube/menu_title_renderer.proto";
+import "youtube/api/innertube/menu_cancel_button_renderer.proto";
+import "youtube/api/innertube/menu_placeholder_item_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MenuRenderer {
+	extend EntityMutationPayload {
+		MenuRenderer menu_renderer = 331;
+	}
+
+	repeated MenuItemSupportedRenderers items = 1;
+	bytes tracking_params = 4;
+	MenuTitleSupportedRenderers title = 5;
+	repeated MenuTopLevelSupportedRenderers top_level_buttons = 6;
+	MenuCancelButtonSupportedRenderers cancel_button = 7;
+	bool open_immediately = 8;
+	MenuHintSupportedRenderers hint = 9;
+	AccessibilitySupportedDatas accessibility = 10;
+	string target_id = 11;
+	MenuTopLevelDisplayType menu_top_level_display_type = 12;
+	AccessibilityData menu_popup_accessibility = 13;
+	bool should_hide_menu = 14;
+	Command fetch_menu_command = 15;
+	bool allow_right_click = 16;
+	Renderer footer = 17;
+	bool should_use_bottom_sheet_menu = 18;
+	bool is_disabled = 19;
+	repeated Renderer flexible_items = 20;
+	Command disabled_command = 21;
+	uint32 icon_color = 22;
+	string identifier = 23;
+	LoggingDirectives logging_directives = 999;
+}
+
+extend Renderer {
+	MenuRenderer menu_renderer = 66439850;
+}
+
+extend Renderer {
+	MenuNavigationItemRenderer menu_navigation_item_renderer = 66441108;
+}
+
+extend Renderer {
+	MenuServiceItemRenderer menu_service_item_renderer = 66441155;
+}
+
+extend Renderer {
+	ToggleMenuServiceItemRenderer toggle_menu_service_item_renderer = 78861357;
+}
+
+extend Renderer {
+	MenuConditionalNavigationItemRenderer menu_conditional_navigation_item_renderer = 77262503;
+}
+
+extend Renderer {
+	MenuConditionalServiceItemRenderer menu_conditional_service_item_renderer = 77258115;
+}
+
+extend Renderer {
+	MenuTitleRenderer menu_title_renderer = 82258301;
+}
+
+extend Renderer {
+	MenuCancelButtonRenderer menu_cancel_button_renderer = 99514947;
+}
+
+extend Renderer {
+	MenuPlaceholderItemRenderer menu_placeholder_item_renderer = 404366209;
+}

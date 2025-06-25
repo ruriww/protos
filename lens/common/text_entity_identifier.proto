@@ -1,0 +1,9 @@
+edition = "2023";
+
+package lens.common;
+
+option objc_class_prefix = "LNSAPI";
+
+message TextEntityIdentifier {
+	int64 id = 1;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components;
+
+import "moneta/orchestration/ui/common/components/key.proto";
+
+option objc_class_prefix = "Orch";
+
+message EncryptionFormValue {
+	Key key = 1;
+	string encrypted_value = 2;
+	string id = 3;
+	bytes data_token = 4;
+	string ees_session_material = 5;
+}

@@ -1,0 +1,11 @@
+edition = "2023";
+
+package ads.conversion_tracking.on_device_attribution;
+
+import "ads/conversion_tracking/on_device_attribution/conversion_data_sent_to_server.proto";
+
+option objc_class_prefix = "ADCO";
+
+message ConversionsSentToServer {
+	repeated ConversionDataSentToServer conversions = 1;
+}

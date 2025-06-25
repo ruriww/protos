@@ -1,0 +1,15 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message LookupId {
+	oneof id {
+		string email = 1;
+		string phone = 2;
+		string profile_id = 3;
+		string chat_space_id = 4;
+		string contact_id = 5;
+	}
+}

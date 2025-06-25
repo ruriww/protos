@@ -1,0 +1,37 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/mdx_session_type.proto";
+import "youtube/api/innertube/mdx_connection_state.proto";
+import "youtube/api/innertube/cast_status_code.proto";
+import "youtube/api/innertube/dial_data.proto";
+import "youtube/api/innertube/mdx_session_disconnect_reason.proto";
+import "youtube/api/innertube/mdx_session_source.proto";
+import "youtube/api/innertube/mdx_receiver_device.proto";
+import "youtube/api/innertube/mdx_device_state.proto";
+import "youtube/api/innertube/mdx_app_state.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdxSessionDisconnected {
+	MdxSessionType session_type = 1;
+	MdxConnectionState previous_connection_state = 3;
+	int64 time_since_connection_start_ms = 4;
+	CastStatusCode cast_status_code = 5;
+	bool is_reconnection_in_progress = 6;
+	DialData dial_data_when_started = 7;
+	bool retry = 8;
+	MdxSessionDisconnectReason disconnect_reason = 9;
+	int32 error_code = 10;
+	MdxSessionSource session_source = 11;
+	int64 time_since_connected_ms = 12;
+	MdxReceiverDevice receiver_device = 13;
+	string mdx_session_nonce = 14;
+	int64 mdx_session_index = 15;
+	MdxDeviceState device_state = 16;
+	MdxAppState app_state = 17;
+}

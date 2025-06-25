@@ -1,0 +1,11 @@
+edition = "2023";
+
+package drishti.app.skia.stickers;
+
+import "drishti/app/skia/stickers/file_data.proto";
+
+option objc_class_prefix = "DrishtiSkia";
+
+message ImageStickerConfig {
+	FileData file_data = 1;
+}

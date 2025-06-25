@@ -1,0 +1,25 @@
+edition = "2023";
+
+package wireless.mdl;
+
+option objc_class_prefix = "WMDL";
+
+message UnifiedUserAgent {
+	string device_id = 3;
+
+	enum DeviceRequestType {
+		option features.enum_type = CLOSED;
+
+		UNDETERMINED_REQUEST = 0;
+		DESKTOP_REQUEST = 1;
+		MOBILE_REQUEST = 2;
+		TABLET_REQUEST = 3;
+		SMART_TV_REQUEST = 4;
+		GAME_CONSOLE_REQUEST = 5;
+		WEARABLE_REQUEST = 6;
+		SMART_SPEAKER_REQUEST = 7;
+		SET_TOP_BOX_REQUEST = 8;
+	}
+
+	DeviceRequestType request_type = 4;
+}

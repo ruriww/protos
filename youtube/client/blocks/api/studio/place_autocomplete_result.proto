@@ -1,0 +1,11 @@
+edition = "2023";
+
+package youtube.client.blocks.api.studio;
+
+import "youtube/client/blocks/api/studio/place_autocomplete_block_response.proto";
+
+option objc_class_prefix = "YTBA";
+
+message PlaceAutocompleteResult {
+	PlaceAutocompleteBlockResponse response = 1;
+}

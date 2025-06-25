@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.components.filter;
+
+import "moneta/orchestration/ui/common/components/filter/filter_category.proto";
+import "moneta/orchestration/ui/common/components/button.proto";
+import "moneta/orchestration/ui/common/generic/ui_field.proto";
+
+option objc_class_prefix = "Orch";
+
+message Filter {
+	int64 ui_reference = 1;
+	repeated FilterCategory filter_category = 2;
+	string add_filter_text = 3;
+	string add_filter_page_title = 4;
+	repeated Button action_button = 5;
+	generic.UiField search_bar = 6;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.elements;
+
+option java_package = "com.google.protos.youtube.elements";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "ELMPB";
+
+message ShadowStyleProperties {
+	uint32 shadow_color = 1;
+	float shadow_radius = 2;
+	float shadow_offset_x = 3;
+	float shadow_offset_y = 4;
+}

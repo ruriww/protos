@@ -1,0 +1,39 @@
+edition = "2023";
+
+package moneta.orchestration.ui.common.generic;
+
+import "moneta/orchestration/ui/common/generic/tooltip.proto";
+
+option objc_class_prefix = "Orch";
+
+message UiFieldGrouping {
+	string label = 1;
+	Tooltip tooltip = 2;
+	int32 start_index = 3;
+	int32 end_index = 4;
+	string separator = 5;
+	repeated int32 minimize_display_width_index = 6;
+	repeated int32 split_index = 7;
+
+	enum UiType {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		HORIZONTAL = 1;
+		VERTICAL = 2;
+	}
+
+	UiType ui_type = 8 [ default = HORIZONTAL ];
+	bool field_draggable = 9;
+
+	enum Alignment {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_ALIGNMENT = 0;
+		START = 1;
+		CENTER = 2;
+		END = 3;
+	}
+
+	Alignment alignment = 10;
+}

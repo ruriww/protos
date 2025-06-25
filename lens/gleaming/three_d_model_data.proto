@@ -1,0 +1,21 @@
+edition = "2023";
+
+package lens.gleaming;
+
+option objc_class_prefix = "LNSAPI";
+
+message ThreeDModelData {
+	string url = 1;
+
+	message Animation {
+		oneof id {
+			int32 index = 1;
+			string name = 2;
+		}
+
+		bool loop = 3;
+		string audio_url = 4;
+	}
+
+	Animation intro_animation = 2;
+}

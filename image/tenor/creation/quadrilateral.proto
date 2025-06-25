@@ -1,0 +1,14 @@
+edition = "2023";
+
+package image.tenor.creation;
+
+import "image/tenor/creation/point.proto";
+
+option objc_class_prefix = "TENOR";
+
+message Quadrilateral {
+	Point top_left = 1;
+	Point top_right = 2;
+	Point bottom_left = 3;
+	Point bottom_right = 4;
+}

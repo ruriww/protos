@@ -1,0 +1,14 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile.ios;
+
+option objc_class_prefix = "PRM";
+
+message IosCrashExceptionMessageInfo {
+	string exception_message = 1;
+
+	oneof identifier {
+		int64 gaia_id = 2;
+		int64 zwieback_id = 3;
+	}
+}

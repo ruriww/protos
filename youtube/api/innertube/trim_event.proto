@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TrimEvent {
+	option features.enum_type = CLOSED;
+
+	TRIM_EVENT_UNKNOWN = 0;
+	TRIM_EVENT_ENTER = 1;
+	TRIM_EVENT_EDIT_SUCCESS = 2;
+	TRIM_EVENT_EDIT_ERROR = 3;
+	TRIM_EVENT_CANCEL = 4;
+	TRIM_EVENT_CANCEL_TRANSCODE = 5;
+}

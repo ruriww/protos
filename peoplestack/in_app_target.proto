@@ -1,0 +1,16 @@
+edition = "2023";
+
+package peoplestack;
+
+option objc_class_prefix = "PSK";
+
+message InAppTarget {
+	string profile_id = 1;
+
+	oneof origin {
+		string email = 2;
+		string phone = 3;
+	}
+
+	string client_data = 4;
+}

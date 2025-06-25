@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MdeDistributionOptionsRenderer {
+	FormattedString allow_embedding_label = 1;
+	bool allow_embedding = 2;
+	bool allow_embedding_disabled = 3;
+	FormattedString embedding_disabled_message = 4;
+	bool notify_subscribers = 5;
+	FormattedString notify_subscribers_label = 6;
+	FormattedString help_text = 7;
+}

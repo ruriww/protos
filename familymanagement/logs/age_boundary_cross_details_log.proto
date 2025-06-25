@@ -1,0 +1,40 @@
+edition = "2023";
+
+package familymanagement.logs;
+
+option objc_class_prefix = "FML";
+
+message AgeBoundaryCrossDetailsLog {
+	enum AgeBoundaryClientId {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_AGE_BOUNDARY_CLIENT_ID = 0;
+		PLAY_FAMILY_SHARING = 1;
+		UNICORN_GRADUATION = 2;
+		MINOR_MODE_EXIT = 5;
+	}
+
+	AgeBoundaryClientId client_id = 1;
+
+	enum CrossDirection {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CROSS_DIRECTION = 0;
+		FORWARDS = 1;
+		BACKWARDS = 2;
+	}
+
+	CrossDirection cross_direction = 2;
+
+	enum Cause {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN_CAUSE = 0;
+		PASSAGE_OF_TIME = 1;
+		MANUAL_BIRTHDAY_CHANGE = 2;
+		INITIAL_FAMILY_JOIN = 3;
+		INITIAL_BIRTHDAY_SET = 4;
+	}
+
+	Cause cause = 3;
+}

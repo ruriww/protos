@@ -1,0 +1,9 @@
+edition = "2023";
+
+package youtube.client.blocks.api.reminders;
+
+option objc_class_prefix = "YTBA";
+
+message TimedDurationType {
+	int64 snooze_duration_in_secs = 1;
+}

@@ -1,0 +1,75 @@
+edition = "2023";
+
+package logs.proto.wireless.performance.mobile;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "logs/proto/wireless/performance/mobile/trace_edge.proto";
+
+option objc_class_prefix = "PRMS";
+
+message Trace {
+	fixed64 id = 1;
+	string name = 2;
+	google.protobuf.Timestamp start_time = 4;
+	int32 num_dropped_entities = 5;
+
+	message TraceFailure {
+		google.protobuf.Duration timed_out_after = 1;
+	}
+
+	TraceFailure trace_failure = 6;
+	repeated TraceEdge edges = 7;
+
+	message ExternalTraceReference {
+		enum ExternalTraceType {
+			option features.enum_type = CLOSED;
+
+			EXTERNAL_TRACE_TYPE_UNSPECIFIED = 0;
+			PRIMES = 1;
+			DAPPER = 2;
+		}
+
+		ExternalTraceType type = 1;
+
+		oneof external_trace_id {
+			fixed64 id = 2;
+		}
+
+		message EntityIdMapping {
+			uint64 from_entity_id = 1;
+			uint64 to_entity_id = 2;
+		}
+
+		repeated EntityIdMapping entity_id_mappings = 4;
+	}
+
+	repeated ExternalTraceReference external_trace_references = 8;
+
+	message TracingOverheadMetrics {
+		google.protobuf.Duration capture_trace_context_avg = 1;
+		google.protobuf.Duration capture_trace_context_max = 2;
+		int64 capture_trace_context_count = 3;
+		google.protobuf.Duration install_trace_context_avg = 4;
+		google.protobuf.Duration install_trace_context_max = 5;
+		int64 install_trace_context_count = 6;
+		google.protobuf.Duration add_slice_begin_avg = 7;
+		google.protobuf.Duration add_slice_begin_max = 8;
+		google.protobuf.Duration add_slice_end_avg = 9;
+		google.protobuf.Duration add_slice_end_max = 10;
+		google.protobuf.Duration add_mark_avg = 11;
+		google.protobuf.Duration add_mark_max = 12;
+	}
+
+	TracingOverheadMetrics tracing_overhead_metrics = 9;
+
+	message Sampling {
+		oneof sampling_type {
+			float process_sampling_probability = 1;
+			float trace_sampling_probability = 2;
+		}
+	}
+
+	Sampling sampling = 10;
+	google.protobuf.Duration duration = 11;
+}

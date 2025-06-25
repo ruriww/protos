@@ -1,0 +1,15 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/content_spec.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message FileDescriptor {
+	string file_full_path = 1;
+	ContentSpec content_spec = 2;
+}

@@ -1,0 +1,42 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ScriptedPlayerHotConfig {
+	bool enable_caching = 1;
+	bool enable_min_readahead = 2;
+	bool enable_log_csi_playback_requires_sabr_network_request = 3;
+	bool enable_high_resolution_cache_logging = 4;
+	bool use_ustreamer_mime_type = 5;
+	int32 min_duration_for_cache_hit_ms = 6;
+	bool onesie_parse_mem_cache_in_callback = 7;
+	int32 max_allowed_repeated_cache_reads = 8;
+	bool do_not_acquire_network_priority_when_loading_from_cache = 9;
+	int32 fetch_loop_interval_ms = 10;
+	int32 cache_read_timeout_millis = 11;
+	int32 scripted_onesie_timeout_ms = 12;
+	bool scope_partial_segment_write_discard = 14;
+	bool read_recent_formats_from_cache = 15;
+	bool throttle_queued_playback_requests = 16;
+	int32 media_retries_maximum_delay_ms = 17;
+	int32 net_push_max_bytes = 18;
+	int32 cache_read_push_max_bytes = 19;
+	bool buffer_manager_log_detailed_actions = 20;
+	bool stop_request_after_clip_reaches_media_end = 22;
+	bool allow_clip_end_without_media_push_during_request = 23;
+	bool onesie_await_prefetch_selection = 24;
+	bool cache_limit_read_duration = 25;
+	bool onesie_require_media_header_match_for_start_time_0 = 26;
+	bool summarize_cache_after_queue_video_clip = 27;
+	bool onesie_ignore_live_experiments = 28;
+	bool onesie_require_live_metadata_matches_player_response = 29;
+	bool skip_blocks_manual_release = 435693564;
+	bool scripted_onesie_log_inactive_time = 458289788;
+	bool onesie_match_on_video_id_only = 459764979;
+	bool mfc_legacy_dispose_calls = 465583525;
+}

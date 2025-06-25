@@ -1,0 +1,18 @@
+edition = "2023";
+
+package moneta.orchestration2.ui.common.image.animated;
+
+import "moneta/orchestration2/ui/common/node/node.proto";
+import "moneta/orchestration2/ui/common/image/animated/progress_indicator.proto";
+
+option objc_class_prefix = "ORCH2";
+
+message AnimatedImageNode {
+	extend node.Node {
+		AnimatedImageNode animated_image_node_extension = 265707483;
+	}
+
+	oneof options {
+		ProgressIndicator progress_indicator = 1;
+	}
+}

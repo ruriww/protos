@@ -1,0 +1,20 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/engagement_panel_section_list_renderer.proto";
+import "youtube/api/innertube/element_renderer.proto";
+import "youtube/api/innertube/panel_content_renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PanelSupportedRenderers {
+	oneof renderer {
+		EngagementPanelSectionListRenderer engagement_panel_section_list_renderer = 138681066;
+		ElementRenderer element_renderer = 153515154;
+		PanelContentRenderer panel_content_renderer = 441573002;
+	}
+}

@@ -1,0 +1,12 @@
+edition = "2023";
+
+package youtube.client.blocks.api.creation;
+
+import "youtube/api/innertube/creation_text_asset.proto";
+
+option objc_class_prefix = "YTBA";
+
+message GenerateSuggestedPromptsResult {
+	repeated youtube.api.innertube.CreationTextAsset suggested_prompts = 1;
+	string uploaded_image_post_id = 2;
+}

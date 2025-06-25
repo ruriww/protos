@@ -1,0 +1,11 @@
+edition = "2023";
+
+package logs.chime_notifications;
+
+import "logs/chime_notifications/chime_frontend_entry.proto";
+
+option objc_class_prefix = "CHM";
+
+message ChimeFrontendLog {
+	ChimeFrontendEntry frontend_entry = 2;
+}

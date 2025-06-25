@@ -1,0 +1,11 @@
+edition = "2023";
+
+package google.search.readaloud.v1;
+
+import "google/search/readaloud/v1/voice_criteria_and_selection.proto";
+
+option objc_class_prefix = "RAS";
+
+message VoiceSettings {
+	repeated VoiceCriteriaAndSelection voice_criteria_and_selections = 1;
+}

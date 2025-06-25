@@ -1,0 +1,15 @@
+edition = "2023";
+
+package ink.proto;
+
+import "ink/proto/input.proto";
+import "ink/proto/camera_settings.proto";
+
+option objc_class_prefix = "INKPB";
+
+message PlaybackEvent {
+	oneof event {
+		Input sinput = 1;
+		CameraSettings camera_on_input = 2;
+	}
+}

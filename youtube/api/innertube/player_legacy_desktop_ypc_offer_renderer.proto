@@ -1,0 +1,29 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message PlayerLegacyDesktopYpcOfferRenderer {
+	string item_title = 1;
+	string item_url = 2;
+	string item_thumbnail = 3;
+	string offer_headline = 4;
+	string offer_description = 5;
+	string offer_id = 6;
+	string offer_button_text = 7;
+	string full_video_message = 8;
+	uint32 overlay_duration_msec = 10 [ default = 10000 ];
+	string item_buy_url = 11;
+	FormattedString offer_button_formatted_text = 12;
+}
+
+extend Renderer {
+	PlayerLegacyDesktopYpcOfferRenderer player_legacy_desktop_ypc_offer_renderer = 64587791;
+}

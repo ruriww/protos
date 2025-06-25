@@ -1,0 +1,65 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/thumbnail_details.proto";
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/unplugged_subscribe_button_supported_renderers.proto";
+import "youtube/api/innertube/menu_supported_renderers.proto";
+import "youtube/api/innertube/command.proto";
+import "youtube/api/innertube/icon.proto";
+import "youtube/api/innertube/unplugged_button_supported_renderers.proto";
+import "youtube/api/innertube/renderer.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedVideoMetadataRenderer {
+	ThumbnailDetails network_icon = 1;
+	FormattedString network_name = 2;
+	FormattedString title = 3;
+	FormattedString episode_title = 4;
+	FormattedString episode_number = 5;
+	FormattedString description = 6;
+	FormattedString content_rating = 7;
+	FormattedString start_time = 8;
+	FormattedString duration = 9;
+	uint64 start_time_seconds = 10;
+	uint64 duration_seconds = 11;
+	UnpluggedSubscribeButtonSupportedRenderers subscribe_button = 12;
+	MenuSupportedRenderers menu = 13;
+	FormattedString end_time = 14;
+	uint64 end_time_seconds = 15;
+	bytes tracking_params = 18;
+	Command station_navigation_endpoint = 20;
+	ThumbnailDetails thumbnail = 21;
+	FormattedString primary_text = 22;
+	FormattedString secondary_text = 23;
+	FormattedString tertiary_text = 24;
+	FormattedString quaternary_text = 25;
+	Command navigation_endpoint = 26;
+
+	oneof source_logo {
+		ThumbnailDetails source_thumbnail = 27;
+		Icon source_icon = 28;
+	}
+
+	FormattedString secondary_text_web = 29;
+	string source_color = 30;
+	string station_id = 31;
+	string obfuscated_gaia_id = 32;
+	repeated UnpluggedButtonSupportedRenderers action_bar_buttons = 33;
+	string client_freshness_token = 34;
+	Renderer tentpole_metadata = 35;
+	Renderer player_text_badge = 36;
+	Command disable_playback_from_browse_command = 37;
+	Renderer ultra_high_definition_badge = 38;
+	repeated Renderer overlay_buttons = 39;
+	Renderer overlay_button = 41;
+}
+
+extend Renderer {
+	UnpluggedVideoMetadataRenderer unplugged_video_metadata_renderer = 97169376;
+}

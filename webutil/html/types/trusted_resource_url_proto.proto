@@ -1,0 +1,9 @@
+edition = "2023";
+
+package webutil.html.types;
+
+option objc_class_prefix = "WHT";
+
+message TrustedResourceUrlProto {
+	string private_do_not_access_or_else_trusted_resource_url_wrapped_value = 4;
+}

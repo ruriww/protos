@@ -1,0 +1,13 @@
+edition = "2023";
+
+package securemessage;
+
+import "securemessage/public_key_type.proto";
+import "securemessage/ec_p256_public_key.proto";
+
+option objc_class_prefix = "SMSG";
+
+message GenericPublicKey {
+	PublicKeyType type = 1;
+	EcP256PublicKey ec_p256_public_key = 2;
+}

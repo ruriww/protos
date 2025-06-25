@@ -1,0 +1,30 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/unplugged_degradation_info_type.proto";
+import "youtube/api/innertube/unplugged_degradation_info_third_party_status_code.proto";
+import "youtube/api/innertube/unplugged_degradation_info_method_name.proto";
+import "youtube/api/innertube/unplugged_degradation_info_continuation_type.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedDegradationInfo {
+	UnpluggedDegradationInfoType type = 1;
+	int32 http_response_code = 2;
+	int32 canonical_code = 3;
+	UnpluggedDegradationInfoThirdPartyStatusCode third_party_status_code = 4;
+	UnpluggedDegradationInfoMethodName method_name = 5;
+	string browse_id = 6;
+	string query = 7;
+	UnpluggedDegradationInfoContinuationType continuation_type = 8;
+	string video_id = 9;
+	string cpn = 10;
+	int32 current_time_sec = 11;
+	int32 seek_time_sec = 12;
+	int32 seekable_start_sec = 13;
+	int32 seekable_end_sec = 14;
+}

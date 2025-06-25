@@ -1,0 +1,32 @@
+edition = "2023";
+
+package customer_support.help.mobile.proto;
+
+import "customer_support/help/mobile/proto/intent_definition.proto";
+import "customer_support/help/mobile/proto/ios_custom_attributes.proto";
+import "customer_support/help/mobile/proto/url_navigation_definition.proto";
+import "customer_support/help/mobile/proto/android_setting_definition.proto";
+
+option objc_class_prefix = "CSHM";
+
+message ActionResult {
+	enum Type {
+		option features.enum_type = CLOSED;
+
+		UNKNOWN = 0;
+		JS_CALLBACK = 1;
+		ANDROID_INTENT = 2;
+		IOS_CUSTOM_ACTION = 3;
+		URL_NAVIGATION_ACTION = 4;
+		ANDROID_SETTING = 5;
+	}
+
+	Type type = 1;
+	IntentDefinition intent_definition = 3;
+	IosCustomAttributes ios_custom_attributes = 4;
+	UrlNavigationDefinition url_navigation_definition = 5;
+	string action_id = 6;
+	string label = 7;
+	string description = 8;
+	AndroidSettingDefinition android_setting_definition = 9;
+}

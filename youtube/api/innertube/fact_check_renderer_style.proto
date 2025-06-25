@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum FactCheckRendererStyle {
+	option features.enum_type = CLOSED;
+
+	FACT_CHECK_RENDERER_STYLE_UNKNOWN = 0;
+	FACT_CHECK_RENDERER_STYLE_COMPACT = 1;
+	FACT_CHECK_RENDERER_STYLE_EXTENSIVE = 2;
+	FACT_CHECK_RENDERER_STYLE_V2 = 3;
+}

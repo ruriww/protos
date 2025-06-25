@@ -1,0 +1,15 @@
+edition = "2023";
+
+package google.internal.lens.api.v1;
+
+import "quality_genie/eyes/assistant_eyes_request_id.proto";
+import "google/internal/lens/api/v1/client_context.proto";
+
+option objc_class_prefix = "LFE";
+
+message TranslateTextRequest {
+	quality_genie.eyes.AssistantEyesRequestId request_id = 2;
+	bool enable_fast_tier = 3;
+	bool no_op_translations_supported = 4;
+	ClientContext client_context = 5;
+}

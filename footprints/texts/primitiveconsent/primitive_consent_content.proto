@@ -1,0 +1,22 @@
+edition = "2023";
+
+package footprints.texts.primitiveconsent;
+
+import "footprints/texts/primitiveconsent/image.proto";
+import "footprints/texts/primitiveconsent/rich_text.proto";
+import "footprints/texts/primitiveconsent/primitive_consent_element.proto";
+import "footprints/texts/primitiveconsent/consent_header.proto";
+import "footprints/texts/primitiveconsent/consent_header_v2.proto";
+import "footprints/texts/primitiveconsent/consent_footer.proto";
+
+option objc_class_prefix = "FOOTCP";
+
+message PrimitiveConsentContent {
+	Image title_image = 1;
+	RichText title = 2;
+	repeated PrimitiveConsentElement elements = 3;
+	string title_v2 = 4;
+	ConsentHeader consent_header = 5;
+	ConsentHeaderV2 consent_header_v2 = 6;
+	ConsentFooter consent_footer = 7;
+}

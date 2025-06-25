@@ -1,0 +1,19 @@
+edition = "2023";
+
+package lens.request_context;
+
+option objc_class_prefix = "LNSRC";
+
+enum ImageUploadType {
+	IMAGE_UPLOAD_TYPE_UNKNOWN = 0;
+	LVF = 1;
+	SHUTTER_TAP = 2;
+	PRE_CAPTURE_FILTER_SWITCH = 3;
+	POST_CAPTURE_FILTER_SWITCH = 4;
+	POST_CAPTURE_IMAGE_SELECTION = 5;
+	EXPLORE_BAR_MODE_SELECTION = 6;
+	LVF_MIC = 7;
+	SELECTION_STATE = 8;
+	VIDEO_FRAME = 9;
+	VISUAL_SUGGEST = 10;
+}

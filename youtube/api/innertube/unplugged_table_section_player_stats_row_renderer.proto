@@ -1,0 +1,21 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+import "youtube/api/innertube/formatted_string.proto";
+import "youtube/api/innertube/named_value.proto";
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message UnpluggedTableSectionPlayerStatsRowRenderer {
+	FormattedString player_number = 1;
+	FormattedString player_name = 2;
+	repeated NamedValue stats = 4;
+	repeated FormattedString stat_column_accessibility_labels = 5;
+	string team_color = 6;
+	NamedValue row_head = 7;
+	NamedValue row_number = 8;
+}

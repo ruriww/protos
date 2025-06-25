@@ -1,0 +1,23 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+enum TransferStatusReason {
+	option features.enum_type = CLOSED;
+
+	TRANSFER_STATUS_REASON_UNKNOWN = 0;
+	TRANSFER_STATUS_REASON_PENDING_STARTUP = 1;
+	TRANSFER_STATUS_REASON_PENDING_NETWORK = 2;
+	TRANSFER_STATUS_REASON_PENDING_MEDIA = 4;
+	TRANSFER_STATUS_REASON_PENDING_WIFI = 8;
+	TRANSFER_STATUS_REASON_PENDING_USER_RESUMED = 64;
+	TRANSFER_STATUS_REASON_PENDING_USER_PAUSED = 128;
+	TRANSFER_STATUS_REASON_PENDING_SYSTEM_PAUSED = 256;
+	TRANSFER_STATUS_REASON_TRANSFER_REMOVED = 512;
+	TRANSFER_STATUS_REASON_PENDING_STORAGE = 4096;
+}

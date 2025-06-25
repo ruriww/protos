@@ -1,0 +1,18 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message MusicIosBackgroundFetch {
+	int32 minimum_os_background_fetch_interval_seconds = 1;
+	int32 minimum_home_page_background_fetch_interval_seconds = 2;
+	bool home_page_background_fetch_enabled = 3;
+	int32 seconds_since_last_home_page_background_fetch = 4;
+	bool within_time_fence = 5;
+	int32 seconds_since_last_os_background_fetch = 6;
+	int32 seconds_since_scheduled_os_background_fetch = 7;
+}

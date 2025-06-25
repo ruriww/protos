@@ -1,0 +1,34 @@
+edition = "2023";
+
+package social.graph.api.proto;
+
+import "google/type/datetime.proto";
+import "social/graph/api/proto/single_recurrence.proto";
+import "social/graph/api/proto/daily_recurrence.proto";
+import "social/graph/api/proto/weekly_recurrence.proto";
+import "social/graph/api/proto/monthly_recurrence.proto";
+import "social/graph/api/proto/yearly_recurrence.proto";
+
+option objc_class_prefix = "SGAP";
+
+message Recurrence {
+	int32 every = 1;
+	google.type.DateTime recurrence_start = 2;
+
+	message RepeatForever {
+	}
+
+	oneof recurrence_end {
+		RepeatForever repeat_forever = 3;
+		google.type.DateTime recurrence_end_date = 4;
+		int32 repeat_count = 5;
+	}
+
+	oneof recurrence_data {
+		SingleRecurrence single_recurrence = 6;
+		DailyRecurrence daily_recurrence = 7;
+		WeeklyRecurrence weekly_recurrence = 8;
+		MonthlyRecurrence monthly_recurrence = 9;
+		YearlyRecurrence yearly_recurrence = 10;
+	}
+}

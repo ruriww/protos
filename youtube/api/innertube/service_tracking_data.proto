@@ -1,0 +1,17 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ServiceTrackingData {
+	int64 innertube_build_changelist = 1;
+	int64 innertube_build_experiments_source_version = 2;
+	string innertube_build_label = 3;
+	int64 innertube_build_timestamp_sec = 4;
+	string innertube_build_variants_checksum = 5;
+	string innertube_job_name = 6;
+}

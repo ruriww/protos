@@ -1,0 +1,17 @@
+edition = "2023";
+
+package logs.proto.contacts;
+
+option objc_class_prefix = "CST";
+
+message ContactSheetVisualElementMetadata {
+	enum UserInterfaceStyle {
+		option features.enum_type = CLOSED;
+
+		STYLE_UNKNOWN = 0;
+		STYLE_LIGHT = 1;
+		STYLE_DARK = 2;
+	}
+
+	UserInterfaceStyle user_interface_style = 1 [ default = STYLE_UNKNOWN ];
+}

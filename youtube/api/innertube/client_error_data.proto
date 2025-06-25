@@ -1,0 +1,19 @@
+edition = "2023";
+
+package youtube.api.innertube;
+
+option java_package = "com.google.protos.youtube.api.innertube";
+option java_multiple_files = true;
+option cc_enable_arenas = true;
+option objc_class_prefix = "YTI";
+
+message ClientErrorData {
+	string error_message_identifier = 1;
+	int32 page_ve_type = 2;
+	string exception_name = 3;
+	string rpc_endpoint = 4;
+	string innertube_browse_id = 5;
+	int32 rpc_response_code = 6;
+	string error_domain = 7;
+	int32 error_code = 8;
+}
